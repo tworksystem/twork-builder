@@ -1,0 +1,80 @@
+# Dependencies
+node_modules/
+vendor/
+composer.lock
+package-lock.json
+
+# Build outputs
+build/
+dist/
+*.min.js
+*.min.css
+
+# Source maps (optional - uncomment if you want to exclude)
+# *.map
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# IDE and Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+*.sublime-project
+*.sublime-workspace
+
+# WordPress specific
+wp-config.php
+.htaccess
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+npm-error.log*
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# Temporary files
+*.tmp
+*.temp
+*.cache
+.cache/
+
+# Test files (uncomment if you don't want to commit tests)
+# tests/
+# phpunit.xml
+# phpcs.xml
+
+# Backup files
+*.bak
+*.backup
+*~
+
+# Archives
+*.zip
+*.tar
+*.tar.gz
+*.rar
+
+# WordPress plugin build exclusions
+.sass-cache/
+.stylelintcache
+
+# WordPress environment
+.wp-env.json
+.wp-env.override.json
