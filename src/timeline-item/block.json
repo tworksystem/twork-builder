@@ -1,0 +1,347 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "twork/timeline-item",
+    "title": "Twork Timeline Item",
+    "parent": ["twork/timeline-wrapper"],
+    "category": "twork-builder",
+    "icon": "clock",
+    "description": "Individual timeline item with year, heading, description, and optional image.",
+    "keywords": ["timeline", "item", "milestone", "history", "twork"],
+    "attributes": {
+        "year": {
+            "type": "string",
+            "default": "2024"
+        },
+        "yearColor": {
+            "type": "string",
+            "default": "#f48b2a"
+        },
+        "yearFontSize": {
+            "type": "number",
+            "default": 1.8
+        },
+        "yearFontWeight": {
+            "type": "number",
+            "default": 900
+        },
+        "heading": {
+            "type": "string",
+            "default": "Milestone Title"
+        },
+        "headingColor": {
+            "type": "string",
+            "default": "#212121"
+        },
+        "headingFontSize": {
+            "type": "number",
+            "default": 1.2
+        },
+        "headingFontWeight": {
+            "type": "number",
+            "default": 600
+        },
+        "description": {
+            "type": "string",
+            "default": "Timeline item description goes here..."
+        },
+        "descriptionColor": {
+            "type": "string",
+            "default": "#666666"
+        },
+        "descriptionFontSize": {
+            "type": "number",
+            "default": 0.9
+        },
+        "descriptionLineHeight": {
+            "type": "number",
+            "default": 1.6
+        },
+        "showImage": {
+            "type": "boolean",
+            "default": false
+        },
+        "image": {
+            "type": "string",
+            "default": ""
+        },
+        "imageId": {
+            "type": "number"
+        },
+        "imageHeight": {
+            "type": "number",
+            "default": 200
+        },
+        "imageObjectFit": {
+            "type": "string",
+            "default": "cover"
+        },
+        "imageObjectPosition": {
+            "type": "string",
+            "default": "center"
+        },
+        "imageBorderRadius": {
+            "type": "number",
+            "default": 8
+        },
+        "showImageOverlay": {
+            "type": "boolean",
+            "default": false
+        },
+        "imageOverlayColor": {
+            "type": "string",
+            "default": "rgba(0, 0, 0, 0.3)"
+        },
+        "imageOverlayOpacity": {
+            "type": "number",
+            "default": 0.3
+        },
+        "contentBackgroundColor": {
+            "type": "string",
+            "default": "#ffffff"
+        },
+        "contentPadding": {
+            "type": "number",
+            "default": 30
+        },
+        "contentBorderRadius": {
+            "type": "number",
+            "default": 10
+        },
+        "contentBoxShadow": {
+            "type": "boolean",
+            "default": true
+        },
+        "contentBoxShadowColor": {
+            "type": "string",
+            "default": "rgba(0, 0, 0, 0.1)"
+        },
+        "contentBoxShadowBlur": {
+            "type": "number",
+            "default": 10
+        },
+        "contentBoxShadowSpread": {
+            "type": "number",
+            "default": 0
+        },
+        "contentBoxShadowOffsetX": {
+            "type": "number",
+            "default": 0
+        },
+        "contentBoxShadowOffsetY": {
+            "type": "number",
+            "default": 4
+        },
+        "contentBorderWidth": {
+            "type": "number",
+            "default": 0
+        },
+        "contentBorderColor": {
+            "type": "string",
+            "default": "#e0e0e0"
+        },
+        "contentBorderStyle": {
+            "type": "string",
+            "default": "solid"
+        },
+        "showButton": {
+            "type": "boolean",
+            "default": false
+        },
+        "buttonText": {
+            "type": "string",
+            "default": "Learn More"
+        },
+        "buttonUrl": {
+            "type": "string",
+            "default": "#"
+        },
+        "buttonTarget": {
+            "type": "boolean",
+            "default": false
+        },
+        "buttonRel": {
+            "type": "string",
+            "default": "noopener noreferrer"
+        },
+        "buttonStyle": {
+            "type": "string",
+            "default": "primary"
+        },
+        "buttonBgColor": {
+            "type": "string",
+            "default": "#f48b2a"
+        },
+        "buttonTextColor": {
+            "type": "string",
+            "default": "#ffffff"
+        },
+        "buttonBorderRadius": {
+            "type": "number",
+            "default": 4
+        },
+        "buttonPaddingVertical": {
+            "type": "number",
+            "default": 10
+        },
+        "buttonPaddingHorizontal": {
+            "type": "number",
+            "default": 25
+        },
+        "buttonFontSize": {
+            "type": "number",
+            "default": 0.9
+        },
+        "buttonFontWeight": {
+            "type": "number",
+            "default": 600
+        },
+        "buttonTextTransform": {
+            "type": "string",
+            "default": "uppercase"
+        },
+        "buttonIcon": {
+            "type": "string",
+            "default": ""
+        },
+        "buttonIconPosition": {
+            "type": "string",
+            "default": "right"
+        },
+        "buttonBorderWidth": {
+            "type": "number",
+            "default": 0
+        },
+        "buttonBorderColor": {
+            "type": "string",
+            "default": "#f48b2a"
+        },
+        "buttonBorderStyle": {
+            "type": "string",
+            "default": "solid"
+        },
+        "buttonHoverBgColor": {
+            "type": "string",
+            "default": ""
+        },
+        "buttonHoverTextColor": {
+            "type": "string",
+            "default": ""
+        },
+        "buttonHoverBorderColor": {
+            "type": "string",
+            "default": ""
+        },
+        "buttonBoxShadow": {
+            "type": "boolean",
+            "default": false
+        },
+        "buttonBoxShadowColor": {
+            "type": "string",
+            "default": "rgba(0, 0, 0, 0.15)"
+        },
+        "buttonBoxShadowBlur": {
+            "type": "number",
+            "default": 10
+        },
+        "buttonBoxShadowSpread": {
+            "type": "number",
+            "default": 0
+        },
+        "buttonBoxShadowOffsetX": {
+            "type": "number",
+            "default": 0
+        },
+        "buttonBoxShadowOffsetY": {
+            "type": "number",
+            "default": 4
+        },
+        "buttonHoverBoxShadow": {
+            "type": "boolean",
+            "default": true
+        },
+        "buttonHoverBoxShadowColor": {
+            "type": "string",
+            "default": ""
+        },
+        "buttonHoverBoxShadowBlur": {
+            "type": "number",
+            "default": 15
+        },
+        "buttonHoverBoxShadowSpread": {
+            "type": "number",
+            "default": 0
+        },
+        "buttonHoverBoxShadowOffsetX": {
+            "type": "number",
+            "default": 0
+        },
+        "buttonHoverBoxShadowOffsetY": {
+            "type": "number",
+            "default": 6
+        },
+        "buttonWidth": {
+            "type": "string",
+            "default": "auto"
+        },
+        "buttonWidthCustom": {
+            "type": "number",
+            "default": 200
+        },
+        "buttonAlignment": {
+            "type": "string",
+            "default": "left"
+        },
+        "buttonMarginTop": {
+            "type": "number",
+            "default": 10
+        },
+        "buttonMarginBottom": {
+            "type": "number",
+            "default": 0
+        },
+        "buttonMarginLeft": {
+            "type": "number",
+            "default": 0
+        },
+        "buttonMarginRight": {
+            "type": "number",
+            "default": 0
+        },
+        "buttonLetterSpacing": {
+            "type": "number",
+            "default": 0.5
+        },
+        "buttonLineHeight": {
+            "type": "number",
+            "default": 1.5
+        },
+        "buttonTransitionDuration": {
+            "type": "number",
+            "default": 0.3
+        },
+        "buttonHoverScale": {
+            "type": "number",
+            "default": 1.05
+        },
+        "buttonHoverTranslateY": {
+            "type": "number",
+            "default": -2
+        },
+        "buttonFontSizeMobile": {
+            "type": "number",
+            "default": 0
+        },
+        "buttonPaddingVerticalMobile": {
+            "type": "number",
+            "default": 0
+        },
+        "buttonPaddingHorizontalMobile": {
+            "type": "number",
+            "default": 0
+        }
+    },
+    "textdomain": "twork-builder",
+    "editorScript": "file:./index.js",
+    "style": "file:./style-index.css"
+}

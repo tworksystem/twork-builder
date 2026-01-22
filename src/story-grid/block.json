@@ -1,0 +1,130 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "twork/story-grid",
+    "title": "Twork Story Grid",
+    "category": "twork-builder",
+    "description": "Professional story grid with content and image layout options",
+    "keywords": ["story", "content", "image", "grid", "layout", "twork"],
+    "attributes": {
+        "backgroundColor": {
+            "type": "string",
+            "default": "#ffffff"
+        },
+        "backgroundImage": {
+            "type": "string",
+            "default": ""
+        },
+        "backgroundImageId": {
+            "type": "number"
+        },
+        "backgroundOverlay": {
+            "type": "boolean",
+            "default": false
+        },
+        "backgroundOverlayColor": {
+            "type": "string",
+            "default": "rgba(0, 0, 0, 0.5)"
+        },
+        "backgroundOverlayOpacity": {
+            "type": "number",
+            "default": 0.5
+        },
+        "paddingTop": {
+            "type": "number",
+            "default": 80
+        },
+        "paddingBottom": {
+            "type": "number",
+            "default": 80
+        },
+        "gap": {
+            "type": "number",
+            "default": 60
+        },
+        "gapTablet": {
+            "type": "number",
+            "default": 40
+        },
+        "gapMobile": {
+            "type": "number",
+            "default": 30
+        },
+        "showSectionTitle": {
+            "type": "boolean",
+            "default": false
+        },
+        "sectionTitle": {
+            "type": "string",
+            "default": "Our Story"
+        },
+        "sectionTitleColor": {
+            "type": "string",
+            "default": "#212121"
+        },
+        "sectionTitleFontSize": {
+            "type": "number",
+            "default": 2.5
+        },
+        "sectionTitleFontWeight": {
+            "type": "number",
+            "default": 700
+        },
+        "sectionTitleAlignment": {
+            "type": "string",
+            "default": "center"
+        },
+        "showSectionSubtitle": {
+            "type": "boolean",
+            "default": false
+        },
+        "sectionSubtitle": {
+            "type": "string",
+            "default": "Discover our journey"
+        },
+        "sectionSubtitleColor": {
+            "type": "string",
+            "default": "#666666"
+        },
+        "sectionSubtitleFontSize": {
+            "type": "number",
+            "default": 1.1
+        },
+        "containerMaxWidth": {
+            "type": "number",
+            "default": 1200
+        },
+        "containerPadding": {
+            "type": "number",
+            "default": 30
+        },
+        "alignItems": {
+            "type": "string",
+            "default": "center"
+        },
+        "hoverEffect": {
+            "type": "boolean",
+            "default": true
+        },
+        "animationOnScroll": {
+            "type": "boolean",
+            "default": true
+        },
+        "animationDelay": {
+            "type": "number",
+            "default": 100
+        },
+        "animationType": {
+            "type": "string",
+            "default": "fadeInUp"
+        }
+    },
+    "supports": {
+        "html": false,
+        "anchor": true,
+        "align": ["wide", "full"]
+    },
+    "editorScript": "file:./index.js",
+    "viewScript": "file:./view.js",
+    "style": "file:./style-index.css"
+}

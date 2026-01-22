@@ -1,0 +1,93 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "twork/mission-vision-grid",
+  "version": "1.0.0",
+  "title": "Twork Mission & Vision Grid",
+  "category": "twork-builder",
+  "icon": "screenoptions",
+  "description": "Mission, vision, and values grid aligned with Jivaka design.",
+  "supports": {
+    "html": false,
+    "align": ["full", "wide"]
+  },
+  "attributes": {
+    "backgroundColor": {
+      "type": "string",
+      "default": "#f9f9f9"
+    },
+    "paddingTop": {
+      "type": "number",
+      "default": 100
+    },
+    "paddingBottom": {
+      "type": "number",
+      "default": 100
+    },
+    "columns": {
+      "type": "number",
+      "default": 3
+    },
+    "columnsTablet": {
+      "type": "number",
+      "default": 3
+    },
+    "columnsMobile": {
+      "type": "number",
+      "default": 1
+    },
+    "gap": {
+      "type": "number",
+      "default": 30
+    },
+    "containerMaxWidth": {
+      "type": "number",
+      "default": 1200
+    },
+    "containerPadding": {
+      "type": "number",
+      "default": 30
+    },
+    "showSectionTitle": {
+      "type": "boolean",
+      "default": true
+    },
+    "sectionTitle": {
+      "type": "string",
+      "default": "Driven by Purpose"
+    },
+    "sectionTitleColor": {
+      "type": "string",
+      "default": "#212121"
+    },
+    "sectionTitleFontSize": {
+      "type": "number",
+      "default": 2.5
+    },
+    "sectionTitleFontWeight": {
+      "type": "number",
+      "default": 700
+    },
+    "showSectionSubtitle": {
+      "type": "boolean",
+      "default": true
+    },
+    "sectionSubtitle": {
+      "type": "string",
+      "default": "Our core values guide every decision we make and every life we touch."
+    },
+    "sectionSubtitleColor": {
+      "type": "string",
+      "default": "#666666"
+    },
+    "sectionSubtitleFontSize": {
+      "type": "number",
+      "default": 1.1
+    }
+  },
+  "textdomain": "twork-builder",
+  "editorScript": "file:./index.js",
+  "style": "file:./style-index.css",
+  "editorStyle": "file:./style-index.css"
+}
+

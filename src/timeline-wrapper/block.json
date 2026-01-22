@@ -1,0 +1,193 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "twork/timeline-wrapper",
+    "version": "1.0.0",
+    "title": "Twork Timeline Wrapper",
+    "category": "twork-builder",
+    "icon": "clock",
+    "description": "Professional timeline wrapper container with customizable layout and styling options for timeline items.",
+    "keywords": ["timeline", "wrapper", "container", "history", "milestones", "twork"],
+    "attributes": {
+        "backgroundColor": {
+            "type": "string",
+            "default": "#ffffff"
+        },
+        "backgroundImage": {
+            "type": "string",
+            "default": ""
+        },
+        "backgroundImageId": {
+            "type": "number"
+        },
+        "backgroundOverlay": {
+            "type": "boolean",
+            "default": false
+        },
+        "backgroundOverlayColor": {
+            "type": "string",
+            "default": "rgba(0, 0, 0, 0.5)"
+        },
+        "backgroundOverlayOpacity": {
+            "type": "number",
+            "default": 0.5
+        },
+        "paddingTop": {
+            "type": "number",
+            "default": 80
+        },
+        "paddingBottom": {
+            "type": "number",
+            "default": 80
+        },
+        "showSectionTitle": {
+            "type": "boolean",
+            "default": true
+        },
+        "sectionTitle": {
+            "type": "string",
+            "default": "Our Journey"
+        },
+        "sectionTitleColor": {
+            "type": "string",
+            "default": "#212121"
+        },
+        "sectionTitleFontSize": {
+            "type": "number",
+            "default": 2.5
+        },
+        "sectionTitleFontWeight": {
+            "type": "number",
+            "default": 700
+        },
+        "sectionTitleAlignment": {
+            "type": "string",
+            "default": "center"
+        },
+        "sectionTitleMarginBottom": {
+            "type": "number",
+            "default": 10
+        },
+        "showSectionSubtitle": {
+            "type": "boolean",
+            "default": true
+        },
+        "sectionSubtitle": {
+            "type": "string",
+            "default": "A look back at the milestones that defined us"
+        },
+        "sectionSubtitleColor": {
+            "type": "string",
+            "default": "#666666"
+        },
+        "sectionSubtitleFontSize": {
+            "type": "number",
+            "default": 1.1
+        },
+        "sectionSubtitleFontWeight": {
+            "type": "number",
+            "default": 400
+        },
+        "sectionSubtitleMarginBottom": {
+            "type": "number",
+            "default": 50
+        },
+        "containerMaxWidth": {
+            "type": "number",
+            "default": 1200
+        },
+        "containerPadding": {
+            "type": "number",
+            "default": 30
+        },
+        "timelineLineColor": {
+            "type": "string",
+            "default": "#eeeeee"
+        },
+        "timelineLineWidth": {
+            "type": "number",
+            "default": 4
+        },
+        "timelineProgressColor": {
+            "type": "string",
+            "default": "#f48b2a"
+        },
+        "timelineDotSize": {
+            "type": "number",
+            "default": 20
+        },
+        "timelineDotBorderWidth": {
+            "type": "number",
+            "default": 4
+        },
+        "timelineDotColor": {
+            "type": "string",
+            "default": "#f48b2a"
+        },
+        "timelineItemGap": {
+            "type": "number",
+            "default": 80
+        },
+        "timelineContentBorderRadius": {
+            "type": "number",
+            "default": 10
+        },
+        "timelineContentBoxShadow": {
+            "type": "boolean",
+            "default": true
+        },
+        "timelineContentBoxShadowColor": {
+            "type": "string",
+            "default": "rgba(0, 0, 0, 0.05)"
+        },
+        "timelineContentBoxShadowBlur": {
+            "type": "number",
+            "default": 15
+        },
+        "timelineContentBoxShadowSpread": {
+            "type": "number",
+            "default": 0
+        },
+        "timelineContentBoxShadowOffsetX": {
+            "type": "number",
+            "default": 0
+        },
+        "timelineContentBoxShadowOffsetY": {
+            "type": "number",
+            "default": 5
+        },
+        "hoverEffect": {
+            "type": "boolean",
+            "default": true
+        },
+        "hoverTranslateY": {
+            "type": "number",
+            "default": -4
+        },
+        "hoverScale": {
+            "type": "number",
+            "default": 1.02
+        },
+        "animationOnScroll": {
+            "type": "boolean",
+            "default": true
+        },
+        "animationDelay": {
+            "type": "number",
+            "default": 100
+        },
+        "animationType": {
+            "type": "string",
+            "default": "fadeInUp"
+        }
+    },
+    "supports": {
+        "html": false,
+        "anchor": true,
+        "align": ["wide", "full"]
+    },
+    "textdomain": "twork-builder",
+    "editorScript": "file:./index.js",
+    "style": "file:./style-index.css",
+    "viewScript": "file:./view.js"
+}

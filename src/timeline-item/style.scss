@@ -1,0 +1,555 @@
+// Timeline Item Styles
+// These styles are for individual timeline items within the Timeline Wrapper
+
+// === EDITOR STYLES ===
+// CRITICAL: These styles ONLY apply in the editor, never on frontend
+.editor-styles-wrapper,
+.block-editor-block-list__layout,
+.wp-block-twork-timeline-item {
+    .twork-timeline-item-editor {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+        width: 100%;
+
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 20px;
+            height: 20px;
+            background: #fff;
+            border: 4px solid #f48b2a;
+            border-radius: 50%;
+            z-index: 4;
+            box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.8);
+            pointer-events: none;
+        }
+
+        .timeline-content {
+            width: 45%;
+            flex: 0 0 45%;
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+
+            h3,
+            .timeline-year {
+                color: #f48b2a;
+                font-size: 1.8rem;
+                margin: 0 0 10px;
+                font-weight: 900;
+                line-height: 1.2;
+
+                &[contenteditable="true"]:focus {
+                    outline: 1px dashed #2271b1;
+                    outline-offset: 2px;
+                }
+            }
+
+            h4,
+            .timeline-heading {
+                font-size: 1.2rem;
+                margin: 0 0 10px;
+                font-weight: 400;
+                color: #212121;
+                line-height: 1.3;
+
+                &[contenteditable="true"]:focus {
+                    outline: 1px dashed #2271b1;
+                    outline-offset: 2px;
+                }
+            }
+
+            p,
+            .timeline-description {
+                color: #666;
+                margin: 0;
+                font-size: 0.9rem;
+                line-height: 1.6;
+
+                &[contenteditable="true"]:focus {
+                    outline: 1px dashed #2271b1;
+                    outline-offset: 2px;
+                }
+            }
+
+            .timeline-button {
+                pointer-events: none;
+                user-select: none;
+            }
+        }
+
+        .timeline-image-wrapper {
+            width: 45%;
+            flex: 0 0 45%;
+        }
+
+        .components-placeholder {
+            min-height: 200px;
+            border: 2px dashed #ccc;
+            border-radius: 4px;
+
+            &:hover {
+                border-color: #2271b1;
+            }
+        }
+    }
+}
+
+// === FRONTEND STYLES ===
+// Note: Main timeline layout styles are in timeline-wrapper/style.scss
+// These are additional/override styles specific to timeline items
+
+// CRITICAL: Override WordPress default block styles
+.wp-block-twork-timeline-item,
+[class*="wp-block-twork-timeline-item"] {
+    border: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    outline: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+// IMPORTANT: Ensure editor styles don't leak to frontend
+// Explicitly reset any editor class styles that might appear
+.twork-timeline-item-editor {
+    // This class should NEVER appear on frontend, but if it does, hide it
+    display: none !important;
+    border: none !important;
+    background: transparent !important;
+}
+
+.timeline-item {
+    // CRITICAL: Reset ALL potential editor and WordPress default styles
+    border: none !important;
+    border-width: 0 !important;
+    border-style: none !important;
+    border-color: transparent !important;
+    background: transparent !important;
+    background-color: transparent !important;
+    // NOTE: margin-bottom is controlled by parent wrapper (.timeline-wrapper) for proper spacing
+    // Do NOT reset margin-bottom here as it breaks responsive spacing
+    margin-top: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    box-shadow: none !important;
+    outline: none !important;
+    outline-width: 0 !important;
+    box-sizing: border-box !important;
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    width: 100%;
+
+    &:nth-child(even) {
+        flex-direction: row-reverse;
+    }
+
+    .timeline-dot {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 20px;
+        height: 20px;
+        background: #fff;
+        border: 4px solid var(--primary-orange, #f48b2a);
+        border-radius: 50%;
+        z-index: 2;
+        box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.8);
+        transition: all 0.3s ease;
+        pointer-events: none;
+    }
+
+    // Timeline Image - Only show when image exists
+    .timeline-image-wrapper {
+        position: relative;
+        overflow: hidden;
+        width: 45%;
+        flex: 0 0 45%;
+
+        &:empty,
+        &:not(:has(img)) {
+            display: none;
+        }
+
+        .timeline-image {
+            width: 100%;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        &:hover .timeline-image {
+            transform: scale(1.05);
+        }
+    }
+
+    // Timeline Content - Matching about.html structure exactly
+    .timeline-content {
+        width: 45%;
+        flex: 0 0 45%;
+        background: #fff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        transition: all 0.3s ease;
+
+        .timeline-year,
+        h3 {
+            color: #f48b2a;
+            font-size: 1.8rem;
+            margin: 0 0 10px 0;
+            font-weight: 900;
+            line-height: 1.2;
+        }
+
+        .timeline-heading,
+        h4 {
+            font-size: 1.2rem;
+            margin: 0 0 10px 0;
+            font-weight: 400;
+            color: #212121;
+            line-height: 1.3;
+        }
+
+        .timeline-description,
+        p {
+            color: #666;
+            margin: 0;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .timeline-button-wrapper {
+            margin-top: auto;
+        }
+
+        .timeline-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            cursor: pointer;
+            position: relative;
+            transition: all 0.3s ease;
+
+            i {
+                transition: transform 0.3s ease;
+            }
+
+            // Hover effects using CSS custom properties
+            &:hover {
+                background-color: var(--hover-bg-color, inherit) !important;
+                color: var(--hover-text-color, inherit) !important;
+                border-color: var(--hover-border-color, inherit) !important;
+                transform: translateY(var(--hover-translate-y, -2px)) scale(var(--hover-scale, 1));
+                box-shadow: var(--hover-shadow, 0 4px 12px rgba(244, 139, 42, 0.3)) !important;
+
+                i {
+                    transform: translateX(2px);
+                }
+            }
+
+            &:active {
+                transform: translateY(0) scale(1);
+            }
+
+            &:focus-visible {
+                outline: 3px solid var(--primary-orange, #f48b2a);
+                outline-offset: 2px;
+            }
+        }
+    }
+
+    // Arrow pointer for odd items (left side) - matching about.html
+    &:nth-child(odd) .timeline-content::before {
+        content: "";
+        position: absolute;
+        right: -10px;
+        top: 50%;
+        transform: translateY(-50%);
+        border-width: 10px 0 10px 10px;
+        border-style: solid;
+        border-color: transparent transparent transparent #fff;
+    }
+
+    // Arrow pointer for even items (right side) - matching about.html
+    &:nth-child(even) .timeline-content::before {
+        content: "";
+        position: absolute;
+        left: -10px;
+        top: 50%;
+        transform: translateY(-50%);
+        border-width: 10px 10px 10px 0;
+        border-style: solid;
+        border-color: transparent #fff transparent transparent;
+    }
+}
+
+// === RESPONSIVE STYLES ===
+// Matching about.html breakpoint at 992px exactly
+@media (max-width: 992px) {
+    .timeline-item {
+        flex-direction: column !important;
+        align-items: flex-end !important;
+        // CRITICAL: Override global reset margin-bottom: 0 !important
+        // Ensure proper spacing between items in tablet view (matches design screenshot)
+        margin-bottom: 80px !important;
+        
+        &:not(:last-child) {
+            margin-bottom: 80px !important;
+        }
+        
+        &:last-child {
+            margin-bottom: 0 !important;
+        }
+
+        .timeline-dot {
+            left: 20px;
+            transform: translate(-50%, -50%);
+        }
+
+        .timeline-image-wrapper {
+            width: 85% !important;
+            flex: 0 0 85% !important;
+            margin-left: auto;
+            margin-right: 0;
+            margin-bottom: 15px;
+        }
+
+        .timeline-content {
+            width: 85% !important;
+            flex: 0 0 85% !important;
+            margin-left: auto;
+            margin-right: 0;
+
+            // Arrow points left on tablet - matching about.html exactly
+            &::before {
+                right: 100%;
+                left: auto;
+                border-color: transparent #fff transparent transparent;
+                border-width: 10px 10px 10px 0;
+            }
+        }
+
+        &:nth-child(even) {
+            flex-direction: column !important;
+            align-items: flex-end !important;
+
+            .timeline-content::before {
+                right: 100%;
+                left: auto;
+                border-color: transparent #fff transparent transparent;
+                border-width: 10px 10px 10px 0;
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .timeline-item {
+        flex-direction: column !important;
+        align-items: flex-end !important;
+        // CRITICAL: Override global reset margin-bottom: 0 !important
+        // Ensure proper spacing between items in mobile view (matches design screenshot)
+        margin-bottom: 60px !important;
+        
+        &:not(:last-child) {
+            margin-bottom: 60px !important;
+        }
+        
+        &:last-child {
+            margin-bottom: 0 !important;
+        }
+
+        .timeline-dot {
+            left: 20px;
+            transform: translate(-50%, -50%);
+        }
+
+        .timeline-content {
+            width: 85%;
+            flex: 0 0 85% !important;
+            padding: 20px !important;
+            margin-left: auto;
+            margin-right: 0;
+
+            .timeline-year,
+            h3 {
+                font-size: 1.5rem !important;
+            }
+
+            .timeline-heading,
+            h4 {
+                font-size: 1.1rem !important;
+            }
+
+            .timeline-description,
+            p {
+                font-size: 0.85rem !important;
+            }
+
+            // Arrow points left on mobile - matching about.html
+            &::before {
+                right: 100%;
+                left: auto;
+                border-color: transparent #fff transparent transparent;
+                border-width: 10px 10px 10px 0;
+            }
+
+            .timeline-button-wrapper {
+                .timeline-button {
+                    // Use mobile-specific values from CSS custom properties
+                    font-size: var(--button-font-size-mobile, inherit) !important;
+                    padding-top: var(--button-padding-vertical-mobile, inherit) !important;
+                    padding-bottom: var(--button-padding-vertical-mobile, inherit) !important;
+                    padding-left: var(--button-padding-horizontal-mobile, inherit) !important;
+                    padding-right: var(--button-padding-horizontal-mobile, inherit) !important;
+                }
+            }
+        }
+
+        &:nth-child(even) {
+            flex-direction: column !important;
+            align-items: flex-end !important;
+
+            .timeline-content::before {
+                right: 100%;
+                left: auto;
+                border-color: transparent #fff transparent transparent;
+                border-width: 10px 10px 10px 0;
+            }
+        }
+
+        .timeline-image-wrapper {
+            width: 85% !important;
+            flex: 0 0 85% !important;
+            margin-left: auto;
+            margin-right: 0;
+            margin-bottom: 15px;
+        }
+    }
+}
+
+// Additional breakpoint for very small mobile devices
+@media (max-width: 480px) {
+    .timeline-item {
+        flex-direction: column !important;
+        align-items: flex-end !important;
+        // Reduced spacing for very small screens
+        margin-bottom: 40px !important;
+        
+        &:not(:last-child) {
+            margin-bottom: 40px !important;
+        }
+        
+        &:last-child {
+            margin-bottom: 0 !important;
+        }
+
+        .timeline-content {
+            width: 90% !important;
+            flex: 0 0 90% !important;
+            padding: 15px !important;
+        }
+
+        .timeline-image-wrapper {
+            width: 90% !important;
+            flex: 0 0 90% !important;
+            margin-bottom: 12px;
+        }
+    }
+}
+
+// === ACCESSIBILITY ===
+.timeline-item {
+    &:focus-visible {
+        outline: 3px solid var(--primary-orange);
+        outline-offset: 2px;
+    }
+}
+
+.timeline-button {
+    &:focus-visible {
+        outline: 3px solid var(--primary-orange);
+        outline-offset: 2px;
+    }
+}
+
+// === PRINT STYLES ===
+@media print {
+    .timeline-item {
+        .timeline-content {
+            page-break-inside: avoid;
+            break-inside: avoid;
+            box-shadow: none;
+            border: 1px solid var(--border-color, #e0e0e0);
+
+            &::before {
+                display: none;
+            }
+        }
+
+        .timeline-button {
+            display: none;
+        }
+    }
+}
+
+// === DARK MODE SUPPORT ===
+@media (prefers-color-scheme: dark) {
+    .timeline-item {
+        .timeline-content {
+            background: #1a1a1a;
+            color: #e0e0e0;
+
+            .timeline-year {
+                color: var(--primary-orange);
+            }
+
+            .timeline-heading {
+                color: #ffffff;
+            }
+
+            .timeline-description {
+                color: #b0b0b0;
+            }
+
+            &::before {
+                border-color: transparent transparent transparent #1a1a1a;
+            }
+        }
+
+        &:nth-child(even) .timeline-content::before {
+            border-color: transparent #1a1a1a transparent transparent;
+        }
+    }
+}

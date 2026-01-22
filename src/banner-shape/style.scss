@@ -1,0 +1,217 @@
+// Jivaka Theme Colors
+:root {
+    --primary-orange: #f48b2a;
+    --dark-grey: #212121;
+    --medium-grey: #666;
+    --light-grey-bg: #f9f9f9;
+    --white-color: #ffffff;
+    --border-color: #e0e0e0;
+}
+
+// === EDITOR STYLES ===
+.editor-styles-wrapper,
+.block-editor-block-list__layout {
+    .twork-banner-shape-editor {
+        .banner-overlay {
+            pointer-events: none;
+        }
+
+        .banner-title,
+        .banner-desc {
+            &[contenteditable="true"]:focus {
+                outline: 1px dashed #2271b1;
+                outline-offset: 2px;
+            }
+        }
+    }
+}
+
+// === FRONTEND STYLES ===
+.twork-banner-shape-section {
+    box-sizing: border-box;
+    position: relative;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    // Full width support
+    &.alignfull,
+    &.alignwide {
+        max-width: 100% !important;
+        width: 100% !important;
+    }
+
+    &.alignfull {
+        max-width: 100vw !important;
+        width: 100vw !important;
+    }
+
+    // Banner Overlay
+    .banner-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1;
+        pointer-events: none;
+    }
+
+    // Jivaka Container
+    .jivaka-container {
+        position: relative;
+        z-index: 2;
+    }
+
+    // Banner Content
+    .banner-content {
+        box-sizing: border-box;
+        color: var(--white-color);
+        width: 100%;
+        position: relative;
+    }
+
+    // Banner Title
+    .banner-title {
+        color: var(--white-color);
+        font-size: 3.5rem;
+        font-weight: 900;
+        line-height: 1.2;
+        margin: 0 0 20px 0;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+
+        // Reset heading margins
+        h1, h2, h3, h4, h5, h6 {
+            color: inherit;
+            margin: 0;
+            font-size: inherit;
+            font-weight: inherit;
+            line-height: inherit;
+        }
+
+        // Responsive font size (mobile) - uses CSS custom property from inline styles
+        @media only screen and (max-width: 768px) {
+            font-size: var(--mobile-heading-font-size, 2.2rem);
+        }
+    }
+
+    // Banner Description
+    .banner-desc {
+        color: rgba(255, 255, 255, 0.95);
+        font-size: 1.25rem;
+        line-height: 1.8;
+        margin: 0 0 30px 0;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+
+        p {
+            color: inherit;
+            margin: 0 0 15px;
+        }
+
+        // Responsive font size (mobile) - uses CSS custom property from inline styles
+        @media only screen and (max-width: 768px) {
+            font-size: var(--mobile-desc-font-size, 1rem);
+        }
+    }
+
+    // Banner Shape
+    .banner-shape {
+        position: absolute;
+        left: 0;
+        right: 0;
+        width: 100%;
+        background-repeat: no-repeat;
+        pointer-events: none;
+        z-index: 3;
+
+        // Bottom position
+        &[style*="bottom: 0"] {
+            bottom: 0;
+            top: auto;
+            background-position: bottom;
+        }
+
+        // Top position
+        &[style*="top: 0"] {
+            top: 0;
+            bottom: auto;
+            background-position: top;
+        }
+
+        // Responsive height (mobile) - uses CSS custom property from inline styles
+        @media only screen and (max-width: 768px) {
+            height: var(--mobile-shape-height, 100px);
+        }
+    }
+
+    // Responsive min-height (mobile) - uses CSS custom property from inline styles
+    @media only screen and (max-width: 768px) {
+        min-height: var(--mobile-min-height, 400px);
+    }
+}
+
+// === RESPONSIVE DESIGN ===
+
+// Tablet (max-width: 1200px)
+@media only screen and (max-width: 1200px) {
+    .twork-banner-shape-section {
+        .banner-title {
+            font-size: 3rem;
+        }
+
+        .banner-desc {
+            font-size: 1.1rem;
+        }
+
+        .jivaka-container {
+            padding: 50px 20px;
+        }
+    }
+}
+
+// Mobile (max-width: 768px)
+@media only screen and (max-width: 768px) {
+    .twork-banner-shape-section {
+        .jivaka-container {
+            padding: var(--mobile-padding, 40px) 20px;
+        }
+
+        .banner-title {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+        }
+
+        .banner-desc {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .banner-shape {
+            height: 100px;
+        }
+    }
+}
+
+// Small Mobile (max-width: 480px)
+@media only screen and (max-width: 480px) {
+    .twork-banner-shape-section {
+        .jivaka-container {
+            padding: 30px 15px;
+        }
+
+        .banner-title {
+            font-size: 1.8rem;
+        }
+
+        .banner-desc {
+            font-size: 0.95rem;
+        }
+    }
+}

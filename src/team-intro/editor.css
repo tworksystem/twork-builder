@@ -1,0 +1,677 @@
+/* Team Intro Block Editor Styles */
+/* Professional editor-specific styles for optimal editing experience */
+
+/* ============================================
+   BASE EDITOR STYLES
+   ============================================ */
+
+.wp-block-twork-builder-team-intro {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+    overflow: visible;
+}
+
+/* Visual feedback when block is selected */
+.wp-block-twork-builder-team-intro.is-selected {
+    outline: 2px solid #0073aa;
+    outline-offset: 2px;
+    border-radius: 2px;
+}
+
+/* Prevent theme interference in editor */
+.wp-block-twork-builder-team-intro * {
+    box-sizing: border-box;
+}
+
+/* ============================================
+   TEAM INTRO CONTAINER IN EDITOR
+   ============================================ */
+
+.wp-block-twork-builder-team-intro .team-intro {
+    display: flex !important;
+    min-height: 500px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+/* ============================================
+   TEAM INTRO IMAGE IN EDITOR
+   Professional image handling to prevent face cropping
+   Matches frontend behavior for consistent preview
+   Ensures face is always visible in editor
+   ============================================ */
+
+.wp-block-twork-builder-team-intro .team-intro__image {
+    flex: 1 !important;
+    min-height: 500px !important;
+    max-width: 50% !important;
+    /* Use cover but position to keep face visible - focus on upper portion */
+    background-size: cover !important;
+    background-position: left top !important;
+    background-repeat: no-repeat !important;
+    position: relative !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    flex-basis: 50% !important;
+    /* Maintain aspect ratio to prevent distortion */
+    aspect-ratio: 4 / 5 !important;
+    height: auto !important;
+}
+
+/* Medium screens in editor (1024px - 1399px) - Optimize positioning for face visibility */
+@media (min-width: 1024px) and (max-width: 1399px) {
+    .wp-block-twork-builder-team-intro .team-intro__image {
+        /* Position to show upper body and face - adjust vertical position */
+        background-position: left 20% !important;
+        background-size: cover !important;
+    }
+}
+
+/* Large screens in editor - prevent excessive cropping */
+@media (min-width: 1400px) {
+    .wp-block-twork-builder-team-intro .team-intro__image {
+        /* Switch to contain to show full image without cropping */
+        background-size: contain !important;
+        /* Position to show face prominently - left aligned, top portion visible */
+        background-position: left top !important;
+        background-color: #fafafa !important;
+        max-width: 50% !important;
+        /* Override aspect-ratio to allow natural image proportions */
+        aspect-ratio: auto !important;
+        min-height: 500px !important;
+    }
+}
+
+/* Extra large screens in editor */
+@media (min-width: 1920px) {
+    .wp-block-twork-builder-team-intro .team-intro__image {
+        max-width: 45% !important;
+        background-size: contain !important;
+        /* Maintain top-left positioning to keep face visible */
+        background-position: left top !important;
+        background-color: #fafafa !important;
+        flex-basis: 45% !important;
+        min-height: 600px !important;
+    }
+}
+
+/* Ultra-wide screens in editor */
+@media (min-width: 2560px) {
+    .wp-block-twork-builder-team-intro .team-intro__image {
+        max-width: 40% !important;
+        flex-basis: 40% !important;
+        /* Maintain contain to show full image */
+        background-size: contain !important;
+        background-position: left top !important;
+        background-color: #fafafa !important;
+        min-height: 700px !important;
+    }
+}
+
+/* Visual feedback for image in editor */
+.wp-block-twork-builder-team-intro.is-selected .team-intro__image {
+    outline: 1px dashed rgba(0, 115, 170, 0.3);
+    outline-offset: -1px;
+}
+
+/* ============================================
+   TEAM INTRO CONTENT IN EDITOR
+   ============================================ */
+
+.wp-block-twork-builder-team-intro .team-intro__content {
+    flex: 1.2 !important;
+    padding: 60px !important;
+    display: flex !important;
+    align-items: center !important;
+    background: #fff !important;
+    box-sizing: border-box !important;
+    position: relative !important;
+    width: 100% !important;
+}
+
+.wp-block-twork-builder-team-intro .team-intro__content > div {
+    position: relative !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+/* Visual feedback for content in editor */
+.wp-block-twork-builder-team-intro.is-selected .team-intro__content {
+    outline: 1px dashed rgba(0, 115, 170, 0.3);
+    outline-offset: -1px;
+}
+
+/* ============================================
+   META TITLE IN EDITOR
+   ============================================ */
+
+.wp-block-twork-builder-team-intro .meta-title {
+    text-transform: uppercase !important;
+    font-size: 0.8rem !important;
+    font-weight: 700 !important;
+    color: #212121 !important;
+    position: relative !important;
+    display: inline-block !important;
+    margin-bottom: 15px !important;
+    padding-bottom: 5px !important;
+    box-sizing: border-box !important;
+}
+
+.wp-block-twork-builder-team-intro .meta-title::after {
+    content: "" !important;
+    position: absolute !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    width: 40px !important;
+    height: 2px !important;
+    background-color: #f48b2a !important;
+}
+
+/* ============================================
+   TEXT HIGHLIGHT IN EDITOR
+   ============================================ */
+
+.wp-block-twork-builder-team-intro .text-highlight {
+    color: #f48b2a !important;
+    font-weight: 900 !important;
+}
+
+/* ============================================
+   TEAM INTRO TITLE IN EDITOR
+   ============================================ */
+
+.wp-block-twork-builder-team-intro .team-intro__title {
+    font-size: 2.5rem !important;
+    font-weight: 300 !important;
+    margin: 0 0 20px 0 !important;
+    padding: 0 !important;
+    line-height: 1.4 !important;
+    color: #212121 !important;
+    box-sizing: border-box !important;
+    display: block !important;
+}
+
+.wp-block-twork-builder-team-intro .team-intro__title .text-highlight {
+    font-weight: 700 !important;
+    display: inline !important;
+}
+
+/* ============================================
+   TEAM INTRO DESCRIPTION IN EDITOR
+   ============================================ */
+
+.wp-block-twork-builder-team-intro .team-intro__description {
+    color: #666 !important;
+    font-size: 1rem !important;
+    line-height: 1.6 !important;
+    margin: 0 0 0 0 !important;
+    padding: 0 0 20px 0 !important;
+    box-sizing: border-box !important;
+    display: block !important;
+}
+
+/* ============================================
+   TEAM INTRO LIST IN EDITOR
+   ============================================ */
+
+.wp-block-twork-builder-team-intro .team-intro__list {
+    display: flex !important;
+    gap: 30px !important;
+    margin-top: 40px !important;
+    border-top: 1px solid #eee !important;
+    padding-top: 30px !important;
+    flex-wrap: wrap !important;
+    box-sizing: border-box !important;
+}
+
+/* ============================================
+   TEAM FEATURE IN EDITOR
+   ============================================ */
+
+.wp-block-twork-builder-team-intro .team-feature {
+    display: flex !important;
+    gap: 20px !important;
+    flex: 1 !important;
+    min-width: 280px !important;
+    box-sizing: border-box !important;
+}
+
+.wp-block-twork-builder-team-intro .team-feature__icon {
+    width: 70px !important;
+    height: 70px !important;
+    min-width: 70px !important;
+    background: transparent !important;
+    border: 2px solid #f48b2a !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-shrink: 0 !important;
+    box-sizing: border-box !important;
+}
+
+.wp-block-twork-builder-team-intro .team-feature__icon i {
+    font-size: 2rem !important;
+    color: #f48b2a !important;
+    box-sizing: border-box !important;
+}
+
+/* ============================================
+   TEAM INTRO AUTHOR SECTION IN EDITOR
+   Matches exact design - positioned below description, aligned right
+   Ensures visibility and proper display in editor
+   Professional styling with comprehensive responsive support
+   ============================================ */
+
+.wp-block-twork-builder-team-intro .team-intro__author {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    margin-top: 20px !important;
+    margin-bottom: 0 !important;
+    margin-left: auto !important;
+    margin-right: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+    width: auto !important;
+    max-width: 100% !important;
+    /* Ensure visibility in editor */
+    visibility: visible !important;
+    opacity: 1 !important;
+    overflow: visible !important;
+    position: relative !important;
+    z-index: 1 !important;
+}
+
+.wp-block-twork-builder-team-intro .team-intro__author-info {
+    text-align: left !important;
+    margin-right: 20px !important;
+    box-sizing: border-box !important;
+    flex-shrink: 0 !important;
+    /* Ensure visibility */
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+.wp-block-twork-builder-team-intro .team-intro__author-name {
+    color: #f48b2a !important;
+    font-weight: 700 !important;
+    font-size: 1.1rem !important;
+    margin: 0 0 5px 0 !important;
+    padding: 0 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    line-height: 1.2 !important;
+    box-sizing: border-box !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    white-space: normal !important;
+    word-wrap: break-word !important;
+}
+
+.wp-block-twork-builder-team-intro .team-intro__author-title {
+    color: #212121 !important;
+    font-size: 0.9rem !important;
+    font-weight: 400 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 1.4 !important;
+    box-sizing: border-box !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    white-space: normal !important;
+    word-wrap: break-word !important;
+}
+
+.wp-block-twork-builder-team-intro .team-intro__signature {
+    max-height: 50px !important;
+    height: auto !important;
+    width: auto !important;
+    object-fit: contain !important;
+    flex-shrink: 0 !important;
+    box-sizing: border-box !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    image-rendering: auto !important;
+}
+
+.wp-block-twork-builder-team-intro .team-feature__title {
+    font-size: 1rem !important;
+    font-weight: 700 !important;
+    color: #212121 !important;
+    margin: 0 0 5px 0 !important;
+    padding: 0 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    box-sizing: border-box !important;
+    display: block !important;
+}
+
+.wp-block-twork-builder-team-intro .team-feature__text {
+    font-size: 0.9rem !important;
+    color: #666 !important;
+    line-height: 1.6 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+    display: block !important;
+}
+
+/* ============================================
+   EMPTY STATE IN EDITOR
+   ============================================ */
+
+.wp-block-twork-builder-team-intro .team-intro__list:empty::before {
+    content: 'No features added yet. Use the sidebar to add features.';
+    display: block;
+    padding: 30px;
+    text-align: center;
+    color: #999;
+    font-style: italic;
+    font-size: 14px;
+    background: #f5f5f5;
+    border: 2px dashed #ccc;
+    border-radius: 4px;
+    margin-top: 40px;
+}
+
+/* ============================================
+   RESPONSIVE IN EDITOR
+   ============================================ */
+
+@media (max-width: 968px) {
+    .wp-block-twork-builder-team-intro .team-intro {
+        flex-direction: column !important;
+        min-height: auto !important;
+    }
+
+    .wp-block-twork-builder-team-intro .team-intro__image {
+        flex: 1 !important;
+        min-height: 400px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        background-size: cover !important;
+        /* Position to keep face visible - center horizontally, top portion vertically */
+        background-position: center top !important;
+        /* Remove aspect-ratio constraint on smaller screens for flexibility */
+        aspect-ratio: auto !important;
+    }
+
+    .wp-block-twork-builder-team-intro .team-intro__content {
+        flex: 1 !important;
+        padding: 50px 30px !important;
+        width: 100% !important;
+}
+
+    .wp-block-twork-builder-team-intro .team-intro__title {
+        font-size: 2rem !important;
+    }
+
+    .wp-block-twork-builder-team-intro .team-intro__title {
+        font-size: 2.5rem !important;
+    }
+
+    /* Author section: Switch to left alignment on tablets and below */
+    .wp-block-twork-builder-team-intro .team-intro__author {
+        justify-content: flex-start !important;
+        margin-top: 20px !important;
+        margin-bottom: 30px !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        flex-wrap: wrap !important;
+        width: 100% !important;
+    }
+    
+    .wp-block-twork-builder-team-intro .team-intro__author-info {
+        margin-right: 15px !important;
+        margin-bottom: 10px !important;
+    }
+
+    .wp-block-twork-builder-team-intro .team-intro__signature {
+        max-height: 45px !important;
+    }
+    
+    .wp-block-twork-builder-team-intro .team-intro__list {
+        flex-direction: column !important;
+        gap: 25px !important;
+    }
+
+    .wp-block-twork-builder-team-intro .team-feature {
+        flex: 1 1 100% !important;
+        min-width: 100% !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .wp-block-twork-builder-team-intro .team-intro__image {
+        min-height: 350px !important;
+        /* Ensure face area is prioritized on mobile */
+        background-position: center top !important;
+    }
+
+    .wp-block-twork-builder-team-intro .team-intro__content {
+        padding: 40px 25px !important;
+    }
+
+    .wp-block-twork-builder-team-intro .team-intro__title {
+        font-size: 1.75rem !important;
+        margin-bottom: 15px !important;
+    }
+
+    .wp-block-twork-builder-team-intro .team-intro__description {
+        font-size: 0.95rem !important;
+        margin-bottom: 25px !important;
+    }
+
+    /* Author section: Maintain left alignment and adjust spacing for mobile */
+    .wp-block-twork-builder-team-intro .team-intro__author {
+        margin-top: 20px !important;
+        margin-bottom: 25px !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        flex-wrap: wrap !important;
+        justify-content: flex-start !important;
+        width: 100% !important;
+    }
+
+    .wp-block-twork-builder-team-intro .team-intro__author-info {
+        text-align: left !important;
+        margin-right: 15px !important;
+        margin-bottom: 10px !important;
+    }
+
+    .wp-block-twork-builder-team-intro .team-intro__signature {
+        max-height: 40px !important;
+    }
+
+    .wp-block-twork-builder-team-intro .team-intro__list {
+        margin-top: 30px !important;
+        padding-top: 25px !important;
+        gap: 20px !important;
+    }
+
+    .wp-block-twork-builder-team-intro .team-feature__icon {
+        width: 60px !important;
+        height: 60px !important;
+    }
+
+    .wp-block-twork-builder-team-intro .team-feature__icon i {
+        font-size: 1.75rem !important;
+    }
+
+    .wp-block-twork-builder-team-intro .team-feature__title {
+        font-size: 0.95rem !important;
+    }
+
+    .wp-block-twork-builder-team-intro .team-feature__text {
+        font-size: 0.85rem !important;
+    }
+}
+
+/* Small Mobile (600px and below) */
+@media (max-width: 600px) {
+    .wp-block-twork-builder-team-intro .team-intro__image {
+        min-height: 300px !important;
+        /* Maintain face visibility on small screens */
+        background-position: center top !important;
+    }
+
+    .wp-block-twork-builder-team-intro .team-intro__content {
+        padding: 40px 25px !important;
+    }
+
+    /* Author section: Full width on small mobile devices */
+    .wp-block-twork-builder-team-intro .team-intro__author {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        width: 100% !important;
+    }
+
+    .wp-block-twork-builder-team-intro .team-intro__title {
+        font-size: 1.75rem !important;
+        margin-bottom: 12px !important;
+    }
+
+    .wp-block-twork-builder-team-intro .team-intro__description {
+        font-size: 0.9rem !important;
+        margin-bottom: 20px !important;
+    }
+
+    .wp-block-twork-builder-team-intro .team-intro__list {
+        margin-top: 25px !important;
+        padding-top: 20px !important;
+        gap: 18px !important;
+    }
+
+    .wp-block-twork-builder-team-intro .team-feature {
+        gap: 12px !important;
+    }
+
+    .wp-block-twork-builder-team-intro .team-feature__icon {
+        width: 50px !important;
+        height: 50px !important;
+    }
+
+    .wp-block-twork-builder-team-intro .team-feature__icon i {
+        font-size: 1.5rem !important;
+    }
+
+    .wp-block-twork-builder-team-intro .team-feature__title {
+        font-size: 0.9rem !important;
+    }
+
+    .wp-block-twork-builder-team-intro .team-feature__text {
+        font-size: 0.8rem !important;
+    }
+}
+
+/* Extra Small Mobile (480px and below) */
+@media (max-width: 480px) {
+    .wp-block-twork-builder-team-intro .team-intro__image {
+        min-height: 250px !important;
+        /* Keep face visible on extra small screens */
+        background-position: center top !important;
+    }
+
+    .wp-block-twork-builder-team-intro .team-intro__content {
+        padding: 30px 20px !important;
+    }
+
+    /* Author section: Full width on extra small mobile devices */
+    .wp-block-twork-builder-team-intro .team-intro__author {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        width: 100% !important;
+    }
+
+    .wp-block-twork-builder-team-intro .team-intro__title {
+        font-size: 1.5rem !important;
+        margin-bottom: 10px !important;
+    }
+
+    .wp-block-twork-builder-team-intro .team-intro__description {
+        font-size: 0.85rem !important;
+        margin-bottom: 18px !important;
+    }
+
+    .wp-block-twork-builder-team-intro .team-intro__list {
+        margin-top: 20px !important;
+        padding-top: 18px !important;
+        gap: 15px !important;
+    }
+
+    .wp-block-twork-builder-team-intro .team-feature {
+        gap: 10px !important;
+    }
+
+    .wp-block-twork-builder-team-intro .team-feature__icon {
+        width: 45px !important;
+        height: 45px !important;
+    }
+
+    .wp-block-twork-builder-team-intro .team-feature__icon i {
+        font-size: 1.25rem !important;
+    }
+
+    .wp-block-twork-builder-team-intro .team-feature__title {
+        font-size: 0.85rem !important;
+    }
+
+    .wp-block-twork-builder-team-intro .team-feature__text {
+        font-size: 0.75rem !important;
+    }
+}
+
+/* ============================================
+   EDITOR-SPECIFIC OVERRIDES
+   ============================================ */
+
+/* Prevent WordPress editor from adding unwanted styles */
+.wp-block-twork-builder-team-intro .block-editor-block-list__layout {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Ensure proper spacing in editor */
+.wp-block-twork-builder-team-intro .editor-styles-wrapper {
+    padding: 0 !important;
+}
+
+/* Fix for WordPress editor wrapper */
+.block-editor-block-list__block[data-type="twork-builder/team-intro"] {
+    margin: 0 !important;
+}
+
+.block-editor-block-list__block[data-type="twork-builder/team-intro"] > .block-editor-block-list__block-edit {
+    margin: 0;
+    padding: 0;
+}
+
+/* Ensure proper width constraints in editor */
+.editor-styles-wrapper .wp-block-twork-builder-team-intro {
+    max-width: 100%;
+    width: 100%;
+}
+
+/* Disable hover effects in editor */
+.wp-block-twork-builder-team-intro.is-selected .team-feature:hover {
+    transform: none !important;
+}
+
+/* Better visual feedback */
+.wp-block-twork-builder-team-intro.is-selected .team-intro {
+    position: relative;
+}

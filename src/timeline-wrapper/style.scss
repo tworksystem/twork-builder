@@ -1,0 +1,1096 @@
+// Google Fonts
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;600;700;900&display=swap");
+
+// Variables
+:root {
+    --primary-orange: #f48b2a;
+    --dark-grey: #212121;
+    --medium-grey: #666;
+    --light-grey-bg: #f9f9f9;
+    --white-color: #ffffff;
+    --border-color: #e0e0e0;
+}
+
+// === EDITOR STYLES ===
+.editor-styles-wrapper,
+.block-editor-block-list__layout,
+.wp-block-twork-timeline-wrapper {
+    .twork-timeline-wrapper-editor {
+        position: relative;
+        min-height: 400px;
+
+        .background-overlay {
+            pointer-events: none;
+        }
+
+        .section-header {
+            margin-bottom: 50px;
+
+            h2, p {
+                &[contenteditable="true"]:focus {
+                    outline: 1px dashed #2271b1;
+                    outline-offset: 2px;
+                }
+            }
+        }
+
+        .timeline-wrapper,
+        .twork-timeline-wrapper {
+            position: relative;
+            padding: 40px 0;
+            min-height: 300px;
+
+            .timeline-line {
+                pointer-events: none;
+            }
+
+            .timeline-progress {
+                pointer-events: none;
+            }
+
+            // Make InnerBlocks transparent to the timeline layout
+            > .block-editor-inner-blocks {
+                display: block !important;
+                position: relative;
+                z-index: 3;
+
+                > .block-editor-block-list__layout {
+                    display: flex !important;
+                    flex-direction: column !important;
+                    gap: var(--timeline-item-gap, 80px) !important;
+
+                    // Style individual timeline items in the editor - matching frontend exactly
+                    > .wp-block,
+                    > [data-type="twork/timeline-item"] {
+                        background: #fafafa;
+                        border: 2px dashed #e0e0e0;
+                        border-radius: 8px;
+                        display: flex !important;
+                        justify-content: space-between !important;
+                        align-items: center !important;
+                        min-height: 200px;
+                        overflow: visible;
+                        position: relative;
+                        transition: all 0.2s ease;
+                        margin-bottom: var(--timeline-item-gap, 80px) !important;
+                        width: 100% !important;
+
+                        &:last-child {
+                            margin-bottom: 0 !important;
+                        }
+
+                        &:nth-child(even) {
+                            flex-direction: row-reverse !important;
+                        }
+
+                        &:hover {
+                            background: #fff;
+                            border-color: #2271b1;
+                            box-shadow: 0 4px 12px rgba(34, 113, 177, 0.1);
+                            z-index: 1;
+                        }
+
+                        &.is-selected {
+                            background: #fff;
+                            border-color: #2271b1;
+                            box-shadow: 0 0 0 1px #2271b1;
+                            z-index: 2;
+                        }
+
+                        // Ensure inner content of timeline item also uses flex
+                        > .block-editor-block-list__block-edit,
+                        > .block-editor-block-list__block-edit > div {
+                            display: flex !important;
+                            flex: 1 !important;
+                            flex-direction: row !important;
+                            width: 100%;
+                            justify-content: space-between;
+                            align-items: center;
+                        }
+
+                        // Show timeline dot in editor - matching frontend
+                        .timeline-dot {
+                            position: absolute;
+                            left: 50%;
+                            top: 50%;
+                            transform: translate(-50%, -50%);
+                            width: 20px;
+                            height: 20px;
+                            background: #fff;
+                            border: 4px solid #f48b2a;
+                            border-radius: 50%;
+                            z-index: 4;
+                            box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.8);
+                            pointer-events: none;
+                        }
+
+                        .timeline-content {
+                            width: 45% !important;
+                            flex: 0 0 45% !important;
+                            background: #fff;
+                            padding: 30px;
+                            border-radius: 10px;
+                            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+                            position: relative;
+                            display: flex;
+                            flex-direction: column;
+
+                            h3,
+                            .timeline-year {
+                                color: #f48b2a;
+                                font-size: 1.8rem;
+                                margin: 0 0 10px;
+                                font-weight: 900;
+                                line-height: 1.2;
+                            }
+
+                            h4,
+                            .timeline-heading {
+                                font-size: 1.2rem;
+                                margin: 0 0 10px;
+                                font-weight: 400;
+                                color: #212121;
+                                line-height: 1.3;
+                            }
+
+                            p,
+                            .timeline-description {
+                                color: #666;
+                                margin: 0;
+                                font-size: 0.9rem;
+                                line-height: 1.6;
+                            }
+                        }
+
+                        .timeline-image-wrapper {
+                            width: 45% !important;
+                            flex: 0 0 45% !important;
+                            
+                            &:empty {
+                                display: none !important;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .editor-label {
+                margin-bottom: 20px;
+                width: 100%;
+            }
+        }
+    }
+}
+
+// === FRONTEND STYLES ===
+// GLOBAL RESET: Remove all borders from timeline blocks (must be outside wrapper for maximum specificity)
+.wp-block-twork-timeline-item,
+[class*="wp-block-twork-timeline-item"],
+[data-type="twork/timeline-item"],
+.wp-block[data-type="twork/timeline-item"],
+.block-editor-block-list__block[data-type="twork/timeline-item"],
+.twork-timeline-wrapper-section .wp-block-twork-timeline-item,
+.twork-timeline-wrapper-section [class*="wp-block-twork-timeline-item"],
+.twork-timeline-wrapper-section [data-type="twork/timeline-item"] {
+    border: none !important;
+    border-width: 0 !important;
+    border-style: none !important;
+    border-color: transparent !important;
+    border-top: none !important;
+    border-right: none !important;
+    border-bottom: none !important;
+    border-left: none !important;
+    background: transparent !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
+    outline: none !important;
+    outline-width: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.twork-timeline-wrapper-section {
+    font-family: "Roboto", sans-serif;
+    position: relative;
+    overflow: hidden;
+    // Best-practice hard reset: prevent theme/plugin borders from leaking in
+    border: none !important;
+    border-width: 0 !important;
+    border-style: none !important;
+    border-color: transparent !important;
+    outline: none !important;
+    box-shadow: none !important;
+
+    // Support timeline-section class for compatibility
+    &.timeline-section {
+        position: relative;
+        overflow: hidden;
+    }
+    
+    // CRITICAL: Override WordPress block editor default styles globally
+    // Target all possible WordPress block classes and attributes
+    .wp-block-twork-timeline-item,
+    [class*="wp-block-twork-timeline-item"],
+    [data-type="twork/timeline-item"],
+    .wp-block[data-type="twork/timeline-item"],
+    .block-editor-block-list__block[data-type="twork/timeline-item"] {
+        border: none !important;
+        border-width: 0 !important;
+        border-style: none !important;
+        border-color: transparent !important;
+        border-top: none !important;
+        border-right: none !important;
+        border-bottom: none !important;
+        border-left: none !important;
+        background: transparent !important;
+        background-color: transparent !important;
+        box-shadow: none !important;
+        outline: none !important;
+        outline-width: 0 !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        
+        // Remove any inline styles that might be added by WordPress
+        &[style*="border"] {
+            border: none !important;
+            border-width: 0 !important;
+        }
+    }
+
+    .background-overlay {
+        pointer-events: none;
+    }
+
+    .jivaka-container {
+        position: relative;
+        z-index: 2;
+    }
+
+    .section-header {
+        text-align: center;
+        max-width: 700px;
+        margin: 0 auto 60px;
+
+        .section-title {
+            font-size: 2.2rem;
+            margin: 0 0 15px;
+            line-height: 1.2;
+            font-weight: 700;
+            color: var(--dark-grey);
+        }
+
+        .section-subtitle {
+            margin: 0;
+            line-height: 1.6;
+            color: var(--medium-grey);
+            font-size: 1rem;
+        }
+    }
+
+    .timeline-wrapper,
+    .twork-timeline-wrapper {
+        position: relative;
+        padding: 40px 0;
+        // Prevent global `.timeline-wrapper { border: ... }` collisions (common in themes/plugins)
+        border: none !important;
+        border-width: 0 !important;
+        border-style: none !important;
+        border-color: transparent !important;
+        outline: none !important;
+        box-shadow: none !important;
+
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: var(--timeline-line-width, 4px);
+            background: var(--timeline-line-color, #eee);
+            transform: translateX(-50%);
+            z-index: 1;
+        }
+
+        .timeline-progress {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            width: var(--timeline-line-width, 4px);
+            background: var(--timeline-progress-color, var(--primary-orange));
+            transform: translateX(-50%) translateZ(0); // GPU acceleration
+            height: 0;
+            z-index: 2;
+            transition: height 0.1s linear; // Smooth but responsive
+            will-change: height; // Performance optimization
+            backface-visibility: hidden; // Prevent flickering
+        }
+
+            // Timeline Item Styles - Matching about.html exactly
+        .timeline-item {
+            // CRITICAL: Reset ALL editor and WordPress default styles
+            // Use all possible border reset properties
+            border: none !important;
+            border-width: 0 !important;
+            border-style: none !important;
+            border-color: transparent !important;
+            border-top: none !important;
+            border-right: none !important;
+            border-bottom: none !important;
+            border-left: none !important;
+            border-top-width: 0 !important;
+            border-right-width: 0 !important;
+            border-bottom-width: 0 !important;
+            border-left-width: 0 !important;
+            border-top-style: none !important;
+            border-right-style: none !important;
+            border-bottom-style: none !important;
+            border-left-style: none !important;
+            border-top-color: transparent !important;
+            border-right-color: transparent !important;
+            border-bottom-color: transparent !important;
+            border-left-color: transparent !important;
+            
+            background: transparent !important;
+            background-color: transparent !important;
+            box-shadow: none !important;
+            outline: none !important;
+            outline-width: 0 !important;
+            outline-style: none !important;
+            outline-color: transparent !important;
+            box-sizing: border-box !important;
+            
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--timeline-item-gap, 80px);
+            position: relative;
+            width: 100%;
+            // Keep items visible by default (progressive enhancement).
+            // Animation states are enabled only when JS marks the wrapper as ready.
+            opacity: 1;
+            transform: none;
+            visibility: visible;
+
+            &:last-child {
+                // Last item should have no bottom margin (clean ending)
+                margin-bottom: 0 !important;
+            }
+            
+            // Override WordPress block styles with maximum specificity
+            &.wp-block-twork-timeline-item,
+            &[class*="wp-block"],
+            &[data-type="twork/timeline-item"],
+            &.wp-block[data-type="twork/timeline-item"] {
+                border: none !important;
+                border-width: 0 !important;
+                border-style: none !important;
+                border-color: transparent !important;
+                background: transparent !important;
+                background-color: transparent !important;
+                padding: 0 !important;
+                margin: 0 !important;
+                // Desktop spacing - will be overridden in responsive breakpoints
+                margin-bottom: var(--timeline-item-gap, 80px) !important;
+                
+                // Ensure last child has no margin on desktop too
+                &:last-child {
+                    margin-bottom: 0 !important;
+                }
+                
+                // Remove any inline border styles
+                &[style*="border"] {
+                    border: none !important;
+                    border-width: 0 !important;
+                }
+            }
+
+            // Ensure proper spacing matching about.html
+            // NOTE: CSS variable is used for desktop, but responsive breakpoints override with fixed values
+            &:not(:last-child) {
+                margin-bottom: var(--timeline-item-gap, 80px);
+            }
+            
+            // CRITICAL: Override CSS variable usage in responsive to prevent spacing collapse
+            // This ensures items never stick together even if --timeline-item-gap is 0 or missing
+
+            &:nth-child(even) {
+                flex-direction: row-reverse;
+            }
+
+            .timeline-dot {
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                width: var(--timeline-dot-size, 20px);
+                height: var(--timeline-dot-size, 20px);
+                background: var(--white-color);
+                border: var(--timeline-dot-border-width, 4px) solid var(--timeline-dot-color, var(--primary-orange));
+                border-radius: 50%;
+                z-index: 2;
+                box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.8);
+                transition: all 0.3s ease;
+            }
+
+            .timeline-content {
+                width: 45%;
+                background: var(--white-color);
+                padding: 30px;
+                border-radius: var(--timeline-content-border-radius, 10px);
+                box-shadow: var(--timeline-content-box-shadow, 0 5px 15px rgba(0, 0, 0, 0.05));
+                position: relative;
+                opacity: 1;
+                transition: all 0.3s ease;
+
+                h3,
+                .timeline-year {
+                    color: var(--primary-orange);
+                    font-size: 1.8rem;
+                    margin: 0 0 10px;
+                    font-weight: 900;
+                    line-height: 1.2;
+                }
+
+                h4,
+                .timeline-heading {
+                    font-size: 1.2rem;
+                    margin: 0 0 10px;
+                    font-weight: 400;
+                    color: var(--dark-grey);
+                    line-height: 1.3;
+                }
+
+                p,
+                .timeline-description {
+                    color: var(--medium-grey);
+                    margin: 0;
+                    font-size: 0.9rem;
+                    line-height: 1.6;
+                }
+            }
+
+            // Arrow pointer for odd items (left side) - matching about.html
+            &:nth-child(odd) .timeline-content::before {
+                content: "";
+                position: absolute;
+                right: -10px;
+                top: 50%;
+                transform: translateY(-50%);
+                border-width: 10px 0 10px 10px;
+                border-style: solid;
+                border-color: transparent transparent transparent #fff;
+            }
+
+            // Arrow pointer for even items (right side) - matching about.html
+            &:nth-child(even) .timeline-content::before {
+                content: "";
+                position: absolute;
+                left: -10px;
+                top: 50%;
+                transform: translateY(-50%);
+                border-width: 10px 10px 10px 0;
+                border-style: solid;
+                border-color: transparent #fff transparent transparent;
+            }
+
+            // Hover effects
+            &[data-hover-effect="true"] {
+                .timeline-content {
+                    &:hover {
+                        transform: translateY(var(--hover-translate-y, -4px)) scale(var(--hover-scale, 1.02));
+                        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+                    }
+                }
+            }
+
+            // Hide image wrapper if no image is shown (to maintain layout)
+            .timeline-image-wrapper:empty,
+            .timeline-image-wrapper:not(:has(img)) {
+                display: none;
+            }
+
+            // When image is shown, adjust layout
+            &:has(.timeline-image-wrapper:has(img)) {
+                .timeline-content {
+                    width: 45%;
+                }
+            }
+        }
+    }
+
+    // Scroll animations (progressive enhancement)
+    // - Timeline items are visible by default (no-JS safe)
+    // - JS adds `.twork-animation-ready` to enable these states
+    &.twork-animation-ready[data-animation="true"] {
+        .timeline-item {
+            opacity: 0;
+            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+                        transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            will-change: opacity, transform;
+            backface-visibility: hidden; // Performance optimization
+            -webkit-font-smoothing: antialiased; // Smooth text rendering
+
+            &.is-visible {
+                opacity: 1;
+            }
+
+            // Fade In Up Animation (default)
+            &[data-animation-type="fadeInUp"],
+            &:not([data-animation-type]) {
+                transform: translateY(50px);
+
+                &.is-visible {
+                    transform: translateY(0);
+                }
+            }
+
+            // Fade In Animation
+            &[data-animation-type="fadeIn"] {
+                transform: none;
+            }
+
+            // Slide In Left Animation
+            &[data-animation-type="slideInLeft"] {
+                transform: translateX(-50px);
+
+                &.is-visible {
+                    transform: translateX(0);
+                }
+            }
+
+            // Slide In Right Animation
+            &[data-animation-type="slideInRight"] {
+                transform: translateX(50px);
+
+                &.is-visible {
+                    transform: translateX(0);
+                }
+            }
+
+            // Zoom In Animation
+            &[data-animation-type="zoomIn"] {
+                transform: scale(0.8);
+
+                &.is-visible {
+                    transform: scale(1);
+                }
+            }
+        }
+    }
+    
+    // Additional global reset for any WordPress block wrapper
+    *[class*="wp-block-twork-timeline"] {
+        &[style*="border"] {
+            border: none !important;
+            border-width: 0 !important;
+        }
+    }
+}
+
+// === RESPONSIVE STYLES ===
+// Matching about.html breakpoint at 992px
+@media (max-width: 992px) {
+    .twork-timeline-wrapper-section {
+        .timeline-wrapper,
+        .twork-timeline-wrapper {
+            .timeline-line {
+                // Override any legacy inline styles saved in post content
+                left: 20px !important;
+                transform: none !important;
+            }
+
+            .timeline-progress {
+                // Override any legacy inline styles saved in post content
+                left: 20px !important;
+                transform: none !important;
+            }
+
+            .timeline-item {
+                flex-direction: column !important;
+                align-items: flex-end !important;
+                // CRITICAL: Override global reset margin-bottom: 0 !important from timeline-item/style.scss
+                // CRITICAL: Override CSS variable --timeline-item-gap to prevent spacing collapse
+                // Ensure proper spacing between items in responsive view (matches design screenshot)
+                margin-bottom: 80px !important;
+                
+                // Override :not(:last-child) selector that uses CSS variable
+                &:not(:last-child) {
+                    margin-bottom: 80px !important;
+                }
+
+                // CRITICAL: Override wp-block selectors with maximum specificity in responsive
+                &.wp-block-twork-timeline-item,
+                &[class*="wp-block"],
+                &[data-type="twork/timeline-item"],
+                &.wp-block[data-type="twork/timeline-item"] {
+                    margin-bottom: 80px !important;
+                    
+                    &:not(:last-child) {
+                        margin-bottom: 80px !important;
+                    }
+                    
+                    &:last-child {
+                        margin-bottom: 0 !important;
+                    }
+                }
+
+                .timeline-dot {
+                    // Override any legacy inline styles saved in post content
+                    left: 20px !important;
+                    transform: translate(-50%, -50%) !important;
+                }
+
+                .timeline-content {
+                    // Override legacy inline width/flex saved in post content
+                    width: 85% !important;
+                    flex: 0 0 85% !important;
+                    margin-left: auto !important;
+                    margin-right: 0 !important;
+
+                    // Arrow points left on tablet - matching about.html
+                    &::before {
+                        // Force override odd/even desktop arrow rules + any theme styles
+                        content: "" !important;
+                        right: 100% !important;
+                        left: auto !important;
+                        border-color: transparent var(--white-color) transparent transparent !important;
+                        border-width: 10px 10px 10px 0 !important;
+                        border-style: solid !important;
+                    }
+                }
+
+                // Keep layout consistent for even items on mobile/tablet
+                &:nth-child(even) {
+                    flex-direction: column !important;
+                    align-items: flex-end !important;
+                }
+
+                // Ensure last item has no bottom margin in responsive view
+                &:last-child {
+                    margin-bottom: 0 !important;
+                }
+
+                // Image wrapper on mobile
+                .timeline-image-wrapper {
+                    // Override legacy inline width/flex saved in post content
+                    width: 85% !important;
+                    flex: 0 0 85% !important;
+                    margin-left: auto !important;
+                    margin-right: 0 !important;
+                    margin-bottom: 15px;
+                }
+            }
+        }
+    }
+
+    // Editor responsive
+    .editor-styles-wrapper {
+        .timeline-wrapper {
+            > .block-editor-inner-blocks > .block-editor-block-list__layout {
+                > .wp-block,
+                > [data-type="twork/timeline-item"] {
+                    flex-direction: column !important;
+                    align-items: flex-end !important;
+
+                    .timeline-content {
+                        width: 85% !important;
+                        margin-left: auto !important;
+                        margin-right: 0 !important;
+                    }
+
+                    .timeline-image-wrapper {
+                        width: 85% !important;
+                        margin-left: auto !important;
+                        margin-right: 0 !important;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .twork-timeline-wrapper-section {
+        padding: 60px 0;
+
+        .section-header {
+            margin-bottom: 40px;
+
+            .section-title {
+                font-size: 2rem !important;
+            }
+
+            .section-subtitle {
+                font-size: 1rem !important;
+            }
+        }
+
+        .timeline-wrapper,
+        .twork-timeline-wrapper {
+            padding: 30px 0;
+
+            .timeline-line {
+                left: 20px !important;
+                transform: none !important;
+            }
+
+            .timeline-progress {
+                left: 20px !important;
+                transform: none !important;
+            }
+
+            .timeline-item {
+                // CRITICAL: Override global reset margin-bottom: 0 !important from timeline-item/style.scss
+                // CRITICAL: Override CSS variable --timeline-item-gap to prevent spacing collapse
+                // Ensure proper spacing between items in mobile view (matches design screenshot)
+                margin-bottom: 60px !important;
+                flex-direction: column !important;
+                align-items: flex-end !important;
+                
+                // Override :not(:last-child) selector that uses CSS variable
+                &:not(:last-child) {
+                    margin-bottom: 60px !important;
+                }
+
+                // CRITICAL: Override wp-block selectors with maximum specificity in responsive
+                &.wp-block-twork-timeline-item,
+                &[class*="wp-block"],
+                &[data-type="twork/timeline-item"],
+                &.wp-block[data-type="twork/timeline-item"] {
+                    margin-bottom: 60px !important;
+                    
+                    &:not(:last-child) {
+                        margin-bottom: 60px !important;
+                    }
+                    
+                    &:last-child {
+                        margin-bottom: 0 !important;
+                    }
+                }
+
+                .timeline-dot {
+                    left: 20px !important;
+                    transform: translate(-50%, -50%) !important;
+                }
+
+                .timeline-content {
+                    width: 85% !important;
+                    flex: 0 0 85% !important;
+                    padding: 20px;
+                    margin-left: auto !important;
+                    margin-right: 0 !important;
+
+                    h3 {
+                        font-size: 1.5rem !important;
+                    }
+
+                    h4 {
+                        font-size: 1.1rem !important;
+                    }
+
+                    p {
+                        font-size: 0.85rem !important;
+                    }
+
+                    // Arrow points left on mobile
+                    &::before {
+                        content: "" !important;
+                        right: 100% !important;
+                        left: auto !important;
+                        border-color: transparent var(--white-color, #fff) transparent transparent !important;
+                        border-width: 10px 10px 10px 0 !important;
+                        border-style: solid !important;
+                    }
+                }
+
+                &:nth-child(even) {
+                    flex-direction: column !important;
+                    align-items: flex-end !important;
+                }
+
+                // Ensure last item has no bottom margin in mobile view
+                &:last-child {
+                    margin-bottom: 0 !important;
+                }
+
+                .timeline-image-wrapper {
+                    width: 85% !important;
+                    flex: 0 0 85% !important;
+                    margin-left: auto !important;
+                    margin-right: 0 !important;
+                    margin-bottom: 15px;
+                }
+            }
+        }
+    }
+
+    // Editor responsive
+    .editor-styles-wrapper {
+        .timeline-wrapper {
+            > .block-editor-inner-blocks > .block-editor-block-list__layout {
+                > .wp-block,
+                > [data-type="twork/timeline-item"] {
+                    flex-direction: column !important;
+                    align-items: flex-end !important;
+
+                    .timeline-content {
+                        width: 85% !important;
+                        margin-left: auto !important;
+                        margin-right: 0 !important;
+                    }
+
+                    .timeline-image-wrapper {
+                        width: 85% !important;
+                        margin-left: auto !important;
+                        margin-right: 0 !important;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Additional breakpoint for very small mobile devices
+@media (max-width: 480px) {
+    .twork-timeline-wrapper-section {
+        .timeline-wrapper,
+        .twork-timeline-wrapper {
+            .timeline-item {
+                // Reduced spacing for very small screens to prevent cramped layout
+                margin-bottom: 40px !important;
+                
+                &:not(:last-child) {
+                    margin-bottom: 40px !important;
+                }
+
+                // CRITICAL: Override wp-block selectors with maximum specificity
+                &.wp-block-twork-timeline-item,
+                &[class*="wp-block"],
+                &[data-type="twork/timeline-item"],
+                &.wp-block[data-type="twork/timeline-item"] {
+                    margin-bottom: 40px !important;
+                    
+                    &:not(:last-child) {
+                        margin-bottom: 40px !important;
+                    }
+                    
+                    &:last-child {
+                        margin-bottom: 0 !important;
+                    }
+                }
+
+                .timeline-content {
+                    width: 90% !important;
+                    flex: 0 0 90% !important;
+                    padding: 15px !important;
+                }
+
+                .timeline-image-wrapper {
+                    width: 90% !important;
+                    flex: 0 0 90% !important;
+                    margin-bottom: 12px;
+                }
+            }
+        }
+    }
+}
+
+// === NO-JS FALLBACK ===
+// Ensure items are always visible when JavaScript is disabled
+// Progressive Enhancement: Works without JavaScript
+.no-js,
+noscript {
+    .twork-timeline-wrapper-section {
+        .timeline-item {
+            opacity: 1 !important;
+            transform: none !important;
+            transition: none !important;
+        }
+
+        .timeline-progress {
+            // Show full progress line when JS is disabled (visual fallback)
+            height: 100% !important;
+        }
+    }
+}
+
+// Reduced motion support for accessibility
+@media (prefers-reduced-motion: reduce) {
+    .twork-timeline-wrapper-section {
+        .timeline-item {
+            transition: none !important;
+            animation: none !important;
+        }
+
+        .timeline-progress {
+            transition: none !important;
+        }
+
+        &.twork-animation-ready[data-animation="true"] .timeline-item {
+            opacity: 1 !important;
+            transform: none !important;
+        }
+    }
+}
+
+// === ACCESSIBILITY ===
+.twork-timeline-wrapper-section .timeline-item:focus-visible {
+    outline: 3px solid var(--primary-orange);
+    outline-offset: 2px;
+}
+
+.twork-timeline-wrapper-section .timeline-content:focus-visible {
+    outline: 3px solid var(--primary-orange);
+    outline-offset: 2px;
+}
+
+// === PRINT STYLES ===
+@media print {
+    .twork-timeline-wrapper-section {
+        .timeline-wrapper {
+            .timeline-line,
+            .timeline-progress {
+                display: none;
+            }
+
+            .timeline-item {
+                page-break-inside: avoid;
+                break-inside: avoid;
+                box-shadow: none;
+                border: 1px solid var(--border-color);
+                margin-bottom: 30px;
+
+                .timeline-dot {
+                    display: none;
+                }
+
+                .timeline-content {
+                    box-shadow: none;
+                    border: 1px solid var(--border-color);
+
+                    &::before {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// === DARK MODE SUPPORT ===
+@media (prefers-color-scheme: dark) {
+    .twork-timeline-wrapper-section {
+        .timeline-wrapper {
+            .timeline-item {
+                .timeline-content {
+                    background: #1a1a1a;
+                    color: #e0e0e0;
+
+                    h3 {
+                        color: var(--primary-orange);
+                    }
+
+                    h4 {
+                        color: #ffffff;
+                    }
+
+                    p {
+                        color: #b0b0b0;
+                    }
+
+                    &::before {
+                        border-color: transparent transparent transparent #1a1a1a;
+                    }
+                }
+
+                &:nth-child(even) .timeline-content::before {
+                    border-color: transparent #1a1a1a transparent transparent;
+                }
+            }
+        }
+    }
+}
+
+// === UTILITY CLASSES ===
+.twork-timeline-wrapper-section .timeline-item {
+    // Border utilities
+    &.has-border {
+        .timeline-content {
+            border-width: 1px;
+            border-style: solid;
+            border-color: var(--border-color);
+        }
+    }
+
+    // Overlay utilities
+    .has-overlay {
+        position: relative;
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            transition: opacity 0.3s ease;
+        }
+    }
+}
+
+// === ANIMATION KEYFRAMES ===
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}

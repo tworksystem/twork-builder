@@ -1,0 +1,343 @@
+// Service Item Styles
+// These styles are for individual service items within the Services Grid
+
+// === EDITOR STYLES ===
+.editor-styles-wrapper {
+    .twork-service-item {
+        .service-content {
+            h3, p {
+                &[contenteditable="true"]:focus {
+                    outline: 1px dashed #2271b1;
+                    outline-offset: 2px;
+                }
+            }
+
+            .jivaka-btn {
+                pointer-events: none;
+                user-select: none;
+            }
+        }
+
+        .components-placeholder {
+            min-height: 200px;
+            border: 2px dashed #ccc;
+            border-radius: 4px;
+
+            &:hover {
+                border-color: #2271b1;
+            }
+        }
+    }
+}
+
+// === FRONTEND STYLES ===
+// Note: Main service card styles are in services-grid/style.scss
+// These are additional/override styles specific to service items
+
+.service-card {
+    // Ensure service card takes full height in grid
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    // Service Image
+    .service-image-wrapper {
+        position: relative;
+        overflow: hidden;
+
+        .service-image {
+            width: 100%;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+    }
+
+    // Service Content
+    .service-content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+
+        .service-meta {
+            display: block;
+            margin: 0 0 8px 0;
+        }
+
+        .service-title {
+            margin: 0 0 16px 0;
+            line-height: 1.3;
+        }
+
+        .service-description {
+            margin: 0 0 28px 0;
+            flex-grow: 1;
+            line-height: 1.65;
+        }
+
+        .service-button-wrapper {
+            margin-top: auto;
+        }
+
+        .service-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            cursor: pointer;
+            position: relative;
+
+            i {
+                transition: transform 0.3s ease;
+            }
+
+            // Hover effects using CSS custom properties
+            &:hover {
+                background-color: var(--hover-bg-color, inherit) !important;
+                color: var(--hover-text-color, inherit) !important;
+                border-color: var(--hover-border-color, inherit) !important;
+                transform: translateY(var(--hover-translate-y, 0px)) scale(var(--hover-scale, 1));
+                box-shadow: var(--hover-shadow, none) !important;
+
+                i {
+                    transform: translateX(2px);
+                }
+            }
+
+            &:active {
+                transform: translateY(0) scale(1);
+            }
+
+            &:focus-visible {
+                outline: 3px solid var(--primary-orange, #f48b2a);
+                outline-offset: 2px;
+            }
+        }
+    }
+
+    // Info Blocks (for info type items)
+    .info-blocks {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+
+        .info-block {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+
+            .info-icon {
+                flex-shrink: 0;
+                width: 40px;
+                height: 40px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 8px;
+                background: rgba(244, 139, 42, 0.1);
+                color: var(--primary-orange, #f48b2a);
+                font-size: 1.2rem;
+                transition: all 0.3s ease;
+
+                i {
+                    display: block;
+                }
+            }
+
+            .info-content {
+                flex: 1;
+
+                .info-title {
+                    margin: 0 0 5px 0;
+                    font-weight: 600;
+                    font-size: 1rem;
+                    line-height: 1.3;
+                }
+
+                .info-text {
+                    margin: 0;
+                    font-size: 0.9rem;
+                    line-height: 1.5;
+                }
+
+                .info-subtitle {
+                    margin: 5px 0 0 0;
+                    font-size: 0.8rem;
+                    opacity: 0.8;
+                }
+            }
+
+            &:hover {
+                .info-icon {
+                    transform: scale(1.1);
+                    background: rgba(244, 139, 42, 0.2);
+                }
+            }
+        }
+    }
+
+    // Card Style Variants
+    &.style-primary {
+        .service-button {
+            background: rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+
+            &:hover {
+                background: rgba(255, 255, 255, 0.3);
+                border-color: rgba(255, 255, 255, 0.5);
+            }
+        }
+    }
+
+    &.style-dark {
+        .service-button {
+            background: var(--primary-orange, #f48b2a);
+            color: #ffffff;
+
+            &:hover {
+                background: #e67a22;
+            }
+        }
+
+        .info-icon {
+            background: rgba(244, 139, 42, 0.2);
+        }
+    }
+
+    &.style-custom {
+        // Custom styles applied via inline styles
+    }
+
+    &.style-solid {
+        // Solid background styles applied via inline styles
+    }
+}
+
+// === RESPONSIVE STYLES ===
+@media (max-width: 768px) {
+    .service-card {
+        .service-content {
+            padding: 20px;
+
+            .service-meta {
+                font-size: 0.7rem !important;
+            }
+
+            .service-title {
+                font-size: 1.2rem !important;
+            }
+
+            .service-description {
+                font-size: 0.85rem !important;
+            }
+
+            .service-button {
+                font-size: 0.85rem !important;
+                padding: 10px 20px !important;
+            }
+        }
+
+        .info-blocks {
+            gap: 12px;
+
+            .info-block {
+                gap: 12px;
+
+                .info-icon {
+                    width: 36px;
+                    height: 36px;
+                    font-size: 1rem;
+                }
+
+                .info-content {
+                    .info-title {
+                        font-size: 0.9rem;
+                    }
+
+                    .info-text {
+                        font-size: 0.85rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// === COMPREHENSIVE BUTTON HOVER EFFECTS ===
+.service-button {
+    // Dynamic hover effects using CSS custom properties
+    &[data-hover-scale],
+    &[data-hover-translate-y] {
+        will-change: transform;
+    }
+}
+
+// === RESPONSIVE BUTTON STYLES ===
+@media (max-width: 768px) {
+    .service-button-wrapper {
+        .service-button {
+            // Use mobile-specific values from CSS custom properties
+            font-size: var(--button-font-size-mobile, inherit) !important;
+            padding-top: var(--button-padding-vertical-mobile, inherit) !important;
+            padding-bottom: var(--button-padding-vertical-mobile, inherit) !important;
+            padding-left: var(--button-padding-horizontal-mobile, inherit) !important;
+            padding-right: var(--button-padding-horizontal-mobile, inherit) !important;
+        }
+    }
+}
+
+// === ACCESSIBILITY ===
+.service-card {
+    &:focus-within {
+        outline: 2px solid var(--primary-orange, #f48b2a);
+        outline-offset: 2px;
+    }
+
+    .service-image {
+        &:focus-visible {
+            outline: 3px solid var(--primary-orange, #f48b2a);
+            outline-offset: 2px;
+        }
+    }
+}
+
+// === PRINT STYLES ===
+@media print {
+    .service-card {
+        .service-button {
+            display: none;
+        }
+
+        .info-icon {
+            print-color-adjust: exact;
+            -webkit-print-color-adjust: exact;
+        }
+    }
+}
+
+// === DARK MODE SUPPORT ===
+@media (prefers-color-scheme: dark) {
+    .service-card {
+        &:not(.style-primary):not(.style-dark) {
+            .service-button {
+                background: var(--primary-orange, #f48b2a);
+                color: #ffffff;
+
+                &:hover {
+                    background: #e67a22;
+                }
+            }
+        }
+    }
+}
+

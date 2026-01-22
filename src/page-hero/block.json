@@ -1,0 +1,169 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "twork/page-hero",
+    "title": "Twork Page Hero",
+    "category": "twork-builder",
+    "description": "Professional page hero section with background image, breadcrumb, and title with responsive settings",
+    "keywords": ["hero", "banner", "page", "header", "twork"],
+    "attributes": {
+        "backgroundImage": {
+            "type": "string",
+            "default": ""
+        },
+        "backgroundImageId": {
+            "type": "number"
+        },
+        "backgroundOverlay": {
+            "type": "boolean",
+            "default": false
+        },
+        "backgroundOverlayColor": {
+            "type": "string",
+            "default": "rgba(0, 0, 0, 0.5)"
+        },
+        "backgroundOverlayOpacity": {
+            "type": "number",
+            "default": 0.5
+        },
+        "heightDesktop": {
+            "type": "number",
+            "default": 450
+        },
+        "heightTablet": {
+            "type": "number",
+            "default": 400
+        },
+        "heightMobile": {
+            "type": "number",
+            "default": 350
+        },
+        "showBreadcrumb": {
+            "type": "boolean",
+            "default": true
+        },
+        "breadcrumbText": {
+            "type": "string",
+            "default": "Who We Are"
+        },
+        "breadcrumbColor": {
+            "type": "string",
+            "default": "#f48b2a"
+        },
+        "breadcrumbFontSize": {
+            "type": "number",
+            "default": 0.9
+        },
+        "breadcrumbFontSizeTablet": {
+            "type": "number",
+            "default": 0.85
+        },
+        "breadcrumbFontSizeMobile": {
+            "type": "number",
+            "default": 0.8
+        },
+        "breadcrumbFontWeight": {
+            "type": "number",
+            "default": 700
+        },
+        "breadcrumbBackground": {
+            "type": "string",
+            "default": "rgba(255, 255, 255, 0.1)"
+        },
+        "breadcrumbPadding": {
+            "type": "number",
+            "default": 5
+        },
+        "breadcrumbPaddingHorizontal": {
+            "type": "number",
+            "default": 15
+        },
+        "breadcrumbBorderRadius": {
+            "type": "number",
+            "default": 20
+        },
+        "titleText": {
+            "type": "string",
+            "default": "Caring for Life"
+        },
+        "titleHighlightText": {
+            "type": "string",
+            "default": "Since 2015"
+        },
+        "titleHighlightColor": {
+            "type": "string",
+            "default": "#f48b2a"
+        },
+        "titleColor": {
+            "type": "string",
+            "default": "#ffffff"
+        },
+        "titleFontSize": {
+            "type": "number",
+            "default": 4
+        },
+        "titleFontSizeTablet": {
+            "type": "number",
+            "default": 3
+        },
+        "titleFontSizeMobile": {
+            "type": "number",
+            "default": 2.5
+        },
+        "titleFontWeight": {
+            "type": "number",
+            "default": 900
+        },
+        "titleLineHeight": {
+            "type": "number",
+            "default": 1.2
+        },
+        "titleMarginBottom": {
+            "type": "number",
+            "default": 10
+        },
+        "containerMaxWidth": {
+            "type": "number",
+            "default": 1200
+        },
+        "containerPadding": {
+            "type": "number",
+            "default": 20
+        },
+        "containerPaddingTablet": {
+            "type": "number",
+            "default": 20
+        },
+        "containerPaddingMobile": {
+            "type": "number",
+            "default": 15
+        },
+        "textAlignment": {
+            "type": "string",
+            "default": "center"
+        },
+        "animationOnScroll": {
+            "type": "boolean",
+            "default": true
+        },
+        "animationType": {
+            "type": "string",
+            "default": "fadeInUp"
+        },
+        "imageOpacity": {
+            "type": "number",
+            "default": 0.5
+        },
+        "imageSaturation": {
+            "type": "number",
+            "default": 0.8
+        }
+    },
+    "supports": {
+        "html": false,
+        "anchor": true,
+        "align": ["wide", "full"]
+    },
+    "editorScript": "file:./index.js",
+    "style": "file:./style-index.css"
+}

@@ -1,0 +1,102 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork-builder/text-heading-and-content",
+	"version": "0.1.0",
+	"title": "TWork Text Heading And Content",
+	"category": "twork-builder",
+	"icon": "list-view",
+	"description": "Professional text heading and content section with responsive controls.",
+	"example": {},
+	"supports": {
+		"html": false,
+		"align": ["wide", "full"]
+	},
+	"attributes": {
+		"backgroundColor": {
+			"type": "string",
+			"default": "#f9f9f9"
+		},
+		"paddingTop": {
+			"type": "number",
+			"default": 80
+		},
+		"paddingBottom": {
+			"type": "number",
+			"default": 80
+		},
+		"containerMaxWidth": {
+			"type": "number",
+			"default": 1200
+		},
+		"containerPadding": {
+			"type": "number",
+			"default": 20
+		},
+		"sectionAlignment": {
+			"type": "string",
+			"default": "center"
+		},
+		"categoryTitle": {
+			"type": "string",
+			"default": "Range of services"
+		},
+		"categoryColor": {
+			"type": "string",
+			"default": "#f48b2a"
+		},
+		"categoryFontSize": {
+			"type": "number",
+			"default": 1.2
+		},
+		"categoryLetterSpacing": {
+			"type": "number",
+			"default": 2
+		},
+		"showCategory": {
+			"type": "boolean",
+			"default": true
+		},
+		"mainTitle": {
+			"type": "string",
+			"default": "Trusted by Singapore and the World"
+		},
+		"mainTitleColor": {
+			"type": "string",
+			"default": "#212121"
+		},
+		"mainTitleFontSize": {
+			"type": "number",
+			"default": 3
+		},
+		"mainTitleFontWeight": {
+			"type": "number",
+			"default": 900
+		},
+		"mainTitleLineHeight": {
+			"type": "number",
+			"default": 1.2
+		},
+		"description": {
+			"type": "string",
+			"default": "Our team of technical experts are here to support you across a wide range of industries. We also provide impartial consultancy and recommendations for solutions and improvement."
+		},
+		"descriptionColor": {
+			"type": "string",
+			"default": "#666666"
+		},
+		"descriptionFontSize": {
+			"type": "number",
+			"default": 1.25
+		},
+		"descriptionMaxWidth": {
+			"type": "number",
+			"default": 900
+		}
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./view.js"
+}

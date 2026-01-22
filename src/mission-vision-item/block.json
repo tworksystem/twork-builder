@@ -1,0 +1,32 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "twork/mission-vision-item",
+  "version": "1.0.0",
+  "title": "Twork Mission Vision Item",
+  "category": "twork-builder",
+  "icon": "heart",
+  "description": "Single mission / vision / values card with icon, title and text.",
+  "supports": {
+    "html": false
+  },
+  "attributes": {
+    "iconClass": {
+      "type": "string",
+      "default": "fas fa-bullseye"
+    },
+    "title": {
+      "type": "string",
+      "default": "Our Mission"
+    },
+    "description": {
+      "type": "string",
+      "default": "Describe your mission, vision or values here."
+    }
+  },
+  "textdomain": "twork-builder",
+  "editorScript": "file:./index.js",
+  "style": "file:./style-index.css",
+  "editorStyle": "file:./style-index.css"
+}
+

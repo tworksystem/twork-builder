@@ -1,0 +1,286 @@
+// Mission & Vision grid – aligned with services-grid / team-members-grid and about.html design.
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;600;700;900&display=swap");
+
+// Editor styles: make the block look like the frontend inside the editor
+// but let the dynamic block attributes control vertical spacing so we don’t
+// get a huge extra top/bottom gap in the editor, and make sure InnerBlocks
+// render in a proper horizontal grid layout.
+.twork-mv-section-editor {
+	font-family: "Roboto", sans-serif;
+	box-sizing: border-box;
+	width: 100% !important;
+	max-width: 100% !important;
+
+	.jivaka-container {
+		width: 100% !important;
+		max-width: 100% !important;
+		margin: 0 auto;
+		padding: 0 30px;
+		box-sizing: border-box;
+		// Ensure container doesn't constrain child grid
+		overflow: visible !important;
+	}
+
+	.section-header {
+		text-align: center;
+		max-width: 700px;
+		margin: 0 auto 40px;
+
+		.section-title,
+		.section-subtitle {
+			&[contenteditable="true"]:focus {
+				outline: 1px dashed #2271b1;
+				outline-offset: 2px;
+			}
+		}
+	}
+
+	.mv-grid {
+		width: 100% !important;
+		max-width: 100% !important;
+		// CSS variable is set via inline styles in edit.js
+		// It will inherit to child elements automatically
+
+		// Also target nested block editor wrappers that might add spacing
+		.block-editor-inner-blocks {
+			margin: 0 !important;
+			padding: 0 !important;
+			width: 100% !important;
+			max-width: 100% !important;
+			display: block !important;
+		}
+
+		// Gutenberg renders actual child blocks inside the block list layout element.
+		// Apply grid directly to any inner block list so items always line up horizontally,
+		// regardless of the exact wrapper structure. Use a min column width so cards
+		// don't look squashed in the editor canvas.
+		.block-editor-block-list__layout {
+			display: grid !important;
+			// Use minmax with a reasonable minimum to prevent cards from being too narrow
+			// but allow them to grow to fill available space
+			grid-template-columns: repeat(
+				var(--mv-columns-desktop, 3),
+				minmax(min(280px, 100%), 1fr)
+			) !important;
+			// Use the CSS variable set on parent .mv-grid, with fallback
+			gap: var(--mv-grid-gap, 30px) !important;
+			width: 100% !important;
+			max-width: 100% !important;
+			// Remove any default spacing that might interfere
+			margin: 0 !important;
+			padding: 0 !important;
+			// Ensure grid container can expand
+			box-sizing: border-box !important;
+
+			// Individual Mission/Vision items inside the grid
+			// Remove all default Gutenberg margins and ensure proper spacing
+			> .wp-block,
+			> [data-type="twork/mission-vision-item"],
+			> .wp-block-twork-mission-vision-item {
+				margin: 0 !important;
+				margin-top: 0 !important;
+				margin-bottom: 0 !important;
+				margin-left: 0 !important;
+				margin-right: 0 !important;
+				height: 100% !important;
+				width: 100% !important;
+				max-width: 100% !important;
+				// Remove any padding that might interfere
+				padding: 0 !important;
+				// Ensure block wrapper doesn't constrain width
+				min-width: 0 !important;
+				// Allow grid item to shrink below its content size if needed
+				overflow: hidden !important;
+				box-sizing: border-box !important;
+			}
+
+			// Ensure all direct children have no margin and can expand
+			> * {
+				margin: 0 !important;
+				width: 100% !important;
+				max-width: 100% !important;
+				min-width: 0 !important;
+				box-sizing: border-box !important;
+			}
+
+			// Target block editor wrapper divs that Gutenberg might add
+			> .block-editor-block-list__block,
+			> .block-editor-block-list__block-edit {
+				margin: 0 !important;
+				width: 100% !important;
+				max-width: 100% !important;
+			}
+		}
+	}
+
+	.mv-card {
+		min-height: 220px;
+		width: 100% !important;
+		max-width: 100% !important;
+		box-sizing: border-box !important;
+		// Ensure card can expand to fill grid cell
+		flex: 1 1 auto !important;
+	}
+}
+
+// Editor-specific responsive styles to ensure gap works at all breakpoints
+@media (max-width: 992px) {
+	.twork-mv-section-editor {
+		.mv-grid {
+			.block-editor-block-list__layout {
+				grid-template-columns: repeat(
+					var(--mv-columns-tablet, 3),
+					minmax(min(250px, 100%), 1fr)
+				) !important;
+			}
+		}
+	}
+}
+
+@media (max-width: 768px) {
+	.twork-mv-section-editor {
+		.mv-grid {
+			.block-editor-block-list__layout {
+				grid-template-columns: repeat(var(--mv-columns-mobile, 1), 1fr) !important;
+			}
+		}
+	}
+}
+
+:root {
+	--primary-orange: #f48b2a;
+	--dark-grey: #212121;
+	--medium-grey: #666666;
+	--light-grey-bg: #f9f9f9;
+	--white-color: #ffffff;
+	--border-color: #e0e0e0;
+}
+
+.twork-mv-section,
+.twork-mv-section-editor {
+	font-family: "Roboto", sans-serif;
+	background: var(--light-grey-bg);
+
+	.jivaka-container {
+		width: 100%;
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 30px;
+		box-sizing: border-box;
+	}
+
+	.mv-section-inner {
+		padding: 0;
+	}
+
+	.section-header {
+		text-align: center;
+		max-width: 700px;
+		margin: 0 auto 60px;
+
+		.section-title {
+			font-size: 2.5rem;
+			margin-bottom: 15px;
+			line-height: 1.2;
+		}
+
+		.section-subtitle {
+			color: var(--medium-grey);
+			font-size: 1.05rem;
+			margin: 0;
+		}
+	}
+
+	.mv-grid {
+		display: grid;
+		grid-template-columns: repeat(var(--mv-columns-desktop, 3), 1fr);
+		gap: var(--mv-grid-gap, 30px);
+		align-items: stretch;
+
+		// Ensure each item stretches to same height
+		> .twork-mv-item {
+			height: 100%;
+		}
+	}
+
+	.mv-card {
+		background: #fff;
+		padding: 40px 30px;
+		border-radius: 10px;
+		text-align: center;
+		transition: 0.4s;
+		border-bottom: 4px solid transparent;
+		box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+		opacity: 1;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+
+		&:hover {
+			transform: translateY(-10px);
+			border-bottom-color: var(--primary-orange);
+			box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+		}
+	}
+
+	.mv-icon {
+		width: 70px;
+		height: 70px;
+		background: rgba(244, 139, 42, 0.1);
+		color: var(--primary-orange);
+		font-size: 2rem;
+		border-radius: 50%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin: 0 auto 25px;
+		transition: 0.3s;
+
+		i {
+			line-height: 1;
+		}
+	}
+
+	.mv-card:hover .mv-icon {
+		background: var(--primary-orange);
+		color: #fff;
+	}
+
+	.mv-title {
+		margin-bottom: 15px;
+		font-size: 1.3rem;
+		color: var(--dark-grey);
+	}
+
+	.mv-text {
+		color: var(--medium-grey);
+		font-size: 0.95rem;
+		margin: 0;
+	}
+}
+
+// Responsive behaviour mirroring about.html
+@media (max-width: 992px) {
+	.twork-mv-section {
+		.jivaka-container {
+			padding: 0 20px;
+		}
+
+		.mv-grid {
+			grid-template-columns: repeat(var(--mv-columns-tablet, 3), 1fr);
+			gap: var(--mv-grid-gap, 30px);
+		}
+	}
+}
+
+@media (max-width: 768px) {
+	.twork-mv-section {
+		.mv-grid {
+			grid-template-columns: repeat(var(--mv-columns-mobile, 1), 1fr);
+			gap: 30px;
+		}
+	}
+}
+

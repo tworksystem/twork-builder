@@ -1,0 +1,43 @@
+// Styles for the inner mission / vision card block.
+// Main visual styles are shared with the mission-vision-grid block (.mv-card, .mv-icon, etc.).
+
+// Editor preview for individual cards – visually match the frontend cards
+.twork-mv-item-editor {
+	.mv-card {
+		background: #fff;
+		padding: 40px 30px;
+		border-radius: 10px;
+		text-align: center;
+		transition: 0.4s;
+		border-bottom: 4px solid transparent;
+		box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+		opacity: 1;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+	}
+
+	.mv-icon {
+		width: 70px;
+		height: 70px;
+		background: rgba(244, 139, 42, 0.1);
+		color: #f48b2a;
+		font-size: 2rem;
+		border-radius: 50%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin: 0 auto 25px;
+		transition: 0.3s;
+	}
+
+	.mv-title,
+	.mv-text {
+		&[contenteditable="true"]:focus {
+			outline: 1px dashed #2271b1;
+			outline-offset: 2px;
+		}
+	}
+}
+

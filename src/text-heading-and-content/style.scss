@@ -1,0 +1,151 @@
+/* ============================================
+   TEXT HEADING AND CONTENT STYLES
+   Professional text section with category, title and description
+   ============================================ */
+
+// Jivaka Theme Colors
+:root {
+	--primary-orange: #f48b2a;
+	--dark-grey: #212121;
+	--medium-grey: #666666;
+	--light-grey-bg: #f9f9f9;
+	--white-color: #ffffff;
+	--border-color: #e0e0e0;
+}
+
+// Use same font as other Jivaka blocks (Roboto)
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;600;700;900&display=swap");
+
+.wp-block-twork-text-heading-and-content {
+	width: 100%;
+	max-width: 100%;
+	box-sizing: border-box;
+	font-family: "Roboto", sans-serif;
+
+	.service-blue-text-wrapper {
+		width: 100%;
+		padding: 80px 0;
+		text-align: center;
+		box-sizing: border-box;
+		font-family: "Roboto", sans-serif;
+	}
+
+	.service-blue-text-wrapper.career-text {
+		background: var(--light-grey-bg);
+	}
+
+	.service-blue-text-wrapper .uk-container {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 20px;
+		box-sizing: border-box;
+	}
+}
+
+.category-title {
+	font-size: 1.2rem;
+	font-weight: 600;
+	color: var(--primary-orange);
+	font-family: "Roboto", sans-serif;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	margin-bottom: 15px;
+	display: block;
+}
+
+.main-title {
+	font-size: 3rem;
+	font-weight: 900;
+	line-height: 1.2;
+	color: var(--dark-grey);
+	font-family: "Roboto", sans-serif;
+	margin-bottom: 20px;
+
+	h1, h2, h3, h4, h5, h6 {
+		margin: 0 0 20px 0;
+		color: inherit;
+	}
+}
+
+.desc-title {
+	font-size: 1.25rem;
+	line-height: 1.8;
+	color: var(--medium-grey);
+	font-family: "Roboto", sans-serif;
+	margin-top: 20px;
+	max-width: 900px;
+	margin-left: auto;
+	margin-right: auto;
+
+	p {
+		margin: 0 0 15px 0;
+		color: inherit;
+	}
+}
+
+/* Full width support */
+.wp-block-twork-text-heading-and-content.alignfull,
+.wp-block-twork-text-heading-and-content.alignwide {
+	width: 100% !important;
+	max-width: 100% !important;
+}
+
+.wp-block-twork-text-heading-and-content.alignfull {
+	width: 100vw !important;
+	max-width: 100vw !important;
+}
+
+/* Responsive Design */
+@media only screen and (max-width: 1200px) {
+	.main-title {
+		font-size: 2.5rem;
+	}
+
+	.desc-title {
+		font-size: 1.1rem;
+	}
+}
+
+@media only screen and (max-width: 768px) {
+	.service-blue-text-wrapper {
+		padding: 60px 0;
+	}
+
+	.service-blue-text-wrapper .uk-container {
+		padding: 0 15px;
+	}
+
+	.category-title {
+		font-size: 1rem;
+		margin-bottom: 12px;
+	}
+
+	.main-title {
+		font-size: 2rem;
+		margin-bottom: 15px;
+	}
+
+	.desc-title {
+		font-size: 1rem;
+		line-height: 1.6;
+		margin-top: 15px;
+	}
+}
+
+@media only screen and (max-width: 480px) {
+	.service-blue-text-wrapper {
+		padding: 40px 0;
+	}
+
+	.category-title {
+		font-size: 0.9rem;
+	}
+
+	.main-title {
+		font-size: 1.6rem;
+	}
+
+	.desc-title {
+		font-size: 0.95rem;
+	}
+}

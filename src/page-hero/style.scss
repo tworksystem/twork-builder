@@ -1,0 +1,280 @@
+// Google Fonts
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
+
+// Variables
+:root {
+    --primary-orange: #f48b2a;
+    --dark-grey: #212121;
+    --medium-grey: #666;
+    --white-color: #ffffff;
+}
+
+// === EDITOR STYLES ===
+.editor-styles-wrapper,
+.block-editor-block-list__layout,
+.wp-block-twork-page-hero {
+    .twork-page-hero-editor {
+        position: relative;
+        min-height: 300px;
+
+        .hero-bg-wrapper {
+            pointer-events: none;
+        }
+
+        .background-overlay {
+            pointer-events: none;
+        }
+
+        .hero-container {
+            .hero-breadcrumb {
+                &[contenteditable="true"]:focus {
+                    outline: 1px dashed #2271b1;
+                    outline-offset: 2px;
+                }
+            }
+
+            .hero-title {
+                &[contenteditable="true"]:focus {
+                    outline: 1px dashed #2271b1;
+                    outline-offset: 2px;
+                }
+
+                .hero-title-main,
+                .hero-title-highlight {
+                    display: block;
+                }
+            }
+        }
+    }
+}
+
+// === FRONTEND STYLES ===
+.page-hero {
+    font-family: "Roboto", sans-serif;
+    position: relative;
+    height: 450px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background: #000;
+    color: #fff;
+
+    // Dynamic height from CSS variables
+    height: var(--hero-height-desktop, 450px);
+
+    .hero-bg-wrapper {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 120%;
+        z-index: 1;
+        pointer-events: none;
+    }
+
+    .hero-bg-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .background-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+        pointer-events: none;
+    }
+
+    .hero-container {
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+        text-align: center;
+
+        // Dynamic padding from CSS variables
+        padding-left: var(--container-padding-desktop, 20px);
+        padding-right: var(--container-padding-desktop, 20px);
+
+        .hero-breadcrumb {
+            font-size: var(--breadcrumb-font-size-desktop, 0.9rem);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+            display: inline-block;
+            margin-bottom: 15px;
+            backdrop-filter: blur(5px);
+        }
+
+        .hero-title {
+            font-size: var(--title-font-size-desktop, clamp(2.5rem, 6vw, 4rem));
+            font-weight: 900;
+            margin: 0 0 10px 0;
+            line-height: 1.2;
+
+            .hero-title-main,
+            .hero-title-highlight {
+                display: block;
+            }
+        }
+    }
+
+    // Animation classes
+    &[data-animation="true"] {
+        .hero-container {
+            &.animate-hero {
+                > * {
+                    animation-fill-mode: both;
+                }
+            }
+        }
+    }
+}
+
+// === RESPONSIVE STYLES ===
+
+// Tablet (768px - 992px)
+@media (max-width: 992px) {
+    .page-hero {
+        height: var(--hero-height-tablet, 400px);
+
+        .hero-container {
+            padding-left: var(--container-padding-tablet, 20px);
+            padding-right: var(--container-padding-tablet, 20px);
+
+            .hero-breadcrumb {
+                font-size: var(--breadcrumb-font-size-tablet, 0.85rem);
+            }
+
+            .hero-title {
+                font-size: var(--title-font-size-tablet, clamp(2rem, 5vw, 3rem));
+            }
+        }
+    }
+}
+
+// Mobile (< 768px)
+@media (max-width: 768px) {
+    .page-hero {
+        height: var(--hero-height-mobile, 350px);
+
+        .hero-container {
+            padding-left: var(--container-padding-mobile, 15px);
+            padding-right: var(--container-padding-mobile, 15px);
+
+            .hero-breadcrumb {
+                font-size: var(--breadcrumb-font-size-mobile, 0.8rem);
+            }
+
+            .hero-title {
+                font-size: var(--title-font-size-mobile, clamp(1.8rem, 4vw, 2.5rem));
+            }
+        }
+    }
+}
+
+// === ANIMATION STYLES ===
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.page-hero[data-animation="true"] {
+    .hero-container.animate-hero {
+        > * {
+            animation-duration: 1s;
+            animation-timing-function: ease-out;
+        }
+
+        > *:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        > *:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+    }
+
+    &[data-animation-type="fadeInUp"] {
+        .hero-container.animate-hero > * {
+            animation-name: fadeInUp;
+        }
+    }
+
+    &[data-animation-type="fadeIn"] {
+        .hero-container.animate-hero > * {
+            animation-name: fadeIn;
+        }
+    }
+
+    &[data-animation-type="slideInLeft"] {
+        .hero-container.animate-hero > * {
+            animation-name: slideInLeft;
+        }
+    }
+
+    &[data-animation-type="slideInRight"] {
+        .hero-container.animate-hero > * {
+            animation-name: slideInRight;
+        }
+    }
+
+    &[data-animation-type="zoomIn"] {
+        .hero-container.animate-hero > * {
+            animation-name: zoomIn;
+        }
+    }
+}

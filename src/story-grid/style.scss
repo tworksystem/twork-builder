@@ -1,0 +1,626 @@
+// Google Fonts
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;600;700;900&display=swap");
+
+// Variables
+:root {
+    --primary-orange: #f48b2a;
+    --dark-grey: #212121;
+    --medium-grey: #666;
+    --light-grey-bg: #f9f9f9;
+    --white-color: #ffffff;
+    --border-color: #e0e0e0;
+}
+
+// === EDITOR STYLES ===
+// Global block appender styling for story-grid block - Small and in corner
+.editor-styles-wrapper .wp-block-twork-story-grid ~ .block-list-appender,
+.block-editor-block-list__layout .wp-block-twork-story-grid ~ .block-list-appender,
+.block-editor-block-list__block[data-type="twork/story-grid"] ~ .block-list-appender,
+.block-editor-block-list__block[data-type="twork/story-grid"] + .block-list-appender,
+.wp-block-twork-story-grid + .block-list-appender,
+[data-type="twork/story-grid"] + .block-list-appender,
+[data-type="twork/story-grid"] ~ .block-list-appender {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: fixed !important;
+    bottom: 20px !important;
+    right: 20px !important;
+    left: auto !important;
+    top: auto !important;
+    width: 32px !important;
+    height: 32px !important;
+    min-width: 32px !important;
+    min-height: 32px !important;
+    max-width: 32px !important;
+    max-height: 32px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    z-index: 10000 !important;
+    pointer-events: auto !important;
+    transform: none !important;
+    border: none !important;
+    background: transparent !important;
+    
+    > *,
+    button,
+    .components-button,
+    .block-editor-button-block-appender,
+    .block-editor-inserter__toggle {
+        width: 32px !important;
+        height: 32px !important;
+        min-width: 32px !important;
+        min-height: 32px !important;
+        max-width: 32px !important;
+        max-height: 32px !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        border-radius: 50% !important;
+        background-color: #2271b1 !important;
+        color: #ffffff !important;
+        border: 2px solid #ffffff !important;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        cursor: pointer !important;
+        transition: all 0.2s ease !important;
+        font-size: 18px !important;
+        line-height: 1 !important;
+        position: relative !important;
+        
+        &:hover {
+            background-color: #005177 !important;
+            transform: scale(1.1) !important;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25) !important;
+        }
+        
+        svg,
+        .block-editor-block-icon,
+        .dashicons,
+        &::before {
+            width: 18px !important;
+            height: 18px !important;
+            font-size: 18px !important;
+            line-height: 1 !important;
+            margin: 0 !important;
+        }
+    }
+}
+
+.editor-styles-wrapper,
+.block-editor-block-list__layout,
+.wp-block-twork-story-grid {
+    .twork-story-grid-editor {
+        position: relative !important; // CRITICAL: Must be relative for absolute child positioning
+        min-height: 400px;
+        // Ensure CSS variables are available in editor
+        --story-grid-gap: 60px;
+        --story-grid-gap-tablet: 40px;
+        --story-grid-gap-mobile: 30px;
+
+        .background-overlay {
+            pointer-events: none;
+        }
+
+        .section-header {
+            margin-bottom: 50px;
+
+            h2, p {
+                &[contenteditable="true"]:focus {
+                    outline: 1px dashed #2271b1;
+                    outline-offset: 2px;
+                }
+            }
+        }
+
+        .twork-story-grid-container {
+            display: grid !important;
+            grid-template-columns: 1fr !important;
+            gap: var(--story-grid-gap, 60px) !important;
+            width: 100% !important;
+            position: relative !important; // CRITICAL: Must be relative for absolute child positioning
+            
+            // Style block appender to be small and in right bottom corner
+            .block-list-appender,
+            .block-editor-block-list__layout .block-list-appender,
+            .block-editor-block-list__layout > .block-list-appender,
+            [data-block-list-appender],
+            * > .block-list-appender,
+            * .block-list-appender {
+                display: block !important;
+                visibility: visible !important;
+                opacity: 1 !important;
+                position: absolute !important;
+                bottom: 16px !important;
+                right: 16px !important;
+                left: auto !important;
+                top: auto !important;
+                width: 32px !important;
+                height: 32px !important;
+                min-width: 32px !important;
+                min-height: 32px !important;
+                max-width: 32px !important;
+                max-height: 32px !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                z-index: 1000 !important;
+                pointer-events: auto !important;
+                overflow: visible !important;
+                transform: none !important;
+                border: none !important;
+                background: transparent !important;
+                box-shadow: none !important;
+                
+                // Style the button inside
+                > button,
+                button,
+                .block-editor-inserter__toggle,
+                .block-editor-button-block-appender,
+                .components-button {
+                    width: 32px !important;
+                    height: 32px !important;
+                    min-width: 32px !important;
+                    min-height: 32px !important;
+                    max-width: 32px !important;
+                    max-height: 32px !important;
+                    padding: 0 !important;
+                    margin: 0 !important;
+                    border-radius: 50% !important;
+                    background-color: #2271b1 !important;
+                    color: #ffffff !important;
+                    border: 2px solid #ffffff !important;
+                    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+                    display: flex !important;
+                    align-items: center !important;
+                    justify-content: center !important;
+                    cursor: pointer !important;
+                    transition: all 0.2s ease !important;
+                    font-size: 18px !important;
+                    line-height: 1 !important;
+                    position: relative !important;
+                    
+                    &:hover {
+                        background-color: #005177 !important;
+                        transform: scale(1.1) !important;
+                        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25) !important;
+                    }
+                    
+                    &:focus {
+                        outline: 2px solid #2271b1 !important;
+                        outline-offset: 2px !important;
+                    }
+                    
+                    // Style the + icon
+                    &::before,
+                    &::after,
+                    svg,
+                    .block-editor-block-icon,
+                    .dashicons,
+                    .dashicons-plus {
+                        width: 18px !important;
+                        height: 18px !important;
+                        font-size: 18px !important;
+                        line-height: 1 !important;
+                        margin: 0 !important;
+                        padding: 0 !important;
+                    }
+                    
+                    // Ensure text content is centered
+                    span,
+                    .block-editor-block-icon__svg {
+                        width: 18px !important;
+                        height: 18px !important;
+                        font-size: 18px !important;
+                        line-height: 1 !important;
+                        margin: 0 !important;
+                        padding: 0 !important;
+                    }
+                }
+            }
+
+            // Make InnerBlocks transparent to the grid
+            > .block-editor-inner-blocks {
+                display: contents !important;
+                width: 100% !important;
+
+                > .block-editor-block-list__layout {
+                    display: contents !important;
+                    width: 100% !important;
+
+                    // Style individual story items in the editor
+                    > .wp-block,
+                    > [data-type="twork/story-item"],
+                    > .wp-block-twork-story-item {
+                        grid-column: 1 / -1 !important;
+                        display: flex !important;
+                        flex-direction: row !important;
+                        gap: var(--story-grid-gap, 60px) !important;
+                        align-items: center !important;
+                        transition: all 0.3s ease;
+                        min-height: 300px;
+                        border: 2px dashed #e0e0e0;
+                        border-radius: 8px;
+                        padding: 20px;
+                        background: #fafafa;
+                        width: 100% !important;
+                        box-sizing: border-box;
+                        margin: 0 !important;
+
+                        &:hover {
+                            border-color: #2271b1;
+                            background: #fff;
+                            box-shadow: 0 4px 12px rgba(34, 113, 177, 0.1);
+                        }
+
+                        &.is-selected {
+                            border-color: #2271b1;
+                            background: #fff;
+                            box-shadow: 0 0 0 1px #2271b1;
+                        }
+
+                        // Layout variants in editor - match frontend class names
+                        &.layout-content-left,
+                        &[class*="layout-content-left"] {
+                            flex-direction: row !important;
+
+                            .story-content {
+                                order: 1;
+                            }
+
+                            .story-img-wrapper {
+                                order: 2;
+                            }
+                        }
+
+                        &.layout-content-right,
+                        &[class*="layout-content-right"] {
+                            flex-direction: row-reverse !important;
+
+                            .story-content {
+                                order: 2;
+                            }
+
+                            .story-img-wrapper {
+                                order: 1;
+                            }
+                        }
+
+                        // Ensure inner content displays properly
+                        .story-content,
+                        .story-img-wrapper,
+                        > div > .story-content,
+                        > div > .story-img-wrapper {
+                            flex: 1 !important;
+                            min-width: 0;
+                        }
+
+                        .story-content,
+                        > div > .story-content {
+                            display: flex !important;
+                            flex-direction: column !important;
+                        }
+
+                        .story-img-wrapper,
+                        > div > .story-img-wrapper {
+                            position: relative;
+                            overflow: hidden;
+                            border-radius: 10px;
+
+                            img {
+                                width: 100%;
+                                height: auto;
+                                display: block;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// === FRONTEND STYLES ===
+.twork-story-section {
+    font-family: "Roboto", sans-serif;
+    position: relative;
+    overflow: hidden;
+    // Ensure CSS variables are available with defaults
+    --story-grid-gap: 60px;
+    --story-grid-gap-tablet: 40px;
+    --story-grid-gap-mobile: 30px;
+
+    .background-overlay {
+        pointer-events: none;
+    }
+
+    .jivaka-container.story-grid {
+        position: relative;
+        z-index: 2;
+        display: grid;
+        grid-template-columns: 1fr; // Single column - each story item spans full width
+        gap: var(--story-grid-gap, 60px);
+        align-items: center;
+
+        .section-header {
+            grid-column: 1 / -1;
+            margin-bottom: 50px;
+
+            .section-title {
+                margin: 0 0 10px 0;
+                line-height: 1.2;
+            }
+
+            .section-subtitle {
+                margin: 0;
+                line-height: 1.6;
+            }
+        }
+
+        // Story items inside the grid - each spans full width
+        .story-item {
+            grid-column: 1 / -1;
+            width: 100%;
+        }
+    }
+
+    // Story Item Styles - Each story item spans full grid width and contains content + image side by side
+    .story-item {
+        grid-column: 1 / -1; // Span full width of grid
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        gap: var(--story-grid-gap, 60px);
+        align-items: center;
+        box-sizing: border-box;
+        position: relative;
+
+        // Layout variants - match class names from save.js
+        &.layout-content-left {
+            flex-direction: row;
+
+            .story-content {
+                order: 1;
+            }
+
+            .story-img-wrapper {
+                order: 2;
+            }
+        }
+
+        &.layout-content-right {
+            flex-direction: row-reverse;
+
+            .story-content {
+                order: 2;
+            }
+
+            .story-img-wrapper {
+                order: 1;
+            }
+        }
+
+        // Ensure content and image take equal space
+        .story-content,
+        .story-img-wrapper {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .story-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .story-img-wrapper {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+
+            img {
+                width: 100%;
+                height: auto;
+                display: block;
+            }
+        }
+    }
+
+    // Pure CSS Scroll Animations (No GSAP)
+    &[data-animation="true"] {
+        .story-item {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            transition-delay: var(--animation-delay, 0ms);
+            will-change: opacity, transform;
+
+            &.is-visible {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            // Animation type variants
+            &.animate-fadeInUp {
+                transform: translateY(30px);
+                &.is-visible {
+                    transform: translateY(0);
+                }
+            }
+
+            &.animate-fadeIn {
+                transform: translateY(0);
+                &.is-visible {
+                    transform: translateY(0);
+                }
+            }
+
+            &.animate-slideInLeft {
+                transform: translateX(-50px);
+                &.is-visible {
+                    transform: translateX(0);
+                }
+            }
+
+            &.animate-slideInRight {
+                transform: translateX(50px);
+                &.is-visible {
+                    transform: translateX(0);
+                }
+            }
+
+            &.animate-zoomIn {
+                transform: scale(0.9);
+                &.is-visible {
+                    transform: scale(1);
+                }
+            }
+        }
+    }
+
+    // Default: Items are visible (no animation)
+    &:not([data-animation="true"]) .story-item {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+}
+
+// === RESPONSIVE STYLES ===
+@media (max-width: 992px) {
+    .twork-story-section {
+        .jivaka-container.story-grid {
+            gap: var(--story-grid-gap-tablet, 40px) !important;
+        }
+
+        .story-item {
+            gap: var(--story-grid-gap-tablet, 40px) !important;
+        }
+    }
+
+    // Editor responsive
+    .editor-styles-wrapper,
+    .block-editor-block-list__layout {
+        .twork-story-grid-container {
+            gap: var(--story-grid-gap-tablet, 40px) !important;
+
+            > .block-editor-inner-blocks {
+                > .block-editor-block-list__layout {
+                    > .wp-block,
+                    > [data-type="twork/story-item"],
+                    > .wp-block-twork-story-item {
+                        gap: var(--story-grid-gap-tablet, 40px) !important;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .twork-story-section {
+        padding: 60px 0;
+
+        .jivaka-container.story-grid {
+            grid-template-columns: 1fr !important;
+            gap: var(--story-grid-gap-mobile, 30px) !important;
+
+            .section-header {
+                margin-bottom: 40px;
+
+                .section-title {
+                    font-size: 2rem !important;
+                }
+
+                .section-subtitle {
+                    font-size: 1rem !important;
+                }
+            }
+
+            // Ensure story items stack properly on mobile
+            .story-item {
+                flex-direction: column !important;
+                gap: var(--story-grid-gap-mobile, 30px) !important;
+
+                &.layout-content-left,
+                &.layout-content-right {
+                    flex-direction: column !important;
+
+                    .story-content {
+                        order: 1 !important;
+                        width: 100% !important;
+                    }
+
+                    .story-img-wrapper {
+                        order: 2 !important;
+                        width: 100% !important;
+                    }
+                }
+            }
+        }
+    }
+
+    // Editor responsive
+    .editor-styles-wrapper {
+        .twork-story-grid-container {
+            grid-template-columns: 1fr !important;
+            gap: var(--story-grid-gap-mobile, 30px) !important;
+
+            > .block-editor-inner-blocks {
+                > .block-editor-block-list__layout {
+                    > .wp-block,
+                    > [data-type="twork/story-item"],
+                    > .wp-block-twork-story-item {
+                        flex-direction: column !important;
+                        gap: var(--story-grid-gap-mobile, 30px) !important;
+
+                        .story-content,
+                        .story-img-wrapper {
+                            width: 100% !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// === NO-JS FALLBACK ===
+// Ensure items are always visible when JavaScript is disabled
+.no-js,
+noscript {
+    .twork-story-section {
+        .story-item {
+            opacity: 1 !important;
+            transform: none !important;
+        }
+    }
+}
+
+// === ACCESSIBILITY ===
+.story-item {
+    &:focus-visible {
+        outline: 3px solid var(--primary-orange);
+        outline-offset: 2px;
+    }
+}
+
+// === PRINT STYLES ===
+@media print {
+    .twork-story-section {
+        .story-item {
+            page-break-inside: avoid;
+            break-inside: avoid;
+        }
+    }
+}
+
+// === DARK MODE SUPPORT ===
+@media (prefers-color-scheme: dark) {
+    .twork-story-section {
+        .story-item {
+            .story-content {
+                color: #e0e0e0;
+            }
+        }
+    }
+}

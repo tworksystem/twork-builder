@@ -1,0 +1,327 @@
+// Google Fonts
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;600;700;900&display=swap");
+
+// Variables
+:root {
+    --primary-orange: #f48b2a;
+    --dark-grey: #212121;
+    --medium-grey: #666;
+    --light-grey-bg: #f9f9f9;
+    --white-color: #ffffff;
+    --border-color: #e0e0e0;
+}
+
+// === EDITOR STYLES ===
+.editor-styles-wrapper,
+.block-editor-block-list__layout,
+.wp-block-twork-container {
+    .twork-container-editor {
+        position: relative;
+        min-height: 200px;
+        box-sizing: border-box;
+
+        .background-overlay {
+            pointer-events: none;
+        }
+
+        .editor-label {
+            user-select: none;
+            pointer-events: none;
+        }
+
+        .twork-container {
+            position: relative;
+            z-index: 2;
+            box-sizing: border-box;
+
+            // Ensure InnerBlocks are properly styled
+            > .block-editor-inner-blocks {
+                width: 100%;
+
+                > .block-editor-block-list__layout {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+
+// === FRONTEND STYLES ===
+.twork-container-section {
+    font-family: "Roboto", sans-serif;
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+
+    // Ensure proper box-sizing for all children
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
+
+    .background-overlay {
+        pointer-events: none;
+    }
+
+    .twork-container {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        box-sizing: border-box;
+
+        // Ensure content inside is properly contained
+        > * {
+            max-width: 100%;
+        }
+    }
+
+    // Scroll Animations
+    &[data-animation="true"] {
+        .animate-on-scroll {
+            opacity: 0;
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            will-change: opacity, transform;
+
+            &.is-visible {
+                opacity: 1;
+            }
+        }
+
+        // Animation types
+        &[data-animation-type="fadeInUp"] {
+            .animate-on-scroll {
+                transform: translateY(30px);
+            }
+
+            .animate-on-scroll.is-visible {
+                transform: translateY(0);
+            }
+        }
+
+        &[data-animation-type="fadeIn"] {
+            .animate-on-scroll {
+                transform: none;
+            }
+
+            .animate-on-scroll.is-visible {
+                transform: none;
+            }
+        }
+
+        &[data-animation-type="slideInLeft"] {
+            .animate-on-scroll {
+                transform: translateX(-50px);
+            }
+
+            .animate-on-scroll.is-visible {
+                transform: translateX(0);
+            }
+        }
+
+        &[data-animation-type="slideInRight"] {
+            .animate-on-scroll {
+                transform: translateX(50px);
+            }
+
+            .animate-on-scroll.is-visible {
+                transform: translateX(0);
+            }
+        }
+
+        &[data-animation-type="zoomIn"] {
+            .animate-on-scroll {
+                transform: scale(0.8);
+            }
+
+            .animate-on-scroll.is-visible {
+                transform: scale(1);
+            }
+        }
+    }
+
+    // Default: Content is visible (no animation)
+    &:not([data-animation="true"]) {
+        .animate-on-scroll {
+            opacity: 1 !important;
+            transform: none !important;
+        }
+    }
+}
+
+// === RESPONSIVE STYLES ===
+@media (max-width: 992px) {
+    .twork-container-section {
+        .twork-container {
+            // Adjust container padding on tablet
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+    }
+
+    // Editor responsive
+    .editor-styles-wrapper {
+        .twork-container-editor {
+            .twork-container {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .twork-container-section {
+        // Reduce padding on mobile
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+
+        .twork-container {
+            padding-left: 15px !important;
+            padding-right: 15px !important;
+        }
+    }
+
+    // Editor responsive
+    .editor-styles-wrapper {
+        .twork-container-editor {
+            padding-left: 15px !important;
+            padding-right: 15px !important;
+
+            .twork-container {
+                padding-left: 15px !important;
+                padding-right: 15px !important;
+            }
+        }
+    }
+}
+
+// === NO-JS FALLBACK ===
+// Ensure content is always visible when JavaScript is disabled
+.no-js,
+noscript {
+    .twork-container-section {
+        .animate-on-scroll {
+            opacity: 1 !important;
+            transform: none !important;
+        }
+    }
+}
+
+// === ACCESSIBILITY ===
+.twork-container-section {
+    // Focus styles for interactive elements
+    &:focus-visible {
+        outline: 3px solid var(--primary-orange);
+        outline-offset: 2px;
+    }
+
+    // Ensure proper contrast
+    a,
+    button {
+        &:focus-visible {
+            outline: 3px solid var(--primary-orange);
+            outline-offset: 2px;
+        }
+    }
+}
+
+// === PRINT STYLES ===
+@media print {
+    .twork-container-section {
+        // Remove background images and overlays for print
+        background-image: none !important;
+        background-color: #ffffff !important;
+
+        .background-overlay {
+            display: none;
+        }
+
+        // Remove shadows for print
+        box-shadow: none !important;
+
+        // Ensure proper page breaks
+        page-break-inside: avoid;
+        break-inside: avoid;
+
+        .twork-container {
+            max-width: 100% !important;
+            padding: 0 !important;
+        }
+    }
+}
+
+// === DARK MODE SUPPORT ===
+@media (prefers-color-scheme: dark) {
+    .twork-container-section {
+        // Only apply dark mode if no explicit background is set
+        &:not([style*="background-color"]):not([style*="background-image"]) {
+            background-color: #1a1a1a;
+            color: #e0e0e0;
+
+            .twork-container {
+                color: #e0e0e0;
+            }
+        }
+    }
+}
+
+// === UTILITY CLASSES ===
+.twork-container-section {
+    // Full width utility
+    &.is-full-width {
+        .twork-container {
+            max-width: 100% !important;
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+        }
+    }
+
+    // Centered content utility
+    &.is-centered {
+        .twork-container {
+            text-align: center;
+        }
+    }
+
+    // No padding utility
+    &.has-no-padding {
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+}
+
+// === PERFORMANCE OPTIMIZATIONS ===
+.twork-container-section {
+    // Use GPU acceleration for transforms
+    &[data-animation="true"] {
+        will-change: transform, opacity;
+    }
+
+    // Optimize background images
+    &[style*="background-image"] {
+        background-attachment: scroll; // Better performance than fixed
+    }
+}
+
+// === BROWSER COMPATIBILITY ===
+// Ensure proper rendering in older browsers
+.twork-container-section {
+    // Fallback for browsers that don't support CSS Grid
+    display: block;
+
+    .twork-container {
+        display: block;
+    }
+}
+
+// === CLEARFIX UTILITY ===
+.twork-container-section {
+    &::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}

@@ -1,0 +1,179 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "twork/services-grid",
+    "version": "1.0.0",
+    "title": "Twork Services Grid",
+    "category": "twork-builder",
+    "icon": "grid-view",
+    "description": "A professional services grid container with customizable layout and styling options.",
+    "supports": {
+        "html": false,
+        "align": ["full", "wide"]
+    },
+    "attributes": {
+        "backgroundColor": {
+            "type": "string",
+            "default": "#f9f9f9"
+        },
+        "paddingTop": {
+            "type": "number",
+            "default": 80
+        },
+        "paddingBottom": {
+            "type": "number",
+            "default": 80
+        },
+        "columns": {
+            "type": "number",
+            "default": 4
+        },
+        "columnsMobile": {
+            "type": "number",
+            "default": 1
+        },
+        "columnsTablet": {
+            "type": "number",
+            "default": 2
+        },
+        "gap": {
+            "type": "number",
+            "default": 0
+        },
+        "borderRadius": {
+            "type": "number",
+            "default": 12
+        },
+        "boxShadow": {
+            "type": "boolean",
+            "default": true
+        },
+        "boxShadowColor": {
+            "type": "string",
+            "default": "rgba(0, 0, 0, 0.08)"
+        },
+        "boxShadowBlur": {
+            "type": "number",
+            "default": 32
+        },
+        "boxShadowSpread": {
+            "type": "number",
+            "default": 0
+        },
+        "boxShadowOffsetX": {
+            "type": "number",
+            "default": 0
+        },
+        "boxShadowOffsetY": {
+            "type": "number",
+            "default": 8
+        },
+        "hoverEffect": {
+            "type": "boolean",
+            "default": true
+        },
+        "hoverTranslateY": {
+            "type": "number",
+            "default": -4
+        },
+        "hoverScale": {
+            "type": "number",
+            "default": 1
+        },
+        "animationOnScroll": {
+            "type": "boolean",
+            "default": true
+        },
+        "animationDelay": {
+            "type": "number",
+            "default": 100
+        },
+        "containerMaxWidth": {
+            "type": "number",
+            "default": 1200
+        },
+        "containerPadding": {
+            "type": "number",
+            "default": 30
+        },
+        "showSectionTitle": {
+            "type": "boolean",
+            "default": true
+        },
+        "sectionTitle": {
+            "type": "string",
+            "default": "Our Services"
+        },
+        "sectionTitleColor": {
+            "type": "string",
+            "default": "#212121"
+        },
+        "sectionTitleFontSize": {
+            "type": "number",
+            "default": 2.5
+        },
+        "sectionTitleFontWeight": {
+            "type": "number",
+            "default": 700
+        },
+        "sectionTitleAlignment": {
+            "type": "string",
+            "default": "center"
+        },
+        "sectionTitleMarginBottom": {
+            "type": "number",
+            "default": 10
+        },
+        "showSectionSubtitle": {
+            "type": "boolean",
+            "default": true
+        },
+        "sectionSubtitle": {
+            "type": "string",
+            "default": "Professional healthcare services for your wellbeing"
+        },
+        "sectionSubtitleColor": {
+            "type": "string",
+            "default": "#666666"
+        },
+        "sectionSubtitleFontSize": {
+            "type": "number",
+            "default": 1.1
+        },
+        "sectionSubtitleFontWeight": {
+            "type": "number",
+            "default": 400
+        },
+        "sectionSubtitleMarginBottom": {
+            "type": "number",
+            "default": 50
+        },
+        "backgroundImage": {
+            "type": "string",
+            "default": ""
+        },
+        "backgroundImageId": {
+            "type": "number"
+        },
+        "backgroundOverlay": {
+            "type": "boolean",
+            "default": false
+        },
+        "backgroundOverlayColor": {
+            "type": "string",
+            "default": "rgba(0, 0, 0, 0.5)"
+        },
+        "backgroundOverlayOpacity": {
+            "type": "number",
+            "default": 0.5
+        },
+        "animationType": {
+            "type": "string",
+            "default": "fadeInUp"
+        }
+    },
+    "textdomain": "twork-builder",
+    "editorScript": "file:./index.js",
+    "style": "file:./style-index.css"
+}
+
