@@ -1,0 +1,1217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us | Jivaka Hospital</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <style>
+/* =========================================
+   1. CORE VARIABLES & GLOBAL RESET
+   ========================================= */
+:root {
+    /* Color Palette */
+    --primary-orange: #f48b2a;
+    --brand-orange: #f48b2a;
+    --brand-orange-hover: #e67a22;
+    --dark-grey: #212121;
+    --medium-grey: #666;
+    --light-grey-bg: #f9f9f9;
+    --white-color: #ffffff;
+    --white: #ffffff; /* Alias */
+    --border-color: #e0e0e0;
+    --border: #e0e0e0; /* Alias */
+
+    /* Shadows */
+    --shadow-sm: 0 5px 15px rgba(0, 0, 0, 0.05);
+    --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.1);
+}
+
+/* WordPress Specific Fixes */
+:root :where(.is-layout-flow) > *,
+:where(.wp-site-blocks) > * {
+    margin-block-start: 0 !important;
+    margin-top: 0 !important;
+}
+
+html {
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto", sans-serif;
+    color: var(--dark-grey);
+    line-height: 1.6;
+    background: var(--white-color);
+    overflow-x: hidden;
+    width: 100%;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+ul {
+    list-style: none !important;
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: 0.3s;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* Common Container Styles (Combining both definitions) */
+.jivaka-header-container,
+.jivaka-container,
+.jivaka-inner-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 30px;
+    position: relative;
+    box-sizing: border-box;
+}
+
+/* Utility Classes */
+.full-width { width: 100%; text-align: center; margin-bottom: 20px; }
+.fade-up { opacity: 1; transform: translateY(0); }
+
+/* Buttons */
+.jivaka-btn {
+    display: inline-block;
+    padding: 12px 28px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: opacity 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.jivaka-btn-primary {
+    background-color: var(--brand-orange);
+    color: var(--white-color) !important;
+}
+
+.jivaka-btn-primary:hover {
+    opacity: 0.9;
+    background-color: var(--brand-orange-hover);
+}
+
+/* =========================================
+   2. HEADER & NAVIGATION STYLES
+   ========================================= */
+.header {
+    padding: 15px 0;
+    background-color: var(--white-color);
+    border-bottom: 1px solid var(--border-color);
+    position: relative;
+    z-index: 1000;
+    text-align: left;
+}
+
+.header .jivaka-inner-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-logo img {
+    height: 50px;
+    display: block;
+    flex-shrink: 0;
+    width: auto;
+}
+
+/* Desktop Nav Styles */
+.desktop-nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex: 1;
+    justify-content: flex-end;
+}
+
+.main-nav-list {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    margin-right: 20px;
+}
+
+.main-nav-list li {
+    position: relative;
+}
+
+/* Important for Mega Menu Width */
+.main-nav-list li.has-mega-menu {
+    position: static;
+}
+
+.main-nav-list a.menu-link {
+    color: var(--dark-grey);
+    font-weight: 700;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    position: relative;
+    padding-bottom: 5px;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.main-nav-list > li > a.menu-link::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--primary-orange);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.main-nav-list > li:hover > a.menu-link::after {
+    transform: scaleX(1);
+}
+
+.has-dropdown > a i {
+    font-size: 0.7rem;
+    margin-left: 5px;
+    transition: transform 0.3s ease;
+}
+
+.has-dropdown:hover > a i {
+    transform: rotate(180deg);
+}
+
+/* --- MEGA MENU STYLES --- */
+.mega-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--white-color);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    border-top: 3px solid var(--primary-orange);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    z-index: 1100;
+    padding: 0;
+}
+
+.has-mega-menu:hover .mega-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.mega-menu-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 30px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+.mega-column h4 {
+    color: var(--primary-orange);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-weight: 900;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.mega-column ul li {
+    margin-bottom: 10px;
+    display: block;
+}
+
+.mega-column ul li a {
+    text-transform: none;
+    font-weight: 400;
+    font-size: 0.9rem;
+    color: var(--medium-grey);
+    padding: 0;
+    display: block;
+    transition: all 0.2s;
+}
+
+.mega-column ul li a:hover {
+    color: var(--primary-orange);
+    transform: translateX(5px);
+}
+
+/* Standard Dropdown */
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--white-color);
+    min-width: 260px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    border-top: 3px solid var(--primary-orange);
+    border-radius: 0 0 8px 8px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+    z-index: 999;
+    padding: 15px 0;
+    display: block;
+}
+
+.has-dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-menu li {
+    display: block;
+    margin: 0;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 12px 25px;
+    font-size: 0.9rem;
+    color: var(--medium-grey);
+    text-transform: none;
+    font-weight: 500;
+    border-bottom: 1px solid #f9f9f9;
+    transition: all 0.2s ease;
+}
+
+.dropdown-menu a:hover {
+    background-color: #fff4e6;
+    color: var(--primary-orange);
+    padding-left: 30px;
+    border-left: 3px solid var(--primary-orange);
+}
+
+/* --- Mobile Toggle & Overlay --- */
+.nav-toggle {
+    display: none;
+    width: 30px;
+    height: 24px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    position: relative;
+    z-index: 2001;
+}
+
+.nav-toggle span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: var(--dark-grey);
+    border-radius: 3px;
+    position: absolute;
+    left: 0;
+    transition: all 0.3s ease;
+}
+
+.nav-toggle span:nth-child(1) { top: 0; }
+.nav-toggle span:nth-child(2) { top: 10px; }
+.nav-toggle span:nth-child(3) { bottom: 0; }
+
+.mobile-nav-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #ffffff;
+    z-index: 2000;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(100%);
+    transition: all 0.4s cubic-bezier(0.4, 0.01, 0.165, 0.99);
+}
+
+.header.nav-active .mobile-nav-overlay {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+}
+
+.mobile-nav-content {
+    width: 100%;
+    height: 100%;
+    padding: 80px 25px 20px 25px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    text-align: left;
+}
+
+.mobile-nav-list {
+    flex-grow: 1;
+}
+
+.nav-item {
+    border-bottom: 1px solid #f0f0f0;
+    margin-bottom: 0;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.4s ease;
+}
+
+/* Staggered Animation for Mobile Menu */
+.header.nav-active .nav-item:nth-child(1) { transition-delay: 0.1s; opacity: 1; transform: translateY(0); }
+.header.nav-active .nav-item:nth-child(2) { transition-delay: 0.15s; opacity: 1; transform: translateY(0); }
+.header.nav-active .nav-item:nth-child(3) { transition-delay: 0.2s; opacity: 1; transform: translateY(0); }
+.header.nav-active .nav-item:nth-child(4) { transition-delay: 0.25s; opacity: 1; transform: translateY(0); }
+.header.nav-active .nav-item:nth-child(5) { transition-delay: 0.3s; opacity: 1; transform: translateY(0); }
+.header.nav-active .nav-item:nth-child(6) { transition-delay: 0.35s; opacity: 1; transform: translateY(0); }
+.header.nav-active .nav-item:nth-child(7) { transition-delay: 0.4s; opacity: 1; transform: translateY(0); }
+.header.nav-active .nav-item:nth-child(8) { transition-delay: 0.45s; opacity: 1; transform: translateY(0); }
+
+.nav-link {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--dark-grey);
+    text-decoration: none;
+    display: block;
+    padding: 18px 0;
+    transition: color 0.3s;
+}
+
+.nav-link:hover {
+    color: var(--primary-orange);
+}
+
+.mobile-dropdown-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.mobile-dropdown-head i {
+    font-size: 0.9rem;
+    color: var(--medium-grey);
+    transition: transform 0.3s ease;
+}
+
+.nav-item.dropdown-active .mobile-dropdown-head i {
+    transform: rotate(45deg);
+    color: var(--primary-orange);
+}
+
+.mobile-dropdown-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out;
+    background-color: #f9f9f9;
+}
+
+.nav-item.dropdown-active .mobile-dropdown-body {
+    max-height: 2000px;
+}
+
+.mobile-dropdown-body li a {
+    display: block;
+    padding: 12px 20px 12px 30px;
+    font-size: 0.95rem;
+    color: var(--medium-grey);
+    text-decoration: none;
+    border-bottom: 1px solid #eee;
+    font-weight: 500;
+}
+
+.mobile-dropdown-body .group-title {
+    padding: 15px 20px 5px 20px;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: var(--primary-orange);
+    font-weight: 900;
+    letter-spacing: 0.5px;
+    display: block;
+}
+
+.mobile-nav-footer {
+    margin-top: 30px;
+    padding-bottom: 30px;
+}
+
+.quick-contact {
+    text-align: center;
+    color: var(--medium-grey);
+    font-size: 0.9rem;
+    margin-top: 15px;
+}
+
+.quick-contact strong {
+    color: var(--dark-grey);
+}
+
+/* =========================================
+   3. PAGE SECTIONS (HERO, STORY, ETC.)
+   ========================================= */
+
+.jivaka-section {
+    padding: 100px 0;
+    position: relative;
+}
+
+/* Hero Section */
+.page-hero {
+    position: relative;
+    height: 450px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background: #000;
+    color: #fff;
+}
+
+.hero-bg-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 120%;
+    z-index: 1;
+}
+
+.hero-bg-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.5;
+    filter: saturate(0.8);
+}
+
+.hero-container {
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.hero-title {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 900;
+    margin: 0 0 10px 0;
+}
+
+.hero-breadcrumb {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--primary-orange);
+    font-weight: 700;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 5px 15px;
+    border-radius: 20px;
+    backdrop-filter: blur(5px);
+}
+
+/* Our Story */
+.story-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.story-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.story-content p {
+    color: var(--medium-grey);
+    font-size: 1.05rem;
+    margin-bottom: 20px;
+}
+
+.story-img-wrapper {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+}
+
+.story-img-wrapper img {
+    width: 100%;
+    transition: transform 0.5s;
+}
+
+.story-img-wrapper:hover img {
+    transform: scale(1.05);
+}
+
+.stats-bar {
+    display: flex;
+    gap: 30px;
+    margin-top: 40px;
+    padding-top: 30px;
+    border-top: 1px solid #eee;
+}
+
+.stat-item h3 {
+    font-size: 2.5rem;
+    color: var(--primary-orange);
+    margin: 0;
+    font-weight: 900;
+}
+
+.stat-item p {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    color: var(--dark-grey);
+    font-weight: 700;
+    margin: 5px 0 0;
+}
+
+/* Mission & Vision */
+.mv-section {
+    background: var(--light-grey-bg);
+}
+
+.mv-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.mv-card {
+    background: #fff;
+    padding: 40px 30px;
+    border-radius: 10px;
+    text-align: center;
+    transition: 0.4s;
+    border-bottom: 4px solid transparent;
+    box-shadow: var(--shadow-sm);
+    opacity: 1;
+}
+
+.mv-card:hover {
+    transform: translateY(-10px);
+    border-bottom-color: var(--primary-orange);
+    box-shadow: var(--shadow-lg);
+}
+
+.mv-icon {
+    width: 70px;
+    height: 70px;
+    background: rgba(244, 139, 42, 0.1);
+    color: var(--primary-orange);
+    font-size: 2rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 25px;
+    transition: 0.3s;
+}
+
+.mv-card:hover .mv-icon {
+    background: var(--primary-orange);
+    color: #fff;
+}
+
+.mv-card h3 {
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
+
+.mv-card p {
+    color: var(--medium-grey);
+    font-size: 0.95rem;
+}
+
+/* Timeline */
+.timeline-section {
+    position: relative;
+    overflow: hidden;
+}
+
+.section-header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 60px;
+}
+
+.section-header h2 {
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+}
+
+.timeline-wrapper {
+    position: relative;
+    padding: 40px 0;
+}
+
+.timeline-line {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: #eee;
+    transform: translateX(-50%);
+}
+
+.timeline-progress {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 4px;
+    background: var(--primary-orange);
+    transform: translateX(-50%);
+    height: 0;
+}
+
+.timeline-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 80px;
+    position: relative;
+}
+
+.timeline-item:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    border: 4px solid var(--primary-orange);
+    border-radius: 50%;
+    z-index: 2;
+    box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.8);
+}
+
+.timeline-content {
+    width: 45%;
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: var(--shadow-sm);
+    position: relative;
+    opacity: 1;
+}
+
+.timeline-content h3 {
+    color: var(--primary-orange);
+    font-size: 1.8rem;
+    margin: 0 0 10px;
+    font-weight: 900;
+}
+
+.timeline-content h4 {
+    font-size: 1.2rem;
+    margin: 0 0 10px;
+}
+
+.timeline-content p {
+    color: var(--medium-grey);
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.timeline-item:nth-child(odd) .timeline-content::before {
+    content: "";
+    position: absolute;
+    right: -10px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-width: 10px 0 10px 10px;
+    border-style: solid;
+    border-color: transparent transparent transparent #fff;
+}
+
+.timeline-item:nth-child(even) .timeline-content::before {
+    content: "";
+    position: absolute;
+    left: -10px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-width: 10px 10px 10px 0;
+    border-style: solid;
+    border-color: transparent #fff transparent transparent;
+}
+
+/* Team Section */
+.team-section {
+    background: var(--light-grey-bg);
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+.team-card {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: center;
+    transition: 0.3s;
+    box-shadow: var(--shadow-sm);
+    opacity: 1;
+}
+
+.team-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-lg);
+}
+
+.team-img {
+    height: 280px;
+    overflow: hidden;
+    position: relative;
+}
+
+.team-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.5s;
+    object-position: top;
+}
+
+.team-card:hover .team-img img {
+    transform: scale(1.1);
+}
+
+.team-social {
+    position: absolute;
+    bottom: -50px;
+    left: 0;
+    width: 100%;
+    background: rgba(244, 139, 42, 0.9);
+    padding: 10px 0;
+    transition: 0.3s;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.team-card:hover .team-social {
+    bottom: 0;
+}
+
+.team-social a {
+    color: #fff;
+    font-size: 1rem;
+}
+
+.team-info {
+    padding: 25px 15px;
+}
+
+.team-info h4 {
+    margin: 0 0 5px;
+    font-size: 1.2rem;
+}
+
+.team-info span {
+    font-size: 0.8rem;
+    color: var(--primary-orange);
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.team-info p {
+    font-size: 0.85rem;
+    color: var(--medium-grey);
+    margin-top: 10px;
+}
+
+/* =========================================
+   4. RESPONSIVE MEDIA QUERIES
+   ========================================= */
+
+@media (max-width: 992px) {
+    /* Header Responsive */
+    .desktop-nav { display: none; }
+    .nav-toggle { display: block; }
+    .header .jivaka-inner-container { justify-content: space-between; gap: 0; }
+
+    .header.nav-active .nav-toggle span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+    .header.nav-active .nav-toggle span:nth-child(2) { opacity: 0; }
+    .header.nav-active .nav-toggle span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+
+    /* Page Sections Responsive */
+    .story-grid,
+    .mv-grid,
+    .team-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .stats-bar {
+        flex-wrap: wrap;
+    }
+
+    /* Timeline Responsive */
+    .timeline-line { left: 20px; }
+    .timeline-progress { left: 20px; }
+    .timeline-dot { left: 20px; }
+
+    .timeline-item,
+    .timeline-item:nth-child(even) {
+        flex-direction: column;
+        align-items: flex-end;
+    }
+
+    .timeline-content {
+        width: 85%;
+        margin-left: auto;
+    }
+
+    .timeline-item:nth-child(odd) .timeline-content::before,
+    .timeline-item:nth-child(even) .timeline-content::before {
+        right: 100%;
+        left: auto;
+        border-color: transparent #fff transparent transparent;
+        border-width: 10px 10px 10px 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .jivaka-header-container,
+    .jivaka-container,
+    .jivaka-inner-container {
+        padding: 0 20px;
+    }
+}
+    </style>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+</head>
+
+<body>
+
+    <section class="page-hero">
+        <div class="hero-bg-wrapper">
+            <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=2000" alt="Hospital Building"
+                class="hero-bg-img">
+        </div>
+        <div class="hero-container animate-hero">
+            <span class="hero-breadcrumb">Who We Are</span>
+            <h1 class="hero-title">Caring for Life <br><span style="color: var(--primary-orange);">Since 2015</span></h1>
+        </div>
+    </section>
+
+    <section class="jivaka-section">
+        <div class="jivaka-container story-grid">
+            <div class="story-content fade-up">
+                <span style="color: var(--primary-orange); font-weight: 700; text-transform: uppercase;">Our Story</span>
+                <h2>Pioneering Healthcare in Upper Myanmar</h2>
+                <p>Jivaka Hospital was established with a singular vision: to provide world-class medical care with deep compassion. What
+                    started as a modest facility has now grown into Mandalay's leading multi-specialty hospital.</p>
+                <p>We believe in a holistic approach where advanced technology meets human touch. Our team of specialists works round the
+                    clock to ensure every patient receives the best possible outcome.</p>
+
+                <div class="stats-bar">
+                    <div class="stat-item">
+                        <h3><span class="counter" data-target="10">0</span>+</h3>
+                        <p>Years Experience</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3><span class="counter" data-target="50">0</span>+</h3>
+                        <p>Specialist Doctors</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3><span class="counter" data-target="20000">0</span>+</h3>
+                        <p>Happy Patients</p>
+                    </div>
+                </div>
+            </div>
+            <div class="story-img-wrapper fade-up">
+                <img src="https://images.unsplash.com/photo-1586773860418-d37222d8fce3?auto=format&fit=crop&q=80&w=800"
+                    alt="Jivaka Hospital Building">
+            </div>
+        </div>
+    </section>
+
+    <section class="jivaka-section mv-section">
+        <div class="jivaka-container">
+            <div class="section-header fade-up">
+                <h2>Driven by Purpose</h2>
+                <p>Our core values guide every decision we make and every life we touch.</p>
+            </div>
+            <div class="mv-grid">
+                <div class="mv-card fade-up">
+                    <div class="mv-icon"><i class="fas fa-bullseye"></i></div>
+                    <h3>Our Mission</h3>
+                    <p>To provide accessible, affordable, and high-quality healthcare services to the community with compassion and
+                        integrity.</p>
+                </div>
+                <div class="mv-card fade-up">
+                    <div class="mv-icon"><i class="fas fa-eye"></i></div>
+                    <h3>Our Vision</h3>
+                    <p>To be the most trusted healthcare provider in Myanmar, recognized for clinical excellence and patient safety.</p>
+                </div>
+                <div class="mv-card fade-up">
+                    <div class="mv-icon"><i class="fas fa-heart"></i></div>
+                    <h3>Our Values</h3>
+                    <p>Compassion, Excellence, Integrity, and Teamwork are the pillars that uphold our commitment to you.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="jivaka-section timeline-section">
+        <div class="jivaka-container">
+            <div class="section-header fade-up">
+                <h2>Our Journey</h2>
+                <p>A look back at the milestones that defined us.</p>
+            </div>
+
+            <div class="timeline-wrapper">
+                <div class="timeline-line"></div>
+                <div class="timeline-progress"></div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>2015</h3>
+                        <h4>Inception</h4>
+                        <p>Jivaka Hospital opened its doors with 50 beds and a vision to serve Mandalay.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>2018</h3>
+                        <h4>Heart Centre Launch</h4>
+                        <p>Inaugurated the state-of-the-art Cath Lab and dedicated Cardiac Unit.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>2021</h3>
+                        <h4>Expansion</h4>
+                        <p>Expanded to 150 beds and introduced the Cancer Centre with advanced oncology services.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>2024</h3>
+                        <h4>ISO Certification</h4>
+                        <p>Achieved ISO 9001:2015 certification for Quality Management Systems.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="jivaka-section team-section">
+        <div class="jivaka-container">
+            <div class="section-header fade-up">
+                <h2>Leadership Team</h2>
+                <p>Guided by experienced medical professionals.</p>
+            </div>
+            <div class="team-grid">
+                <div class="team-card fade-up">
+                    <div class="team-img">
+                        <img src="https://jivakahospital.com/wp-content/uploads/2025/12/img-team-member-01.jpg" alt="Dr. Kyaw Swar">
+                    </div>
+                    <div class="team-info">
+                        <h4>Dr. Kyaw Swar</h4>
+                        <span>Medical Director</span>
+                        <p>Interventional Cardiologist</p>
+                    </div>
+                </div>
+
+                <div class="team-card fade-up">
+                    <div class="team-img">
+                        <img src="https://i.pravatar.cc/400?img=11" alt="Dr. Susan May">
+                    </div>
+                    <div class="team-info">
+                        <h4>Dr. Susan May</h4>
+                        <span>Chief Surgeon</span>
+                        <p>Cardiothoracic Surgeon</p>
+                    </div>
+                </div>
+
+                <div class="team-card fade-up">
+                    <div class="team-img">
+                        <img src="https://i.pravatar.cc/400?img=59" alt="Director">
+                    </div>
+                    <div class="team-info">
+                        <h4>U Aung Myint</h4>
+                        <span>Admin Director</span>
+                        <p>Hospital Administration</p>
+                    </div>
+                </div>
+
+                <div class="team-card fade-up">
+                    <div class="team-img">
+                        <img src="https://i.pravatar.cc/400?img=44" alt="Matron">
+                    </div>
+                    <div class="team-info">
+                        <h4>Daw Nu Nu</h4>
+                        <span>Chief Matron</span>
+                        <p>Nursing Department</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // --- 1. Navigation Toggle Logic ---
+            const header = document.querySelector(".header");
+            const navToggle = document.querySelector(".nav-toggle");
+            const body = document.body;
+
+            if (navToggle) {
+                navToggle.addEventListener("click", () => {
+                    header.classList.toggle("nav-active");
+
+                    // Prevent background scrolling when menu is open
+                    if (header.classList.contains("nav-active")) {
+                        body.style.overflow = "hidden";
+                    } else {
+                        body.style.overflow = "auto";
+                    }
+                });
+            }
+
+            // --- 2. Mobile Dropdown Accordion Logic ---
+            const mobileDropdownHeads = document.querySelectorAll(".mobile-dropdown-head");
+
+            mobileDropdownHeads.forEach(head => {
+                head.addEventListener("click", function () {
+                    const parentItem = this.parentElement;
+
+                    // Optional: Close other open items
+                    document.querySelectorAll(".nav-item.has-mobile-dropdown").forEach(item => {
+                        if (item !== parentItem) {
+                            item.classList.remove("dropdown-active");
+                        }
+                    });
+
+                    // Toggle current item
+                    parentItem.classList.toggle("dropdown-active");
+                });
+            });
+
+            // --- 3. GSAP Animations for About Page ---
+            if (window.gsap && window.ScrollTrigger) {
+                gsap.registerPlugin(ScrollTrigger);
+
+                // Hero Entrance
+                const tl = gsap.timeline();
+                tl.from(".animate-hero > *", {
+                    y: 40,
+                    opacity: 0,
+                    duration: 1,
+                    stagger: 0.2,
+                    ease: "power3.out",
+                    clearProps: "all"
+                });
+
+                // Hero Background Parallax
+                gsap.to(".hero-bg-img", {
+                    yPercent: 20,
+                    ease: "none",
+                    scrollTrigger: {
+                        trigger: ".page-hero",
+                        start: "top top",
+                        end: "bottom top",
+                        scrub: true
+                    }
+                });
+
+                // Fade Up Animations
+                document.querySelectorAll(".fade-up").forEach(el => {
+                    gsap.from(el, {
+                        y: 50,
+                        opacity: 0,
+                        duration: 0.8,
+                        ease: "power2.out",
+                        scrollTrigger: {
+                            trigger: el,
+                            start: "top 85%"
+                        }
+                    });
+                });
+
+                // Stats Counter
+                gsap.utils.toArray(".counter").forEach(counter => {
+                    const target = counter.getAttribute("data-target");
+                    gsap.to(counter, {
+                        innerText: target,
+                        duration: 2,
+                        snap: { innerText: 1 },
+                        scrollTrigger: {
+                            trigger: counter,
+                            start: "top 85%",
+                            once: true
+                        }
+                    });
+                });
+
+                // Timeline Progress Line
+                const timeline = document.querySelector(".timeline-wrapper");
+                const progressLine = document.querySelector(".timeline-progress");
+
+                if (timeline && progressLine) {
+                    gsap.to(progressLine, {
+                        height: "100%",
+                        ease: "none",
+                        scrollTrigger: {
+                            trigger: timeline,
+                            start: "top 60%",
+                            end: "bottom 80%",
+                            scrub: 1
+                        }
+                    });
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
