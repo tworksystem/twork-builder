@@ -1,0 +1,16 @@
+/**
+ * Before You Come Item - Child block
+ * Main card layout is in before-you-come-section/style.scss.
+ * Editor-only overrides here.
+ */
+.wp-block-twork-before-you-come-item {
+    .twork-before-you-come-item-editor {
+        .item-icon-title h4,
+        .item-description {
+            &[contenteditable="true"]:focus {
+                outline: 1px dashed #2271b1;
+                outline-offset: 2px;
+            }
+        }
+    }
+}

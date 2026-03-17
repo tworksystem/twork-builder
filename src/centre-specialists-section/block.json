@@ -1,0 +1,16 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "twork/centre-specialists-section",
+  "version": "1.0.0",
+  "title": "Specialists Section (List)",
+  "category": "twork-builder",
+  "parent": ["twork/centre-layout-section"],
+  "description": "Our Specialists list with doc-cards (photo, name, specialization, qualifications, View Profile). Toggle section visibility.",
+  "attributes": {
+    "sectionId": { "type": "string", "default": "specialists" },
+    "title": { "type": "string", "default": "Our Specialists" },
+    "showSection": { "type": "boolean", "default": true }
+  },
+  "editorScript": "file:./index.js"
+}

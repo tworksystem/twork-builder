@@ -1,0 +1,31 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "twork/info-card-item",
+    "title": "Info Card Item",
+    "parent": ["twork/info-cards-section"],
+    "description": "Single info card with icon, title, description and optional CTA link.",
+    "attributes": {
+        "iconType": { "type": "string", "default": "fontawesome" },
+        "iconClass": { "type": "string", "default": "fas fa-phone-volume" },
+        "dashicon": { "type": "string", "default": "dashicons-phone" },
+        "iconImageId": { "type": "number", "default": 0 },
+        "iconImageUrl": { "type": "string", "default": "" },
+        "iconColor": { "type": "string", "default": "" },
+        "iconBackground": { "type": "string", "default": "" },
+        "title": { "type": "string", "default": "Emergency Cases" },
+        "subtitle": { "type": "string", "default": "24/7 Immediate Support" },
+        "secondaryText": { "type": "string", "default": "" },
+        "showTitle": { "type": "boolean", "default": true },
+        "showDescription": { "type": "boolean", "default": true },
+        "showSecondary": { "type": "boolean", "default": true },
+        "ctaText": { "type": "string", "default": "09-789 101 101" },
+        "ctaUrl": { "type": "string", "default": "tel:09789101101" },
+        "ctaColor": { "type": "string", "default": "#dc3545" },
+        "showCTA": { "type": "boolean", "default": true },
+        "openInNewTab": { "type": "boolean", "default": false }
+    },
+    "supports": { "html": false },
+    "textdomain": "twork-builder",
+    "editorScript": "file:./index.js"
+}

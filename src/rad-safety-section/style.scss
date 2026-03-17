@@ -1,0 +1,107 @@
+// Radiology Safety Section
+// Matches radiology&imaging.html:
+// .rad-safety-grid, .rad-safety-content, .rad-safety-card, .rad-safety-icon
+
+// Core variables (shared with other Radiology blocks)
+:root {
+  --rad-primary: #f48b2a;
+  --rad-dark: #212121;
+  --rad-light: #f8fafc;
+  --rad-white: #ffffff;
+  --rad-radius: 8px;
+  --rad-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+// === EDITOR STYLES ===
+.editor-styles-wrapper,
+.block-editor-block-list__layout,
+.wp-block-twork-rad-safety-section {
+  .twork-rad-safety-section-editor {
+    position: relative;
+
+    .rad-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      position: relative;
+    }
+
+    .rad-safety-grid {
+      display: grid !important;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .rad-safety-cards {
+      > .block-editor-inner-blocks {
+        display: contents !important;
+
+        > .block-editor-block-list__layout {
+          display: contents !important;
+
+          > .wp-block,
+          > [data-type='twork/rad-safety-card'] {
+            display: block !important;
+          }
+        }
+      }
+    }
+
+    .twork-rad-safety-card-editor.rad-safety-card {
+      h4,
+      p {
+        &[contenteditable='true']:focus {
+          outline: 1px dashed #2271b1;
+          outline-offset: 2px;
+        }
+      }
+    }
+  }
+}
+
+// === FRONTEND STYLES ===
+.twork-rad-safety-section {
+  font-family: 'Roboto', sans-serif;
+
+  .rad-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+  }
+
+  .rad-safety-grid {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 50px;
+    align-items: center;
+  }
+
+  .rad-safety-content h2 {
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+  }
+
+  .rad-safety-card {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+
+  .rad-safety-icon {
+    font-size: 2rem;
+    color: #2ecc71;
+    flex-shrink: 0;
+  }
+}
+
+// === RESPONSIVE ===
+@media (max-width: 992px) {
+  .twork-rad-safety-section {
+    .rad-safety-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+

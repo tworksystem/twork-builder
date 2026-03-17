@@ -1,0 +1,140 @@
+/**
+ * Emergency Triage Section – frontend & editor
+ * Matches 24/7.html .em-section, .em-header, .em-triage-grid, .em-triage-card, .em-triage-head, .em-triage-icon, .em-triage-list
+ */
+
+$em-radius: 16px;
+$em-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+$em-primary: #f48b2a;
+$em-light: #fffbf7;
+$em-alert: #dc3545;
+
+// --- Editor: 3 columns per row, inner blocks participate as grid children ---
+.editor-styles-wrapper,
+.block-editor-block-list__layout,
+.wp-block-twork-em-triage-section {
+    .twork-em-triage-section-editor {
+        .em-triage-grid {
+            display: grid !important;
+            grid-template-columns: repeat(3, 1fr) !important;
+            width: 100% !important;
+
+            > .block-editor-inner-blocks {
+                display: contents !important;
+
+                > .block-editor-block-list__layout {
+                    display: contents !important;
+
+                    > .wp-block,
+                    > [data-type="twork/em-triage-card"] {
+                        display: flex !important;
+                        flex-direction: column !important;
+                        min-width: 0;
+                    }
+                }
+            }
+        }
+
+        .em-header h2,
+        .em-header p {
+            &[contenteditable="true"]:focus {
+                outline: 1px dashed #2271b1;
+                outline-offset: 2px;
+            }
+        }
+    }
+}
+
+// --- Frontend: section ---
+.twork-em-triage-section.em-section {
+    position: relative;
+
+    .em-container {
+        position: relative;
+    }
+
+    .em-header {
+        text-align: center;
+
+        h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+    }
+
+    .em-triage-grid {
+        display: grid;
+        width: 100%;
+    }
+
+    .em-triage-card {
+        background: #fff;
+        border: 1px solid #eee;
+        border-radius: $em-radius;
+        padding: 30px 25px;
+        transition: 0.4s ease;
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+
+        &:hover {
+            transform: translateY(-10px);
+            box-shadow: $em-shadow;
+            border-color: $em-primary;
+        }
+    }
+
+    .em-triage-head {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 15px;
+    }
+
+    .em-triage-icon {
+        width: 50px;
+        height: 50px;
+        background: $em-light;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: $em-primary;
+        font-size: 1.4rem;
+        flex-shrink: 0;
+    }
+
+    .em-triage-card h4 {
+        font-size: 1.1rem;
+        margin: 0;
+        font-weight: 700;
+    }
+
+    .em-triage-list {
+        padding-left: 0;
+        list-style: none;
+        margin: 0;
+        flex-grow: 1;
+
+        li {
+            position: relative;
+            padding-left: 15px;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+            color: #555;
+            display: flex;
+            align-items: flex-start;
+
+            &::before {
+                content: '•';
+                position: absolute;
+                left: 0;
+                color: $em-alert;
+                font-size: 1.2rem;
+                line-height: 1rem;
+                top: 2px;
+            }
+        }
+    }
+}

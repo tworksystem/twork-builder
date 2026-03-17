@@ -1,0 +1,135 @@
+// Physio Therapies Section – matches physiotherapy-rehab.html services (expandable cards)
+
+.phy-section.twork-phy-therapies-section {
+    .phy-container {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 24px;
+        position: relative;
+    }
+
+    .phy-header {
+        text-align: center;
+        max-width: 700px;
+        margin: 0 auto 50px;
+    }
+
+    .phy-services-grid {
+        display: flex;
+        gap: 20px;
+        min-height: 400px;
+    }
+
+    .phy-service-card {
+        flex: 1;
+        position: relative;
+        overflow: hidden;
+        border-radius: var(--phy-radius, 20px);
+        background-size: cover;
+        background-position: center;
+        transition: flex 0.5s ease;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 30px;
+
+        &::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+        }
+
+        &:hover {
+            flex: 3;
+        }
+    }
+
+    .phy-svc-content {
+        position: relative;
+        z-index: 2;
+        color: #fff;
+
+        h3 {
+            color: #fff;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            white-space: nowrap;
+        }
+
+        p {
+            opacity: 0;
+            height: 0;
+            transition: 0.5s;
+            font-size: 0.95rem;
+            overflow: hidden;
+        }
+    }
+
+    .phy-service-card:hover .phy-svc-content p {
+        opacity: 1;
+        height: auto;
+        margin-top: 10px;
+    }
+}
+
+// Responsive – stack cards and always show descriptions on mobile
+@media (max-width: 768px) {
+    .phy-section.twork-phy-therapies-section {
+        .phy-services-grid {
+            flex-direction: column;
+        }
+
+        .phy-service-card {
+            min-height: 200px;
+        }
+
+        .phy-service-card:hover {
+            flex: 1;
+        }
+
+        .phy-service-card .phy-svc-content p {
+            opacity: 1;
+            height: auto;
+        }
+    }
+}
+
+// Editor helpers – basic styling for header focus
+.editor-styles-wrapper,
+.wp-block-twork-phy-therapies-section {
+    .twork-phy-therapies-section-editor {
+        .phy-header h2,
+        .phy-header p {
+            &[contenteditable='true']:focus {
+                outline: 1px dashed #2271b1;
+                outline-offset: 2px;
+            }
+        }
+    }
+}
+
+// Editor layout helpers – ensure InnerBlocks wrappers don't break flex layout
+.editor-styles-wrapper,
+.block-editor-block-list__layout,
+.wp-block-twork-phy-therapies-section {
+    .twork-phy-therapies-section-editor {
+        .phy-services-grid-editor,
+        .phy-services-grid {
+            display: flex !important;
+            width: 100%;
+            min-width: 0;
+
+            > .block-editor-inner-blocks {
+                display: contents !important;
+
+                > .block-editor-block-list__layout {
+                    display: contents !important;
+                }
+            }
+        }
+    }
+}
+
+

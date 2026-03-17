@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Neuro Centre | Jivaka Hospital</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <style>
+        /* --- CORE VARIABLES --- */
+        :root {
+            --primary-orange: #f48b2a;
+            --brand-orange-hover: #e67a22;
+            --dark-grey: #212121;
+            --medium-grey: #666;
+            --light-grey-bg: #f9f9f9;
+            --white: #ffffff;
+            --border: #e0e0e0;
+            --radius: 12px;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Roboto", sans-serif;
+            color: var(--dark-grey);
+            line-height: 1.6;
+            background: #fff;
+            overflow-x: hidden;
+            opacity: 0;
+            /* Anti-FOUC */
+            transition: opacity 0.5s ease;
+        }
+
+        body.loaded {
+            opacity: 1;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: 0.3s;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .jivaka-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        /* Buttons */
+        .jivaka-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 32px;
+            border-radius: 6px;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.8px;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            cursor: pointer;
+            border: 1px solid transparent;
+            gap: 10px;
+        }
+
+        .btn-primary {
+            background: var(--primary-orange);
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(244, 139, 42, 0.4);
+        }
+
+        .btn-primary:hover {
+            background: var(--brand-orange-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(244, 139, 42, 0.5);
+        }
+
+        /* --- PROFESSIONAL GLASS BUTTON FIX --- */
+        .btn-glass {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            color: #fff;
+        }
+
+        .btn-glass:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-glass i {
+            transition: transform 0.3s ease;
+        }
+
+        .btn-glass:hover i {
+            transform: translateX(3px);
+        }
+
+        .btn-outline-dark {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--dark-grey);
+            padding: 8px 20px;
+            font-size: 0.75rem;
+            display: inline-block;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+
+        .btn-outline-dark:hover {
+            border-color: var(--primary-orange);
+            color: var(--primary-orange);
+        }
+
+        /* --- 1. HERO SECTION (HEART CENTRE STYLE) --- */
+        .hero-new {
+            position: relative;
+            width: 100%;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            background-color: #000;
+            overflow: hidden;
+        }
+
+        .hero-bg-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            z-index: 0;
+            opacity: 0.7;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0.1) 100%);
+            z-index: 1;
+        }
+
+        .hero-content-wrapper {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .hero-text-col {
+            flex: 1;
+            max-width: 650px;
+            color: #fff;
+            padding-right: 40px;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .top-tagline {
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .top-tagline .dot {
+            width: 6px;
+            height: 6px;
+            background-color: var(--primary-orange);
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .main-heading {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-weight: 900;
+            line-height: 1.1;
+            margin: 0 0 25px 0;
+            text-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .main-heading .text-orange {
+            color: var(--primary-orange);
+        }
+
+        .hero-desc {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 40px;
+            opacity: 0.95;
+            border-left: 4px solid var(--primary-orange);
+            padding-left: 20px;
+            max-width: 550px;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        /* Glass Card */
+        .glass-card-col {
+            flex: 0 0 320px;
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 30px;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            padding: 35px 30px;
+            width: 100%;
+            color: #fff;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        .glass-card h3 {
+            color: var(--primary-orange);
+            font-size: 2.2rem;
+            font-weight: 900;
+            margin: 0 0 10px 0;
+            line-height: 1;
+        }
+
+        .glass-card p {
+            font-size: 1rem;
+            line-height: 1.5;
+            margin: 0;
+            opacity: 0.9;
+            font-weight: 500;
+        }
+
+        /* Responsive Hero */
+        @media (max-width: 992px) {
+            .hero-new {
+                min-height: auto;
+                padding: 100px 0 60px 0;
+                align-items: flex-start;
+            }
+
+            .hero-content-wrapper {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .hero-text-col {
+                padding-right: 0;
+                margin-bottom: 40px;
+                max-width: 100%;
+            }
+
+            .glass-card-col {
+                width: 100%;
+                justify-content: flex-start;
+                flex: auto;
+                max-width: 100%;
+                margin-top: 0;
+            }
+
+            .glass-card {
+                max-width: 100%;
+            }
+        }
+
+        /* --- 2. LAYOUT GRID --- */
+        .layout-grid {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            position: sticky;
+            top: 100px;
+            background: #fff;
+            border: 1px solid #eee;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .sidebar-header {
+            background: var(--dark-grey);
+            color: #fff;
+            padding: 20px;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        .sidebar-menu a {
+            display: block;
+            padding: 15px 20px;
+            border-bottom: 1px solid #eee;
+            font-weight: 500;
+            color: var(--medium-grey);
+            display: flex;
+            justify-content: space-between;
+            transition: 0.3s;
+        }
+
+        .sidebar-menu a:hover,
+        .sidebar-menu a.active {
+            background: #fff8f0;
+            color: var(--primary-orange);
+            padding-left: 25px;
+            border-left: 4px solid var(--primary-orange);
+        }
+
+        .sidebar-contact {
+            padding: 30px;
+            text-align: center;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=600&q=80');
+            background-size: cover;
+            position: relative;
+            color: #fff;
+            margin-top: 30px;
+            border-radius: var(--radius);
+        }
+
+        .sidebar-contact h3 {
+            margin: 0 0 10px;
+            font-size: 1.5rem;
+        }
+
+        .sidebar-contact p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+
+        /* Content Sections */
+        .content-section {
+            margin-bottom: 60px;
+        }
+
+        .content-section h2 {
+            font-size: 2rem;
+            color: var(--dark-grey);
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .content-section h2::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--primary-orange);
+        }
+
+        .lead-text {
+            font-size: 1.15rem;
+            color: #444;
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+
+        .body-text {
+            color: var(--medium-grey);
+            margin-bottom: 15px;
+        }
+
+        /* Treatments Grid (Animated) */
+        .treatment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 35px;
+        }
+
+        .treatment-card {
+            background: #fff;
+            border: 1px solid #eee;
+            padding: 30px;
+            border-radius: var(--radius);
+            transition: 0.4s ease;
+            position: relative;
+            top: 0;
+        }
+
+        .treatment-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+            border-color: var(--primary-orange);
+        }
+
+        .treatment-card i {
+            font-size: 2.5rem;
+            color: var(--primary-orange);
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .treatment-card h4 {
+            margin: 0 0 10px;
+            color: var(--dark-grey);
+            font-size: 1.2rem;
+        }
+
+        .treatment-card p {
+            font-size: 0.95rem;
+            color: var(--medium-grey);
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        /* Doctor Mini Cards */
+        .dept-doctors {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .doctor-card-mini {
+            border: 1px solid #eee;
+            border-radius: var(--radius);
+            overflow: hidden;
+            text-align: center;
+            padding-bottom: 20px;
+            transition: 0.3s;
+            background: #fff;
+        }
+
+        .doctor-card-mini:hover {
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            border-color: var(--primary-orange);
+        }
+
+        .doc-img-wrap {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .doc-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+            object-position: top center;
+        }
+
+        .doctor-card-mini:hover img {
+            transform: scale(1.05);
+        }
+
+        .doc-info {
+            padding: 15px;
+        }
+
+        .doc-info h4 {
+            margin: 10px 0 5px;
+            font-size: 1.1rem;
+            color: var(--dark-grey);
+        }
+
+        .doc-info span {
+            color: var(--primary-orange);
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        /* FAQ Accordion */
+        .faq-item {
+            border-bottom: 1px solid #eee;
+        }
+
+        .faq-btn {
+            width: 100%;
+            text-align: left;
+            padding: 20px 0;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--dark-grey);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: 0.3s;
+        }
+
+        .faq-btn:hover {
+            color: var(--primary-orange);
+        }
+
+        .faq-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            color: var(--medium-grey);
+            padding-right: 20px;
+        }
+
+        .faq-btn.active {
+            color: var(--primary-orange);
+        }
+
+        .faq-btn i {
+            transition: 0.3s;
+        }
+
+        .faq-btn.active i {
+            transform: rotate(180deg);
+        }
+
+        /* Animation Helpers */
+        .fade-up,
+        .stagger-card {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+
+            /* 1. Change Grid to Flex Column to allow Re-ordering */
+            .layout-grid {
+                display: flex;
+                flex-direction: column;
+                gap: 40px;
+            }
+
+            /* 2. Show Main Content FIRST */
+            .main-content {
+                order: 1;
+            }
+
+            /* 3. Show Sidebar Wrapper (containing contact) LAST */
+            .sidebar-wrapper {
+                order: 2;
+                width: 100%;
+                /* Ensure full width */
+            }
+
+            /* 4. Hide the menu part of the sidebar (already requested) */
+            .sidebar {
+                display: none;
+            }
+        }
+
+        /* Mobile Sticky Nav */
+        .mobile-dept-nav {
+            display: none;
+            overflow-x: auto;
+            white-space: nowrap;
+            padding: 15px 20px;
+            background: #fff;
+            border-bottom: 1px solid #eee;
+            position: sticky;
+            top: 0;
+            z-index: 900;
+        }
+
+        @media (max-width: 992px) {
+            .mobile-dept-nav {
+                display: flex;
+                gap: 10px;
+            }
+
+            .mobile-dept-nav a {
+                padding: 8px 20px;
+                background: #f0f0f0;
+                border-radius: 20px;
+                font-size: 0.85rem;
+                font-weight: 600;
+                color: var(--medium-grey);
+            }
+
+            .mobile-dept-nav a.active {
+                background: var(--primary-orange);
+                color: #fff;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <section class="hero-new">
+        <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=1920&q=80" alt="Neuro Surgery"
+            class="hero-bg-img">
+
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content-wrapper">
+            <div class="hero-text-col gsap-reveal">
+                <div class="top-tagline">
+                    Centres of Excellence <span class="dot"></span> Neuro Centre
+                </div>
+                <h1 class="main-heading">
+                    Advanced<br>
+                    <span class="text-orange">Neuro Care</span> Centre
+                </h1>
+                <p class="hero-desc">
+                    Specialized care for complex brain, spine, and nervous system disorders using advanced neuro-navigation technology.
+                </p>
+                <div class="hero-btns">
+                    <a href="#appointment" class="jivaka-btn btn-primary">
+                        Book Appointment
+                    </a>
+                    <a href="#specialists" class="jivaka-btn btn-glass">
+                        Meet Specialists <i class="fas fa-arrow-down"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="glass-card-col gsap-reveal">
+                <div class="glass-card">
+                    <h3>24/7</h3>
+                    <p>Emergency Stroke Unit Available</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="mobile-dept-nav">
+        <a href="heart-centre.html">Heart</a>
+        <a href="#" class="active">Neuro</a>
+        <a href="cancer-centre.html">Cancer</a>
+        <a href="#">Ortho</a>
+        <a href="#">Dental</a>
+        <a href="#">General</a>
+    </div>
+
+    <section class="section-padding">
+        <div class="jivaka-container layout-grid">
+
+            <aside class="sidebar-wrapper">
+                <div class="sidebar animate-sidebar">
+                    <div class="sidebar-header">Clinical Centres</div>
+                    <div class="sidebar-menu">
+                        <a href="heart-centre.html">Heart Centre <i class="fas fa-chevron-right"></i></a>
+                        <a href="#" class="active">Neuro Centre <i class="fas fa-chevron-right"></i></a>
+                        <a href="cancer-centre.html">Cancer Centre <i class="fas fa-chevron-right"></i></a>
+                        <a href="#">Orthopaedic & Rehab <i class="fas fa-chevron-right"></i></a>
+                        <a href="#">General Medicine <i class="fas fa-chevron-right"></i></a>
+                        <a href="#">Paediatrics <i class="fas fa-chevron-right"></i></a>
+                        <a href="#">Dental Clinic <i class="fas fa-chevron-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="sidebar-contact animate-sidebar">
+                    <i class="fas fa-headset" style="font-size: 3rem; margin-bottom: 15px;"></i>
+                    <h3>Emergency?</h3>
+                    <p>Our Stroke Unit is ready 24/7.</p>
+                    <a href="tel:09789101101" class="jivaka-btn btn-primary" style="width: 100%;">
+                        <i class="fas fa-phone"></i> 09-789 101 101
+                    </a>
+                </div>
+            </aside>
+
+            <div class="main-content">
+
+                <div class="content-section fade-up">
+                    <h2>Overview</h2>
+                    <p class="lead-text">
+                        The Jivaka Neuro Centre offers world-class expertise in the diagnosis and treatment of neurological disorders. From
+                        chronic headaches to complex brain tumors and spinal injuries, we provide comprehensive care.
+                    </p>
+                    <p class="body-text">
+                        Our multidisciplinary team of neurologists, neurosurgeons, and rehabilitation specialists work together to deliver
+                        personalized treatment plans. We are equipped with high-precision <strong>MRI (1.5 Tesla)</strong>, <strong>CT
+                            Scans</strong>, and specialized <strong>Microscopes</strong> for delicate surgeries.
+                    </p>
+                    <img src="https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=1200&q=80"
+                        alt="Advanced MRI Machine" style="border-radius: var(--radius); margin-top: 25px; box-shadow: var(--shadow-sm);">
+                </div>
+
+                <div class="content-section fade-up">
+                    <h2>Treatments & Services</h2>
+                    <p class="body-text">We specialize in minimally invasive spine surgery and stroke management.</p>
+
+                    <div class="treatment-grid">
+                        <div class="treatment-card stagger-card">
+                            <i class="fas fa-brain"></i>
+                            <h4>Stroke Management</h4>
+                            <p>Rapid response "Golden Hour" treatment for ischemic and hemorrhagic strokes.</p>
+                        </div>
+                        <div class="treatment-card stagger-card">
+                            <i class="fas fa-microscope"></i>
+                            <h4>Brain Tumor Surgery</h4>
+                            <p>Precision removal of tumors using neuro-navigation systems to protect healthy tissue.</p>
+                        </div>
+                        <div class="treatment-card stagger-card">
+                            <i class="fas fa-bone"></i>
+                            <h4>Spinal Surgery</h4>
+                            <p>Treatments for slipped discs, spinal stenosis, and trauma with minimally invasive techniques.</p>
+                        </div>
+                        <div class="treatment-card stagger-card">
+                            <i class="fas fa-wave-square"></i>
+                            <h4>EEG & EMG Services</h4>
+                            <p>Diagnostic testing for epilepsy, nerve damage, and muscle disorders.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-section fade-up">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <h2 style="margin: 0;">Our Neuro Specialists</h2>
+                        <a href="doctors.html" style="color: var(--primary-orange); font-weight: 700;">View All <i
+                                class="fas fa-arrow-right"></i></a>
+                    </div>
+
+                    <div class="dept-doctors">
+                        <div class="doctor-card-mini stagger-doc">
+                            <div class="doc-img-wrap">
+                                <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=400&q=80"
+                                    alt="Dr. Susan May">
+                            </div>
+                            <div class="doc-info">
+                                <h4>Dr. Susan May</h4>
+                                <span>Neurosurgeon</span>
+                                <br>
+                                <a href="doctor-profile.html" class="btn-outline-dark">View Profile</a>
+                            </div>
+                        </div>
+                        <div class="doctor-card-mini stagger-doc">
+                            <div class="doc-img-wrap">
+                                <img src="https://i.pravatar.cc/400?img=49" alt="Dr. Nilar">
+                            </div>
+                            <div class="doc-info">
+                                <h4>Dr. Nilar</h4>
+                                <span>Neurologist</span>
+                                <br>
+                                <a href="doctor-profile.html" class="btn-outline-dark">View Profile</a>
+                            </div>
+                        </div>
+                        <div class="doctor-card-mini stagger-doc">
+                            <div class="doc-img-wrap">
+                                <img src="https://i.pravatar.cc/400?img=12" alt="Dr. Zaw">
+                            </div>
+                            <div class="doc-info">
+                                <h4>Dr. Zaw Win</h4>
+                                <span>Spine Surgeon</span>
+                                <br>
+                                <a href="doctor-profile.html" class="btn-outline-dark">View Profile</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-section fade-up">
+                    <h2>Common Questions</h2>
+                    <div class="faq-item">
+                        <button class="faq-btn">What are the signs of a Stroke (FAST)? <i class="fas fa-chevron-down"></i></button>
+                        <div class="faq-content">
+                            <p style="margin-bottom: 20px;">
+                                <strong>F</strong>ace drooping,
+                                <strong>A</strong>rm weakness,
+                                <strong>S</strong>peech difficulty,
+                                <strong>T</strong>ime to call 09-789 101 101 immediately. Immediate treatment is crucial.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-btn">When should I see a doctor for a headache? <i class="fas fa-chevron-down"></i></button>
+                        <div class="faq-content">
+                            <p style="margin-bottom: 20px;">You should seek medical attention if headaches are sudden and severe ("worst
+                                headache of your life"), accompanied by fever, stiff neck, confusion, vision loss, or after a head injury.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="fade-up"
+                    style="background: linear-gradient(135deg, #0b1c2c 0%, #1a3a5a 100%); padding: 50px; border-radius: var(--radius); text-align: center; color: #fff; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+                    <h3 style="margin-top: 0; font-size: 1.8rem; color: var(--primary-orange);">Expert Neurological Care</h3>
+                    <p style="margin-bottom: 25px; font-size: 1.1rem; opacity: 0.9;">Don't ignore the symptoms. Schedule a consultation with
+                        our specialists today.</p>
+                    <a href="appointment.html" class="jivaka-btn btn-primary" style="font-size: 1rem; padding: 15px 35px;">Book
+                        Appointment</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Use window.load to ensure images are ready for ScrollTrigger calculations
+        window.addEventListener("load", function () {
+            gsap.registerPlugin(ScrollTrigger);
+
+            // Reveal Body
+            document.body.classList.add('loaded');
+
+            // 1. Hero Animation (Updated to match Heart Centre Logic)
+            const tl = gsap.timeline();
+
+            // Animate Text Column
+            tl.fromTo(".gsap-reveal",
+                { y: 50, autoAlpha: 0 },
+                { y: 0, autoAlpha: 1, duration: 1, stagger: 0.2, ease: "power3.out" }
+            );
+
+            // Animate Glass Card Column
+            tl.fromTo(".glass-card-col",
+                { y: 30, autoAlpha: 0 },
+                { y: 0, autoAlpha: 1, duration: 1, ease: "power3.out" },
+                "-=0.5"
+            );
+
+            // 2. Sidebar Animation
+            gsap.fromTo(".animate-sidebar",
+                { x: -30, opacity: 0 },
+                { x: 0, opacity: 1, duration: 1, stagger: 0.2, ease: "power2.out", delay: 0.5 }
+            );
+
+            // 3. Section Fade Ups
+            const fadeUps = gsap.utils.toArray('.fade-up');
+            fadeUps.forEach(el => {
+                gsap.fromTo(el,
+                    { y: 50, opacity: 0, autoAlpha: 0 },
+                    {
+                        y: 0, opacity: 1, autoAlpha: 1, duration: 0.8, ease: "power2.out",
+                        scrollTrigger: { trigger: el, start: "top 85%" }
+                    }
+                );
+            });
+
+            // 4. Staggered Treatment Cards (Batch)
+            ScrollTrigger.batch(".stagger-card", {
+                start: "top 90%",
+                onEnter: batch => gsap.fromTo(batch,
+                    { y: 40, opacity: 0, autoAlpha: 0 },
+                    { y: 0, opacity: 1, autoAlpha: 1, stagger: 0.15, duration: 0.6, ease: "back.out(1.5)" }
+                ),
+                once: true
+            });
+
+            // 5. Staggered Doctor Cards
+            ScrollTrigger.batch(".stagger-doc", {
+                start: "top 90%",
+                onEnter: batch => gsap.fromTo(batch,
+                    { y: 40, opacity: 0, autoAlpha: 0 },
+                    { y: 0, opacity: 1, autoAlpha: 1, stagger: 0.15, duration: 0.6, ease: "power2.out" }
+                ),
+                once: true
+            });
+
+            // FAQ Logic
+            const faqs = document.querySelectorAll(".faq-btn");
+            faqs.forEach(btn => {
+                btn.addEventListener("click", () => {
+                    btn.classList.toggle("active");
+                    const content = btn.nextElementSibling;
+                    if (btn.classList.contains("active")) {
+                        content.style.maxHeight = content.scrollHeight + "px";
+                    } else {
+                        content.style.maxHeight = 0;
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Telemedicine | Jivaka Hospital</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <style>
+        /* --- WORDPRESS & RESET FIXES --- */
+        .wp-block-spacer {
+            display: none !important;
+            margin: 0 !important;
+        }
+
+        body :where(.is-layout-flow)>*,
+        body :where(.wp-site-blocks)>* {
+            margin-block-start: 0;
+            margin-top: 0;
+        }
+
+        /* --- 1. CORE VARIABLES --- */
+        :root {
+            --primary-orange: #f48b2a;
+            --brand-orange-hover: #e67a22;
+            --dark-grey: #212121;
+            --medium-grey: #555;
+            --light-grey-bg: #f8f9fa;
+            --white: #ffffff;
+            --border: #e0e0e0;
+            --radius: 16px;
+            --shadow-sm: 0 5px 15px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Roboto", sans-serif;
+            color: var(--dark-grey);
+            line-height: 1.6;
+            background: #fff;
+            overflow-x: hidden;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: 0.3s;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+            height: auto;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5 {
+            margin-top: 0;
+            line-height: 1.2;
+        }
+
+        .jivaka-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            position: relative;
+        }
+
+        .section-padding {
+            padding: 100px 0;
+        }
+
+        .section-header {
+            margin-bottom: 60px;
+            text-align: center;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        /* Buttons */
+        .jivaka-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 32px;
+            border-radius: 8px;
+            font-weight: 800;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            cursor: pointer;
+            border: 1px solid transparent;
+            gap: 10px;
+        }
+
+        .btn-primary {
+            background: var(--primary-orange);
+            color: #fff;
+            box-shadow: 0 8px 20px rgba(244, 139, 42, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: var(--brand-orange-hover);
+            transform: translateY(-3px);
+        }
+
+        .btn-outline-primary {
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid var(--primary-orange);
+            color: var(--primary-orange);
+            backdrop-filter: blur(5px);
+        }
+
+        .btn-outline-primary:hover {
+            background: var(--primary-orange);
+            color: var(--white);
+            transform: translateY(-3px);
+        }
+
+        /* --- 2. HERO SECTION (RENAMED TO PREVENT CONFLICTS) --- */
+        .jivaka-tele-hero {
+            position: relative;
+            min-height: 650px;
+            display: flex;
+            align-items: center;
+            background-color: #000000;
+            color: #fff;
+            overflow: visible;
+            padding: 80px 0;
+            z-index: 10;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.3;
+            object-position: center 20%;
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 800px;
+        }
+
+        .hero-breadcrumb {
+            display: inline-block;
+            padding: 8px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            font-weight: 600;
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-weight: 900;
+            margin: 0 0 24px 0;
+            text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            opacity: 0.95;
+            max-width: 600px;
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        /* --- 3. PROCESS SECTION --- */
+        .process-section {
+            position: relative;
+            z-index: 5;
+            background: #fff;
+            padding-top: 80px;
+            padding-bottom: 80px;
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 30px;
+        }
+
+        .process-card {
+            background: #fff;
+            padding: 40px 30px;
+            border-radius: var(--radius);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            transition: 0.3s;
+            border: 1px solid #f0f0f0;
+            border-bottom: 4px solid transparent;
+            height: 100%;
+        }
+
+        .process-card:hover {
+            transform: translateY(-10px);
+            border-bottom-color: var(--primary-orange);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .step-icon {
+            width: 70px;
+            height: 70px;
+            background: #fff9f2;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            color: var(--primary-orange);
+            font-size: 1.8rem;
+            position: relative;
+            transition: 0.3s;
+        }
+
+        .process-card:hover .step-icon {
+            background: var(--primary-orange);
+            color: #fff;
+        }
+
+        .step-icon::after {
+            content: attr(data-step);
+            position: absolute;
+            top: 0;
+            right: -5px;
+            width: 28px;
+            height: 28px;
+            background: var(--dark-grey);
+            color: #fff;
+            border-radius: 50%;
+            font-size: 0.85rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid #fff;
+        }
+
+        .process-card h4 {
+            margin: 0 0 12px 0;
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        .process-card p {
+            font-size: 0.95rem;
+            color: var(--medium-grey);
+            margin: 0;
+        }
+
+        /* --- 4. SPECIALTIES --- */
+        .specialty-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 25px;
+        }
+
+        .specialty-item {
+            background: #fff;
+            border: 1px solid #eee;
+            border-radius: var(--radius);
+            padding: 30px 20px;
+            text-align: center;
+            transition: 0.3s;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .specialty-item:hover {
+            border-color: var(--primary-orange);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+            transform: translateY(-5px);
+        }
+
+        .spec-icon {
+            font-size: 2.5rem;
+            color: var(--primary-orange);
+            margin-bottom: 20px;
+            transition: 0.3s;
+        }
+
+        .specialty-item:hover .spec-icon {
+            transform: scale(1.1);
+        }
+
+        .specialty-item h5 {
+            margin: 0;
+            font-size: 1.1rem;
+            color: var(--dark-grey);
+            font-weight: 600;
+        }
+
+        /* --- 5. BENEFITS --- */
+        .split-layout {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .benefit-content h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+
+        .benefit-list {
+            list-style: none;
+            padding: 0;
+            margin: 30px 0;
+        }
+
+        .benefit-list li {
+            margin-bottom: 15px;
+            padding-left: 35px;
+            position: relative;
+            font-size: 1.05rem;
+            color: var(--medium-grey);
+        }
+
+        .benefit-list li::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 4px;
+            color: var(--primary-orange);
+            font-size: 1.1rem;
+        }
+
+        .app-mockup {
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        /* --- 6. CTA / DOWNLOAD --- */
+        .tele-cta {
+            background: linear-gradient(135deg, var(--primary-orange) 0%, #d35400 100%);
+            color: #fff;
+            padding: 80px 40px;
+            border-radius: 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(244, 139, 42, 0.25);
+        }
+
+        .tele-cta::after,
+        .tele-cta::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .tele-cta::after {
+            top: -50%;
+            left: -10%;
+        }
+
+        .tele-cta::before {
+            bottom: -50%;
+            right: -10%;
+        }
+
+        .tele-cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .tele-cta p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .store-btns {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            position: relative;
+            z-index: 1;
+            flex-wrap: wrap;
+        }
+
+        .store-btn {
+            background: #fff;
+            color: var(--dark-grey);
+            padding: 12px 24px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            transition: 0.3s;
+            border: 2px solid #fff;
+            text-align: left;
+            min-width: 180px;
+            justify-content: center;
+        }
+
+        .store-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+            background: var(--dark-grey);
+            color: #fff;
+            border-color: var(--dark-grey);
+        }
+
+        .store-btn i {
+            font-size: 1.8rem;
+        }
+
+        /* Animation Classes */
+        .fade-up,
+        .stagger-card {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        /* --- RESPONSIVE QUERIES --- */
+        @media (max-width: 1024px) {
+            .split-layout {
+                gap: 40px;
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .hero-title {
+                font-size: 3.5rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .split-layout {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .benefit-list {
+                text-align: left;
+                display: inline-block;
+            }
+
+            .app-mockup {
+                max-width: 400px;
+                margin: 0 auto;
+            }
+
+            .section-padding {
+                padding: 80px 0;
+            }
+        }
+
+        /* --- TABLET & MOBILE FIXES (UPDATED FOR NEW CLASS) --- */
+        @media (max-width: 768px) {
+            .jivaka-tele-hero {
+                display: block;
+                min-height: auto;
+                height: auto;
+                padding-top: 130px;
+                padding-bottom: 80px;
+                text-align: center;
+            }
+
+            .hero-content {
+                margin: 0 auto;
+                width: 100%;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+                width: 100%;
+                max-width: 350px;
+                margin: 0 auto;
+            }
+
+            .jivaka-btn {
+                width: 100%;
+            }
+
+            .hero-bg {
+                opacity: 0.3;
+            }
+
+            .process-section {
+                padding-top: 60px;
+                padding-bottom: 60px;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .tele-cta {
+                padding: 50px 20px;
+            }
+
+            .tele-cta h2 {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .section-padding {
+                padding: 60px 0;
+            }
+
+            .process-grid {
+                gap: 20px;
+            }
+
+            .hero-title {
+                font-size: 2.2rem;
+            }
+
+            .hero-breadcrumb {
+                font-size: 0.7rem;
+                padding: 6px 14px;
+            }
+
+            .store-btns {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 15px;
+            }
+
+            .store-btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="jivaka-tele-hero">
+        <img src="https://images.unsplash.com/photo-1606857521015-7f9fcf423740?auto=format&fit=crop&w=1920&q=80" alt="Doctor Telemedicine"
+            class="hero-bg">
+        <div class="jivaka-container hero-content animate-hero">
+            <span class="hero-breadcrumb">Virtual Care</span>
+            <h1 class="hero-title">Expert Care,<br>From Anywhere.</h1>
+            <p class="hero-subtitle">Connect with Jivaka's top specialists via secure video consultation from the comfort of your home. No
+                waiting lines.</p>
+            <div class="hero-buttons">
+                <a href="#book" class="jivaka-btn btn-primary">Book Video Consult</a>
+                <a href="#download" class="jivaka-btn btn-outline-primary">Download App</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="process-section" id="how-it-works">
+        <div class="jivaka-container">
+            <div class="process-grid">
+                <div class="process-card stagger-card">
+                    <div class="step-icon" data-step="1"><i class="fas fa-user-md"></i></div>
+                    <h4>Choose Doctor</h4>
+                    <p>Select a specialist from our list and view their available online schedules.</p>
+                </div>
+                <div class="process-card stagger-card">
+                    <div class="step-icon" data-step="2"><i class="fas fa-calendar-check"></i></div>
+                    <h4>Book Slot</h4>
+                    <p>Pick a time that works for you and make a secure online payment.</p>
+                </div>
+                <div class="process-card stagger-card">
+                    <div class="step-icon" data-step="3"><i class="fas fa-link"></i></div>
+                    <h4>Get Link</h4>
+                    <p>Receive a secure encrypted video meeting link via SMS or Email.</p>
+                </div>
+                <div class="process-card stagger-card">
+                    <div class="step-icon" data-step="4"><i class="fas fa-file-prescription"></i></div>
+                    <h4>Consultation</h4>
+                    <p>See the doctor and get your digital prescription instantly in the app.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding">
+        <div class="jivaka-container">
+            <div class="section-header fade-up">
+                <h2>Available for Tele-Consultation</h2>
+                <p style="color: var(--medium-grey); font-size: 1.1rem;">Not all conditions require a physical hospital visit. Save time and
+                    consult online for these specialties:</p>
+            </div>
+
+            <div class="specialty-grid">
+                <div class="specialty-item stagger-card">
+                    <div class="spec-icon"><i class="fas fa-stethoscope"></i></div>
+                    <h5>General Medicine</h5>
+                </div>
+                <div class="specialty-item stagger-card">
+                    <div class="spec-icon"><i class="fas fa-allergies"></i></div>
+                    <h5>Dermatology</h5>
+                </div>
+                <div class="specialty-item stagger-card">
+                    <div class="spec-icon"><i class="fas fa-baby"></i></div>
+                    <h5>Pediatrics</h5>
+                </div>
+                <div class="specialty-item stagger-card">
+                    <div class="spec-icon"><i class="fas fa-brain"></i></div>
+                    <h5>Psychology</h5>
+                </div>
+                <div class="specialty-item stagger-card">
+                    <div class="spec-icon"><i class="fas fa-female"></i></div>
+                    <h5>Gynecology</h5>
+                </div>
+                <div class="specialty-item stagger-card">
+                    <div class="spec-icon"><i class="fas fa-carrot"></i></div>
+                    <h5>Nutrition / Diet</h5>
+                </div>
+                <div class="specialty-item stagger-card">
+                    <div class="spec-icon"><i class="fas fa-heartbeat"></i></div>
+                    <h5>Cardiology Follow-up</h5>
+                </div>
+                <div class="specialty-item stagger-card">
+                    <div class="spec-icon"><i class="fas fa-notes-medical"></i></div>
+                    <h5>Report Review</h5>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding services-section" style="background-color: var(--light-grey-bg);">
+        <div class="jivaka-container split-layout">
+            <div class="benefit-content fade-up">
+                <h2>Why Choose Jivaka Telemedicine?</h2>
+                <p style="color: var(--medium-grey); font-size: 1.1rem;">Bridging the gap between patient and doctor with advanced
+                    technology.</p>
+
+                <ul class="benefit-list">
+                    <li><strong>Save Time & Money:</strong> No travel, no parking fees, no waiting rooms.</li>
+                    <li><strong>Secure & Private:</strong> HIPAA compliant end-to-end encrypted video calls.</li>
+                    <li><strong>Digital Health Records:</strong> Access your prescriptions and lab reports anytime.</li>
+                    <li><strong>Chronic Care:</strong> Ideal for diabetes, hypertension and post-surgery checks.</li>
+                </ul>
+                <a href="#download" class="jivaka-btn btn-primary">Try It Now</a>
+            </div>
+            <div class="app-mockup fade-up">
+                <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80"
+                    alt="Telemedicine App">
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding" id="download">
+        <div class="jivaka-container">
+            <div class="tele-cta fade-up">
+                <h2>Download Jivaka Health App</h2>
+                <p>Manage appointments, view lab reports, and consult doctors on the go. Available for iOS and Android.</p>
+
+                <div class="store-btns">
+                    <a href="https://jivakahospital.com/download-detail/" class="store-btn" target="_blank">
+                        <i class="fab fa-apple"></i>
+                        <div style="text-align: left; line-height: 1.1;">
+                            <span style="font-size: 0.7rem; font-weight: 400; display: block;">Download on</span>
+                            iOS / TestFlight
+                        </div>
+                    </a>
+
+                    <a href="https://play.google.com/store/apps/details?id=com.jivaka.user" class="store-btn" target="_blank">
+                        <i class="fab fa-google-play"></i>
+                        <div style="text-align: left; line-height: 1.1;">
+                            <span style="font-size: 0.7rem; font-weight: 400; display: block;">GET IT ON</span>
+                            Google Play
+                        </div>
+                    </a>
+
+                    <a href="https://jivaka.advent-soft.com/download/jivaka-care.apk" class="store-btn" target="_blank">
+                        <i class="fab fa-android"></i>
+                        <div style="text-align: left; line-height: 1.1;">
+                            <span style="font-size: 0.7rem; font-weight: 400; display: block;">Direct Download</span>
+                            Android APK
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        window.addEventListener("load", function () {
+            gsap.registerPlugin(ScrollTrigger);
+            document.body.classList.add('loaded');
+
+            // 1. Hero Animation
+            const tl = gsap.timeline();
+            tl.fromTo(".animate-hero > *",
+                { y: 40, opacity: 0 },
+                { y: 0, opacity: 1, duration: 1, stagger: 0.15, ease: "power3.out" }
+            );
+
+            // 2. Section Fade Ups
+            const fadeUps = gsap.utils.toArray('.fade-up');
+            fadeUps.forEach(el => {
+                gsap.fromTo(el,
+                    { y: 60, opacity: 0, autoAlpha: 0 },
+                    {
+                        y: 0, opacity: 1, autoAlpha: 1, duration: 0.8, ease: "power2.out",
+                        scrollTrigger: { trigger: el, start: "top 85%" }
+                    }
+                );
+            });
+
+            // 3. Staggered Cards (Process & Specialties)
+            ScrollTrigger.batch(".stagger-card", {
+                start: "top 90%",
+                onEnter: batch => gsap.fromTo(batch,
+                    { y: 40, opacity: 0, autoAlpha: 0 },
+                    { y: 0, opacity: 1, autoAlpha: 1, stagger: 0.1, duration: 0.6, ease: "power2.out" }
+                ),
+                once: true
+            });
+        });
+    </script>
+</body>
+
+</html>

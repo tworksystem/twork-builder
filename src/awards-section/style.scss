@@ -1,0 +1,235 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
+
+:root {
+    --primary-orange: #f48b2a;
+    --dark-grey: #212121;
+    --medium-grey: #666;
+    --light-grey-bg: #f8f9fa;
+    --white-color: #ffffff;
+    --radius: 12px;
+    --shadow-sm: 0 5px 15px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+// === EDITOR STYLES ===
+.editor-styles-wrapper,
+.block-editor-block-list__layout,
+.wp-block-twork-awards-section {
+    .twork-awards-section-editor {
+        position: relative;
+        min-height: 300px;
+
+        .background-overlay {
+            pointer-events: none;
+        }
+
+        .intro-text h2[contenteditable="true"]:focus {
+            outline: 1px dashed #2271b1;
+            outline-offset: 2px;
+        }
+
+        // ServerSideRender output: force visible - view.js doesn't run in editor
+        .twork-awards-section {
+            .intro-text.fade-up,
+            .award-item.stagger-up {
+                opacity: 1 !important;
+                visibility: visible !important;
+                transform: none !important;
+                transition: none !important;
+            }
+        }
+
+        .twork-awards-grid-container {
+            display: grid !important;
+            grid-template-columns: repeat(auto-fill, minmax(var(--grid-min-width, 280px), 1fr)) !important;
+            gap: var(--grid-gap, 30px) !important;
+
+            > .block-editor-inner-blocks {
+                display: contents !important;
+
+                > .block-editor-block-list__layout {
+                    display: contents !important;
+
+                    > .wp-block,
+                    > [data-type="twork/award-item"] {
+                        display: flex !important;
+                        flex-direction: column !important;
+                        min-height: 350px;
+
+                        &:hover {
+                            transform: translateY(-4px);
+                            box-shadow: var(--shadow-md);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// === FRONTEND STYLES ===
+.twork-awards-section {
+    font-family: "Roboto", sans-serif;
+    position: relative;
+    overflow: hidden;
+
+    .background-overlay {
+        pointer-events: none;
+    }
+
+    .jivaka-container {
+        position: relative;
+        z-index: 2;
+    }
+
+    .intro-text {
+        &.fade-up {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out, visibility 0.8s;
+
+            &.is-visible {
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0);
+            }
+        }
+
+        h2 {
+            margin: 0;
+            line-height: 1.2;
+        }
+    }
+
+    .awards-grid {
+        display: grid;
+        width: 100%;
+    }
+
+    // Clickable award card link to post detail page
+    a.award-item-link,
+    .award-item.award-item-link {
+        text-decoration: none;
+        color: inherit;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+
+        &:focus {
+            outline: 2px solid var(--primary-orange);
+            outline-offset: 2px;
+        }
+
+        &:focus:not(:focus-visible) {
+            outline: none;
+        }
+
+        &:focus-visible {
+            outline: 2px solid var(--primary-orange);
+            outline-offset: 2px;
+        }
+    }
+
+    &[data-hover-effect="true"] .award-item:hover {
+        transform: translateY(var(--hover-translate-y, -5px));
+    }
+
+    .award-item {
+        &.stagger-up {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(40px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out, visibility 0.6s, box-shadow 0.3s;
+
+            &.is-visible {
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0);
+            }
+        }
+
+    }
+
+    .award-item {
+        &:nth-child(1) { transition-delay: 0.1s; }
+        &:nth-child(2) { transition-delay: 0.2s; }
+        &:nth-child(3) { transition-delay: 0.3s; }
+        &:nth-child(4) { transition-delay: 0.4s; }
+        &:nth-child(5) { transition-delay: 0.5s; }
+        &:nth-child(6) { transition-delay: 0.6s; }
+    }
+
+    // Read More / View Detail button (when toggle is on)
+    .award-read-more.jivaka-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 20px;
+        border-radius: 6px;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 0.75rem;
+        letter-spacing: 0.8px;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        cursor: pointer;
+        border: 1px solid transparent;
+        margin-top: 1.5rem; // Space above button so it doesn’t sit flush on content
+        align-self: flex-start;
+        flex-shrink: 0;
+
+        &.btn-primary {
+            background: var(--primary-orange);
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(244, 139, 42, 0.3);
+        }
+
+        &.btn-primary:hover {
+            background: #e67a22;
+            transform: translateY(-2px);
+        }
+
+        &:focus-visible {
+            outline: 2px solid var(--primary-orange);
+            outline-offset: 2px;
+        }
+    }
+}
+
+// === RESPONSIVE ===
+@media (max-width: 992px) {
+    .twork-awards-section .awards-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .twork-awards-section {
+        padding: 60px 0 !important;
+
+        .intro-text h2 {
+            font-size: 1.8rem !important;
+        }
+
+        .awards-grid {
+            grid-template-columns: 1fr !important;
+            gap: 20px !important;
+        }
+    }
+}
+
+// === ACCESSIBILITY ===
+.award-item:focus-visible {
+    outline: 3px solid var(--primary-orange);
+    outline-offset: 2px;
+}
+
+// === PRINT ===
+@media print {
+    .twork-awards-section .award-item {
+        page-break-inside: avoid;
+        break-inside: avoid;
+    }
+}

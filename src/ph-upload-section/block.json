@@ -1,0 +1,84 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "twork/ph-upload-section",
+  "version": "1.0.0",
+  "title": "Upload Prescription Section",
+  "category": "twork-builder",
+  "icon": "upload",
+  "description": "Upload prescription CTA section for the pharmacy page.",
+  "keywords": [
+    "pharmacy",
+    "upload",
+    "prescription",
+    "twork"
+  ],
+  "attributes": {
+    "backgroundColor": {
+      "type": "string",
+      "default": "#111827"
+    },
+    "paddingY": {
+      "type": "number",
+      "default": 60
+    },
+    "containerMaxWidth": {
+      "type": "number",
+      "default": 1200
+    },
+    "containerPadding": {
+      "type": "number",
+      "default": 20
+    },
+    "title": {
+      "type": "string",
+      "default": "Have a Doctor's Prescription?"
+    },
+    "description": {
+      "type": "string",
+      "default": "Skip the search. Simply upload your prescription photo, and our pharmacists will prepare your cart for you."
+    },
+    "showChecklist": {
+      "type": "boolean",
+      "default": true
+    },
+    "checklistItems": {
+      "type": "array",
+      "default": [
+        "Verified by Pharmacists",
+        "Confirm before payment"
+      ]
+    },
+    "buttonLabel": {
+      "type": "string",
+      "default": "Upload Now"
+    },
+    "buttonUrl": {
+      "type": "string",
+      "default": "#"
+    },
+    "imageUrl": {
+      "type": "string",
+      "default": "https://images.unsplash.com/photo-1584362917165-526a968579e8?auto=format&fit=crop&w=800&q=80"
+    },
+    "imageId": {
+      "type": "number"
+    },
+    "imageAlt": {
+      "type": "string",
+      "default": "Prescription"
+    }
+  },
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "textdomain": "twork-builder",
+  "editorScript": "file:./index.js",
+  "style": "file:./style-index.css"
+}
+

@@ -1,0 +1,13 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "twork/dept-condition-item",
+    "title": "Condition Item",
+    "category": "twork-builder",
+    "parent": ["twork/dept-conditions-section"],
+    "attributes": {
+        "icon": { "type": "string", "default": "fa-heart-broken" },
+        "title": { "type": "string", "default": "Coronary Artery Disease" }
+    },
+    "editorScript": "file:./index.js"
+}

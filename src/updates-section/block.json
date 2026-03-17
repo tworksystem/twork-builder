@@ -1,0 +1,194 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "twork/updates-section",
+    "version": "1.0.0",
+    "title": "Posts / Updates Section",
+    "category": "twork-builder",
+    "icon": "megaphone",
+    "description": "Hospital News & Updates – displays WordPress posts in a card grid. Select by category or show latest posts.",
+    "keywords": ["news", "updates", "posts", "blog", "hospital", "twork"],
+    "attributes": {
+        "source": {
+            "type": "string",
+            "default": "recent"
+        },
+        "categoryId": {
+            "type": "number",
+            "default": 0
+        },
+        "postIds": {
+            "type": "array",
+            "default": []
+        },
+        "numberOfItems": {
+            "type": "number",
+            "default": 3
+        },
+        "orderBy": {
+            "type": "string",
+            "default": "date"
+        },
+        "order": {
+            "type": "string",
+            "default": "DESC"
+        },
+        "backgroundColor": {
+            "type": "string",
+            "default": "#f9f9f9"
+        },
+        "paddingTop": {
+            "type": "number",
+            "default": 80
+        },
+        "paddingBottom": {
+            "type": "number",
+            "default": 80
+        },
+        "showSectionTitle": {
+            "type": "boolean",
+            "default": true
+        },
+        "sectionTitle": {
+            "type": "string",
+            "default": "Hospital News & Updates"
+        },
+        "sectionTitleColor": {
+            "type": "string",
+            "default": "#212121"
+        },
+        "sectionTitleFontSize": {
+            "type": "number",
+            "default": 2.5
+        },
+        "sectionTitleFontWeight": {
+            "type": "number",
+            "default": 700
+        },
+        "sectionTitleAlignment": {
+            "type": "string",
+            "default": "center"
+        },
+        "sectionTitleMarginBottom": {
+            "type": "number",
+            "default": 10
+        },
+        "showSectionSubtitle": {
+            "type": "boolean",
+            "default": true
+        },
+        "sectionSubtitle": {
+            "type": "string",
+            "default": "Read our latest articles and stay informed."
+        },
+        "sectionSubtitleColor": {
+            "type": "string",
+            "default": "#666666"
+        },
+        "sectionSubtitleFontSize": {
+            "type": "number",
+            "default": 1.1
+        },
+        "sectionSubtitleMarginBottom": {
+            "type": "number",
+            "default": 50
+        },
+        "containerMaxWidth": {
+            "type": "number",
+            "default": 1200
+        },
+        "containerPadding": {
+            "type": "number",
+            "default": 30
+        },
+        "columns": {
+            "type": "number",
+            "default": 3
+        },
+        "columnsTablet": {
+            "type": "number",
+            "default": 2
+        },
+        "columnsMobile": {
+            "type": "number",
+            "default": 1
+        },
+        "gap": {
+            "type": "number",
+            "default": 30
+        },
+        "imageHeight": {
+            "type": "number",
+            "default": 200
+        },
+        "contentPadding": {
+            "type": "number",
+            "default": 20
+        },
+        "metaColor": {
+            "type": "string",
+            "default": "#666666"
+        },
+        "metaFontSize": {
+            "type": "number",
+            "default": 0.9
+        },
+        "titleFontSize": {
+            "type": "number",
+            "default": 1.3
+        },
+        "excerptFontSize": {
+            "type": "number",
+            "default": 1
+        },
+        "readMoreLabel": {
+            "type": "string",
+            "default": "Read More →"
+        },
+        "readMoreColor": {
+            "type": "string",
+            "default": "#f48b2a"
+        },
+        "hoverEffect": {
+            "type": "boolean",
+            "default": true
+        },
+        "hoverTranslateY": {
+            "type": "number",
+            "default": -5
+        },
+        "animationOnScroll": {
+            "type": "boolean",
+            "default": true
+        },
+        "animationType": {
+            "type": "string",
+            "default": "fadeInUp"
+        },
+        "animationDelay": {
+            "type": "number",
+            "default": 100
+        },
+        "showBlogLink": {
+            "type": "boolean",
+            "default": false
+        },
+        "blogLinkText": {
+            "type": "string",
+            "default": "View All on Blog"
+        },
+        "blogLinkUrl": {
+            "type": "string",
+            "default": ""
+        }
+    },
+    "supports": {
+        "html": false,
+        "anchor": true,
+        "align": ["wide", "full"]
+    },
+    "textdomain": "twork-builder",
+    "editorScript": "file:./index.js",
+    "viewScript": "file:./view.js",
+    "style": "file:./style-index.css"
+}

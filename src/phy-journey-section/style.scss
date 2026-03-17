@@ -1,0 +1,73 @@
+// Physio Journey Section – vertical timeline, matches physiotherapy-rehab.html
+
+.phy-section.twork-phy-journey-section {
+    .phy-container {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 24px;
+        position: relative;
+    }
+
+    .phy-header {
+        text-align: center;
+        max-width: 700px;
+        margin: 0 auto 50px;
+
+        h2 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 15px;
+        }
+    }
+
+    .phy-journey-container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding-left: 20px;
+        border-left: 2px solid #eee;
+    }
+
+    .phy-journey-item {
+        position: relative;
+        padding-left: 40px;
+        margin-bottom: 40px;
+
+        &::before {
+            content: '';
+            position: absolute;
+            left: -9px;
+            top: 0;
+            width: 16px;
+            height: 16px;
+            background: var(--phy-primary, #f48b2a);
+            border-radius: 50%;
+            border: 4px solid #fff;
+            box-shadow: 0 0 0 2px var(--phy-primary, #f48b2a);
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #666;
+            margin: 0;
+        }
+    }
+}
+
+// Editor helpers – focus outlines for header fields
+.editor-styles-wrapper,
+.wp-block-twork-phy-journey-section {
+    .twork-phy-journey-section-editor {
+        .phy-header h2,
+        .phy-header p {
+            &[contenteditable='true']:focus {
+                outline: 1px dashed #2271b1;
+                outline-offset: 2px;
+            }
+        }
+    }
+}
+

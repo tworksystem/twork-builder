@@ -48,6 +48,16 @@ export default function Edit({ attributes, setAttributes }) {
         titleFontWeight,
         titleLineHeight,
         titleMarginBottom,
+        showSubtitle,
+        subtitleText,
+        subtitleColor,
+        subtitleFontSize,
+        subtitleFontSizeTablet,
+        subtitleFontSizeMobile,
+        subtitleFontWeight,
+        subtitleLineHeight,
+        subtitleMarginTop,
+        subtitleMaxWidth,
         containerMaxWidth,
         containerPadding,
         containerPaddingTablet,
@@ -56,18 +66,28 @@ export default function Edit({ attributes, setAttributes }) {
         animationOnScroll,
         animationType,
         imageOpacity,
-        imageSaturation
+        imageSaturation,
+        heroStyle,
+        showPrimaryButton,
+        primaryButtonText,
+        primaryButtonUrl,
+        primaryButtonPulse,
+        showSecondaryButton,
+        secondaryButtonText,
+        secondaryButtonUrl
     } = attributes;
 
+    const isEmergency = heroStyle === 'emergency';
+
     const blockProps = useBlockProps({
-        className: 'twork-page-hero-editor',
+        className: `twork-page-hero-editor ${isEmergency ? 'em-hero page-hero-emergency' : ''}`,
         style: {
             position: 'relative',
-            height: `${heightDesktop}px`,
+            height: `${isEmergency ? 600 : heightDesktop}px`,
             display: 'flex',
             alignItems: 'center',
             overflow: 'hidden',
-            background: '#000',
+            background: isEmergency ? '#0b1c2c' : '#000',
             color: '#fff'
         }
     });
@@ -85,6 +105,69 @@ export default function Edit({ attributes, setAttributes }) {
     return (
         <>
             <InspectorControls>
+                <PanelBody title={__('Hero Style', 'twork-builder')} initialOpen={true}>
+                    <SelectControl
+                        label={__('Style', 'twork-builder')}
+                        value={heroStyle}
+                        options={[
+                            { label: __('Default', 'twork-builder'), value: 'default' },
+                            { label: __('Emergency (24/7)', 'twork-builder'), value: 'emergency' }
+                        ]}
+                        onChange={(val) => setAttributes({ heroStyle: val })}
+                        help={__('Emergency style shows badge, title, description and two CTA buttons.', 'twork-builder')}
+                    />
+                </PanelBody>
+
+                {isEmergency && (
+                    <PanelBody title={__('Buttons', 'twork-builder')} initialOpen={true}>
+                        <ToggleControl
+                            label={__('Show primary button', 'twork-builder')}
+                            checked={showPrimaryButton !== false}
+                            onChange={(val) => setAttributes({ showPrimaryButton: val })}
+                        />
+                        {showPrimaryButton !== false && (
+                            <>
+                                <TextControl
+                                    label={__('Primary button text', 'twork-builder')}
+                                    value={primaryButtonText}
+                                    onChange={(val) => setAttributes({ primaryButtonText: val })}
+                                />
+                                <TextControl
+                                    label={__('Primary button URL', 'twork-builder')}
+                                    value={primaryButtonUrl}
+                                    onChange={(val) => setAttributes({ primaryButtonUrl: val })}
+                                    help={__('e.g. tel:199 or tel:09789101101', 'twork-builder')}
+                                />
+                                <ToggleControl
+                                    label={__('Pulse animation', 'twork-builder')}
+                                    checked={primaryButtonPulse !== false}
+                                    onChange={(val) => setAttributes({ primaryButtonPulse: val })}
+                                />
+                            </>
+                        )}
+                        <Divider />
+                        <ToggleControl
+                            label={__('Show secondary button', 'twork-builder')}
+                            checked={showSecondaryButton !== false}
+                            onChange={(val) => setAttributes({ showSecondaryButton: val })}
+                        />
+                        {showSecondaryButton !== false && (
+                            <>
+                                <TextControl
+                                    label={__('Secondary button text', 'twork-builder')}
+                                    value={secondaryButtonText}
+                                    onChange={(val) => setAttributes({ secondaryButtonText: val })}
+                                />
+                                <TextControl
+                                    label={__('Secondary button URL', 'twork-builder')}
+                                    value={secondaryButtonUrl}
+                                    onChange={(val) => setAttributes({ secondaryButtonUrl: val })}
+                                />
+                            </>
+                        )}
+                    </PanelBody>
+                )}
+
                 <PanelBody
                     title={__('Background Settings', 'twork-builder')}
                     initialOpen={true}
@@ -410,6 +493,96 @@ export default function Edit({ attributes, setAttributes }) {
                 </PanelBody>
 
                 <PanelBody
+                    title={__('Subtitle Settings', 'twork-builder')}
+                    initialOpen={true}
+                >
+                    <ToggleControl
+                        label={__('Show Subtitle', 'twork-builder')}
+                        checked={showSubtitle}
+                        onChange={(val) => setAttributes({ showSubtitle: val })}
+                    />
+
+                    {showSubtitle && (
+                        <>
+                            <TextControl
+                                label={__('Subtitle Text', 'twork-builder')}
+                                value={subtitleText}
+                                onChange={(val) => setAttributes({ subtitleText: val })}
+                                placeholder={__('e.g. Committed to international standards…', 'twork-builder')}
+                                help={__('Optional line below the title. Also editable in the hero preview.', 'twork-builder')}
+                            />
+                            <PanelColorSettings
+                                title={__('Subtitle Color', 'twork-builder')}
+                                colorSettings={[
+                                    {
+                                        value: subtitleColor,
+                                        onChange: (val) => setAttributes({ subtitleColor: val }),
+                                        label: __('Subtitle Color', 'twork-builder')
+                                    }
+                                ]}
+                            />
+                            <RangeControl
+                                label={__('Font Size Desktop (rem)', 'twork-builder')}
+                                value={subtitleFontSize}
+                                onChange={(val) => setAttributes({ subtitleFontSize: val })}
+                                min={0.8}
+                                max={2}
+                                step={0.05}
+                            />
+                            <RangeControl
+                                label={__('Font Size Tablet (rem)', 'twork-builder')}
+                                value={subtitleFontSizeTablet}
+                                onChange={(val) => setAttributes({ subtitleFontSizeTablet: val })}
+                                min={0.8}
+                                max={1.8}
+                                step={0.05}
+                            />
+                            <RangeControl
+                                label={__('Font Size Mobile (rem)', 'twork-builder')}
+                                value={subtitleFontSizeMobile}
+                                onChange={(val) => setAttributes({ subtitleFontSizeMobile: val })}
+                                min={0.8}
+                                max={1.5}
+                                step={0.05}
+                            />
+                            <RangeControl
+                                label={__('Font Weight', 'twork-builder')}
+                                value={subtitleFontWeight}
+                                onChange={(val) => setAttributes({ subtitleFontWeight: val })}
+                                min={100}
+                                max={900}
+                                step={100}
+                            />
+                            <RangeControl
+                                label={__('Line Height', 'twork-builder')}
+                                value={subtitleLineHeight}
+                                onChange={(val) => setAttributes({ subtitleLineHeight: val })}
+                                min={1}
+                                max={2}
+                                step={0.1}
+                            />
+                            <RangeControl
+                                label={__('Margin Top (px)', 'twork-builder')}
+                                value={subtitleMarginTop}
+                                onChange={(val) => setAttributes({ subtitleMarginTop: val })}
+                                min={0}
+                                max={40}
+                                step={2}
+                            />
+                            <RangeControl
+                                label={__('Max Width (px)', 'twork-builder')}
+                                value={subtitleMaxWidth}
+                                onChange={(val) => setAttributes({ subtitleMaxWidth: val })}
+                                min={300}
+                                max={900}
+                                step={50}
+                                help={__('Max width for subtitle text (centered).', 'twork-builder')}
+                            />
+                        </>
+                    )}
+                </PanelBody>
+
+                <PanelBody
                     title={__('Container Settings', 'twork-builder')}
                     initialOpen={false}
                 >
@@ -491,7 +664,7 @@ export default function Edit({ attributes, setAttributes }) {
             <div {...blockProps}>
                 {backgroundImage && (
                     <div
-                        className="hero-bg-wrapper"
+                        className={isEmergency ? 'em-hero-bg-wrap' : 'hero-bg-wrapper'}
                         style={{
                             position: 'absolute',
                             top: 0,
@@ -504,19 +677,19 @@ export default function Edit({ attributes, setAttributes }) {
                         <img
                             src={backgroundImage}
                             alt=""
-                            className="hero-bg-img"
+                            className={isEmergency ? 'em-hero-bg' : 'hero-bg-img'}
                             style={{
                                 width: '100%',
                                 height: '100%',
                                 objectFit: 'cover',
-                                opacity: imageOpacity,
+                                opacity: isEmergency ? (imageOpacity || 0.4) : imageOpacity,
                                 filter: `saturate(${imageSaturation})`
                             }}
                         />
                     </div>
                 )}
 
-                {backgroundImage && backgroundOverlay && (
+                {backgroundImage && backgroundOverlay && !isEmergency && (
                     <div
                         className="background-overlay"
                         style={{
@@ -533,61 +706,140 @@ export default function Edit({ attributes, setAttributes }) {
                 )}
 
                 <div
-                    className="hero-container animate-hero"
-                    style={containerStyle}
+                    className={isEmergency ? 'em-container' : 'hero-container'}
+                    style={{ ...containerStyle, ...(isEmergency ? { maxWidth: 1280 } : {}) }}
                 >
-                    {showBreadcrumb && (
-                        <RichText
-                            tagName="span"
-                            value={breadcrumbText}
-                            onChange={(val) => setAttributes({ breadcrumbText: val })}
-                            placeholder={__('Breadcrumb text...', 'twork-builder')}
-                            className="hero-breadcrumb"
-                            style={{
-                                fontSize: `${breadcrumbFontSize}rem`,
-                                fontWeight: breadcrumbFontWeight,
-                                color: breadcrumbColor,
-                                background: breadcrumbBackground,
-                                padding: `${breadcrumbPadding}px ${breadcrumbPaddingHorizontal}px`,
-                                borderRadius: `${breadcrumbBorderRadius}px`,
-                                display: 'inline-block',
-                                marginBottom: '15px',
-                                textTransform: 'uppercase',
-                                letterSpacing: '2px'
-                            }}
-                        />
-                    )}
+                    {isEmergency ? (
+                        <div className="em-hero-content em-animate-hero" style={{ width: '100%' }}>
+                            {showBreadcrumb !== false && (
+                                <RichText
+                                    tagName="span"
+                                    value={breadcrumbText}
+                                    onChange={(val) => setAttributes({ breadcrumbText: val })}
+                                    placeholder={__('Badge text…', 'twork-builder')}
+                                    className="em-hero-badge"
+                                />
+                            )}
+                            <RichText
+                                tagName="h1"
+                                value={titleText ?? ''}
+                                onChange={(val) => setAttributes({ titleText: val })}
+                                placeholder={__('Hero title…', 'twork-builder')}
+                                className="em-hero-title"
+                            />
+                            {showSubtitle !== false && (
+                                <RichText
+                                    tagName="p"
+                                    value={subtitleText}
+                                    onChange={(val) => setAttributes({ subtitleText: val })}
+                                    placeholder={__('Description…', 'twork-builder')}
+                                    className="em-hero-desc"
+                                />
+                            )}
+                            <div className="em-hero-buttons" style={{ display: 'flex', gap: 20, justifyContent: 'center', flexWrap: 'wrap', marginTop: 24 }}>
+                                {showPrimaryButton !== false && primaryButtonText && (
+                                    <a
+                                        href={primaryButtonUrl}
+                                        className={`em-btn em-btn-primary ${primaryButtonPulse !== false ? 'em-btn-pulse' : ''}`}
+                                        onClick={(e) => e.preventDefault()}
+                                    >
+                                        <i className="fas fa-phone-alt" />
+                                        {primaryButtonText}
+                                    </a>
+                                )}
+                                {showSecondaryButton !== false && secondaryButtonText && (
+                                    <a
+                                        href={secondaryButtonUrl}
+                                        className="em-btn em-btn-glass"
+                                        style={{ background: 'rgba(255,255,255,0.2)', color: '#fff', backdropFilter: 'blur(5px)', border: '1px solid #fff' }}
+                                        onClick={(e) => e.preventDefault()}
+                                    >
+                                        {secondaryButtonText}
+                                    </a>
+                                )}
+                            </div>
+                        </div>
+                    ) : (
+                        <>
+                            {showBreadcrumb && (
+                                <RichText
+                                    tagName="span"
+                                    value={breadcrumbText}
+                                    onChange={(val) => setAttributes({ breadcrumbText: val })}
+                                    placeholder={__('Breadcrumb text...', 'twork-builder')}
+                                    className="hero-breadcrumb"
+                                    style={{
+                                        fontSize: `${breadcrumbFontSize}rem`,
+                                        fontWeight: breadcrumbFontWeight,
+                                        color: breadcrumbColor,
+                                        background: breadcrumbBackground,
+                                        padding: `${breadcrumbPadding}px ${breadcrumbPaddingHorizontal}px`,
+                                        borderRadius: `${breadcrumbBorderRadius}px`,
+                                        display: 'inline-block',
+                                        marginBottom: '15px',
+                                        textTransform: 'uppercase',
+                                        letterSpacing: '2px'
+                                    }}
+                                />
+                            )}
 
-                    <h1
-                        className="hero-title"
-                        style={{
-                            fontSize: `${titleFontSize}rem`,
-                            fontWeight: titleFontWeight,
-                            color: titleColor,
-                            lineHeight: titleLineHeight,
-                            margin: `0 0 ${titleMarginBottom}px 0`
-                        }}
-                    >
-                        <RichText
-                            tagName="span"
-                            value={titleText}
-                            onChange={(val) => setAttributes({ titleText: val })}
-                            placeholder={__('Hero title...', 'twork-builder')}
-                            style={{ display: 'block' }}
-                            className="hero-title-main"
-                        />
-                        {titleHighlightText && (
-                            <span
-                                className="hero-title-highlight"
-                                style={{
-                                    color: titleHighlightColor,
-                                    display: 'block'
-                                }}
-                            >
-                                {titleHighlightText}
-                            </span>
-                        )}
-                    </h1>
+                            <div className="hero-title-wrapper" style={{ width: '100%' }}>
+                                <h1
+                                    className="hero-title"
+                                    style={{
+                                        fontSize: `${titleFontSize}rem`,
+                                        fontWeight: titleFontWeight,
+                                        color: titleColor,
+                                        lineHeight: titleLineHeight,
+                                        margin: `0 0 ${titleMarginBottom}px 0`,
+                                        '--title-font-size-desktop': `${titleFontSize}rem`,
+                                        '--title-font-size-tablet': `${titleFontSizeTablet}rem`,
+                                        '--title-font-size-mobile': `${titleFontSizeMobile}rem`
+                                    }}
+                                >
+                                    <RichText
+                                        tagName="span"
+                                        value={titleText ?? ''}
+                                        onChange={(val) => setAttributes({ titleText: val })}
+                                        placeholder={__('Title text…', 'twork-builder')}
+                                        className="hero-title-main"
+                                        identifier="hero-title-main"
+                                    />
+                                    <RichText
+                                        tagName="span"
+                                        value={titleHighlightText ?? ''}
+                                        onChange={(val) => setAttributes({ titleHighlightText: val })}
+                                        placeholder={__('Title highlight text…', 'twork-builder')}
+                                        className="hero-title-highlight"
+                                        identifier="hero-title-highlight"
+                                        style={{
+                                            display: 'block',
+                                            margin: '0.2em 0 0',
+                                            color: titleHighlightColor || undefined
+                                        }}
+                                    />
+                                </h1>
+                            </div>
+
+                            {showSubtitle && (
+                                <RichText
+                                    tagName="p"
+                                    value={subtitleText}
+                                    onChange={(val) => setAttributes({ subtitleText: val })}
+                                    placeholder={__('Hero subtitle…', 'twork-builder')}
+                                    className="hero-subtitle"
+                                    style={{
+                                        fontSize: `${subtitleFontSize}rem`,
+                                        fontWeight: subtitleFontWeight,
+                                        color: subtitleColor,
+                                        lineHeight: subtitleLineHeight,
+                                        margin: `${subtitleMarginTop}px auto 0`,
+                                        maxWidth: subtitleMaxWidth ? `${subtitleMaxWidth}px` : undefined
+                                    }}
+                                />
+                            )}
+                        </>
+                    )}
                 </div>
             </div>
         </>

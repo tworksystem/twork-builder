@@ -1,0 +1,20 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "twork/centre-doctor-card",
+  "version": "1.0.0",
+  "title": "Doctor Card (Mini)",
+  "category": "twork-builder",
+  "parent": ["twork/centre-doctors-section"],
+  "description": "Single specialist/doctor card with photo, name, specialization, and profile link.",
+  "attributes": {
+    "imageUrl": { "type": "string", "default": "" },
+    "imageId": { "type": "number" },
+    "imageAlt": { "type": "string", "default": "" },
+    "name": { "type": "string", "default": "Dr. Susan May" },
+    "specialization": { "type": "string", "default": "Neurosurgeon" },
+    "profileUrl": { "type": "string", "default": "doctor-profile.html" },
+    "profileLinkText": { "type": "string", "default": "View Profile" }
+  },
+  "editorScript": "file:./index.js"
+}

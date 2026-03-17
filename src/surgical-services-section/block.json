@@ -1,0 +1,57 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "twork/surgical-services-section",
+  "version": "1.0.0",
+  "title": "Surgical Services Section",
+  "category": "twork-builder",
+  "icon": "grid-view",
+  "description": "Section with header (label, title, description) and grid of surgical service cards. Matches general-surgery #services block.",
+  "keywords": ["surgical", "services", "procedures", "doc-grid", "twork"],
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "align": ["wide", "full"]
+  },
+  "attributes": {
+    "sectionId": {
+      "type": "string",
+      "default": "services"
+    },
+    "sectionClass": {
+      "type": "string",
+      "default": "section-padding"
+    },
+    "label": {
+      "type": "string",
+      "default": "Our Expertise"
+    },
+    "title": {
+      "type": "string",
+      "default": "Surgical Procedures"
+    },
+    "description": {
+      "type": "string",
+      "default": "Comprehensive surgical solutions ranging from routine day-care procedures to complex interventions."
+    },
+    "gridMinItemWidth": {
+      "type": "number",
+      "default": 320
+    },
+    "gap": {
+      "type": "number",
+      "default": 40
+    },
+    "containerMaxWidth": {
+      "type": "number",
+      "default": 1200
+    },
+    "containerPadding": {
+      "type": "number",
+      "default": 24
+    }
+  },
+  "textdomain": "twork-builder",
+  "editorScript": "file:./index.js",
+  "style": "file:./style-index.css"
+}

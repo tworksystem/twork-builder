@@ -1,0 +1,325 @@
+// Variables (aligned with doctor-profile.html and Twork design system)
+:root {
+    --primary-orange: #f48b2a;
+    --dark-grey: #212121;
+    --medium-grey: #666;
+    --light-grey-bg: #f9f9f9;
+    --white: #ffffff;
+    --border: #e0e0e0;
+}
+
+// === EDITOR STYLES ===
+.editor-styles-wrapper,
+.block-editor-block-list__layout,
+.wp-block-twork-profile-tabs-section {
+    .twork-profile-tabs-section-editor {
+        position: relative;
+        min-height: 200px;
+
+        .profile-grid {
+            display: grid !important;
+            grid-template-columns: 1fr 340px !important;
+            gap: 40px !important;
+            align-items: start;
+        }
+
+        .tabs-nav .tab-btn {
+            cursor: pointer;
+        }
+
+        .schedule-table th,
+        .schedule-table td {
+            border-bottom: 1px solid #eee;
+        }
+    }
+}
+
+// === FRONTEND STYLES ===
+.profile-tabs-section {
+    font-family: "Roboto", sans-serif;
+    position: relative;
+
+    .jivaka-container {
+        position: relative;
+        z-index: 2;
+    }
+
+    .profile-grid {
+        display: grid;
+        grid-template-columns: 1fr 340px;
+        gap: 40px;
+        align-items: start;
+    }
+
+    .main-content {
+        min-width: 0;
+    }
+
+    // Tabs
+    .tabs-nav {
+        display: flex;
+        border-bottom: 2px solid #eee;
+        margin-bottom: 30px;
+        gap: 20px;
+    }
+
+    .tab-btn {
+        padding: 15px 10px;
+        font-size: 1rem;
+        font-weight: 700;
+        color: var(--medium-grey);
+        background: none;
+        border: none;
+        cursor: pointer;
+        border-bottom: 3px solid transparent;
+        transition: 0.3s;
+        position: relative;
+        bottom: -2px;
+        font-family: inherit;
+
+        &:hover {
+            color: var(--primary-orange);
+        }
+
+        &.active {
+            color: var(--primary-orange);
+            border-bottom-color: var(--primary-orange);
+        }
+
+        &:focus-visible {
+            outline: 3px solid var(--primary-orange);
+            outline-offset: 2px;
+        }
+    }
+
+    .tab-content {
+        display: none;
+
+        &.active {
+            display: block;
+            animation: profile-tabs-fadeIn 0.5s ease;
+        }
+    }
+
+    @keyframes profile-tabs-fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    // Schedule table
+    .schedule-title,
+    .experience-title {
+        margin: 0 0 20px 0;
+        font-size: 1.25rem;
+        color: var(--dark-grey);
+    }
+
+    .schedule-table {
+        width: 100%;
+        border-collapse: collapse;
+        background: var(--white);
+        border: 1px solid #eee;
+        border-radius: 8px;
+        overflow: hidden;
+        margin-top: 20px;
+    }
+
+    .schedule-table th,
+    .schedule-table td {
+        padding: 15px 20px;
+        text-align: left;
+        border-bottom: 1px solid #eee;
+    }
+
+    .schedule-table th {
+        background: var(--light-grey-bg);
+        color: var(--dark-grey);
+        font-weight: 700;
+        width: 30%;
+    }
+
+    .schedule-table tr:last-child th,
+    .schedule-table tr:last-child td {
+        border-bottom: none;
+    }
+
+    .available-tag {
+        display: inline-block;
+        background: #e6fffa;
+        color: #00b894;
+        padding: 3px 10px;
+        border-radius: 4px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        margin-left: 10px;
+    }
+
+    // Experience list
+    .experience-list {
+        list-style: disc;
+        padding-left: 20px;
+        color: var(--medium-grey);
+        margin: 0 0 20px 0;
+
+        li {
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+    }
+
+    // Booking sidebar
+    .booking-sidebar {
+        background: var(--white);
+        border: 1px solid #eee;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        position: sticky;
+        top: 100px;
+    }
+
+    .booking-title {
+        color: var(--primary-orange);
+        margin: 0 0 10px 0;
+        font-size: 1.25rem;
+    }
+
+    .consultation-fee {
+        margin: 0 0 20px 0;
+        font-size: 1rem;
+        color: var(--dark-grey);
+    }
+
+    .booking-form {
+        margin-bottom: 0;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+
+        &:last-of-type {
+            margin-bottom: 20px;
+        }
+    }
+
+    .form-group label {
+        font-size: 0.8rem;
+        font-weight: 700;
+        display: block;
+        margin-bottom: 5px;
+        color: var(--dark-grey);
+    }
+
+    .booking-input {
+        width: 100%;
+        padding: 10px 12px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 1rem;
+        font-family: inherit;
+        transition: border-color 0.3s;
+
+        &:focus {
+            outline: none;
+            border-color: var(--primary-orange);
+        }
+    }
+
+    .booking-submit {
+        width: 100%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 12px 30px;
+        border-radius: 5px;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 0.85rem;
+        letter-spacing: 0.5px;
+        border: none;
+        cursor: pointer;
+        background: var(--primary-orange);
+        color: var(--white);
+        transition: background 0.3s, transform 0.3s;
+
+        &:hover {
+            background: #e67a22;
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        &:focus-visible {
+            outline: 3px solid var(--primary-orange);
+            outline-offset: 2px;
+        }
+    }
+
+    .hotline-text {
+        font-size: 0.8rem;
+        margin-top: 15px;
+        text-align: center;
+        color: var(--medium-grey);
+    }
+}
+
+// === RESPONSIVE ===
+@media (max-width: 992px) {
+    .profile-tabs-section {
+        .profile-grid {
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        .main-content {
+            order: 1;
+        }
+
+        // Sidebar flows below main content on tablet/mobile (no longer hidden)
+        .booking-sidebar {
+            order: 2;
+            position: relative;
+            top: 0;
+        }
+    }
+}
+
+// Editor: match frontend responsive layout
+@media (max-width: 992px) {
+    .editor-styles-wrapper .twork-profile-tabs-section-editor,
+    .block-editor-block-list__layout .twork-profile-tabs-section-editor {
+        .profile-grid {
+            grid-template-columns: 1fr !important;
+            gap: 30px !important;
+        }
+
+        .booking-sidebar {
+            order: 2;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .profile-tabs-section {
+        .tabs-nav {
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tab-btn {
+            font-size: 0.9rem;
+            padding: 12px 8px;
+        }
+
+        .schedule-table th,
+        .schedule-table td {
+            padding: 12px 15px;
+            font-size: 0.9rem;
+        }
+    }
+}

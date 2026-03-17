@@ -1,0 +1,36 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "twork/tele-process-card",
+    "title": "Process Card",
+    "parent": ["twork/tele-process-section"],
+    "category": "twork-builder",
+    "icon": "admin-generic",
+    "description": "Single process step card (step number, icon, title, description) for Tele Process section.",
+    "keywords": ["process", "step", "telemedicine", "card", "twork"],
+    "attributes": {
+        "stepNumber": {
+            "type": "number",
+            "default": 1
+        },
+        "iconClass": {
+            "type": "string",
+            "default": "fas fa-user-md"
+        },
+        "title": {
+            "type": "string",
+            "default": "Choose Doctor"
+        },
+        "description": {
+            "type": "string",
+            "default": "Select a specialist from our list and view their available online schedules."
+        }
+    },
+    "supports": {
+        "html": false,
+        "reusable": false
+    },
+    "textdomain": "twork-builder",
+    "editorScript": "file:./index.js",
+    "style": "file:./style-index.css"
+}

@@ -1,0 +1,86 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "twork/contact-layout-section",
+    "version": "1.0.0",
+    "title": "Contact Layout Section",
+    "category": "twork-builder",
+    "icon": "layout",
+    "description": "Contact page section: left column (department hotlines accordion + map), right column (contact form).",
+    "keywords": ["contact", "accordion", "hotline", "map", "form", "twork"],
+    "attributes": {
+        "accordionHeading": {
+            "type": "string",
+            "default": "Direct Department Lines"
+        },
+        "locationHeading": {
+            "type": "string",
+            "default": "Our Location"
+        },
+        "locationHeadingMarginTop": {
+            "type": "number",
+            "default": 40
+        },
+        "mapEmbedUrl": {
+            "type": "string",
+            "default": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3700.867761073864!2d96.11327667595304!3d21.939502857639556!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30cb6d88f6153093%3A0x86c57f596324e93d!2sJivaka%20Hospital!5e0!3m2!1sen!2smm!4v1709230000000!5m2!1sen!2smm"
+        },
+        "mapHeight": {
+            "type": "number",
+            "default": 350
+        },
+        "formTitle": {
+            "type": "string",
+            "default": "Send us a Message"
+        },
+        "formNameLabel": {
+            "type": "string",
+            "default": "Full Name"
+        },
+        "formPhoneLabel": {
+            "type": "string",
+            "default": "Phone Number"
+        },
+        "formMessageLabel": {
+            "type": "string",
+            "default": "Your Message"
+        },
+        "buttonText": {
+            "type": "string",
+            "default": "Send Message"
+        },
+        "formId": {
+            "type": "string",
+            "default": "contactForm"
+        },
+        "layoutGap": {
+            "type": "number",
+            "default": 60
+        },
+        "containerMaxWidth": {
+            "type": "number",
+            "default": 1200
+        },
+        "containerPadding": {
+            "type": "number",
+            "default": 20
+        },
+        "paddingBottom": {
+            "type": "number",
+            "default": 80
+        },
+        "primaryColor": {
+            "type": "string",
+            "default": "#f48b2a"
+        }
+    },
+    "supports": {
+        "html": false,
+        "anchor": true,
+        "align": ["wide", "full"]
+    },
+    "textdomain": "twork-builder",
+    "editorScript": "file:./index.js",
+    "style": "file:./style-index.css",
+    "editorStyle": "file:./style-index.css"
+}

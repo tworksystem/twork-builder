@@ -1,0 +1,87 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "twork/ph-shop-category-section",
+  "version": "1.0.0",
+  "title": "Shop by Category",
+  "category": "twork-builder",
+  "icon": "grid-view",
+  "description": "Shop by Category section for the pharmacy page, displaying WooCommerce product categories in a bento grid.",
+  "keywords": [
+    "pharmacy",
+    "shop",
+    "category",
+    "woocommerce",
+    "twork"
+  ],
+  "attributes": {
+    "source": {
+      "type": "string",
+      "default": "top"
+    },
+    "parentCategoryId": {
+      "type": "number",
+      "default": 0
+    },
+    "categoryIds": {
+      "type": "array",
+      "default": []
+    },
+    "numberOfItems": {
+      "type": "number",
+      "default": 5
+    },
+    "backgroundColor": {
+      "type": "string",
+      "default": "#ffffff"
+    },
+    "paddingTop": {
+      "type": "number",
+      "default": 80
+    },
+    "paddingBottom": {
+      "type": "number",
+      "default": 80
+    },
+    "showSectionHeader": {
+      "type": "boolean",
+      "default": true
+    },
+    "sectionTitle": {
+      "type": "string",
+      "default": "Shop by Category"
+    },
+    "sectionSubtitle": {
+      "type": "string",
+      "default": "Browse our wide range of healthcare products."
+    },
+    "containerMaxWidth": {
+      "type": "number",
+      "default": 1200
+    },
+    "containerPadding": {
+      "type": "number",
+      "default": 20
+    },
+    "animationOnScroll": {
+      "type": "boolean",
+      "default": true
+    },
+    "animationType": {
+      "type": "string",
+      "default": "fade-up"
+    }
+  },
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "textdomain": "twork-builder",
+  "editorScript": "file:./index.js",
+  "style": "file:./style-index.css"
+}
+

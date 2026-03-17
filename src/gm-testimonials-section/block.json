@@ -1,0 +1,77 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "twork/gm-testimonials-section",
+    "version": "1.0.0",
+    "title": "Patient Stories",
+    "category": "twork-builder",
+    "icon": "format-quote",
+    "description": "Patient Stories / testimonials section with optional title, subtitle and a grid of review cards.",
+    "keywords": ["general medicine", "patient stories", "testimonials", "reviews", "twork"],
+    "supports": {
+        "html": false,
+        "anchor": true,
+        "align": ["wide", "full"]
+    },
+    "attributes": {
+        "backgroundColor": {
+            "type": "string",
+            "default": "#ffffff"
+        },
+        "paddingTop": {
+            "type": "number",
+            "default": 100
+        },
+        "paddingBottom": {
+            "type": "number",
+            "default": 100
+        },
+        "containerMaxWidth": {
+            "type": "number",
+            "default": 1200
+        },
+        "containerPadding": {
+            "type": "number",
+            "default": 24
+        },
+        "showSectionTitle": {
+            "type": "boolean",
+            "default": true
+        },
+        "sectionTitle": {
+            "type": "string",
+            "default": "Patient Stories"
+        },
+        "sectionSubtitle": {
+            "type": "string",
+            "default": "What our patients say about their experience."
+        },
+        "sectionTitleColor": {
+            "type": "string",
+            "default": "#212121"
+        },
+        "sectionSubtitleColor": {
+            "type": "string",
+            "default": "#555555"
+        },
+        "sectionTitleAlignment": {
+            "type": "string",
+            "default": "center"
+        },
+        "sectionTitleFontSize": {
+            "type": "number",
+            "default": 2.5
+        },
+        "sectionSubtitleFontSize": {
+            "type": "number",
+            "default": 1.1
+        },
+        "gridGap": {
+            "type": "number",
+            "default": 30
+        }
+    },
+    "textdomain": "twork-builder",
+    "editorScript": "file:./index.js",
+    "style": "file:./style-index.css"
+}

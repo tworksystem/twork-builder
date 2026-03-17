@@ -1,0 +1,28 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "twork/phy-faq-item",
+  "version": "1.0.0",
+  "title": "FAQ Item",
+  "category": "twork-builder",
+  "parent": ["twork/phy-faq-section"],
+  "icon": "editor-help",
+  "description": "Single FAQ item (question + answer) for the Physio FAQ section.",
+  "keywords": ["physio", "faq", "question", "answer", "accordion", "twork"],
+  "attributes": {
+    "question": {
+      "type": "string",
+      "default": "Do I need a doctor's referral?"
+    },
+    "answer": {
+      "type": "string",
+      "default": "While a referral is helpful, you can also book a direct consultation with our physiotherapists for assessment."
+    }
+  },
+  "supports": {
+    "html": false
+  },
+  "textdomain": "twork-builder",
+  "editorScript": "file:./index.js"
+}
+

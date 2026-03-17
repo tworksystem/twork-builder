@@ -1,0 +1,117 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "twork/before-you-come-section",
+    "version": "1.0.0",
+    "title": "Before You Come Section",
+    "category": "twork-builder",
+    "icon": "list-view",
+    "description": "Info section with optional title and a grid of tip cards (e.g. Fasting, Reports, Appointment).",
+    "keywords": ["before", "info", "tips", "grid", "twork"],
+    "supports": {
+        "html": false,
+        "anchor": true,
+        "align": ["full", "wide"]
+    },
+    "attributes": {
+        "backgroundColor": {
+            "type": "string",
+            "default": "#ffffff"
+        },
+        "paddingTop": {
+            "type": "number",
+            "default": 0
+        },
+        "paddingBottom": {
+            "type": "number",
+            "default": 80
+        },
+        "containerMaxWidth": {
+            "type": "number",
+            "default": 1200
+        },
+        "containerPadding": {
+            "type": "number",
+            "default": 20
+        },
+        "showSectionTitle": {
+            "type": "boolean",
+            "default": true
+        },
+        "sectionTitle": {
+            "type": "string",
+            "default": "Before You Come"
+        },
+        "sectionTitleColor": {
+            "type": "string",
+            "default": "#212121"
+        },
+        "sectionTitleFontSize": {
+            "type": "number",
+            "default": 2
+        },
+        "sectionTitleFontWeight": {
+            "type": "number",
+            "default": 700
+        },
+        "sectionTitleAlignment": {
+            "type": "string",
+            "default": "center"
+        },
+        "sectionTitleMarginBottom": {
+            "type": "number",
+            "default": 40
+        },
+        "showSectionDescription": {
+            "type": "boolean",
+            "default": true
+        },
+        "sectionDescription": {
+            "type": "string",
+            "default": ""
+        },
+        "sectionDescriptionColor": {
+            "type": "string",
+            "default": "#666666"
+        },
+        "sectionDescriptionFontSize": {
+            "type": "number",
+            "default": 1
+        },
+        "sectionDescriptionAlignment": {
+            "type": "string",
+            "default": "center"
+        },
+        "sectionDescriptionMarginTop": {
+            "type": "number",
+            "default": 0
+        },
+        "sectionDescriptionMarginBottom": {
+            "type": "number",
+            "default": 24
+        },
+        "minColumnWidth": {
+            "type": "number",
+            "default": 300
+        },
+        "gap": {
+            "type": "number",
+            "default": 30
+        },
+        "cardBackgroundColor": {
+            "type": "string",
+            "default": "#f9f9f9"
+        },
+        "cardPadding": {
+            "type": "number",
+            "default": 25
+        },
+        "cardBorderRadius": {
+            "type": "number",
+            "default": 8
+        }
+    },
+    "textdomain": "twork-builder",
+    "editorScript": "file:./index.js",
+    "style": "file:./style-index.css"
+}

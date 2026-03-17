@@ -1,0 +1,66 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "twork/exclusive-service-item",
+    "title": "Exclusive Service Item",
+    "parent": ["twork/exclusive-services-section"],
+    "description": "Single service card with icon (left) and content for Exclusive Services section.",
+    "keywords": ["exclusive", "service", "icon", "international", "patient", "twork"],
+    "attributes": {
+        "icon": {
+            "type": "string",
+            "default": "fas fa-language"
+        },
+        "iconColor": {
+            "type": "string",
+            "default": "#f48b2a"
+        },
+        "iconSize": {
+            "type": "number",
+            "default": 2
+        },
+        "title": {
+            "type": "string",
+            "default": "Language Interpretation"
+        },
+        "titleColor": {
+            "type": "string",
+            "default": "#212121"
+        },
+        "titleFontSize": {
+            "type": "number",
+            "default": 1.1
+        },
+        "titleFontWeight": {
+            "type": "number",
+            "default": 700
+        },
+        "description": {
+            "type": "string",
+            "default": "Our team speaks English, Chinese, and Thai to ensure clear communication."
+        },
+        "descriptionColor": {
+            "type": "string",
+            "default": "#666666"
+        },
+        "descriptionFontSize": {
+            "type": "number",
+            "default": 0.9
+        },
+        "cardPadding": {
+            "type": "number",
+            "default": 25
+        },
+        "cardPaddingMobile": {
+            "type": "number",
+            "default": 20
+        },
+        "cardGap": {
+            "type": "number",
+            "default": 20
+        }
+    },
+    "textdomain": "twork-builder",
+    "editorScript": "file:./index.js",
+    "style": "file:./style-index.css"
+}

@@ -1,0 +1,169 @@
+// Variables
+:root {
+    --primary-orange: #f48b2a;
+    --dark-grey: #212121;
+    --medium-grey: #666;
+    --light-grey-bg: #f9f9f9;
+}
+
+// === EDITOR STYLES ===
+.editor-styles-wrapper,
+.block-editor-block-list__layout,
+.wp-block-twork-before-you-come-section {
+    .twork-before-you-come-section-editor {
+        position: relative;
+
+        .twork-before-you-come-grid {
+            display: grid !important;
+            width: 100% !important;
+
+            > .block-editor-inner-blocks {
+                display: contents !important;
+
+                > .block-editor-block-list__layout {
+                    display: contents !important;
+
+                    > .wp-block,
+                    > [data-type="twork/before-you-come-item"] {
+                        display: flex !important;
+                        flex-direction: column !important;
+                        min-height: 120px;
+                        border: 2px dashed #e0e0e0;
+                        border-radius: 8px;
+                        background: #fafafa;
+                        transition: all 0.2s ease;
+
+                        &:hover {
+                            border-color: #2271b1;
+                            background: #fff;
+                        }
+
+                        &.is-selected {
+                            border-color: #2271b1;
+                            box-shadow: 0 0 0 1px #2271b1;
+                        }
+                    }
+                }
+            }
+        }
+
+        h2[contenteditable="true"]:focus,
+        .before-you-come-description-editor[contenteditable="true"]:focus {
+            outline: 1px dashed #2271b1;
+            outline-offset: 2px;
+        }
+
+        .before-you-come-description-editor {
+            max-width: 100%;
+        }
+    }
+}
+
+// === FRONTEND STYLES ===
+.twork-before-you-come-section {
+    font-family: "Roboto", sans-serif;
+    position: relative;
+
+    .jivaka-container {
+        position: relative;
+        z-index: 2;
+    }
+
+    .before-you-come-title {
+        margin: 0 0 40px 0;
+        line-height: 1.2;
+    }
+
+    .before-you-come-description {
+        margin: 0 0 24px 0;
+        line-height: 1.6;
+        color: var(--medium-grey);
+    }
+
+    .before-you-come-grid {
+        display: grid;
+        width: 100%;
+    }
+
+    // Card styles (child block output)
+    .before-you-come-item-card {
+        background: var(--byc-card-bg, #f9f9f9);
+        padding: var(--byc-card-padding, 25px);
+        border-radius: var(--byc-card-radius, 8px);
+        display: flex;
+        flex-direction: column;
+        transition: box-shadow 0.3s ease;
+
+        &:hover {
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+        }
+
+        .item-icon-title {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary-orange);
+            line-height: 1.3;
+
+            i {
+                flex-shrink: 0;
+                font-size: 1.1em;
+            }
+
+            h4 {
+                margin: 0;
+                font: inherit;
+                color: inherit;
+            }
+        }
+
+        .item-description {
+            margin: 0;
+            color: var(--medium-grey);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+    }
+}
+
+// === RESPONSIVE ===
+@media (max-width: 768px) {
+    .twork-before-you-come-section {
+        .before-you-come-title {
+            font-size: 1.75rem !important;
+            margin-bottom: 30px !important;
+        }
+
+        .before-you-come-description {
+            font-size: 0.95rem !important;
+            margin-bottom: 20px !important;
+        }
+
+        .before-you-come-grid {
+            gap: 20px !important;
+        }
+    }
+}
+
+// === ACCESSIBILITY ===
+.before-you-come-item-card {
+    &:focus-within {
+        outline: 2px solid var(--primary-orange);
+        outline-offset: 2px;
+    }
+}
+
+// === PRINT ===
+@media print {
+    .twork-before-you-come-section {
+        .before-you-come-item-card {
+            page-break-inside: avoid;
+            break-inside: avoid;
+            box-shadow: none;
+            border: 1px solid #e0e0e0;
+        }
+    }
+}

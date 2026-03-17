@@ -1,0 +1,33 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "twork/job-category-item",
+    "title": "Job Category",
+    "parent": ["twork/job-openings-section"],
+    "description": "Job category group with title and job cards (e.g. Medical & Nursing, Administration & Support).",
+    "keywords": ["job", "category", "career", "group", "twork"],
+    "attributes": {
+        "categoryTitle": {
+            "type": "string",
+            "default": "Medical & Nursing"
+        },
+        "categoryTitleColor": {
+            "type": "string",
+            "default": "#212121"
+        },
+        "categoryTitleFontSize": {
+            "type": "number",
+            "default": 1.5
+        },
+        "categoryBorderColor": {
+            "type": "string",
+            "default": "#f48b2a"
+        },
+        "categoryMarginBottom": {
+            "type": "number",
+            "default": 60
+        }
+    },
+    "textdomain": "twork-builder",
+    "editorScript": "file:./index.js"
+}

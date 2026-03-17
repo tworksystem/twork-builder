@@ -1,0 +1,63 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "twork/csr-event-item",
+    "title": "Event Item",
+    "parent": ["twork/csr-events-section"],
+    "category": "twork-builder",
+    "description": "Single event card for Upcoming CSR Events section.",
+    "keywords": ["csr", "event", "card", "upcoming", "twork"],
+    "attributes": {
+        "dateDay": {
+            "type": "string",
+            "default": "15"
+        },
+        "dateMonth": {
+            "type": "string",
+            "default": "Nov"
+        },
+        "title": {
+            "type": "string",
+            "default": "Event Title"
+        },
+        "location": {
+            "type": "string",
+            "default": "Event Location"
+        },
+        "time": {
+            "type": "string",
+            "default": "9:00 AM – 5:00 PM"
+        },
+        "buttonText": {
+            "type": "string",
+            "default": "Register"
+        },
+        "buttonUrl": {
+            "type": "string",
+            "default": "#"
+        },
+        "buttonOpensInNewTab": {
+            "type": "boolean",
+            "default": false
+        },
+        "dateBgColor": {
+            "type": "string",
+            "default": "#f48b2a"
+        },
+        "dateTextColor": {
+            "type": "string",
+            "default": "#ffffff"
+        },
+        "titleColor": {
+            "type": "string",
+            "default": "#212121"
+        },
+        "infoColor": {
+            "type": "string",
+            "default": "#666666"
+        }
+    },
+    "textdomain": "twork-builder",
+    "editorScript": "file:./index.js",
+    "style": "file:./style-index.css"
+}

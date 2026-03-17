@@ -1,0 +1,94 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "twork/lab-depts-section",
+  "version": "1.0.0",
+  "title": "Departments Section",
+  "category": "twork-builder",
+  "icon": "grid-view",
+  "description": "Laboratory departments grid with hex icons (Biochemistry, Hematology, Molecular Bio, etc.), matching laboratory-services.html.",
+  "keywords": ["lab", "departments", "hex", "grid", "twork"],
+  "attributes": {
+    "backgroundColor": {
+      "type": "string",
+      "default": "#ffffff"
+    },
+    "paddingTop": {
+      "type": "number",
+      "default": 100
+    },
+    "paddingBottom": {
+      "type": "number",
+      "default": 100
+    },
+    "containerMaxWidth": {
+      "type": "number",
+      "default": 1200
+    },
+    "containerPadding": {
+      "type": "number",
+      "default": 20
+    },
+    "showSectionHeader": {
+      "type": "boolean",
+      "default": true
+    },
+    "sectionTitle": {
+      "type": "string",
+      "default": "Our Departments"
+    },
+    "sectionSubtitle": {
+      "type": "string",
+      "default": "We cover the full spectrum of diagnostic pathology."
+    },
+    "headerAlign": {
+      "type": "string",
+      "default": "center"
+    },
+    "headerMaxWidth": {
+      "type": "number",
+      "default": 700
+    },
+    "gap": {
+      "type": "number",
+      "default": 30
+    },
+    "minColumnWidth": {
+      "type": "number",
+      "default": 300
+    },
+    "animationOnScroll": {
+      "type": "boolean",
+      "default": true
+    },
+    "primaryColor": {
+      "type": "string",
+      "default": "#f48b2a"
+    },
+    "headingColor": {
+      "type": "string",
+      "default": "#000000"
+    },
+    "subtitleColor": {
+      "type": "string",
+      "default": "#666666"
+    },
+    "cardBackgroundColor": {
+      "type": "string",
+      "default": "#ffffff"
+    },
+    "hexIconBgColor": {
+      "type": "string",
+      "default": "#f2f2f2"
+    }
+  },
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "align": ["wide", "full"]
+  },
+  "textdomain": "twork-builder",
+  "editorScript": "file:./index.js",
+  "style": "file:./style-index.css"
+}
+

@@ -1,0 +1,15 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "twork/centre-treatments-section",
+  "version": "1.0.0",
+  "title": "Treatments Section",
+  "category": "twork-builder",
+  "parent": ["twork/centre-layout-section"],
+  "attributes": {
+    "sectionId": { "type": "string", "default": "treatments" },
+    "title": { "type": "string", "default": "Treatments & Services" },
+    "subtitle": { "type": "string", "default": "We specialize in minimally invasive spine surgery and stroke management." }
+  },
+  "editorScript": "file:./index.js"
+}

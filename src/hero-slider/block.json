@@ -1,0 +1,84 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "twork/hero-slider",
+  "title": "Hero Slider",
+  "category": "twork-builder",
+  "icon": "slides",
+  "description": "Hero slider with fade, slide, and cube effects; autoplay, pagination, and navigation.",
+  "keywords": ["hero", "slider", "banner", "carousel"],
+  "version": "1.0.0",
+  "textdomain": "twork-builder",
+  "editorScript": "file:./index.js",
+  "style": "file:./style-index.css",
+  "viewScript": "file:./view.js",
+  "attributes": {
+    "slides": {
+      "type": "array",
+      "default": [
+        {
+          "metaTitle": "INSPIRING BETTER HEALTH",
+          "metaTitleFontSize": "0.75rem",
+          "metaTitleColor": "rgba(255, 255, 255, 0.9)",
+          "metaTitleLetterSpacing": "3px",
+          "metaTitleFontSizeMobile": "0.65rem",
+          "metaTitleLetterSpacingMobile": "2px",
+          "showSeparator": true,
+          "separatorColor": "#f48b2a",
+          "separatorWidth": "60px",
+          "separatorHeight": "3px",
+          "separatorBorderRadius": "2px",
+          "separatorOpacity": "1",
+          "separatorAlignment": "center",
+          "separatorMarginTop": "0px",
+          "separatorMarginBottom": "20px",
+          "separatorWidthMobile": "50px",
+          "separatorHeightMobile": "2px",
+          "separatorMarginBottomMobile": "15px",
+          "title": "Healthy heart,\nhealthy family",
+          "titlePart1Color": "#f48b2a",
+          "titlePart2Color": "#2c3e50",
+          "titleFontSize": "4.5rem",
+          "titleLineHeight": "1.1",
+          "titleFontWeight": "900",
+          "titleFontSizeTablet": "3.5rem",
+          "titleFontSizeMobile": "2.2rem",
+          "description": "Globally harness multimedia based collaboration and idea-sharing with backend products. Continually whiteboard superior opportunities via covalent scenarios.",
+          "descriptionFontSize": "1.25rem",
+          "descriptionColor": "rgba(255, 255, 255, 0.95)",
+          "descriptionLineHeight": "1.8",
+          "descriptionFontSizeTablet": "1.1rem",
+          "descriptionFontSizeMobile": "0.95rem",
+          "descriptionLineHeightMobile": "1.6",
+          "backgroundImage": "",
+          "primaryButtonText": "DISCOVER MORE",
+          "primaryButtonLink": "#",
+          "primaryButtonFontSize": "0.9rem",
+          "primaryButtonPadding": "16px 40px",
+          "primaryButtonFontSizeMobile": "0.85rem",
+          "primaryButtonPaddingMobile": "14px 30px",
+          "secondaryButtonText": "VIEW OUR SERVICES",
+          "secondaryButtonLink": "#",
+          "secondaryButtonFontSize": "0.9rem",
+          "secondaryButtonPadding": "16px 40px",
+          "secondaryButtonFontSizeMobile": "0.85rem",
+          "secondaryButtonPaddingMobile": "14px 30px"
+        }
+      ]
+    },
+    "autoplayDelay": {
+      "type": "number",
+      "default": 4000
+    },
+    "effect": {
+      "type": "string",
+      "default": "fade"
+    }
+  },
+  "supports": {
+    "html": false,
+    "align": ["full", "wide"],
+    "alignWide": true
+  }
+}
+

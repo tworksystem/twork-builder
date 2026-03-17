@@ -1,0 +1,207 @@
+/**
+ * Paediatrics Hero – matches paediatrics-centre.html hero section
+ * Background image, badge, title, subtitle, two CTAs, side image.
+ */
+
+// Block-scoped variables (paediatrics-centre.html)
+.paed-hero.twork-paediatrics-hero,
+.paed-hero.twork-paediatrics-hero-editor {
+    --paed-primary: #f48b2a;
+    --paed-hover: #e67a22;
+    --paed-radius: 16px;
+}
+
+.paed-hero.twork-paediatrics-hero,
+.paed-hero.twork-paediatrics-hero-editor {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background-color: #000000;
+    color: #fff;
+    overflow: hidden;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+
+    .paed-hero-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.3;
+        object-position: center;
+        z-index: 1;
+    }
+
+    .paed-hero-overlay {
+        pointer-events: none;
+    }
+
+    .paed-hero-layout {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 50px;
+        box-sizing: border-box;
+    }
+
+    .paed-hero-text {
+        flex: 1;
+        min-width: 300px;
+        max-width: 600px;
+    }
+
+    .paed-hero-img-col {
+        flex: 1;
+        min-width: 300px;
+        display: flex;
+        justify-content: flex-end;
+        position: relative;
+    }
+
+    .paed-hero-visual {
+        max-width: 100%;
+        width: 450px;
+        height: auto;
+        border-radius: var(--paed-radius);
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+        border: 5px solid rgba(255, 255, 255, 0.1);
+        display: block;
+    }
+
+    .paed-hero-placeholder {
+        width: 100%;
+        max-width: 450px;
+    }
+
+    .paed-badge {
+        display: inline-block;
+        padding: 8px 20px;
+        background: rgba(244, 139, 42, 0.2);
+        backdrop-filter: blur(5px);
+        color: var(--paed-primary);
+        border-radius: 50px;
+        font-size: 0.9rem;
+        font-weight: 700;
+        margin-bottom: 25px;
+        border: 1px solid var(--paed-primary);
+    }
+
+    .paed-title {
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        font-weight: 900;
+        margin: 0 0 20px 0;
+        line-height: 1.1;
+    }
+
+    .paed-subtitle {
+        font-size: 1.15rem;
+        opacity: 0.9;
+        margin-bottom: 40px;
+        line-height: 1.6;
+    }
+
+    .paed-hero-buttons {
+        display: flex;
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+
+    .paed-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 14px 30px;
+        border-radius: 50px;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 0.85rem;
+        letter-spacing: 0.8px;
+        transition: all 0.3s;
+        cursor: pointer;
+        border: 2px solid transparent;
+        text-decoration: none;
+        color: inherit;
+    }
+
+    .paed-btn-primary {
+        background: var(--paed-primary);
+        color: #fff;
+        box-shadow: 0 4px 15px rgba(244, 139, 42, 0.3);
+    }
+
+    .paed-btn-primary:hover {
+        background: var(--paed-hover);
+        transform: translateY(-3px);
+    }
+
+    .paed-btn-outline {
+        background: transparent;
+        border-color: var(--paed-primary);
+        color: var(--paed-primary);
+    }
+
+    .paed-btn-outline:hover {
+        background: var(--paed-primary);
+        color: #fff;
+    }
+}
+
+// Editor
+.editor-styles-wrapper .wp-block-twork-paediatrics-hero,
+.wp-block-twork-paediatrics-hero {
+    .twork-paediatrics-hero-editor {
+        .paed-hero-text .paed-title[contenteditable="true"],
+        .paed-hero-text .paed-subtitle[contenteditable="true"] {
+            &:focus {
+                outline: 2px dashed #2271b1;
+                outline-offset: 2px;
+            }
+        }
+    }
+}
+
+// Responsive (match paediatrics-centre.html)
+@media (max-width: 992px) {
+    .paed-hero.twork-paediatrics-hero,
+    .paed-hero.twork-paediatrics-hero-editor {
+        .paed-hero-layout {
+            flex-direction: column;
+            text-align: left;
+            gap: 40px;
+            align-items: flex-start;
+        }
+
+        .paed-hero-text {
+            max-width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .paed-hero-img-col {
+            justify-content: center;
+            width: 100%;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .paed-hero.twork-paediatrics-hero,
+    .paed-hero.twork-paediatrics-hero-editor {
+        .paed-title {
+            font-size: 2.5rem;
+        }
+
+        .paed-hero-visual {
+            width: 100%;
+            max-width: 100%;
+        }
+    }
+}

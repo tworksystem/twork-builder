@@ -1,0 +1,16 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "twork/centre-conditions-section",
+  "version": "1.0.0",
+  "title": "Conditions Section",
+  "category": "twork-builder",
+  "parent": ["twork/centre-layout-section"],
+  "description": "Conditions we treat grid with icon + title cards. Toggle section visibility on/off.",
+  "attributes": {
+    "sectionId": { "type": "string", "default": "conditions" },
+    "title": { "type": "string", "default": "Conditions We Treat" },
+    "showSection": { "type": "boolean", "default": true }
+  },
+  "editorScript": "file:./index.js"
+}

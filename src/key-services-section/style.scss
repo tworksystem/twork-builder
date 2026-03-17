@@ -1,0 +1,1132 @@
+// Key Services Section Styles
+// Professional key services section with icon-based service items
+
+// ============================================
+// CRITICAL: UNIVERSAL BORDER OVERRIDES - HIGHEST PRIORITY
+// ============================================
+// These rules MUST come first and override EVERYTHING
+// Use universal selectors to catch all possible combinations
+
+// UNIVERSAL: Hide ALL borders on ALL key-services elements by default
+*[class*="key-services-section"],
+*[class*="twork-key-services-section"],
+*[class*="jivaka-section"] {
+    border: none !important;
+    border-width: 0 !important;
+    border-style: none !important;
+    border-color: transparent !important;
+    border-top: none !important;
+    border-right: none !important;
+    border-bottom: none !important;
+    border-left: none !important;
+}
+
+// UNIVERSAL: Hide ALL pseudo-elements by default
+*[class*="key-services-section"] *[class*="key-service-item"]::after,
+*[class*="key-services-section"] *[class*="key-service-item"]::before,
+*[class*="twork-key-services-section"] *[class*="key-service-item"]::after,
+*[class*="twork-key-services-section"] *[class*="key-service-item"]::before,
+*[class*="key-service-item"]::after,
+*[class*="key-service-item"]::before,
+*[class*="twork-key-service-item"]::after,
+*[class*="twork-key-service-item"]::before {
+    content: none !important;
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    width: 0 !important;
+    height: 0 !important;
+    background: none !important;
+    border: none !important;
+}
+
+// ============================================
+// CRITICAL: GLOBAL BORDER OVERRIDES - MUST BE FIRST
+// ============================================
+// These rules MUST come first to override everything else
+// Target ALL possible class combinations and pseudo-elements
+
+// Section borders - COMPLETELY HIDDEN BY DEFAULT
+.wp-block-twork-key-services-section.key-services-section.jivaka-section.twork-key-services-section,
+.wp-block-twork-key-services-section.key-services-section.jivaka-section,
+.wp-block-twork-key-services-section.key-services-section.twork-key-services-section,
+.wp-block-twork-key-services-section.jivaka-section.twork-key-services-section,
+.wp-block-twork-key-services-section.key-services-section,
+.wp-block-twork-key-services-section.jivaka-section,
+.wp-block-twork-key-services-section.twork-key-services-section,
+.wp-block-twork-key-services-section,
+section.wp-block-twork-key-services-section,
+section.wp-block-twork-key-services-section.key-services-section,
+section.wp-block-twork-key-services-section.jivaka-section,
+section.wp-block-twork-key-services-section.twork-key-services-section,
+section.key-services-section,
+section.twork-key-services-section,
+section.jivaka-section,
+.key-services-section.jivaka-section.twork-key-services-section,
+.key-services-section.twork-key-services-section,
+.key-services-section.jivaka-section,
+.key-services-section,
+.twork-key-services-section,
+.jivaka-section {
+    border: none !important;
+    border-width: 0 !important;
+    border-style: none !important;
+    border-color: transparent !important;
+    border-top: none !important;
+    border-right: none !important;
+    border-bottom: none !important;
+    border-left: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+// Item border pseudo-elements - COMPLETELY HIDDEN BY DEFAULT
+// Target ALL possible selector combinations
+.key-services-section .key-services-grid .key-service-item:not(:last-child)::after,
+.key-services-section .key-services-grid .twork-key-service-item:not(:last-child)::after,
+.key-services-section .twork-key-services-grid .key-service-item:not(:last-child)::after,
+.key-services-section .twork-key-services-grid .twork-key-service-item:not(:last-child)::after,
+.twork-key-services-section .key-services-grid .key-service-item:not(:last-child)::after,
+.twork-key-services-section .key-services-grid .twork-key-service-item:not(:last-child)::after,
+.twork-key-services-section .twork-key-services-grid .key-service-item:not(:last-child)::after,
+.twork-key-services-section .twork-key-services-grid .twork-key-service-item:not(:last-child)::after,
+.wp-block-twork-key-services-section .key-services-grid .key-service-item:not(:last-child)::after,
+.wp-block-twork-key-services-section .key-services-grid .twork-key-service-item:not(:last-child)::after,
+.wp-block-twork-key-services-section .twork-key-services-grid .key-service-item:not(:last-child)::after,
+.wp-block-twork-key-services-section .twork-key-services-grid .twork-key-service-item:not(:last-child)::after,
+.wp-block-twork-key-services-section.key-services-section .key-services-grid .key-service-item:not(:last-child)::after,
+.wp-block-twork-key-services-section.key-services-section .key-services-grid .twork-key-service-item:not(:last-child)::after,
+.wp-block-twork-key-services-section.key-services-section .twork-key-services-grid .key-service-item:not(:last-child)::after,
+.wp-block-twork-key-services-section.key-services-section .twork-key-services-grid .twork-key-service-item:not(:last-child)::after,
+.key-service-item:not(:last-child)::after,
+.twork-key-service-item:not(:last-child)::after {
+    content: none !important;
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    width: 0 !important;
+    height: 0 !important;
+    max-width: 0 !important;
+    max-height: 0 !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+    background: none !important;
+    background-color: transparent !important;
+    border: none !important;
+    pointer-events: none !important;
+    position: absolute !important;
+    z-index: -999 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    left: auto !important;
+    right: auto !important;
+    top: auto !important;
+    bottom: auto !important;
+}
+
+.key-services-section .key-services-grid .key-service-item::before,
+.key-services-section .key-services-grid .twork-key-service-item::before,
+.key-services-section .twork-key-services-grid .key-service-item::before,
+.key-services-section .twork-key-services-grid .twork-key-service-item::before,
+.twork-key-services-section .key-services-grid .key-service-item::before,
+.twork-key-services-section .key-services-grid .twork-key-service-item::before,
+.twork-key-services-section .twork-key-services-grid .key-service-item::before,
+.twork-key-services-section .twork-key-services-grid .twork-key-service-item::before,
+.wp-block-twork-key-services-section .key-services-grid .key-service-item::before,
+.wp-block-twork-key-services-section .key-services-grid .twork-key-service-item::before,
+.wp-block-twork-key-services-section .twork-key-services-grid .key-service-item::before,
+.wp-block-twork-key-services-section .twork-key-services-grid .twork-key-service-item::before,
+.wp-block-twork-key-services-section.key-services-section .key-services-grid .key-service-item::before,
+.wp-block-twork-key-services-section.key-services-section .key-services-grid .twork-key-service-item::before,
+.wp-block-twork-key-services-section.key-services-section .twork-key-services-grid .key-service-item::before,
+.wp-block-twork-key-services-section.key-services-section .twork-key-services-grid .twork-key-service-item::before,
+.key-service-item::before,
+.twork-key-service-item::before {
+    content: none !important;
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    width: 0 !important;
+    height: 0 !important;
+    max-width: 0 !important;
+    max-height: 0 !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+    background: none !important;
+    background-color: transparent !important;
+    border: none !important;
+    pointer-events: none !important;
+    position: absolute !important;
+    z-index: -999 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    left: auto !important;
+    right: auto !important;
+    top: auto !important;
+    bottom: auto !important;
+}
+
+// ============================================
+// END CRITICAL GLOBAL OVERRIDES
+// ============================================
+
+// === EDITOR STYLES ===
+.editor-styles-wrapper,
+.block-editor-block-list__layout,
+.wp-block-twork-key-services-section {
+    .twork-key-services-section-editor {
+        position: relative;
+        min-height: 300px;
+
+        .background-overlay {
+            pointer-events: none;
+        }
+
+        .section-header {
+            margin-bottom: 50px;
+
+            h2, p {
+                &[contenteditable="true"]:focus {
+                    outline: 1px dashed #2271b1;
+                    outline-offset: 2px;
+                }
+            }
+        }
+
+        .twork-key-services-grid-container {
+            display: grid !important;
+            grid-template-columns: repeat(var(--grid-columns, 3), 1fr) !important;
+            gap: var(--grid-gap, 0px) !important;
+            width: 100% !important;
+
+            // Make InnerBlocks transparent to the grid
+            > .block-editor-inner-blocks {
+                display: contents !important;
+
+                > .block-editor-block-list__layout {
+                    display: contents !important;
+
+                    // Style individual key service items in the editor
+                    > .wp-block,
+                    > [data-type="twork/key-service-item"] {
+                        background: #fafafa;
+                        border: 2px dashed #e0e0e0;
+                        border-radius: 8px;
+                        display: flex !important;
+                        flex-direction: column !important;
+                        min-height: 200px;
+                        overflow: hidden;
+                        position: relative;
+                        transition: all 0.2s ease;
+
+                        &:hover {
+                            background: #fff;
+                            border-color: #2271b1;
+                            box-shadow: 0 4px 12px rgba(34, 113, 177, 0.1);
+                            z-index: 1;
+                        }
+
+                        &.is-selected {
+                            background: #fff;
+                            border-color: #2271b1;
+                            box-shadow: 0 0 0 1px #2271b1;
+                            z-index: 2;
+                        }
+
+                        // Ensure inner content of key service item also uses flex
+                        > .block-editor-block-list__block-edit,
+                        > .block-editor-block-list__block-edit > div {
+                            display: flex !important;
+                            flex: 1 !important;
+                            flex-direction: column !important;
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// === FRONTEND STYLES ===
+// Override WordPress core CSS that adds border-style: solid to elements with border-width
+// WordPress core rule: html :where([style*=border-width]) { border-style: solid; }
+// We use CSS custom properties instead of inline border-width to avoid this interference
+
+// CRITICAL: Global override with maximum specificity - MUST be first
+// Target the exact class combination the user mentioned
+// GLOBAL OVERRIDE: Ensure ALL key-services-section elements have NO borders by default
+// This must be at the top level to override any WordPress core CSS
+// Target the EXACT class combination the user mentioned with maximum specificity
+.wp-block-twork-key-services-section.key-services-section.jivaka-section.twork-key-services-section,
+.wp-block-twork-key-services-section.key-services-section.jivaka-section,
+.wp-block-twork-key-services-section.key-services-section.twork-key-services-section,
+.wp-block-twork-key-services-section.jivaka-section.twork-key-services-section,
+.wp-block-twork-key-services-section.key-services-section,
+.wp-block-twork-key-services-section.jivaka-section,
+.wp-block-twork-key-services-section.twork-key-services-section,
+.wp-block-twork-key-services-section,
+section.wp-block-twork-key-services-section,
+section.wp-block-twork-key-services-section.key-services-section,
+section.wp-block-twork-key-services-section.jivaka-section,
+section.wp-block-twork-key-services-section.twork-key-services-section,
+section.key-services-section,
+section.twork-key-services-section,
+section.jivaka-section,
+.key-services-section.jivaka-section.twork-key-services-section,
+.key-services-section.twork-key-services-section,
+.key-services-section.jivaka-section,
+.key-services-section,
+.twork-key-services-section,
+.jivaka-section {
+    // Override WordPress core CSS - ensure no unwanted borders with maximum specificity
+    border: none !important;
+    border-width: 0 !important;
+    border-style: none !important;
+    border-color: transparent !important;
+    outline: none !important;
+    
+    // Force remove any inherited border styles
+    border-top: none !important;
+    border-right: none !important;
+    border-bottom: none !important;
+    border-left: none !important;
+    
+    // Section borders - using CSS custom properties to avoid WordPress core CSS interference
+    // WordPress core adds border-style: solid to elements with border-width in inline styles
+    // So we use data attributes and CSS custom properties instead
+    // CRITICAL: Only apply borders if width is explicitly set and > 0
+    &[data-section-border-width]:not([data-section-border-width="0"]):not([data-section-border-width=""]) {
+        $width: var(--section-border-width, 0px);
+        // Only apply if width is actually > 0
+        border-width: $width !important;
+        border-color: var(--section-border-color, #e0e0e0) !important;
+        border-style: var(--section-border-style, solid) !important;
+        border-radius: var(--section-border-radius, 0px) !important;
+    }
+    
+    // Default: no section borders unless explicitly set and > 0
+    // CRITICAL: This must override everything else
+    &:not([data-section-border-width]),
+    &[data-section-border-width="0"],
+    &[data-section-border-width=""],
+    &[data-section-border-width="undefined"],
+    &[data-section-border-width="null"] {
+        border: none !important;
+        border-width: 0 !important;
+        border-style: none !important;
+        border-color: transparent !important;
+        border-top: none !important;
+        border-right: none !important;
+        border-bottom: none !important;
+        border-left: none !important;
+    }
+    
+    // Box shadow
+    &[data-section-box-shadow="true"] {
+        box-shadow: var(--section-box-shadow-x, 0px) var(--section-box-shadow-y, 4px) var(--section-box-shadow-blur, 10px) var(--section-box-shadow-spread, 0px) var(--section-box-shadow-color, rgba(0, 0, 0, 0.1)) !important;
+    }
+    
+    &:not([data-section-box-shadow="true"]) {
+        box-shadow: none !important;
+    }
+}
+
+.key-services-section,
+.twork-key-services-section {
+    position: relative;
+    overflow: hidden;
+
+    .background-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1;
+        pointer-events: none;
+    }
+
+    .jivaka-container {
+        position: relative;
+        z-index: 2;
+    }
+
+    .section-header {
+        margin-bottom: 50px;
+
+        .section-title {
+            margin-top: 0;
+        }
+
+        .section-subtitle {
+            margin-bottom: 0;
+        }
+    }
+
+    .key-services-grid,
+    .twork-key-services-grid {
+        display: grid;
+        grid-template-columns: repeat(var(--grid-columns, 3), 1fr);
+        gap: var(--grid-gap, 30px);
+        width: 100%;
+
+        .key-service-item,
+        .twork-key-service-item {
+            position: relative;
+            transition: all 0.3s ease;
+            box-sizing: border-box;
+        }
+    }
+}
+
+// Additional override for items with no-borders class and sections
+// CRITICAL: These rules must have maximum specificity
+.key-service-item.no-borders::after,
+.twork-key-service-item.no-borders::after,
+.key-service-item.no-borders::before,
+.twork-key-service-item.no-borders::before,
+.no-borders::after,
+.no-borders::before,
+.no-item-borders .key-service-item::after,
+.no-item-borders .twork-key-service-item::after,
+.no-item-borders .key-service-item::before,
+.no-item-borders .twork-key-service-item::before,
+.no-item-borders .key-service-item:not(:last-child)::after,
+.no-item-borders .twork-key-service-item:not(:last-child)::after,
+.key-services-section.no-item-borders .key-service-item::after,
+.key-services-section.no-item-borders .twork-key-service-item::after,
+.key-services-section.no-item-borders .key-service-item::before,
+.key-services-section.no-item-borders .twork-key-service-item::before,
+.twork-key-services-section.no-item-borders .key-service-item::after,
+.twork-key-services-section.no-item-borders .twork-key-service-item::after,
+.twork-key-services-section.no-item-borders .key-service-item::before,
+.twork-key-services-section.no-item-borders .twork-key-service-item::before,
+.wp-block-twork-key-services-section.no-item-borders .key-service-item::after,
+.wp-block-twork-key-services-section.no-item-borders .twork-key-service-item::after,
+.wp-block-twork-key-services-section.no-item-borders .key-service-item::before,
+.wp-block-twork-key-services-section.no-item-borders .twork-key-service-item::before {
+    content: none !important;
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    width: 0 !important;
+    height: 0 !important;
+    max-width: 0 !important;
+    max-height: 0 !important;
+    background: none !important;
+    background-color: transparent !important;
+    border: none !important;
+    pointer-events: none !important;
+    position: absolute !important;
+    z-index: -999 !important;
+}
+
+// Section border override with maximum specificity
+.no-section-borders,
+.wp-block-twork-key-services-section.no-section-borders,
+.key-services-section.no-section-borders,
+.twork-key-services-section.no-section-borders,
+.jivaka-section.no-section-borders {
+    border: none !important;
+    border-width: 0 !important;
+    border-style: none !important;
+    border-color: transparent !important;
+    border-top: none !important;
+    border-right: none !important;
+    border-bottom: none !important;
+    border-left: none !important;
+}
+
+// Force hide borders using CSS custom properties
+[style*="--force-hide-borders"]::after,
+[style*="--force-hide-borders"]::before {
+    content: var(--pseudo-content, none) !important;
+    display: var(--pseudo-display, none) !important;
+    width: var(--pseudo-width, 0) !important;
+    height: var(--pseudo-height, 0) !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+}
+
+.key-services-section .key-services-grid .key-service-item::before,
+.key-services-section .key-services-grid .twork-key-service-item::before,
+.key-services-section .twork-key-services-grid .key-service-item::before,
+.key-services-section .twork-key-services-grid .twork-key-service-item::before,
+.twork-key-services-section .key-services-grid .key-service-item::before,
+.twork-key-services-section .key-services-grid .twork-key-service-item::before,
+.twork-key-services-section .twork-key-services-grid .key-service-item::before,
+.twork-key-services-section .twork-key-services-grid .twork-key-service-item::before,
+.wp-block-twork-key-services-section .key-services-grid .key-service-item::before,
+.wp-block-twork-key-services-section .key-services-grid .twork-key-service-item::before,
+.wp-block-twork-key-services-section .twork-key-services-grid .key-service-item::before,
+.wp-block-twork-key-services-section .twork-key-services-grid .twork-key-service-item::before,
+.key-service-item::before,
+.twork-key-service-item::before {
+    // CRITICAL: Hide ALL horizontal borders by default
+    // This is the DEFAULT state - borders are hidden unless explicitly enabled
+    content: none !important;
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    width: 0 !important;
+    height: 0 !important;
+    max-width: 0 !important;
+    max-height: 0 !important;
+    background: none !important;
+    background-color: transparent !important;
+    border: none !important;
+    pointer-events: none !important;
+    position: absolute !important;
+    z-index: -1 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.key-services-section,
+.twork-key-services-section {
+    .key-services-grid,
+    .twork-key-services-grid {
+        .key-service-item,
+        .twork-key-service-item {
+
+            // Icon hover effect
+            i {
+                transition: all 0.3s ease;
+            }
+
+            // Image hover effect
+            .key-service-image,
+            img {
+                transition: all 0.3s ease;
+            }
+
+            // Title hover effect
+            .key-service-title {
+                transition: color 0.3s ease;
+            }
+
+            // Hover effects
+            .key-services-section[data-hover-effect="true"] &,
+            .twork-key-services-section[data-hover-effect="true"] & {
+                &:hover {
+                    transform: translateY(var(--hover-translate-y, -5px)) scale(var(--hover-scale, 1.05));
+
+                    i {
+                        color: var(--icon-color-hover, #e67a22);
+                        transform: scale(1.1);
+                    }
+
+                    .key-service-title {
+                        color: var(--title-color-hover, #f48b2a);
+                    }
+
+                    &[data-background-color-hover] {
+                        background-color: var(--background-color-hover);
+                    }
+                }
+            }
+        }
+    }
+
+    // CRITICAL: Hide ALL borders by default - this must come FIRST and override everything
+    // Override everything else when showBorder is false, not set, or disableAllBorders is true
+    // Use :not() selector for maximum specificity
+    &[data-disable-all-borders="true"],
+    &:not([data-show-border="true"]),
+    &[data-show-border="false"],
+    &[data-show-border=""],
+    &[data-show-border="undefined"],
+    &:not([data-show-border]) {
+        // Hide section borders
+        border: none !important;
+        border-width: 0 !important;
+        border-style: none !important;
+        border-color: transparent !important;
+        border-top: none !important;
+        border-right: none !important;
+        border-bottom: none !important;
+        border-left: none !important;
+        
+        // Hide ALL item border pseudo-elements with maximum specificity
+        // Target ALL possible selector combinations
+        .key-services-grid .key-service-item::after,
+        .twork-key-services-grid .twork-key-service-item::after,
+        .key-services-grid .key-service-item::before,
+        .twork-key-services-grid .twork-key-service-item::before,
+        .key-services-grid .key-service-item:not(:last-child)::after,
+        .twork-key-services-grid .twork-key-service-item:not(:last-child)::after,
+        .key-services-grid .key-service-item:last-child::after,
+        .twork-key-services-grid .twork-key-service-item:last-child::after {
+            content: none !important;
+            display: none !important;
+            visibility: hidden !important;
+            opacity: 0 !important;
+            width: 0 !important;
+            height: 0 !important;
+            max-width: 0 !important;
+            max-height: 0 !important;
+            min-width: 0 !important;
+            min-height: 0 !important;
+            background: none !important;
+            background-color: transparent !important;
+            border: none !important;
+            pointer-events: none !important;
+            position: absolute !important;
+            z-index: -999 !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            left: auto !important;
+            right: auto !important;
+            top: auto !important;
+            bottom: auto !important;
+        }
+    }
+    
+    // Border visibility controls - Desktop
+    // CRITICAL: Only show borders when explicitly enabled AND disableAllBorders is false
+    &[data-show-border="true"]:not([data-disable-all-borders="true"]) {
+        // Show vertical borders with exact selectors
+        &[data-border-position="vertical"],
+        &[data-border-position="both"] {
+            &[data-show-border-desktop="true"],
+            &:not([data-show-border-desktop]) {
+                .key-services-grid .key-service-item:not(:last-child)::after,
+                .twork-key-services-grid .twork-key-service-item:not(:last-child)::after {
+                    content: '' !important;
+                    display: block !important;
+                    visibility: visible !important;
+                    opacity: var(--border-opacity, 1) !important;
+                    width: var(--border-width, 1px) !important;
+                    height: auto !important;
+                    background-color: var(--border-color, #e0e0e0) !important;
+                    position: absolute !important;
+                    right: 0 !important;
+                    top: 0 !important;
+                    bottom: 0 !important;
+                    z-index: 1 !important;
+                }
+            }
+        }
+
+        // Show horizontal borders with exact selectors
+        &[data-border-position="horizontal"],
+        &[data-border-position="both"] {
+            &[data-show-border-desktop="true"],
+            &:not([data-show-border-desktop]) {
+                .key-services-grid .key-service-item::before,
+                .twork-key-services-grid .twork-key-service-item::before {
+                    content: '' !important;
+                    display: block !important;
+                    visibility: visible !important;
+                    opacity: var(--border-opacity, 1) !important;
+                    width: auto !important;
+                    height: var(--border-width, 1px) !important;
+                    background-color: var(--border-color, #e0e0e0) !important;
+                    position: absolute !important;
+                    bottom: 0 !important;
+                    left: 0 !important;
+                    right: 0 !important;
+                    z-index: 1 !important;
+                }
+            }
+        }
+
+        // Hide borders on desktop if explicitly disabled
+        &[data-show-border-desktop="false"] {
+            .key-services-grid .key-service-item:not(:last-child)::after,
+            .twork-key-services-grid .twork-key-service-item:not(:last-child)::after,
+            .key-services-grid .key-service-item::before,
+            .twork-key-services-grid .twork-key-service-item::before {
+                content: none !important;
+                display: none !important;
+                visibility: hidden !important;
+                opacity: 0 !important;
+                width: 0 !important;
+                height: 0 !important;
+            }
+        }
+
+        // Border hover effects
+        .key-services-grid .key-service-item:hover,
+        .twork-key-services-grid .twork-key-service-item:hover {
+            &::after,
+            &::before {
+                background-color: var(--border-color-hover, var(--border-color, #e0e0e0)) !important;
+            }
+        }
+    }
+
+    // Scroll Animations
+    &[data-animation="true"] {
+        .animate-on-scroll {
+            opacity: 0;
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            will-change: opacity, transform;
+
+            &.is-visible {
+                opacity: 1;
+            }
+        }
+
+        // Animation types
+        &[data-animation-type="fadeIn"] {
+            .animate-on-scroll {
+                opacity: 0;
+
+                &.is-visible {
+                    opacity: 1;
+                }
+            }
+        }
+
+        &[data-animation-type="fadeInUp"] {
+            .animate-on-scroll {
+                opacity: 0;
+                transform: translateY(30px);
+
+                &.is-visible {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+        }
+
+        &[data-animation-type="slideInLeft"] {
+            .animate-on-scroll {
+                opacity: 0;
+                transform: translateX(-50px);
+
+                &.is-visible {
+                    opacity: 1;
+                    transform: translateX(0);
+                }
+            }
+        }
+
+        &[data-animation-type="slideInRight"] {
+            .animate-on-scroll {
+                opacity: 0;
+                transform: translateX(50px);
+
+                &.is-visible {
+                    opacity: 1;
+                    transform: translateX(0);
+                }
+            }
+        }
+
+        &[data-animation-type="zoomIn"] {
+            .animate-on-scroll {
+                opacity: 0;
+                transform: scale(0.8);
+
+                &.is-visible {
+                    opacity: 1;
+                    transform: scale(1);
+                }
+            }
+        }
+    }
+
+    // Default: Items are visible (no animation)
+    .key-service-item:not(.animate-on-scroll),
+    &:not([data-animation="true"]) .key-service-item {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+}
+
+// === RESPONSIVE STYLES ===
+
+// Tablet (768px - 991px)
+@media (max-width: 991px) {
+    .twork-key-services-section {
+        .key-services-grid,
+        .twork-key-services-grid {
+            grid-template-columns: repeat(var(--grid-columns-tablet, 2), 1fr) !important;
+        }
+    }
+
+    // Editor responsive
+    .editor-styles-wrapper {
+        .twork-key-services-grid-container {
+            grid-template-columns: repeat(var(--grid-columns-tablet, 2), 1fr) !important;
+        }
+    }
+
+    .key-services-section,
+    .twork-key-services-section {
+        &[data-padding-top-mobile],
+        &[data-padding-bottom-mobile] {
+            padding-top: var(--padding-top-mobile, 60px) !important;
+            padding-bottom: var(--padding-bottom-mobile, 60px) !important;
+        }
+
+        .jivaka-container {
+            padding-left: var(--container-padding-mobile, 20px) !important;
+            padding-right: var(--container-padding-mobile, 20px) !important;
+        }
+
+        .section-header {
+            .section-title {
+                font-size: var(--title-font-size-mobile, 2rem) !important;
+            }
+
+            .section-subtitle {
+                font-size: var(--subtitle-font-size-mobile, 0.95rem) !important;
+            }
+        }
+
+        .key-services-grid,
+        .twork-key-services-grid {
+            grid-template-columns: repeat(var(--grid-columns-tablet, 2), 1fr) !important;
+            gap: var(--gap-mobile, 30px) !important;
+            width: 100% !important;
+
+            .key-service-item,
+            .twork-key-service-item {
+                box-sizing: border-box !important;
+
+                // Border visibility control for tablet - HIDDEN BY DEFAULT
+                .key-services-section[data-show-border-tablet="false"] &,
+                .twork-key-services-section[data-show-border-tablet="false"] &,
+                .key-services-section:not([data-show-border="true"]) &,
+                .twork-key-services-section:not([data-show-border="true"]) & {
+                    &:not(:last-child)::after,
+                    &::before {
+                        display: none !important;
+                        visibility: hidden !important;
+                        opacity: 0 !important;
+                        width: 0 !important;
+                        height: 0 !important;
+                        content: none !important;
+                    }
+                }
+            }
+        }
+
+        // Show borders on tablet if enabled AND disableAllBorders is false
+        &[data-show-border="true"][data-show-border-tablet="true"]:not([data-disable-all-borders="true"]) {
+            &[data-border-position="vertical"],
+            &[data-border-position="both"] {
+                .key-services-grid .key-service-item:not(:last-child)::after,
+                .twork-key-services-grid .twork-key-service-item:not(:last-child)::after {
+                    display: block !important;
+                    visibility: visible !important;
+                    opacity: var(--border-opacity, 1) !important;
+                    width: var(--border-width-mobile, var(--border-width, 1px)) !important;
+                    height: auto !important;
+                }
+            }
+
+            &[data-border-position="horizontal"],
+            &[data-border-position="both"] {
+                .key-services-grid .key-service-item::before,
+                .twork-key-services-grid .twork-key-service-item::before {
+                    display: block !important;
+                    visibility: visible !important;
+                    opacity: var(--border-opacity, 1) !important;
+                    width: auto !important;
+                    height: var(--border-width-mobile, var(--border-width, 1px)) !important;
+                }
+            }
+        }
+
+        // Hide borders on tablet if explicitly disabled or not enabled
+        &[data-show-border="true"][data-show-border-tablet="false"],
+        &:not([data-show-border="true"]) {
+            .key-services-grid .key-service-item:not(:last-child)::after,
+            .twork-key-services-grid .twork-key-service-item:not(:last-child)::after,
+            .key-services-grid .key-service-item::before,
+            .twork-key-services-grid .twork-key-service-item::before {
+                display: none !important;
+                visibility: hidden !important;
+                opacity: 0 !important;
+                width: 0 !important;
+                height: 0 !important;
+                content: none !important;
+            }
+        }
+    }
+}
+
+// Mobile (<768px)
+@media (max-width: 767px) {
+    .twork-key-services-section {
+        .key-services-grid,
+        .twork-key-services-grid {
+            grid-template-columns: repeat(var(--grid-columns-mobile, 1), 1fr) !important;
+        }
+    }
+
+    // Editor responsive
+    .editor-styles-wrapper {
+        .twork-key-services-grid-container {
+            grid-template-columns: repeat(var(--grid-columns-mobile, 1), 1fr) !important;
+        }
+    }
+
+    .key-services-section,
+    .twork-key-services-section {
+        &[data-padding-top-mobile],
+        &[data-padding-bottom-mobile] {
+            padding-top: var(--padding-top-mobile, 60px) !important;
+            padding-bottom: var(--padding-bottom-mobile, 60px) !important;
+        }
+
+        .jivaka-container {
+            padding-left: var(--container-padding-mobile, 20px) !important;
+            padding-right: var(--container-padding-mobile, 20px) !important;
+        }
+
+        .section-header {
+            .section-title {
+                font-size: var(--title-font-size-mobile, 2rem) !important;
+            }
+
+            .section-subtitle {
+                font-size: var(--subtitle-font-size-mobile, 0.95rem) !important;
+            }
+        }
+
+        .key-services-grid,
+        .twork-key-services-grid {
+            grid-template-columns: repeat(var(--grid-columns-mobile, 1), 1fr) !important;
+            gap: var(--gap-mobile, 30px) !important;
+            width: 100% !important;
+
+            .key-service-item,
+            .twork-key-service-item {
+                width: 100% !important;
+                max-width: 100% !important;
+                box-sizing: border-box !important;
+
+                // Border visibility control for mobile - HIDDEN BY DEFAULT
+                .key-services-section[data-show-border-mobile="false"] &,
+                .twork-key-services-section[data-show-border-mobile="false"] &,
+                .key-services-section:not([data-show-border="true"]) &,
+                .twork-key-services-section:not([data-show-border="true"]) & {
+                    &:not(:last-child)::after,
+                    &::before {
+                        display: none !important;
+                        visibility: hidden !important;
+                        opacity: 0 !important;
+                        width: 0 !important;
+                        height: 0 !important;
+                        content: none !important;
+                    }
+                }
+            }
+        }
+
+        // Show borders on mobile if enabled AND disableAllBorders is false
+        &[data-show-border="true"][data-show-border-mobile="true"]:not([data-disable-all-borders="true"]) {
+            // Remove vertical borders on mobile (stacked layout)
+            .key-services-grid .key-service-item:not(:last-child)::after,
+            .twork-key-services-grid .twork-key-service-item:not(:last-child)::after {
+                display: none !important;
+                visibility: hidden !important;
+                opacity: 0 !important;
+                width: 0 !important;
+                height: 0 !important;
+                content: none !important;
+            }
+
+            // Show horizontal borders on mobile
+            &[data-border-position="horizontal"],
+            &[data-border-position="both"] {
+                .key-services-grid .key-service-item:not(:last-child)::before,
+                .twork-key-services-grid .twork-key-service-item:not(:last-child)::before {
+                    display: block !important;
+                    visibility: visible !important;
+                    opacity: var(--border-opacity, 1) !important;
+                    width: auto !important;
+                    height: var(--border-width-mobile, var(--border-width, 1px)) !important;
+                }
+            }
+        }
+
+        // Hide borders on mobile if explicitly disabled or not enabled
+        &[data-show-border="true"][data-show-border-mobile="false"],
+        &:not([data-show-border="true"]) {
+            .key-services-grid .key-service-item:not(:last-child)::after,
+            .twork-key-services-grid .twork-key-service-item:not(:last-child)::after,
+            .key-services-grid .key-service-item::before,
+            .twork-key-services-grid .twork-key-service-item::before {
+                display: none !important;
+                visibility: hidden !important;
+                opacity: 0 !important;
+                width: 0 !important;
+                height: 0 !important;
+                content: none !important;
+            }
+        }
+    }
+}
+
+// === ACCESSIBILITY ===
+.key-services-section,
+.twork-key-services-section {
+    &:focus-within {
+        outline: 2px solid var(--primary-orange, #f48b2a);
+        outline-offset: 2px;
+    }
+
+    .key-service-item {
+        &:focus-visible {
+            outline: 3px solid var(--primary-orange, #f48b2a);
+            outline-offset: 2px;
+        }
+    }
+}
+
+// === PRINT STYLES ===
+@media print {
+    .key-services-section,
+    .twork-key-services-section {
+        .key-service-item {
+            break-inside: avoid;
+            page-break-inside: avoid;
+        }
+    }
+}
+
+// === DARK MODE SUPPORT ===
+@media (prefers-color-scheme: dark) {
+    .key-services-section,
+    .twork-key-services-section {
+        .key-service-item {
+            &:not([data-background-color-hover]) {
+                &:hover {
+                    background-color: rgba(255, 255, 255, 0.05);
+                }
+            }
+        }
+    }
+}
+
+// ============================================
+// FINAL OVERRIDE: Hide ALL borders by default
+// ============================================
+// This rule MUST be last to ensure it overrides everything
+// Only show borders when data-show-border="true" is explicitly set
+
+// Section borders - FINAL OVERRIDE
+// CRITICAL: Hide ALL borders when disableAllBorders is true OR showBorder is false
+.wp-block-twork-key-services-section.key-services-section.jivaka-section.twork-key-services-section[data-disable-all-borders="true"],
+.wp-block-twork-key-services-section.key-services-section.jivaka-section[data-disable-all-borders="true"],
+.wp-block-twork-key-services-section.key-services-section.twork-key-services-section[data-disable-all-borders="true"],
+.wp-block-twork-key-services-section.jivaka-section.twork-key-services-section[data-disable-all-borders="true"],
+.wp-block-twork-key-services-section.key-services-section[data-disable-all-borders="true"],
+.wp-block-twork-key-services-section.jivaka-section[data-disable-all-borders="true"],
+.wp-block-twork-key-services-section.twork-key-services-section[data-disable-all-borders="true"],
+.wp-block-twork-key-services-section[data-disable-all-borders="true"],
+.wp-block-twork-key-services-section.key-services-section.jivaka-section.twork-key-services-section:not([data-show-border="true"]),
+.wp-block-twork-key-services-section.key-services-section.jivaka-section:not([data-show-border="true"]),
+.wp-block-twork-key-services-section.key-services-section.twork-key-services-section:not([data-show-border="true"]),
+.wp-block-twork-key-services-section.jivaka-section.twork-key-services-section:not([data-show-border="true"]),
+.wp-block-twork-key-services-section.key-services-section:not([data-show-border="true"]),
+.wp-block-twork-key-services-section.jivaka-section:not([data-show-border="true"]),
+.wp-block-twork-key-services-section.twork-key-services-section:not([data-show-border="true"]),
+.wp-block-twork-key-services-section:not([data-show-border="true"]),
+.key-services-section[data-disable-all-borders="true"],
+.key-services-section:not([data-show-border="true"]),
+.twork-key-services-section[data-disable-all-borders="true"],
+.twork-key-services-section:not([data-show-border="true"]),
+.jivaka-section[data-disable-all-borders="true"],
+.jivaka-section:not([data-show-border="true"]) {
+    border: none !important;
+    border-width: 0 !important;
+    border-style: none !important;
+    border-color: transparent !important;
+}
+
+// Item border pseudo-elements - FINAL OVERRIDE
+// Target ALL possible combinations with disableAllBorders OR :not([data-show-border="true"])
+.key-services-section[data-disable-all-borders="true"] .key-services-grid .key-service-item:not(:last-child)::after,
+.key-services-section[data-disable-all-borders="true"] .key-services-grid .twork-key-service-item:not(:last-child)::after,
+.key-services-section:not([data-show-border="true"]) .key-services-grid .key-service-item:not(:last-child)::after,
+.key-services-section:not([data-show-border="true"]) .key-services-grid .twork-key-service-item:not(:last-child)::after,
+.key-services-section:not([data-show-border="true"]) .twork-key-services-grid .key-service-item:not(:last-child)::after,
+.key-services-section:not([data-show-border="true"]) .twork-key-services-grid .twork-key-service-item:not(:last-child)::after,
+.twork-key-services-section[data-disable-all-borders="true"] .key-services-grid .key-service-item:not(:last-child)::after,
+.twork-key-services-section[data-disable-all-borders="true"] .key-services-grid .twork-key-service-item:not(:last-child)::after,
+.twork-key-services-section:not([data-show-border="true"]) .key-services-grid .key-service-item:not(:last-child)::after,
+.twork-key-services-section:not([data-show-border="true"]) .key-services-grid .twork-key-service-item:not(:last-child)::after,
+.twork-key-services-section:not([data-show-border="true"]) .twork-key-services-grid .key-service-item:not(:last-child)::after,
+.twork-key-services-section:not([data-show-border="true"]) .twork-key-services-grid .twork-key-service-item:not(:last-child)::after,
+.wp-block-twork-key-services-section:not([data-show-border="true"]) .key-services-grid .key-service-item:not(:last-child)::after,
+.wp-block-twork-key-services-section:not([data-show-border="true"]) .key-services-grid .twork-key-service-item:not(:last-child)::after,
+.wp-block-twork-key-services-section:not([data-show-border="true"]) .twork-key-services-grid .key-service-item:not(:last-child)::after,
+.wp-block-twork-key-services-section:not([data-show-border="true"]) .twork-key-services-grid .twork-key-service-item:not(:last-child)::after,
+.wp-block-twork-key-services-section.key-services-section:not([data-show-border="true"]) .key-services-grid .key-service-item:not(:last-child)::after,
+.wp-block-twork-key-services-section.key-services-section:not([data-show-border="true"]) .key-services-grid .twork-key-service-item:not(:last-child)::after,
+.wp-block-twork-key-services-section.key-services-section:not([data-show-border="true"]) .twork-key-services-grid .key-service-item:not(:last-child)::after,
+.wp-block-twork-key-services-section.key-services-section:not([data-show-border="true"]) .twork-key-services-grid .twork-key-service-item:not(:last-child)::after {
+    // FINAL OVERRIDE: Hide ALL borders when showBorder is not true
+    content: none !important;
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    width: 0 !important;
+    height: 0 !important;
+    max-width: 0 !important;
+    max-height: 0 !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+    background: none !important;
+    background-color: transparent !important;
+    border: none !important;
+    pointer-events: none !important;
+    position: absolute !important;
+    z-index: -999 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    left: auto !important;
+    right: auto !important;
+    top: auto !important;
+    bottom: auto !important;
+}
+
+.key-services-section[data-disable-all-borders="true"] .key-services-grid .key-service-item::before,
+.key-services-section[data-disable-all-borders="true"] .key-services-grid .key-service-item::before,
+.key-services-section[data-disable-all-borders="true"] .key-services-grid .twork-key-service-item::before,
+.key-services-section:not([data-show-border="true"]) .key-services-grid .key-service-item::before,
+.key-services-section:not([data-show-border="true"]) .key-services-grid .twork-key-service-item::before,
+.key-services-section:not([data-show-border="true"]) .twork-key-services-grid .key-service-item::before,
+.key-services-section:not([data-show-border="true"]) .twork-key-services-grid .twork-key-service-item::before,
+.twork-key-services-section[data-disable-all-borders="true"] .key-services-grid .key-service-item::before,
+.twork-key-services-section[data-disable-all-borders="true"] .key-services-grid .twork-key-service-item::before,
+.twork-key-services-section:not([data-show-border="true"]) .key-services-grid .key-service-item::before,
+.twork-key-services-section:not([data-show-border="true"]) .key-services-grid .twork-key-service-item::before,
+.twork-key-services-section:not([data-show-border="true"]) .twork-key-services-grid .key-service-item::before,
+.twork-key-services-section:not([data-show-border="true"]) .twork-key-services-grid .twork-key-service-item::before,
+.wp-block-twork-key-services-section:not([data-show-border="true"]) .key-services-grid .key-service-item::before,
+.wp-block-twork-key-services-section:not([data-show-border="true"]) .key-services-grid .twork-key-service-item::before,
+.wp-block-twork-key-services-section:not([data-show-border="true"]) .twork-key-services-grid .key-service-item::before,
+.wp-block-twork-key-services-section:not([data-show-border="true"]) .twork-key-services-grid .twork-key-service-item::before {
+    // FINAL OVERRIDE: Hide ALL horizontal borders when showBorder is not true
+    content: none !important;
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    width: 0 !important;
+    height: 0 !important;
+    max-width: 0 !important;
+    max-height: 0 !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+    background: none !important;
+    background-color: transparent !important;
+    border: none !important;
+    pointer-events: none !important;
+    position: absolute !important;
+    z-index: -999 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    left: auto !important;
+    right: auto !important;
+    top: auto !important;
+    bottom: auto !important;
+}

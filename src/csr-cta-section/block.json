@@ -1,0 +1,168 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "twork/csr-cta-section",
+    "version": "1.0.0",
+    "title": "CTA Section",
+    "category": "twork-builder",
+    "icon": "megaphone",
+    "description": "Join Our Mission - Call-to-action section for CSR pages with title, subtitle, and button.",
+    "keywords": ["csr", "cta", "volunteer", "mission", "call-to-action", "twork"],
+    "attributes": {
+        "backgroundType": {
+            "type": "string",
+            "default": "color"
+        },
+        "backgroundColor": {
+            "type": "string",
+            "default": "#212121"
+        },
+        "backgroundImage": {
+            "type": "string",
+            "default": ""
+        },
+        "backgroundImageId": {
+            "type": "number"
+        },
+        "backgroundImageSize": {
+            "type": "string",
+            "default": "cover"
+        },
+        "backgroundImagePosition": {
+            "type": "string",
+            "default": "center center"
+        },
+        "backgroundVideoUrl": {
+            "type": "string",
+            "default": ""
+        },
+        "backgroundVideoId": {
+            "type": "number"
+        },
+        "videoPosterUrl": {
+            "type": "string",
+            "default": ""
+        },
+        "videoLoop": {
+            "type": "boolean",
+            "default": true
+        },
+        "videoMuted": {
+            "type": "boolean",
+            "default": true
+        },
+        "videoAutoplay": {
+            "type": "boolean",
+            "default": true
+        },
+        "backgroundOverlay": {
+            "type": "boolean",
+            "default": true
+        },
+        "backgroundOverlayColor": {
+            "type": "string",
+            "default": "rgba(0, 0, 0, 0.5)"
+        },
+        "backgroundOverlayOpacity": {
+            "type": "number",
+            "default": 0.5
+        },
+        "textColor": {
+            "type": "string",
+            "default": "#ffffff"
+        },
+        "paddingTop": {
+            "type": "number",
+            "default": 60
+        },
+        "paddingBottom": {
+            "type": "number",
+            "default": 60
+        },
+        "showTitle": {
+            "type": "boolean",
+            "default": true
+        },
+        "title": {
+            "type": "string",
+            "default": "Join Our Mission"
+        },
+        "titleColor": {
+            "type": "string",
+            "default": "#ffffff"
+        },
+        "titleFontSize": {
+            "type": "number",
+            "default": 2
+        },
+        "titleFontWeight": {
+            "type": "number",
+            "default": 700
+        },
+        "titleMarginBottom": {
+            "type": "number",
+            "default": 20
+        },
+        "showParagraph": {
+            "type": "boolean",
+            "default": true
+        },
+        "paragraph": {
+            "type": "string",
+            "default": "Are you a medical professional or a volunteer who wants to make a difference? Join our next CSR mission."
+        },
+        "paragraphColor": {
+            "type": "string",
+            "default": "rgba(255, 255, 255, 0.8)"
+        },
+        "paragraphFontSize": {
+            "type": "number",
+            "default": 1.1
+        },
+        "paragraphMaxWidth": {
+            "type": "number",
+            "default": 600
+        },
+        "paragraphMarginBottom": {
+            "type": "number",
+            "default": 30
+        },
+        "buttonText": {
+            "type": "string",
+            "default": "Become a Volunteer"
+        },
+        "buttonUrl": {
+            "type": "string",
+            "default": "#"
+        },
+        "buttonOpensInNewTab": {
+            "type": "boolean",
+            "default": false
+        },
+        "containerMaxWidth": {
+            "type": "number",
+            "default": 1200
+        },
+        "containerPadding": {
+            "type": "number",
+            "default": 30
+        },
+        "textAlignment": {
+            "type": "string",
+            "default": "center"
+        },
+        "animationOnScroll": {
+            "type": "boolean",
+            "default": true
+        }
+    },
+    "supports": {
+        "html": false,
+        "anchor": true,
+        "align": ["wide", "full"]
+    },
+    "textdomain": "twork-builder",
+    "editorScript": "file:./index.js",
+    "style": "file:./style-index.css",
+    "viewScript": "file:./view.js"
+}

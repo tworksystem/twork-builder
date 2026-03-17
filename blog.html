@@ -1,0 +1,786 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+<style>
+    /* --- SCOPED STYLES --- */
+    .jivaka-blog-module {
+        --primary-orange: #f48b2a;
+        --brand-orange-hover: #e67a22;
+        --dark-grey: #212121;
+        --medium-grey: #666;
+        --light-grey-bg: #f8f9fa;
+        --white: #ffffff;
+        --border: #e0e0e0;
+        --shadow-sm: 0 5px 15px rgba(0, 0, 0, 0.05);
+        --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.1);
+        --radius: 12px;
+
+        font-family: "Roboto", sans-serif;
+        color: var(--dark-grey);
+        line-height: 1.6;
+        background: #fff;
+        overflow-x: hidden;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .jivaka-blog-module *,
+    .jivaka-blog-module *::before,
+    .jivaka-blog-module *::after {
+        box-sizing: inherit;
+    }
+
+    /* Reset basic elements inside module */
+    .jivaka-blog-module h1,
+    .jivaka-blog-module h2,
+    .jivaka-blog-module h3,
+    .jivaka-blog-module h4,
+    .jivaka-blog-module h5,
+    .jivaka-blog-module p,
+    .jivaka-blog-module ul,
+    .jivaka-blog-module li {
+        margin-top: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    .jivaka-blog-module a {
+        text-decoration: none;
+        color: inherit;
+        transition: 0.3s;
+    }
+
+    .jivaka-blog-module img {
+        max-width: 100%;
+        display: block;
+    }
+
+    .jivaka-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+        position: relative;
+    }
+
+    /* Buttons */
+    .jivaka-blog-module .jivaka-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 25px;
+        border-radius: 5px;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 0.8rem;
+        letter-spacing: 0.5px;
+        transition: all 0.3s;
+        cursor: pointer;
+        border: 2px solid transparent;
+        text-decoration: none;
+    }
+
+    .jivaka-blog-module .btn-primary {
+        background: var(--primary-orange);
+        color: #fff;
+        box-shadow: 0 4px 15px rgba(244, 139, 42, 0.3);
+    }
+
+    .jivaka-blog-module .btn-primary:hover {
+        background: var(--brand-orange-hover);
+        transform: translateY(-2px);
+    }
+
+    .jivaka-blog-module .btn-text {
+        padding: 0;
+        color: var(--primary-orange);
+        border-bottom: 2px solid transparent;
+        background: transparent;
+    }
+
+    .jivaka-blog-module .btn-text:hover {
+        border-bottom-color: var(--primary-orange);
+    }
+
+    /* --- HERO SECTION --- */
+    .jivaka-blog-module .page-hero {
+        position: relative;
+        height: 350px;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+        background: #000;
+        color: #fff;
+    }
+
+    .jivaka-blog-module .hero-bg-wrapper {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 120%;
+        z-index: 1;
+    }
+
+    .jivaka-blog-module .hero-bg-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.6;
+        filter: brightness(0.7);
+    }
+
+    .jivaka-blog-module .hero-container {
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+        text-align: center;
+    }
+
+    .jivaka-blog-module .hero-title {
+        font-size: clamp(2.5rem, 6vw, 4rem);
+        font-weight: 900;
+        margin: 0 0 10px 0;
+        line-height: 1.2;
+    }
+
+    .jivaka-blog-module .hero-breadcrumb {
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: var(--primary-orange);
+        font-weight: 700;
+        background: rgba(255, 255, 255, 0.1);
+        padding: 5px 15px;
+        border-radius: 20px;
+        backdrop-filter: blur(5px);
+        display: inline-block;
+    }
+
+    /* --- BLOG LAYOUT --- */
+    .jivaka-blog-module .blog-section {
+        padding: 80px 0;
+        background: var(--light-grey-bg);
+    }
+
+    .jivaka-blog-module .blog-layout {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 60px;
+        align-items: start;
+    }
+
+    /* Featured Post */
+    .jivaka-blog-module .featured-post {
+        grid-column: 1 / -1;
+        display: grid;
+        grid-template-columns: 1.2fr 1fr;
+        background: #fff;
+        border-radius: var(--radius);
+        overflow: hidden;
+        box-shadow: var(--shadow-sm);
+        margin-bottom: 50px;
+        transition: 0.3s;
+    }
+
+    .jivaka-blog-module .featured-post:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-lg);
+    }
+
+    .jivaka-blog-module .featured-img {
+        position: relative;
+        overflow: hidden;
+        height: 100%;
+        min-height: 350px;
+    }
+
+    .jivaka-blog-module .featured-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: 0.5s;
+    }
+
+    .jivaka-blog-module .featured-post:hover .featured-img img {
+        transform: scale(1.05);
+    }
+
+    .jivaka-blog-module .featured-content {
+        padding: 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .jivaka-blog-module .post-tag {
+        background: rgba(244, 139, 42, 0.1);
+        color: var(--primary-orange);
+        padding: 5px 12px;
+        border-radius: 20px;
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        align-self: flex-start;
+        margin-bottom: 15px;
+        display: inline-block;
+    }
+
+    .jivaka-blog-module .post-date {
+        color: #999;
+        font-size: 0.85rem;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .jivaka-blog-module .featured-content h2 {
+        font-size: 2rem;
+        line-height: 1.3;
+        margin: 0 0 15px 0;
+        color: var(--dark-grey);
+    }
+
+    .jivaka-blog-module .featured-content p {
+        color: var(--medium-grey);
+        margin-bottom: 25px;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    /* Blog Grid */
+    .jivaka-blog-module .blog-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+
+    .jivaka-blog-module .blog-card {
+        background: #fff;
+        border-radius: var(--radius);
+        overflow: hidden;
+        box-shadow: var(--shadow-sm);
+        transition: 0.3s;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .jivaka-blog-module .blog-card:hover {
+        transform: translateY(-10px);
+        box-shadow: var(--shadow-lg);
+    }
+
+    .jivaka-blog-module .blog-img {
+        height: 220px;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .jivaka-blog-module .blog-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: 0.5s;
+    }
+
+    .jivaka-blog-module .blog-card:hover .blog-img img {
+        transform: scale(1.1);
+    }
+
+    .jivaka-blog-module .blog-body {
+        padding: 25px;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .jivaka-blog-module .blog-body h3 {
+        font-size: 1.3rem;
+        margin: 0 0 10px;
+        line-height: 1.4;
+    }
+
+    .jivaka-blog-module .blog-body h3 a {
+        color: var(--dark-grey);
+    }
+
+    .jivaka-blog-module .blog-body h3 a:hover {
+        color: var(--primary-orange);
+    }
+
+    .jivaka-blog-module .blog-meta {
+        font-size: 0.8rem;
+        color: #999;
+        margin-bottom: 15px;
+        display: flex;
+        gap: 15px;
+    }
+
+    .jivaka-blog-module .blog-footer {
+        margin-top: auto;
+        padding-top: 20px;
+        border-top: 1px solid #f0f0f0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    /* Pagination */
+    .jivaka-blog-module .pagination {
+        grid-column: 1 / -1;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 50px;
+    }
+
+    .jivaka-blog-module .page-link {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #fff;
+        border-radius: 50%;
+        color: var(--dark-grey);
+        font-weight: 700;
+        transition: 0.3s;
+        border: 1px solid #eee;
+    }
+
+    .jivaka-blog-module .page-link.active,
+    .jivaka-blog-module .page-link:hover {
+        background: var(--primary-orange);
+        color: #fff;
+        border-color: var(--primary-orange);
+    }
+
+    /* Sidebar */
+    .jivaka-blog-module .sidebar {
+        position: sticky;
+        top: 40px;
+        /* Adjusted since header is removed */
+    }
+
+    .jivaka-blog-module .widget {
+        background: #fff;
+        padding: 30px;
+        border-radius: var(--radius);
+        box-shadow: var(--shadow-sm);
+        margin-bottom: 30px;
+    }
+
+    .jivaka-blog-module .widget-title {
+        font-size: 1.1rem;
+        border-bottom: 2px solid #f0f0f0;
+        padding-bottom: 15px;
+        margin-bottom: 20px;
+        position: relative;
+        color: var(--dark-grey);
+        font-weight: 700;
+    }
+
+    .jivaka-blog-module .widget-title::after {
+        content: "";
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 50px;
+        height: 2px;
+        background: var(--primary-orange);
+    }
+
+    .jivaka-blog-module .search-form {
+        position: relative;
+    }
+
+    .jivaka-blog-module .search-input {
+        width: 100%;
+        padding: 12px 40px 12px 15px;
+        border: 1px solid #eee;
+        border-radius: 5px;
+        outline: none;
+        transition: 0.3s;
+        background: #fff;
+        box-sizing: border-box;
+    }
+
+    .jivaka-blog-module .search-input:focus {
+        border-color: var(--primary-orange);
+    }
+
+    .jivaka-blog-module .search-btn {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: none;
+        border: none;
+        color: var(--medium-grey);
+        cursor: pointer;
+    }
+
+    .jivaka-blog-module .cat-list li {
+        margin-bottom: 10px;
+        border-bottom: 1px dashed #eee;
+        padding-bottom: 10px;
+    }
+
+    .jivaka-blog-module .cat-list li:last-child {
+        border-bottom: none;
+    }
+
+    .jivaka-blog-module .cat-list a {
+        display: flex;
+        justify-content: space-between;
+        color: var(--medium-grey);
+        font-size: 0.95rem;
+    }
+
+    .jivaka-blog-module .cat-list a:hover {
+        color: var(--primary-orange);
+        padding-left: 5px;
+    }
+
+    .jivaka-blog-module .cat-count {
+        background: #f0f0f0;
+        padding: 2px 8px;
+        border-radius: 10px;
+        font-size: 0.75rem;
+    }
+
+    .jivaka-blog-module .tags-cloud {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .jivaka-blog-module .tag-link {
+        background: #f8f9fa;
+        padding: 5px 12px;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        color: var(--medium-grey);
+        border: 1px solid #eee;
+        transition: 0.3s;
+        display: inline-block;
+    }
+
+    .jivaka-blog-module .tag-link:hover {
+        background: var(--primary-orange);
+        color: #fff;
+        border-color: var(--primary-orange);
+    }
+
+    /* Newsletter */
+    .jivaka-blog-module .newsletter-section {
+        background: var(--dark-grey);
+        color: #fff;
+        padding: 80px 0;
+        text-align: center;
+    }
+
+    .jivaka-blog-module .newsletter-box {
+        max-width: 600px;
+        margin: 0 auto;
+        opacity: 0;
+        /* Start hidden for GSAP */
+    }
+
+    .jivaka-blog-module .newsletter-box h2 {
+        font-size: 2.2rem;
+        margin-bottom: 10px;
+        color: #fff;
+    }
+
+    .jivaka-blog-module .newsletter-form {
+        display: flex;
+        gap: 10px;
+        margin-top: 30px;
+    }
+
+    .jivaka-blog-module .news-input {
+        flex: 1;
+        padding: 15px;
+        border-radius: 5px;
+        border: none;
+        outline: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 992px) {
+        .jivaka-blog-module .blog-layout {
+            grid-template-columns: 1fr;
+        }
+
+        .jivaka-blog-module .featured-post {
+            grid-template-columns: 1fr;
+        }
+
+        .jivaka-blog-module .featured-img {
+            min-height: 250px;
+        }
+
+        .jivaka-blog-module .sidebar {
+            margin-top: 40px;
+            position: relative;
+            top: 0;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .jivaka-blog-module .blog-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .jivaka-blog-module .newsletter-form {
+            flex-direction: column;
+        }
+
+        .jivaka-blog-module .page-hero {
+            height: 250px;
+        }
+    }
+</style>
+
+<div class="jivaka-blog-module">
+
+    <section class="page-hero">
+        <div class="hero-bg-wrapper">
+            <img src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&q=80&w=2000" alt="Medical Blog"
+                class="hero-bg-img">
+        </div>
+        <div class="hero-container animate-hero">
+            <span class="hero-breadcrumb">Knowledge Hub</span>
+            <h1 class="hero-title">Health News & <br><span style="color: var(--primary-orange);">Insights</span></h1>
+        </div>
+    </section>
+
+    <div class="blog-section">
+        <div class="jivaka-container blog-layout">
+
+            <div class="main-content">
+
+                <article class="featured-post animate-up">
+                    <div class="featured-img">
+                        <img src="https://images.unsplash.com/photo-1628348068343-c6a848d2b6dd?auto=format&fit=crop&q=80&w=800"
+                            alt="Heart Health">
+                    </div>
+                    <div class="featured-content">
+                        <span class="post-tag">Heart Health</span>
+                        <div class="post-date"><i class="far fa-calendar-alt"></i> Jan 01, 2026</div>
+                        <h2>5 Silent Signs of Heart Disease You Shouldn't Ignore</h2>
+                        <p>Heart disease is often called the silent killer because it can strike without warning. Learn about the subtle
+                            symptoms that could save your life.</p>
+                        <a href="#" class="jivaka-btn btn-text">Read Full Article <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <div class="blog-grid">
+
+                    <article class="blog-card animate-up">
+                        <div class="blog-img">
+                            <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=800"
+                                alt="Checkup">
+                        </div>
+                        <div class="blog-body">
+                            <div class="blog-meta">
+                                <span><i class="far fa-folder"></i> General</span>
+                                <span><i class="far fa-clock"></i> 5 min read</span>
+                            </div>
+                            <h3><a href="#">Why Annual Health Checkups are Crucial for Everyone</a></h3>
+                            <div class="blog-footer">
+                                <a href="#" class="btn-text">Read More</a>
+                                <i class="fas fa-share-alt" style="color: #ccc; cursor: pointer;"></i>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="blog-card animate-up">
+                        <div class="blog-img">
+                            <img src="https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?auto=format&fit=crop&q=80&w=800"
+                                alt="Child">
+                        </div>
+                        <div class="blog-body">
+                            <div class="blog-meta">
+                                <span><i class="far fa-folder"></i> Paediatrics</span>
+                                <span><i class="far fa-clock"></i> 4 min read</span>
+                            </div>
+                            <h3><a href="#">Vaccination Schedule: A Guide for New Parents</a></h3>
+                            <div class="blog-footer">
+                                <a href="#" class="btn-text">Read More</a>
+                                <i class="fas fa-share-alt" style="color: #ccc; cursor: pointer;"></i>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="blog-card animate-up">
+                        <div class="blog-img">
+                            <img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&q=80&w=800"
+                                alt="Technology">
+                        </div>
+                        <div class="blog-body">
+                            <div class="blog-meta">
+                                <span><i class="far fa-folder"></i> Technology</span>
+                                <span><i class="far fa-clock"></i> 3 min read</span>
+                            </div>
+                            <h3><a href="#">Jivaka Hospital Introduces New Advanced MRI Scanner</a></h3>
+                            <div class="blog-footer">
+                                <a href="#" class="btn-text">Read More</a>
+                                <i class="fas fa-share-alt" style="color: #ccc; cursor: pointer;"></i>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="blog-card animate-up">
+                        <div class="blog-img">
+                            <img src="https://images.unsplash.com/photo-1571772996211-2f02c9727629?auto=format&fit=crop&q=80&w=800"
+                                alt="Nutrition">
+                        </div>
+                        <div class="blog-body">
+                            <div class="blog-meta">
+                                <span><i class="far fa-folder"></i> Wellness</span>
+                                <span><i class="far fa-clock"></i> 6 min read</span>
+                            </div>
+                            <h3><a href="#">Nutrition Tips for Managing Diabetes Effectively</a></h3>
+                            <div class="blog-footer">
+                                <a href="#" class="btn-text">Read More</a>
+                                <i class="fas fa-share-alt" style="color: #ccc; cursor: pointer;"></i>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+
+                <div class="pagination">
+                    <a href="#" class="page-link"><i class="fas fa-chevron-left"></i></a>
+                    <a href="#" class="page-link active">1</a>
+                    <a href="#" class="page-link">2</a>
+                    <a href="#" class="page-link">3</a>
+                    <a href="#" class="page-link"><i class="fas fa-chevron-right"></i></a>
+                </div>
+
+            </div>
+
+            <aside class="sidebar animate-sidebar">
+
+                <div class="widget">
+                    <h3 class="widget-title">Search</h3>
+                    <form class="search-form">
+                        <input type="text" class="search-input" placeholder="Search articles...">
+                        <button type="submit" class="search-btn"><i class="fas fa-search"></i></button>
+                    </form>
+                </div>
+
+                <div class="widget">
+                    <h3 class="widget-title">Categories</h3>
+                    <ul class="cat-list">
+                        <li><a href="#">General Medicine <span class="cat-count">12</span></a></li>
+                        <li><a href="#">Cardiology <span class="cat-count">8</span></a></li>
+                        <li><a href="#">Paediatrics <span class="cat-count">5</span></a></li>
+                        <li><a href="#">Wellness & Diet <span class="cat-count">15</span></a></li>
+                        <li><a href="#">Hospital News <span class="cat-count">4</span></a></li>
+                    </ul>
+                </div>
+
+                <div class="widget">
+                    <h3 class="widget-title">Recent Posts</h3>
+
+                    <div style="display: flex; gap: 15px; margin-bottom: 20px;">
+                        <img src="https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&q=80&w=100"
+                            style="width: 70px; height: 70px; border-radius: 5px; object-fit: cover;">
+                        <div>
+                            <h5 style="margin: 0 0 5px; font-size: 0.9rem; line-height: 1.3;"><a href="#">Understanding Lab Reports</a></h5>
+                            <span style="font-size: 0.75rem; color: #999;">Dec 28, 2025</span>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; gap: 15px;">
+                        <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=100"
+                            style="width: 70px; height: 70px; border-radius: 5px; object-fit: cover;">
+                        <div>
+                            <h5 style="margin: 0 0 5px; font-size: 0.9rem; line-height: 1.3;"><a href="#">Meet Our New Director</a></h5>
+                            <span style="font-size: 0.75rem; color: #999;">Dec 20, 2025</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="widget">
+                    <h3 class="widget-title">Popular Tags</h3>
+                    <div class="tags-cloud">
+                        <a href="#" class="tag-link">Health</a>
+                        <a href="#" class="tag-link">Doctor</a>
+                        <a href="#" class="tag-link">Surgery</a>
+                        <a href="#" class="tag-link">Kids</a>
+                        <a href="#" class="tag-link">Diet</a>
+                        <a href="#" class="tag-link">Covid-19</a>
+                        <a href="#" class="tag-link">Fitness</a>
+                    </div>
+                </div>
+
+            </aside>
+
+        </div>
+    </div>
+
+    <section class="newsletter-section">
+        <div class="jivaka-container newsletter-box">
+            <i class="far fa-paper-plane" style="font-size: 3rem; color: var(--primary-orange); margin-bottom: 20px;"></i>
+            <h2>Subscribe to Our Newsletter</h2>
+            <p>Stay updated with the latest health tips and hospital news delivered to your inbox.</p>
+            <form class="newsletter-form">
+                <input type="email" class="news-input" placeholder="Enter your email address" required>
+                <button type="submit" class="jivaka-btn btn-primary" style="border: none;">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Hero Parallax
+        const heroTl = gsap.timeline();
+        heroTl.from(".animate-hero > *", { y: 40, opacity: 0, duration: 1, stagger: 0.2, ease: "power3.out", clearProps: "all" });
+
+        gsap.to(".hero-bg-img", {
+            yPercent: 20, ease: "none",
+            scrollTrigger: { trigger: ".page-hero", start: "top top", end: "bottom top", scrub: true }
+        });
+
+        // Blog Posts Animation
+        // Use batch to handle initial load visibility correctly
+        ScrollTrigger.batch(".animate-up", {
+            start: "top 90%",
+            onEnter: batch => gsap.fromTo(batch,
+                { opacity: 0, y: 50 },
+                { opacity: 1, y: 0, duration: 0.8, stagger: 0.15, ease: "power2.out", overwrite: true }
+            ),
+            once: true // Keep visible once animated
+        });
+
+        // Sidebar Animation
+        gsap.from(".animate-sidebar", {
+            x: 50, opacity: 0, duration: 1, ease: "power2.out", delay: 0.2,
+            scrollTrigger: { trigger: ".blog-layout", start: "top 70%" }
+        });
+
+        // Newsletter Animation
+        gsap.fromTo(".newsletter-box",
+            { scale: 0.9, opacity: 0 },
+            {
+                scale: 1, opacity: 1, duration: 0.8, ease: "back.out(1.7)",
+                scrollTrigger: { trigger: ".newsletter-section", start: "top 80%" }
+            }
+        );
+    });
+</script>

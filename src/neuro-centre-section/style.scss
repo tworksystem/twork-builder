@@ -1,0 +1,563 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
+
+:root {
+    --primary-orange: #f48b2a;
+    --dark-grey: #212121;
+    --medium-grey: #666;
+    --light-grey-bg: #f9f9f9;
+    --white: #ffffff;
+    --border: #e0e0e0;
+    --radius: 12px;
+}
+
+.twork-neuro-centre-section {
+    font-family: "Roboto", sans-serif;
+    background: #fff;
+
+    /* Animation helpers: initial hidden state (neuro-centre-init.js reveals on scroll) */
+    .content-section.fade-up,
+    .neuro-cta.fade-up {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    .treatment-card.stagger-card,
+    .doctor-card-mini.stagger-doc {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    .jivaka-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .layout-grid {
+        display: grid;
+        grid-template-columns: 300px 1fr;
+        gap: 60px;
+        align-items: flex-start;
+    }
+
+    .sidebar {
+        position: sticky;
+        top: 100px;
+        background: #fff;
+        border: 1px solid #eee;
+        border-radius: var(--radius);
+        overflow: hidden;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    }
+
+    .sidebar-header {
+        background: var(--dark-grey);
+        color: #fff;
+        padding: 20px;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 0.9rem;
+        letter-spacing: 1px;
+    }
+
+    .sidebar-menu a {
+        display: flex;
+        justify-content: space-between;
+        padding: 15px 20px;
+        border-bottom: 1px solid #eee;
+        font-weight: 500;
+        color: var(--medium-grey);
+        transition: 0.3s;
+        text-decoration: none;
+    }
+
+    .sidebar-menu a:hover,
+    .sidebar-menu a.active {
+        background: #fff8f0;
+        color: var(--primary-orange);
+        padding-left: 25px;
+        border-left: 4px solid var(--primary-orange);
+    }
+
+    .sidebar-contact {
+        padding: 30px;
+        margin-top: 30px;
+        border-radius: var(--radius);
+        text-align: center;
+        background: linear-gradient(
+                rgba(0, 0, 0, 0.7),
+                rgba(0, 0, 0, 0.7)
+            ),
+            url("https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=600&q=80");
+        background-size: cover;
+        color: #fff;
+
+        i {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        h3 {
+            margin: 0 0 10px;
+            font-size: 1.5rem;
+        }
+
+        p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+
+        .jivaka-btn {
+            width: 100%;
+        }
+    }
+
+    .content-section {
+        margin-bottom: 60px;
+    }
+
+    .content-section h2 {
+        font-size: 2rem;
+        color: var(--dark-grey);
+        margin-bottom: 20px;
+        position: relative;
+        padding-bottom: 15px;
+    }
+
+    .content-section h2::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 60px;
+        height: 4px;
+        background: var(--primary-orange);
+    }
+
+    .lead-text {
+        font-size: 1.15rem;
+        color: #444;
+        line-height: 1.8;
+        margin-bottom: 25px;
+    }
+
+    .body-text {
+        color: var(--medium-grey);
+        margin-bottom: 15px;
+    }
+
+    .overview-image,
+    .overview-image img {
+        border-radius: var(--radius);
+        margin-top: 25px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+
+    /* Treatments Grid (matches neuro-centre.html design) */
+    .treatment-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 25px;
+        margin-top: 35px;
+    }
+
+    .treatment-card {
+        background: #fff;
+        border: 1px solid #eee;
+        padding: 30px;
+        border-radius: var(--radius);
+        transition: 0.4s ease;
+        position: relative;
+        top: 0;
+
+        i {
+            font-size: 2.5rem;
+            color: var(--primary-orange);
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .treatment-media {
+            width: 100%;
+            max-height: 80px;
+            object-fit: contain;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .treatment-media-placeholder {
+            display: block;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            color: var(--medium-grey);
+        }
+
+        h4 {
+            margin: 0 0 10px;
+            color: var(--dark-grey);
+            font-size: 1.2rem;
+        }
+
+        p {
+            font-size: 0.95rem;
+            color: var(--medium-grey);
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        &:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+            border-color: var(--primary-orange);
+        }
+    }
+
+    .section-header--inline {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+
+        h2 {
+            margin: 0;
+        }
+
+        .view-all-link {
+            color: var(--primary-orange);
+            font-weight: 700;
+            text-decoration: none;
+
+            i {
+                margin-left: 6px;
+            }
+        }
+    }
+
+    .dept-doctors {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 25px;
+        margin-top: 30px;
+    }
+
+    .doctor-card-mini {
+        border: 1px solid #eee;
+        border-radius: var(--radius);
+        overflow: hidden;
+        text-align: center;
+        padding-bottom: 20px;
+        transition: 0.3s;
+        background: #fff;
+
+        &:hover {
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            border-color: var(--primary-orange);
+        }
+    }
+
+    .doc-img-wrap {
+        height: 250px;
+        overflow: hidden;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top center;
+            transition: 0.5s;
+        }
+    }
+
+    .doctor-card-mini:hover .doc-img-wrap img {
+        transform: scale(1.05);
+    }
+
+    .doc-info {
+        padding: 15px;
+
+        h4 {
+            margin: 10px 0 5px;
+            font-size: 1.1rem;
+            color: var(--dark-grey);
+        }
+
+        span {
+            color: var(--primary-orange);
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+    }
+
+    .neuro-faq-list {
+        margin-top: 0;
+    }
+
+    .faq-item {
+        border-bottom: 1px solid #eee;
+    }
+
+    .faq-btn {
+        width: 100%;
+        text-align: left;
+        padding: 20px 0;
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: var(--dark-grey);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: 0.3s;
+
+        i {
+            margin-left: 12px;
+        }
+    }
+
+    .faq-content {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+
+        p,
+        div {
+            margin-bottom: 20px;
+            color: var(--medium-grey);
+        }
+
+        p:last-child,
+        div:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    .faq-content--open {
+        max-height: 2000px;
+    }
+
+    .neuro-cta {
+        background: linear-gradient(135deg, #0b1c2c 0%, #1a3a5a 100%);
+        padding: 40px 30px;
+        border-radius: var(--radius);
+        text-align: center;
+        color: #fff;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+
+        h3 {
+            margin-top: 0;
+            font-size: 1.8rem;
+            color: var(--primary-orange);
+        }
+
+        p {
+            margin-bottom: 25px;
+            font-size: 1.05rem;
+            opacity: 0.9;
+        }
+    }
+
+    @media (max-width: 992px) {
+        .layout-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .main-content {
+            order: 1;
+        }
+
+        .sidebar-wrapper {
+            order: 2;
+            width: 100%;
+        }
+
+        .sidebar {
+            display: none;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .treatment-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .dept-doctors {
+            grid-template-columns: 1fr;
+        }
+
+        .neuro-cta {
+            padding: 30px 20px;
+        }
+    }
+}
+
+// Editor-only helpers
+.editor-styles-wrapper,
+.block-editor-block-list__layout,
+.wp-block-twork-neuro-centre-section {
+    .twork-neuro-centre-section {
+        .sidebar--editor-note {
+            .sidebar-header {
+                background: #2271b1;
+            }
+
+            .sidebar-note {
+                padding: 16px 20px 20px;
+                font-size: 13px;
+                color: #f0f6fc;
+            }
+        }
+
+        // In editor, ensure fade-up/stagger-card are visible (no scroll animation)
+        .content-section.fade-up,
+        .neuro-cta.fade-up,
+        .treatment-card.stagger-card,
+        .doctor-card-mini.stagger-doc {
+            opacity: 1 !important;
+            visibility: inherit !important;
+        }
+
+        // Treatments grid: make InnerBlocks layout a grid so cards and appender display correctly
+        .neuro-treatments-section .treatment-grid {
+            display: grid !important;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 35px;
+
+            > .block-editor-inner-blocks {
+                display: contents;
+            }
+
+            > .block-editor-inner-blocks > .block-editor-block-list__layout {
+                display: contents;
+            }
+
+            // Each treatment card (and appender) becomes a direct grid participant
+            > .block-editor-inner-blocks > .block-editor-block-list__layout > .wp-block[data-type="twork/neuro-treatment-item"],
+            > .block-editor-inner-blocks > .block-editor-block-list__layout > [data-type="twork/neuro-treatment-item"] {
+                min-width: 0;
+                height: 100%;
+            }
+
+            .block-list-appender {
+                min-height: 120px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border: 2px dashed var(--border, #e0e0e0);
+                border-radius: var(--radius, 12px);
+                background: rgba(0, 0, 0, 0.02);
+            }
+        }
+
+        // Make sure the sidebar placeholder behaves nicely
+        // in editor responsive previews.
+        @media (max-width: 992px) {
+            .layout-grid {
+                display: flex;
+                flex-direction: column;
+                gap: 40px;
+            }
+
+            .main-content {
+                order: 1;
+            }
+
+            .sidebar-wrapper--placeholder {
+                order: 2;
+                width: 100%;
+            }
+        }
+
+        // On narrow mobile editor preview, hide the placeholder
+        // sidebar completely so content is easy to edit.
+        @media (max-width: 768px) {
+            .sidebar-wrapper--placeholder {
+                display: none;
+            }
+        }
+    }
+}
+
+// === NEARBY ACCOMMODATION (InnerBlocks: nearby-accommodation-item) ===
+// Reuse hotel-grid / hotel-card layout when section is shown inside neuro-centre-section
+.twork-neuro-centre-section {
+    .nearby-accommodation-in-section {
+        .section-title {
+            margin: 0 0 20px 0;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dark-grey);
+        }
+
+        .hotel-grid {
+            display: grid;
+            width: 100%;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .hotel-card {
+            border-radius: var(--card-border-radius, var(--radius));
+            overflow: hidden;
+            position: relative;
+            height: var(--card-height, 200px);
+            cursor: pointer;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: transform 0.5s ease;
+            }
+
+            &:hover img {
+                transform: scale(1.1);
+            }
+
+            .hotel-overlay {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                padding: var(--overlay-padding, 20px);
+                background: var(--overlay-gradient, linear-gradient(transparent, rgba(0, 0, 0, 0.8)));
+                color: #fff;
+
+                h4 {
+                    margin: 0;
+                    font-size: 1.1rem;
+                }
+
+                p {
+                    margin: 5px 0 0;
+                    font-size: 0.85rem;
+                    opacity: 0.9;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .twork-neuro-centre-section .nearby-accommodation-in-section {
+        .hotel-grid {
+            grid-template-columns: 1fr;
+            gap: 16px;
+        }
+
+        .hotel-card {
+            height: 180px;
+        }
+    }
+}
+

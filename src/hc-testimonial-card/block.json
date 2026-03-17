@@ -1,0 +1,22 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "twork/hc-testimonial-card",
+    "title": "Testimonial Card",
+    "parent": ["twork/hc-testimonials-section"],
+    "category": "twork-builder",
+    "description": "Single testimonial card: stars, quote, client photo, name and location.",
+    "keywords": ["home care", "testimonial", "review", "quote", "twork"],
+    "attributes": {
+        "starRating": { "type": "number", "default": 5 },
+        "review": { "type": "string", "default": "\"The home nursing team was incredible. They took care of my father like their own family. Highly recommended!\"" },
+        "clientImageId": { "type": "number", "default": 0 },
+        "clientImageUrl": { "type": "string", "default": "" },
+        "clientImageAlt": { "type": "string", "default": "Client" },
+        "clientName": { "type": "string", "default": "U Kyaw Swar" },
+        "clientLocation": { "type": "string", "default": "Mandalay" }
+    },
+    "supports": { "html": false },
+    "textdomain": "twork-builder",
+    "editorScript": "file:./index.js"
+}

@@ -1,0 +1,17 @@
+/**
+ * Paediatrics Condition Card – styles live in parent section.
+ * This file only adds editor focus/placeholder.
+ */
+
+.editor-styles-wrapper,
+.wp-block-twork-paediatrics-condition-card {
+    .twork-paed-cond-card-editor {
+        .paed-cond-card h5[contenteditable="true"],
+        .paed-cond-card span[contenteditable="true"] {
+            &:focus {
+                outline: 2px dashed #2271b1;
+                outline-offset: 2px;
+            }
+        }
+    }
+}

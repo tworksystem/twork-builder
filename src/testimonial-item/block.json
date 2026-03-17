@@ -1,0 +1,101 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "twork/testimonial-item",
+    "title": "Testimonial Item",
+    "parent": ["twork/testimonial-section"],
+    "description": "Single testimonial card with avatar, name, location and quote.",
+    "keywords": ["testimonial", "quote", "patient", "review", "twork"],
+    "attributes": {
+        "image": {
+            "type": "string",
+            "default": "https://i.pravatar.cc/100?img=33"
+        },
+        "imageId": {
+            "type": "number"
+        },
+        "imageAlt": {
+            "type": "string",
+            "default": "Patient"
+        },
+        "imageSize": {
+            "type": "number",
+            "default": 100
+        },
+        "showQuoteIcon": {
+            "type": "boolean",
+            "default": true
+        },
+        "name": {
+            "type": "string",
+            "default": "John D."
+        },
+        "nameColor": {
+            "type": "string",
+            "default": "#ffffff"
+        },
+        "nameFontSize": {
+            "type": "number",
+            "default": 1.1
+        },
+        "nameFontWeight": {
+            "type": "number",
+            "default": 900
+        },
+        "procedure": {
+            "type": "string",
+            "default": "CBR"
+        },
+        "procedureColor": {
+            "type": "string",
+            "default": "rgba(255, 255, 255, 0.8)"
+        },
+        "procedureFontSize": {
+            "type": "number",
+            "default": 0.75
+        },
+        "location": {
+            "type": "string",
+            "default": ""
+        },
+        "quote": {
+            "type": "string",
+            "default": "\"The level of care I received at Jivaka was exceptional. The international team handled everything from my visa to my recovery. Highly recommended!\""
+        },
+        "quoteColor": {
+            "type": "string",
+            "default": "#ffffff"
+        },
+        "quoteFontSize": {
+            "type": "number",
+            "default": 0.95
+        },
+        "quoteLineHeight": {
+            "type": "number",
+            "default": 1.6
+        },
+        "quoteFontStyle": {
+            "type": "string",
+            "default": "normal"
+        },
+        "cardPadding": {
+            "type": "number",
+            "default": 30
+        },
+        "cardPaddingMobile": {
+            "type": "number",
+            "default": 24
+        },
+        "headerGap": {
+            "type": "number",
+            "default": 15
+        },
+        "headerMarginBottom": {
+            "type": "number",
+            "default": 20
+        }
+    },
+    "textdomain": "twork-builder",
+    "editorScript": "file:./index.js",
+    "style": "file:./style-index.css"
+}

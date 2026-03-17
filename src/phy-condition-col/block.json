@@ -1,0 +1,37 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "twork/phy-condition-col",
+  "version": "1.0.0",
+  "title": "Condition Column",
+  "category": "twork-builder",
+  "parent": ["twork/phy-conditions-section"],
+  "icon": "list-view",
+  "description": "Single condition column (icon + heading + list of conditions) for the Physio Conditions section.",
+  "keywords": ["physio", "condition", "list", "treat", "twork"],
+  "attributes": {
+    "iconClass": {
+      "type": "string",
+      "default": "fas fa-bone"
+    },
+    "heading": {
+      "type": "string",
+      "default": "Orthopedic"
+    },
+    "items": {
+      "type": "array",
+      "default": [
+        "Back & Neck Pain",
+        "Arthritis & Joint Pain",
+        "Post-Fracture Stiffness",
+        "Spondylosis"
+      ]
+    }
+  },
+  "supports": {
+    "html": false
+  },
+  "textdomain": "twork-builder",
+  "editorScript": "file:./index.js"
+}
+

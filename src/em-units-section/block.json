@@ -1,0 +1,153 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "twork/em-units-section",
+    "version": "1.0.0",
+    "title": "Units Section",
+    "category": "twork-builder",
+    "icon": "grid-view",
+    "description": "Specialized Emergency Units – displays WordPress posts as unit cards (image, title, description, link text). Content from Posts.",
+    "keywords": ["emergency", "units", "trauma", "cardiac", "posts", "twork"],
+    "attributes": {
+        "source": {
+            "type": "string",
+            "default": "recent"
+        },
+        "categoryId": {
+            "type": "number",
+            "default": 0
+        },
+        "postIds": {
+            "type": "array",
+            "default": []
+        },
+        "numberOfItems": {
+            "type": "number",
+            "default": 6
+        },
+        "orderBy": {
+            "type": "string",
+            "default": "date"
+        },
+        "order": {
+            "type": "string",
+            "default": "DESC"
+        },
+        "backgroundColor": {
+            "type": "string",
+            "default": "#fffbf7"
+        },
+        "paddingTop": {
+            "type": "number",
+            "default": 80
+        },
+        "paddingBottom": {
+            "type": "number",
+            "default": 80
+        },
+        "showSectionHeader": {
+            "type": "boolean",
+            "default": true
+        },
+        "sectionTitle": {
+            "type": "string",
+            "default": "Specialized Emergency Units"
+        },
+        "sectionTitleColor": {
+            "type": "string",
+            "default": "#212121"
+        },
+        "sectionTitleFontSize": {
+            "type": "number",
+            "default": 2.5
+        },
+        "sectionTitleFontWeight": {
+            "type": "number",
+            "default": 700
+        },
+        "sectionSubtitle": {
+            "type": "string",
+            "default": "Dedicated zones to handle specific types of emergencies effectively."
+        },
+        "sectionSubtitleColor": {
+            "type": "string",
+            "default": "#333333"
+        },
+        "sectionSubtitleFontSize": {
+            "type": "number",
+            "default": 1
+        },
+        "headerMaxWidth": {
+            "type": "number",
+            "default": 700
+        },
+        "headerMarginBottom": {
+            "type": "number",
+            "default": 50
+        },
+        "containerMaxWidth": {
+            "type": "number",
+            "default": 1280
+        },
+        "containerPadding": {
+            "type": "number",
+            "default": 20
+        },
+        "minColumnWidth": {
+            "type": "number",
+            "default": 300
+        },
+        "gap": {
+            "type": "number",
+            "default": 25
+        },
+        "imageHeight": {
+            "type": "number",
+            "default": 220
+        },
+        "bodyPadding": {
+            "type": "number",
+            "default": 25
+        },
+        "showUnitLink": {
+            "type": "boolean",
+            "default": true
+        },
+        "defaultLinkText": {
+            "type": "string",
+            "default": ""
+        },
+        "linkTextColor": {
+            "type": "string",
+            "default": "#f48b2a"
+        },
+        "linkFontSize": {
+            "type": "number",
+            "default": 0.9
+        },
+        "linkFontWeight": {
+            "type": "number",
+            "default": 700
+        },
+        "linkTextTransform": {
+            "type": "string",
+            "default": "uppercase"
+        },
+        "animationOnScroll": {
+            "type": "boolean",
+            "default": true
+        },
+        "animationType": {
+            "type": "string",
+            "default": "fade-up"
+        }
+    },
+    "supports": {
+        "html": false,
+        "anchor": true,
+        "align": ["wide", "full"]
+    },
+    "textdomain": "twork-builder",
+    "editorScript": "file:./index.js",
+    "style": "file:./style-index.css"
+}

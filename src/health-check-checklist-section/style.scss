@@ -1,0 +1,207 @@
+// Health Check Checklist Section – matches health-check-up.html
+// Follows same structure as services-grid / team-members-grid
+
+// Variables (align with health-check-up.html)
+:root {
+    --chk-checklist-primary: #f48b2a;
+    --chk-checklist-radius: 20px;
+    --chk-checklist-shadow: 0 15px 40px rgba(0, 95, 115, 0.1);
+    --chk-checklist-light: #f4f8fb;
+}
+
+// === EDITOR STYLES (prevent cut-off / clipping) ===
+.editor-styles-wrapper .wp-block-twork-health-check-checklist-section,
+.block-editor-block-list__layout .wp-block-twork-health-check-checklist-section {
+    overflow: visible !important;
+}
+
+.editor-styles-wrapper,
+.block-editor-block-list__layout,
+.wp-block-twork-health-check-checklist-section {
+    .twork-health-check-checklist-editor {
+        position: relative;
+        min-height: 320px;
+        overflow: visible !important;
+        width: 100%;
+        box-sizing: border-box;
+
+        .background-overlay {
+            pointer-events: none;
+        }
+
+        .chk-container {
+            position: relative;
+            z-index: 2;
+            overflow: visible;
+        }
+
+        .chk-checklist-grid {
+            overflow: visible;
+        }
+
+        .editor-label {
+            margin-bottom: 20px;
+            width: 100%;
+        }
+
+        .section-header {
+            h2[contenteditable="true"],
+            p[contenteditable="true"] {
+                &:focus {
+                    outline: 2px dashed #2271b1;
+                    outline-offset: 2px;
+                }
+            }
+        }
+
+        .chk-checklist-box {
+            overflow: visible;
+            .chk-checklist-item {
+                cursor: default;
+            }
+        }
+
+        .chk-checklist-img,
+        .chk-checklist-img-placeholder {
+            max-width: 100%;
+            height: auto;
+        }
+    }
+}
+
+// === FRONTEND STYLES ===
+.twork-health-check-checklist-section.chk-section.chk-checklist-section,
+.chk-section.chk-checklist-section.twork-health-check-checklist-section {
+    font-family: "Roboto", sans-serif;
+    position: relative;
+    overflow: hidden;
+
+    .background-overlay {
+        pointer-events: none;
+    }
+
+    .chk-container {
+        position: relative;
+        z-index: 2;
+    }
+
+    .section-header {
+        .section-title {
+            margin: 0;
+            line-height: 1.2;
+        }
+
+        .section-subtitle {
+            margin: 0;
+            line-height: 1.6;
+        }
+    }
+
+    .chk-checklist-grid {
+        align-items: center;
+    }
+
+    .chk-checklist-box {
+        background: #fff;
+        border-radius: var(--chk-radius, var(--chk-checklist-radius));
+        box-shadow: var(--chk-shadow, var(--chk-checklist-shadow));
+    }
+
+    .chk-checklist-item {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 15px;
+        font-size: 1.1rem;
+        cursor: pointer;
+    }
+
+    .chk-checklist-item:last-child {
+        margin-bottom: 0;
+    }
+
+    .chk-checklist-item input {
+        width: 20px;
+        height: 20px;
+        accent-color: var(--chk-primary, var(--chk-checklist-primary));
+        cursor: pointer;
+        flex-shrink: 0;
+    }
+
+    .chk-checklist-img {
+        width: 100%;
+        border-radius: var(--chk-radius, var(--chk-checklist-radius));
+        box-shadow: var(--chk-shadow, var(--chk-checklist-shadow));
+        display: block;
+    }
+
+    .chk-checklist-img-placeholder {
+        min-height: 300px;
+        background: #f0f0f0;
+        border-radius: var(--chk-radius, var(--chk-checklist-radius));
+    }
+}
+
+// === RESPONSIVE (match health-check-up.html breakpoints) ===
+@media (max-width: 992px) {
+    .twork-health-check-checklist-section.chk-section.chk-checklist-section,
+    .chk-section.chk-checklist-section.twork-health-check-checklist-section {
+        .chk-checklist-grid {
+            grid-template-columns: 1fr !important;
+        }
+
+        .chk-checklist-img,
+        .chk-checklist-img-placeholder {
+            order: -1;
+            margin-bottom: 30px;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .twork-health-check-checklist-section.chk-section.chk-checklist-section,
+    .chk-section.chk-checklist-section.twork-health-check-checklist-section {
+        .section-header {
+            .section-title {
+                font-size: 2rem !important;
+            }
+
+            .section-subtitle {
+                font-size: 1rem !important;
+            }
+        }
+
+        .chk-checklist-box {
+            padding: 24px !important;
+        }
+
+        .chk-checklist-item {
+            font-size: 1rem;
+        }
+    }
+}
+
+// === ACCESSIBILITY ===
+.chk-checklist-item input:focus-visible {
+    outline: 2px solid var(--chk-primary, var(--chk-checklist-primary));
+    outline-offset: 2px;
+}
+
+.chk-checklist-item:focus-within {
+    outline: none;
+}
+
+// === PRINT STYLES ===
+@media print {
+    .twork-health-check-checklist-section.chk-section.chk-checklist-section,
+    .chk-section.chk-checklist-section.twork-health-check-checklist-section {
+        .chk-checklist-box {
+            box-shadow: none;
+            border: 1px solid #e0e0e0;
+        }
+
+        .chk-checklist-item input {
+            accent-color: #333;
+        }
+    }
+}

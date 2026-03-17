@@ -1,0 +1,43 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "twork/surgical-service-card",
+  "version": "1.0.0",
+  "title": "Surgical Service Card",
+  "category": "twork-builder",
+  "parent": ["twork/surgical-services-section"],
+  "description": "Single service card with icon, title, description, bullet list, and link for the Surgical Procedures section.",
+  "attributes": {
+    "iconClass": {
+      "type": "string",
+      "default": "fas fa-procedures"
+    },
+    "title": {
+      "type": "string",
+      "default": "GI Surgery"
+    },
+    "description": {
+      "type": "string",
+      "default": "Advanced treatment for stomach, liver, and colorectal conditions using modern protocols."
+    },
+    "listItems": {
+      "type": "array",
+      "default": ["Gallbladder Stones", "Appendicitis"],
+      "items": { "type": "string" }
+    },
+    "linkText": {
+      "type": "string",
+      "default": "Read More"
+    },
+    "linkUrl": {
+      "type": "string",
+      "default": "#"
+    },
+    "linkTarget": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "textdomain": "twork-builder",
+  "editorScript": "file:./index.js"
+}

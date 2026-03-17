@@ -15,9 +15,9 @@ import {
 
 const ALLOWED_BLOCKS = ['twork/mission-vision-item'];
 const TEMPLATE = [
-	['twork/mission-vision-item', { iconClass: 'fas fa-bullseye', title: 'Our Mission' }],
-	['twork/mission-vision-item', { iconClass: 'fas fa-eye', title: 'Our Vision' }],
-	['twork/mission-vision-item', { iconClass: 'fas fa-heart', title: 'Our Values' }],
+	['twork/mission-vision-item', { iconType: 'dashicon', iconValue: 'dashicons-bullseye', title: 'Our Mission' }],
+	['twork/mission-vision-item', { iconType: 'dashicon', iconValue: 'dashicons-visibility', title: 'Our Vision' }],
+	['twork/mission-vision-item', { iconType: 'dashicon', iconValue: 'dashicons-heart', title: 'Our Values' }],
 ];
 
 export default function Edit({ attributes, setAttributes }) {

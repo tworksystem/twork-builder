@@ -1,0 +1,75 @@
+// Home Care Area Section – "Service Coverage Areas"
+// Matches home-care.html: .hc-section.hc-area-section, .hc-container, .hc-area-grid, .hc-area-tag
+
+// === EDITOR STYLES ===
+.editor-styles-wrapper,
+.block-editor-block-list__layout,
+.wp-block-twork-hc-area-section {
+    .twork-hc-area-section-editor {
+        .hc-area-grid {
+            display: flex !important;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+
+            > .block-editor-inner-blocks {
+                display: contents !important;
+
+                > .block-editor-block-list__layout {
+                    display: contents !important;
+
+                    > .wp-block,
+                    > [data-type="twork/hc-area-tag"] {
+                        display: inline-block !important;
+                    }
+                }
+            }
+        }
+
+        .twork-hc-area-tag-editor.hc-area-tag {
+            border: 1px dashed rgba(255, 255, 255, 0.4);
+            border-radius: 30px;
+            padding: 10px 20px;
+            font-size: 0.9rem;
+
+            &.is-selected {
+                border-color: #fff;
+                outline: 1px solid #fff;
+            }
+
+            [contenteditable]:focus {
+                outline: none;
+            }
+        }
+    }
+}
+
+// === FRONTEND STYLES ===
+.twork-hc-area-section {
+    font-family: "Roboto", sans-serif;
+    text-align: center;
+
+    .hc-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .hc-area-grid {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        flex-wrap: wrap;
+        margin-top: 30px;
+    }
+
+    .hc-area-tag {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 10px 20px;
+        border-radius: 30px;
+        font-size: 0.9rem;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: inherit;
+    }
+}

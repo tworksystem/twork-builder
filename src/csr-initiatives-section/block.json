@@ -1,0 +1,220 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "twork/csr-initiatives-section",
+    "version": "1.0.0",
+    "title": "Initiatives Section",
+    "category": "twork-builder",
+    "icon": "heart",
+    "description": "Our Core Initiatives section - displays posts from WordPress. Select by category or pick specific posts. Use csr_icon_class meta for Font Awesome icon.",
+    "keywords": ["csr", "initiatives", "core", "charity", "grid", "twork"],
+    "attributes": {
+        "backgroundColor": {
+            "type": "string",
+            "default": "#ffffff"
+        },
+        "backgroundImage": {
+            "type": "string",
+            "default": ""
+        },
+        "backgroundImageId": {
+            "type": "number"
+        },
+        "backgroundOverlay": {
+            "type": "boolean",
+            "default": false
+        },
+        "backgroundOverlayColor": {
+            "type": "string",
+            "default": "rgba(0, 0, 0, 0.5)"
+        },
+        "backgroundOverlayOpacity": {
+            "type": "number",
+            "default": 0.5
+        },
+        "paddingTop": {
+            "type": "number",
+            "default": 80
+        },
+        "paddingBottom": {
+            "type": "number",
+            "default": 80
+        },
+        "columns": {
+            "type": "number",
+            "default": 3
+        },
+        "columnsTablet": {
+            "type": "number",
+            "default": 2
+        },
+        "columnsMobile": {
+            "type": "number",
+            "default": 1
+        },
+        "gap": {
+            "type": "number",
+            "default": 30
+        },
+        "showSectionTitle": {
+            "type": "boolean",
+            "default": true
+        },
+        "sectionTitle": {
+            "type": "string",
+            "default": "Our Core Initiatives"
+        },
+        "sectionTitleColor": {
+            "type": "string",
+            "default": "#212121"
+        },
+        "sectionTitleFontSize": {
+            "type": "number",
+            "default": 2.2
+        },
+        "sectionTitleFontWeight": {
+            "type": "number",
+            "default": 700
+        },
+        "sectionTitleAlignment": {
+            "type": "string",
+            "default": "center"
+        },
+        "sectionTitleMarginBottom": {
+            "type": "number",
+            "default": 20
+        },
+        "showSectionSubtitle": {
+            "type": "boolean",
+            "default": true
+        },
+        "sectionSubtitle": {
+            "type": "string",
+            "default": "We focus on sustainable health projects that provide long-term benefits to underprivileged communities."
+        },
+        "sectionSubtitleColor": {
+            "type": "string",
+            "default": "#666666"
+        },
+        "sectionSubtitleFontSize": {
+            "type": "number",
+            "default": 1.1
+        },
+        "sectionSubtitleMarginBottom": {
+            "type": "number",
+            "default": 60
+        },
+        "containerMaxWidth": {
+            "type": "number",
+            "default": 1200
+        },
+        "containerPadding": {
+            "type": "number",
+            "default": 30
+        },
+        "cardBorderRadius": {
+            "type": "number",
+            "default": 12
+        },
+        "cardBorderColor": {
+            "type": "string",
+            "default": "#eeeeee"
+        },
+        "cardBorderWidth": {
+            "type": "number",
+            "default": 1
+        },
+        "hoverEffect": {
+            "type": "boolean",
+            "default": true
+        },
+        "hoverTranslateY": {
+            "type": "number",
+            "default": -8
+        },
+        "animationOnScroll": {
+            "type": "boolean",
+            "default": true
+        },
+        "animationDelay": {
+            "type": "number",
+            "default": 100
+        },
+        "animationType": {
+            "type": "string",
+            "default": "fadeInUp"
+        },
+        "source": {
+            "type": "string",
+            "default": "category"
+        },
+        "categoryId": {
+            "type": "number",
+            "default": 0
+        },
+        "postIds": {
+            "type": "array",
+            "default": []
+        },
+        "numberOfItems": {
+            "type": "number",
+            "default": 6
+        },
+        "orderBy": {
+            "type": "string",
+            "default": "date"
+        },
+        "order": {
+            "type": "string",
+            "default": "DESC"
+        },
+        "imageHeight": {
+            "type": "number",
+            "default": 220
+        },
+        "iconColor": {
+            "type": "string",
+            "default": "#f48b2a"
+        },
+        "iconBgColor": {
+            "type": "string",
+            "default": "#fff3e0"
+        },
+        "iconSize": {
+            "type": "number",
+            "default": 1.5
+        },
+        "titleFontSize": {
+            "type": "number",
+            "default": 1.3
+        },
+        "titleFontWeight": {
+            "type": "number",
+            "default": 700
+        },
+        "descFontSize": {
+            "type": "number",
+            "default": 0.95
+        },
+        "contentPadding": {
+            "type": "number",
+            "default": 30
+        },
+        "showReadMoreButton": {
+            "type": "boolean",
+            "default": true
+        },
+        "readMoreLabel": {
+            "type": "string",
+            "default": "View Detail"
+        }
+    },
+    "supports": {
+        "html": false,
+        "anchor": true,
+        "align": ["wide", "full"]
+    },
+    "textdomain": "twork-builder",
+    "editorScript": "file:./index.js",
+    "style": "file:./style-index.css"
+}

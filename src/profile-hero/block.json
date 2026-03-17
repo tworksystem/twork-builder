@@ -1,0 +1,115 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "twork/profile-hero",
+    "version": "1.0.0",
+    "title": "Profile Hero",
+    "category": "twork-builder",
+    "icon": "admin-users",
+    "description": "Doctor profile hero section with image, name, designation, specs, bio, and action buttons.",
+    "keywords": ["profile", "doctor", "hero", "twork", "jivaka"],
+    "supports": {
+        "html": false,
+        "align": ["full", "wide"]
+    },
+    "attributes": {
+        "backgroundColor": {
+            "type": "string",
+            "default": "#ffffff"
+        },
+        "backgroundGradientStart": {
+            "type": "string",
+            "default": "#fff8f2"
+        },
+        "backgroundGradientEnd": {
+            "type": "string",
+            "default": "#ffffff"
+        },
+        "paddingTop": {
+            "type": "number",
+            "default": 60
+        },
+        "paddingBottom": {
+            "type": "number",
+            "default": 60
+        },
+        "containerMaxWidth": {
+            "type": "number",
+            "default": 1200
+        },
+        "containerPadding": {
+            "type": "number",
+            "default": 20
+        },
+        "profileImage": {
+            "type": "string",
+            "default": ""
+        },
+        "profileImageId": {
+            "type": "number"
+        },
+        "profileImageAlt": {
+            "type": "string",
+            "default": ""
+        },
+        "showBadge": {
+            "type": "boolean",
+            "default": true
+        },
+        "badgeText": {
+            "type": "string",
+            "default": "Available Today"
+        },
+        "badgeIcon": {
+            "type": "string",
+            "default": "fas fa-check-circle"
+        },
+        "doctorName": {
+            "type": "string",
+            "default": "Dr. Kyaw Swar"
+        },
+        "designation": {
+            "type": "string",
+            "default": "Interventional Cardiologist"
+        },
+        "specItems": {
+            "type": "array",
+            "default": [
+                { "id": 1, "iconClass": "fas fa-graduation-cap", "text": "MBBS, M.Med.Sc, MRCP (UK)" },
+                { "id": 2, "iconClass": "fas fa-briefcase", "text": "15+ Years Experience" },
+                { "id": 3, "iconClass": "fas fa-language", "text": "English, Myanmar" }
+            ]
+        },
+        "profileBio": {
+            "type": "string",
+            "default": "Dr. Kyaw Swar is a highly skilled Interventional Cardiologist specializing in coronary angioplasty, pacemaker implantation, and heart failure management. Dedicated to patient-centered care using the latest medical technologies."
+        },
+        "primaryButtonText": {
+            "type": "string",
+            "default": "Book Appointment"
+        },
+        "primaryButtonUrl": {
+            "type": "string",
+            "default": "#book"
+        },
+        "primaryButtonTarget": {
+            "type": "boolean",
+            "default": false
+        },
+        "secondaryButtonText": {
+            "type": "string",
+            "default": "Share Profile"
+        },
+        "secondaryButtonUrl": {
+            "type": "string",
+            "default": "#"
+        },
+        "secondaryButtonTarget": {
+            "type": "boolean",
+            "default": false
+        }
+    },
+    "textdomain": "twork-builder",
+    "editorScript": "file:./index.js",
+    "style": "file:./style-index.css"
+}

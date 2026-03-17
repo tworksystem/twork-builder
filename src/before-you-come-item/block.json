@@ -1,0 +1,57 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "twork/before-you-come-item",
+    "title": "Before You Come Item",
+    "parent": ["twork/before-you-come-section"],
+    "category": "twork-builder",
+    "description": "Single tip card (icon + title + description) for the Before You Come section.",
+    "attributes": {
+        "icon": {
+            "type": "string",
+            "default": "fas fa-clock"
+        },
+        "title": {
+            "type": "string",
+            "default": "Fasting"
+        },
+        "description": {
+            "type": "string",
+            "default": "Please fast for at least 8-10 hours before the checkup. Water is allowed."
+        },
+        "titleColor": {
+            "type": "string",
+            "default": "#f48b2a"
+        },
+        "titleFontSize": {
+            "type": "number",
+            "default": 1.1
+        },
+        "titleFontWeight": {
+            "type": "number",
+            "default": 600
+        },
+        "descriptionColor": {
+            "type": "string",
+            "default": "#666666"
+        },
+        "descriptionFontSize": {
+            "type": "number",
+            "default": 0.95
+        },
+        "descriptionLineHeight": {
+            "type": "number",
+            "default": 1.6
+        },
+        "descriptionMarginTop": {
+            "type": "number",
+            "default": 10
+        },
+        "descriptionMarginBottom": {
+            "type": "number",
+            "default": 0
+        }
+    },
+    "editorScript": "file:./index.js",
+    "style": "file:./style-index.css"
+}

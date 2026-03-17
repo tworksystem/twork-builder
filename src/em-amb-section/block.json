@@ -1,0 +1,128 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "twork/em-amb-section",
+    "version": "1.0.0",
+    "title": "Ambulance Section",
+    "category": "twork-builder",
+    "icon": "car",
+    "description": "Mobile ICU / Ambulance split section: image + content with feature list and CTA. Layout and icon/image per feature configurable.",
+    "keywords": ["emergency", "ambulance", "mobile icu", "split", "twork"],
+    "attributes": {
+        "layout": {
+            "type": "string",
+            "default": "image-left"
+        },
+        "imageUrl": {
+            "type": "string",
+            "default": ""
+        },
+        "imageId": {
+            "type": "number"
+        },
+        "imageAlt": {
+            "type": "string",
+            "default": "Ambulance"
+        },
+        "title": {
+            "type": "string",
+            "default": "Mobile ICU on Wheels"
+        },
+        "titleColor": {
+            "type": "string",
+            "default": "#212121"
+        },
+        "titleFontSize": {
+            "type": "number",
+            "default": 2.5
+        },
+        "description": {
+            "type": "string",
+            "default": "Our ambulance fleet is more than just transport. Each vehicle is a Mobile ICU equipped with life-saving technology."
+        },
+        "descriptionColor": {
+            "type": "string",
+            "default": "#666666"
+        },
+        "descriptionFontSize": {
+            "type": "number",
+            "default": 1
+        },
+        "features": {
+            "type": "array",
+            "default": [
+                { "id": 1, "iconType": "fontawesome", "iconValue": "fas fa-check", "iconImageUrl": "", "iconImageId": null, "title": "Advanced Life Support", "description": "Ventilators and Cardiac Monitors onboard." },
+                { "id": 2, "iconType": "fontawesome", "iconValue": "fas fa-user-nurse", "iconImageUrl": "", "iconImageId": null, "title": "Paramedic Team", "description": "Staffed by trained emergency technicians." },
+                { "id": 3, "iconType": "fontawesome", "iconValue": "fas fa-map-marked-alt", "iconImageUrl": "", "iconImageId": null, "title": "GPS Tracking", "description": "Real-time location for faster response." }
+            ]
+        },
+        "iconColor": {
+            "type": "string",
+            "default": "#f48b2a"
+        },
+        "iconBgColor": {
+            "type": "string",
+            "default": "#fff3e0"
+        },
+        "iconSizePx": {
+            "type": "number",
+            "default": 44
+        },
+        "buttonText": {
+            "type": "string",
+            "default": "Call Ambulance Now"
+        },
+        "buttonUrl": {
+            "type": "string",
+            "default": "tel:199"
+        },
+        "buttonStyle": {
+            "type": "string",
+            "default": "primary"
+        },
+        "backgroundColor": {
+            "type": "string",
+            "default": "#ffffff"
+        },
+        "paddingTop": {
+            "type": "number",
+            "default": 80
+        },
+        "paddingBottom": {
+            "type": "number",
+            "default": 80
+        },
+        "containerMaxWidth": {
+            "type": "number",
+            "default": 1280
+        },
+        "containerPadding": {
+            "type": "number",
+            "default": 20
+        },
+        "gap": {
+            "type": "number",
+            "default": 60
+        },
+        "imageBorderRadius": {
+            "type": "number",
+            "default": 16
+        },
+        "animationOnScroll": {
+            "type": "boolean",
+            "default": true
+        },
+        "animationType": {
+            "type": "string",
+            "default": "fade-up"
+        }
+    },
+    "supports": {
+        "html": false,
+        "anchor": true,
+        "align": ["wide", "full"]
+    },
+    "textdomain": "twork-builder",
+    "editorScript": "file:./index.js",
+    "style": "file:./style-index.css"
+}

@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>24/7 Emergency | Jivaka Hospital</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <style>
+        /* --- CORE VARIABLES --- */
+        :root {
+            --em-primary: #f48b2a;
+            --em-hover: #d6701b;
+            --em-dark: #212121;
+            --em-text: #333;
+            --em-grey: #666;
+            --em-light: #fffbf7;
+            --em-white: #ffffff;
+            --em-radius: 16px;
+            --em-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --em-alert: #dc3545;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Roboto", sans-serif;
+            color: var(--em-text);
+            line-height: 1.6;
+            background: #fff;
+            overflow-x: hidden;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        body.loaded {
+            opacity: 1;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            color: var(--em-dark);
+            line-height: 1.2;
+            margin-top: 0;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: 0.3s;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .em-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        .em-section {
+            padding: 80px 0;
+            position: relative;
+        }
+
+        /* Buttons */
+        .em-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: 2px solid transparent;
+            gap: 10px;
+        }
+
+        .em-btn-primary {
+            background: var(--em-primary);
+            color: #fff;
+            box-shadow: 0 5px 15px rgba(244, 139, 42, 0.3);
+        }
+
+        .em-btn-primary:hover {
+            background: var(--em-hover);
+            transform: translateY(-3px);
+        }
+
+        /* Pulse Animation */
+        .em-btn-pulse {
+            animation: pulse-orange 2s infinite;
+        }
+
+        @keyframes pulse-orange {
+            0% {
+                box-shadow: 0 0 0 0 rgba(244, 139, 42, 0.7);
+            }
+
+            70% {
+                box-shadow: 0 0 0 15px rgba(244, 139, 42, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(244, 139, 42, 0);
+            }
+        }
+
+        /* --- 1. HERO SECTION --- */
+        .em-hero {
+            position: relative;
+            height: 600px;
+            display: flex;
+            align-items: center;
+            background: #0b1c2c;
+            color: #fff;
+            overflow: hidden;
+        }
+
+        .em-hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.4;
+        }
+
+        .em-hero-content {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            text-align: center;
+        }
+
+        .em-hero-badge {
+            display: inline-block;
+            background: var(--em-alert);
+            color: #fff;
+            padding: 5px 15px;
+            border-radius: 4px;
+            font-weight: 700;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .em-hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            margin: 0 0 20px;
+            font-weight: 900;
+            color: #fff;
+        }
+
+        .em-hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+
+        /* --- 2. QUICK STATS --- */
+        .em-stats {
+            background: var(--em-primary);
+            color: #fff;
+            padding: 40px 0;
+            margin-top: -50px;
+            position: relative;
+            z-index: 5;
+            border-radius: var(--em-radius);
+            box-shadow: var(--em-shadow);
+        }
+
+        .em-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            text-align: center;
+        }
+
+        .em-stat-item i {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            opacity: 0.8;
+        }
+
+        .em-stat-item h3 {
+            font-size: 1.5rem;
+            margin: 0;
+            color: #fff;
+        }
+
+        /* --- 3. TRIAGE SECTION (Updated for Detail) --- */
+        .em-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 50px;
+        }
+
+        .em-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .em-triage-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 25px;
+        }
+
+        .em-triage-card {
+            background: #fff;
+            border: 1px solid #eee;
+            border-radius: var(--em-radius);
+            padding: 30px 25px;
+            transition: 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+            /* Aligned left for list readability */
+        }
+
+        .em-triage-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--em-shadow);
+            border-color: var(--em-primary);
+        }
+
+        .em-triage-head {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .em-triage-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--em-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--em-primary);
+            font-size: 1.4rem;
+            flex-shrink: 0;
+        }
+
+        .em-triage-card h4 {
+            font-size: 1.1rem;
+            margin: 0;
+            font-weight: 700;
+        }
+
+        /* New List Style for Data */
+        .em-triage-list {
+            padding-left: 0;
+            list-style: none;
+            margin: 0;
+            flex-grow: 1;
+        }
+
+        .em-triage-list li {
+            position: relative;
+            padding-left: 15px;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+            color: #555;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .em-triage-list li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--em-alert);
+            font-size: 1.2rem;
+            line-height: 1rem;
+            top: 2px;
+        }
+
+        /* --- 4. SPECIALIZED UNITS --- */
+        .em-units-section {
+            background: var(--em-light);
+        }
+
+        .em-unit-card {
+            background: #fff;
+            border-radius: var(--em-radius);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            transition: 0.3s;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+
+        .em-unit-img {
+            height: 220px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .em-unit-body {
+            padding: 25px;
+            flex-grow: 1;
+        }
+
+        .em-unit-link {
+            color: var(--em-primary);
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+
+        /* --- 5. AMBULANCE --- */
+        .em-amb-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .em-amb-img {
+            border-radius: 16px;
+            box-shadow: var(--em-shadow);
+        }
+
+        .em-feature-list li {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .em-feature-list i {
+            color: var(--em-primary);
+            background: #fff3e0;
+            padding: 12px;
+            border-radius: 50%;
+            font-size: 1rem;
+        }
+
+        /* --- 6. PROCESS TIMELINE --- */
+        .em-process-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            text-align: center;
+            position: relative;
+        }
+
+        .em-process-grid::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 10%;
+            width: 80%;
+            height: 2px;
+            background: #f48b2a33;
+            z-index: 0;
+        }
+
+        .em-step {
+            position: relative;
+            z-index: 1;
+        }
+
+        .em-step-num {
+            width: 80px;
+            height: 80px;
+            background: #fff;
+            border: 3px solid var(--em-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 1.8rem;
+            color: var(--em-primary);
+            font-weight: 900;
+        }
+
+        /* --- 7. TEAM SECTION --- */
+        .em-doc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 30px;
+        }
+
+        .em-doc-card {
+            background: #fff;
+            border-radius: var(--em-radius);
+            padding: 30px 20px;
+            text-align: center;
+            border: 1px solid #eee;
+            transition: 0.3s;
+        }
+
+        .em-doc-card:hover {
+            border-color: var(--em-primary);
+            box-shadow: var(--em-shadow);
+        }
+
+        .em-doc-img {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 20px;
+            border: 4px solid var(--em-light);
+        }
+
+        .em-doc-role {
+            color: var(--em-primary);
+            font-weight: 700;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        /* Animation Classes */
+        .fade-up,
+        .stagger-up {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .em-amb-wrapper {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .em-process-grid {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+
+            .em-process-grid::before {
+                display: none;
+            }
+
+            .em-hero {
+                height: auto;
+                padding: 120px 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="em-hero">
+        <img src="https://images.unsplash.com/photo-1516574187841-693083f6e17b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
+            alt="Emergency Room" class="em-hero-bg">
+        <div class="em-container">
+            <div class="em-hero-content em-animate-hero">
+                <span class="em-hero-badge">24/7 Emergency Response</span>
+                <h1>Every Second Counts</h1>
+                <p>Jivaka Emergency Centre is equipped with advanced technology and expert specialists to handle critical situations at any
+                    hour.</p>
+                <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+                    <a href="tel:199" class="em-btn em-btn-primary em-btn-pulse">
+                        <i class="fas fa-phone-alt"></i> Call Ambulance: 199
+                    </a>
+                    <a href="#triage" class="em-btn"
+                        style="background: rgba(255,255,255,0.2); color: #fff; backdrop-filter: blur(5px); border: 1px solid #fff;">
+                        When to Visit?
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="em-container">
+        <div class="em-stats fade-up">
+            <div class="em-stats-grid">
+                <div class="em-stat-item"><i class="fas fa-clock"></i>
+                    <h3>24/7</h3>
+                    <p>Open All Day</p>
+                </div>
+                <div class="em-stat-item"><i class="fas fa-user-md"></i>
+                    <h3>10+</h3>
+                    <p>ER Specialists</p>
+                </div>
+                <div class="em-stat-item"><i class="fas fa-ambulance"></i>
+                    <h3>15 min</h3>
+                    <p>Avg. Response</p>
+                </div>
+                <div class="em-stat-item"><i class="fas fa-bed"></i>
+                    <h3>20+</h3>
+                    <p>ICU Beds</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="em-section" id="triage">
+        <div class="em-container">
+            <div class="em-header fade-up">
+                <h2>When to Visit Emergency?</h2>
+                <p>Recognizing the signs of a medical emergency can save lives. Seek immediate help if you observe:</p>
+            </div>
+
+            <div class="em-triage-grid">
+                <div class="em-triage-card stagger-up">
+                    <div class="em-triage-head">
+                        <div class="em-triage-icon"><i class="fas fa-heartbeat"></i></div>
+                        <h4>Heart Attack Signs</h4>
+                    </div>
+                    <ul class="em-triage-list">
+                        <li>Squeezing chest pain or pressure</li>
+                        <li>Pain radiating to jaw, neck, or left arm</li>
+                        <li>Shortness of breath & cold sweats</li>
+                        <li>Nausea or lightheadedness</li>
+                    </ul>
+                </div>
+
+                <div class="em-triage-card stagger-up">
+                    <div class="em-triage-head">
+                        <div class="em-triage-icon"><i class="fas fa-lungs"></i></div>
+                        <h4>Breathing Issues</h4>
+                    </div>
+                    <ul class="em-triage-list">
+                        <li>Severe asthma unresponsive to inhalers</li>
+                        <li>Choking or gasping for air</li>
+                        <li>Bluish lips or face (Cyanosis)</li>
+                        <li>Inability to speak in full sentences</li>
+                    </ul>
+                </div>
+
+                <div class="em-triage-card stagger-up">
+                    <div class="em-triage-head">
+                        <div class="em-triage-icon"><i class="fas fa-brain"></i></div>
+                        <h4>Stroke (F.A.S.T)</h4>
+                    </div>
+                    <ul class="em-triage-list">
+                        <li><strong>F</strong>ace drooping on one side</li>
+                        <li><strong>A</strong>rm weakness or numbness</li>
+                        <li><strong>S</strong>peech difficulty (slurred)</li>
+                        <li>Sudden severe headache & confusion</li>
+                    </ul>
+                </div>
+
+                <div class="em-triage-card stagger-up">
+                    <div class="em-triage-head">
+                        <div class="em-triage-icon"><i class="fas fa-car-crash"></i></div>
+                        <h4>Severe Trauma</h4>
+                    </div>
+                    <ul class="em-triage-list">
+                        <li>Heavy, uncontrollable bleeding</li>
+                        <li>Deep wounds or gunshot/knife wounds</li>
+                        <li>Compound fractures (bone visible)</li>
+                        <li>Head injury with loss of consciousness</li>
+                    </ul>
+                </div>
+
+                <div class="em-triage-card stagger-up">
+                    <div class="em-triage-head">
+                        <div class="em-triage-icon"><i class="fas fa-procedures"></i></div>
+                        <h4>Acute Abdominal</h4>
+                    </div>
+                    <ul class="em-triage-list">
+                        <li>Sudden, intense abdominal pain</li>
+                        <li>Vomiting blood (coffee ground color)</li>
+                        <li>Bloody or black, tarry stools</li>
+                        <li>Rigid or tender stomach area</li>
+                    </ul>
+                </div>
+
+                <div class="em-triage-card stagger-up">
+                    <div class="em-triage-head">
+                        <div class="em-triage-icon"><i class="fas fa-thermometer-full"></i></div>
+                        <h4>High Fever / Sepsis</h4>
+                    </div>
+                    <ul class="em-triage-list">
+                        <li>Fever > 103°F (39.4°C) in adults</li>
+                        <li>Any fever in infants under 3 months</li>
+                        <li>Fever with stiff neck & headache</li>
+                        <li>Severe shivering or confusion</li>
+                    </ul>
+                </div>
+
+                <div class="em-triage-card stagger-up">
+                    <div class="em-triage-head">
+                        <div class="em-triage-icon"><i class="fas fa-allergies"></i></div>
+                        <h4>Severe Allergy</h4>
+                    </div>
+                    <ul class="em-triage-list">
+                        <li>Swelling of tongue, lips, or throat</li>
+                        <li>Difficulty swallowing or breathing</li>
+                        <li>Widespread hives or rash</li>
+                        <li>Fainting or dizziness (Anaphylaxis)</li>
+                    </ul>
+                </div>
+
+                <div class="em-triage-card stagger-up">
+                    <div class="em-triage-head">
+                        <div class="em-triage-icon"><i class="fas fa-skull-crossbones"></i></div>
+                        <h4>Poisoning & Bites</h4>
+                    </div>
+                    <ul class="em-triage-list">
+                        <li>Snake bites or unknown insect bites</li>
+                        <li>Drug overdose (prescription/recreational)</li>
+                        <li>Swallowing household chemicals</li>
+                        <li>Sudden seizures or convulsions</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="em-section em-units-section">
+        <div class="em-container">
+            <div class="em-header fade-up">
+                <h2>Specialized Emergency Units</h2>
+                <p>Dedicated zones to handle specific types of emergencies effectively.</p>
+            </div>
+            <div class="em-triage-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+                <div class="em-unit-card stagger-up">
+                    <img src="https://images.unsplash.com/photo-1538108149393-fbbd81895907?auto=format&fit=crop&w=600&q=80" alt="Trauma"
+                        class="em-unit-img">
+                    <div class="em-unit-body">
+                        <h3>Trauma Centre</h3>
+                        <p>Fully equipped for major injuries and industrial mishaps.</p>
+                        <span class="em-unit-link">Level 1 Care</span>
+                    </div>
+                </div>
+                <div class="em-unit-card stagger-up">
+                    <img src="https://images.unsplash.com/photo-1628348068343-c6a848d2b6dd?auto=format&fit=crop&w=600&q=80" alt="Cardiac"
+                        class="em-unit-img">
+                    <div class="em-unit-body">
+                        <h3>Cardiac Care</h3>
+                        <p>Rapid response for heart attacks with 24/7 Cath Lab.</p>
+                        <span class="em-unit-link">Golden Hour Ready</span>
+                    </div>
+                </div>
+                <div class="em-unit-card stagger-up">
+                    <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=600&q=80" alt="Pediatric"
+                        class="em-unit-img">
+                    <div class="em-unit-body">
+                        <h3>Pediatric ER</h3>
+                        <p>A child-friendly emergency zone with specialists.</p>
+                        <span class="em-unit-link">Child Specialist</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="em-section">
+        <div class="em-container">
+            <div class="em-amb-wrapper">
+                <div class="fade-up">
+                    <img src="https://images.unsplash.com/photo-1616391182219-e080b4d1043a?auto=format&fit=crop&w=800&q=80" alt="Ambulance"
+                        class="em-amb-img">
+                </div>
+                <div class="fade-up">
+                    <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Mobile ICU on Wheels</h2>
+                    <p style="color: #666; margin-bottom: 30px;">Our ambulance fleet is more than just transport. Each vehicle is a Mobile
+                        ICU equipped with life-saving technology.</p>
+                    <ul class="em-feature-list">
+                        <li><i class="fas fa-check"></i>
+                            <div><strong>Advanced Life Support</strong>
+                                <p style="margin:0; font-size:0.9rem; color:#666;">Ventilators and Cardiac Monitors onboard.</p>
+                            </div>
+                        </li>
+                        <li><i class="fas fa-user-nurse"></i>
+                            <div><strong>Paramedic Team</strong>
+                                <p style="margin:0; font-size:0.9rem; color:#666;">Staffed by trained emergency technicians.</p>
+                            </div>
+                        </li>
+                        <li><i class="fas fa-map-marked-alt"></i>
+                            <div><strong>GPS Tracking</strong>
+                                <p style="margin:0; font-size:0.9rem; color:#666;">Real-time location for faster response.</p>
+                            </div>
+                        </li>
+                    </ul>
+                    <a href="tel:199" class="em-btn em-btn-primary">Call Ambulance Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="em-section" style="background: var(--em-light);">
+        <div class="em-container">
+            <div class="em-header fade-up">
+                <h2>Our Emergency Process</h2>
+                <p>We prioritize speed and precision.</p>
+            </div>
+            <div class="em-process-grid">
+                <div class="em-step stagger-up">
+                    <div class="em-step-num">1</div>
+                    <h4>Arrival</h4>
+                    <p>Ambulance or walk-in.</p>
+                </div>
+                <div class="em-step stagger-up">
+                    <div class="em-step-num">2</div>
+                    <h4>Triage</h4>
+                    <p>Quick severity assessment.</p>
+                </div>
+                <div class="em-step stagger-up">
+                    <div class="em-step-num">3</div>
+                    <h4>Diagnosis</h4>
+                    <p>Rapid labs and imaging.</p>
+                </div>
+                <div class="em-step stagger-up">
+                    <div class="em-step-num">4</div>
+                    <h4>Treatment</h4>
+                    <p>Surgery or ICU admission.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="em-section">
+        <div class="em-container">
+            <div class="em-header fade-up">
+                <h2>Emergency Specialists</h2>
+            </div>
+            <div class="em-doc-grid">
+                <div class="em-doc-card stagger-up">
+                    <img src="https://jivakahospital.com/wp-content/uploads/2025/12/img-team-member-03.jpg" alt="Dr. Aung"
+                        class="em-doc-img">
+                    <span class="em-doc-role">Head of Emergency</span>
+                    <h4>Dr. Aung Kyaw</h4>
+                    <p>Trauma Specialist</p>
+                </div>
+                <div class="em-doc-card stagger-up">
+                    <img src="https://i.pravatar.cc/400?img=11" alt="Dr. Zaw" class="em-doc-img">
+                    <span class="em-doc-role">Cardiologist</span>
+                    <h4>Dr. Zaw Win</h4>
+                    <p>Acute Cardiac Care</p>
+                </div>
+                <div class="em-doc-card stagger-up">
+                    <img src="https://i.pravatar.cc/400?img=5" alt="Dr. Thida" class="em-doc-img">
+                    <span class="em-doc-role">Anesthesiologist</span>
+                    <h4>Dr. Thida Soe</h4>
+                    <p>Critical Care</p>
+                </div>
+                <div class="em-doc-card stagger-up">
+                    <img src="https://i.pravatar.cc/400?img=33" alt="Dr. Min" class="em-doc-img">
+                    <span class="em-doc-role">Physician</span>
+                    <h4>Dr. Min Htet</h4>
+                    <p>Pediatric Emergency</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div style="background: #dc3545; color: #fff; padding: 60px 0; text-align: center;">
+        <div class="em-container fade-up">
+            <h2 style="color: #fff; margin-bottom: 10px;">Save Our Number Now</h2>
+            <p style="margin-bottom: 30px; opacity: 0.9;">Be prepared for the unexpected.</p>
+            <a href="tel:199" class="em-btn" style="background: #fff; color: #dc3545;">
+                <i class="fas fa-phone-alt"></i> 199 (Hotline)
+            </a>
+        </div>
+    </div>
+
+    <script>
+        window.addEventListener("load", function () {
+            gsap.registerPlugin(ScrollTrigger);
+            document.body.classList.add('loaded');
+
+            // Hero Animation
+            const tl = gsap.timeline();
+            tl.fromTo(".em-animate-hero > *",
+                { y: 30, opacity: 0 },
+                { y: 0, opacity: 1, duration: 0.8, stagger: 0.2, ease: "power3.out" }
+            );
+
+            // Fade Up Elements
+            gsap.utils.toArray('.fade-up').forEach(el => {
+                gsap.fromTo(el,
+                    { y: 50, opacity: 0, autoAlpha: 0 },
+                    {
+                        y: 0, opacity: 1, autoAlpha: 1, duration: 0.8, ease: "power2.out",
+                        scrollTrigger: { trigger: el, start: "top 85%" }
+                    }
+                );
+            });
+
+            // Staggered Items - FIXED SELECTOR
+            const staggerSections = document.querySelectorAll('.em-triage-grid, .em-process-grid, .em-doc-grid');
+            staggerSections.forEach(section => {
+                const items = section.querySelectorAll('.stagger-up');
+                if (items.length > 0) {
+                    gsap.fromTo(items,
+                        { y: 30, opacity: 0, autoAlpha: 0 },
+                        {
+                            y: 0, opacity: 1, autoAlpha: 1, stagger: 0.15, duration: 0.6, ease: "power2.out",
+                            scrollTrigger: { trigger: section, start: "top 80%" }
+                        }
+                    );
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

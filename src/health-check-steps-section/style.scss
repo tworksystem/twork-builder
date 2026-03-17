@@ -1,0 +1,175 @@
+// Health Check Steps Section – How to Prepare (matches health-check-up.html)
+// Variables
+:root {
+    --chk-steps-primary: #f48b2a;
+    --chk-steps-connector: #dddddd;
+}
+
+// === EDITOR STYLES (prevent cut-off, grid with InnerBlocks) ===
+.editor-styles-wrapper .wp-block-twork-health-check-steps-section,
+.block-editor-block-list__layout .wp-block-twork-health-check-steps-section {
+    overflow: visible !important;
+}
+
+.twork-health-check-steps-section-editor {
+    overflow: visible !important;
+    min-height: 200px;
+    width: 100%;
+    box-sizing: border-box;
+
+    .chk-container {
+        overflow: visible;
+    }
+
+    .editor-label {
+        margin-bottom: 20px;
+        width: 100%;
+    }
+
+    .chk-header h2[contenteditable="true"] {
+        &:focus {
+            outline: 2px dashed #2271b1;
+            outline-offset: 2px;
+        }
+    }
+
+    .twork-chk-steps-grid-editor {
+        overflow: visible;
+        width: 100%;
+
+        > .block-editor-inner-blocks {
+            display: contents !important;
+        }
+        > .block-editor-inner-blocks > .block-editor-block-list__layout {
+            display: contents !important;
+        }
+
+        > .block-editor-inner-blocks > .block-editor-block-list__layout > .wp-block,
+        > .block-editor-inner-blocks > .block-editor-block-list__layout > [data-type="twork/health-check-step-item"] {
+            min-width: 0;
+            overflow: visible;
+        }
+    }
+}
+
+// === FRONTEND STYLES ===
+.twork-health-check-steps-section.chk-section {
+    font-family: "Roboto", sans-serif;
+    position: relative;
+
+    .chk-container {
+        position: relative;
+    }
+
+    .chk-header {
+        text-align: center;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+
+        h2 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin: 0;
+            line-height: 1.2;
+        }
+    }
+
+    .chk-steps-grid {
+        display: grid;
+        gap: 30px;
+        text-align: center;
+        margin-top: 50px;
+    }
+
+    .chk-step-item {
+        position: relative;
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 40px;
+            right: -50%;
+            width: 100%;
+            height: 2px;
+            background: var(--chk-step-connector, var(--chk-steps-connector));
+            z-index: -1;
+        }
+
+        &:last-child::after {
+            display: none;
+        }
+    }
+
+    .chk-step-icon {
+        width: 80px;
+        height: 80px;
+        background: #fff;
+        border: 2px solid var(--chk-step-icon-color, var(--chk-primary, var(--chk-steps-primary)));
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 20px;
+        font-size: 2rem;
+        color: var(--chk-step-icon-color, var(--chk-primary, var(--chk-steps-primary)));
+        z-index: 1;
+    }
+
+    .chk-step-item h4 {
+        font-size: 1.2rem;
+        margin: 0 0 10px 0;
+        color: var(--chk-step-title-color, #212121);
+        line-height: 1.3;
+    }
+
+    .chk-step-item p {
+        font-size: 0.9rem;
+        color: var(--chk-step-desc-color, #666666);
+        margin: 0;
+        line-height: 1.5;
+    }
+}
+
+// Responsive (match health-check-up.html breakpoints)
+@media (max-width: 992px) {
+    .twork-health-check-steps-section.chk-section {
+        .chk-steps-grid {
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 40px;
+        }
+
+        .chk-step-item::after {
+            display: none;
+        }
+    }
+
+    .twork-health-check-steps-section.chk-section[data-columns-tablet="1"] .chk-steps-grid {
+        grid-template-columns: 1fr !important;
+    }
+    .twork-health-check-steps-section.chk-section[data-columns-tablet="3"] .chk-steps-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+    }
+    .twork-health-check-steps-section.chk-section[data-columns-tablet="4"] .chk-steps-grid {
+        grid-template-columns: repeat(4, 1fr) !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .twork-health-check-steps-section.chk-section {
+        .chk-header h2 {
+            font-size: 2rem;
+        }
+
+        .chk-steps-grid {
+            grid-template-columns: 1fr !important;
+            gap: 40px;
+        }
+    }
+
+    .twork-health-check-steps-section.chk-section[data-columns-mobile="2"] .chk-steps-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+// Responsive layout uses data-columns-tablet and data-columns-mobile

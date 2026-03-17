@@ -1,0 +1,70 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "twork/benefit-item",
+    "title": "Benefit Item",
+    "parent": ["twork/benefits-section"],
+    "description": "Single benefit card with icon, title and description for Why Choose section.",
+    "keywords": ["benefit", "career", "icon", "card", "twork"],
+    "attributes": {
+        "icon": {
+            "type": "string",
+            "default": "fas fa-user-md"
+        },
+        "iconColor": {
+            "type": "string",
+            "default": "#f48b2a"
+        },
+        "iconBgColor": {
+            "type": "string",
+            "default": "#fff9f2"
+        },
+        "iconSize": {
+            "type": "number",
+            "default": 1.8
+        },
+        "iconSizePx": {
+            "type": "number",
+            "default": 70
+        },
+        "title": {
+            "type": "string",
+            "default": "Professional Growth"
+        },
+        "titleColor": {
+            "type": "string",
+            "default": "#212121"
+        },
+        "titleFontSize": {
+            "type": "number",
+            "default": 1.2
+        },
+        "titleFontWeight": {
+            "type": "number",
+            "default": 700
+        },
+        "description": {
+            "type": "string",
+            "default": "Continuous learning opportunities, workshops, and international training programs."
+        },
+        "descriptionColor": {
+            "type": "string",
+            "default": "#666666"
+        },
+        "descriptionFontSize": {
+            "type": "number",
+            "default": 0.95
+        },
+        "cardPadding": {
+            "type": "number",
+            "default": 40
+        },
+        "cardPaddingMobile": {
+            "type": "number",
+            "default": 30
+        }
+    },
+    "textdomain": "twork-builder",
+    "editorScript": "file:./index.js",
+    "style": "file:./style-index.css"
+}

@@ -1,0 +1,19 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "twork/dept-overview-section",
+    "version": "1.0.0",
+    "title": "Overview Section",
+    "category": "twork-builder",
+    "parent": ["twork/dept-layout-section"],
+    "attributes": {
+        "sectionId": { "type": "string", "default": "overview" },
+        "title": { "type": "string", "default": "Overview" },
+        "leadText": { "type": "string", "default": "The Jivaka Heart Centre is dedicated to providing the highest standard of cardiovascular care." },
+        "content": { "type": "string", "default": "We are equipped with a state-of-the-art Cath Lab and dedicated Cardiac Operation Theatres to handle complex cases with precision." },
+        "imageUrl": { "type": "string", "default": "" },
+        "imageId": { "type": "number" },
+        "imageAlt": { "type": "string", "default": "" }
+    },
+    "editorScript": "file:./index.js"
+}

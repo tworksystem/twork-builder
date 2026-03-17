@@ -1,0 +1,139 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "twork/blog-section",
+    "version": "1.0.0",
+    "title": "Blog Posts Section",
+    "category": "twork-builder",
+    "icon": "admin-post",
+    "description": "Blog layout with featured post, post grid, sidebar widgets, and pagination. Uses WordPress posts, categories, tags, and search.",
+    "keywords": ["blog", "posts", "news", "layout", "twork"],
+    "attributes": {
+        "postsPerPage": {
+            "type": "number",
+            "default": 4
+        },
+        "orderBy": {
+            "type": "string",
+            "default": "date"
+        },
+        "order": {
+            "type": "string",
+            "default": "DESC"
+        },
+        "backgroundColor": {
+            "type": "string",
+            "default": "#ffffff"
+        },
+        "paddingTop": {
+            "type": "number",
+            "default": 80
+        },
+        "paddingBottom": {
+            "type": "number",
+            "default": 80
+        },
+        "containerMaxWidth": {
+            "type": "number",
+            "default": 1200
+        },
+        "containerPadding": {
+            "type": "number",
+            "default": 20
+        },
+        "showFeatured": {
+            "type": "boolean",
+            "default": true
+        },
+        "featuredPostId": {
+            "type": "number",
+            "default": 0
+        },
+        "showGrid": {
+            "type": "boolean",
+            "default": true
+        },
+        "showSidebar": {
+            "type": "boolean",
+            "default": true
+        },
+        "showPagination": {
+            "type": "boolean",
+            "default": true
+        },
+        "showSearchWidget": {
+            "type": "boolean",
+            "default": true
+        },
+        "searchTitle": {
+            "type": "string",
+            "default": "Search"
+        },
+        "showCategoriesWidget": {
+            "type": "boolean",
+            "default": true
+        },
+        "categoriesTitle": {
+            "type": "string",
+            "default": "Categories"
+        },
+        "showRecentWidget": {
+            "type": "boolean",
+            "default": true
+        },
+        "recentSource": {
+            "type": "string",
+            "default": "latest"
+        },
+        "recentTitle": {
+            "type": "string",
+            "default": "Recent Posts"
+        },
+        "recentItems": {
+            "type": "number",
+            "default": 3
+        },
+        "recentCategoryId": {
+            "type": "number",
+            "default": 0
+        },
+        "recentPostIds": {
+            "type": "string",
+            "default": ""
+        },
+        "showTagsWidget": {
+            "type": "boolean",
+            "default": true
+        },
+        "tagsTitle": {
+            "type": "string",
+            "default": "Popular Tags"
+        },
+        "categoriesInclude": {
+            "type": "string",
+            "default": ""
+        },
+        "tagsInclude": {
+            "type": "string",
+            "default": ""
+        },
+        "excerptLength": {
+            "type": "number",
+            "default": 30
+        },
+        "readMoreLabel": {
+            "type": "string",
+            "default": "Read More"
+        }
+    },
+    "supports": {
+        "html": false,
+        "anchor": true,
+        "align": ["wide", "full"]
+    },
+    "textdomain": "twork-builder",
+    "editorScript": "file:./index.js",
+    "style": "file:./style-index.css",
+    "editorStyle": "file:./style-index.css"
+}
+

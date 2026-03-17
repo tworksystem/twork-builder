@@ -1,0 +1,29 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "twork/hc-faq-section",
+    "version": "1.0.0",
+    "title": "FAQ Section",
+    "category": "twork-builder",
+    "icon": "editor-help",
+    "description": "Frequently Asked Questions: header + accordion list. Matches home-care.html.",
+    "keywords": ["home care", "faq", "accordion", "questions", "twork"],
+    "attributes": {
+        "backgroundColor": { "type": "string", "default": "#fafafa" },
+        "paddingTop": { "type": "number", "default": 60 },
+        "paddingBottom": { "type": "number", "default": 60 },
+        "containerMaxWidth": { "type": "number", "default": 1200 },
+        "containerPadding": { "type": "number", "default": 20 },
+        "contentMaxWidth": { "type": "number", "default": 800 },
+        "showSectionTitle": { "type": "boolean", "default": true },
+        "sectionTitle": { "type": "string", "default": "Frequently Asked Questions" },
+        "sectionTitleColor": { "type": "string", "default": "#212121" },
+        "animationOnScroll": { "type": "boolean", "default": true },
+        "animationType": { "type": "string", "default": "fade-up" }
+    },
+    "supports": { "html": false, "anchor": true, "align": ["wide", "full"] },
+    "textdomain": "twork-builder",
+    "editorScript": "file:./index.js",
+    "viewScript": "file:./view.js",
+    "style": "file:./style-index.css"
+}

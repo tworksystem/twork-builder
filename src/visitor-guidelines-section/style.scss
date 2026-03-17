@@ -1,0 +1,185 @@
+// Visitor Guidelines Section – variables & shared with column
+:root {
+    --primary-orange: #f48b2a;
+    --dark-grey: #212121;
+    --radius: 12px;
+    --dos-green: #27ae60;
+    --donts-red: #c0392b;
+}
+
+// === EDITOR STYLES ===
+.editor-styles-wrapper,
+.block-editor-block-list__layout,
+.wp-block-twork-visitor-guidelines-section {
+    .twork-visitor-guidelines-section-editor {
+        position: relative;
+        min-height: 200px;
+
+        .guidelines-grid.twork-visitor-guidelines-grid {
+            display: grid !important;
+            width: 100% !important;
+
+            > .block-editor-inner-blocks {
+                display: contents !important;
+
+                > .block-editor-block-list__layout {
+                    display: contents !important;
+
+                    > .wp-block,
+                    > [data-type="twork/visitor-guidelines-column"] {
+                        display: flex !important;
+                        flex-direction: column !important;
+                    }
+                }
+            }
+        }
+
+        .section-header {
+            h2 {
+                &[contenteditable="true"]:focus {
+                    outline: 1px dashed #2271b1;
+                    outline-offset: 2px;
+                }
+            }
+        }
+    }
+}
+
+// === FRONTEND STYLES ===
+.twork-visitor-guidelines-section {
+    font-family: "Roboto", sans-serif;
+    position: relative;
+    overflow: hidden;
+
+    .background-overlay {
+        pointer-events: none;
+    }
+
+    .jivaka-container {
+        position: relative;
+        z-index: 2;
+    }
+
+    .section-header {
+        h2 {
+            margin: 0;
+            line-height: 1.2;
+        }
+    }
+
+    .guidelines-grid {
+        display: grid;
+        width: 100%;
+    }
+
+    .guide-col {
+        padding: 30px;
+        border-radius: var(--radius);
+    }
+
+    .guide-col.col-dos {
+        background: #e8f8f5;
+        border: 1px solid #d1f2eb;
+    }
+
+    .guide-col.col-donts {
+        background: #fdedec;
+        border: 1px solid #fadbd8;
+    }
+
+    .guide-title {
+        font-size: 1.5rem;
+        font-weight: 900;
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .col-dos .guide-title {
+        color: var(--dos-green, #27ae60);
+    }
+
+    .col-dos .guide-title i {
+        color: var(--dos-green, #27ae60);
+    }
+
+    .col-donts .guide-title {
+        color: var(--donts-red, #c0392b);
+    }
+
+    .col-donts .guide-title i {
+        color: var(--donts-red, #c0392b);
+    }
+
+    .guide-list {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+    }
+
+    .guide-list li {
+        margin-bottom: 15px;
+        display: flex;
+        align-items: flex-start;
+        gap: 15px;
+        font-size: 1rem;
+    }
+
+    .guide-list li i {
+        margin-top: 4px;
+        flex-shrink: 0;
+    }
+
+    .col-dos .guide-list li i {
+        color: var(--dos-green, #27ae60);
+    }
+
+    .col-donts .guide-list li i {
+        color: var(--donts-red, #c0392b);
+    }
+}
+
+// === RESPONSIVE ===
+@media (max-width: 992px) {
+    .twork-visitor-guidelines-section {
+        .guidelines-grid {
+            grid-template-columns: repeat(var(--columns-mobile, 1), 1fr) !important;
+            gap: var(--gap-mobile, 30px) !important;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .twork-visitor-guidelines-section {
+        padding-top: var(--padding-top-mobile, 60px) !important;
+        padding-bottom: var(--padding-bottom-mobile, 60px) !important;
+
+        .jivaka-container {
+            padding-left: var(--container-padding-mobile, 20px) !important;
+            padding-right: var(--container-padding-mobile, 20px) !important;
+        }
+
+        .section-header h2 {
+            font-size: var(--title-font-size-mobile, 1.6rem) !important;
+        }
+
+        .guide-col {
+            padding: 24px;
+        }
+
+        .guide-title {
+            font-size: 1.3rem;
+        }
+
+        .guide-list li {
+            font-size: 0.95rem;
+        }
+    }
+}
+
+// === ACCESSIBILITY ===
+.guide-col:focus-visible {
+    outline: 3px solid var(--primary-orange);
+    outline-offset: 2px;
+}

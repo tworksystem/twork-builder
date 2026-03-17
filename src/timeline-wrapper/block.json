@@ -3,7 +3,7 @@
     "apiVersion": 3,
     "name": "twork/timeline-wrapper",
     "version": "1.0.0",
-    "title": "Twork Timeline Wrapper",
+    "title": "Timeline Wrapper",
     "category": "twork-builder",
     "icon": "clock",
     "description": "Professional timeline wrapper container with customizable layout and styling options for timeline items.",

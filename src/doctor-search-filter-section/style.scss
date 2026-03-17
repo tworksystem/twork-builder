@@ -1,0 +1,166 @@
+// Doctor Search Filter Section – follows team-members-grid / services-grid standards
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;600;700;900&display=swap");
+
+:root {
+    --primary-orange: #f48b2a;
+    --dark-grey: #212121;
+    --medium-grey: #666666;
+    --shadow-md: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+// === EDITOR ===
+.editor-styles-wrapper,
+.wp-block-twork-doctor-search-filter-section {
+    .twork-doctor-search-filter-editor {
+        .search-box {
+            .filter-input:disabled,
+            .btn-reset:disabled {
+                opacity: 0.9;
+                cursor: default;
+            }
+        }
+    }
+}
+
+// === FRONTEND ===
+// Pull search filter up so it overlaps the hero; value from block attribute (default -80px).
+// Target both block wrapper (.wp-block-*) and inner class so margin applies on frontend
+// even when theme adds block spacing. !important overrides theme margin-block-start.
+.wp-block-twork-doctor-search-filter-section,
+.twork-doctor-search-filter-section {
+    font-family: "Roboto", sans-serif;
+    position: relative;
+    z-index: 10;
+    margin-top: var(--twork-search-section-margin-top, -80px) !important;
+    margin-block-start: var(--twork-search-section-margin-top, -80px) !important;
+    margin-bottom: var(--twork-search-section-margin-bottom, 60px) !important;
+    margin-block-end: var(--twork-search-section-margin-bottom, 60px) !important;
+
+    .jivaka-container {
+        position: relative;
+    }
+
+    .search-section {
+        position: relative;
+    }
+
+    .search-box {
+        background: var(--twork-search-box-bg, #fff);
+        padding: var(--twork-search-box-padding, 30px);
+        border-radius: var(--twork-search-box-radius, 8px);
+        box-shadow: var(--shadow-md);
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        align-items: center;
+        border-top: var(--twork-search-box-top-border, 4px solid var(--primary-orange));
+    }
+
+    .filter-group {
+        flex: 1;
+        min-width: 200px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+
+        label {
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--twork-search-label-color, var(--medium-grey));
+        }
+    }
+
+    .filter-input {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid var(--twork-search-input-border, #ddd);
+        border-radius: 5px;
+        font-size: 0.95rem;
+        color: var(--dark-grey);
+        outline: none;
+        transition: border-color 0.3s;
+        background: #fff;
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+
+        &:focus {
+            border-color: var(--twork-search-input-focus-border, var(--primary-orange));
+        }
+    }
+
+    select.filter-input {
+        background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23333%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+        background-repeat: no-repeat;
+        background-position: right 0.7em top 50%;
+        background-size: 0.65em auto;
+        padding-right: 2.5em;
+    }
+
+    .search-btn-wrapper {
+        align-self: flex-end;
+    }
+
+    .btn-reset {
+        background: var(--twork-search-reset-bg, #f0f0f0);
+        color: var(--twork-search-reset-color, var(--medium-grey));
+        border: none;
+        padding: 12px 20px;
+        border-radius: 5px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: background 0.3s, color 0.3s;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 0.95rem;
+
+        &:hover {
+            background: var(--twork-search-reset-hover-bg, #e0e0e0);
+            color: var(--twork-search-reset-hover-color, var(--dark-grey));
+        }
+
+        &:focus-visible {
+            outline: 2px solid var(--primary-orange);
+            outline-offset: 2px;
+        }
+    }
+}
+
+// === RESPONSIVE ===
+// Tablet & below: keep layout breathing but still overlap hero slightly if desired.
+@media (max-width: 992px) {
+    .wp-block-twork-doctor-search-filter-section,
+    .twork-doctor-search-filter-section {
+        // Soften the overlap on medium screens; still allow negative margin from attribute.
+        margin-top: max(var(--twork-search-section-margin-top, -60px), -60px) !important;
+        margin-block-start: max(var(--twork-search-section-margin-top, -60px), -60px) !important;
+    }
+}
+
+// Mobile: remove hero overlap entirely and stack controls full-width,
+// matching the behaviour in the standalone doctors.html page.
+@media (max-width: 768px) {
+    .wp-block-twork-doctor-search-filter-section,
+    .twork-doctor-search-filter-section {
+        margin-top: 0 !important;
+        margin-block-start: 0 !important;
+        margin-bottom: 40px !important;
+        margin-block-end: 40px !important;
+
+        .search-box {
+            flex-direction: column;
+            align-items: stretch;
+            padding: 20px;
+        }
+
+        .search-btn-wrapper {
+            margin-top: 10px;
+        }
+
+        .btn-reset {
+            width: 100%;
+        }
+    }
+}

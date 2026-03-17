@@ -1,0 +1,224 @@
+// Google Fonts (optional - theme may already load)
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
+
+// Variables
+:root {
+    --primary-orange: #f48b2a;
+    --brand-orange-hover: #e67a22;
+    --dark-grey: #212121;
+    --white-color: #ffffff;
+}
+
+// === EDITOR STYLES ===
+.editor-styles-wrapper,
+.block-editor-block-list__layout,
+.wp-block-twork-tour-section {
+    .twork-tour-section-editor {
+        position: relative;
+        min-height: 200px;
+
+        .background-overlay {
+            pointer-events: none;
+        }
+
+        .twork-tour-section-inner,
+        .jivaka-container {
+            position: relative;
+            z-index: 2;
+
+            h2,
+            p {
+                &[contenteditable="true"]:focus {
+                    outline: 1px dashed #2271b1;
+                    outline-offset: 2px;
+                }
+            }
+        }
+
+        .editor-label {
+            display: block;
+            width: 100%;
+        }
+
+        .tour-section-btn {
+            pointer-events: none;
+            cursor: default;
+        }
+
+        .tour-icon {
+            cursor: default;
+        }
+    }
+}
+
+// === FRONTEND STYLES ===
+.twork-tour-section {
+    font-family: "Roboto", sans-serif;
+    position: relative;
+    overflow: hidden;
+
+    .background-overlay {
+        pointer-events: none;
+    }
+
+    .jivaka-container {
+        position: relative;
+        z-index: 2;
+    }
+
+    .tour-icon {
+        font-size: 4rem;
+        margin-bottom: 20px;
+        color: var(--primary-orange);
+        cursor: pointer;
+        transition: transform 0.3s ease, text-shadow 0.3s ease;
+        display: inline-block;
+    }
+
+    .tour-icon:hover {
+        transform: scale(1.1);
+        text-shadow: 0 0 20px rgba(244, 139, 42, 0.6);
+    }
+
+    .tour-section-title,
+    h2 {
+        margin: 0 0 15px 0;
+        line-height: 1.2;
+    }
+
+    .tour-section-subtitle,
+    p {
+        margin: 0 0 30px 0;
+        line-height: 1.5;
+    }
+
+    .tour-section-btn,
+    .jivaka-btn.btn-primary {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 12px 30px;
+        border-radius: 5px;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 0.85rem;
+        letter-spacing: 0.5px;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        border: 2px solid transparent;
+        text-decoration: none;
+        background-color: var(--twork-tour-button-bg, var(--primary-orange));
+        color: var(--twork-tour-button-color, var(--white-color));
+    }
+
+    .tour-section-btn:hover,
+    .jivaka-btn.btn-primary:hover {
+        background-color: var(--twork-tour-button-hover-bg, var(--brand-orange-hover)) !important;
+        color: var(--twork-tour-button-color, var(--white-color)) !important;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px rgba(244, 139, 42, 0.3);
+    }
+}
+
+// === RESPONSIVE ===
+@media (max-width: 992px) {
+    .twork-tour-section {
+        // Parallax can cause performance issues on tablet/mobile
+        background-attachment: scroll !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .twork-tour-section {
+        padding-top: var(--twork-tour-padding-top-mobile, 80px) !important;
+        padding-bottom: var(--twork-tour-padding-bottom-mobile, 80px) !important;
+
+        .tour-icon {
+            font-size: var(--twork-tour-icon-size-mobile, 3rem) !important;
+        }
+
+        .tour-section-title,
+        h2 {
+            font-size: var(--twork-tour-title-font-size-mobile, 2rem) !important;
+        }
+
+        .tour-section-subtitle,
+        p {
+            font-size: var(--twork-tour-subtitle-font-size-mobile, 1.05rem) !important;
+        }
+    }
+}
+
+// === ACCESSIBILITY ===
+.twork-tour-section {
+    .tour-section-btn:focus-visible,
+    .jivaka-btn.btn-primary:focus-visible {
+        outline: 3px solid var(--primary-orange);
+        outline-offset: 2px;
+    }
+
+    .tour-icon:focus-visible {
+        outline: 3px solid var(--primary-orange);
+        outline-offset: 2px;
+    }
+}
+
+// === PRINT STYLES ===
+@media print {
+    .twork-tour-section {
+        background-image: none !important;
+        background-color: var(--dark-grey);
+        padding: 40px 20px;
+
+        .background-overlay {
+            display: none;
+        }
+
+        .tour-icon {
+            color: var(--primary-orange);
+        }
+
+        .tour-section-btn,
+        .jivaka-btn.btn-primary {
+            border: 2px solid var(--primary-orange);
+            color: var(--primary-orange);
+            background: transparent !important;
+        }
+    }
+}
+
+// === REDUCED MOTION ===
+@media (prefers-reduced-motion: reduce) {
+    .twork-tour-section {
+        .tour-icon,
+        .tour-section-btn,
+        .jivaka-btn.btn-primary {
+            transition: none;
+        }
+
+        .tour-icon:hover {
+            transform: none;
+        }
+
+        .tour-section-btn:hover,
+        .jivaka-btn.btn-primary:hover {
+            transform: none;
+        }
+    }
+}
+
+// === DARK MODE SUPPORT (optional) ===
+@media (prefers-color-scheme: dark) {
+    .twork-tour-section {
+        // Section is already dark with overlay; ensure contrast is maintained
+        .tour-section-title,
+        h2 {
+            color: var(--white-color);
+        }
+
+        .tour-section-subtitle,
+        p {
+            color: rgba(255, 255, 255, 0.9);
+        }
+    }
+}

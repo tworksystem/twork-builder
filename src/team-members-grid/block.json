@@ -2,7 +2,7 @@
     "$schema": "https://schemas.wp.org/trunk/block.json",
     "apiVersion": 3,
     "name": "twork/team-members-grid",
-    "title": "Twork Team Members Grid",
+    "title": "Team Members Grid",
     "category": "twork-builder",
     "description": "Professional team members grid with comprehensive customization options",
     "keywords": ["team", "members", "staff", "doctors", "grid", "twork"],

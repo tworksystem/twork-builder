@@ -1,0 +1,221 @@
+// Features Section (About) – Editor, Front-end, Responsive
+// Matches general-surgery.html #about block
+
+// Variables (align with general-surgery)
+$feature-icon-bg: rgba(0, 147, 233, 0.1);
+$feature-icon-color: #0093E9;
+$feature-hover-border: #0093E9;
+$feature-desc-color: #64748b;
+
+// === EDITOR STYLES ===
+.editor-styles-wrapper,
+.block-editor-block-list__layout,
+.wp-block-twork-features-section {
+    .twork-features-section-editor {
+        .editor-label {
+            margin-bottom: 20px;
+        }
+
+        .twork-features-grid-container.features-grid {
+            display: grid !important;
+            grid-template-columns: repeat(auto-fit, minmax(var(--features-min-item, 260px), 1fr)) !important;
+            gap: var(--features-gap, 30px) !important;
+            width: 100% !important;
+
+            > .block-editor-inner-blocks {
+                display: contents !important;
+
+                > .block-editor-block-list__layout {
+                    display: contents !important;
+
+                    > .wp-block,
+                    > [data-type="twork/feature-card"] {
+                        display: flex !important;
+                        flex-direction: column !important;
+                        min-height: 0;
+                        background: #fafafa;
+                        border: 2px dashed #e0e0e0;
+                        border-radius: 8px;
+                        padding: 20px;
+                        transition: all 0.2s ease;
+
+                        &:hover {
+                            background: #fff;
+                            border-color: #2271b1;
+                            box-shadow: 0 4px 12px rgba(34, 113, 177, 0.1);
+                        }
+
+                        &.is-selected {
+                            background: #fff;
+                            border-color: #2271b1;
+                            box-shadow: 0 0 0 1px #2271b1;
+                        }
+
+                        > .block-editor-block-list__block-edit,
+                        > .block-editor-block-list__block-edit > div {
+                            display: flex !important;
+                            flex: 1 !important;
+                            flex-direction: column !important;
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+        }
+
+        .twork-feature-card-editor {
+            h4[contenteditable="true"],
+            p[contenteditable="true"] {
+                &:focus {
+                    outline: 1px dashed #2271b1;
+                    outline-offset: 2px;
+                }
+            }
+        }
+    }
+}
+
+// === FRONTEND STYLES ===
+.twork-features-section-editor section.container,
+section.container[id],
+.twork-features-section-grid {
+    // Section may be targeted by theme .container
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+    margin-top: 0;
+    position: relative;
+    z-index: 1;
+}
+
+.feature-card {
+    background: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+    border-bottom: 4px solid transparent;
+
+    &:hover {
+        transform: translateY(-10px);
+        border-bottom-color: $feature-hover-border;
+        box-shadow: 0 16px 48px rgba(0, 0, 0, 0.12);
+    }
+}
+
+.feature-icon {
+    width: 60px;
+    height: 60px;
+    background: $feature-icon-bg;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: $feature-icon-color;
+    margin-bottom: 20px;
+
+    i {
+        font-size: inherit;
+    }
+}
+
+.feature-card-title,
+.feature-card h4 {
+    margin: 0 0 12px 0;
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1.3;
+    color: #1e293b;
+}
+
+.feature-card-description,
+.feature-card p {
+    margin: 0;
+    color: $feature-desc-color;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+// When section has class "container", ensure grid is inside it
+section.container .features-grid {
+    width: 100%;
+}
+
+// === RESPONSIVE STYLES ===
+@media (max-width: 992px) {
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+    }
+
+    .feature-card {
+        padding: 24px;
+    }
+
+    .feature-icon {
+        width: 52px;
+        height: 52px;
+        font-size: 1.25rem;
+        margin-bottom: 16px;
+    }
+
+    .feature-card-title,
+    .feature-card h4 {
+        font-size: 1.15rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .feature-card {
+        padding: 22px;
+    }
+
+    .feature-card-title,
+    .feature-card h4 {
+        font-size: 1.1rem;
+    }
+
+    .feature-card-description,
+    .feature-card p {
+        font-size: 0.9rem;
+    }
+}
+
+// Data-attribute overrides for section (optional)
+.twork-features-section-grid[data-columns-tablet="1"] {
+    @media (max-width: 992px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.twork-features-section-grid[data-columns-mobile="2"] {
+    @media (max-width: 576px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+// === ACCESSIBILITY ===
+.feature-card {
+    &:focus-visible {
+        outline: 3px solid $feature-icon-color;
+        outline-offset: 2px;
+    }
+}
+
+// === PRINT ===
+@media print {
+    .feature-card {
+        box-shadow: none;
+        border: 1px solid #e2e8f0;
+        break-inside: avoid;
+    }
+}

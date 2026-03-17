@@ -1,0 +1,23 @@
+// Accommodation Room Card – editor-only; frontend .room-card styles live in accommodation-options-section
+
+.editor-styles-wrapper {
+    .twork-accommodation-room-card-editor {
+        .room-img-placeholder {
+            min-height: 180px;
+            border: 2px dashed #ccc;
+            border-radius: 8px;
+        }
+
+        .room-details h3,
+        .room-price {
+            &[contenteditable="true"]:focus {
+                outline: 1px dashed #2271b1;
+                outline-offset: 2px;
+            }
+        }
+
+        .room-btn {
+            pointer-events: none;
+        }
+    }
+}

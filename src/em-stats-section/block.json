@@ -1,0 +1,85 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "twork/em-stats-section",
+    "version": "1.0.0",
+    "title": "Stats Section",
+    "category": "twork-builder",
+    "icon": "chart-bar",
+    "description": "24/7 emergency quick stats bar with icon, value and label items (em-stats).",
+    "keywords": ["emergency", "stats", "24/7", "grid", "twork"],
+    "attributes": {
+        "backgroundColor": {
+            "type": "string",
+            "default": "#f48b2a"
+        },
+        "paddingTop": {
+            "type": "number",
+            "default": 40
+        },
+        "paddingBottom": {
+            "type": "number",
+            "default": 40
+        },
+        "marginTop": {
+            "type": "number",
+            "default": -50
+        },
+        "containerMaxWidth": {
+            "type": "number",
+            "default": 1280
+        },
+        "containerPadding": {
+            "type": "number",
+            "default": 20
+        },
+        "gap": {
+            "type": "number",
+            "default": 20
+        },
+        "borderRadius": {
+            "type": "number",
+            "default": 16
+        },
+        "boxShadow": {
+            "type": "boolean",
+            "default": true
+        },
+        "boxShadowColor": {
+            "type": "string",
+            "default": "rgba(0, 0, 0, 0.08)"
+        },
+        "boxShadowBlur": {
+            "type": "number",
+            "default": 30
+        },
+        "boxShadowSpread": {
+            "type": "number",
+            "default": 0
+        },
+        "boxShadowOffsetX": {
+            "type": "number",
+            "default": 0
+        },
+        "boxShadowOffsetY": {
+            "type": "number",
+            "default": 10
+        },
+        "animationOnScroll": {
+            "type": "boolean",
+            "default": true
+        },
+        "animationType": {
+            "type": "string",
+            "default": "fade-up"
+        }
+    },
+    "supports": {
+        "html": false,
+        "anchor": true,
+        "align": ["wide", "full"]
+    },
+    "textdomain": "twork-builder",
+    "editorScript": "file:./index.js",
+    "style": "file:./style-index.css"
+}

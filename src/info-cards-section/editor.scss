@@ -1,0 +1,58 @@
+/* Force 3-column grid in editor: InnerBlocks wrappers use display:contents so cards are grid children */
+.wp-block-twork-info-cards-section.info-cards-section-editor,
+.info-cards-section-editor {
+    position: relative;
+    width: 100%;
+
+    .info-cards-section-header {
+        margin-bottom: 32px;
+    }
+
+    .info-cards-section-title[contenteditable="true"]:focus,
+    .info-cards-section-description[contenteditable="true"]:focus {
+        outline: 1px dashed #2271b1;
+        outline-offset: 2px;
+    }
+
+    .info-grid-editor {
+        display: grid !important;
+        grid-template-columns: repeat(var(--info-columns-desktop, 3), minmax(0, 1fr)) !important;
+        gap: var(--info-grid-gap, 24px) !important;
+        width: 100% !important;
+        min-width: 0;
+
+        > .block-editor-inner-blocks {
+            display: contents !important;
+
+            > .block-editor-block-list__layout {
+                display: contents !important;
+
+                > .wp-block,
+                > [data-type="twork/info-card-item"] {
+                    height: 100%;
+                    min-width: 0;
+                }
+            }
+        }
+    }
+
+    .info-card {
+        height: 100%;
+    }
+}
+
+@media (max-width: 992px) {
+    .info-cards-section-editor {
+        .info-grid-editor {
+            grid-template-columns: repeat(var(--info-columns-tablet, 2), minmax(0, 1fr));
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .info-cards-section-editor {
+        .info-grid-editor {
+            grid-template-columns: repeat(var(--info-columns-mobile, 1), minmax(0, 1fr));
+        }
+    }
+}

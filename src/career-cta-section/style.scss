@@ -1,0 +1,136 @@
+// Career CTA Section
+// "Don't see the right fit?" – CV submission CTA
+
+:root {
+    --primary-orange: #f48b2a;
+}
+
+// === EDITOR STYLES ===
+.editor-styles-wrapper,
+.wp-block-twork-career-cta-section {
+    .twork-career-cta-section-editor {
+        .career-cta h2,
+        .career-cta p {
+            &[contenteditable="true"]:focus {
+                outline: 1px dashed rgba(255, 255, 255, 0.5);
+                outline-offset: 2px;
+            }
+        }
+
+        .jivaka-btn.career-cta-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 28px;
+            border-radius: 6px;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 0.8px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 1px solid transparent;
+            gap: 8px;
+            text-decoration: none;
+            background: #fff !important;
+            color: var(--primary-orange) !important;
+        }
+
+        .jivaka-btn.career-cta-btn:hover {
+            background: #fff9f2 !important;
+            color: #e67a22 !important;
+        }
+    }
+}
+
+// === FRONTEND STYLES ===
+.twork-career-cta-section {
+    font-family: "Roboto", sans-serif;
+
+    .career-cta {
+        border-radius: 12px;
+        padding: 60px 40px;
+        text-align: center;
+        color: #fff;
+        position: relative;
+        overflow: hidden;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 200px;
+            height: 100%;
+            background: var(--primary-orange);
+            opacity: 0.1;
+            transform: skewX(-20deg);
+        }
+
+        h2 {
+            margin: 0 0 15px 0;
+            font-size: 2rem;
+        }
+
+        p {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .jivaka-btn.career-cta-btn {
+            position: relative;
+            z-index: 2;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 28px;
+            border-radius: 6px;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 0.8px;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            cursor: pointer;
+            border: 1px solid transparent;
+            gap: 8px;
+            text-decoration: none;
+            background: #fff;
+            color: var(--primary-orange);
+        }
+
+        .jivaka-btn.career-cta-btn:hover {
+            background: #fff9f2;
+            color: #e67a22;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(244, 139, 42, 0.3);
+        }
+
+        .jivaka-btn:focus-visible {
+            outline: 3px solid var(--primary-orange);
+            outline-offset: 2px;
+        }
+    }
+}
+
+// === RESPONSIVE ===
+@media (max-width: 768px) {
+    .twork-career-cta-section {
+        padding-top: var(--padding-top-mobile, 40px) !important;
+        padding-bottom: var(--padding-bottom-mobile, 40px) !important;
+
+        .career-cta {
+            padding: 40px 24px;
+        }
+
+        .career-cta h2 {
+            font-size: 1.5rem !important;
+        }
+    }
+}
+
+// === ANIMATION ===
+// Note: job-openings-init.js handles fade-up reveal. We do NOT hide with CSS
+// here to prevent content staying invisible if JS fails or loads late.

@@ -1,0 +1,198 @@
+// Exclusive Services Section
+// international-patients.html "Exclusive Services" section – svc-grid, svc-card layout
+
+:root {
+    --primary-orange: #f48b2a;
+    --dark-grey: #212121;
+    --medium-grey: #666;
+    --light-grey-bg: #f8f9fa;
+    --white-color: #ffffff;
+    --shadow-sm: 0 5px 15px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+// === EDITOR STYLES ===
+.editor-styles-wrapper,
+.block-editor-block-list__layout,
+.wp-block-twork-exclusive-services-section {
+    .twork-exclusive-services-section-editor {
+        position: relative;
+        min-height: 200px;
+
+        .twork-exclusive-services-grid.svc-grid {
+            display: grid !important;
+            width: 100% !important;
+
+            > .block-editor-inner-blocks {
+                display: contents !important;
+
+                > .block-editor-block-list__layout {
+                    display: contents !important;
+
+                    > .wp-block,
+                    > [data-type="twork/exclusive-service-item"] {
+                        display: flex !important;
+                        flex-direction: row !important;
+                    }
+                }
+            }
+        }
+
+        .section-title {
+            &[contenteditable="true"]:focus {
+                outline: 1px dashed #2271b1;
+                outline-offset: 2px;
+            }
+        }
+    }
+}
+
+// === FRONTEND STYLES ===
+.twork-exclusive-services-section {
+    font-family: "Roboto", sans-serif;
+    position: relative;
+    overflow: hidden;
+    background: var(--light-grey-bg);
+
+    .background-overlay {
+        pointer-events: none;
+    }
+
+    .jivaka-container {
+        position: relative;
+        z-index: 2;
+    }
+
+    .section-title {
+        margin: 0 0 40px 0;
+        line-height: 1.2;
+    }
+
+    .svc-grid {
+        display: grid;
+        width: 100%;
+    }
+
+    // Scroll animation
+    &[data-animation="true"] .svc-card.animate-on-scroll {
+        opacity: 0;
+        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+
+        &.is-visible {
+            opacity: 1;
+        }
+    }
+
+    // svc-card – icon left, content right
+    .svc-card {
+        background: var(--white-color);
+        padding: 25px;
+        border-radius: var(--card-border-radius, var(--radius, 12px));
+        display: flex;
+        align-items: flex-start;
+        gap: 20px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+        &:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateX(var(--hover-translate-x, 5px));
+        }
+
+        .svc-icon {
+            font-size: 2rem;
+            color: var(--primary-orange);
+            flex-shrink: 0;
+
+            i {
+                display: block;
+            }
+        }
+
+        .svc-info {
+            flex: 1;
+            min-width: 0;
+
+            h4 {
+                margin: 0 0 5px 0;
+                font-size: 1.1rem;
+            }
+
+            p {
+                margin: 0;
+                color: var(--medium-grey);
+                font-size: 0.9rem;
+                line-height: 1.5;
+            }
+        }
+    }
+
+    &[data-hover-effect="true"] .svc-card:hover {
+        transform: translateX(var(--hover-translate-x, 5px));
+    }
+}
+
+// === RESPONSIVE ===
+@media (max-width: 992px) {
+    .twork-exclusive-services-section {
+        .svc-grid {
+            grid-template-columns: repeat(var(--columns-tablet, 2), 1fr) !important;
+            gap: var(--gap-mobile, 20px) !important;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .twork-exclusive-services-section {
+        padding-top: var(--padding-top-mobile, 60px) !important;
+        padding-bottom: var(--padding-bottom-mobile, 60px) !important;
+
+        .jivaka-container {
+            padding-left: var(--container-padding-mobile, 20px) !important;
+            padding-right: var(--container-padding-mobile, 20px) !important;
+        }
+
+        .section-title {
+            margin-bottom: 30px !important;
+            font-size: 1.8rem !important;
+        }
+
+        .svc-grid {
+            grid-template-columns: repeat(var(--columns-mobile, 1), 1fr) !important;
+            gap: var(--gap-mobile, 20px) !important;
+        }
+
+        .svc-card {
+            padding: var(--card-padding-mobile, 20px);
+
+            .svc-info {
+                h4 {
+                    font-size: 1rem !important;
+                }
+
+                p {
+                    font-size: 0.85rem !important;
+                }
+            }
+        }
+    }
+}
+
+// === ACCESSIBILITY ===
+.svc-card {
+    &:focus-visible {
+        outline: 3px solid var(--primary-orange);
+        outline-offset: 2px;
+    }
+}
+
+// === PRINT STYLES ===
+@media print {
+    .twork-exclusive-services-section {
+        .svc-card {
+            page-break-inside: avoid;
+            break-inside: avoid;
+            box-shadow: none;
+            border: 1px solid #e0e0e0;
+        }
+    }
+}

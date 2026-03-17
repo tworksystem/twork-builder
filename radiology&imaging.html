@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Radiology & Imaging | Jivaka Hospital</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <style>
+        /* --- CORE VARIABLES --- */
+        :root {
+            --rad-primary: #f48b2a;
+            --rad-dark: #212121;
+            --rad-blue: #0f172a;
+            /* Deep blue for tech feel */
+            --rad-light: #f8fafc;
+            /* Cool greyish white */
+            --rad-white: #ffffff;
+            --rad-radius: 8px;
+            /* Sharper corners for tech feel */
+            --rad-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Roboto", sans-serif;
+            color: #333;
+            line-height: 1.6;
+            background: var(--rad-white);
+            overflow-x: hidden;
+            /* Important: Visibility controlled by JS to prevent flashes */
+            opacity: 1;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            color: var(--rad-dark);
+            line-height: 1.2;
+            margin-top: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: 0.3s;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .rad-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        .rad-section {
+            padding: 80px 0;
+        }
+
+        /* Buttons */
+        .rad-btn {
+            display: inline-block;
+            padding: 14px 35px;
+            border-radius: 4px;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            background: var(--rad-primary);
+            color: #fff;
+            transition: 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .rad-btn:hover {
+            background: #d6701b;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(244, 139, 42, 0.4);
+        }
+
+        /* --- 1. SLANTED HERO --- */
+        .rad-hero {
+            position: relative;
+            min-height: 600px;
+            background: var(--rad-blue);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            /* Distinct Slant Design */
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+            padding-bottom: 80px;
+        }
+
+        .rad-hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.4;
+        }
+
+        .rad-hero-content {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+        }
+
+        .rad-hero-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .rad-hero h1 {
+            color: #fff;
+            font-size: clamp(3rem, 5vw, 4.5rem);
+            font-weight: 900;
+            margin-bottom: 20px;
+        }
+
+        .rad-hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 30px;
+            max-width: 600px;
+        }
+
+        /* --- 2. STATS STRIP --- */
+        .rad-stats {
+            margin-top: -60px;
+            position: relative;
+            z-index: 5;
+            padding-bottom: 60px;
+        }
+
+        .rad-stats-box {
+            background: #fff;
+            box-shadow: var(--rad-shadow);
+            border-radius: var(--rad-radius);
+            padding: 40px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            text-align: center;
+            border-bottom: 4px solid var(--rad-primary);
+        }
+
+        .rad-stat-num {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--rad-primary);
+            display: block;
+        }
+
+        .rad-stat-label {
+            font-size: 0.9rem;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+        }
+
+        /* --- 3. NEW SECTION: WHY CHOOSE US (Icon Grid) --- */
+        .rad-why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .rad-why-item {
+            padding: 30px;
+            border: 1px solid #eee;
+            border-radius: var(--rad-radius);
+            transition: 0.3s;
+            text-align: left;
+        }
+
+        .rad-why-item:hover {
+            border-color: var(--rad-primary);
+            transform: translateY(-5px);
+        }
+
+        .rad-why-icon {
+            font-size: 2rem;
+            color: var(--rad-primary);
+            margin-bottom: 20px;
+            background: #fff8f0;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+
+        .rad-why-item h4 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        /* --- 4. SERVICES (TAB LAYOUT) --- */
+        .rad-tabs-container {
+            display: flex;
+            gap: 40px;
+            min-height: 500px;
+        }
+
+        /* Left Menu */
+        .rad-tab-menu {
+            flex: 0 0 300px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .rad-tab-btn {
+            padding: 20px;
+            text-align: left;
+            background: #fff;
+            border: 1px solid #eee;
+            border-radius: var(--rad-radius);
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: 0.3s;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .rad-tab-btn:hover {
+            background: #f9f9f9;
+            color: var(--rad-primary);
+        }
+
+        .rad-tab-btn.active {
+            background: var(--rad-primary);
+            color: #fff;
+            border-color: var(--rad-primary);
+            box-shadow: 0 5px 15px rgba(244, 139, 42, 0.3);
+        }
+
+        /* Right Content */
+        .rad-tab-content-area {
+            flex: 1;
+            position: relative;
+        }
+
+        .rad-tab-pane {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .rad-tab-pane.active {
+            display: block;
+        }
+
+        .rad-pane-img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            border-radius: var(--rad-radius);
+            margin-bottom: 25px;
+        }
+
+        .rad-pane-title {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .rad-pane-list li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .rad-pane-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 8px;
+            height: 8px;
+            background: var(--rad-primary);
+            border-radius: 50%;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* --- 5. TECHNOLOGY (DARK SECTION) --- */
+        .rad-tech-section {
+            background-color: var(--rad-dark);
+            color: #fff;
+        }
+
+        .rad-tech-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .rad-tech-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .rad-tech-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 25px;
+            border-radius: var(--rad-radius);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: 0.3s;
+        }
+
+        .rad-tech-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--rad-primary);
+        }
+
+        .rad-tech-item h4 {
+            color: var(--rad-primary);
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .rad-tech-item p {
+            font-size: 0.9rem;
+            opacity: 0.7;
+            margin: 0;
+        }
+
+        /* --- 6. NEW SECTION: SAFETY PROTOCOLS --- */
+        .rad-safety-grid {
+            display: grid;
+            grid-template-columns: 0.8fr 1.2fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .rad-safety-content h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+
+        .rad-safety-card {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .rad-safety-icon {
+            font-size: 2rem;
+            color: #2ecc71;
+            flex-shrink: 0;
+        }
+
+        /* --- 7. PROCESS FLOW --- */
+        .rad-process-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            text-align: center;
+            counter-reset: step;
+        }
+
+        .rad-step {
+            background: var(--rad-light);
+            padding: 40px 20px;
+            border-radius: var(--rad-radius);
+            position: relative;
+            transition: 0.3s;
+        }
+
+        .rad-step:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--rad-shadow);
+        }
+
+        .rad-step::before {
+            counter-increment: step;
+            content: "0" counter(step);
+            font-size: 3rem;
+            font-weight: 900;
+            color: rgba(0, 0, 0, 0.05);
+            position: absolute;
+            top: 10px;
+            right: 20px;
+        }
+
+        .rad-step-icon {
+            font-size: 2.5rem;
+            color: var(--rad-primary);
+            margin-bottom: 20px;
+        }
+
+        /* --- 8. PREPARATION FAQ --- */
+        .rad-faq-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .rad-faq-item {
+            border-bottom: 1px solid #eee;
+        }
+
+        .rad-faq-q {
+            width: 100%;
+            text-align: left;
+            padding: 20px 0;
+            background: none;
+            border: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .rad-faq-a {
+            max-height: 0;
+            overflow: hidden;
+            transition: 0.3s;
+            color: #666;
+        }
+
+        .rad-faq-q.active+.rad-faq-a {
+            max-height: 300px;
+            padding-bottom: 20px;
+        }
+
+        .rad-faq-q.active {
+            color: var(--rad-primary);
+        }
+
+        /* --- 9. TEAM --- */
+        .rad-doc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .rad-doc-card {
+            background: #fff;
+            border: 1px solid #eee;
+            border-radius: var(--rad-radius);
+            padding: 30px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .rad-doc-card:hover {
+            border-color: var(--rad-primary);
+            box-shadow: var(--rad-shadow);
+        }
+
+        .rad-doc-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 20px;
+        }
+
+        /* Utils */
+        /* Initially set opacity to 1 via CSS so content is visible if JS fails */
+        /* JS will handle hiding and animating in */
+        .fade-up,
+        .stagger-up {
+            opacity: 1;
+        }
+
+        .rad-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 50px;
+        }
+
+        .rad-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .rad-hero-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .rad-hero {
+                clip-path: none;
+                padding-bottom: 50px;
+            }
+
+            .rad-stats-box {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .rad-tabs-container {
+                flex-direction: column;
+            }
+
+            .rad-tab-menu {
+                flex: auto;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .rad-tech-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .rad-process-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .rad-faq-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .rad-safety-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .rad-tab-menu {
+                grid-template-columns: 1fr;
+            }
+
+            .rad-process-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .rad-stats-box {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="rad-hero">
+        <img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
+            alt="Radiology Background" class="rad-hero-bg">
+        <div class="rad-container rad-hero-content">
+            <div class="rad-hero-grid">
+                <div class="fade-up">
+                    <span style="color: var(--rad-primary); font-weight: 700; letter-spacing: 2px; text-transform: uppercase;">Advanced
+                        Diagnostics</span>
+                    <h1>Precision Imaging,<br>Accurate Results.</h1>
+                    <p>State-of-the-art Radiology centre equipped with 1.5T MRI and 64-Slice CT Scanners for crystal clear diagnosis.</p>
+                    <a href="#book" class="rad-btn">Book an Appointment</a>
+                </div>
+                <div></div>
+            </div>
+        </div>
+    </header>
+
+    <div class="rad-container rad-stats fade-up">
+        <div class="rad-stats-box">
+            <div><span class="rad-stat-num">24/7</span><span class="rad-stat-label">Operating Hours</span></div>
+            <div><span class="rad-stat-num">1.5T</span><span class="rad-stat-label">MRI Power</span></div>
+            <div><span class="rad-stat-num">100%</span><span class="rad-stat-label">Digital Reports</span></div>
+            <div><span class="rad-stat-num">15+</span><span class="rad-stat-label">Specialists</span></div>
+        </div>
+    </div>
+
+    <section class="rad-section">
+        <div class="rad-container">
+            <div class="rad-header fade-up">
+                <h2>Why Choose Jivaka Imaging?</h2>
+                <p>We combine technology with expertise to deliver results you can trust.</p>
+            </div>
+            <div class="rad-why-grid">
+                <div class="rad-why-item stagger-up">
+                    <div class="rad-why-icon"><i class="fas fa-certificate"></i></div>
+                    <h4>ISO Certified</h4>
+                    <p style="color:#666; font-size:0.9rem;">Internationally recognized quality standards.</p>
+                </div>
+                <div class="rad-why-item stagger-up">
+                    <div class="rad-why-icon"><i class="fas fa-bolt"></i></div>
+                    <h4>Fast Turnaround</h4>
+                    <p style="color:#666; font-size:0.9rem;">Emergency reports within 1 hour.</p>
+                </div>
+                <div class="rad-why-item stagger-up">
+                    <div class="rad-why-icon"><i class="fas fa-user-md"></i></div>
+                    <h4>Sub-Specialists</h4>
+                    <p style="color:#666; font-size:0.9rem;">Neuro, Cardiac, and MSK Radiology experts.</p>
+                </div>
+                <div class="rad-why-item stagger-up">
+                    <div class="rad-why-icon"><i class="fas fa-money-bill-wave"></i></div>
+                    <h4>Affordable</h4>
+                    <p style="color:#666; font-size:0.9rem;">Transparent pricing with no hidden costs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="rad-section" style="background: #fafafa;">
+        <div class="rad-container">
+            <div class="rad-header fade-up">
+                <h2>Diagnostic Services</h2>
+                <p>Select a modality to learn more about our capabilities.</p>
+            </div>
+
+            <div class="rad-tabs-container">
+                <div class="rad-tab-menu stagger-up">
+                    <button class="rad-tab-btn active" onclick="openTab(event, 'mri')">MRI Scan <i
+                            class="fas fa-chevron-right"></i></button>
+                    <button class="rad-tab-btn" onclick="openTab(event, 'ct')">CT Scan <i class="fas fa-chevron-right"></i></button>
+                    <button class="rad-tab-btn" onclick="openTab(event, 'xray')">Digital X-Ray <i class="fas fa-chevron-right"></i></button>
+                    <button class="rad-tab-btn" onclick="openTab(event, 'ultra')">Ultrasound (4D) <i
+                            class="fas fa-chevron-right"></i></button>
+                    <button class="rad-tab-btn" onclick="openTab(event, 'mammo')">Mammography <i class="fas fa-chevron-right"></i></button>
+                </div>
+
+                <div class="rad-tab-content-area stagger-up">
+                    <div id="mri" class="rad-tab-pane active">
+                        <img src="https://images.unsplash.com/photo-1559757175-5700dde675bc?auto=format&fit=crop&w=800&q=80"
+                            class="rad-pane-img" alt="MRI">
+                        <h3 class="rad-pane-title">Magnetic Resonance Imaging (MRI)</h3>
+                        <p>Our 1.5 Tesla MRI provides high-resolution images of the brain, spine, and joints without any radiation.</p>
+                        <ul class="rad-pane-list">
+                            <li>Silent Scan Technology for patient comfort</li>
+                            <li>Full body screening capabilities</li>
+                            <li>Stroke & Tumor detection</li>
+                        </ul>
+                    </div>
+                    <div id="ct" class="rad-tab-pane">
+                        <img src="https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=800&q=80"
+                            class="rad-pane-img" alt="CT">
+                        <h3 class="rad-pane-title">Computed Tomography (CT)</h3>
+                        <p>The 64-Slice CT scanner captures detailed cross-sectional images of the body in seconds.</p>
+                        <ul class="rad-pane-list">
+                            <li>Cardiac CT Angiography</li>
+                            <li>Low-dose radiation protocols</li>
+                            <li>3D reconstruction available</li>
+                        </ul>
+                    </div>
+                    <div id="xray" class="rad-tab-pane">
+                        <img src="https://images.unsplash.com/photo-1530497610245-94d3c16cda28?auto=format&fit=crop&w=800&q=80"
+                            class="rad-pane-img" alt="Xray">
+                        <h3 class="rad-pane-title">Digital X-Ray</h3>
+                        <p>Instant imaging for bone fractures and chest infections with minimal exposure.</p>
+                        <ul class="rad-pane-list">
+                            <li>Instant digital results</li>
+                            <li>Portable X-ray for bedridden patients</li>
+                            <li>High clarity for orthopedics</li>
+                        </ul>
+                    </div>
+                    <div id="ultra" class="rad-tab-pane">
+                        <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=800&q=80"
+                            class="rad-pane-img" alt="Ultrasound">
+                        <h3 class="rad-pane-title">4D Ultrasound</h3>
+                        <p>Advanced sonography for pregnancy, abdominal, and vascular assessments.</p>
+                        <ul class="rad-pane-list">
+                            <li>Pregnancy anomaly scan</li>
+                            <li>Doppler studies for blood flow</li>
+                            <li>Abdomen & Pelvis checkup</li>
+                        </ul>
+                    </div>
+                    <div id="mammo" class="rad-tab-pane">
+                        <img src="https://plus.unsplash.com/premium_photo-1661757827828-9759d571853d?auto=format&fit=crop&w=800&q=80"
+                            class="rad-pane-img" alt="Mammogram">
+                        <h3 class="rad-pane-title">Mammography</h3>
+                        <p>Specialized imaging for early detection of breast cancer.</p>
+                        <ul class="rad-pane-list">
+                            <li>Digital Mammogram</li>
+                            <li>Pain-reduced compression</li>
+                            <li>Expert female technicians</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="rad-section rad-tech-section">
+        <div class="rad-container">
+            <div class="rad-tech-grid">
+                <div class="fade-up">
+                    <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Powered by World-Class Technology</h2>
+                    <p style="opacity: 0.8;">
+                        At Jivaka, we invest in the latest machines from GE and Siemens to ensure that your diagnosis is not just fast, but
+                        precise.
+                    </p>
+                    <div class="rad-tech-list">
+                        <div class="rad-tech-item">
+                            <h4><i class="fas fa-bolt"></i> Low Dose</h4>
+                            <p>Protocols to minimize radiation exposure.</p>
+                        </div>
+                        <div class="rad-tech-item">
+                            <h4><i class="fas fa-tachometer-alt"></i> Rapid Scan</h4>
+                            <p>Whole body scan in under 10 minutes.</p>
+                        </div>
+                        <div class="rad-tech-item">
+                            <h4><i class="fas fa-wifi"></i> Tele-Rad</h4>
+                            <p>Reports reviewed by remote experts.</p>
+                        </div>
+                        <div class="rad-tech-item">
+                            <h4><i class="fas fa-desktop"></i> AI Assist</h4>
+                            <p>AI software to help detect anomalies.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="fade-up">
+                    <img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=600&q=80"
+                        style="border-radius: var(--rad-radius); opacity: 0.8;" alt="Scanner">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="rad-section">
+        <div class="rad-container">
+            <div class="rad-safety-grid">
+                <div class="fade-up">
+                    <img src="https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?auto=format&fit=crop&w=600&q=80"
+                        style="border-radius: var(--rad-radius); box-shadow: var(--rad-shadow); width: 100%;" alt="Safety">
+                </div>
+                <div class="rad-safety-content fade-up">
+                    <h2>Safety First Approach</h2>
+                    <p style="color: #666; margin-bottom: 30px;">
+                        We adhere to ALARA (As Low As Reasonably Achievable) principles to ensure patient safety during radiation
+                        procedures.
+                    </p>
+                    <div class="rad-safety-card">
+                        <i class="fas fa-shield-alt rad-safety-icon"></i>
+                        <div>
+                            <h4>Dose Management</h4>
+                            <p style="color: #666; font-size: 0.9rem;">Automated dose tracking for every patient to prevent overexposure.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="rad-safety-card">
+                        <i class="fas fa-child rad-safety-icon"></i>
+                        <div>
+                            <h4>Pediatric Protocols</h4>
+                            <p style="color: #666; font-size: 0.9rem;">Specialized low-dose settings specifically for children.</p>
+                        </div>
+                    </div>
+                    <div class="rad-safety-card">
+                        <i class="fas fa-pump-medical rad-safety-icon"></i>
+                        <div>
+                            <h4>Contrast Safety</h4>
+                            <p style="color: #666; font-size: 0.9rem;">Strict kidney function checks before administering contrast media.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="rad-section" style="background: #fafafa;">
+        <div class="rad-container">
+            <div class="rad-header fade-up">
+                <h2>Your Visit Workflow</h2>
+            </div>
+            <div class="rad-process-grid">
+                <div class="rad-step stagger-up">
+                    <div class="rad-step-icon"><i class="far fa-calendar-check"></i></div>
+                    <h3>Book</h3>
+                    <p style="font-size: 0.9rem; color: #666;">Schedule via phone or app.</p>
+                </div>
+                <div class="rad-step stagger-up">
+                    <div class="rad-step-icon"><i class="fas fa-user-nurse"></i></div>
+                    <h3>Prepare</h3>
+                    <p style="font-size: 0.9rem; color: #666;">Fast or drink contrast (if needed).</p>
+                </div>
+                <div class="rad-step stagger-up">
+                    <div class="rad-step-icon"><i class="fas fa-radiation"></i></div>
+                    <h3>Scan</h3>
+                    <p style="font-size: 0.9rem; color: #666;">Quick and painless imaging.</p>
+                </div>
+                <div class="rad-step stagger-up">
+                    <div class="rad-step-icon"><i class="fas fa-file-medical-alt"></i></div>
+                    <h3>Report</h3>
+                    <p style="font-size: 0.9rem; color: #666;">Digital report within 2 hours.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="rad-section">
+        <div class="rad-container">
+            <div class="rad-faq-grid">
+                <div class="fade-up">
+                    <h2 style="margin-bottom: 20px;">Patient Preparation Guide</h2>
+                    <p style="color: #666; margin-bottom: 30px;">
+                        Proper preparation ensures the best image quality. Here are some common guidelines.
+                    </p>
+                    <img src="https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=600&q=80"
+                        style="border-radius: var(--rad-radius); width: 100%; height: 300px; object-fit: cover;" alt="Preparation">
+                </div>
+                <div class="fade-up">
+                    <div class="rad-faq-item">
+                        <button class="rad-faq-q">Do I need to fast before a CT Scan? <i class="fas fa-plus"></i></button>
+                        <div class="rad-faq-a">Yes, usually 4-6 hours of fasting is required for abdominal CT scans, especially if contrast
+                            dye is used.</div>
+                    </div>
+                    <div class="rad-faq-item">
+                        <button class="rad-faq-q">Is MRI safe for everyone? <i class="fas fa-plus"></i></button>
+                        <div class="rad-faq-a">MRI uses magnets, not radiation. However, it is NOT safe if you have metal implants,
+                            pacemakers, or older surgical clips.</div>
+                    </div>
+                    <div class="rad-faq-item">
+                        <button class="rad-faq-q">How long does a report take? <i class="fas fa-plus"></i></button>
+                        <div class="rad-faq-a">Emergency X-rays are reported instantly. CT/MRI reports are typically ready within 2-4 hours.
+                        </div>
+                    </div>
+                    <div class="rad-faq-item">
+                        <button class="rad-faq-q">What should I wear? <i class="fas fa-plus"></i></button>
+                        <div class="rad-faq-a">Wear loose, comfortable clothing without zippers or metal buttons. We will provide a hospital
+                            gown if needed.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="rad-section" style="background: #fafafa;">
+        <div class="rad-container">
+            <div class="rad-header fade-up">
+                <h2>Meet Our Radiologists</h2>
+            </div>
+            <div class="rad-doc-grid">
+                <div class="rad-doc-card stagger-up">
+                    <img src="https://jivakahospital.com/wp-content/uploads/2025/12/img-team-member-03.jpg" class="rad-doc-img"
+                        alt="Doctor">
+                    <h4>Dr. Myo Min</h4>
+                    <p style="color: #666; font-size: 0.9rem;">Chief Radiologist (MRI)</p>
+                </div>
+                <div class="rad-doc-card stagger-up">
+                    <img src="https://i.pravatar.cc/400?img=5" class="rad-doc-img" alt="Doctor">
+                    <h4>Dr. Khin Mar</h4>
+                    <p style="color: #666; font-size: 0.9rem;">Ultrasound Specialist</p>
+                </div>
+                <div class="rad-doc-card stagger-up">
+                    <img src="https://i.pravatar.cc/400?img=11" class="rad-doc-img" alt="Doctor">
+                    <h4>Dr. Kyaw Swar</h4>
+                    <p style="color: #666; font-size: 0.9rem;">Interventional Radiology</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div style="background: var(--rad-primary); color: #fff; padding: 60px 0; text-align: center;">
+        <div class="rad-container fade-up">
+            <h2>Ready for your Checkup?</h2>
+            <p style="margin-bottom: 30px; opacity: 0.9;">Book an appointment to avoid waiting time.</p>
+            <a href="appointment.html"
+                style="background: #fff; color: var(--rad-primary); padding: 15px 40px; border-radius: 50px; font-weight: 700; display: inline-block;">Book
+                Now</a>
+        </div>
+    </div>
+
+    <script>
+        // Tab Functionality
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("rad-tab-pane");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+                tabcontent[i].classList.remove("active");
+            }
+            tablinks = document.getElementsByClassName("rad-tab-btn");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            // Trigger reflow for animation
+            setTimeout(() => document.getElementById(tabName).classList.add("active"), 10);
+            evt.currentTarget.className += " active";
+        }
+
+        // Accordion Functionality
+        const faqs = document.querySelectorAll(".rad-faq-q");
+        faqs.forEach(btn => {
+            btn.addEventListener("click", () => {
+                btn.classList.toggle("active");
+                const content = btn.nextElementSibling;
+                const icon = btn.querySelector("i");
+                if (btn.classList.contains("active")) {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                    icon.classList.replace("fa-plus", "fa-minus");
+                } else {
+                    content.style.maxHeight = 0;
+                    icon.classList.replace("fa-minus", "fa-plus");
+                }
+            });
+        });
+
+        // GSAP Animations (Stable)
+        document.addEventListener("DOMContentLoaded", function () {
+            gsap.registerPlugin(ScrollTrigger);
+
+            // 1. Hide elements initially via JS (prevents flashing)
+            gsap.set(".fade-up, .stagger-up", { y: 30, opacity: 0 });
+
+            // 2. Generic Fade Up (Animate TO visible)
+            gsap.utils.toArray('.fade-up').forEach(el => {
+                gsap.to(el, {
+                    y: 0,
+                    opacity: 1,
+                    duration: 0.8,
+                    ease: "power2.out",
+                    scrollTrigger: { trigger: el, start: "top 85%" }
+                });
+            });
+
+            // 3. Generic Stagger (Animate TO visible)
+            ScrollTrigger.batch(".stagger-up", {
+                start: "top 85%",
+                onEnter: batch => gsap.to(batch, {
+                    y: 0,
+                    opacity: 1,
+                    stagger: 0.15,
+                    duration: 0.6,
+                    ease: "power2.out",
+                    overwrite: true
+                }),
+                once: true // Ensures it doesn't hide again on scroll back
+            });
+        });
+    </script>
+</body>
+
+</html>

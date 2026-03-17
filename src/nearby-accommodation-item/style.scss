@@ -1,0 +1,15 @@
+// Nearby Accommodation Item – editor-only
+// Main hotel-card styles live in nearby-accommodation-section/style.scss
+
+.editor-styles-wrapper {
+    .twork-nearby-accommodation-item-editor {
+        .hotel-overlay h4,
+        .hotel-overlay p {
+            &[contenteditable="true"]:focus,
+            &:focus-within {
+                outline: 1px dashed #2271b1;
+                outline-offset: 2px;
+            }
+        }
+    }
+}

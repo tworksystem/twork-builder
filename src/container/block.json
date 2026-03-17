@@ -3,7 +3,7 @@
     "apiVersion": 3,
     "name": "twork/twork-container",
     "version": "1.0.0",
-    "title": "Twork Container",
+    "title": "Container",
     "category": "twork-builder",
     "icon": "align-center",
     "description": "A flexible container block with comprehensive styling options for wrapping content sections.",

@@ -1,0 +1,22 @@
+/**
+ * Package Item - Child block of Packages Section
+ * Main card styles live in packages-section/style.scss.
+ * This file only adds editor-specific or overrides if needed.
+ */
+.wp-block-twork-package-item {
+    .twork-package-item-editor {
+        .pkg-header,
+        .pkg-body,
+        .pkg-footer {
+            [contenteditable="true"]:focus {
+                outline: 1px dashed #2271b1;
+                outline-offset: 2px;
+            }
+        }
+
+        .jivaka-btn {
+            pointer-events: none;
+            cursor: default;
+        }
+    }
+}

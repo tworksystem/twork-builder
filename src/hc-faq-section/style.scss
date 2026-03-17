@@ -1,0 +1,103 @@
+// Home Care FAQ Section – "Frequently Asked Questions"
+// Matches home-care.html: .hc-section, .hc-container, .hc-header, .hc-faq-item, .hc-faq-q, .hc-faq-a
+
+:root {
+    --hc-primary: #f48b2a;
+    --hc-dark: #212121;
+}
+
+// === EDITOR STYLES ===
+.editor-styles-wrapper,
+.block-editor-block-list__layout,
+.wp-block-twork-hc-faq-section {
+    .twork-hc-faq-section-editor {
+        .twork-hc-faq-item-editor.hc-faq-item {
+            border-bottom: 1px solid #eee;
+            margin-bottom: 10px;
+        }
+
+        .hc-header h2 {
+            &[contenteditable="true"]:focus {
+                outline: 1px dashed #2271b1;
+                outline-offset: 2px;
+            }
+        }
+    }
+}
+
+// === FRONTEND STYLES ===
+.twork-hc-faq-section {
+    font-family: "Roboto", sans-serif;
+
+    .hc-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .hc-header {
+        text-align: center;
+        margin-bottom: 30px;
+
+        h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin: 0;
+        }
+    }
+
+    .hc-faq-item {
+        border-bottom: 1px solid #eee;
+        margin-bottom: 10px;
+    }
+
+    .hc-faq-q {
+        width: 100%;
+        text-align: left;
+        padding: 15px 0;
+        background: none;
+        border: none;
+        font-size: 1.1rem;
+        font-weight: 600;
+        cursor: pointer;
+        color: var(--hc-dark);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+
+        &:hover {
+            color: var(--hc-primary);
+        }
+
+        &.active {
+            color: var(--hc-primary);
+        }
+
+        i {
+            flex-shrink: 0;
+        }
+    }
+
+    .hc-faq-q.active + .hc-faq-a {
+        max-height: 500px;
+        padding-bottom: 20px;
+    }
+
+    .hc-faq-a {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+        color: #666;
+        font-size: 0.95rem;
+        line-height: 1.6;
+
+        p {
+            margin: 0 0 0.5em;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+}

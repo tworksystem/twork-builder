@@ -1,0 +1,34 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "twork/rad-stat-item",
+  "version": "1.0.0",
+  "title": "Stat Item",
+  "parent": ["twork/rad-stats-section"],
+  "category": "twork-builder",
+  "description": "Single statistic item (number + label) for the Radiology Stats Strip.",
+  "keywords": [
+    "radiology",
+    "stat",
+    "number",
+    "label",
+    "twork"
+  ],
+  "attributes": {
+    "statNumber": {
+      "type": "string",
+      "default": "24/7"
+    },
+    "statLabel": {
+      "type": "string",
+      "default": "Operating Hours"
+    }
+  },
+  "supports": {
+    "html": false
+  },
+  "textdomain": "twork-builder",
+  "editorScript": "file:./index.js",
+  "style": "file:./style-index.css"
+}
+

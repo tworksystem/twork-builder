@@ -1,0 +1,341 @@
+// Google Fonts
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;600;700;900&display=swap");
+
+// Variables
+:root {
+    --primary-orange: #f48b2a;
+    --dark-grey: #212121;
+    --medium-grey: #666;
+    --light-grey-bg: #f9f9f9;
+    --white-color: #ffffff;
+    --border-color: #e0e0e0;
+    --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.08);
+    --radius: 12px;
+}
+
+// === EDITOR STYLES ===
+.editor-styles-wrapper,
+.block-editor-block-list__layout,
+.wp-block-twork-csr-initiatives-section {
+    .twork-csr-initiatives-section-editor {
+        position: relative;
+        min-height: 300px;
+
+        .background-overlay {
+            pointer-events: none;
+        }
+
+        .intro-text {
+            h2, p {
+                &[contenteditable="true"]:focus {
+                    outline: 1px dashed #2271b1;
+                    outline-offset: 2px;
+                }
+            }
+        }
+
+        // ServerSideRender preview: ensure cards and grid are visible in the editor.
+        // The PHP render already outputs .initiatives-grid + .initiative-card.
+        .twork-csr-initiatives-section {
+            .initiatives-grid {
+                display: grid !important;
+                grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)) !important;
+                gap: 30px !important;
+                width: 100% !important;
+            }
+
+            .initiative-card {
+                min-height: 260px;
+                display: flex;
+                flex-direction: column;
+                // Disable scroll-animation hiding inside the editor
+                &.animate-on-scroll {
+                    opacity: 1 !important;
+                    transform: none !important;
+                    transition: none !important;
+                }
+            }
+        }
+    }
+}
+
+// === FRONTEND STYLES ===
+.twork-csr-initiatives-section {
+    font-family: "Roboto", sans-serif;
+    position: relative;
+    overflow: hidden;
+
+    .background-overlay {
+        pointer-events: none;
+    }
+
+    .jivaka-container {
+        position: relative;
+        z-index: 2;
+    }
+
+    .intro-text {
+        text-align: center;
+        max-width: 800px;
+        margin: 0 auto 60px;
+
+        h2 {
+            font-size: 2.2rem;
+            color: var(--dark-grey);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        p {
+            color: var(--medium-grey);
+            font-size: 1.1rem;
+            margin: 0;
+            line-height: 1.6;
+        }
+    }
+
+    .initiatives-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        width: 100%;
+    }
+
+    .initiative-card {
+        background: var(--white-color);
+        border: 1px solid var(--border-color);
+        border-radius: var(--radius);
+        overflow: hidden;
+        transition: 0.4s ease;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+
+    // Clickable card link to post detail page
+    a.initiative-card-link,
+    .initiative-card.initiative-card-link {
+        text-decoration: none;
+        color: inherit;
+        cursor: pointer;
+
+        &:focus {
+            outline: 2px solid var(--primary-orange);
+            outline-offset: 2px;
+        }
+
+        &:focus:not(:focus-visible) {
+            outline: none;
+        }
+
+        &:focus-visible {
+            outline: 2px solid var(--primary-orange);
+            outline-offset: 2px;
+        }
+    }
+
+    // Hover effects from data attributes
+    &[data-hover-effect="true"] .initiative-card:hover {
+        transform: translateY(var(--hover-translate-y, -8px));
+        box-shadow: var(--shadow-md);
+        border-color: var(--primary-orange);
+    }
+
+    .init-img-wrap {
+        height: 220px;
+        overflow: hidden;
+        position: relative;
+        flex-shrink: 0;
+    }
+
+    .init-img-wrap img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+        display: block;
+    }
+
+    .initiative-card:hover .init-img-wrap img {
+        transform: scale(1.1);
+    }
+
+    .init-content {
+        padding: 30px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .init-icon {
+        color: var(--primary-orange);
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+        background: #fff3e0;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        flex-shrink: 0;
+
+        i {
+            display: block;
+        }
+    }
+
+    .init-content h3 {
+        margin: 0 0 10px;
+        font-size: 1.3rem;
+        color: var(--dark-grey);
+        line-height: 1.3;
+    }
+
+    .init-content p {
+        margin: 0 0 20px;
+        color: var(--medium-grey);
+        font-size: 0.95rem;
+        line-height: 1.6;
+        flex-grow: 1;
+    }
+
+    // Read More / View Detail button (when toggle is on)
+    .initiative-read-more.jivaka-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 20px;
+        border-radius: 6px;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 0.75rem;
+        letter-spacing: 0.8px;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        cursor: pointer;
+        border: 1px solid transparent;
+        margin-top: 1.5rem; // Space above button so it doesn’t sit flush on content
+        align-self: flex-start;
+        flex-shrink: 0;
+
+        &.btn-primary {
+            background: var(--primary-orange);
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(244, 139, 42, 0.3);
+        }
+
+        &.btn-primary:hover {
+            background: #e67a22;
+            transform: translateY(-2px);
+        }
+
+        &:focus-visible {
+            outline: 2px solid var(--primary-orange);
+            outline-offset: 2px;
+        }
+    }
+
+    // Scroll animations
+    &[data-animation="true"] {
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+
+            &.is-visible {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    }
+
+    .initiative-card {
+        &:nth-child(1) { transition-delay: 0.1s; }
+        &:nth-child(2) { transition-delay: 0.2s; }
+        &:nth-child(3) { transition-delay: 0.3s; }
+        &:nth-child(4) { transition-delay: 0.4s; }
+        &:nth-child(5) { transition-delay: 0.5s; }
+        &:nth-child(6) { transition-delay: 0.6s; }
+    }
+}
+
+// === RESPONSIVE STYLES ===
+@media (max-width: 992px) {
+    .twork-csr-initiatives-section {
+        .initiatives-grid {
+            grid-template-columns: repeat(2, 1fr) !important;
+        }
+
+        .init-img-wrap {
+            height: 200px;
+        }
+    }
+
+    .editor-styles-wrapper .twork-csr-initiatives-grid-container {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .twork-csr-initiatives-section {
+        padding: 60px 0 !important;
+
+        .intro-text {
+            margin-bottom: 40px;
+
+            h2 {
+                font-size: 2rem !important;
+            }
+
+            p {
+                font-size: 1rem !important;
+            }
+        }
+
+        .initiatives-grid {
+            grid-template-columns: 1fr !important;
+            gap: 25px !important;
+        }
+
+        .init-img-wrap {
+            height: 220px;
+        }
+
+        .init-content {
+            padding: 25px;
+        }
+
+        .init-content h3 {
+            font-size: 1.2rem !important;
+        }
+
+        .init-content p {
+            font-size: 0.9rem !important;
+        }
+    }
+
+    .editor-styles-wrapper .twork-csr-initiatives-grid-container {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+// === ACCESSIBILITY ===
+.initiative-card {
+    &:focus-visible {
+        outline: 3px solid var(--primary-orange);
+        outline-offset: 2px;
+    }
+}
+
+// === PRINT STYLES ===
+@media print {
+    .twork-csr-initiatives-section {
+        .initiative-card {
+            page-break-inside: avoid;
+            break-inside: avoid;
+            box-shadow: none;
+            border: 1px solid var(--border-color);
+        }
+    }
+}

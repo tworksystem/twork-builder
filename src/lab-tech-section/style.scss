@@ -1,0 +1,165 @@
+/**
+ * Lab Technology Section – Zig-zag tech rows
+ * All colors overridable via block "Colors" panel (CSS vars from attributes).
+ */
+
+.lab-section.twork-lab-tech-section,
+.lab-section.twork-lab-tech-section-editor,
+.lab-section.lab-tech-section-editor {
+    --lab-primary: #f48b2a;
+    --lab-item-tag-bg: #f0f4f8;
+    --lab-item-tag-color: #f48b2a;
+    --lab-item-title: #000000;
+    --lab-item-description: #666666;
+    --lab-item-bullet: #444444;
+    --lab-item-bullet-icon: #f48b2a;
+    --lab-radius: 16px;
+    --lab-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+}
+
+.lab-section.twork-lab-tech-section,
+.lab-section.twork-lab-tech-section-editor,
+.lab-section.lab-tech-section-editor {
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+
+    .lab-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+        position: relative;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .lab-header {
+        text-align: center;
+        margin-bottom: 40px;
+        max-width: 720px;
+        margin-left: auto;
+        margin-right: auto;
+
+        h2 {
+            margin: 0 0 10px 0;
+            line-height: 1.2;
+            font-size: clamp(1.75rem, 4vw, 2.25rem);
+            font-weight: 700;
+        }
+
+        p {
+            margin: 0;
+            font-size: 1.05rem;
+            line-height: 1.6;
+        }
+    }
+
+    // Row layout: flex, zig-zag (even rows reversed)
+    .lab-tech-row {
+        display: flex;
+        align-items: center;
+        gap: 60px;
+        margin-bottom: 80px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    .lab-container > .lab-tech-row:nth-child(even) {
+        flex-direction: row-reverse;
+    }
+}
+
+// === EDITOR: layout and focus ===
+.editor-styles-wrapper,
+.wp-block-twork-lab-tech-section {
+    .lab-tech-section-editor,
+    .twork-lab-tech-section-editor {
+        position: relative;
+        width: 100%;
+        box-sizing: border-box;
+
+        .lab-container {
+            width: 100%;
+            box-sizing: border-box;
+
+            > .block-editor-inner-blocks {
+                display: contents !important;
+
+                > .block-editor-block-list__layout {
+                    display: contents !important;
+                }
+            }
+        }
+
+        .lab-header h2[contenteditable="true"],
+        .lab-header p[contenteditable="true"] {
+            &:focus {
+                outline: 2px dashed #2271b1;
+                outline-offset: 2px;
+            }
+        }
+
+        // Rows: in editor, item wrappers are direct children; row-reverse for even
+        .lab-container > .wp-block[data-type="twork/lab-tech-item"]:nth-child(even) .lab-tech-row,
+        .lab-container > .lab-tech-row:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .lab-tech-row {
+            margin-bottom: 48px;
+        }
+    }
+}
+
+// === RESPONSIVE (section + editor) ===
+@media (max-width: 992px) {
+    .lab-section.twork-lab-tech-section,
+    .lab-section.twork-lab-tech-section-editor,
+    .lab-section.lab-tech-section-editor {
+        .lab-container > .lab-tech-row,
+        .lab-container > .lab-tech-row:nth-child(even),
+        .lab-container > .wp-block[data-type="twork/lab-tech-item"] .lab-tech-row {
+            flex-direction: column;
+            text-align: center;
+            gap: 32px;
+            margin-bottom: 60px;
+        }
+
+        .lab-container > .wp-block[data-type="twork/lab-tech-item"]:nth-child(even) .lab-tech-row {
+            flex-direction: column;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .lab-section.twork-lab-tech-section,
+    .lab-section.twork-lab-tech-section-editor,
+    .lab-section.lab-tech-section-editor {
+        .lab-container {
+            padding-left: 16px;
+            padding-right: 16px;
+        }
+
+        .lab-header {
+            margin-bottom: 32px;
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            p {
+                font-size: 1rem;
+            }
+        }
+
+        .lab-container > .lab-tech-row,
+        .lab-container > .lab-tech-row:nth-child(even),
+        .lab-container > .wp-block[data-type="twork/lab-tech-item"] .lab-tech-row {
+            gap: 24px;
+            margin-bottom: 48px;
+        }
+    }
+}

@@ -2,7 +2,7 @@
     "$schema": "https://schemas.wp.org/trunk/block.json",
     "apiVersion": 3,
     "name": "twork/timeline-item",
-    "title": "Twork Timeline Item",
+    "title": "Timeline Item",
     "parent": ["twork/timeline-wrapper"],
     "category": "twork-builder",
     "icon": "clock",

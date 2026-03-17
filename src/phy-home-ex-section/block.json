@@ -1,0 +1,56 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "twork/phy-home-ex-section",
+  "version": "1.0.0",
+  "title": "Home Exercise Section",
+  "category": "twork-builder",
+  "icon": "excerpt-view",
+  "description": "Continue Healing at Home section with badge, title, description, bullet list, and image. Matches physiotherapy-rehab.html.",
+  "keywords": ["physio", "home exercise", "wellness", "twork"],
+  "attributes": {
+    "backgroundColor": { "type": "string", "default": "#fdfdfd" },
+    "paddingTop":      { "type": "number", "default": 60 },
+    "paddingBottom":   { "type": "number", "default": 80 },
+    "containerMaxWidth": { "type": "number", "default": 1280 },
+    "containerPadding":  { "type": "number", "default": 24 },
+
+    "badgeText": {
+      "type": "string",
+      "default": "Long Term Wellness"
+    },
+    "title": {
+      "type": "string",
+      "default": "Continue Healing at Home"
+    },
+    "description": {
+      "type": "string",
+      "default": "Recovery doesn't stop at the clinic. We provide you with a digital home exercise plan including video guides to ensure you continue progressing every day."
+    },
+    "items": {
+      "type": "array",
+      "default": [
+        "Personalized Video Instructions",
+        "Progress Tracking App",
+        "Daily Reminders"
+      ]
+    },
+    "imageUrl": {
+      "type": "string",
+      "default": "https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=800&q=80"
+    },
+    "imageAlt": {
+      "type": "string",
+      "default": "Home Exercise"
+    }
+  },
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "align": ["wide", "full"]
+  },
+  "textdomain": "twork-builder",
+  "editorScript": "file:./index.js",
+  "style": "file:./style-index.css"
+}
+

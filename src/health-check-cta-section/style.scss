@@ -1,0 +1,108 @@
+// Health Check CTA Section – "Book Your Slot Today"
+// Matches health-check-up.html: chk-container > fade-up box with title, subtitle, chk-btn
+
+.twork-health-check-cta-section {
+    --chk-secondary: #005f73;
+    --chk-primary: #f48b2a;
+    font-family: "Roboto", sans-serif;
+
+    .chk-container {
+        position: relative;
+        z-index: 1;
+    }
+
+    .chk-cta-box {
+        position: relative;
+        overflow: hidden;
+
+        h2 {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        p {
+            line-height: 1.6;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .chk-btn.chk-cta-btn {
+            display: inline-block;
+            padding: 14px 40px;
+            border-radius: 50px;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .chk-btn.chk-cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .chk-btn.chk-cta-btn:focus-visible {
+            outline: 3px solid var(--chk-primary);
+            outline-offset: 2px;
+        }
+    }
+}
+
+// === EDITOR STYLES ===
+.editor-styles-wrapper .wp-block-twork-health-check-cta-section,
+.wp-block-twork-health-check-cta-section {
+    .twork-health-check-cta-section-editor {
+        overflow: visible;
+
+        .chk-container {
+            overflow: visible;
+        }
+
+        .chk-cta-box {
+            h2[contenteditable="true"],
+            p[contenteditable="true"] {
+                &:focus {
+                    outline: 2px dashed rgba(255, 255, 255, 0.8);
+                    outline-offset: 2px;
+                }
+            }
+
+            .chk-btn.chk-cta-btn {
+                cursor: default;
+            }
+
+            .chk-cta-btn-placeholder {
+                display: inline-block;
+                font-size: 0.9rem;
+                font-style: italic;
+            }
+        }
+    }
+}
+
+// === RESPONSIVE ===
+@media (max-width: 768px) {
+    .twork-health-check-cta-section .chk-cta-box {
+        padding: 40px 24px !important;
+
+        h2 {
+            font-size: 1.35rem !important;
+        }
+
+        p {
+            margin-bottom: 24px !important;
+        }
+
+        .chk-btn.chk-cta-btn {
+            padding: 12px 28px;
+            font-size: 0.85rem;
+        }
+    }
+}

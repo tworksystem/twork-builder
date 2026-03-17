@@ -1,0 +1,88 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "twork/split-section",
+  "version": "1.0.0",
+  "title": "Split Section (Laparoscopy / Keyhole)",
+  "category": "twork-builder",
+  "icon": "layout",
+  "description": "Two-column split: left (label, title, description, list, CTA button), right (image + floating badge). Matches general-surgery laparoscopic block.",
+  "keywords": ["split", "laparoscopy", "keyhole", "two-column", "twork"],
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "align": ["wide", "full"]
+  },
+  "attributes": {
+    "sectionClass": {
+      "type": "string",
+      "default": "section-padding split-section"
+    },
+    "label": {
+      "type": "string",
+      "default": "Minimally Invasive"
+    },
+    "title": {
+      "type": "string",
+      "default": "Laparoscopic Surgery"
+    },
+    "description": {
+      "type": "string",
+      "default": "Also known as Keyhole Surgery. We use tiny incisions and cameras to perform complex operations, resulting in significantly less pain and scarring."
+    },
+    "listItems": {
+      "type": "array",
+      "default": []
+    },
+    "buttonText": {
+      "type": "string",
+      "default": "Learn about Keyhole"
+    },
+    "buttonUrl": {
+      "type": "string",
+      "default": "#"
+    },
+    "buttonTarget": {
+      "type": "boolean",
+      "default": false
+    },
+    "imageUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "imageId": {
+      "type": "number"
+    },
+    "imageAlt": {
+      "type": "string",
+      "default": ""
+    },
+    "badgeIcon": {
+      "type": "string",
+      "default": "fas fa-star"
+    },
+    "badgeTitle": {
+      "type": "string",
+      "default": "Gold Standard"
+    },
+    "badgeSubtitle": {
+      "type": "string",
+      "default": "Safety Protocols"
+    },
+    "containerMaxWidth": {
+      "type": "number",
+      "default": 1200
+    },
+    "containerPadding": {
+      "type": "number",
+      "default": 24
+    },
+    "gridGap": {
+      "type": "number",
+      "default": 60
+    }
+  },
+  "textdomain": "twork-builder",
+  "editorScript": "file:./index.js",
+  "style": "file:./style-index.css"
+}

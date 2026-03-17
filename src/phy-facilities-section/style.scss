@@ -1,0 +1,87 @@
+.phy-section.twork-phy-facilities-section,
+.phy-section.twork-phy-facilities-section-editor {
+    background: #fdfdfd;
+
+    .phy-container {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 24px;
+    }
+
+    .phy-header {
+        text-align: center;
+        margin-bottom: 30px;
+
+        h2 {
+            margin-bottom: 8px;
+            font-size: 2.2rem;
+            font-weight: 700;
+        }
+
+        p {
+            margin: 0;
+            color: #555;
+        }
+    }
+
+    .phy-facility-slider {
+        display: flex;
+        overflow-x: auto;
+        gap: 20px;
+        padding-bottom: 40px;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .phy-facility-slider::-webkit-scrollbar {
+        height: 8px;
+    }
+
+    .phy-facility-slider::-webkit-scrollbar-thumb {
+        background: var(--phy-primary, #f48b2a);
+        border-radius: 10px;
+    }
+
+    .phy-facility-card {
+        flex: 0 0 350px;
+        scroll-snap-align: start;
+        background: #fff;
+        border-radius: var(--phy-radius, 16px);
+        overflow: hidden;
+        box-shadow: var(--phy-shadow, 0 5px 20px rgba(0, 0, 0, 0.08));
+    }
+
+    .phy-facility-img {
+        height: 220px;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .phy-facility-info {
+        padding: 25px;
+
+        h4 {
+            margin-bottom: 5px;
+        }
+
+        p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: #666;
+        }
+    }
+}
+
+.editor-styles-wrapper,
+.wp-block-twork-phy-facilities-section {
+    .twork-phy-facilities-section-editor {
+        .phy-header h2[contenteditable='true'],
+        .phy-header p[contenteditable='true'] {
+            &:focus {
+                outline: 1px dashed #2271b1;
+                outline-offset: 2px;
+            }
+        }
+    }
+}
+

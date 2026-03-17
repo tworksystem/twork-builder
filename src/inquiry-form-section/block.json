@@ -1,0 +1,196 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "twork/inquiry-form-section",
+    "version": "1.0.0",
+    "title": "Inquiry Form Section",
+    "category": "twork-builder",
+    "icon": "feedback",
+    "description": "International patient inquiry form section with left content panel and right form.",
+    "keywords": ["inquiry", "form", "international", "patient", "contact", "twork"],
+    "attributes": {
+        "sectionPaddingTop": {
+            "type": "number",
+            "default": 80
+        },
+        "sectionPaddingBottom": {
+            "type": "number",
+            "default": 80
+        },
+        "sectionPaddingTopMobile": {
+            "type": "number",
+            "default": 60
+        },
+        "sectionPaddingBottomMobile": {
+            "type": "number",
+            "default": 60
+        },
+        "containerMaxWidth": {
+            "type": "number",
+            "default": 1200
+        },
+        "containerPadding": {
+            "type": "number",
+            "default": 20
+        },
+        "containerPaddingMobile": {
+            "type": "number",
+            "default": 20
+        },
+        "wrapperMarginTop": {
+            "type": "number",
+            "default": 60
+        },
+        "leftBackgroundImage": {
+            "type": "string",
+            "default": "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1000&q=80"
+        },
+        "leftBackgroundImageId": {
+            "type": "number"
+        },
+        "leftOverlayColor": {
+            "type": "string",
+            "default": "rgba(244, 139, 42, 0.8)"
+        },
+        "leftOverlayOpacity": {
+            "type": "number",
+            "default": 0.8
+        },
+        "leftContentPadding": {
+            "type": "number",
+            "default": 60
+        },
+        "leftContentPaddingMobile": {
+            "type": "number",
+            "default": 40
+        },
+        "leftTitle": {
+            "type": "string",
+            "default": "Plan Your Treatment"
+        },
+        "leftTitleColor": {
+            "type": "string",
+            "default": "#ffffff"
+        },
+        "leftTitleFontSize": {
+            "type": "number",
+            "default": 2
+        },
+        "leftDescription": {
+            "type": "string",
+            "default": "Fill out the form, and our International Desk will get back to you within 24 hours."
+        },
+        "leftDescriptionColor": {
+            "type": "string",
+            "default": "rgba(255, 255, 255, 0.9)"
+        },
+        "leftDescriptionFontSize": {
+            "type": "number",
+            "default": 1.1
+        },
+        "leftPhone": {
+            "type": "string",
+            "default": "+95 9 789 101 101"
+        },
+        "leftEmail": {
+            "type": "string",
+            "default": "intl@jivakahospital.com"
+        },
+        "leftContactColor": {
+            "type": "string",
+            "default": "#ffffff"
+        },
+        "leftContactFontSize": {
+            "type": "number",
+            "default": 1
+        },
+        "formPadding": {
+            "type": "number",
+            "default": 60
+        },
+        "formPaddingMobile": {
+            "type": "number",
+            "default": 40
+        },
+        "formAction": {
+            "type": "string",
+            "default": ""
+        },
+        "formMethod": {
+            "type": "string",
+            "default": "post"
+        },
+        "fullNameLabel": {
+            "type": "string",
+            "default": "Full Name"
+        },
+        "fullNamePlaceholder": {
+            "type": "string",
+            "default": "Enter your name"
+        },
+        "countryLabel": {
+            "type": "string",
+            "default": "Country"
+        },
+        "countryPlaceholder": {
+            "type": "string",
+            "default": "Your Country"
+        },
+        "phoneLabel": {
+            "type": "string",
+            "default": "Phone / WhatsApp"
+        },
+        "phonePlaceholder": {
+            "type": "string",
+            "default": "+xx xxxxxxxxxx"
+        },
+        "emailLabel": {
+            "type": "string",
+            "default": "Email Address"
+        },
+        "emailPlaceholder": {
+            "type": "string",
+            "default": "email@example.com"
+        },
+        "specialtyLabel": {
+            "type": "string",
+            "default": "Medical Specialty Needed"
+        },
+        "specialtyOptions": {
+            "type": "string",
+            "default": "Select Specialty\nCardiology (Heart)\nOrthopaedics (Bone)\nOncology (Cancer)\nGeneral Checkup\nOther"
+        },
+        "messageLabel": {
+            "type": "string",
+            "default": "Message / Symptoms"
+        },
+        "messagePlaceholder": {
+            "type": "string",
+            "default": "Describe your condition or specific requirements..."
+        },
+        "submitButtonText": {
+            "type": "string",
+            "default": "Submit Inquiry"
+        },
+        "submitButtonBgColor": {
+            "type": "string",
+            "default": "#f48b2a"
+        },
+        "submitButtonTextColor": {
+            "type": "string",
+            "default": "#ffffff"
+        },
+        "animationOnScroll": {
+            "type": "boolean",
+            "default": true
+        }
+    },
+    "supports": {
+        "html": false,
+        "anchor": true,
+        "align": ["wide", "full"]
+    },
+    "textdomain": "twork-builder",
+    "editorScript": "file:./index.js",
+    "style": "file:./style-index.css"
+}

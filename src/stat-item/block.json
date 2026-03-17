@@ -1,0 +1,53 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "twork/stat-item",
+    "title": "Stat Item",
+    "parent": ["twork/csr-stats-section"],
+    "category": "twork-builder",
+    "description": "Single stat item (number + label) for CSR Stats Section.",
+    "keywords": ["stat", "number", "label", "csr", "twork"],
+    "attributes": {
+        "statNumber": {
+            "type": "string",
+            "default": "50+"
+        },
+        "statLabel": {
+            "type": "string",
+            "default": "Rural Medical Camps"
+        },
+        "numberColor": {
+            "type": "string",
+            "default": "#f48b2a"
+        },
+        "numberFontSize": {
+            "type": "number",
+            "default": 2.5
+        },
+        "numberFontWeight": {
+            "type": "number",
+            "default": 900
+        },
+        "labelColor": {
+            "type": "string",
+            "default": "#212121"
+        },
+        "labelFontSize": {
+            "type": "number",
+            "default": 0.95
+        },
+        "labelFontWeight": {
+            "type": "number",
+            "default": 700
+        },
+        "labelTextTransform": {
+            "type": "string",
+            "default": "uppercase"
+        }
+    },
+    "supports": {
+        "html": false
+    },
+    "textdomain": "twork-builder",
+    "editorScript": "file:./index.js"
+}

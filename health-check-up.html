@@ -1,0 +1,1214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Health Check-up | Jivaka Hospital</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <style>
+        /* --- CORE VARIABLES --- */
+        :root {
+            --chk-primary: #f48b2a;
+            /* Orange */
+            --chk-secondary: #005f73;
+            /* Teal */
+            --chk-dark: #1d2b36;
+            --chk-light: #f4f8fb;
+            --chk-white: #ffffff;
+            --chk-gradient: linear-gradient(135deg, #005f73 0%, #0a9396 100%);
+            --chk-gradient-text: linear-gradient(45deg, #005f73, #f48b2a);
+            --chk-radius: 20px;
+            --chk-shadow: 0 15px 40px rgba(0, 95, 115, 0.1);
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Roboto", sans-serif;
+            color: #444;
+            line-height: 1.6;
+            background: var(--chk-white);
+            overflow-x: hidden;
+            opacity: 1;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            color: var(--chk-secondary);
+            margin-top: 0;
+            line-height: 1.2;
+        }
+
+        .chk-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        .chk-section {
+            padding: 90px 0;
+        }
+
+        /* Buttons */
+        .chk-btn {
+            display: inline-block;
+            padding: 14px 40px;
+            border-radius: 50px;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            background: var(--chk-primary);
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(244, 139, 42, 0.4);
+            transition: 0.3s;
+            text-decoration: none;
+        }
+
+        .chk-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(244, 139, 42, 0.6);
+        }
+
+        /* --- 1. HERO SECTION --- */
+        .chk-hero {
+            min-height: 750px;
+            display: flex;
+            align-items: center;
+            background: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .chk-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 45%;
+            height: 100%;
+            background: var(--chk-gradient);
+            border-bottom-left-radius: 300px;
+            z-index: 0;
+        }
+
+        .chk-hero-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .chk-hero-text h1 {
+            font-size: clamp(3rem, 5vw, 4.5rem);
+            font-weight: 900;
+            margin-bottom: 20px;
+            background: var(--chk-gradient-text);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .chk-hero-text p {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 30px;
+            max-width: 550px;
+        }
+
+        .chk-hero-img-box {
+            position: relative;
+        }
+
+        .chk-hero-img {
+            width: 100%;
+            border-radius: 30px;
+            box-shadow: -20px 20px 0 var(--chk-primary);
+            object-fit: cover;
+            height: 500px;
+        }
+
+        .chk-badge {
+            position: absolute;
+            bottom: 40px;
+            left: -40px;
+            background: #fff;
+            padding: 20px 30px;
+            border-radius: 15px;
+            box-shadow: var(--chk-shadow);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            animation: bounce 3s infinite ease-in-out;
+        }
+
+        .chk-badge i {
+            font-size: 2rem;
+            color: var(--chk-primary);
+        }
+
+        .chk-badge div strong {
+            display: block;
+            font-size: 1.5rem;
+            color: var(--chk-secondary);
+            line-height: 1;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* --- 2. WHY CHECKUP? --- */
+        .chk-why-section {
+            background: var(--chk-light);
+        }
+
+        .chk-why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .chk-why-item i {
+            font-size: 3rem;
+            color: var(--chk-primary);
+            margin-bottom: 20px;
+        }
+
+        .chk-why-item:nth-child(even) i {
+            color: var(--chk-secondary);
+        }
+
+        /* --- 3. BENEFITS OF CHECKUP --- */
+        .chk-benefit-section {
+            background: #fff;
+        }
+
+        .chk-benefit-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .chk-benefit-img {
+            width: 100%;
+            border-radius: var(--chk-radius);
+            box-shadow: var(--chk-shadow);
+        }
+
+        .chk-benefit-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .chk-benefit-list li {
+            margin-bottom: 20px;
+            padding-left: 30px;
+            position: relative;
+            font-size: 1.1rem;
+        }
+
+        .chk-benefit-list li::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: var(--chk-primary);
+            font-size: 1.2rem;
+        }
+
+        /* --- 4. PACKAGES TABS --- */
+        .chk-tabs-wrapper {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .chk-tab-btn {
+            background: #fff;
+            border: 2px solid #eee;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            color: #666;
+            cursor: pointer;
+            margin: 0 5px 10px;
+            transition: 0.3s;
+            font-size: 1rem;
+        }
+
+        .chk-tab-btn.active,
+        .chk-tab-btn:hover {
+            background: var(--chk-secondary);
+            color: #fff;
+            border-color: var(--chk-secondary);
+            box-shadow: 0 5px 15px rgba(0, 95, 115, 0.3);
+        }
+
+        .chk-pkg-grid {
+            display: none;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            animation: slideUp 0.5s ease;
+        }
+
+        .chk-pkg-grid.active {
+            display: grid;
+        }
+
+        .chk-pkg-card {
+            background: #fff;
+            border-radius: var(--chk-radius);
+            padding: 40px 30px;
+            box-shadow: var(--chk-shadow);
+            transition: 0.3s;
+            border: 1px solid #f0f0f0;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chk-pkg-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--chk-primary);
+        }
+
+        .chk-pkg-card.popular {
+            border-top: 5px solid var(--chk-primary);
+        }
+
+        .chk-pkg-card.popular::before {
+            content: 'Recommended';
+            position: absolute;
+            top: 20px;
+            right: -30px;
+            background: var(--chk-primary);
+            color: #fff;
+            padding: 5px 40px;
+            transform: rotate(45deg);
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+
+        .chk-price {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--chk-secondary);
+            margin: 20px 0;
+        }
+
+        .chk-price span {
+            font-size: 1rem;
+            font-weight: 400;
+            color: #999;
+        }
+
+        .chk-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 30px;
+            text-align: left;
+            flex-grow: 1;
+        }
+
+        .chk-list li {
+            padding: 10px 0;
+            border-bottom: 1px dashed #eee;
+            color: #555;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .chk-list li i {
+            color: #2ecc71;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* --- 5. COMPARISON TABLE --- */
+        .chk-compare-section {
+            background: var(--chk-light);
+        }
+
+        .chk-table-wrap {
+            overflow-x: auto;
+            background: #fff;
+            border-radius: var(--chk-radius);
+            box-shadow: var(--chk-shadow);
+            padding: 30px;
+        }
+
+        .chk-table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 800px;
+        }
+
+        .chk-table th,
+        .chk-table td {
+            padding: 15px;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+        }
+
+        .chk-table th {
+            background: #f8fafc;
+            color: var(--chk-secondary);
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .chk-table td:first-child,
+        .chk-table th:first-child {
+            text-align: left;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .chk-table tr:hover {
+            background: #fafafa;
+        }
+
+        .chk-check {
+            color: #2ecc71;
+            font-size: 1.2rem;
+        }
+
+        .chk-cross {
+            color: #e74c3c;
+            font-size: 1.2rem;
+        }
+
+        /* --- 6. PREPARATION STEPS --- */
+        .chk-steps-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .chk-step-item {
+            position: relative;
+        }
+
+        .chk-step-item::after {
+            content: '';
+            position: absolute;
+            top: 40px;
+            right: -50%;
+            width: 100%;
+            height: 2px;
+            background: #ddd;
+            z-index: -1;
+        }
+
+        .chk-step-item:last-child::after {
+            display: none;
+        }
+
+        .chk-step-icon {
+            width: 80px;
+            height: 80px;
+            background: #fff;
+            border: 2px solid var(--chk-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 2rem;
+            color: var(--chk-primary);
+            z-index: 1;
+        }
+
+        .chk-step-item h4 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        /* --- 7. CORPORATE WELLNESS --- */
+        .chk-corporate-section {
+            background: var(--chk-light);
+        }
+
+        .chk-corporate-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .chk-corporate-img {
+            width: 100%;
+            border-radius: var(--chk-radius);
+            box-shadow: var(--chk-shadow);
+        }
+
+        .chk-corporate-content h2 {
+            margin-bottom: 20px;
+        }
+
+        .chk-corporate-list li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .chk-corporate-list i {
+            color: var(--chk-primary);
+        }
+
+        /* --- 8. TESTIMONIALS --- */
+        .chk-testimonials-section {
+            background: var(--chk-white);
+        }
+
+        .chk-testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            align-items: stretch;
+        }
+
+        .chk-testimonial-card {
+            background: #fff;
+            border: 1px solid #eee;
+            padding: 30px;
+            border-radius: var(--chk-radius);
+            position: relative;
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
+
+        .chk-testimonial-card:hover {
+            border-color: var(--chk-primary);
+            box-shadow: var(--chk-shadow);
+        }
+
+        .chk-testimonial-text {
+            font-style: italic;
+            color: #666;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .chk-testimonial-user {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: auto;
+        }
+
+        .chk-testimonial-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--chk-light);
+        }
+
+        .chk-testimonial-name {
+            font-weight: 700;
+            color: var(--chk-secondary);
+        }
+
+        /* --- 9. WELLNESS NUMBERS (NEW) --- */
+        .chk-stats-section {
+            background: var(--chk-secondary);
+            color: #fff;
+            text-align: center;
+        }
+
+        .chk-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+        }
+
+        .chk-stat-num {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--chk-primary);
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .chk-stat-label {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* --- 10. HEALTH CHECKLIST (NEW) --- */
+        .chk-checklist-section {
+            background: var(--chk-light);
+        }
+
+        .chk-checklist-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .chk-checklist-box {
+            background: #fff;
+            padding: 40px;
+            border-radius: var(--chk-radius);
+            box-shadow: var(--chk-shadow);
+        }
+
+        .chk-checklist-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            cursor: pointer;
+        }
+
+        .chk-checklist-item input {
+            width: 20px;
+            height: 20px;
+            accent-color: var(--chk-primary);
+            cursor: pointer;
+        }
+
+        .chk-checklist-img {
+            width: 100%;
+            border-radius: var(--chk-radius);
+            box-shadow: var(--chk-shadow);
+        }
+
+        /* --- 11. FAQ --- */
+        .chk-faq-item {
+            background: #fff;
+            border: 1px solid #eee;
+            margin-bottom: 15px;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .chk-faq-q {
+            padding: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #fff;
+        }
+
+        .chk-faq-a {
+            max-height: 0;
+            overflow: hidden;
+            transition: 0.3s;
+            padding: 0 20px;
+            color: #666;
+            background: #fcfcfc;
+        }
+
+        .chk-faq-item.active .chk-faq-a {
+            max-height: 200px;
+            padding-bottom: 20px;
+        }
+
+        .chk-faq-item.active .chk-faq-q {
+            color: var(--chk-primary);
+        }
+
+        /* Utils */
+        .fade-up,
+        .stagger-up {
+            opacity: 1;
+        }
+
+        .chk-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 50px;
+        }
+
+        .chk-header h2 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 15px;
+        }
+
+        @media (max-width: 992px) {
+            .chk-hero::before {
+                width: 100%;
+                height: 50%;
+                top: auto;
+                bottom: 0;
+                border-radius: 0;
+                border-top-left-radius: 100px;
+                border-top-right-radius: 100px;
+            }
+
+            .chk-hero-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .chk-hero-text h1 {
+                margin-top: 50px;
+            }
+
+            .chk-hero-text p {
+                margin: 0 auto 30px;
+            }
+
+            .chk-hero-img {
+                height: 350px;
+                margin-bottom: -50px;
+            }
+
+            .chk-steps-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .chk-step-item::after {
+                display: none;
+            }
+
+            .chk-badge {
+                left: 50%;
+                transform: translateX(-50%);
+                bottom: -20px;
+                width: max-content;
+            }
+
+            .chk-corporate-grid,
+            .chk-benefit-grid,
+            .chk-checklist-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .chk-checklist-img {
+                order: -1;
+                margin-bottom: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="chk-hero">
+        <div class="chk-container">
+            <div class="chk-hero-grid">
+                <div class="chk-hero-text fade-up">
+                    <span style="color: var(--chk-primary); font-weight: 700; letter-spacing: 2px;">PREVENTIVE CARE</span>
+                    <h1>Prioritize Your<br>Health Today.</h1>
+                    <p>Early detection saves lives. Choose from our comprehensive wellness packages tailored for every age and lifestyle.
+                    </p>
+                    <a href="#packages" class="chk-btn">Choose a Package</a>
+                </div>
+                <div class="chk-hero-img-box fade-up">
+                    <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=800&q=80" alt="Checkup"
+                        class="chk-hero-img">
+                    <div class="chk-badge">
+                        <i class="fas fa-heartbeat"></i>
+                        <div>
+                            <strong>100%</strong>
+                            <small style="color:#666">Comprehensive</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="chk-section chk-stats-section">
+        <div class="chk-container">
+            <div class="chk-stats-grid">
+                <div class="stagger-up">
+                    <span class="chk-stat-num">50k+</span>
+                    <span class="chk-stat-label">Check-ups Done</span>
+                </div>
+                <div class="stagger-up">
+                    <span class="chk-stat-num">98%</span>
+                    <span class="chk-stat-label">Patient Satisfaction</span>
+                </div>
+                <div class="stagger-up">
+                    <span class="chk-stat-num">15+</span>
+                    <span class="chk-stat-label">Specialist Doctors</span>
+                </div>
+                <div class="stagger-up">
+                    <span class="chk-stat-num">24h</span>
+                    <span class="chk-stat-label">Report Turnaround</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="chk-section chk-why-section">
+        <div class="chk-container">
+            <div class="chk-header fade-up">
+                <h2>Why Regular Check-ups?</h2>
+                <p>Investing in your health now prevents costly treatments later.</p>
+            </div>
+            <div class="chk-why-grid">
+                <div class="stagger-up chk-why-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <h4>Early Detection</h4>
+                    <p style="font-size: 0.9rem;">Find issues before they become problems.</p>
+                </div>
+                <div class="stagger-up chk-why-item">
+                    <i class="fas fa-chart-line"></i>
+                    <h4>Track History</h4>
+                    <p style="font-size: 0.9rem;">Monitor your vital trends over years.</p>
+                </div>
+                <div class="stagger-up chk-why-item">
+                    <i class="fas fa-user-md"></i>
+                    <h4>Expert Advice</h4>
+                    <p style="font-size: 0.9rem;">Consult with top general physicians.</p>
+                </div>
+                <div class="stagger-up chk-why-item">
+                    <i class="fas fa-smile"></i>
+                    <h4>Peace of Mind</h4>
+                    <p style="font-size: 0.9rem;">Live life confidently knowing you're healthy.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="chk-section chk-benefit-section">
+        <div class="chk-container">
+            <div class="chk-benefit-grid">
+                <div class="fade-up">
+                    <img src="https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?auto=format&fit=crop&w=800&q=80" alt="Benefits"
+                        class="chk-benefit-img">
+                </div>
+                <div class="fade-up">
+                    <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Health is Wealth</h2>
+                    <p style="margin-bottom: 30px; color: #666;">
+                        Regular health check-ups are essential for maintaining a healthy lifestyle. They help in identifying potential
+                        health risks early on.
+                    </p>
+                    <ul class="chk-benefit-list">
+                        <li>Reduce risk of getting sick</li>
+                        <li>Detect potentially life-threatening health conditions or diseases early</li>
+                        <li>Increase chances for treatment and cure</li>
+                        <li>Limit risk of complications by closely monitoring existing conditions</li>
+                        <li>Reduce healthcare costs over time by avoiding costly medical services</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="chk-section" id="packages">
+        <div class="chk-container">
+            <div class="chk-header fade-up">
+                <h2>Our Packages</h2>
+                <p>Select a category to view detailed plans.</p>
+            </div>
+
+            <div class="chk-tabs-wrapper fade-up">
+                <button class="chk-tab-btn active" onclick="openTab(event, 'basic')">General Wellness</button>
+                <button class="chk-tab-btn" onclick="openTab(event, 'special')">Specialized</button>
+                <button class="chk-tab-btn" onclick="openTab(event, 'gender')">Men & Women</button>
+            </div>
+
+            <div id="basic" class="chk-pkg-grid active">
+                <div class="chk-pkg-card stagger-up">
+                    <h3>Basic Checkup</h3>
+                    <div class="chk-price">45,000 <span>MMK</span></div>
+                    <ul class="chk-list">
+                        <li><i class="fas fa-check"></i> CBC (Blood Count)</li>
+                        <li><i class="fas fa-check"></i> Urine Routine</li>
+                        <li><i class="fas fa-check"></i> Fasting Blood Sugar</li>
+                        <li><i class="fas fa-check"></i> Physical Exam</li>
+                    </ul>
+                    <a href="#" class="chk-btn"
+                        style="background: transparent; border: 2px solid var(--chk-primary); color: var(--chk-primary);">Book Now</a>
+                </div>
+                <div class="chk-pkg-card popular stagger-up">
+                    <h3>Master Health</h3>
+                    <div class="chk-price">90,000 <span>MMK</span></div>
+                    <ul class="chk-list">
+                        <li><i class="fas fa-check"></i> All Basic Tests</li>
+                        <li><i class="fas fa-check"></i> Liver Function Test</li>
+                        <li><i class="fas fa-check"></i> Kidney Function Test</li>
+                        <li><i class="fas fa-check"></i> ECG & Chest X-Ray</li>
+                        <li><i class="fas fa-check"></i> Lipid Profile</li>
+                    </ul>
+                    <a href="#" class="chk-btn">Book Now</a>
+                </div>
+                <div class="chk-pkg-card stagger-up">
+                    <h3>Executive</h3>
+                    <div class="chk-price">150,000 <span>MMK</span></div>
+                    <ul class="chk-list">
+                        <li><i class="fas fa-check"></i> All Master Tests</li>
+                        <li><i class="fas fa-check"></i> Ultrasound Abdomen</li>
+                        <li><i class="fas fa-check"></i> Hepatitis B & C</li>
+                        <li><i class="fas fa-check"></i> Thyroid (TSH)</li>
+                        <li><i class="fas fa-check"></i> Doctor Consultation</li>
+                    </ul>
+                    <a href="#" class="chk-btn"
+                        style="background: transparent; border: 2px solid var(--chk-primary); color: var(--chk-primary);">Book Now</a>
+                </div>
+            </div>
+
+            <div id="special" class="chk-pkg-grid">
+                <div class="chk-pkg-card stagger-up">
+                    <h3>Heart Check</h3>
+                    <div class="chk-price">120,000 <span>MMK</span></div>
+                    <ul class="chk-list">
+                        <li><i class="fas fa-check"></i> Cardiac Markers</li>
+                        <li><i class="fas fa-check"></i> ECG & ECHO</li>
+                        <li><i class="fas fa-check"></i> Lipid Profile</li>
+                        <li><i class="fas fa-check"></i> Cardiologist Consult</li>
+                    </ul>
+                    <a href="#" class="chk-btn">Book Now</a>
+                </div>
+                <div class="chk-pkg-card stagger-up">
+                    <h3>Diabetes Care</h3>
+                    <div class="chk-price">80,000 <span>MMK</span></div>
+                    <ul class="chk-list">
+                        <li><i class="fas fa-check"></i> HbA1c (3 Months)</li>
+                        <li><i class="fas fa-check"></i> Kidney Function</li>
+                        <li><i class="fas fa-check"></i> Eye Checkup</li>
+                        <li><i class="fas fa-check"></i> Foot Exam</li>
+                    </ul>
+                    <a href="#" class="chk-btn">Book Now</a>
+                </div>
+            </div>
+
+            <div id="gender" class="chk-pkg-grid">
+                <div class="chk-pkg-card stagger-up">
+                    <h3>Women's Wellness</h3>
+                    <div class="chk-price">110,000 <span>MMK</span></div>
+                    <ul class="chk-list">
+                        <li><i class="fas fa-check"></i> Pap Smear</li>
+                        <li><i class="fas fa-check"></i> Breast Exam</li>
+                        <li><i class="fas fa-check"></i> Thyroid Profile</li>
+                        <li><i class="fas fa-check"></i> Bone Calcium</li>
+                    </ul>
+                    <a href="#" class="chk-btn">Book Now</a>
+                </div>
+                <div class="chk-pkg-card stagger-up">
+                    <h3>Men's Vitality</h3>
+                    <div class="chk-price">110,000 <span>MMK</span></div>
+                    <ul class="chk-list">
+                        <li><i class="fas fa-check"></i> PSA (Prostate)</li>
+                        <li><i class="fas fa-check"></i> Lung Function</li>
+                        <li><i class="fas fa-check"></i> Stress Test</li>
+                        <li><i class="fas fa-check"></i> Uric Acid</li>
+                    </ul>
+                    <a href="#" class="chk-btn">Book Now</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="chk-section chk-compare-section">
+        <div class="chk-container">
+            <div class="chk-header fade-up">
+                <h2>Package Comparison</h2>
+                <p>Compare features to find the right fit for you.</p>
+            </div>
+            <div class="chk-table-wrap fade-up">
+                <table class="chk-table">
+                    <thead>
+                        <tr>
+                            <th>Test / Service</th>
+                            <th>Basic</th>
+                            <th>Master</th>
+                            <th>Executive</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Physical Consultation</td>
+                            <td><i class="fas fa-check chk-check"></i></td>
+                            <td><i class="fas fa-check chk-check"></i></td>
+                            <td><i class="fas fa-check chk-check"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Complete Blood Count</td>
+                            <td><i class="fas fa-check chk-check"></i></td>
+                            <td><i class="fas fa-check chk-check"></i></td>
+                            <td><i class="fas fa-check chk-check"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Blood Sugar</td>
+                            <td><i class="fas fa-check chk-check"></i></td>
+                            <td><i class="fas fa-check chk-check"></i></td>
+                            <td><i class="fas fa-check chk-check"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Liver & Kidney Function</td>
+                            <td><i class="fas fa-times chk-cross"></i></td>
+                            <td><i class="fas fa-check chk-check"></i></td>
+                            <td><i class="fas fa-check chk-check"></i></td>
+                        </tr>
+                        <tr>
+                            <td>ECG / X-Ray</td>
+                            <td><i class="fas fa-times chk-cross"></i></td>
+                            <td><i class="fas fa-check chk-check"></i></td>
+                            <td><i class="fas fa-check chk-check"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Ultrasound (USG)</td>
+                            <td><i class="fas fa-times chk-cross"></i></td>
+                            <td><i class="fas fa-times chk-cross"></i></td>
+                            <td><i class="fas fa-check chk-check"></i></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <section class="chk-section chk-checklist-section">
+        <div class="chk-container">
+            <div class="chk-checklist-grid">
+                <div class="fade-up">
+                    <h2>Are You Due for a Checkup?</h2>
+                    <p style="margin-bottom: 20px; color: #666;">If you check more than 2 boxes, it's time to book an appointment.</p>
+                    <div class="chk-checklist-box">
+                        <label class="chk-checklist-item"><input type="checkbox"> Has it been over a year since your last checkup?</label>
+                        <label class="chk-checklist-item"><input type="checkbox"> Do you feel tired or fatigued often?</label>
+                        <label class="chk-checklist-item"><input type="checkbox"> Is there a family history of
+                            diabetes/hypertension?</label>
+                        <label class="chk-checklist-item"><input type="checkbox"> Are you over 35 years old?</label>
+                        <label class="chk-checklist-item"><input type="checkbox"> Do you smoke or drink alcohol regularly?</label>
+                    </div>
+                </div>
+                <div class="fade-up">
+                    <img src="https://images.unsplash.com/photo-1576091160550-217358c7e618?auto=format&fit=crop&w=800&q=80" alt="Doctor"
+                        class="chk-checklist-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="chk-section">
+        <div class="chk-container">
+            <div class="chk-header fade-up">
+                <h2>How to Prepare</h2>
+            </div>
+            <div class="chk-steps-grid">
+                <div class="chk-step-item stagger-up">
+                    <div class="chk-step-icon"><i class="fas fa-ban"></i></div>
+                    <h4>1. Fasting</h4>
+                    <p style="font-size: 0.9rem; color: #666;">Do not eat for 8-10 hours before the test. Water is allowed.</p>
+                </div>
+                <div class="chk-step-item stagger-up">
+                    <div class="chk-step-icon"><i class="fas fa-calendar-check"></i></div>
+                    <h4>2. Appointment</h4>
+                    <p style="font-size: 0.9rem; color: #666;">Book your slot in advance to avoid waiting.</p>
+                </div>
+                <div class="chk-step-item stagger-up">
+                    <div class="chk-step-icon"><i class="fas fa-vial"></i></div>
+                    <h4>3. Sample</h4>
+                    <p style="font-size: 0.9rem; color: #666;">Provide blood/urine samples and undergo scans.</p>
+                </div>
+                <div class="chk-step-item stagger-up">
+                    <div class="chk-step-icon"><i class="fas fa-file-medical-alt"></i></div>
+                    <h4>4. Review</h4>
+                    <p style="font-size: 0.9rem; color: #666;">Consult with the doctor to understand your report.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="chk-section chk-corporate-section">
+        <div class="chk-container">
+            <div class="chk-corporate-grid">
+                <div class="chk-corporate-content fade-up">
+                    <span style="background: #fff; padding: 5px 15px; border-radius: 20px; font-weight: 700; color: var(--chk-primary);">For
+                        Businesses</span>
+                    <h2>Corporate Wellness Plans</h2>
+                    <p style="margin-bottom: 20px; color: #666;">Healthy employees are more productive. We offer tailored health check-up
+                        packages for companies of all sizes.</p>
+                    <ul class="chk-list chk-corporate-list">
+                        <li><i class="fas fa-check-circle"></i> On-site Health Camps</li>
+                        <li><i class="fas fa-check-circle"></i> Bulk Discounts</li>
+                        <li><i class="fas fa-check-circle"></i> Health Talks & Seminars</li>
+                    </ul>
+                    <a href="#" class="chk-btn">Inquire Now</a>
+                </div>
+                <div class="fade-up">
+                    <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=800&q=80"
+                        alt="Corporate Wellness" class="chk-corporate-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="chk-section chk-testimonials-section">
+        <div class="chk-container">
+            <div class="chk-header fade-up">
+                <h2>What Our Patients Say</h2>
+            </div>
+            <div class="chk-testimonial-grid">
+                <div class="chk-testimonial-card stagger-up">
+                    <p class="chk-testimonial-text">"The Master Health Checkup was thorough and efficient. The staff were friendly and
+                        guided me through every step."</p>
+                    <div class="chk-testimonial-user">
+                        <img src="https://i.pravatar.cc/150?img=32" alt="Patient" class="chk-testimonial-img">
+                        <div class="chk-testimonial-name">Daw Sandar</div>
+                    </div>
+                </div>
+                <div class="chk-testimonial-card stagger-up">
+                    <p class="chk-testimonial-text">"I bring my parents here for their annual checkups. The executive package covers
+                        everything they need."</p>
+                    <div class="chk-testimonial-user">
+                        <img src="https://i.pravatar.cc/150?img=11" alt="Patient" class="chk-testimonial-img">
+                        <div class="chk-testimonial-name">U Kyaw Moe</div>
+                    </div>
+                </div>
+                <div class="chk-testimonial-card stagger-up">
+                    <p class="chk-testimonial-text">"Great service for corporate checkups. Everything was organized perfectly for our team."
+                    </p>
+                    <div class="chk-testimonial-user">
+                        <img src="https://i.pravatar.cc/150?img=5" alt="Patient" class="chk-testimonial-img">
+                        <div class="chk-testimonial-name">Ma Thuzar</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="chk-section" style="background: #fff;">
+        <div class="chk-container">
+            <div class="chk-header fade-up">
+                <h2>FAQ</h2>
+            </div>
+            <div style="max-width: 800px; margin: 0 auto;" class="fade-up">
+                <div class="chk-faq-item">
+                    <div class="chk-faq-q">Can I drink alcohol the night before? <i class="fas fa-plus"></i></div>
+                    <div class="chk-faq-a">No, please avoid alcohol for at least 24 hours as it affects liver function tests and sugar
+                        levels.</div>
+                </div>
+                <div class="chk-faq-item">
+                    <div class="chk-faq-q">How long does the whole process take? <i class="fas fa-plus"></i></div>
+                    <div class="chk-faq-a">A standard package typically takes about 2-3 hours. Results are usually available the same
+                        evening or next day.</div>
+                </div>
+                <div class="chk-faq-item">
+                    <div class="chk-faq-q">Can I take my regular medication? <i class="fas fa-plus"></i></div>
+                    <div class="chk-faq-a">Yes, but please inform the doctor. For diabetes medication, do not take it before the fasting
+                        blood test.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="chk-container" style="margin-bottom: 80px;">
+        <div class="fade-up"
+            style="background: var(--chk-secondary); color: #fff; padding: 60px; border-radius: 30px; text-align: center; background-image: url('https://www.transparenttextures.com/patterns/cubes.png');">
+            <h2 style="color: #fff;">Book Your Slot Today</h2>
+            <p style="margin-bottom: 30px; opacity: 0.8;">Health is wealth. Don't delay your check-up.</p>
+            <a href="appointment.html" class="chk-btn" style="background: #fff; color: var(--chk-secondary);">Book Now</a>
+        </div>
+    </div>
+
+    <script>
+        // Tab Functionality
+        function openTab(evt, tabName) {
+            var i, x, tablinks;
+            x = document.getElementsByClassName("chk-pkg-grid");
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+                x[i].classList.remove("active");
+            }
+            tablinks = document.getElementsByClassName("chk-tab-btn");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "grid";
+            // Trigger animation
+            setTimeout(() => document.getElementById(tabName).classList.add("active"), 10);
+            evt.currentTarget.className += " active";
+        }
+
+        // Accordion
+        const faqItems = document.querySelectorAll('.chk-faq-item');
+        faqItems.forEach(item => {
+            item.querySelector('.chk-faq-q').addEventListener('click', () => {
+                item.classList.toggle('active');
+                const icon = item.querySelector('i');
+                const content = item.querySelector('.chk-faq-a');
+                if (item.classList.contains('active')) {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                    icon.classList.replace('fa-plus', 'fa-minus');
+                } else {
+                    content.style.maxHeight = 0;
+                    icon.classList.replace('fa-minus', 'fa-plus');
+                }
+            });
+        });
+
+        // GSAP Animations
+        document.addEventListener("DOMContentLoaded", function () {
+            gsap.registerPlugin(ScrollTrigger);
+            gsap.set(".fade-up, .stagger-up", { y: 30, opacity: 0 });
+
+            gsap.utils.toArray('.fade-up').forEach(el => {
+                gsap.to(el, {
+                    y: 0, opacity: 1, duration: 0.8, ease: "power2.out",
+                    scrollTrigger: { trigger: el, start: "top 85%" }
+                });
+            });
+
+            ScrollTrigger.batch(".stagger-up", {
+                start: "top 85%",
+                onEnter: batch => gsap.to(batch, {
+                    y: 0, opacity: 1, stagger: 0.15, duration: 0.6, ease: "power2.out", overwrite: true
+                }),
+                once: true
+            });
+        });
+    </script>
+</body>
+
+</html>

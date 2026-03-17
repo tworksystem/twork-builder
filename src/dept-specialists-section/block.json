@@ -1,0 +1,13 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "twork/dept-specialists-section",
+    "title": "Specialists Section",
+    "category": "twork-builder",
+    "parent": ["twork/dept-layout-section"],
+    "attributes": {
+        "sectionId": { "type": "string", "default": "specialists" },
+        "title": { "type": "string", "default": "Our Specialists" }
+    },
+    "editorScript": "file:./index.js"
+}

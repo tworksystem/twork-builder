@@ -1,0 +1,280 @@
+// Surgical Services Section – Editor, Front-end, Responsive
+// Matches general-surgery.html #services block
+
+$surgical-primary: #0093E9;
+$surgical-text-muted: #64748b;
+$surgical-list-color: #475569;
+
+// === EDITOR STYLES ===
+.editor-styles-wrapper,
+.block-editor-block-list__layout,
+.wp-block-twork-surgical-services-section {
+    .twork-surgical-services-section-editor {
+        .editor-label {
+            margin-bottom: 20px;
+        }
+
+        .surgical-section-label,
+        .surgical-section-title,
+        .surgical-section-description,
+        h4[contenteditable="true"],
+        h2[contenteditable="true"],
+        p[contenteditable="true"] {
+            &:focus {
+                outline: 1px dashed #2271b1;
+                outline-offset: 2px;
+            }
+        }
+
+        .doc-grid.twork-surgical-doc-grid {
+            display: grid !important;
+            grid-template-columns: repeat(auto-fit, minmax(var(--surgical-min-width, 320px), 1fr)) !important;
+            gap: var(--surgical-gap, 40px) !important;
+            width: 100% !important;
+
+            > .block-editor-inner-blocks {
+                display: contents !important;
+
+                > .block-editor-block-list__layout {
+                    display: contents !important;
+
+                    > .wp-block,
+                    > [data-type="twork/surgical-service-card"] {
+                        display: flex !important;
+                        flex-direction: column !important;
+                        min-height: 0;
+                        background: #fafafa;
+                        border: 2px dashed #e0e0e0;
+                        border-radius: 8px;
+                        overflow: hidden;
+                        position: relative;
+                        transition: all 0.2s ease;
+
+                        &:hover {
+                            background: #fff;
+                            border-color: #2271b1;
+                            box-shadow: 0 4px 12px rgba(34, 113, 177, 0.1);
+                        }
+
+                        &.is-selected {
+                            background: #fff;
+                            border-color: #2271b1;
+                            box-shadow: 0 0 0 1px #2271b1;
+                        }
+
+                        > .block-editor-block-list__block-edit,
+                        > .block-editor-block-list__block-edit > div {
+                            display: flex !important;
+                            flex: 1 !important;
+                            flex-direction: column !important;
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// === FRONTEND STYLES ===
+// Section header (text-center fade-up)
+.surgical-section-label,
+.twork-surgical-services-section-editor .text-center h4 {
+    color: $surgical-primary !important;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+}
+
+.surgical-section-title,
+.twork-surgical-services-section-editor .text-center h2 {
+    font-size: 2.5rem;
+    margin-top: 0;
+    margin-bottom: 12px;
+}
+
+.surgical-section-description,
+.twork-surgical-services-section-editor .text-center p {
+    color: $surgical-text-muted;
+    margin: 0;
+}
+
+// doc-grid (service cards grid)
+.twork-surgical-doc-grid.doc-grid,
+.doc-grid.twork-surgical-doc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
+}
+
+// service-card (from general-surgery)
+.service-card {
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    position: relative;
+    border: 1px solid #f1f5f9;
+
+    &:hover {
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
+        transform: translateY(-5px);
+    }
+}
+
+.service-content {
+    padding: 30px;
+    position: relative;
+    z-index: 1;
+}
+
+.service-icon-bg {
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    font-size: 8rem;
+    color: rgba(0, 147, 233, 0.05);
+    z-index: 0;
+    pointer-events: none;
+}
+
+.service-header {
+    position: relative;
+    z-index: 1;
+    margin-bottom: 15px;
+
+    i {
+        font-size: 2rem;
+        background: linear-gradient(135deg, #0093E9 0%, #80D0C7 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        display: inline-block;
+    }
+}
+
+.service-card h3 {
+    margin: 0 0 12px 0;
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #1e293b;
+}
+
+.service-card .service-content > p,
+.service-card .service-content .service-description {
+    color: $surgical-text-muted;
+    margin-bottom: 15px;
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+.service-card ul {
+    color: $surgical-list-color;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    padding-left: 20px;
+
+    li {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        margin-bottom: 6px;
+
+        i.fa-check {
+            color: $surgical-primary;
+            margin-right: 5px;
+            flex-shrink: 0;
+        }
+    }
+}
+
+.service-link {
+    display: inline-block;
+    margin-top: 15px;
+    font-weight: 600;
+    color: $surgical-primary;
+    position: relative;
+    text-decoration: none;
+    transition: color 0.3s ease;
+
+    &:hover {
+        color: darken($surgical-primary, 8%);
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -2px;
+        left: 0;
+        background-color: $surgical-primary;
+        transition: width 0.3s ease;
+    }
+}
+
+.service-card:hover .service-link::after {
+    width: 100%;
+}
+
+.service-link i {
+    font-size: 0.8rem;
+    margin-left: 4px;
+}
+
+// === RESPONSIVE ===
+@media (max-width: 992px) {
+    .doc-grid.twork-surgical-doc-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+
+    .service-content {
+        padding: 24px;
+    }
+}
+
+@media (max-width: 768px) {
+    .surgical-section-title,
+    .twork-surgical-services-section-editor .text-center h2 {
+        font-size: 2rem;
+    }
+
+    .doc-grid.twork-surgical-doc-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .service-card .service-content {
+        padding: 22px;
+    }
+
+    .service-card h3 {
+        font-size: 1.2rem;
+    }
+}
+
+// === ACCESSIBILITY ===
+.service-link:focus-visible {
+    outline: 3px solid $surgical-primary;
+    outline-offset: 2px;
+}
+
+.service-card:focus-within {
+    outline: 2px solid $surgical-primary;
+    outline-offset: 2px;
+}
+
+// === PRINT ===
+@media print {
+    .service-card {
+        box-shadow: none;
+        border: 1px solid #e2e8f0;
+        break-inside: avoid;
+    }
+
+    .service-link::after {
+        display: none;
+    }
+}

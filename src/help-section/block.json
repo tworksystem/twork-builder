@@ -1,0 +1,127 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "twork/help-section",
+    "version": "1.0.0",
+    "title": "Help Section",
+    "category": "twork-builder",
+    "icon": "editor-help",
+    "description": "How can we Care for you? Two-column section with intro text and booking card with department select.",
+    "keywords": ["help", "care", "booking", "appointment", "jivaka", "twork"],
+    "attributes": {
+        "metaTitle": {
+            "type": "string",
+            "default": "Your Trusted Healthcare Partner"
+        },
+        "mainTitleLine1": {
+            "type": "string",
+            "default": "How can we"
+        },
+        "mainTitleHighlight": {
+            "type": "string",
+            "default": "Care"
+        },
+        "mainTitleLine2": {
+            "type": "string",
+            "default": " for you?"
+        },
+        "mainDescription": {
+            "type": "string",
+            "default": "At Jivaka, we combine \"Caring with Compassion\" with state-of-the-art medical technology. Whether you need advanced treatment at our Centres of Excellence (Heart, Neuro, Cancer) or a routine Medical Check-up, we are dedicated to being the healthcare hub for you and your family in Mandalay."
+        },
+        "subText": {
+            "type": "string",
+            "default": "Experience our Smart Hospital services via the Jivaka Care App."
+        },
+        "iconClass": {
+            "type": "string",
+            "default": "fas fa-mobile-alt"
+        },
+        "bookingMetaTitle": {
+            "type": "string",
+            "default": "Easy Access"
+        },
+        "bookingTitle": {
+            "type": "string",
+            "default": "Book an Appointment"
+        },
+        "bookingDescription": {
+            "type": "string",
+            "default": "Skip the queue. Select a specialist department below to schedule your consultation with our expert doctors efficiently."
+        },
+        "selectOptions": {
+            "type": "array",
+            "default": [
+                { "value": "", "label": "Select Department" },
+                { "value": "cardio", "label": "Heart Centre (Cardiology)" },
+                { "value": "neuro", "label": "Neuro Centre" },
+                { "value": "cancer", "label": "Cancer Centre (Oncology)" },
+                { "value": "ortho", "label": "Orthopaedic & Rehab" },
+                { "value": "checkup", "label": "Medical Check-up Packages" },
+                { "value": "general", "label": "General Medicine" },
+                { "value": "peds", "label": "Paediatrics (Child Health)" },
+                { "value": "dental", "label": "Dental Clinic" }
+            ]
+        },
+        "selectName": {
+            "type": "string",
+            "default": "doctors"
+        },
+        "selectAriaLabel": {
+            "type": "string",
+            "default": "Select Department"
+        },
+        "backgroundColor": {
+            "type": "string",
+            "default": "#ffffff"
+        },
+        "paddingTop": {
+            "type": "number",
+            "default": 80
+        },
+        "paddingBottom": {
+            "type": "number",
+            "default": 80
+        },
+        "containerMaxWidth": {
+            "type": "number",
+            "default": 1200
+        },
+        "containerPadding": {
+            "type": "number",
+            "default": 30
+        },
+        "gridGap": {
+            "type": "number",
+            "default": 60
+        },
+        "highlightColor": {
+            "type": "string",
+            "default": "#f48b2a"
+        },
+        "cardBgColor": {
+            "type": "string",
+            "default": "#f7f7f7"
+        },
+        "cardBorderColor": {
+            "type": "string",
+            "default": "#e0e0e0"
+        },
+        "cardPadding": {
+            "type": "number",
+            "default": 40
+        },
+        "bookingTitleColor": {
+            "type": "string",
+            "default": "#f48b2a"
+        }
+    },
+    "supports": {
+        "html": false,
+        "anchor": true,
+        "align": ["wide", "full"]
+    },
+    "textdomain": "twork-builder",
+    "editorScript": "file:./index.js",
+    "style": "file:./style-index.css"
+}

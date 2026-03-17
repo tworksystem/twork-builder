@@ -1,0 +1,30 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "twork/csr-moments-gallery-item",
+    "title": "Moments Gallery Item",
+    "parent": ["twork/csr-moments-gallery-section"],
+    "category": "twork-builder",
+    "description": "Single gallery image for Moments of Care section.",
+    "keywords": ["gallery", "image", "photo", "moments", "csr", "twork"],
+    "attributes": {
+        "imageUrl": {
+            "type": "string",
+            "default": ""
+        },
+        "imageId": {
+            "type": "number"
+        },
+        "imageAlt": {
+            "type": "string",
+            "default": ""
+        },
+        "spanTwoColumns": {
+            "type": "boolean",
+            "default": false
+        }
+    },
+    "textdomain": "twork-builder",
+    "editorScript": "file:./index.js",
+    "style": "file:./style-index.css"
+}

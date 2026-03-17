@@ -1,0 +1,30 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "twork/hc-testimonials-section",
+    "version": "1.0.0",
+    "title": "Testimonials Section",
+    "category": "twork-builder",
+    "icon": "format-quote",
+    "description": "What Families Say: header + grid of testimonial cards. Matches home-care.html.",
+    "keywords": ["home care", "testimonials", "reviews", "quotes", "twork"],
+    "attributes": {
+        "backgroundColor": { "type": "string", "default": "#fafafa" },
+        "paddingTop": { "type": "number", "default": 60 },
+        "paddingBottom": { "type": "number", "default": 60 },
+        "containerMaxWidth": { "type": "number", "default": 1200 },
+        "containerPadding": { "type": "number", "default": 20 },
+        "showSectionTitle": { "type": "boolean", "default": true },
+        "sectionTitle": { "type": "string", "default": "What Families Say" },
+        "sectionSubtitle": { "type": "string", "default": "Real stories from our patients." },
+        "sectionTitleColor": { "type": "string", "default": "#212121" },
+        "sectionSubtitleColor": { "type": "string", "default": "#555555" },
+        "gap": { "type": "number", "default": 30 },
+        "animationOnScroll": { "type": "boolean", "default": true },
+        "animationType": { "type": "string", "default": "fade-up" }
+    },
+    "supports": { "html": false, "anchor": true, "align": ["wide", "full"] },
+    "textdomain": "twork-builder",
+    "editorScript": "file:./index.js",
+    "style": "file:./style-index.css"
+}

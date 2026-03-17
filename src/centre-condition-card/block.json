@@ -1,0 +1,20 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "twork/centre-condition-card",
+  "version": "1.0.0",
+  "title": "Condition Card",
+  "category": "twork-builder",
+  "parent": ["twork/centre-conditions-section"],
+  "attributes": {
+    "iconClass": { "type": "string", "default": "fas fa-heart-broken" },
+    "iconType": { "type": "string", "default": "fontawesome" },
+    "iconDashicon": { "type": "string", "default": "dashicons-heart" },
+    "iconImageUrl": { "type": "string", "default": "" },
+    "iconImageId": { "type": "number" },
+    "iconVideoUrl": { "type": "string", "default": "" },
+    "iconVideoId": { "type": "number" },
+    "title": { "type": "string", "default": "Coronary Artery Disease" }
+  },
+  "editorScript": "file:./index.js"
+}

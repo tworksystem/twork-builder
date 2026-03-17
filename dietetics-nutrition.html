@@ -1,0 +1,1185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dietetics & Nutrition | Jivaka Hospital</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <style>
+        /* --- CORE VARIABLES --- */
+        :root {
+            --nutri-primary: #f48b2a;
+            /* Jivaka Orange */
+            --nutri-secondary: #005f73;
+            /* Jivaka Teal */
+            --nutri-green: #2a9d8f;
+            /* Fresh Green accent */
+            --nutri-light: #fffcf8;
+            --nutri-white: #ffffff;
+            --nutri-text: #333;
+            --nutri-radius: 24px;
+            --nutri-shadow: 0 10px 30px rgba(0, 95, 115, 0.08);
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Roboto", sans-serif;
+            color: var(--nutri-text);
+            line-height: 1.6;
+            background: var(--nutri-white);
+            overflow-x: hidden;
+            opacity: 1;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            color: var(--nutri-secondary);
+            line-height: 1.2;
+            margin-top: 0;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: 0.3s;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nutri-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        .nutri-section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        /* Buttons */
+        .nutri-btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            background: var(--nutri-primary);
+            color: #fff;
+            transition: 0.3s;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(244, 139, 42, 0.3);
+        }
+
+        .nutri-btn:hover {
+            background: #d6701b;
+            transform: translateY(-3px);
+        }
+
+        .nutri-btn-white {
+            background: #fff;
+            color: var(--nutri-primary);
+        }
+
+        .nutri-btn-white:hover {
+            background: #f0f0f0;
+        }
+
+        /* --- 1. HERO SECTION --- */
+        .nutri-hero {
+            position: relative;
+            min-height: 700px;
+            display: flex;
+            align-items: center;
+            background: #fff;
+            overflow: hidden;
+        }
+
+        .nutri-hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 55%;
+            height: 100%;
+            background: linear-gradient(135deg, #fff8f0 0%, #fff 100%);
+            border-bottom-left-radius: 50% 100%;
+            z-index: 0;
+        }
+
+        .nutri-hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .nutri-hero-tag {
+            color: var(--nutri-primary);
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .nutri-hero h1 {
+            font-size: clamp(3rem, 5vw, 4rem);
+            font-weight: 900;
+            margin-bottom: 25px;
+        }
+
+        .nutri-hero p {
+            font-size: 1.15rem;
+            color: #666;
+            margin-bottom: 35px;
+            max-width: 500px;
+        }
+
+        .nutri-hero-img-box {
+            position: relative;
+        }
+
+        .nutri-hero-img {
+            width: 100%;
+            border-radius: 40px 0 40px 40px;
+            box-shadow: 20px 20px 0 var(--nutri-secondary);
+        }
+
+        .nutri-float-card {
+            position: absolute;
+            bottom: 30px;
+            left: -30px;
+            background: #fff;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: var(--nutri-shadow);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .nutri-float-icon {
+            width: 50px;
+            height: 50px;
+            background: #e0f2f1;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--nutri-secondary);
+            font-size: 1.5rem;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* --- 2. SERVICES --- */
+        .nutri-services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .nutri-svc-card {
+            background: #fff;
+            padding: 40px 30px;
+            border-radius: var(--nutri-radius);
+            text-align: center;
+            transition: 0.3s;
+            border: 1px solid #eee;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nutri-svc-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--nutri-shadow);
+            border-color: transparent;
+        }
+
+        .nutri-svc-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--nutri-primary);
+            transform: scaleX(0);
+            transition: 0.3s;
+            transform-origin: left;
+        }
+
+        .nutri-svc-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .nutri-svc-icon {
+            width: 70px;
+            height: 70px;
+            background: #fff8e1;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            color: var(--nutri-primary);
+            font-size: 2rem;
+            transition: 0.3s;
+        }
+
+        .nutri-svc-card:hover .nutri-svc-icon {
+            background: var(--nutri-primary);
+            color: #fff;
+        }
+
+        /* --- 3. BMI CALCULATOR --- */
+        .nutri-bmi-section {
+            background: var(--nutri-secondary);
+            color: #fff;
+            padding: 80px 0;
+        }
+
+        .nutri-bmi-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .nutri-bmi-form {
+            background: #fff;
+            padding: 40px;
+            border-radius: var(--nutri-radius);
+            color: #333;
+        }
+
+        .nutri-input-group {
+            margin-bottom: 20px;
+        }
+
+        .nutri-input-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .nutri-input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        .nutri-input:focus {
+            border-color: var(--nutri-primary);
+        }
+
+        .nutri-bmi-result {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f0fdf4;
+            border-radius: 8px;
+            text-align: center;
+            display: none;
+        }
+
+        .nutri-bmi-result h3 {
+            color: var(--nutri-secondary);
+            margin: 0;
+            font-size: 1.5rem;
+        }
+
+        .nutri-bmi-result p {
+            margin: 5px 0 0;
+            color: #166534;
+            font-weight: 600;
+        }
+
+        /* --- 4. SUCCESS STORIES (NEW SECTION - Green Theme) --- */
+        .nutri-success-section {
+            background: var(--nutri-green);
+            color: #fff;
+        }
+
+        .nutri-success-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .nutri-story-card {
+            background: #fff;
+            padding: 40px 30px;
+            border-radius: 20px;
+            color: #555;
+            position: relative;
+        }
+
+        .nutri-story-card::after {
+            content: '\f10e';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            font-size: 3rem;
+            color: #f0f0f0;
+            z-index: 0;
+        }
+
+        .nutri-story-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .nutri-story-stats {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            font-weight: 700;
+            color: var(--nutri-secondary);
+        }
+
+        .nutri-stat-pill {
+            background: #e0f2f1;
+            padding: 5px 15px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+        }
+
+        .nutri-story-user {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .nutri-story-user img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        /* --- 5. DIET PLANS --- */
+        .nutri-plan-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .nutri-plan-card {
+            background: #fff;
+            border-radius: var(--nutri-radius);
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+            border: 1px solid #f0f0f0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .nutri-plan-header {
+            background: #fff;
+            padding: 30px;
+            text-align: center;
+            border-bottom: 1px dashed #ddd;
+        }
+
+        .nutri-plan-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--nutri-secondary);
+        }
+
+        .nutri-plan-price {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--nutri-primary);
+        }
+
+        .nutri-plan-body {
+            padding: 30px;
+            flex-grow: 1;
+        }
+
+        .nutri-plan-list li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #555;
+        }
+
+        .nutri-plan-list i {
+            color: #27ae60;
+        }
+
+        /* --- 6. PROCESS --- */
+        .nutri-process-wrapper {
+            text-align: center;
+            position: relative;
+        }
+
+        .nutri-process-steps {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-top: 50px;
+        }
+
+        .nutri-step {
+            flex: 1;
+            min-width: 200px;
+            max-width: 250px;
+            position: relative;
+        }
+
+        .nutri-step-circle {
+            width: 100px;
+            height: 100px;
+            background: #fff;
+            border: 3px solid var(--nutri-secondary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 2rem;
+            color: var(--nutri-secondary);
+            transition: 0.3s;
+            position: relative;
+            z-index: 2;
+        }
+
+        .nutri-step:hover .nutri-step-circle {
+            background: var(--nutri-secondary);
+            color: #fff;
+        }
+
+        .nutri-step h4 {
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        /* --- 7. NUTRITION TIPS (NEW SECTION - Card Grid) --- */
+        .nutri-tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .nutri-tip-card {
+            background: #fff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--nutri-shadow);
+            transition: 0.3s;
+        }
+
+        .nutri-tip-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .nutri-tip-img {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .nutri-tip-content {
+            padding: 25px;
+        }
+
+        .nutri-tip-tag {
+            color: var(--nutri-green);
+            font-weight: 700;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .nutri-tip-content h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .nutri-tip-content p {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 0;
+        }
+
+        /* --- 8. TEAM --- */
+        .nutri-team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+        }
+
+        .nutri-team-card {
+            text-align: center;
+            background: #fff;
+            padding: 30px;
+            border-radius: var(--nutri-radius);
+            transition: 0.3s;
+            border: 1px solid #eee;
+        }
+
+        .nutri-team-card:hover {
+            border-color: var(--nutri-primary);
+            box-shadow: var(--nutri-shadow);
+        }
+
+        .nutri-team-img {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 20px;
+            border: 4px solid var(--nutri-light);
+        }
+
+        /* --- 9. CORPORATE WELLNESS (NEW SECTION - Split Layout) --- */
+        .nutri-corp-section {
+            padding-bottom: 0;
+        }
+
+        .nutri-corp-banner {
+            background: #fdf2e9;
+            border-radius: 30px;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+        }
+
+        .nutri-corp-content {
+            padding: 60px;
+        }
+
+        .nutri-corp-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            min-height: 400px;
+        }
+
+        .nutri-corp-list {
+            list-style: none;
+            margin: 20px 0 30px;
+        }
+
+        .nutri-corp-list li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nutri-corp-list i {
+            color: var(--nutri-primary);
+        }
+
+        /* --- 10. FAQ --- */
+        .nutri-faq-item {
+            background: #fff;
+            border-bottom: 1px solid #eee;
+            margin-bottom: 10px;
+            padding: 15px 20px;
+        }
+
+        .nutri-faq-q {
+            cursor: pointer;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nutri-faq-a {
+            max-height: 0;
+            overflow: hidden;
+            transition: 0.3s;
+            color: #666;
+            margin-top: 0;
+        }
+
+        .nutri-faq-item.active .nutri-faq-a {
+            max-height: 200px;
+            margin-top: 15px;
+        }
+
+        .nutri-faq-item.active .nutri-faq-q {
+            color: var(--nutri-primary);
+        }
+
+        .fade-up,
+        .stagger-up {
+            opacity: 1;
+        }
+
+        .nutri-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+        }
+
+        .nutri-header h2 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 15px;
+        }
+
+        .nutri-header p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        @media (max-width: 992px) {
+
+            .nutri-hero-grid,
+            .nutri-bmi-grid,
+            .nutri-corp-banner {
+                grid-template-columns: 1fr;
+            }
+
+            .nutri-hero-img {
+                width: 80%;
+                margin: 0 auto;
+                border-radius: 20px;
+            }
+
+            .nutri-hero-tag {
+                justify-content: center;
+            }
+
+            .nutri-hero p,
+            .nutri-hero h1 {
+                text-align: center;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .nutri-hero::after {
+                display: none;
+            }
+
+            .nutri-float-card {
+                left: 50%;
+                transform: translateX(-50%);
+                bottom: -20px;
+                width: max-content;
+            }
+
+            .nutri-corp-img {
+                height: 250px;
+                min-height: auto;
+                order: -1;
+            }
+
+            .nutri-corp-content {
+                padding: 40px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="nutri-hero">
+        <div class="nutri-container">
+            <div class="nutri-hero-grid">
+                <div class="fade-up">
+                    <span class="nutri-hero-tag"><i class="fas fa-leaf"></i> Eat Better, Live Better</span>
+                    <h1>Personalized Nutrition<br>for a Healthier You.</h1>
+                    <p>Our certified dietitians create medical nutrition therapy plans tailored to your specific health needs, from diabetes
+                        management to weight loss.</p>
+                    <div style="display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; justify-self: start;">
+                        <a href="#plans" class="nutri-btn">View Diet Plans</a>
+                        <a href="#bmi" class="nutri-btn"
+                            style="background: #fff; color: var(--nutri-secondary); border: 2px solid var(--nutri-secondary);">Check BMI</a>
+                    </div>
+                </div>
+                <div class="nutri-hero-img-box fade-up">
+                    <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        alt="Healthy Food" class="nutri-hero-img">
+                    <div class="nutri-float-card">
+                        <div class="nutri-float-icon"><i class="fas fa-apple-alt"></i></div>
+                        <div>
+                            <strong style="display: block; color: var(--nutri-secondary);">100%</strong>
+                            <small style="color: #666;">Customized Plans</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="nutri-section">
+        <div class="nutri-container">
+            <div class="nutri-header fade-up">
+                <h2>Clinical Nutrition Services</h2>
+                <p>We use food as medicine to treat and prevent diseases.</p>
+            </div>
+            <div class="nutri-services-grid">
+                <div class="nutri-svc-card stagger-up">
+                    <div class="nutri-svc-icon"><i class="fas fa-weight"></i></div>
+                    <h3>Weight Management</h3>
+                    <p>Scientific approach to weight loss or gain without starving.</p>
+                </div>
+                <div class="nutri-svc-card stagger-up">
+                    <div class="nutri-svc-icon"><i class="fas fa-tint"></i></div>
+                    <h3>Diabetes Care</h3>
+                    <p>Meal planning to control blood sugar levels effectively.</p>
+                </div>
+                <div class="nutri-svc-card stagger-up">
+                    <div class="nutri-svc-icon"><i class="fas fa-baby"></i></div>
+                    <h3>Pediatric Nutrition</h3>
+                    <p>Healthy growth plans for picky eaters and growing children.</p>
+                </div>
+                <div class="nutri-svc-card stagger-up">
+                    <div class="nutri-svc-icon"><i class="fas fa-heartbeat"></i></div>
+                    <h3>Cardiac Diet</h3>
+                    <p>Heart-healthy foods to manage cholesterol and blood pressure.</p>
+                </div>
+                <div class="nutri-svc-card stagger-up">
+                    <div class="nutri-svc-icon"><i class="fas fa-hospital-user"></i></div>
+                    <h3>Enteral Nutrition</h3>
+                    <p>Specialized tube feeding support for hospitalized patients.</p>
+                </div>
+                <div class="nutri-svc-card stagger-up">
+                    <div class="nutri-svc-icon"><i class="fas fa-running"></i></div>
+                    <h3>Sports Nutrition</h3>
+                    <p>Performance boosting diet for athletes and active individuals.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="nutri-section nutri-bmi-section" id="bmi">
+        <div class="nutri-container">
+            <div class="nutri-bmi-grid">
+                <div class="fade-up">
+                    <h2 style="color: #fff; margin-bottom: 20px;">What's Your BMI?</h2>
+                    <p style="opacity: 0.9; margin-bottom: 30px;">
+                        Body Mass Index (BMI) is a simple index of weight-for-height that is commonly used to classify underweight,
+                        overweight and obesity in adults.
+                    </p>
+                    <ul style="list-style: none; padding: 0; opacity: 0.9;">
+                        <li style="margin-bottom: 10px;"><i class="fas fa-check-circle"></i> Underweight: < 18.5</li>
+                        <li style="margin-bottom: 10px;"><i class="fas fa-check-circle"></i> Normal: 18.5 – 24.9</li>
+                        <li style="margin-bottom: 10px;"><i class="fas fa-check-circle"></i> Overweight: 25 – 29.9</li>
+                        <li><i class="fas fa-check-circle"></i> Obese: 30 or greater</li>
+                    </ul>
+                </div>
+                <div class="nutri-bmi-form fade-up">
+                    <div class="nutri-input-group">
+                        <label class="nutri-input-label">Weight (kg)</label>
+                        <input type="number" id="weight" class="nutri-input" placeholder="e.g. 60">
+                    </div>
+                    <div class="nutri-input-group">
+                        <label class="nutri-input-label">Height (cm)</label>
+                        <input type="number" id="height" class="nutri-input" placeholder="e.g. 170">
+                    </div>
+                    <button onclick="calculateBMI()" class="nutri-btn" style="width: 100%;">Calculate Now</button>
+
+                    <div id="bmi-result" class="nutri-bmi-result">
+                        <h3>Your BMI: <span id="bmi-val"></span></h3>
+                        <p id="bmi-msg"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="nutri-section nutri-success-section">
+        <div class="nutri-container">
+            <div class="nutri-header fade-up">
+                <h2 style="color: #fff;">Real Patient Results</h2>
+                <p style="color: rgba(255,255,255,0.8);">Success stories from people who changed their lives through nutrition.</p>
+            </div>
+            <div class="nutri-success-grid">
+                <div class="nutri-story-card stagger-up">
+                    <div class="nutri-story-content">
+                        <div class="nutri-story-stats">
+                            <span class="nutri-stat-pill">Weight Loss</span>
+                            <span class="nutri-stat-pill">-15kg</span>
+                        </div>
+                        <p>"I never thought I could lose weight without giving up my favorite curries. The diet plan was so easy to follow!"
+                        </p>
+                        <div class="nutri-story-user">
+                            <img src="https://i.pravatar.cc/100?img=12" alt="User">
+                            <div><strong>Ko Aung Kyaw</strong><br><small>3 Months Program</small></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="nutri-story-card stagger-up">
+                    <div class="nutri-story-content">
+                        <div class="nutri-story-stats">
+                            <span class="nutri-stat-pill">Diabetes</span>
+                            <span class="nutri-stat-pill">Hba1c 6.5%</span>
+                        </div>
+                        <p>"My sugar levels are finally under control without increasing medication. The food education was life-changing."
+                        </p>
+                        <div class="nutri-story-user">
+                            <img src="https://i.pravatar.cc/100?img=5" alt="User">
+                            <div><strong>Daw Hla</strong><br><small>Diabetes Care</small></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="nutri-story-card stagger-up">
+                    <div class="nutri-story-content">
+                        <div class="nutri-story-stats">
+                            <span class="nutri-stat-pill">Energy</span>
+                            <span class="nutri-stat-pill">Active</span>
+                        </div>
+                        <p>"I used to feel tired all the time. After changing my diet, I have energy to play with my grandkids again."</p>
+                        <div class="nutri-story-user">
+                            <img src="https://i.pravatar.cc/100?img=3" alt="User">
+                            <div><strong>U Mya</strong><br><small>Wellness Plan</small></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="nutri-section" id="plans">
+        <div class="nutri-container">
+            <div class="nutri-header fade-up">
+                <h2>Consultation Packages</h2>
+            </div>
+            <div class="nutri-plan-grid">
+                <div class="nutri-plan-card stagger-up">
+                    <div class="nutri-plan-header">
+                        <div class="nutri-plan-title">One-Time Consult</div>
+                        <div class="nutri-plan-price">15,000 <small style="font-size: 1rem; font-weight: 400; color: #666;">MMK</small>
+                        </div>
+                    </div>
+                    <div class="nutri-plan-body">
+                        <ul class="nutri-plan-list">
+                            <li><i class="fas fa-check"></i> Initial Assessment (45 mins)</li>
+                            <li><i class="fas fa-check"></i> Body Composition Analysis</li>
+                            <li><i class="fas fa-check"></i> Basic Meal Guidelines</li>
+                            <li><i class="fas fa-times" style="color: #ccc;"></i> Personalized Meal Plan</li>
+                        </ul>
+                        <a href="#" class="nutri-btn" style="width: 100%; text-align: center; margin-top: 20px;">Book Now</a>
+                    </div>
+                </div>
+
+                <div class="nutri-plan-card stagger-up" style="border: 2px solid var(--nutri-primary); transform: scale(1.02);">
+                    <div class="nutri-plan-header" style="background: var(--nutri-primary); color: #fff;">
+                        <div class="nutri-plan-title" style="color: #fff;">4-Week Transformation</div>
+                        <div class="nutri-plan-price" style="color: #fff;">50,000 <small
+                                style="font-size: 1rem; font-weight: 400; color: #eee;">MMK</small></div>
+                    </div>
+                    <div class="nutri-plan-body">
+                        <ul class="nutri-plan-list">
+                            <li><i class="fas fa-check"></i> Initial Assessment</li>
+                            <li><i class="fas fa-check"></i> Weekly Follow-ups</li>
+                            <li><i class="fas fa-check"></i> <strong>7-Day Personalized Meal Plan</strong></li>
+                            <li><i class="fas fa-check"></i> Grocery Shopping Guide</li>
+                        </ul>
+                        <a href="#" class="nutri-btn" style="width: 100%; text-align: center; margin-top: 20px;">Book Now</a>
+                    </div>
+                </div>
+
+                <div class="nutri-plan-card stagger-up">
+                    <div class="nutri-plan-header">
+                        <div class="nutri-plan-title">Disease Management</div>
+                        <div class="nutri-plan-price">30,000 <small style="font-size: 1rem; font-weight: 400; color: #666;">MMK</small>
+                        </div>
+                    </div>
+                    <div class="nutri-plan-body">
+                        <ul class="nutri-plan-list">
+                            <li><i class="fas fa-check"></i> For Diabetes/Renal/Cardiac</li>
+                            <li><i class="fas fa-check"></i> Detailed Nutrient Analysis</li>
+                            <li><i class="fas fa-check"></i> Coordination with Doctor</li>
+                            <li><i class="fas fa-check"></i> 1 Follow-up Session</li>
+                        </ul>
+                        <a href="#" class="nutri-btn" style="width: 100%; text-align: center; margin-top: 20px;">Book Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="nutri-section" style="background: #fafafa;">
+        <div class="nutri-container">
+            <div class="nutri-header fade-up">
+                <h2>Our Approach</h2>
+                <p>We don't believe in fad diets. We believe in lifestyle changes.</p>
+            </div>
+            <div class="nutri-process-steps">
+                <div class="nutri-step stagger-up">
+                    <div class="nutri-step-circle"><i class="fas fa-search"></i></div>
+                    <h4>1. Assess</h4>
+                    <p style="font-size: 0.9rem; color: #666;">Review medical history and eating habits.</p>
+                </div>
+                <div class="nutri-step stagger-up">
+                    <div class="nutri-step-circle"><i class="fas fa-clipboard-list"></i></div>
+                    <h4>2. Plan</h4>
+                    <p style="font-size: 0.9rem; color: #666;">Create a realistic and tasty meal plan.</p>
+                </div>
+                <div class="nutri-step stagger-up">
+                    <div class="nutri-step-circle"><i class="fas fa-utensils"></i></div>
+                    <h4>3. Action</h4>
+                    <p style="font-size: 0.9rem; color: #666;">Implement changes with guided support.</p>
+                </div>
+                <div class="nutri-step stagger-up">
+                    <div class="nutri-step-circle"><i class="fas fa-smile"></i></div>
+                    <h4>4. Result</h4>
+                    <p style="font-size: 0.9rem; color: #666;">Monitor progress and adjust for long-term health.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="nutri-section">
+        <div class="nutri-container">
+            <div class="nutri-header fade-up">
+                <h2>Healthy Living Tips</h2>
+                <p>Simple changes for a big impact.</p>
+            </div>
+            <div class="nutri-tips-grid">
+                <div class="nutri-tip-card stagger-up">
+                    <img src="https://images.unsplash.com/photo-1543362906-ac1b4f87eec6?auto=format&fit=crop&w=600&q=80" alt="Water"
+                        class="nutri-tip-img">
+                    <div class="nutri-tip-content">
+                        <span class="nutri-tip-tag">Hydration</span>
+                        <h3>Drink Before You Eat</h3>
+                        <p>Drinking a glass of water 30 minutes before a meal can help digestion and reduce overeating.</p>
+                    </div>
+                </div>
+                <div class="nutri-tip-card stagger-up">
+                    <img src="https://images.unsplash.com/photo-1615486511484-92e172cc4fe0?auto=format&fit=crop&w=600&q=80" alt="Fruit"
+                        class="nutri-tip-img">
+                    <div class="nutri-tip-content">
+                        <span class="nutri-tip-tag">Snacking</span>
+                        <h3>Smart Snacking</h3>
+                        <p>Replace biscuits with nuts or fruits. They provide sustained energy instead of a sugar crash.</p>
+                    </div>
+                </div>
+                <div class="nutri-tip-card stagger-up">
+                    <img src="https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?auto=format&fit=crop&w=600&q=80" alt="Sugar"
+                        class="nutri-tip-img">
+                    <div class="nutri-tip-content">
+                        <span class="nutri-tip-tag">Sugar</span>
+                        <h3>Hidden Sugars</h3>
+                        <p>Read labels. Sauces, drinks, and 'healthy' bars often contain more sugar than you think.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="nutri-section">
+        <div class="nutri-container">
+            <div class="nutri-header fade-up">
+                <h2>Meet Our Nutritionists</h2>
+            </div>
+            <div class="nutri-team-grid">
+                <div class="nutri-team-card stagger-up">
+                    <img src="https://jivakahospital.com/wp-content/uploads/2025/12/img-team-member-03.jpg" class="nutri-team-img"
+                        alt="Dietitian">
+                    <h4>Dr. Thida</h4>
+                    <p style="color: var(--nutri-primary);">Clinical Dietitian</p>
+                    <p style="font-size: 0.9rem; color: #666;">Diabetes Specialist</p>
+                </div>
+                <div class="nutri-team-card stagger-up">
+                    <img src="https://i.pravatar.cc/400?img=5" class="nutri-team-img" alt="Dietitian">
+                    <h4>Daw Ei Ei</h4>
+                    <p style="color: var(--nutri-primary);">Nutritionist</p>
+                    <p style="font-size: 0.9rem; color: #666;">Weight Management</p>
+                </div>
+                <div class="nutri-team-card stagger-up">
+                    <img src="https://i.pravatar.cc/400?img=9" class="nutri-team-img" alt="Dietitian">
+                    <h4>Daw Mon Mon</h4>
+                    <p style="color: var(--nutri-primary);">Pediatric Nutritionist</p>
+                    <p style="font-size: 0.9rem; color: #666;">Child Growth</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="nutri-section nutri-corp-section">
+        <div class="nutri-container">
+            <div class="nutri-corp-banner fade-up">
+                <div class="nutri-corp-content">
+                    <span
+                        style="background: #fff; padding: 5px 15px; border-radius: 20px; font-weight: 700; color: var(--nutri-primary);">For
+                        Companies</span>
+                    <h2 style="font-size: 2.2rem; margin: 20px 0;">Corporate Wellness Programs</h2>
+                    <p>Healthy employees are happy employees. We offer workshops and health checks for your team.</p>
+                    <ul class="nutri-corp-list">
+                        <li><i class="fas fa-check-circle"></i> On-site Nutrition Workshops</li>
+                        <li><i class="fas fa-check-circle"></i> Canteen Menu Planning</li>
+                        <li><i class="fas fa-check-circle"></i> Group Weight Loss Challenges</li>
+                    </ul>
+                    <a href="#" class="nutri-btn">Enquire Now</a>
+                </div>
+                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80" alt="Corporate"
+                    class="nutri-corp-img">
+            </div>
+        </div>
+    </section>
+
+    <section class="nutri-section" style="background: #fff8f0; margin-top: 80px;">
+        <div class="nutri-container">
+            <div class="nutri-header fade-up">
+                <h2>Common Questions</h2>
+            </div>
+            <div style="max-width: 700px; margin: 0 auto;" class="fade-up">
+                <div class="nutri-faq-item">
+                    <div class="nutri-faq-q">Do I have to stop eating rice? <i class="fas fa-plus"></i></div>
+                    <div class="nutri-faq-a">No! We believe in balanced portions. We will teach you how to enjoy rice while managing your
+                        weight or sugar levels.</div>
+                </div>
+                <div class="nutri-faq-item">
+                    <div class="nutri-faq-q">Are the meal plans expensive? <i class="fas fa-plus"></i></div>
+                    <div class="nutri-faq-a">We focus on locally available, affordable foods. You don't need expensive imported ingredients.
+                    </div>
+                </div>
+                <div class="nutri-faq-item">
+                    <div class="nutri-faq-q">How often should I visit? <i class="fas fa-plus"></i></div>
+                    <div class="nutri-faq-a">For best results, we recommend a follow-up every 2 weeks initially to track progress and adjust
+                        the plan.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="nutri-container" style="margin-bottom: 80px;">
+        <div style="background: var(--nutri-secondary); color: #fff; padding: 60px; border-radius: 30px; text-align: center;"
+            class="fade-up">
+            <h2>Eat Right, Feel Bright.</h2>
+            <p style="margin-bottom: 30px; opacity: 0.9;">Book a consultation today and start your journey to better health.</p>
+            <a href="tel:0912345678" class="nutri-btn">Make an Appointment</a>
+        </div>
+    </div>
+
+    <script>
+        // BMI Calculator Logic
+        function calculateBMI() {
+            const weight = document.getElementById('weight').value;
+            const height = document.getElementById('height').value;
+            const resultBox = document.getElementById('bmi-result');
+            const valSpan = document.getElementById('bmi-val');
+            const msgSpan = document.getElementById('bmi-msg');
+
+            if (weight && height) {
+                const heightInMeters = height / 100;
+                const bmi = (weight / (heightInMeters * heightInMeters)).toFixed(1);
+
+                let msg = "";
+                let color = "";
+
+                if (bmi < 18.5) { msg = "Underweight"; color = "#f39c12"; }
+                else if (bmi >= 18.5 && bmi <= 24.9) { msg = "Normal Weight"; color = "#2ecc71"; }
+                else if (bmi >= 25 && bmi <= 29.9) { msg = "Overweight"; color = "#e67e22"; }
+                else { msg = "Obese"; color = "#c0392b"; }
+
+                valSpan.textContent = bmi;
+                msgSpan.textContent = msg;
+                msgSpan.style.color = color;
+                resultBox.style.display = "block";
+            } else {
+                alert("Please enter both weight and height!");
+            }
+        }
+
+        // Accordion
+        const faqItems = document.querySelectorAll('.nutri-faq-item');
+        faqItems.forEach(item => {
+            item.querySelector('.nutri-faq-q').addEventListener('click', () => {
+                item.classList.toggle('active');
+                const icon = item.querySelector('i');
+                const content = item.querySelector('.nutri-faq-a');
+                if (item.classList.contains('active')) {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                    icon.classList.replace('fa-plus', 'fa-minus');
+                } else {
+                    content.style.maxHeight = 0;
+                    icon.classList.replace('fa-minus', 'fa-plus');
+                }
+            });
+        });
+
+        // GSAP Animations
+        document.addEventListener("DOMContentLoaded", function () {
+            gsap.registerPlugin(ScrollTrigger);
+            gsap.set(".fade-up, .stagger-up", { y: 30, opacity: 0 });
+
+            gsap.utils.toArray('.fade-up').forEach(el => {
+                gsap.to(el, {
+                    y: 0, opacity: 1, duration: 0.8, ease: "power2.out",
+                    scrollTrigger: { trigger: el, start: "top 85%" }
+                });
+            });
+
+            ScrollTrigger.batch(".stagger-up", {
+                start: "top 85%",
+                onEnter: batch => gsap.to(batch, {
+                    y: 0, opacity: 1, stagger: 0.15, duration: 0.6, ease: "power2.out", overwrite: true
+                }),
+                once: true
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,135 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "twork/insurance-partners-section",
+    "title": "Insurance Partners Section",
+    "category": "twork-builder",
+    "description": "Insurance partners grid section with customizable cards for patient guide.",
+    "keywords": ["insurance", "partners", "patient", "guide", "hospital", "twork"],
+    "icon": "shield",
+    "attributes": {
+        "backgroundColor": {
+            "type": "string",
+            "default": "#ffffff"
+        },
+        "backgroundImage": {
+            "type": "string",
+            "default": ""
+        },
+        "backgroundImageId": {
+            "type": "number"
+        },
+        "backgroundOverlay": {
+            "type": "boolean",
+            "default": false
+        },
+        "backgroundOverlayColor": {
+            "type": "string",
+            "default": "rgba(0, 0, 0, 0.5)"
+        },
+        "backgroundOverlayOpacity": {
+            "type": "number",
+            "default": 0.5
+        },
+        "paddingTop": {
+            "type": "number",
+            "default": 80
+        },
+        "paddingBottom": {
+            "type": "number",
+            "default": 80
+        },
+        "columns": {
+            "type": "number",
+            "default": 4
+        },
+        "columnsTablet": {
+            "type": "number",
+            "default": 3
+        },
+        "columnsMobile": {
+            "type": "number",
+            "default": 2
+        },
+        "gap": {
+            "type": "number",
+            "default": 20
+        },
+        "gridMarginTop": {
+            "type": "number",
+            "default": 40
+        },
+        "showSectionTitle": {
+            "type": "boolean",
+            "default": true
+        },
+        "sectionTitle": {
+            "type": "string",
+            "default": "Insurance Partners"
+        },
+        "sectionTitleColor": {
+            "type": "string",
+            "default": "#212121"
+        },
+        "sectionTitleFontSize": {
+            "type": "number",
+            "default": 2.2
+        },
+        "sectionTitleFontWeight": {
+            "type": "number",
+            "default": 700
+        },
+        "sectionTitleAlignment": {
+            "type": "string",
+            "default": "center"
+        },
+        "showSectionSubtitle": {
+            "type": "boolean",
+            "default": true
+        },
+        "sectionSubtitle": {
+            "type": "string",
+            "default": "We accept cashless payments from leading insurance providers."
+        },
+        "sectionSubtitleColor": {
+            "type": "string",
+            "default": "#666666"
+        },
+        "sectionSubtitleFontSize": {
+            "type": "number",
+            "default": 1.05
+        },
+        "sectionHeaderMaxWidth": {
+            "type": "number",
+            "default": 700
+        },
+        "sectionHeaderMarginBottom": {
+            "type": "number",
+            "default": 20
+        },
+        "containerMaxWidth": {
+            "type": "number",
+            "default": 1200
+        },
+        "containerPadding": {
+            "type": "number",
+            "default": 20
+        },
+        "hoverEffect": {
+            "type": "boolean",
+            "default": true
+        },
+        "hoverTranslateY": {
+            "type": "number",
+            "default": -5
+        }
+    },
+    "supports": {
+        "html": false,
+        "anchor": true,
+        "align": ["wide", "full"]
+    },
+    "textdomain": "twork-builder",
+    "editorScript": "file:./index.js",
+    "style": "file:./style-index.css"
+}

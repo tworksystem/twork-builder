@@ -1,0 +1,22 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "twork/affiliation-logo-item",
+  "title": "Logo Item",
+  "parent": ["twork/affiliations-section"],
+  "description": "Single partner/affiliation logo for the affiliations section.",
+  "keywords": ["affiliation", "partner", "logo", "twork"],
+  "attributes": {
+    "logoUrl": { "type": "string", "default": "" },
+    "logoId": { "type": "number" },
+    "logoAlt": { "type": "string", "default": "" },
+    "logoWidth": { "type": "number", "default": 0 },
+    "logoHeight": { "type": "number", "default": 0 },
+    "linkUrl": { "type": "string", "default": "" },
+    "linkTarget": { "type": "string", "default": "_blank" },
+    "linkRel": { "type": "string", "default": "noopener noreferrer" }
+  },
+  "textdomain": "twork-builder",
+  "editorScript": "file:./index.js",
+  "style": "file:./style-index.css"
+}

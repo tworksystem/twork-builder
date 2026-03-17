@@ -1,0 +1,101 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "twork/info-cards-section",
+  "title": "Info Cards Section",
+  "category": "twork-builder",
+  "icon": "phone",
+  "description": "Responsive contact/info cards grid with accent icons and CTAs, matching contact.html design.",
+  "keywords": ["contact", "info", "card", "cta", "twork"],
+  "attributes": {
+    "showSectionHeader": {
+      "type": "boolean",
+      "default": true
+    },
+    "sectionTitle": {
+      "type": "string",
+      "default": "Contact & Information"
+    },
+    "showSectionDescription": {
+      "type": "boolean",
+      "default": true
+    },
+    "sectionDescription": {
+      "type": "string",
+      "default": "Get in touch or find what you need."
+    },
+    "headerAlign": {
+      "type": "string",
+      "default": "center"
+    },
+    "backgroundColor": {
+      "type": "string",
+      "default": "#ffffff"
+    },
+    "paddingTop": {
+      "type": "number",
+      "default": 60
+    },
+    "paddingBottom": {
+      "type": "number",
+      "default": 60
+    },
+    "containerMaxWidth": {
+      "type": "number",
+      "default": 1100
+    },
+    "containerPadding": {
+      "type": "number",
+      "default": 20
+    },
+    "columns": {
+      "type": "number",
+      "default": 3
+    },
+    "columnsTablet": {
+      "type": "number",
+      "default": 2
+    },
+    "columnsMobile": {
+      "type": "number",
+      "default": 1
+    },
+    "gap": {
+      "type": "number",
+      "default": 24
+    },
+    "accentColor": {
+      "type": "string",
+      "default": "#dc3545"
+    },
+    "iconColor": {
+      "type": "string",
+      "default": "#dc3545"
+    },
+    "iconBackground": {
+      "type": "string",
+      "default": "#fff2e8"
+    },
+    "animationOnScroll": {
+      "type": "boolean",
+      "default": true
+    },
+    "animationDelay": {
+      "type": "number",
+      "default": 120
+    },
+    "animationType": {
+      "type": "string",
+      "default": "fadeInUp"
+    }
+  },
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "align": ["wide", "full"]
+  },
+  "textdomain": "twork-builder",
+  "editorScript": "file:./index.js",
+  "style": "file:./style-index.css",
+  "editorStyle": "file:./style-index.css"
+}

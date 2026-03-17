@@ -1,0 +1,99 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "twork/rad-process-section",
+  "version": "1.0.0",
+  "title": "Process Section",
+  "category": "twork-builder",
+  "icon": "yes-alt",
+  "description": "Radiology visit workflow section with numbered process steps.",
+  "keywords": [
+    "radiology",
+    "process",
+    "workflow",
+    "steps",
+    "twork"
+  ],
+  "attributes": {
+    "backgroundColor": {
+      "type": "string",
+      "default": "#fafafa"
+    },
+    "paddingTop": {
+      "type": "number",
+      "default": 80
+    },
+    "paddingBottom": {
+      "type": "number",
+      "default": 80
+    },
+    "containerMaxWidth": {
+      "type": "number",
+      "default": 1200
+    },
+    "containerPadding": {
+      "type": "number",
+      "default": 20
+    },
+    "showSectionTitle": {
+      "type": "boolean",
+      "default": true
+    },
+    "sectionTitle": {
+      "type": "string",
+      "default": "Your Visit Workflow"
+    },
+    "sectionTitleColor": {
+      "type": "string",
+      "default": "#212121"
+    },
+    "sectionTitleFontSize": {
+      "type": "number",
+      "default": 2.2
+    },
+    "sectionTitleAlignment": {
+      "type": "string",
+      "default": "center"
+    },
+    "columns": {
+      "type": "number",
+      "default": 4
+    },
+    "columnsTablet": {
+      "type": "number",
+      "default": 2
+    },
+    "columnsMobile": {
+      "type": "number",
+      "default": 1
+    },
+    "gap": {
+      "type": "number",
+      "default": 20
+    },
+    "animationOnScroll": {
+      "type": "boolean",
+      "default": true
+    },
+    "animationType": {
+      "type": "string",
+      "default": "fade-up"
+    },
+    "animationDelay": {
+      "type": "number",
+      "default": 0
+    }
+  },
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "textdomain": "twork-builder",
+  "editorScript": "file:./index.js",
+  "style": "file:./style-index.css"
+}
+

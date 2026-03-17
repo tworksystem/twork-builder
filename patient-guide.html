@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Patient Guide | Jivaka Hospital</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <style>
+        /* --- 1. CORE VARIABLES & RESET --- */
+        :root {
+            --primary-orange: #f48b2a;
+            --brand-orange-hover: #e67a22;
+            --dark-grey: #212121;
+            --medium-grey: #666;
+            --light-grey-bg: #f8f9fa;
+            --white: #ffffff;
+            --border: #e0e0e0;
+            --shadow-sm: 0 5px 15px rgba(0, 0, 0, 0.05);
+            --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.1);
+            --radius: 12px;
+            --success-green: #2ecc71;
+            --error-red: #e74c3c;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Roboto", sans-serif;
+            color: var(--dark-grey);
+            line-height: 1.6;
+            background: #fff;
+            overflow-x: hidden;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: 0.3s;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .jivaka-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        /* --- 3. HERO SECTION --- */
+        .page-hero {
+            position: relative;
+            height: 350px;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            background: #000;
+            color: #fff;
+        }
+
+        .hero-bg-wrapper {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 120%;
+            z-index: 1;
+        }
+
+        .hero-bg-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.6;
+            filter: brightness(0.7);
+        }
+
+        .hero-container {
+            position: relative;
+            z-index: 3;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 900;
+            margin: 0 0 10px 0;
+        }
+
+        .hero-breadcrumb {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--primary-orange);
+            font-weight: 700;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 5px 15px;
+            border-radius: 20px;
+            backdrop-filter: blur(5px);
+        }
+
+        /* --- 4. ADMISSION PROCESS --- */
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 50px;
+        }
+
+        .section-header h2 {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .process-card {
+            background: #fff;
+            padding: 40px 30px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-sm);
+            text-align: center;
+            position: relative;
+            border-top: 4px solid var(--primary-orange);
+            transition: 0.3s;
+            opacity: 1;
+        }
+
+        .process-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: var(--primary-orange);
+            color: #fff;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            font-weight: 900;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+
+        .process-card h3 {
+            margin: 0 0 15px;
+            font-size: 1.3rem;
+        }
+
+        .process-card p {
+            font-size: 0.95rem;
+            color: var(--medium-grey);
+            margin-bottom: 20px;
+        }
+
+        .process-list {
+            text-align: left;
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        .process-list li {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: flex-start;
+            font-size: 0.95rem;
+            color: #555;
+        }
+
+        .process-list li i {
+            color: var(--primary-orange);
+            margin-right: 10px;
+            margin-top: 4px;
+            flex-shrink: 0;
+        }
+
+        /* --- 5. VISITING HOURS --- */
+        .info-section {
+            background: var(--light-grey-bg);
+        }
+
+        .info-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .hours-card {
+            background: #fff;
+            padding: 40px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .hours-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px dashed #eee;
+        }
+
+        .hours-row:last-child {
+            border-bottom: none;
+        }
+
+        .ward-name {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--dark-grey);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .ward-name i {
+            color: var(--primary-orange);
+        }
+
+        .time-slot {
+            font-weight: 500;
+            color: #555;
+            background: #f0f0f0;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* --- 6. INSURANCE PARTNERS --- */
+        .insurance-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .insurance-card {
+            background: #fff;
+            border: 1px solid #eee;
+            height: 140px;
+            /* Increased height for better look */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            transition: 0.3s;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+            /* Subtle initial shadow */
+        }
+
+        .insurance-card:hover {
+            border-color: var(--primary-orange);
+            transform: translateY(-5px);
+            /* Lift up effect */
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+            /* Enhanced shadow on hover */
+        }
+
+        .partner-logo {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--dark-grey);
+            /* Changed to dark grey for better visibility */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            transition: 0.3s;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        .insurance-card:hover .partner-logo {
+            color: var(--primary-orange);
+        }
+
+        .partner-logo i {
+            font-size: 2.5rem;
+            /* Larger icons */
+            margin-bottom: 5px;
+            opacity: 1;
+            /* Full opacity */
+            color: var(--medium-grey);
+            /* Icons start grey */
+            transition: 0.3s;
+        }
+
+        .insurance-card:hover .partner-logo i {
+            color: var(--primary-orange);
+            /* Icons turn orange on hover */
+        }
+
+        /* --- 7. DOS AND DONTS --- */
+        .guidelines-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .guide-col {
+            padding: 30px;
+            border-radius: var(--radius);
+        }
+
+        .col-dos {
+            background: #e8f8f5;
+            border: 1px solid #d1f2eb;
+        }
+
+        .col-donts {
+            background: #fdedec;
+            border: 1px solid #fadbd8;
+        }
+
+        .guide-title {
+            font-size: 1.5rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .col-dos .guide-title {
+            color: #27ae60;
+        }
+
+        .col-donts .guide-title {
+            color: #c0392b;
+        }
+
+        .guide-list li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            font-size: 1rem;
+        }
+
+        .col-dos li i {
+            color: #27ae60;
+            margin-top: 4px;
+        }
+
+        .col-donts li i {
+            color: #c0392b;
+            margin-top: 4px;
+        }
+
+        /* Animation Utility */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 992px) {
+            .process-grid {
+                grid-template-columns: 1fr;
+                /* Stack admission process cards on mobile */
+            }
+
+            .info-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .guidelines-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .insurance-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 576px) {
+            .insurance-grid {
+                grid-template-columns: 1fr;
+                /* Stack insurance cards on very small screens */
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <section class="page-hero">
+        <div class="hero-bg-wrapper">
+            <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=2000" alt="Patient Guide"
+                class="hero-bg-img">
+        </div>
+        <div class="hero-container animate-hero">
+            <span class="hero-breadcrumb">Help & Support</span>
+            <h1 class="hero-title">Patient & Visitor <br><span style="color: var(--primary-orange);">Guide</span></h1>
+        </div>
+    </section>
+
+    <section class="section-padding">
+        <div class="jivaka-container">
+            <div class="section-header fade-up">
+                <h2>Admission Process</h2>
+                <p>We ensure a smooth and hassle-free experience for our patients.</p>
+            </div>
+
+            <div class="process-grid">
+                <div class="process-card fade-up">
+                    <div class="step-number">1</div>
+                    <h3>Registration</h3>
+                    <p>Visit the admission counter at the lobby.</p>
+                    <ul class="process-list">
+                        <li><i class="fas fa-check-circle"></i> Bring NRC / Passport</li>
+                        <li><i class="fas fa-check-circle"></i> Insurance Card (if any)</li>
+                        <li><i class="fas fa-check-circle"></i> Doctor's Admission Note</li>
+                        <li><i class="fas fa-check-circle"></i> Initial Deposit</li>
+                    </ul>
+                </div>
+
+                <div class="process-card fade-up">
+                    <div class="step-number">2</div>
+                    <h3>During Stay</h3>
+                    <p>Our team will guide you to your room.</p>
+                    <ul class="process-list">
+                        <li><i class="fas fa-check-circle"></i> 24/7 Nursing Care</li>
+                        <li><i class="fas fa-check-circle"></i> Daily Doctor Rounds</li>
+                        <li><i class="fas fa-check-circle"></i> Dietitian Consultation</li>
+                        <li><i class="fas fa-check-circle"></i> Room Amenities Guide</li>
+                    </ul>
+                </div>
+
+                <div class="process-card fade-up">
+                    <div class="step-number">3</div>
+                    <h3>Discharge</h3>
+                    <p>Complete the process before leaving.</p>
+                    <ul class="process-list">
+                        <li><i class="fas fa-check-circle"></i> Final Bill Settlement</li>
+                        <li><i class="fas fa-check-circle"></i> Collect Medical Reports</li>
+                        <li><i class="fas fa-check-circle"></i> Take Home Medication</li>
+                        <li><i class="fas fa-check-circle"></i> Follow-up Appointment</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding info-section">
+        <div class="jivaka-container info-layout">
+            <div class="info-content fade-up">
+                <h2 style="font-size: 2rem; margin-bottom: 20px;">Visiting Information</h2>
+                <p style="margin-bottom: 30px; color: #666;">We recognize the importance of family and friends in the healing process.
+                    However, to ensure patient rest and safety, please adhere to our visiting hours.</p>
+
+                <div class="hours-card">
+                    <div class="hours-row">
+                        <span class="ward-name"><i class="fas fa-procedures"></i> General Ward</span>
+                        <span class="time-slot">10:00 AM - 8:00 PM</span>
+                    </div>
+                    <div class="hours-row">
+                        <span class="ward-name"><i class="fas fa-heartbeat"></i> ICU / CCU</span>
+                        <span class="time-slot">11:00 AM - 12:00 PM</span>
+                    </div>
+                    <div class="hours-row">
+                        <span class="ward-name"><i class="fas fa-user-md"></i> Private Rooms</span>
+                        <span class="time-slot">8:00 AM - 9:00 PM</span>
+                    </div>
+                    <div class="hours-row">
+                        <span class="ward-name"><i class="fas fa-baby"></i> NICU (Parents)</span>
+                        <span class="time-slot">24 Hours Allowed</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-img fade-up">
+                <img src="https://images.unsplash.com/photo-1538108149393-fbbd81895907?auto=format&fit=crop&q=80&w=800"
+                    style="border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);" alt="Reception">
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding">
+        <div class="jivaka-container">
+            <div class="section-header fade-up">
+                <h2>Insurance Partners</h2>
+                <p>We accept cashless payments from leading insurance providers.</p>
+            </div>
+            <div class="insurance-grid">
+                <div class="insurance-card fade-up">
+                    <div class="partner-logo"><i class="fas fa-shield-alt"></i> AIA Myanmar</div>
+                </div>
+                <div class="insurance-card fade-up">
+                    <div class="partner-logo"><i class="fas fa-umbrella"></i> Prudential</div>
+                </div>
+                <div class="insurance-card fade-up">
+                    <div class="partner-logo"><i class="fas fa-leaf"></i> Manulife</div>
+                </div>
+                <div class="insurance-card fade-up">
+                    <div class="partner-logo"><i class="fas fa-building"></i> GGI Insurance</div>
+                </div>
+                <div class="insurance-card fade-up">
+                    <div class="partner-logo"><i class="fas fa-landmark"></i> IKBZ Insurance</div>
+                </div>
+                <div class="insurance-card fade-up">
+                    <div class="partner-logo"><i class="fas fa-hand-holding-heart"></i> CB Insurance</div>
+                </div>
+                <div class="insurance-card fade-up">
+                    <div class="partner-logo"><i class="fas fa-globe-asia"></i> MGA Insurance</div>
+                </div>
+                <div class="insurance-card fade-up">
+                    <div class="partner-logo"><i class="fas fa-file-medical"></i> Others</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding" style="background: #fff;">
+        <div class="jivaka-container">
+            <div class="section-header fade-up">
+                <h2>Visitor Guidelines</h2>
+            </div>
+            <div class="guidelines-grid">
+
+                <div class="guide-col col-dos fade-up">
+                    <div class="guide-title"><i class="fas fa-check-circle"></i> Do's</div>
+                    <ul class="guide-list">
+                        <li><i class="fas fa-check"></i> Wear a mask at all times within the premises.</li>
+                        <li><i class="fas fa-check"></i> Sanitize your hands before entering the ward.</li>
+                        <li><i class="fas fa-check"></i> Keep your mobile phones on silent mode.</li>
+                        <li><i class="fas fa-check"></i> Respect the privacy of other patients.</li>
+                    </ul>
+                </div>
+
+                <div class="guide-col col-donts fade-up">
+                    <div class="guide-title"><i class="fas fa-times-circle"></i> Don'ts</div>
+                    <ul class="guide-list">
+                        <li><i class="fas fa-times"></i> Do not bring outside food or flowers.</li>
+                        <li><i class="fas fa-times"></i> Children under 12 are not advised to visit.</li>
+                        <li><i class="fas fa-times"></i> Do not smoke or consume alcohol on premises.</li>
+                        <li><i class="fas fa-times"></i> Do not make loud noises in the corridors.</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            gsap.registerPlugin(ScrollTrigger);
+
+            // 1. Hero Entrance
+            const tl = gsap.timeline();
+            tl.from(".animate-hero > *", { y: 40, opacity: 0, duration: 1, stagger: 0.2, ease: "power3.out", clearProps: "all" });
+
+            gsap.to(".hero-bg-img", {
+                yPercent: 20, ease: "none",
+                scrollTrigger: { trigger: ".page-hero", start: "top top", end: "bottom top", scrub: true }
+            });
+
+            // 2. Fade Up Animations
+            // Using 'to' ensures we animate to the visible state from the hidden CSS state
+            document.querySelectorAll('.fade-up').forEach(el => {
+                gsap.to(el, {
+                    y: 0,
+                    opacity: 1,
+                    duration: 0.8,
+                    ease: "power2.out",
+                    scrollTrigger: {
+                        trigger: el,
+                        start: "top 85%",
+                        toggleActions: "play none none none"
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

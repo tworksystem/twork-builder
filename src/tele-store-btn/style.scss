@@ -1,0 +1,32 @@
+// Tele Store Button – image + link only (used inside tele-download-section)
+
+.twork-tele-store-btn-wrapper {
+    display: flex;
+    align-items: center;
+    min-width: 0;
+}
+
+// Image-only store button: link wraps image, no min-width
+.twork-tele-download-section .store-btns .twork-tele-store-btn-wrapper .store-btn.store-btn-image {
+    display: inline-block;
+    padding: 0;
+    min-width: 0;
+    background: transparent;
+    border: none;
+    text-decoration: none;
+    color: inherit;
+
+    &:hover {
+        background: transparent;
+        border: none;
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .store-btn-img {
+        display: block;
+        height: auto;
+        max-height: 60px;
+        width: auto;
+    }
+}

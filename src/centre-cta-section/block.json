@@ -1,0 +1,21 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "twork/centre-cta-section",
+  "version": "1.0.0",
+  "title": "CTA Section",
+  "category": "twork-builder",
+  "parent": ["twork/centre-layout-section"],
+  "description": "Call-to-action box with gradient background, title, text, and button for centre pages.",
+  "attributes": {
+    "title": { "type": "string", "default": "Expert Neurological Care" },
+    "text": { "type": "string", "default": "Don't ignore the symptoms. Schedule a consultation with our specialists today." },
+    "buttonText": { "type": "string", "default": "Book Appointment" },
+    "buttonUrl": { "type": "string", "default": "appointment.html" },
+    "gradientStart": { "type": "string", "default": "#0b1c2c" },
+    "gradientEnd": { "type": "string", "default": "#1a3a5a" },
+    "padding": { "type": "number", "default": 50 },
+    "borderRadius": { "type": "number", "default": 12 }
+  },
+  "editorScript": "file:./index.js"
+}

@@ -1,0 +1,224 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "twork/journey-steps-section",
+    "version": "1.0.0",
+    "title": "Journey Steps Section",
+    "category": "twork-builder",
+    "icon": "randomize",
+    "description": "Journey steps section with numbered step cards for international patients (e.g. Your Journey With Us).",
+    "keywords": ["journey", "steps", "international", "patient", "process", "twork"],
+    "attributes": {
+        "backgroundColor": {
+            "type": "string",
+            "default": "#ffffff"
+        },
+        "backgroundImage": {
+            "type": "string",
+            "default": ""
+        },
+        "backgroundImageId": {
+            "type": "number"
+        },
+        "backgroundOverlay": {
+            "type": "boolean",
+            "default": false
+        },
+        "backgroundOverlayColor": {
+            "type": "string",
+            "default": "rgba(0, 0, 0, 0.5)"
+        },
+        "backgroundOverlayOpacity": {
+            "type": "number",
+            "default": 0.5
+        },
+        "paddingTop": {
+            "type": "number",
+            "default": 80
+        },
+        "paddingBottom": {
+            "type": "number",
+            "default": 80
+        },
+        "paddingTopMobile": {
+            "type": "number",
+            "default": 60
+        },
+        "paddingBottomMobile": {
+            "type": "number",
+            "default": 60
+        },
+        "columns": {
+            "type": "number",
+            "default": 4
+        },
+        "columnsTablet": {
+            "type": "number",
+            "default": 2
+        },
+        "columnsMobile": {
+            "type": "number",
+            "default": 1
+        },
+        "gap": {
+            "type": "number",
+            "default": 30
+        },
+        "gapMobile": {
+            "type": "number",
+            "default": 24
+        },
+        "showSectionTitle": {
+            "type": "boolean",
+            "default": true
+        },
+        "sectionTitle": {
+            "type": "string",
+            "default": "Your Journey With Us"
+        },
+        "sectionTitleColor": {
+            "type": "string",
+            "default": "#212121"
+        },
+        "sectionTitleFontSize": {
+            "type": "number",
+            "default": 2.2
+        },
+        "sectionTitleFontSizeMobile": {
+            "type": "number",
+            "default": 1.8
+        },
+        "sectionTitleFontWeight": {
+            "type": "number",
+            "default": 700
+        },
+        "sectionTitleAlignment": {
+            "type": "string",
+            "default": "center"
+        },
+        "showSectionSubtitle": {
+            "type": "boolean",
+            "default": true
+        },
+        "sectionSubtitle": {
+            "type": "string",
+            "default": "From your first inquiry to your safe return home, our International Patient Team is with you every step of the way."
+        },
+        "sectionSubtitleColor": {
+            "type": "string",
+            "default": "#666666"
+        },
+        "sectionSubtitleFontSize": {
+            "type": "number",
+            "default": 1.05
+        },
+        "sectionSubtitleFontSizeMobile": {
+            "type": "number",
+            "default": 0.95
+        },
+        "sectionHeaderMaxWidth": {
+            "type": "number",
+            "default": 800
+        },
+        "sectionHeaderMarginBottom": {
+            "type": "number",
+            "default": 50
+        },
+        "containerMaxWidth": {
+            "type": "number",
+            "default": 1200
+        },
+        "containerPadding": {
+            "type": "number",
+            "default": 20
+        },
+        "containerPaddingMobile": {
+            "type": "number",
+            "default": 20
+        },
+        "cardBorderRadius": {
+            "type": "number",
+            "default": 12
+        },
+        "cardBoxShadow": {
+            "type": "boolean",
+            "default": true
+        },
+        "cardBoxShadowColor": {
+            "type": "string",
+            "default": "rgba(0, 0, 0, 0.05)"
+        },
+        "cardBoxShadowBlur": {
+            "type": "number",
+            "default": 15
+        },
+        "cardBoxShadowSpread": {
+            "type": "number",
+            "default": 0
+        },
+        "cardBoxShadowOffsetX": {
+            "type": "number",
+            "default": 0
+        },
+        "cardBoxShadowOffsetY": {
+            "type": "number",
+            "default": 5
+        },
+        "cardBoxShadowHover": {
+            "type": "string",
+            "default": "rgba(0, 0, 0, 0.08)"
+        },
+        "cardBoxShadowBlurHover": {
+            "type": "number",
+            "default": 30
+        },
+        "cardBoxShadowSpreadHover": {
+            "type": "number",
+            "default": 0
+        },
+        "cardBoxShadowOffsetXHover": {
+            "type": "number",
+            "default": 0
+        },
+        "cardBoxShadowOffsetYHover": {
+            "type": "number",
+            "default": 10
+        },
+        "cardBorderTopWidth": {
+            "type": "number",
+            "default": 4
+        },
+        "cardBorderTopColor": {
+            "type": "string",
+            "default": "#f48b2a"
+        },
+        "hoverEffect": {
+            "type": "boolean",
+            "default": true
+        },
+        "hoverTranslateY": {
+            "type": "number",
+            "default": -10
+        },
+        "animationOnScroll": {
+            "type": "boolean",
+            "default": true
+        },
+        "animationDelay": {
+            "type": "number",
+            "default": 100
+        },
+        "animationType": {
+            "type": "string",
+            "default": "fadeInUp"
+        }
+    },
+    "supports": {
+        "html": false,
+        "anchor": true,
+        "align": ["wide", "full"]
+    },
+    "textdomain": "twork-builder",
+    "editorScript": "file:./index.js",
+    "style": "file:./style-index.css"
+}

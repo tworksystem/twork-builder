@@ -1,0 +1,100 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "twork/award-item",
+    "title": "Award Item",
+    "description": "Single award card with image, year, title, and description. Editable via WordPress block editor.",
+    "keywords": ["award", "recognition", "card", "image", "twork"],
+    "attributes": {
+        "imageUrl": {
+            "type": "string",
+            "default": ""
+        },
+        "imageId": {
+            "type": "number"
+        },
+        "imageAlt": {
+            "type": "string",
+            "default": ""
+        },
+        "imageHeight": {
+            "type": "number",
+            "default": 200
+        },
+        "imageObjectFit": {
+            "type": "string",
+            "default": "cover"
+        },
+        "imageObjectPosition": {
+            "type": "string",
+            "default": "top center"
+        },
+        "awardYear": {
+            "type": "string",
+            "default": "2024"
+        },
+        "awardTitle": {
+            "type": "string",
+            "default": "Best Private Hospital"
+        },
+        "awardDescription": {
+            "type": "string",
+            "default": "Awarded by the Myanmar Healthcare Association for outstanding patient satisfaction."
+        },
+        "yearColor": {
+            "type": "string",
+            "default": "#f48b2a"
+        },
+        "yearFontSize": {
+            "type": "number",
+            "default": 0.9
+        },
+        "yearFontWeight": {
+            "type": "number",
+            "default": 700
+        },
+        "titleColor": {
+            "type": "string",
+            "default": "#212121"
+        },
+        "titleFontSize": {
+            "type": "number",
+            "default": 1.2
+        },
+        "titleFontWeight": {
+            "type": "number",
+            "default": 700
+        },
+        "descriptionColor": {
+            "type": "string",
+            "default": "#666666"
+        },
+        "descriptionFontSize": {
+            "type": "number",
+            "default": 0.9
+        },
+        "descriptionLineHeight": {
+            "type": "number",
+            "default": 1.6
+        },
+        "contentPadding": {
+            "type": "number",
+            "default": 25
+        },
+        "cardBgColor": {
+            "type": "string",
+            "default": "#ffffff"
+        },
+        "cardBorderRadius": {
+            "type": "number",
+            "default": 12
+        },
+        "cardBoxShadow": {
+            "type": "boolean",
+            "default": true
+        }
+    },
+    "textdomain": "twork-builder",
+    "editorScript": "file:./index.js",
+    "style": "file:./style-index.css"
+}

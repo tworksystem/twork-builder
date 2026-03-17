@@ -1,0 +1,35 @@
+/**
+ * Health Check Package Card – layout in parent section.
+ * Editor styles: prevent cut-off and ensure full content visible.
+ */
+.editor-styles-wrapper .wp-block-twork-health-check-package-card,
+.block-editor-block-list__layout .wp-block-twork-health-check-package-card {
+    overflow: visible !important;
+}
+
+.editor-styles-wrapper .twork-chk-pkg-card-editor,
+.wp-block-twork-health-check-package-card .twork-chk-pkg-card-editor {
+    overflow: visible !important;
+    min-height: 280px;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 40px 30px;
+    background: #fff;
+    border-radius: 20px;
+    border: 2px dashed #e0e0e0;
+    transition: border-color 0.2s ease;
+
+    &:hover {
+        border-color: #2271b1;
+    }
+
+    &.is-selected {
+        border-color: #2271b1;
+        box-shadow: 0 0 0 1px #2271b1;
+    }
+
+    h3[contenteditable="true"]:focus {
+        outline: 2px dashed #2271b1;
+        outline-offset: 2px;
+    }
+}

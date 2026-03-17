@@ -1,0 +1,13 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "twork/dept-faq-item",
+    "title": "FAQ Item",
+    "category": "twork-builder",
+    "parent": ["twork/dept-faq-section"],
+    "attributes": {
+        "question": { "type": "string", "default": "What are the signs of a heart attack?" },
+        "answer": { "type": "string", "default": "Symptoms include chest pain, shortness of breath, pain in the arm or jaw, and cold sweats. Seek emergency care immediately." }
+    },
+    "editorScript": "file:./index.js"
+}

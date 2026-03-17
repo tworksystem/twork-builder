@@ -3,7 +3,7 @@
   "apiVersion": 3,
   "name": "twork/mission-vision-grid",
   "version": "1.0.0",
-  "title": "Twork Mission & Vision Grid",
+  "title": "Mission & Vision Grid",
   "category": "twork-builder",
   "icon": "screenoptions",
   "description": "Mission, vision, and values grid aligned with Jivaka design.",

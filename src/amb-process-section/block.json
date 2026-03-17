@@ -1,0 +1,105 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "twork/amb-process-section",
+  "version": "1.0.0",
+  "title": "Ambulance Process Section",
+  "category": "twork-builder",
+  "icon": "list-view",
+  "description": "Emergency Protocol – numbered steps (Call, Dispatch, Stabilize, etc.).",
+  "keywords": ["ambulance", "process", "protocol", "steps", "emergency", "twork"],
+  "attributes": {
+    "backgroundColor": {
+      "type": "string",
+      "default": "#ffffff"
+    },
+    "paddingTop": {
+      "type": "number",
+      "default": 80
+    },
+    "paddingBottom": {
+      "type": "number",
+      "default": 100
+    },
+    "columns": {
+      "type": "number",
+      "default": 4
+    },
+    "columnsTablet": {
+      "type": "number",
+      "default": 2
+    },
+    "columnsMobile": {
+      "type": "number",
+      "default": 1
+    },
+    "gap": {
+      "type": "number",
+      "default": 20
+    },
+    "containerMaxWidth": {
+      "type": "number",
+      "default": 1200
+    },
+    "containerPadding": {
+      "type": "number",
+      "default": 20
+    },
+    "showSectionTitle": {
+      "type": "boolean",
+      "default": true
+    },
+    "sectionTitle": {
+      "type": "string",
+      "default": "Emergency Protocol"
+    },
+    "sectionTitleColor": {
+      "type": "string",
+      "default": "#0f172a"
+    },
+    "sectionTitleFontSize": {
+      "type": "number",
+      "default": 2.5
+    },
+    "sectionTitleFontWeight": {
+      "type": "number",
+      "default": 900
+    },
+    "sectionTitleAlignment": {
+      "type": "string",
+      "default": "center"
+    },
+    "sectionTitleMarginBottom": {
+      "type": "number",
+      "default": 50
+    },
+    "showConnectorLine": {
+      "type": "boolean",
+      "default": true
+    },
+    "stepNumberColor": {
+      "type": "string",
+      "default": "#ffffff"
+    },
+    "stepNumberBgColor": {
+      "type": "string",
+      "default": "#f48b2a"
+    },
+    "animationOnScroll": {
+      "type": "boolean",
+      "default": true
+    },
+    "animationDelay": {
+      "type": "number",
+      "default": 80
+    }
+  },
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "align": ["wide", "full"]
+  },
+  "textdomain": "twork-builder",
+  "editorScript": "file:./index.js",
+  "style": "file:./style-index.css"
+}

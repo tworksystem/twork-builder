@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us | Jivaka Hospital</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <style>
+        /* --- 1. CORE VARIABLES & RESET --- */
+        :root {
+            --primary-orange: #f48b2a;
+            --brand-orange-hover: #e67a22;
+            --dark-grey: #212121;
+            --medium-grey: #666;
+            --light-grey-bg: #f8f9fa;
+            --white: #ffffff;
+            --border: #e0e0e0;
+            --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.04);
+            --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.08);
+            --radius: 8px;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Roboto", sans-serif;
+            color: var(--dark-grey);
+            line-height: 1.6;
+            background: #fff;
+            overflow-x: hidden;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: 0.3s;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        input,
+        textarea,
+        button {
+            font-family: inherit;
+        }
+
+        .jivaka-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        .jivaka-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 30px;
+            border-radius: 5px;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            border: 2px solid transparent;
+            gap: 10px;
+        }
+
+        .btn-primary {
+            background: var(--primary-orange);
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(244, 139, 42, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: var(--brand-orange-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(244, 139, 42, 0.4);
+        }
+
+        /* --- 2. HEADER STYLES (Kept for reference or if re-added) --- */
+        .header {
+            background: #fff;
+            border-bottom: 1px solid #eee;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .header .jivaka-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .header-logo img {
+            height: 50px;
+        }
+
+        .desktop-nav {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .main-nav-list {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .main-nav-list>li {
+            position: relative;
+            padding: 10px 0;
+        }
+
+        .main-nav-list>li>a {
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            color: var(--dark-grey);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* Mobile Nav Toggle */
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            width: 30px;
+            height: 20px;
+            position: relative;
+            cursor: pointer;
+            z-index: 2001;
+        }
+
+        .nav-toggle span {
+            display: block;
+            width: 100%;
+            height: 3px;
+            background: var(--dark-grey);
+            position: absolute;
+            left: 0;
+            transition: 0.3s;
+        }
+
+        .nav-toggle span:nth-child(1) {
+            top: 0;
+        }
+
+        .nav-toggle span:nth-child(2) {
+            top: 8px;
+        }
+
+        .nav-toggle span:nth-child(3) {
+            bottom: 0;
+        }
+
+        .nav-active .nav-toggle span:nth-child(1) {
+            transform: rotate(45deg);
+            top: 8px;
+        }
+
+        .nav-active .nav-toggle span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .nav-active .nav-toggle span:nth-child(3) {
+            transform: rotate(-45deg);
+            bottom: 8px;
+        }
+
+        .mobile-nav-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: #fff;
+            z-index: 2000;
+            transform: translateX(100%);
+            transition: 0.4s;
+            padding: 80px 20px;
+            overflow-y: auto;
+        }
+
+        .header.nav-active .mobile-nav-overlay {
+            transform: translateX(0);
+        }
+
+        .mobile-menu-item {
+            border-bottom: 1px solid #eee;
+        }
+
+        .mobile-link {
+            display: block;
+            padding: 15px 0;
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--dark-grey);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        @media (max-width: 992px) {
+            .desktop-nav {
+                display: none;
+            }
+
+            .nav-toggle {
+                display: block;
+            }
+        }
+
+        /* --- 3. HERO SECTION --- */
+        .page-hero {
+            position: relative;
+            height: 450px;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            background: #000;
+            color: #fff;
+        }
+
+        .hero-bg-wrapper {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 120%;
+            z-index: 1;
+        }
+
+        .hero-bg-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.5;
+            filter: saturate(0.8);
+        }
+
+        .hero-container {
+            position: relative;
+            z-index: 3;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 900;
+            margin: 0 0 10px 0;
+            text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            font-weight: 300;
+            max-width: 600px;
+            margin: 0 auto 30px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .hero-breadcrumb {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--primary-orange);
+            font-weight: 700;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 5px 15px;
+            border-radius: 20px;
+            display: inline-block;
+            backdrop-filter: blur(5px);
+        }
+
+        /* --- 4. INFO CARDS SECTION --- */
+        .info-cards-section {
+            margin-top: -60px;
+            position: relative;
+            z-index: 10;
+            margin-bottom: 80px;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .info-card {
+            background: #fff;
+            padding: 40px 30px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-lg);
+            text-align: center;
+            transition: 0.4s ease;
+            border-bottom: 4px solid transparent;
+            opacity: 1;
+        }
+
+        .info-card:hover {
+            transform: translateY(-10px);
+            border-bottom-color: var(--primary-orange);
+        }
+
+        .info-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--light-grey-bg);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: var(--primary-orange);
+            font-size: 1.8rem;
+            transition: 0.3s;
+        }
+
+        .info-card:hover .info-icon {
+            background: var(--primary-orange);
+            color: #fff;
+        }
+
+        .info-card h3 {
+            margin: 0 0 10px;
+            font-size: 1.2rem;
+        }
+
+        .info-card p {
+            color: var(--medium-grey);
+            font-size: 0.95rem;
+            margin-bottom: 5px;
+        }
+
+        .info-card a {
+            color: var(--dark-grey);
+            font-weight: 700;
+            transition: 0.3s;
+        }
+
+        .info-card a:hover {
+            color: var(--primary-orange);
+        }
+
+        /* --- 5. MAIN CONTENT --- */
+        .contact-layout {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 60px;
+            padding-bottom: 80px;
+        }
+
+        .contact-details h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        /* ACCORDION CSS */
+        .hotline-accordion {
+            margin-bottom: 30px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            overflow: hidden;
+            background: #fff;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .acc-item {
+            border-bottom: 1px solid #eee;
+        }
+
+        .acc-item:last-child {
+            border-bottom: none;
+        }
+
+        .acc-head {
+            padding: 20px 25px;
+            background: #fff;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--dark-grey);
+            transition: 0.3s;
+        }
+
+        .acc-head:hover {
+            background: #fdfdfd;
+            color: var(--primary-orange);
+        }
+
+        .acc-head i {
+            font-size: 0.85rem;
+            color: var(--medium-grey);
+            transition: 0.3s;
+        }
+
+        .acc-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out;
+            background: #fcfcfc;
+        }
+
+        .acc-content-wrapper {
+            padding: 25px;
+            border-top: 1px solid #f0f0f0;
+            color: var(--medium-grey);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .acc-icon {
+            width: 45px;
+            height: 45px;
+            background: rgba(244, 139, 42, 0.1);
+            color: var(--primary-orange);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .acc-text span {
+            font-size: 0.85rem;
+            display: block;
+            margin-bottom: 3px;
+        }
+
+        .acc-text strong {
+            display: block;
+            color: var(--dark-grey);
+            font-size: 1.2rem;
+            line-height: 1.2;
+        }
+
+        /* Active State */
+        .acc-item.active .acc-head {
+            color: var(--primary-orange);
+            background: #fffcf8;
+        }
+
+        .acc-item.active .acc-head i {
+            transform: rotate(180deg);
+            color: var(--primary-orange);
+        }
+
+        /* Map */
+        .map-container {
+            width: 100%;
+            height: 350px;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            filter: grayscale(20%);
+        }
+
+        /* Form */
+        .contact-form-wrapper {
+            background: #fff;
+            padding: 40px;
+            border-radius: var(--radius);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            border: 1px solid #f0f0f0;
+            opacity: 1;
+        }
+
+        .form-title {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            font-weight: 700;
+            color: var(--dark-grey);
+        }
+
+        .form-group {
+            position: relative;
+            margin-bottom: 25px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 15px 15px 5px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            outline: none;
+            background: transparent;
+            transition: 0.3s;
+            color: var(--dark-grey);
+            height: 55px;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary-orange);
+            box-shadow: 0 0 0 3px rgba(244, 139, 42, 0.1);
+        }
+
+        .form-label {
+            position: absolute;
+            left: 15px;
+            top: 18px;
+            color: #999;
+            font-size: 0.95rem;
+            transition: 0.3s;
+            pointer-events: none;
+            background: #fff;
+            padding: 0 5px;
+        }
+
+        .form-control:focus~.form-label,
+        .form-control:not(:placeholder-shown)~.form-label {
+            top: -10px;
+            left: 10px;
+            font-size: 0.75rem;
+            color: var(--primary-orange);
+            font-weight: 700;
+        }
+
+        textarea.form-control {
+            height: 150px;
+            padding-top: 15px;
+            resize: none;
+        }
+
+        textarea.form-control:focus~.form-label,
+        textarea.form-control:not(:placeholder-shown)~.form-label {
+            top: -10px;
+        }
+
+        /* Animation Utility Classes */
+        .animate-up {
+            opacity: 1;
+        }
+
+        .animate-stagger {
+            opacity: 1;
+        }
+
+        @media (max-width: 992px) {
+            .info-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .contact-layout {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+
+            .contact-form-wrapper {
+                padding: 30px 20px;
+                order: -1;
+            }
+
+            .page-hero {
+                height: 350px;
+            }
+        }
+
+        /* Footer Styles (Kept for reference) */
+        .footer {
+            background: var(--dark-grey);
+            color: #ccc;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer a:hover {
+            color: var(--primary-orange);
+        }
+
+        .sub-footer {
+            text-align: center;
+            border-top: 1px solid #444;
+            padding-top: 20px;
+        }
+
+        @media(max-width: 768px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <section class="page-hero">
+        <div class="hero-bg-wrapper">
+            <img src="https://images.unsplash.com/photo-1538108149393-fbbd81895907?auto=format&fit=crop&q=80&w=2000" alt="Hospital"
+                class="hero-bg-img">
+        </div>
+        <div class="hero-container animate-hero">
+            <span class="hero-breadcrumb">Get In Touch</span>
+            <h1 class="hero-title">We are here to <br><span style="color: var(--primary-orange);">Help You</span></h1>
+            <p class="hero-subtitle">Have questions or need assistance? Reach out to Jivaka Hospital anytime.</p>
+        </div>
+    </section>
+
+    <div class="jivaka-container">
+        <div class="info-cards-section">
+            <div class="info-grid">
+                <div class="info-card animate-stagger">
+                    <div class="info-icon"><i class="fas fa-phone-volume"></i></div>
+                    <h3>Emergency Cases</h3>
+                    <p>24/7 Immediate Support</p>
+                    <a href="tel:09789101101" style="font-size: 1.2rem; color: #dc3545;">09-789 101 101</a>
+                </div>
+                <div class="info-card animate-stagger">
+                    <div class="info-icon"><i class="fas fa-envelope-open-text"></i></div>
+                    <h3>General Enquiry</h3>
+                    <p>For appointments & info</p>
+                    <a href="mailto:info@jivakahospital.com">info@jivakahospital.com</a>
+                </div>
+                <div class="info-card animate-stagger">
+                    <div class="info-icon"><i class="fas fa-map-marked-alt"></i></div>
+                    <h3>Visit Us</h3>
+                    <p>Corner of 101st Street & 57th St,</p>
+                    <p>Mandalay, Myanmar</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact-layout">
+            <div class="contact-details animate-up">
+                <h2>Direct Department Lines</h2>
+
+                <div class="hotline-accordion">
+
+                    <div class="acc-item">
+                        <div class="acc-head">
+                            <span>Heart Centre Hotline</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="acc-body">
+                            <div class="acc-content-wrapper">
+                                <div class="acc-icon"><i class="fas fa-phone-alt"></i></div>
+                                <div class="acc-text">
+                                    <span>Direct Line</span>
+                                    <strong>09-111 222 333</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="acc-item">
+                        <div class="acc-head">
+                            <span>Neuro Centre Hotline</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="acc-body">
+                            <div class="acc-content-wrapper">
+                                <div class="acc-icon"><i class="fas fa-phone-alt"></i></div>
+                                <div class="acc-text">
+                                    <span>Direct Line</span>
+                                    <strong>09-444 555 666</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="acc-item">
+                        <div class="acc-head">
+                            <span>Pharmacy & Lab</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="acc-body">
+                            <div class="acc-content-wrapper">
+                                <div class="acc-icon"><i class="fas fa-phone-alt"></i></div>
+                                <div class="acc-text">
+                                    <span>Direct Line</span>
+                                    <strong>09-777 888 999</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <h2 style="margin-top: 40px;">Our Location</h2>
+                <div class="map-container">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3700.867761073864!2d96.11327667595304!3d21.939502857639556!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30cb6d88f6153093%3A0x86c57f596324e93d!2sJivaka%20Hospital!5e0!3m2!1sen!2smm!4v1709230000000!5m2!1sen!2smm"
+                        allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+
+            <div class="contact-form-wrapper animate-up">
+                <h3 class="form-title">Send us a Message</h3>
+                <form id="contactForm">
+                    <div class="form-group">
+                        <input type="text" id="name" class="form-control" placeholder=" " required>
+                        <label for="name" class="form-label">Full Name</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" id="phone" class="form-control" placeholder=" " required>
+                        <label for="phone" class="form-label">Phone Number</label>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" class="form-control" placeholder=" " required></textarea>
+                        <label for="message" class="form-label">Your Message</label>
+                    </div>
+                    <button type="submit" class="jivaka-btn btn-primary" style="width: 100%; border: none;">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            gsap.registerPlugin(ScrollTrigger);
+
+            // GSAP 'from' handles opacity transition 0 -> 1 safely
+            const tl = gsap.timeline();
+            tl.from(".animate-hero > *", { y: 40, opacity: 0, duration: 1, stagger: 0.2, ease: "power3.out", clearProps: "all" });
+
+            gsap.to(".hero-bg-img", {
+                yPercent: 20, ease: "none",
+                scrollTrigger: { trigger: ".page-hero", start: "top top", end: "bottom top", scrub: true }
+            });
+
+            gsap.from(".animate-stagger", {
+                y: 50, opacity: 0, duration: 0.8, stagger: 0.2, ease: "power2.out", delay: 0.5, clearProps: "all"
+            });
+
+            document.querySelectorAll('.animate-up').forEach(el => {
+                gsap.from(el, {
+                    y: 40, opacity: 0, duration: 0.8, ease: "power2.out",
+                    scrollTrigger: { trigger: el, start: "top 85%" },
+                    clearProps: "all"
+                });
+            });
+
+            // FIXED Accordion Logic
+            const accItems = document.querySelectorAll('.acc-head');
+            accItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    const parent = item.parentElement;
+                    const body = item.nextElementSibling;
+
+                    // Close others
+                    document.querySelectorAll('.acc-item').forEach(i => {
+                        if (i !== parent) {
+                            i.classList.remove('active');
+                            i.querySelector('.acc-body').style.maxHeight = 0;
+                        }
+                    });
+
+                    parent.classList.toggle('active');
+                    if (parent.classList.contains('active')) {
+                        body.style.maxHeight = body.scrollHeight + "px";
+                    } else {
+                        body.style.maxHeight = 0;
+                    }
+                });
+            });
+
+            // Note: Header toggle code left in place to avoid script errors, though the element is removed.
+            const navToggle = document.querySelector('.nav-toggle');
+            const header = document.querySelector('.header');
+            if (navToggle) {
+                navToggle.addEventListener('click', () => {
+                    header.classList.toggle('nav-active');
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

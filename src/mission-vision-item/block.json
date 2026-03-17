@@ -3,17 +3,42 @@
   "apiVersion": 3,
   "name": "twork/mission-vision-item",
   "version": "1.0.0",
-  "title": "Twork Mission Vision Item",
+  "title": "Mission / Vision Card",
   "category": "twork-builder",
   "icon": "heart",
   "description": "Single mission / vision / values card with icon, title and text.",
-  "supports": {
-    "html": false
-  },
+  "supports": { "html": false },
+  "parent": ["twork/mission-vision-grid"],
   "attributes": {
     "iconClass": {
       "type": "string",
       "default": "fas fa-bullseye"
+    },
+    "iconType": {
+      "type": "string",
+      "default": ""
+    },
+    "iconValue": {
+      "type": "string",
+      "default": "dashicons-bullseye"
+    },
+    "iconImageUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "iconImageId": {
+      "type": "number"
+    },
+    "iconVideoUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "iconVideoId": {
+      "type": "number"
+    },
+    "iconVideoPosterUrl": {
+      "type": "string",
+      "default": ""
     },
     "title": {
       "type": "string",
@@ -29,4 +54,3 @@
   "style": "file:./style-index.css",
   "editorStyle": "file:./style-index.css"
 }
-

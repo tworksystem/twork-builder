@@ -1,0 +1,112 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "twork/jivaka-hero-section",
+    "version": "1.0.0",
+    "title": "App Hero",
+    "category": "twork-builder",
+    "icon": "smartphone",
+    "description": "Jivaka Care app hero section with title, subtitle, app store badges, and phone mockup.",
+    "keywords": ["jivaka", "hero", "app", "mobile", "twork"],
+    "attributes": {
+        "title": {
+            "type": "string",
+            "default": "Jivaka Care"
+        },
+        "subtitle": {
+            "type": "string",
+            "default": "Caring with Compassion"
+        },
+        "gradientStart": {
+            "type": "string",
+            "default": "#f6892e"
+        },
+        "gradientEnd": {
+            "type": "string",
+            "default": "#e07a25"
+        },
+        "gradientAngle": {
+            "type": "number",
+            "default": 135
+        },
+        "paddingTop": {
+            "type": "number",
+            "default": 40
+        },
+        "paddingBottom": {
+            "type": "number",
+            "default": 40
+        },
+        "containerMaxWidth": {
+            "type": "number",
+            "default": 1200
+        },
+        "containerPadding": {
+            "type": "number",
+            "default": 20
+        },
+        "phoneMockupImage": {
+            "type": "string",
+            "default": ""
+        },
+        "phoneMockupImageId": {
+            "type": "number"
+        },
+        "phoneMockupMaxWidth": {
+            "type": "number",
+            "default": 320
+        },
+        "titleColor": {
+            "type": "string",
+            "default": "#ffffff"
+        },
+        "titleFontSize": {
+            "type": "number",
+            "default": 2.5
+        },
+        "titleFontWeight": {
+            "type": "number",
+            "default": 700
+        },
+        "subtitleColor": {
+            "type": "string",
+            "default": "rgba(255, 255, 255, 0.9)"
+        },
+        "subtitleFontSize": {
+            "type": "number",
+            "default": 1.5
+        },
+        "subtitleMarginBottom": {
+            "type": "number",
+            "default": 30
+        },
+        "badgeGap": {
+            "type": "number",
+            "default": 12
+        },
+        "badgeHeight": {
+            "type": "number",
+            "default": 45
+        },
+        "enablePhoneFloatAnimation": {
+            "type": "boolean",
+            "default": true
+        },
+        "textAlignment": {
+            "type": "string",
+            "default": "left"
+        },
+        "minHeight": {
+            "type": "string",
+            "default": "100vh"
+        }
+    },
+    "supports": {
+        "html": false,
+        "anchor": true,
+        "align": ["wide", "full"]
+    },
+    "textdomain": "twork-builder",
+    "editorScript": "file:./index.js",
+    "style": "file:./style-index.css"
+}

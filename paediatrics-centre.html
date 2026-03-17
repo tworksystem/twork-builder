@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Paediatrics Centre | Jivaka Hospital</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <style>
+        /* --- CORE VARIABLES --- */
+        :root {
+            --paed-primary: #f48b2a;
+            --paed-hover: #e67a22;
+            --paed-dark: #212121;
+            --paed-grey: #666;
+            --paed-light: #f8f9fa;
+            --paed-soft-orange: #fff9f2;
+            --paed-radius: 16px;
+            --paed-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Roboto", sans-serif;
+            color: var(--paed-dark);
+            line-height: 1.6;
+            background: #fff;
+            overflow-x: hidden;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        body.loaded {
+            opacity: 1;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: 0.3s;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .paed-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        .paed-section {
+            padding: 80px 0;
+        }
+
+        /* Buttons */
+        .paed-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 30px;
+            border-radius: 50px;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.8px;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: 2px solid transparent;
+            gap: 10px;
+        }
+
+        .paed-btn-primary {
+            background: var(--paed-primary);
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(244, 139, 42, 0.3);
+        }
+
+        .paed-btn-primary:hover {
+            background: var(--paed-hover);
+            transform: translateY(-3px);
+        }
+
+        .paed-btn-outline {
+            background: transparent;
+            border-color: var(--paed-primary);
+            color: var(--paed-primary);
+        }
+
+        .paed-btn-outline:hover {
+            background: var(--paed-primary);
+            color: #fff;
+        }
+
+        /* --- 1. HERO SECTION --- */
+        .paed-hero {
+            position: relative;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            background-color: #000000;
+            color: #fff;
+            overflow: hidden;
+            padding: 100px 0;
+        }
+
+        .paed-hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.3;
+            object-position: center;
+            z-index: 1;
+        }
+
+        .paed-hero-layout {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 50px;
+        }
+
+        .paed-hero-text {
+            flex: 1;
+            min-width: 300px;
+            max-width: 600px;
+        }
+
+        .paed-hero-img-col {
+            flex: 1;
+            min-width: 300px;
+            display: flex;
+            justify-content: flex-end;
+            position: relative;
+        }
+
+        .paed-hero-visual {
+            max-width: 100%;
+            width: 450px;
+            height: auto;
+            border-radius: var(--paed-radius);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            border: 5px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .paed-badge {
+            display: inline-block;
+            padding: 8px 20px;
+            background: rgba(244, 139, 42, 0.2);
+            backdrop-filter: blur(5px);
+            color: var(--paed-primary);
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            border: 1px solid var(--paed-primary);
+        }
+
+        .paed-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 900;
+            margin: 0 0 20px 0;
+            line-height: 1.1;
+        }
+
+        .paed-subtitle {
+            font-size: 1.15rem;
+            opacity: 0.9;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        /* --- 2. STATS BAR --- */
+        .paed-stats-bar {
+            background: var(--paed-primary);
+            color: #fff;
+            padding: 40px 0;
+            margin-top: -60px;
+            position: relative;
+            z-index: 5;
+            border-radius: var(--paed-radius);
+            box-shadow: var(--paed-shadow);
+        }
+
+        .paed-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .paed-stat h3 {
+            font-size: 2.5rem;
+            margin: 0;
+            font-weight: 900;
+        }
+
+        .paed-stat p {
+            margin: 5px 0 0;
+            font-size: 0.95rem;
+            font-weight: 500;
+            opacity: 0.9;
+        }
+
+        /* --- 3. CONDITIONS WE TREAT --- */
+        .paed-conditions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .paed-cond-card {
+            background: var(--paed-soft-orange);
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            transition: 0.3s;
+            cursor: default;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .paed-cond-card:hover {
+            background: #ffe0b2;
+            transform: translateY(-3px);
+        }
+
+        .paed-cond-icon {
+            font-size: 2rem;
+            color: var(--paed-primary);
+            margin-bottom: 15px;
+        }
+
+        .paed-cond-card h5 {
+            margin: 0;
+            font-size: 1rem;
+            color: var(--paed-dark);
+            font-weight: 700;
+        }
+
+        .paed-cond-card span {
+            font-size: 0.85rem;
+            color: #777;
+            margin-top: 5px;
+            display: block;
+        }
+
+        /* --- 4. SERVICES GRID --- */
+        .paed-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 60px;
+        }
+
+        .paed-header h2 {
+            font-size: 2.2rem;
+            color: var(--paed-dark);
+            margin-bottom: 15px;
+        }
+
+        .paed-services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .paed-service-card {
+            background: #fff;
+            padding: 35px;
+            border-radius: var(--paed-radius);
+            border: 1px solid #eee;
+            transition: 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .paed-service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--paed-shadow);
+            border-color: var(--paed-primary);
+        }
+
+        .paed-svc-icon {
+            width: 70px;
+            height: 70px;
+            background: #fff4e6;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--paed-primary);
+            margin-bottom: 25px;
+            transition: 0.4s;
+        }
+
+        .paed-service-card:hover .paed-svc-icon {
+            background: var(--paed-primary);
+            color: #fff;
+        }
+
+        .paed-service-card h3 {
+            margin: 0 0 15px;
+            font-size: 1.4rem;
+        }
+
+        .paed-svc-list {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        .paed-svc-list li {
+            padding-left: 20px;
+            position: relative;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        .paed-svc-list li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--paed-primary);
+            font-size: 1.5rem;
+            line-height: 1rem;
+            top: 2px;
+        }
+
+        /* --- 5. DOCTORS --- */
+        .paed-doc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .paed-doc-card {
+            background: #fff;
+            border-radius: var(--paed-radius);
+            overflow: hidden;
+            box-shadow: var(--paed-shadow);
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .paed-doc-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .paed-doc-img {
+            height: 280px;
+            width: 100%;
+            object-fit: cover;
+            object-position: top;
+        }
+
+        .paed-doc-info {
+            padding: 25px;
+        }
+
+        .paed-doc-info h4 {
+            margin: 0 0 5px;
+            font-size: 1.2rem;
+        }
+
+        .paed-doc-info span {
+            color: var(--paed-primary);
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        .paed-tag {
+            background: #f0f0f0;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            color: #666;
+        }
+
+        /* --- 6. TESTIMONIALS --- */
+        .paed-review-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .paed-review-card {
+            background: #fff;
+            padding: 30px;
+            border-radius: var(--paed-radius);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            border: 1px solid #f0f0f0;
+        }
+
+        .paed-stars {
+            color: #ffc107;
+            margin-bottom: 15px;
+        }
+
+        .paed-review-text {
+            font-style: italic;
+            color: #555;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .paed-parent {
+            font-weight: 700;
+            color: var(--paed-dark);
+        }
+
+        /* --- 7. FAQ --- */
+        .paed-faq-item {
+            border-bottom: 1px solid #eee;
+            margin-bottom: 10px;
+        }
+
+        .paed-faq-question {
+            width: 100%;
+            text-align: left;
+            padding: 20px 0;
+            border: none;
+            background: none;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--paed-dark);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .paed-faq-question:hover {
+            color: var(--paed-primary);
+        }
+
+        .paed-faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: 0.4s;
+            color: var(--paed-grey);
+            padding-right: 20px;
+            font-size: 0.95rem;
+        }
+
+        .paed-faq-question.active+.paed-faq-answer {
+            max-height: 200px;
+            padding-bottom: 20px;
+        }
+
+        /* --- 8. CTA --- */
+        .paed-cta {
+            background: url('https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1920&q=80') center/cover fixed;
+            position: relative;
+            text-align: center;
+            color: #fff;
+        }
+
+        .paed-cta-overlay {
+            background: rgba(33, 33, 33, 0.85);
+            padding: 80px 20px;
+        }
+
+        /* Animations */
+        .paed-fade-up,
+        .paed-stagger {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        /* Responsive Fixes - UPDATED FOR LEFT ALIGNMENT */
+        @media (max-width: 992px) {
+            .paed-hero-layout {
+                flex-direction: column;
+                text-align: left;
+                /* CHANGED from center to left */
+                gap: 40px;
+                align-items: flex-start;
+                /* Aligns flex children to left */
+            }
+
+            .paed-hero-text {
+                max-width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                /* Aligns content inside (badge, title) to left */
+            }
+
+            .paed-hero-img-col {
+                justify-content: center;
+                width: 100%;
+            }
+
+            .paed-stats-bar {
+                margin-top: 40px;
+                margin-bottom: 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .paed-title {
+                font-size: 2.5rem;
+            }
+
+            .paed-section {
+                padding: 60px 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="paed-hero">
+        <img src="https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=1920&q=80"
+            alt="Paediatric Care Background" class="paed-hero-bg">
+
+        <div class="paed-hero-layout paed-animate-hero">
+            <div class="paed-hero-text">
+                <span class="paed-badge">Centres of Excellence</span>
+                <h1 class="paed-title">Gentle Care for<br>Your Little Ones</h1>
+                <p class="paed-subtitle">
+                    Jivaka Paediatrics Centre provides comprehensive healthcare for infants, children, and adolescents. From routine
+                    vaccinations to advanced neonatal care, your child's health is our priority.
+                </p>
+                <div style="display: flex; gap: 15px; flex-wrap: wrap; justify-content: flex-start;">
+                    <a href="#appointment" class="paed-btn paed-btn-primary">Book Appointment</a>
+                    <a href="#services" class="paed-btn paed-btn-outline" style="color: #fff; border-color: #fff;">View Services</a>
+                </div>
+            </div>
+
+            <div class="paed-hero-img-col">
+                <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=600&q=80"
+                    alt="Happy Child Patient" class="paed-hero-visual">
+            </div>
+        </div>
+    </header>
+
+    <div class="paed-container">
+        <div class="paed-stats-bar paed-fade-up">
+            <div class="paed-stats-grid">
+                <div class="paed-stat">
+                    <h3>10k+</h3>
+                    <p>Happy Kids</p>
+                </div>
+                <div class="paed-stat">
+                    <h3>20+</h3>
+                    <p>Specialists</p>
+                </div>
+                <div class="paed-stat">
+                    <h3>24/7</h3>
+                    <p>Emergency</p>
+                </div>
+                <div class="paed-stat">
+                    <h3>100%</h3>
+                    <p>Safe Care</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="paed-section" style="background: #fff;">
+        <div class="paed-container">
+            <div class="paed-header paed-fade-up">
+                <h2>Conditions We Treat</h2>
+                <p>Expert care for a wide range of common and complex childhood conditions.</p>
+            </div>
+            <div class="paed-conditions-grid">
+                <div class="paed-cond-card paed-stagger">
+                    <div class="paed-cond-icon"><i class="fas fa-lungs"></i></div>
+                    <h5>Respiratory Issues</h5>
+                    <span>Asthma, Pneumonia</span>
+                </div>
+                <div class="paed-cond-card paed-stagger">
+                    <div class="paed-cond-icon"><i class="fas fa-temperature-high"></i></div>
+                    <h5>Infectious Diseases</h5>
+                    <span>Dengue, Typhoid</span>
+                </div>
+                <div class="paed-cond-card paed-stagger">
+                    <div class="paed-cond-icon"><i class="fas fa-allergies"></i></div>
+                    <h5>Allergies & Skin</h5>
+                    <span>Eczema, Rashes</span>
+                </div>
+                <div class="paed-cond-card paed-stagger">
+                    <div class="paed-cond-icon"><i class="fas fa-utensils"></i></div>
+                    <h5>Nutritional Health</h5>
+                    <span>Malnutrition, Obesity</span>
+                </div>
+                <div class="paed-cond-card paed-stagger">
+                    <div class="paed-cond-icon"><i class="fas fa-brain"></i></div>
+                    <h5>Development</h5>
+                    <span>Autism, Speech Delay</span>
+                </div>
+                <div class="paed-cond-card paed-stagger">
+                    <div class="paed-cond-icon"><i class="fas fa-baby"></i></div>
+                    <h5>Neonatal Care</h5>
+                    <span>Jaundice, Preterm</span>
+                </div>
+                <div class="paed-cond-card paed-stagger">
+                    <div class="paed-cond-icon"><i class="fas fa-heartbeat"></i></div>
+                    <h5>Congenital Heart</h5>
+                    <span>Defects, Murmurs</span>
+                </div>
+                <div class="paed-cond-card paed-stagger">
+                    <div class="paed-cond-icon"><i class="fas fa-bone"></i></div>
+                    <h5>Orthopaedics</h5>
+                    <span>Fractures, Clubfoot</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="paed-section" id="services" style="background: var(--paed-light);">
+        <div class="paed-container">
+            <div class="paed-header paed-fade-up">
+                <h2>Our Services</h2>
+                <p>We offer specialized services tailored to the unique needs of growing children.</p>
+            </div>
+
+            <div class="paed-services-grid">
+                <div class="paed-service-card paed-stagger">
+                    <div class="paed-svc-icon"><i class="fas fa-baby-carriage"></i></div>
+                    <h3>Neonatal ICU (NICU)</h3>
+                    <p>State-of-the-art intensive care for premature and critically ill newborns, staffed by expert neonatologists.</p>
+                    <ul class="paed-svc-list">
+                        <li>Ventilator Support</li>
+                        <li>Phototherapy</li>
+                        <li>24/7 Monitoring</li>
+                    </ul>
+                </div>
+
+                <div class="paed-service-card paed-stagger">
+                    <div class="paed-svc-icon"><i class="fas fa-syringe"></i></div>
+                    <h3>Vaccination Clinic</h3>
+                    <p>Comprehensive immunization programs following WHO and national guidelines to protect your child.</p>
+                    <ul class="paed-svc-list">
+                        <li>Routine Immunizations</li>
+                        <li>Travel Vaccines</li>
+                        <li>Growth Monitoring</li>
+                    </ul>
+                </div>
+
+                <div class="paed-service-card paed-stagger">
+                    <div class="paed-svc-icon"><i class="fas fa-heartbeat"></i></div>
+                    <h3>Paediatric Surgery</h3>
+                    <p>Advanced surgical care for congenital defects and acute conditions, with minimally invasive options.</p>
+                    <ul class="paed-svc-list">
+                        <li>Hernia Repair</li>
+                        <li>Appendicitis</li>
+                        <li>Urological Surgeries</li>
+                    </ul>
+                </div>
+
+                <div class="paed-service-card paed-stagger">
+                    <div class="paed-svc-icon"><i class="fas fa-brain"></i></div>
+                    <h3>Child Development</h3>
+                    <p>Assessment and therapy for developmental delays, behavioral issues, and learning difficulties.</p>
+                    <ul class="paed-svc-list">
+                        <li>Autism Screening</li>
+                        <li>Speech Therapy</li>
+                        <li>Behavioral Counseling</li>
+                    </ul>
+                </div>
+
+                <div class="paed-service-card paed-stagger">
+                    <div class="paed-svc-icon"><i class="fas fa-stethoscope"></i></div>
+                    <h3>General Paediatrics</h3>
+                    <p>Diagnosis and treatment of common childhood illnesses, infections, and chronic conditions.</p>
+                    <ul class="paed-svc-list">
+                        <li>Check-ups</li>
+                        <li>Infection Control</li>
+                        <li>Wellness Advice</li>
+                    </ul>
+                </div>
+
+                <div class="paed-service-card paed-stagger">
+                    <div class="paed-svc-icon"><i class="fas fa-tooth"></i></div>
+                    <h3>Paediatric Dentistry</h3>
+                    <p>Specialized dental care focused on children's oral health, from first teeth to adolescence.</p>
+                    <ul class="paed-svc-list">
+                        <li>Preventive Checkups</li>
+                        <li>Cavity Treatment</li>
+                        <li>Braces Assessment</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="paed-section">
+        <div class="paed-container">
+            <div class="paed-header paed-fade-up">
+                <h2>Meet Our Specialists</h2>
+                <p>Our team of experienced paediatricians is dedicated to your child's well-being.</p>
+            </div>
+
+            <div class="paed-doc-grid">
+                <div class="paed-doc-card paed-stagger">
+                    <img src="https://jivakahospital.com/wp-content/uploads/2025/12/img-team-member-03.jpg" class="paed-doc-img"
+                        alt="Dr. Khin Khin">
+                    <div class="paed-doc-info">
+                        <h4>Dr. Khin Khin</h4>
+                        <span>Senior Paediatrician</span>
+                        <div class="paed-doc-tags">
+                            <span class="paed-tag">General</span><span class="paed-tag">Nutrition</span>
+                        </div>
+                        <a href="#" class="paed-btn paed-btn-outline" style="margin-top: 20px; font-size: 0.75rem; padding: 10px 20px;">View
+                            Profile</a>
+                    </div>
+                </div>
+                <div class="paed-doc-card paed-stagger">
+                    <img src="https://i.pravatar.cc/400?img=11" class="paed-doc-img" alt="Dr. Nyi Nyi">
+                    <div class="paed-doc-info">
+                        <h4>Dr. Nyi Nyi</h4>
+                        <span>Neonatologist</span>
+                        <div class="paed-doc-tags">
+                            <span class="paed-tag">NICU</span><span class="paed-tag">Pre-term</span>
+                        </div>
+                        <a href="#" class="paed-btn paed-btn-outline" style="margin-top: 20px; font-size: 0.75rem; padding: 10px 20px;">View
+                            Profile</a>
+                    </div>
+                </div>
+                <div class="paed-doc-card paed-stagger">
+                    <img src="https://i.pravatar.cc/400?img=5" class="paed-doc-img" alt="Dr. Su Su">
+                    <div class="paed-doc-info">
+                        <h4>Dr. Su Su</h4>
+                        <span>Paediatric Surgeon</span>
+                        <div class="paed-doc-tags">
+                            <span class="paed-tag">Surgery</span><span class="paed-tag">Trauma</span>
+                        </div>
+                        <a href="#" class="paed-btn paed-btn-outline" style="margin-top: 20px; font-size: 0.75rem; padding: 10px 20px;">View
+                            Profile</a>
+                    </div>
+                </div>
+                <div class="paed-doc-card paed-stagger">
+                    <img src="https://i.pravatar.cc/400?img=33" class="paed-doc-img" alt="Dr. Kyaw Zin">
+                    <div class="paed-doc-info">
+                        <h4>Dr. Kyaw Zin</h4>
+                        <span>Child Development</span>
+                        <div class="paed-doc-tags">
+                            <span class="paed-tag">Psychology</span><span class="paed-tag">Behavior</span>
+                        </div>
+                        <a href="#" class="paed-btn paed-btn-outline" style="margin-top: 20px; font-size: 0.75rem; padding: 10px 20px;">View
+                            Profile</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="paed-section" style="background-color: var(--paed-light);">
+        <div class="paed-container">
+            <div class="paed-header paed-fade-up">
+                <h2>What Parents Say</h2>
+                <p>Trusted by families in Mandalay and beyond.</p>
+            </div>
+            <div class="paed-review-grid">
+                <div class="paed-review-card paed-stagger">
+                    <div class="paed-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                            class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="paed-review-text">"The NICU team saved my baby's life. The doctors and nurses were so supportive during such a
+                        difficult time. Forever grateful."</p>
+                    <p class="paed-parent">- Ma Thida, Mother of Baby Kyaw</p>
+                </div>
+                <div class="paed-review-card paed-stagger">
+                    <div class="paed-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                            class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="paed-review-text">"My daughter loves Dr. Khin Khin! The vaccination process was so smooth, and the play area
+                        made waiting fun."</p>
+                    <p class="paed-parent">- U Aung Myo</p>
+                </div>
+                <div class="paed-review-card paed-stagger">
+                    <div class="paed-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                            class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                    <p class="paed-review-text">"Very professional and clean environment. The best place for paediatric surgery in the
+                        region."</p>
+                    <p class="paed-parent">- Daw Ni Ni</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="paed-section" style="background: #fff;">
+        <div class="paed-container">
+            <div class="paed-header paed-fade-up">
+                <h2>Parent's Guide & FAQ</h2>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px;">
+                <div>
+                    <div class="paed-faq-item paed-stagger">
+                        <button class="paed-faq-question">When should I vaccinate my child? <i class="fas fa-chevron-down"></i></button>
+                        <div class="paed-faq-answer">
+                            Vaccinations start at birth. Key milestones are at 2 months, 4 months, 6 months, 9 months, and 1 year.
+                        </div>
+                    </div>
+                    <div class="paed-faq-item paed-stagger">
+                        <button class="paed-faq-question">What if my child has a high fever? <i class="fas fa-chevron-down"></i></button>
+                        <div class="paed-faq-answer">
+                            Keep the child hydrated. If fever persists over 3 days or exceeds 102°F (39°C), visit us immediately.
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="paed-faq-item paed-stagger">
+                        <button class="paed-faq-question">How often for checkups? <i class="fas fa-chevron-down"></i></button>
+                        <div class="paed-faq-answer">
+                            Regular checkups at 1 week, 1, 2, 4, 6, 9, 12 months, and then annually are recommended.
+                        </div>
+                    </div>
+                    <div class="paed-faq-item paed-stagger">
+                        <button class="paed-faq-question">Do you treat allergies? <i class="fas fa-chevron-down"></i></button>
+                        <div class="paed-faq-answer">
+                            Yes, we treat asthma, eczema, and food allergies with comprehensive testing and management.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="paed-cta">
+        <div class="paed-cta-overlay">
+            <div class="paed-container paed-fade-up">
+                <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Emergency? We Are Here 24/7</h2>
+                <p style="font-size: 1.1rem; margin-bottom: 30px; opacity: 0.9;">Our Paediatric Emergency Unit is always open for urgent
+                    care.</p>
+                <a href="tel:09789101101" class="paed-btn paed-btn-primary" style="background: #fff; color: var(--paed-primary);">
+                    <i class="fas fa-phone-alt"></i> Call Ambulance: 09-789 101 101
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        window.addEventListener("load", function () {
+            gsap.registerPlugin(ScrollTrigger);
+            document.body.classList.add('loaded');
+
+            // 1. Hero Animation
+            const tl = gsap.timeline();
+            tl.fromTo(".paed-animate-hero > *",
+                { y: 40, opacity: 0 },
+                { y: 0, opacity: 1, duration: 1, stagger: 0.2, ease: "power3.out" }
+            );
+
+            // 2. Section Fade Ups
+            const fadeUps = gsap.utils.toArray('.paed-fade-up');
+            fadeUps.forEach(el => {
+                gsap.fromTo(el,
+                    { y: 50, opacity: 0, autoAlpha: 0 },
+                    {
+                        y: 0, opacity: 1, autoAlpha: 1, duration: 0.8, ease: "power2.out",
+                        scrollTrigger: { trigger: el, start: "top 85%" }
+                    }
+                );
+            });
+
+            // 3. Staggered Items
+            ScrollTrigger.batch(".paed-stagger", {
+                start: "top 90%",
+                onEnter: batch => gsap.fromTo(batch,
+                    { y: 40, opacity: 0, autoAlpha: 0 },
+                    { y: 0, opacity: 1, autoAlpha: 1, stagger: 0.15, duration: 0.6, ease: "power2.out" }
+                ),
+                once: true
+            });
+
+            // FAQ Logic
+            const faqs = document.querySelectorAll(".paed-faq-question");
+            faqs.forEach(btn => {
+                btn.addEventListener("click", () => {
+                    btn.classList.toggle("active");
+                    const content = btn.nextElementSibling;
+                    if (btn.classList.contains("active")) {
+                        content.style.maxHeight = content.scrollHeight + "px";
+                    } else {
+                        content.style.maxHeight = 0;
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

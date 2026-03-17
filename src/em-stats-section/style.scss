@@ -1,0 +1,96 @@
+/**
+ * Emergency Stats Section – frontend & editor
+ * Matches 24/7.html .em-stats, .em-stats-grid, .em-stat-item
+ */
+
+// --- Variables (align with 24/7 emergency theme) ---
+.twork-em-stats-section,
+.twork-em-stats-section-editor {
+    --em-primary: #f48b2a;
+    --em-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+// --- Editor: inner blocks layout ---
+.editor-styles-wrapper,
+.block-editor-block-list__layout {
+    .twork-em-stats-section-editor {
+        .em-container {
+            position: relative;
+        }
+
+        .em-stats-grid {
+            display: grid !important;
+            width: 100%;
+
+            > .block-editor-inner-blocks {
+                display: contents !important;
+
+                > .block-editor-block-list__layout {
+                    display: grid !important;
+                    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                    gap: inherit;
+                    width: 100%;
+                }
+            }
+        }
+
+        .em-stat-item h3,
+        .em-stat-item p {
+            &[contenteditable="true"]:focus {
+                outline: 1px dashed #2271b1;
+                outline-offset: 2px;
+            }
+        }
+    }
+}
+
+// --- Frontend: section & grid ---
+.twork-em-stats-section {
+    position: relative;
+
+    .em-container {
+        position: relative;
+        z-index: 2;
+    }
+
+    .em-stats {
+        position: relative;
+        z-index: 5;
+    }
+
+    .em-stats-grid {
+        display: grid;
+        width: 100%;
+    }
+
+    .em-stat-item {
+        text-align: center;
+
+        i {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            opacity: 0.8;
+            display: block;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin: 0;
+            color: #fff;
+            line-height: 1.2;
+        }
+
+        p {
+            font-size: 1rem;
+            margin: 5px 0 0 0;
+            color: #fff;
+            opacity: 0.95;
+            line-height: 1.3;
+        }
+    }
+}
+
+// --- Fade-up animation (when used on frontend via JS) ---
+.twork-em-stats-section .em-stats.fade-up {
+    // Class present for JS scroll animation; base styles above
+}

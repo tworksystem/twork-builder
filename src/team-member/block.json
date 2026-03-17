@@ -3,7 +3,7 @@
     "apiVersion": 3,
     "name": "twork/team-member",
     "version": "1.0.0",
-    "title": "Twork Team Member",
+    "title": "Team Member",
     "category": "twork-builder",
     "icon": "businessperson",
     "description": "Professional team member display with Twork standards.",

@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>International Patients | Jivaka Hospital</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <style>
+        /* --- 1. CORE VARIABLES --- */
+        :root {
+            --primary-orange: #f48b2a;
+            --brand-orange-hover: #e67a22;
+            --dark-grey: #212121;
+            --medium-grey: #666;
+            --light-grey-bg: #f8f9fa;
+            --white: #ffffff;
+            --border: #e0e0e0;
+            --radius: 12px;
+            --shadow-sm: 0 5px 15px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Roboto", sans-serif;
+            color: var(--dark-grey);
+            line-height: 1.6;
+            background: #fff;
+            overflow-x: hidden;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        body.loaded {
+            opacity: 1;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: 0.3s;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .jivaka-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        /* Buttons */
+        .jivaka-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 28px;
+            border-radius: 6px;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 0.8px;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            cursor: pointer;
+            border: 1px solid transparent;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: var(--primary-orange);
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(244, 139, 42, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: var(--brand-orange-hover);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--primary-orange);
+            color: var(--primary-orange);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-orange);
+            color: #fff;
+        }
+
+        /* --- 2. HERO SECTION --- */
+        .page-hero {
+            position: relative;
+            height: 450px;
+            display: flex;
+            align-items: center;
+            background-color: #0b1c2c;
+            color: #fff;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.6;
+            object-position: center;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            text-align: center;
+        }
+
+        .hero-breadcrumb {
+            display: inline-block;
+            padding: 6px 16px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            border-radius: 50px;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 900;
+            margin: 0 0 15px 0;
+            text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* --- 3. PATIENT JOURNEY (STEPS) --- */
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .step-card {
+            background: #fff;
+            padding: 30px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-sm);
+            text-align: center;
+            border-top: 4px solid var(--primary-orange);
+            transition: 0.3s;
+            height: 100%;
+        }
+
+        .step-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .step-num {
+            width: 40px;
+            height: 40px;
+            background: var(--primary-orange);
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            margin: 0 auto 20px;
+            font-size: 1.2rem;
+        }
+
+        .step-card h4 {
+            margin: 0 0 10px 0;
+            font-size: 1.2rem;
+        }
+
+        .step-card p {
+            color: var(--medium-grey);
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        /* --- 4. SERVICES --- */
+        .services-section {
+            background: var(--light-grey-bg);
+        }
+
+        .svc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .svc-card {
+            background: #fff;
+            padding: 25px;
+            border-radius: var(--radius);
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            transition: 0.3s;
+        }
+
+        .svc-card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateX(5px);
+        }
+
+        .svc-icon {
+            font-size: 2rem;
+            color: var(--primary-orange);
+            flex-shrink: 0;
+        }
+
+        .svc-info h4 {
+            margin: 0 0 5px 0;
+            font-size: 1.1rem;
+        }
+
+        .svc-info p {
+            margin: 0;
+            color: var(--medium-grey);
+            font-size: 0.9rem;
+        }
+
+        /* --- 5. TESTIMONIALS (NEW) --- */
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .testimonial-card {
+            background: #fff;
+            padding: 30px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid #eee;
+        }
+
+        .t-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .t-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .t-info h5 {
+            margin: 0;
+            font-size: 1.1rem;
+        }
+
+        .t-info span {
+            font-size: 0.85rem;
+            color: var(--medium-grey);
+        }
+
+        .t-text {
+            font-style: italic;
+            color: #555;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* --- 6. ACCOMMODATION (NEW) --- */
+        .hotel-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .hotel-card {
+            border-radius: var(--radius);
+            overflow: hidden;
+            position: relative;
+            height: 200px;
+            cursor: pointer;
+        }
+
+        .hotel-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+
+        .hotel-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .hotel-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            color: #fff;
+        }
+
+        .hotel-overlay h4 {
+            margin: 0;
+            font-size: 1.1rem;
+        }
+
+        .hotel-overlay p {
+            margin: 5px 0 0;
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+
+        /* --- 7. PARTNERS LOGO GRID (NEW) --- */
+        .logo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 40px;
+            align-items: center;
+            justify-items: center;
+            margin-top: 40px;
+        }
+
+        .partner-logo {
+            max-width: 120px;
+            opacity: 0.6;
+            filter: grayscale(100%);
+            transition: 0.4s;
+            object-fit: contain;
+            max-height: 60px;
+        }
+
+        .partner-logo:hover {
+            opacity: 1;
+            filter: grayscale(0%);
+            transform: scale(1.05);
+        }
+
+        /* --- 8. INQUIRY FORM --- */
+        .inquiry-wrapper {
+            background: #fff;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-md);
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            margin-top: 60px;
+        }
+
+        .inquiry-img {
+            background: url('https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1000&q=80') center/cover no-repeat;
+            position: relative;
+        }
+
+        .inquiry-img::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(244, 139, 42, 0.8);
+            opacity: 0.8;
+        }
+
+        .inquiry-text {
+            position: relative;
+            z-index: 2;
+            padding: 60px;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100%;
+        }
+
+        .inquiry-text h3 {
+            font-size: 2rem;
+            margin: 0 0 20px 0;
+        }
+
+        .inquiry-text p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .form-container {
+            padding: 60px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: 0.3s;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-orange);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        /* Animation */
+        .fade-up,
+        .stagger-card,
+        .stagger-hotel,
+        .stagger-logo {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .inquiry-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .inquiry-img {
+                height: 300px;
+            }
+
+            .inquiry-text {
+                padding: 40px;
+            }
+
+            .form-container {
+                padding: 40px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .page-hero {
+                height: 350px;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="page-hero">
+        <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1920&q=80"
+            alt="International Patients" class="hero-bg">
+        <div class="jivaka-container hero-content animate-hero">
+            <span class="hero-breadcrumb">Welcome to Myanmar</span>
+            <h1 class="hero-title">World-Class Care,<br>Beyond Borders</h1>
+            <p class="hero-subtitle">We are dedicated to making your medical journey seamless, comfortable, and successful.</p>
+        </div>
+    </header>
+
+    <section class="section-padding">
+        <div class="jivaka-container">
+            <div style="text-align: center; max-width: 800px; margin: 0 auto 50px;" class="fade-up">
+                <h2 style="font-size: 2.2rem; color: var(--dark-grey);">Your Journey With Us</h2>
+                <p style="color: var(--medium-grey);">From your first inquiry to your safe return home, our International Patient Team is
+                    with you every step of the way.</p>
+            </div>
+
+            <div class="steps-grid">
+                <div class="step-card stagger-card">
+                    <div class="step-num">1</div>
+                    <h4>Inquiry & Estimate</h4>
+                    <p>Send us your medical reports. Our specialists will review them and provide a treatment plan and cost estimate.</p>
+                </div>
+                <div class="step-card stagger-card">
+                    <div class="step-num">2</div>
+                    <h4>Travel & Visa</h4>
+                    <p>We assist with medical visa invitation letters and can help arrange accommodation and transport.</p>
+                </div>
+                <div class="step-card stagger-card">
+                    <div class="step-num">3</div>
+                    <h4>Arrival & Care</h4>
+                    <p>Airport pickup, dedicated interpreters, and priority admission to ensure a stress-free experience.</p>
+                </div>
+                <div class="step-card stagger-card">
+                    <div class="step-num">4</div>
+                    <h4>Post-Care Follow-up</h4>
+                    <p>Even after you return home, we stay connected for follow-up consultations and recovery monitoring.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding services-section">
+        <div class="jivaka-container">
+            <h2 class="fade-up" style="margin-bottom: 40px;">Exclusive Services</h2>
+
+            <div class="svc-grid">
+                <div class="svc-card stagger-card">
+                    <div class="svc-icon"><i class="fas fa-language"></i></div>
+                    <div class="svc-info">
+                        <h4>Language Interpretation</h4>
+                        <p>Our team speaks English, Chinese, and Thai to ensure clear communication.</p>
+                    </div>
+                </div>
+                <div class="svc-card stagger-card">
+                    <div class="svc-icon"><i class="fas fa-plane-arrival"></i></div>
+                    <div class="svc-info">
+                        <h4>Airport Transfer</h4>
+                        <p>Complimentary pickup and drop-off services for patients and attendants.</p>
+                    </div>
+                </div>
+                <div class="svc-card stagger-card">
+                    <div class="svc-icon"><i class="fas fa-passport"></i></div>
+                    <div class="svc-info">
+                        <h4>Visa Assistance</h4>
+                        <p>Provision of official documents required for Medical Visa application.</p>
+                    </div>
+                </div>
+                <div class="svc-card stagger-card">
+                    <div class="svc-icon"><i class="fas fa-hotel"></i></div>
+                    <div class="svc-info">
+                        <h4>Accommodation</h4>
+                        <p>Partnerships with nearby hotels for comfortable stays for family members.</p>
+                    </div>
+                </div>
+                <div class="svc-card stagger-card">
+                    <div class="svc-icon"><i class="fas fa-utensils"></i></div>
+                    <div class="svc-info">
+                        <h4>International Cuisine</h4>
+                        <p>Customized meal plans catering to diverse cultural and dietary preferences.</p>
+                    </div>
+                </div>
+                <div class="svc-card stagger-card">
+                    <div class="svc-icon"><i class="fas fa-wifi"></i></div>
+                    <div class="svc-info">
+                        <h4>Connectivity</h4>
+                        <p>Free local SIM cards and high-speed Wi-Fi to keep you connected with home.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding">
+        <div class="jivaka-container">
+            <h2 class="fade-up">Patient Stories</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card stagger-card">
+                    <div class="t-header">
+                        <img src="https://i.pravatar.cc/100?img=33" alt="Patient" class="t-img">
+                        <div class="t-info">
+                            <h5>John D.</h5>
+                            <span>from Australia</span>
+                        </div>
+                    </div>
+                    <p class="t-text">"The level of care I received at Jivaka was exceptional. The international team handled everything
+                        from my visa to my recovery. Highly recommended!"</p>
+                </div>
+                <div class="testimonial-card stagger-card">
+                    <div class="t-header">
+                        <img src="https://i.pravatar.cc/100?img=5" alt="Patient" class="t-img">
+                        <div class="t-info">
+                            <h5>Sarah L.</h5>
+                            <span>from Thailand</span>
+                        </div>
+                    </div>
+                    <p class="t-text">"I came for a checkup but ended up doing my dental surgery here. The facilities are world-class and
+                        the staff is incredibly kind."</p>
+                </div>
+                <div class="testimonial-card stagger-card">
+                    <div class="t-header">
+                        <img src="https://i.pravatar.cc/100?img=12" alt="Patient" class="t-img">
+                        <div class="t-info">
+                            <h5>Chen W.</h5>
+                            <span>from China</span>
+                        </div>
+                    </div>
+                    <p class="t-text">"Communication was easy thanks to the interpreters. The doctors are very professional and explained
+                        everything clearly."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding services-section">
+        <div class="jivaka-container">
+            <h2 class="fade-up" style="margin-bottom: 30px;">Nearby Accommodation</h2>
+            <div class="hotel-grid">
+                <div class="hotel-card stagger-hotel">
+                    <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=600&q=80" alt="Hotel 1">
+                    <div class="hotel-overlay">
+                        <h4>Mandalay Hill Resort</h4>
+                        <p>5 Star • 5 mins away</p>
+                    </div>
+                </div>
+                <div class="hotel-card stagger-hotel">
+                    <img src="https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=600&q=80" alt="Hotel 2">
+                    <div class="hotel-overlay">
+                        <h4>Mercure Mandalay</h4>
+                        <p>4 Star • 10 mins away</p>
+                    </div>
+                </div>
+                <div class="hotel-card stagger-hotel">
+                    <img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=600&q=80" alt="Hotel 3">
+                    <div class="hotel-overlay">
+                        <h4>Sedona Hotel</h4>
+                        <p>5 Star • 15 mins away</p>
+                    </div>
+                </div>
+                <div class="hotel-card stagger-hotel">
+                    <img src="https://images.unsplash.com/photo-1596436889106-be35e843f974?auto=format&fit=crop&w=600&q=80" alt="Hotel 4">
+                    <div class="hotel-overlay">
+                        <h4>Eastern Palace</h4>
+                        <p>4 Star • 12 mins away</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding">
+        <div class="jivaka-container">
+            <h3 style="text-align: center; color: var(--medium-grey); text-transform: uppercase; letter-spacing: 1px; font-size: 1rem;">Our
+                Medical Travel Partners</h3>
+            <div class="logo-grid fade-up">
+                <img src="https://cdn-icons-png.flaticon.com/512/2913/2913520.png" class="partner-logo" alt="Insurance Partner">
+                <img src="https://cdn-icons-png.flaticon.com/512/2966/2966334.png" class="partner-logo" alt="Travel Agency">
+                <img src="https://cdn-icons-png.flaticon.com/512/4320/4320350.png" class="partner-logo" alt="Health Network">
+                <img src="https://cdn-icons-png.flaticon.com/512/3063/3063822.png" class="partner-logo" alt="Global Assist">
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding services-section">
+        <div class="jivaka-container">
+            <div class="inquiry-wrapper fade-up">
+                <div class="inquiry-img">
+                    <div class="inquiry-text">
+                        <h3>Plan Your Treatment</h3>
+                        <p>Fill out the form, and our International Desk will get back to you within 24 hours.</p>
+                        <ul style="margin-top: 20px; list-style: none; padding: 0;">
+                            <li style="margin-bottom: 10px;"><i class="fas fa-phone-alt"></i> +95 9 789 101 101</li>
+                            <li><i class="fas fa-envelope"></i> intl@jivakahospital.com</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="form-container">
+                    <form>
+                        <div class="form-group">
+                            <label>Full Name</label>
+                            <input type="text" class="form-control" placeholder="Enter your name">
+                        </div>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                            <div class="form-group">
+                                <label>Country</label>
+                                <input type="text" class="form-control" placeholder="Your Country">
+                            </div>
+                            <div class="form-group">
+                                <label>Phone / WhatsApp</label>
+                                <input type="text" class="form-control" placeholder="+xx xxxxxxxxxx">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Email Address</label>
+                            <input type="email" class="form-control" placeholder="email@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label>Medical Specialty Needed</label>
+                            <select class="form-control">
+                                <option>Select Specialty</option>
+                                <option>Cardiology (Heart)</option>
+                                <option>Orthopaedics (Bone)</option>
+                                <option>Oncology (Cancer)</option>
+                                <option>General Checkup</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Message / Symptoms</label>
+                            <textarea class="form-control" placeholder="Describe your condition or specific requirements..."></textarea>
+                        </div>
+                        <button type="submit" class="jivaka-btn btn-primary" style="width: 100%;">Submit Inquiry</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        window.addEventListener("load", function () {
+            gsap.registerPlugin(ScrollTrigger);
+            document.body.classList.add('loaded');
+
+            // 1. Hero Animation
+            const tl = gsap.timeline();
+            tl.fromTo(".animate-hero > *",
+                { y: 40, opacity: 0 },
+                { y: 0, opacity: 1, duration: 1, stagger: 0.2, ease: "power3.out" }
+            );
+
+            // 2. Section Fade Ups
+            const fadeUps = gsap.utils.toArray('.fade-up');
+            fadeUps.forEach(el => {
+                gsap.fromTo(el,
+                    { y: 50, opacity: 0, autoAlpha: 0 },
+                    {
+                        y: 0, opacity: 1, autoAlpha: 1, duration: 0.8, ease: "power2.out",
+                        scrollTrigger: { trigger: el, start: "top 85%" }
+                    }
+                );
+            });
+
+            // 3. Staggered Cards (Steps & Services)
+            ScrollTrigger.batch(".stagger-card, .stagger-hotel", {
+                start: "top 90%",
+                onEnter: batch => gsap.fromTo(batch,
+                    { y: 30, opacity: 0, autoAlpha: 0 },
+                    { y: 0, opacity: 1, autoAlpha: 1, stagger: 0.1, duration: 0.6, ease: "power2.out" }
+                ),
+                once: true
+            });
+        });
+    </script>
+</body>
+
+</html>

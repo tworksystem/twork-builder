@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="my">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jivaka Care - Hero Section</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* --- Global Fixes & Section Styling --- */
+
+        body {
+            margin: 0 !important;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Inter", sans-serif;
+        }
+
+        /* Hide WordPress Spacers */
+        .wp-block-spacer {
+            display: none !important;
+            height: 0 !important;
+            margin: 0 !important;
+        }
+
+        .jivaka-hero-section {
+            background: linear-gradient(135deg, #f6892e, #e07a25);
+            min-height: 100vh;
+            width: 100vw;
+            margin-left: calc(50% - 50vw);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+            box-sizing: border-box;
+            overflow-x: hidden;
+        }
+
+        .jivaka-hero-section .container {
+            max-width: 1200px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            color: white;
+        }
+
+        .jivaka-hero-section .text-content {
+            flex: 1 1 400px;
+            padding: 20px;
+        }
+
+        .jivaka-hero-section .text-content h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            /* Dynamic sizing */
+            font-weight: 700;
+            margin-bottom: 10px;
+            line-height: 1.2;
+        }
+
+        .jivaka-hero-section .text-content p {
+            margin: 0 0 30px 0;
+            font-size: 1.5rem;
+            opacity: 0.9;
+        }
+
+        .jivaka-hero-section .badges {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+        }
+
+        .jivaka-hero-section .badges img {
+            height: 45px;
+            width: auto;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .jivaka-hero-section .badges a:hover img {
+            transform: translateY(-5px);
+        }
+
+        .jivaka-hero-section .phone-mockup {
+            flex: 1 1 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .jivaka-hero-section .phone-mockup img {
+            width: 100%;
+            max-width: 320px;
+            height: auto;
+            filter: drop-shadow(0 20px 50px rgba(0, 0, 0, 0.2));
+            animation: float 4s ease-in-out infinite;
+        }
+
+        /* Floating Animation for Phone */
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        /* --- Responsive Styles --- */
+        @media (max-width: 960px) {
+            .jivaka-hero-section {
+                padding: 60px 20px;
+                min-height: auto;
+            }
+
+            .jivaka-hero-section .container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .jivaka-hero-section .text-content {
+                padding-bottom: 40px;
+                text-align: center;
+            }
+
+            .jivaka-hero-section .badges {
+                justify-content: center;
+            }
+
+            .jivaka-hero-section .phone-mockup img {
+                max-width: 250px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="jivaka-hero-section">
+        <div class="container">
+            <div class="text-content">
+                <h1>Jivaka Care</h1>
+                <p>Caring with Compassion</p>
+
+                <div class="badges">
+                    <a href="https://jivaka.advent-soft.com/download/jivaka-care.apk">
+                        <img src="https://jivakahospital.com/wp-content/uploads/2025/07/android-app.png" alt="Android Direct Download" />
+                    </a>
+
+                    <a href="https://play.google.com/store/apps/details?id=com.jivaka.user" target="_blank">
+                        <img src="https://jivakahospital.com/wp-content/uploads/2025/07/google-play.png" alt="Get it on Google Play" />
+                    </a>
+
+                    <a href="https://apps.apple.com/us/app/jivaka-care/id6753567099" target="_blank">
+                        <img src="https://jivakahospital.com/wp-content/uploads/2026/02/app-store.png" alt="Get it on App Store" />
+                    </a>
+                </div>
+            </div>
+
+            <div class="phone-mockup">
+                <img src="https://jivakahospital.com/wp-content/uploads/2025/07/iphone-frame.png" alt="Jivaka App Screenshot" />
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

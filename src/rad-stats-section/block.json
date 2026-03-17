@@ -1,0 +1,83 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "twork/rad-stats-section",
+  "version": "1.0.0",
+  "title": "Stats Strip",
+  "category": "twork-builder",
+  "icon": "chart-bar",
+  "description": "Radiology & Imaging quick stats strip below the hero section.",
+  "keywords": [
+    "radiology",
+    "imaging",
+    "stats",
+    "strip",
+    "twork"
+  ],
+  "attributes": {
+    "backgroundColor": {
+      "type": "string",
+      "default": "#ffffff"
+    },
+    "paddingTop": {
+      "type": "number",
+      "default": 40
+    },
+    "paddingBottom": {
+      "type": "number",
+      "default": 40
+    },
+    "marginTop": {
+      "type": "number",
+      "default": -60
+    },
+    "containerMaxWidth": {
+      "type": "number",
+      "default": 1200
+    },
+    "containerPadding": {
+      "type": "number",
+      "default": 20
+    },
+    "columns": {
+      "type": "number",
+      "default": 4
+    },
+    "columnsTablet": {
+      "type": "number",
+      "default": 2
+    },
+    "columnsMobile": {
+      "type": "number",
+      "default": 1
+    },
+    "gap": {
+      "type": "number",
+      "default": 20
+    },
+    "animationOnScroll": {
+      "type": "boolean",
+      "default": true
+    },
+    "animationType": {
+      "type": "string",
+      "default": "fade-up"
+    },
+    "animationDelay": {
+      "type": "number",
+      "default": 0
+    }
+  },
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "textdomain": "twork-builder",
+  "editorScript": "file:./index.js",
+  "style": "file:./style-index.css"
+}
+

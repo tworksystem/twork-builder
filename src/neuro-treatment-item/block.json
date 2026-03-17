@@ -1,0 +1,35 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "twork/neuro-treatment-item",
+    "title": "Treatment Card",
+    "category": "twork-builder",
+    "parent": ["twork/neuro-centre-section"],
+    "description": "Single treatment or service card (icon/image, title, description) for the Neuro Centre Treatments & Services section.",
+    "attributes": {
+        "iconType": {
+            "type": "string",
+            "default": "icon"
+        },
+        "icon": {
+            "type": "string",
+            "default": "fas fa-brain"
+        },
+        "imageUrl": {
+            "type": "string"
+        },
+        "imageId": {
+            "type": "number"
+        },
+        "title": {
+            "type": "string",
+            "default": "Stroke Management"
+        },
+        "text": {
+            "type": "string",
+            "default": "Rapid response \"Golden Hour\" treatment for ischemic and hemorrhagic strokes."
+        }
+    },
+    "textdomain": "twork-builder",
+    "editorScript": "file:./index.js"
+}

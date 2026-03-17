@@ -1,0 +1,188 @@
+// Radiology "Why Choose Jivaka Imaging?" Section
+// Matches the design from radiology&imaging.html for:
+// .rad-section, .rad-container, .rad-header, .rad-why-grid, .rad-why-item, .rad-why-icon
+
+// Variables (shared with hero)
+:root {
+  --rad-primary: #f48b2a;
+  --rad-dark: #212121;
+}
+
+// === EDITOR STYLES ===
+.editor-styles-wrapper,
+.block-editor-block-list__layout,
+.wp-block-twork-rad-why-section {
+  .twork-rad-why-section-editor {
+    position: relative;
+
+    .rad-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .rad-header {
+      max-width: 700px;
+      margin: 0 auto 50px;
+
+      h2,
+      p {
+        &[contenteditable='true']:focus {
+          outline: 1px dashed #2271b1;
+          outline-offset: 2px;
+        }
+      }
+    }
+
+    .rad-why-grid {
+      display: grid !important;
+      gap: 30px !important;
+      width: 100%;
+
+      > .block-editor-inner-blocks {
+        display: contents !important;
+
+        > .block-editor-block-list__layout {
+          display: contents !important;
+
+          > .wp-block,
+          > [data-type='twork/rad-why-item'] {
+            display: flex !important;
+            flex-direction: column !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+// === FRONTEND STYLES ===
+.twork-rad-why-section {
+  font-family: 'Roboto', sans-serif;
+  position: relative;
+
+  // Defaults (can be overridden per-block via inline CSS variables from save.js)
+  --rad-columns-desktop: 4;
+  --rad-columns-tablet: 2;
+  --rad-columns-mobile: 1;
+  --rad-grid-gap: 30px;
+
+  .rad-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+  }
+
+  .rad-header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 50px;
+
+    h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+      color: var(--rad-dark);
+      line-height: 1.2;
+    }
+
+    p {
+      margin: 0;
+      color: #666;
+      line-height: 1.6;
+    }
+  }
+
+  .rad-why-grid {
+    display: grid;
+    grid-template-columns: repeat(var(--rad-columns-desktop), 1fr);
+    gap: var(--rad-grid-gap);
+  }
+
+  .rad-why-item {
+    padding: 30px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    background: #ffffff;
+    transition: 0.3s ease;
+    text-align: left;
+
+    &:hover {
+      border-color: var(--rad-primary);
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    }
+
+    h4 {
+      font-size: 1.2rem;
+      margin: 0 0 10px 0;
+      color: var(--rad-dark);
+    }
+
+    .rad-why-description {
+      margin: 0;
+      color: #666666;
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+  }
+
+  .rad-why-icon {
+    font-size: 2rem;
+    color: var(--rad-primary);
+    margin-bottom: 20px;
+    background: #fff8f0;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+
+    i {
+      display: block;
+    }
+  }
+
+  // Simple fade/stagger defaults (JS can enhance these)
+  .fade-up,
+  .stagger-up {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+// === RESPONSIVE ===
+@media (max-width: 992px) {
+  .twork-rad-why-section {
+    .rad-why-grid {
+      grid-template-columns: repeat(var(--rad-columns-tablet), 1fr);
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .twork-rad-why-section {
+    padding-top: 60px !important;
+    padding-bottom: 60px !important;
+
+    .rad-header {
+      margin-bottom: 40px;
+
+      h2 {
+        font-size: 2rem !important;
+      }
+
+      p {
+        font-size: 0.95rem !important;
+      }
+    }
+
+    .rad-why-grid {
+      grid-template-columns: repeat(var(--rad-columns-mobile), 1fr);
+      gap: 20px;
+    }
+  }
+}
+

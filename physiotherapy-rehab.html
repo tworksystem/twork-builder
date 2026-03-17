@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Physiotherapy & Rehab | Jivaka Hospital</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <style>
+        /* --- CORE VARIABLES --- */
+        :root {
+            --phy-primary: #f48b2a;
+            --phy-secondary: #212121;
+            --phy-accent: #fff3e0;
+            --phy-light: #f9f9f9;
+            --phy-white: #ffffff;
+            --phy-text: #555;
+            --phy-radius: 20px;
+            /* Soft Organic Radius */
+            --phy-shadow: 0 15px 35px rgba(0, 0, 0, 0.06);
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Roboto", sans-serif;
+            color: var(--phy-text);
+            line-height: 1.6;
+            background: var(--phy-white);
+            overflow-x: hidden;
+            opacity: 1;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            color: var(--phy-secondary);
+            line-height: 1.2;
+            margin-top: 0;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: 0.3s;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .phy-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+            position: relative;
+        }
+
+        .phy-section {
+            padding: 90px 0;
+            position: relative;
+        }
+
+        /* Buttons */
+        .phy-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 35px;
+            border-radius: 50px;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            background: var(--phy-primary);
+            color: #fff;
+            transition: 0.3s;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(244, 139, 42, 0.3);
+        }
+
+        .phy-btn:hover {
+            background: #d6701b;
+            transform: translateY(-3px);
+        }
+
+        /* --- 1. HERO SECTION (Organic Curve) --- */
+        .phy-hero {
+            position: relative;
+            min-height: 700px;
+            display: flex;
+            align-items: center;
+            background: #fff;
+            overflow: hidden;
+        }
+
+        .phy-hero-bg {
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 55%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+            border-bottom-left-radius: 200px;
+            /* Unique Curve */
+            z-index: 1;
+        }
+
+        .phy-hero-content {
+            position: relative;
+            z-index: 2;
+            width: 50%;
+            padding-top: 50px;
+        }
+
+        .phy-hero-badge {
+            background: var(--phy-accent);
+            color: var(--phy-primary);
+            padding: 8px 16px;
+            border-radius: 30px;
+            font-weight: 700;
+            display: inline-block;
+            margin-bottom: 20px;
+            font-size: 0.85rem;
+        }
+
+        .phy-hero h1 {
+            font-size: clamp(3rem, 5vw, 4.5rem);
+            font-weight: 900;
+            margin-bottom: 20px;
+        }
+
+        .phy-hero p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            max-width: 500px;
+        }
+
+        /* --- 2. STATS (Floating Cards) --- */
+        .phy-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: -50px;
+            position: relative;
+            z-index: 3;
+        }
+
+        .phy-stat-card {
+            background: #fff;
+            padding: 30px;
+            border-radius: var(--phy-radius);
+            box-shadow: var(--phy-shadow);
+            text-align: center;
+            border-bottom: 5px solid var(--phy-primary);
+            transition: 0.3s;
+        }
+
+        .phy-stat-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .phy-stat-num {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--phy-primary);
+            display: block;
+        }
+
+        /* --- 3. SERVICES (Expandable Cards) --- */
+        .phy-services-grid {
+            display: flex;
+            gap: 20px;
+            min-height: 400px;
+        }
+
+        .phy-service-card {
+            flex: 1;
+            position: relative;
+            overflow: hidden;
+            border-radius: var(--phy-radius);
+            background-size: cover;
+            background-position: center;
+            transition: flex 0.5s ease;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 30px;
+        }
+
+        .phy-service-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+        }
+
+        .phy-service-card:hover {
+            flex: 3;
+        }
+
+        /* Expands on hover */
+
+        .phy-svc-content {
+            position: relative;
+            z-index: 2;
+            color: #fff;
+        }
+
+        .phy-svc-content h3 {
+            color: #fff;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            white-space: nowrap;
+        }
+
+        .phy-svc-content p {
+            opacity: 0;
+            height: 0;
+            transition: 0.5s;
+            font-size: 0.95rem;
+            overflow: hidden;
+        }
+
+        .phy-service-card:hover .phy-svc-content p {
+            opacity: 1;
+            height: auto;
+            margin-top: 10px;
+        }
+
+        /* --- 4. PATIENT JOURNEY (New Vertical Timeline) --- */
+        .phy-journey-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding-left: 20px;
+            border-left: 2px solid #eee;
+        }
+
+        .phy-journey-item {
+            position: relative;
+            padding-left: 40px;
+            margin-bottom: 40px;
+        }
+
+        .phy-journey-item::before {
+            content: '';
+            position: absolute;
+            left: -9px;
+            top: 0;
+            width: 16px;
+            height: 16px;
+            background: var(--phy-primary);
+            border-radius: 50%;
+            border: 4px solid #fff;
+            box-shadow: 0 0 0 2px var(--phy-primary);
+        }
+
+        .phy-journey-item h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        .phy-journey-item p {
+            color: #666;
+        }
+
+        /* --- 5. CONDITIONS WE TREAT (Body Map Layout) --- */
+        .phy-cond-section {
+            background: var(--phy-light);
+        }
+
+        .phy-cond-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .phy-cond-col h3 {
+            border-left: 5px solid var(--phy-primary);
+            padding-left: 15px;
+            margin-bottom: 25px;
+            font-size: 1.4rem;
+        }
+
+        .phy-cond-list {
+            list-style: none;
+        }
+
+        .phy-cond-list li {
+            background: #fff;
+            padding: 15px 20px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+            transition: 0.3s;
+        }
+
+        .phy-cond-list li:hover {
+            transform: translateX(10px);
+            color: var(--phy-primary);
+        }
+
+        .phy-cond-list i {
+            color: var(--phy-primary);
+            background: var(--phy-accent);
+            padding: 8px;
+            border-radius: 50%;
+        }
+
+        /* --- 6. FACILITIES SLIDER (Scroll Snap) --- */
+        .phy-facility-slider {
+            display: flex;
+            overflow-x: auto;
+            gap: 20px;
+            padding-bottom: 40px;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .phy-facility-slider::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .phy-facility-slider::-webkit-scrollbar-thumb {
+            background: var(--phy-primary);
+            border-radius: 10px;
+        }
+
+        .phy-facility-card {
+            flex: 0 0 350px;
+            scroll-snap-align: start;
+            background: #fff;
+            border-radius: var(--phy-radius);
+            overflow: hidden;
+            box-shadow: var(--phy-shadow);
+        }
+
+        .phy-facility-img {
+            height: 220px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .phy-facility-info {
+            padding: 25px;
+        }
+
+        .phy-facility-info h4 {
+            margin-bottom: 5px;
+        }
+
+        /* --- 7. HOME EXERCISE (New Split Section) --- */
+        .phy-home-ex-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .phy-home-ex-content h2 {
+            margin-bottom: 20px;
+            font-size: 2.2rem;
+        }
+
+        .phy-home-ex-list li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 500;
+        }
+
+        .phy-home-ex-list i {
+            color: #2ecc71;
+        }
+
+        /* --- 8. TEAM (Rounded Cards) --- */
+        .phy-team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+        }
+
+        .phy-team-card {
+            background: #fff;
+            border-radius: 100px 100px 20px 20px;
+            /* Unique Shape */
+            padding: 20px;
+            text-align: center;
+            border: 1px solid #eee;
+            transition: 0.3s;
+        }
+
+        .phy-team-card:hover {
+            border-color: var(--phy-primary);
+            box-shadow: var(--phy-shadow);
+        }
+
+        .phy-team-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 20px;
+            border: 5px solid var(--phy-accent);
+        }
+
+        /* --- 9. FAQ --- */
+        .phy-faq-item {
+            background: #fff;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            padding: 20px;
+            border-left: 4px solid transparent;
+            transition: 0.3s;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+        }
+
+        .phy-faq-item:hover {
+            border-left-color: var(--phy-primary);
+        }
+
+        .phy-faq-q {
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .phy-faq-a {
+            max-height: 0;
+            overflow: hidden;
+            transition: 0.3s;
+            color: #666;
+            margin-top: 0;
+        }
+
+        .phy-faq-item.active .phy-faq-a {
+            max-height: 200px;
+            margin-top: 15px;
+        }
+
+        /* Utils */
+        .fade-up,
+        .stagger-up {
+            opacity: 1;
+        }
+
+        .phy-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 50px;
+        }
+
+        .phy-header h2 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 15px;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .phy-hero {
+                flex-direction: column;
+                padding-top: 120px;
+                min-height: auto;
+            }
+
+            .phy-hero-bg {
+                width: 100%;
+                height: 300px;
+                position: relative;
+                border-radius: 0;
+            }
+
+            .phy-hero-content {
+                width: 100%;
+                padding: 40px 20px;
+                text-align: center;
+            }
+
+            .phy-hero p {
+                margin: 0 auto 30px;
+            }
+
+            .phy-services-grid {
+                flex-direction: column;
+            }
+
+            .phy-service-card {
+                min-height: 200px;
+            }
+
+            .phy-service-card:hover {
+                flex: 1;
+            }
+
+            /* Disable expand on mobile */
+            .phy-service-card .phy-svc-content p {
+                opacity: 1;
+                height: auto;
+            }
+
+            /* Always show text on mobile */
+            .phy-home-ex-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="phy-hero">
+        <div class="phy-container phy-hero-content">
+            <div class="fade-up">
+                <span class="phy-hero-badge">Expert Rehabilitation Center</span>
+                <h1>Restore Movement,<br>Reclaim Your Life.</h1>
+                <p>Personalized physiotherapy programs designed to help you recover from injury, manage pain, and improve your mobility.</p>
+                <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+                    <a href="#appointment" class="phy-btn">
+                        Book Consultation <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="#services" class="phy-btn" style="background: #fff; color: var(--phy-secondary); border: 2px solid #eee;">
+                        Our Services
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="phy-hero-bg fade-up"></div>
+    </header>
+
+    <div class="phy-container">
+        <div class="phy-stats-grid">
+            <div class="phy-stat-card stagger-up">
+                <span class="phy-stat-num">5k+</span>
+                <p>Happy Patients</p>
+            </div>
+            <div class="phy-stat-card stagger-up">
+                <span class="phy-stat-num">10+</span>
+                <p>Expert Therapists</p>
+            </div>
+            <div class="phy-stat-card stagger-up">
+                <span class="phy-stat-num">98%</span>
+                <p>Recovery Rate</p>
+            </div>
+            <div class="phy-stat-card stagger-up">
+                <span class="phy-stat-num">15</span>
+                <p>Years Experience</p>
+            </div>
+        </div>
+    </div>
+
+    <section class="phy-section">
+        <div class="phy-container">
+            <div class="phy-header fade-up">
+                <h2>Your Road to Recovery</h2>
+                <p>A structured approach to getting you back to 100%.</p>
+            </div>
+            <div class="phy-journey-container stagger-up">
+                <div class="phy-journey-item">
+                    <h3>1. Initial Assessment</h3>
+                    <p>Comprehensive evaluation of your posture, movement, and pain points by our senior physiotherapists.</p>
+                </div>
+                <div class="phy-journey-item">
+                    <h3>2. Treatment Plan</h3>
+                    <p>We design a personalized roadmap combining manual therapy, machines, and exercises.</p>
+                </div>
+                <div class="phy-journey-item">
+                    <h3>3. Active Rehab</h3>
+                    <p>Guided sessions in our gym to strengthen muscles and improve flexibility.</p>
+                </div>
+                <div class="phy-journey-item">
+                    <h3>4. Maintenance</h3>
+                    <p>Home exercise programs to prevent future injuries and maintain health.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="phy-section phy-cond-section">
+        <div class="phy-container">
+            <div class="phy-header fade-up">
+                <h2>Conditions We Treat</h2>
+                <p>Targeted therapy for every part of your body.</p>
+            </div>
+            <div class="phy-cond-grid">
+                <div class="phy-cond-col stagger-up">
+                    <h3><i class="fas fa-bone"></i> Orthopedic</h3>
+                    <ul class="phy-cond-list">
+                        <li><i class="fas fa-check"></i> Back & Neck Pain</li>
+                        <li><i class="fas fa-check"></i> Arthritis & Joint Pain</li>
+                        <li><i class="fas fa-check"></i> Post-Fracture Stiffness</li>
+                        <li><i class="fas fa-check"></i> Spondylosis</li>
+                    </ul>
+                </div>
+                <div class="phy-cond-col stagger-up">
+                    <h3><i class="fas fa-running"></i> Sports Injury</h3>
+                    <ul class="phy-cond-list">
+                        <li><i class="fas fa-check"></i> Ligament Tears (ACL/PCL)</li>
+                        <li><i class="fas fa-check"></i> Muscle Strains</li>
+                        <li><i class="fas fa-check"></i> Tennis Elbow</li>
+                        <li><i class="fas fa-check"></i> Rotator Cuff Injury</li>
+                    </ul>
+                </div>
+                <div class="phy-cond-col stagger-up">
+                    <h3><i class="fas fa-brain"></i> Neurological</h3>
+                    <ul class="phy-cond-list">
+                        <li><i class="fas fa-check"></i> Stroke Rehabilitation</li>
+                        <li><i class="fas fa-check"></i> Parkinson's Disease</li>
+                        <li><i class="fas fa-check"></i> Nerve Injuries</li>
+                        <li><i class="fas fa-check"></i> Bell's Palsy</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="phy-section" id="services">
+        <div class="phy-container">
+            <div class="phy-header fade-up">
+                <h2>Our Therapies</h2>
+                <p>A multimodal approach to faster recovery.</p>
+            </div>
+            <div class="phy-services-grid">
+                <div class="phy-service-card stagger-up"
+                    style="background-image: url('https://images.unsplash.com/photo-1576091160550-217358c7e618?auto=format&fit=crop&w=600&q=80');">
+                    <div class="phy-svc-content">
+                        <h3>Manual Therapy</h3>
+                        <p>Hands-on techniques to mobilize joints and soft tissues, reducing pain and increasing range of motion.</p>
+                    </div>
+                </div>
+                <div class="phy-service-card stagger-up"
+                    style="background-image: url('https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=600&q=80');">
+                    <div class="phy-svc-content">
+                        <h3>Electrotherapy</h3>
+                        <p>Using advanced modalities like Ultrasound, TENS, and IFT to manage pain and stimulate muscle healing.</p>
+                    </div>
+                </div>
+                <div class="phy-service-card stagger-up"
+                    style="background-image: url('https://images.unsplash.com/photo-1599058945522-28d584b6f0ff?auto=format&fit=crop&w=600&q=80');">
+                    <div class="phy-svc-content">
+                        <h3>Exercise Therapy</h3>
+                        <p>Customized exercise plans to strengthen muscles, improve balance, and prevent re-injury.</p>
+                    </div>
+                </div>
+                <div class="phy-service-card stagger-up"
+                    style="background-image: url('https://plus.unsplash.com/premium_photo-1661281397737-9b5d75902230?auto=format&fit=crop&w=600&q=80');">
+                    <div class="phy-svc-content">
+                        <h3>Post-Op Rehab</h3>
+                        <p>Specialized care after surgeries like knee replacement or hip replacement to get you back on your feet.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="phy-section" style="background: #fdfdfd;">
+        <div class="phy-container">
+            <div class="phy-header fade-up">
+                <h2>Our Facilities</h2>
+                <p>Fully equipped gym and therapy rooms.</p>
+            </div>
+            <div class="phy-facility-slider stagger-up">
+                <div class="phy-facility-card">
+                    <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=600&q=80"
+                        class="phy-facility-img" alt="Gym">
+                    <div class="phy-facility-info">
+                        <h4>Rehab Gym</h4>
+                        <p style="font-size:0.9rem; color:#666;">Spacious area for functional training.</p>
+                    </div>
+                </div>
+                <div class="phy-facility-card">
+                    <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=600&q=80"
+                        class="phy-facility-img" alt="Private Room">
+                    <div class="phy-facility-info">
+                        <h4>Private Therapy Rooms</h4>
+                        <p style="font-size:0.9rem; color:#666;">For privacy during manual therapy.</p>
+                    </div>
+                </div>
+                <div class="phy-facility-card">
+                    <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=600&q=80"
+                        class="phy-facility-img" alt="Equipment">
+                    <div class="phy-facility-info">
+                        <h4>Modern Equipment</h4>
+                        <p style="font-size:0.9rem; color:#666;">Latest traction and stimulation machines.</p>
+                    </div>
+                </div>
+                <div class="phy-facility-card">
+                    <img src="https://images.unsplash.com/photo-1544367563-12123d8966bf?auto=format&fit=crop&w=600&q=80"
+                        class="phy-facility-img" alt="Pool">
+                    <div class="phy-facility-info">
+                        <h4>Hydrotherapy</h4>
+                        <p style="font-size:0.9rem; color:#666;">Water-based exercises for low-impact recovery.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="phy-section">
+        <div class="phy-container">
+            <div class="phy-home-ex-grid">
+                <div class="phy-home-ex-content fade-up">
+                    <span class="phy-hero-badge">Long Term Wellness</span>
+                    <h2>Continue Healing at Home</h2>
+                    <p style="color: #666; margin-bottom: 30px;">
+                        Recovery doesn't stop at the clinic. We provide you with a digital home exercise plan including video guides to
+                        ensure you continue progressing every day.
+                    </p>
+                    <ul class="phy-home-ex-list">
+                        <li><i class="fas fa-check-circle"></i> Personalized Video Instructions</li>
+                        <li><i class="fas fa-check-circle"></i> Progress Tracking App</li>
+                        <li><i class="fas fa-check-circle"></i> Daily Reminders</li>
+                    </ul>
+                </div>
+                <div class="fade-up">
+                    <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=800&q=80"
+                        style="border-radius: var(--phy-radius); box-shadow: var(--phy-shadow);" alt="Home Exercise">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="phy-section" style="background: var(--phy-light);">
+        <div class="phy-container">
+            <div class="phy-header fade-up">
+                <h2>Expert Physiotherapists</h2>
+            </div>
+            <div class="phy-team-grid">
+                <div class="phy-team-card stagger-up">
+                    <img src="https://jivakahospital.com/wp-content/uploads/2025/12/img-team-member-03.jpg" class="phy-team-img"
+                        alt="Therapist">
+                    <h4>U Kyaw Zin</h4>
+                    <p style="color: var(--phy-primary); font-weight: 500; font-size: 0.9rem;">Senior Physiotherapist</p>
+                    <p style="font-size: 0.85rem; color: #666;">Specializes in Sports Injury & Spine.</p>
+                </div>
+                <div class="phy-team-card stagger-up">
+                    <img src="https://i.pravatar.cc/400?img=5" class="phy-team-img" alt="Therapist">
+                    <h4>Daw Nilar</h4>
+                    <p style="color: var(--phy-primary); font-weight: 500; font-size: 0.9rem;">Neuro Rehab Specialist</p>
+                    <p style="font-size: 0.85rem; color: #666;">Expert in Stroke recovery.</p>
+                </div>
+                <div class="phy-team-card stagger-up">
+                    <img src="https://i.pravatar.cc/400?img=11" class="phy-team-img" alt="Therapist">
+                    <h4>U Aung Myo</h4>
+                    <p style="color: var(--phy-primary); font-weight: 500; font-size: 0.9rem;">Manual Therapist</p>
+                    <p style="font-size: 0.85rem; color: #666;">Focuses on joint mobilization.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="phy-section">
+        <div class="phy-container">
+            <div class="phy-header fade-up">
+                <h2>Common Questions</h2>
+            </div>
+            <div style="max-width: 800px; margin: 0 auto;" class="fade-up">
+                <div class="phy-faq-item">
+                    <div class="phy-faq-q">Do I need a doctor's referral? <i class="fas fa-plus"></i></div>
+                    <div class="phy-faq-a">While a referral is helpful, you can also book a direct consultation with our physiotherapists
+                        for assessment.</div>
+                </div>
+                <div class="phy-faq-item">
+                    <div class="phy-faq-q">How long is a session? <i class="fas fa-plus"></i></div>
+                    <div class="phy-faq-a">A typical session lasts between 45 to 60 minutes, depending on the treatment plan.</div>
+                </div>
+                <div class="phy-faq-item">
+                    <div class="phy-faq-q">What should I wear? <i class="fas fa-plus"></i></div>
+                    <div class="phy-faq-a">Please wear loose, comfortable clothing that allows easy movement and access to the injured area.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="phy-container" style="margin-bottom: 80px;">
+        <div style="background: var(--phy-secondary); color: #fff; padding: 60px; border-radius: 30px; text-align: center;" class="fade-up">
+            <h2>Start Your Recovery Journey Today</h2>
+            <p style="margin-bottom: 30px; opacity: 0.8;">Don't let pain hold you back.</p>
+            <a href="tel:0912345678" class="phy-btn">Book Appointment Now</a>
+        </div>
+    </div>
+
+    <script>
+        // Accordion
+        const faqItems = document.querySelectorAll('.phy-faq-item');
+        faqItems.forEach(item => {
+            item.querySelector('.phy-faq-q').addEventListener('click', () => {
+                item.classList.toggle('active');
+                const icon = item.querySelector('i');
+                const content = item.querySelector('.phy-faq-a');
+
+                if (item.classList.contains('active')) {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                    icon.classList.replace('fa-plus', 'fa-minus');
+                } else {
+                    content.style.maxHeight = 0;
+                    icon.classList.replace('fa-minus', 'fa-plus');
+                }
+            });
+        });
+
+        // GSAP
+        document.addEventListener("DOMContentLoaded", function () {
+            gsap.registerPlugin(ScrollTrigger);
+
+            // Hide initially
+            gsap.set(".fade-up, .stagger-up", { y: 30, opacity: 0 });
+
+            // Fade Up
+            gsap.utils.toArray('.fade-up').forEach(el => {
+                gsap.to(el, {
+                    y: 0, opacity: 1, duration: 0.8, ease: "power2.out",
+                    scrollTrigger: { trigger: el, start: "top 85%" }
+                });
+            });
+
+            // Stagger
+            ScrollTrigger.batch(".stagger-up", {
+                start: "top 85%",
+                onEnter: batch => gsap.to(batch, {
+                    y: 0, opacity: 1, stagger: 0.15, duration: 0.6, ease: "power2.out", overwrite: true
+                }),
+                once: true
+            });
+        });
+    </script>
+</body>
+
+</html>

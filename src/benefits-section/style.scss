@@ -1,0 +1,166 @@
+// Benefits Section
+// career.html "Why Choose Jivaka?" – section-header, benefits-grid, benefit-card
+
+:root {
+    --primary-orange: #f48b2a;
+    --dark-grey: #212121;
+    --medium-grey: #666;
+    --light-grey-bg: #f8f9fa;
+    --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.05);
+    --radius: 12px;
+}
+
+// === EDITOR STYLES ===
+.editor-styles-wrapper,
+.block-editor-block-list__layout,
+.wp-block-twork-benefits-section {
+    .twork-benefits-section-editor {
+        .twork-benefits-grid.benefits-grid {
+            display: grid !important;
+
+            > .block-editor-inner-blocks > .block-editor-block-list__layout {
+                display: contents !important;
+            }
+        }
+
+        .section-header h2,
+        .section-header p {
+            &[contenteditable="true"]:focus {
+                outline: 1px dashed #2271b1;
+                outline-offset: 2px;
+            }
+        }
+    }
+}
+
+// === FRONTEND STYLES ===
+.twork-benefits-section {
+    font-family: "Roboto", sans-serif;
+    position: relative;
+    background: var(--light-grey-bg);
+
+    .section-header {
+        text-align: center;
+        margin-bottom: 50px;
+
+        h2 {
+            font-size: 2.2rem;
+            margin: 0 0 15px 0;
+            color: var(--dark-grey);
+        }
+
+        p {
+            color: var(--medium-grey);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .line {
+            width: 60px;
+            height: 4px;
+            background: var(--primary-orange);
+            margin: 20px auto 0;
+            border-radius: 2px;
+        }
+    }
+
+    .benefits-grid {
+        display: grid;
+        width: 100%;
+    }
+
+    &[data-animation="true"] .benefit-card.animate-on-scroll {
+        opacity: 0;
+        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+
+        &.is-visible {
+            opacity: 1;
+        }
+    }
+
+    .benefit-card {
+        background: #fff;
+        padding: 40px 30px;
+        border-radius: var(--radius);
+        box-shadow: var(--shadow-card);
+        transition: transform 0.3s, border-color 0.3s;
+        text-align: center;
+        border-bottom: 3px solid transparent;
+
+        &:hover {
+            transform: translateY(-10px);
+            border-bottom-color: var(--primary-orange);
+        }
+
+        .b-icon {
+            width: 70px;
+            height: 70px;
+            background: #fff9f2;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 1.8rem;
+            color: var(--primary-orange);
+            transition: 0.3s;
+        }
+
+        &:hover .b-icon {
+            background: var(--primary-orange);
+            color: #fff;
+        }
+
+        h4 {
+            margin: 0 0 10px 0;
+            font-size: 1.2rem;
+        }
+
+        p {
+            font-size: 0.95rem;
+            color: var(--medium-grey);
+            margin: 0;
+        }
+    }
+}
+
+// === RESPONSIVE ===
+@media (max-width: 768px) {
+    .twork-benefits-section {
+        padding-top: var(--padding-top-mobile, 60px) !important;
+        padding-bottom: var(--padding-bottom-mobile, 60px) !important;
+
+        .jivaka-container {
+            padding-left: var(--container-padding-mobile, 20px) !important;
+            padding-right: var(--container-padding-mobile, 20px) !important;
+        }
+
+        .section-header h2 {
+            font-size: 1.8rem !important;
+        }
+
+        .benefits-grid {
+            gap: var(--gap-mobile, 24px) !important;
+        }
+
+        .benefit-card {
+            padding: var(--card-padding-mobile, 30px) 24px !important;
+
+            .b-icon {
+                width: 60px !important;
+                height: 60px !important;
+                font-size: 1.5rem !important;
+            }
+
+            h4 {
+                font-size: 1.1rem !important;
+            }
+        }
+    }
+}
+
+// === ACCESSIBILITY ===
+.benefit-card:focus-visible {
+    outline: 3px solid var(--primary-orange);
+    outline-offset: 2px;
+}

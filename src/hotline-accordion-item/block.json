@@ -1,0 +1,30 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "twork/hotline-accordion-item",
+    "title": "Hotline Accordion Item",
+    "parent": ["twork/contact-layout-section"],
+    "category": "twork-builder",
+    "icon": "phone",
+    "description": "Single accordion item for department hotline (title, label, phone number).",
+    "attributes": {
+        "title": {
+            "type": "string",
+            "default": "Department Hotline"
+        },
+        "labelText": {
+            "type": "string",
+            "default": "Direct Line"
+        },
+        "phoneNumber": {
+            "type": "string",
+            "default": "09-111 222 333"
+        },
+        "iconClass": {
+            "type": "string",
+            "default": "fas fa-phone-alt"
+        }
+    },
+    "textdomain": "twork-builder",
+    "editorScript": "file:./index.js"
+}

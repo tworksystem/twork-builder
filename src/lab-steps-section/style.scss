@@ -1,0 +1,251 @@
+/**
+ * Lab How It Works Section – vertical timeline with zig-zag step rows
+ * Matches laboratory-services.html "How It Works" block.
+ * Front-end: .lab-steps-container > .lab-step-row (direct). Editor: wrappers use display:contents so rows participate in flex.
+ */
+
+// Fallbacks (section sets --lab-* from Colors panel)
+.twork-lab-steps-section,
+.wp-block-twork-lab-steps-section.twork-lab-steps-section,
+.lab-section.twork-lab-steps-section,
+.lab-section.twork-lab-steps-section-editor,
+.lab-section.lab-steps-section-editor,
+.wp-block-twork-lab-steps-section.twork-lab-steps-section-editor {
+    --lab-primary: #f48b2a;
+    --lab-step-num-text: #ffffff;
+    --lab-step-content-bg: #ffffff;
+    --lab-step-title-color: #000000;
+    --lab-step-desc-color: #666666;
+    --lab-step-line-color: #eeeeee;
+    --lab-radius: 16px;
+    --lab-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.twork-lab-steps-section,
+.wp-block-twork-lab-steps-section.twork-lab-steps-section,
+.lab-section.twork-lab-steps-section,
+.lab-section.twork-lab-steps-section-editor,
+.lab-section.lab-steps-section-editor,
+.wp-block-twork-lab-steps-section.twork-lab-steps-section-editor {
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+
+    .lab-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+        position: relative;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .lab-header {
+        text-align: center;
+        max-width: 700px;
+        margin: 0 auto 60px;
+
+        h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            margin-top: 0;
+            line-height: 1.2;
+        }
+
+        p {
+            font-size: 1.1rem;
+            margin: 0;
+        }
+    }
+
+    .lab-steps-container {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        max-width: 800px;
+        margin: 0 auto;
+        position: relative;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .lab-steps-container::before {
+        content: '';
+        position: absolute;
+        left: 50%;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: var(--lab-step-line-color, #eee);
+        transform: translateX(-50%);
+        z-index: 0;
+    }
+
+    /* Descendant selector: works on front (direct child) and in editor (nested due to InnerBlocks wrappers) */
+    .lab-steps-container .lab-step-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+        z-index: 1;
+    }
+
+    .lab-steps-container .lab-step-row:nth-child(even) {
+        flex-direction: row-reverse;
+    }
+
+    .lab-step-content {
+        width: 45%;
+        min-width: 0;
+        background: var(--lab-step-content-bg, #fff);
+        padding: 20px;
+        border-radius: var(--lab-radius);
+        box-shadow: var(--lab-shadow);
+        text-align: center;
+    }
+
+    .lab-step-content h4 {
+        margin: 0 0 8px 0;
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: var(--lab-step-title-color, #000);
+        line-height: 1.3;
+    }
+
+    .lab-step-content p {
+        margin: 0;
+        color: var(--lab-step-desc-color, #666);
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
+
+    .lab-step-num {
+        width: 50px;
+        height: 50px;
+        min-width: 50px;
+        background: var(--lab-primary, #f48b2a);
+        color: var(--lab-step-num-text, #fff);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 900;
+        font-size: 1.2rem;
+        border: 4px solid var(--lab-step-content-bg, #fff);
+        flex-shrink: 0;
+    }
+}
+
+// Editor: layout + collapse InnerBlocks so .lab-step-row is direct flex child
+.editor-styles-wrapper .wp-block-twork-lab-steps-section,
+.wp-block-twork-lab-steps-section {
+    .lab-steps-section-editor,
+    .twork-lab-steps-section-editor {
+        width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+
+        .lab-container {
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .lab-steps-container {
+            display: flex !important;
+            flex-direction: column !important;
+            width: 100%;
+            box-sizing: border-box;
+
+            .block-editor-inner-blocks {
+                display: contents !important;
+            }
+            .block-editor-block-list__layout {
+                display: contents !important;
+            }
+            .wp-block-twork-lab-step-item,
+            [data-type="twork/lab-step-item"] {
+                display: contents !important;
+            }
+        }
+
+        .lab-header h2[contenteditable="true"],
+        .lab-header p[contenteditable="true"] {
+            &:focus {
+                outline: 2px dashed #2271b1;
+                outline-offset: 2px;
+            }
+        }
+    }
+}
+
+// Responsive (match laboratory-services.html)
+@media (max-width: 992px) {
+    .twork-lab-steps-section,
+    .wp-block-twork-lab-steps-section.twork-lab-steps-section,
+    .lab-section.twork-lab-steps-section,
+    .lab-section.twork-lab-steps-section-editor,
+    .lab-section.lab-steps-section-editor,
+    .wp-block-twork-lab-steps-section.twork-lab-steps-section-editor {
+        .lab-steps-container::before {
+            left: 20px;
+            transform: none;
+        }
+
+        .lab-steps-container .lab-step-row,
+        .lab-steps-container .lab-step-row:nth-child(even) {
+            flex-direction: row;
+            justify-content: flex-start;
+            gap: 20px;
+        }
+
+        .lab-step-content {
+            width: auto;
+            flex: 1;
+            min-width: 0;
+            text-align: left;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .twork-lab-steps-section,
+    .wp-block-twork-lab-steps-section.twork-lab-steps-section,
+    .lab-section.twork-lab-steps-section,
+    .lab-section.twork-lab-steps-section-editor,
+    .lab-section.lab-steps-section-editor,
+    .wp-block-twork-lab-steps-section.twork-lab-steps-section-editor {
+        .lab-container {
+            padding-left: 16px;
+            padding-right: 16px;
+        }
+
+        .lab-header {
+            margin-bottom: 40px;
+
+            h2 {
+                font-size: 1.75rem;
+            }
+
+            p {
+                font-size: 1rem;
+            }
+        }
+
+        .lab-step-content {
+            padding: 16px;
+        }
+
+        .lab-step-num {
+            width: 44px;
+            height: 44px;
+            min-width: 44px;
+            font-size: 1rem;
+        }
+
+        .lab-steps-container::before {
+            left: 22px;
+        }
+    }
+}

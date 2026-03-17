@@ -1,0 +1,404 @@
+/**
+ * Twork Testimonial Section – Patient Testimonials
+ * Matches home.html: testimonials-section, section-top-link, jivaka-section-title, testimonials-grid.
+ * Responsive: CSS custom properties + media queries (no inline overrides).
+ */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;600;700;900&display=swap");
+
+:root {
+    --primary-orange: #f48b2a;
+    --dark-grey: #212121;
+    --medium-grey: #666;
+    --white-color: #ffffff;
+}
+
+// === EDITOR ===
+.editor-styles-wrapper,
+.block-editor-block-list__layout,
+.wp-block-twork-testimonial-section {
+    .twork-testimonial-section-editor {
+        font-family: "Roboto", sans-serif;
+        position: relative;
+        min-height: 200px;
+
+        .twork-testimonial-grid.testimonials-grid,
+        .testimonials-grid {
+            display: grid !important;
+            width: 100% !important;
+            grid-template-columns: repeat(var(--columns, 4), 1fr) !important;
+            gap: var(--gap, 20px) !important;
+
+            > .block-editor-inner-blocks {
+                display: contents !important;
+
+                > .block-editor-block-list__layout {
+                    display: contents !important;
+
+                    > .wp-block,
+                    > [data-type="twork/testimonial-item"] {
+                        display: flex !important;
+                        flex-direction: column !important;
+                    }
+                }
+            }
+        }
+
+        // Ensure testimonial-item content is visible in editor (readable on light card)
+        .twork-testimonial-item-editor.testimonial-card,
+        .testimonial-card.twork-testimonial-item-editor {
+            visibility: visible !important;
+            opacity: 1 !important;
+
+            blockquote,
+            .name,
+            .procedure {
+                visibility: visible !important;
+                opacity: 1 !important;
+                color: #212121 !important;
+            }
+
+            .procedure {
+                color: #555555 !important;
+            }
+        }
+
+        @media (max-width: 1200px) {
+            .testimonials-grid {
+                grid-template-columns: repeat(var(--columns-tablet, 3), 1fr) !important;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .testimonials-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .testimonials-grid {
+                grid-template-columns: repeat(var(--columns-mobile, 1), 1fr) !important;
+                gap: var(--gap-mobile, 40px) !important;
+            }
+        }
+    }
+}
+
+// === FRONTEND (Desktop base – matches home.html) ===
+.testimonials-section,
+.twork-testimonial-section,
+.wp-block-twork-testimonial-section {
+    font-family: "Roboto", sans-serif !important;
+    color: var(--white-color) !important;
+    position: relative !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+
+    *,
+    *::before,
+    *::after {
+        box-sizing: inherit;
+    }
+
+    .background-overlay {
+        pointer-events: none;
+    }
+
+    .jivaka-container {
+        position: relative;
+        z-index: 2;
+    }
+
+    .section-top-link {
+        text-align: center;
+        margin-bottom: 30px;
+
+        a {
+            background-color: var(--dark-grey);
+            color: var(--white-color);
+            padding: 8px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            display: inline-block;
+            transition: opacity 0.2s ease;
+
+            &:hover {
+                opacity: 0.9;
+            }
+        }
+    }
+
+    .jivaka-section-title {
+        text-align: var(--section-title-alignment, center);
+        margin-bottom: 40px;
+
+        .meta-title {
+            color: var(--white-color);
+            font-size: var(--meta-font-size, 0.9rem);
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            display: block;
+
+            &::after {
+                display: none;
+            }
+        }
+
+        h2 {
+            color: var(--white-color);
+            font-size: var(--section-title-font-size, 2.5rem);
+            font-weight: 300;
+            margin: 0 0 10px 0;
+            line-height: 1.2;
+
+            .highlight-dark {
+                color: var(--dark-grey);
+                font-weight: 900;
+            }
+        }
+
+        .subtitle {
+            font-size: var(--subtitle-font-size, 1.1rem);
+            max-width: 500px;
+            margin: 0 auto;
+            opacity: 0.9;
+            line-height: 1.6;
+            color: inherit;
+        }
+    }
+
+    /* Grid: 4 columns desktop – matches home.html */
+    .testimonials-grid {
+        display: grid;
+        grid-template-columns: repeat(var(--columns, 4), 1fr);
+        gap: var(--gap, 20px);
+        margin-top: 40px;
+        width: 100%;
+    }
+
+    .testimonial-card {
+        text-align: center;
+        min-width: 0;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+
+    .testimonial-image-wrapper {
+        position: relative;
+        display: inline-block;
+        margin-bottom: 20px;
+    }
+
+    .testimonial-card img {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        border: 4px solid var(--white-color);
+        object-fit: cover;
+        display: block;
+    }
+
+    .testimonial-image-wrapper .quote-icon {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 30px;
+        height: 30px;
+        background-color: var(--dark-grey);
+        border-radius: 50%;
+        color: var(--white-color);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        font-weight: 900;
+        line-height: 1;
+        font-family: serif;
+        padding-bottom: 5px;
+    }
+
+    .testimonial-card blockquote {
+        font-style: normal;
+        font-size: 0.9rem;
+        border: none;
+        padding: 0;
+        margin: 0 0 15px 0;
+        line-height: 1.5;
+        color: inherit;
+    }
+
+    .testimonial-card .name {
+        font-weight: 900;
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin: 0;
+        color: var(--white-color);
+    }
+
+    .testimonial-card .procedure {
+        font-size: 0.75rem;
+        opacity: 0.8;
+        margin: 5px 0 0 0;
+        color: inherit;
+    }
+
+    /* Animation – frontend only */
+    &[data-animation="true"] .testimonial-card.animate-on-scroll {
+        opacity: 0;
+        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+
+        &.is-visible {
+            opacity: 1;
+        }
+    }
+}
+
+// === RESPONSIVE – TABLET (≤1200px) ===
+// Desktop >1200px uses base styles; below 1200px apply tablet overrides
+@media (max-width: 1200px) {
+    .testimonials-section,
+    .twork-testimonial-section,
+    .wp-block-twork-testimonial-section {
+        .testimonials-grid {
+            grid-template-columns: repeat(var(--columns-tablet, 3), 1fr) !important;
+        }
+
+        .testimonial-card:last-child {
+            display: none;
+        }
+
+        .jivaka-section-title {
+            text-align: var(--section-title-alignment-tablet, center) !important;
+
+            .meta-title {
+                font-size: var(--meta-font-size-tablet, 0.85rem) !important;
+            }
+
+            h2 {
+                font-size: var(--section-title-font-size-tablet, 2.2rem) !important;
+            }
+
+            .subtitle {
+                font-size: var(--subtitle-font-size-tablet, 1.05rem) !important;
+            }
+        }
+    }
+}
+
+// === RESPONSIVE – SMALL TABLET (≤992px) ===
+@media (max-width: 992px) {
+    .testimonials-section,
+    .twork-testimonial-section,
+    .wp-block-twork-testimonial-section {
+        .testimonials-grid {
+            grid-template-columns: repeat(2, 1fr) !important;
+        }
+
+        .testimonial-card:last-child {
+            display: block;
+        }
+    }
+}
+
+// === RESPONSIVE – MOBILE (≤768px) ===
+@media (max-width: 768px) {
+    .testimonials-section,
+    .twork-testimonial-section,
+    .wp-block-twork-testimonial-section {
+        padding-top: var(--padding-top-mobile, 60px) !important;
+        padding-bottom: var(--padding-bottom-mobile, 60px) !important;
+
+        .jivaka-container {
+            padding-left: var(--container-padding-mobile, 20px) !important;
+            padding-right: var(--container-padding-mobile, 20px) !important;
+        }
+
+        .section-top-link {
+            margin-bottom: 24px;
+
+            a {
+                font-size: 0.75rem;
+                padding: 6px 16px;
+            }
+        }
+
+        .jivaka-section-title {
+            margin-bottom: 30px !important;
+            text-align: var(--section-title-alignment-mobile, center) !important;
+
+            .meta-title {
+                font-size: var(--meta-font-size-mobile, 0.8rem) !important;
+                margin-bottom: 8px;
+            }
+
+            h2 {
+                font-size: var(--section-title-font-size-mobile, 1.8rem) !important;
+                margin-bottom: 8px;
+            }
+
+            .subtitle {
+                font-size: var(--subtitle-font-size-mobile, 1rem) !important;
+                max-width: 100%;
+            }
+        }
+
+        .testimonials-grid {
+            grid-template-columns: repeat(var(--columns-mobile, 1), 1fr) !important;
+            gap: var(--gap-mobile, 40px) !important;
+            margin-top: 30px !important;
+        }
+
+        .testimonial-card img {
+            width: 80px;
+            height: 80px;
+        }
+
+        .testimonial-image-wrapper .quote-icon {
+            width: 26px;
+            height: 26px;
+            font-size: 1rem;
+        }
+
+        .testimonial-card blockquote {
+            font-size: 0.85rem;
+        }
+
+        .testimonial-card .name {
+            font-size: 0.8rem;
+        }
+
+        .testimonial-card .procedure {
+            font-size: 0.7rem;
+        }
+    }
+}
+
+// === RESPONSIVE – SMALL MOBILE (≤480px) ===
+@media (max-width: 480px) {
+    .testimonials-section,
+    .twork-testimonial-section,
+    .wp-block-twork-testimonial-section {
+        .section-top-link a {
+            font-size: 0.7rem;
+            padding: 5px 12px;
+        }
+
+        .jivaka-section-title h2 {
+            font-size: 1.6rem !important;
+        }
+
+        .testimonial-card img {
+            width: 70px;
+            height: 70px;
+        }
+
+        .testimonial-image-wrapper .quote-icon {
+            width: 24px;
+            height: 24px;
+        }
+    }
+}

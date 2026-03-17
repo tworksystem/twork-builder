@@ -1,0 +1,231 @@
+// How It Works Section – lab-style vertical steps based on journey steps infrastructure
+
+// Shared variables
+:root {
+    --howit-primary: #0093e9;
+    --howit-text-main: #111827;
+    --howit-text-muted: #6b7280;
+    --howit-border: #e5e7eb;
+    --howit-bg: #fafafa;
+}
+
+// === EDITOR STYLES ===
+.editor-styles-wrapper,
+.block-editor-block-list__layout,
+.wp-block-twork-how-it-works-section {
+    .twork-how-it-works-section-editor {
+        position: relative;
+        min-height: 160px;
+
+        .background-overlay {
+            pointer-events: none;
+        }
+
+        .section-header {
+            margin-bottom: 24px;
+
+            h2,
+            p {
+                &[contenteditable='true']:focus {
+                    outline: 1px dashed #2271b1;
+                    outline-offset: 2px;
+                }
+            }
+        }
+
+        .twork-how-it-works-steps.steps-grid {
+            display: grid !important;
+            width: 100% !important;
+
+            > .block-editor-inner-blocks {
+                display: contents !important;
+
+                > .block-editor-block-list__layout {
+                    display: contents !important;
+
+                    > .wp-block,
+                    > [data-type='twork/journey-step-item'] {
+                        display: flex !important;
+                        flex-direction: row !important;
+                        align-items: flex-start !important;
+                        padding: 10px 0;
+                        border-bottom: 1px dashed #e5e7eb;
+
+                        &:last-child {
+                            border-bottom: none;
+                        }
+
+                        .step-num {
+                            flex-shrink: 0;
+                            margin-right: 16px;
+                        }
+
+                        h4,
+                        p {
+                            margin: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// === FRONTEND STYLES ===
+.twork-how-it-works-section {
+    font-family: 'Roboto', sans-serif;
+    position: relative;
+    background-color: var(--howit-bg);
+
+    .background-overlay {
+        pointer-events: none;
+    }
+
+    .jivaka-container.lab-steps-container {
+        position: relative;
+        z-index: 2;
+    }
+
+    .section-header.lab-header {
+        text-align: left;
+
+        .section-title {
+            margin: 0 0 8px 0;
+            line-height: 1.25;
+            color: var(--howit-text-main);
+        }
+
+        .section-subtitle {
+            margin: 0;
+            line-height: 1.6;
+            color: var(--howit-text-muted);
+        }
+    }
+
+    .how-it-works-steps.steps-grid {
+        display: grid;
+        width: 100%;
+        gap: var(--steps-gap, 24px);
+    }
+
+    // Step rows – reuse journey-step-item markup (.step-card / .step-num)
+    .step-card {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 16px;
+        padding: 10px 0;
+        background: transparent;
+        border: 0;
+        border-bottom: 1px solid var(--howit-border);
+        border-radius: 0;
+        box-shadow: none;
+        transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+
+        &:last-child {
+            border-bottom: none;
+        }
+
+        .step-num {
+            flex-shrink: 0;
+            width: 38px;
+            height: 38px;
+            border-radius: 9999px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.95rem;
+            background: var(--howit-primary);
+            color: #fff;
+            margin: 0;
+        }
+
+        h4 {
+            margin: 0 0 4px 0;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--howit-text-main);
+        }
+
+        > p {
+            margin: 0;
+            font-size: 0.92rem;
+            color: var(--howit-text-muted);
+        }
+    }
+
+    // Hover lift – driven by data-hover-effect / CSS variable
+    &[data-hover-effect='true'] {
+        .step-card {
+            &:hover {
+                transform: translateY(var(--hover-translate-y, -4px));
+                background-color: rgba(255, 255, 255, 0.8);
+                box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+            }
+        }
+    }
+
+    // Scroll animation – share behaviour with journey-steps-init.js
+    &[data-animation='true'] {
+        .step-card.animate-on-scroll {
+            opacity: 0;
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+
+            &.is-visible {
+                opacity: 1;
+            }
+        }
+    }
+}
+
+// === RESPONSIVE ===
+@media (max-width: 992px) {
+    .twork-how-it-works-section {
+        .how-it-works-steps.steps-grid {
+            grid-template-columns: repeat(var(--columns-tablet, 1), minmax(0, 1fr)) !important;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .twork-how-it-works-section {
+        .section-header.lab-header {
+            text-align: left;
+        }
+
+        .how-it-works-steps.steps-grid {
+            grid-template-columns: repeat(var(--columns-mobile, 1), minmax(0, 1fr)) !important;
+        }
+
+        .step-card {
+            padding: 8px 0;
+
+            h4 {
+                font-size: 0.98rem;
+            }
+
+            > p {
+                font-size: 0.88rem;
+            }
+        }
+    }
+}
+
+// === ACCESSIBILITY & PRINT ===
+.twork-how-it-works-section {
+    .step-card {
+        &:focus-visible {
+            outline: 3px solid var(--howit-primary);
+            outline-offset: 2px;
+        }
+    }
+
+    @media print {
+        .step-card {
+            box-shadow: none;
+            background: #ffffff;
+        }
+    }
+}
+

@@ -1,0 +1,11 @@
+// CSR Partner Logo Item - minimal, main styles in parent section
+.twork-csr-partner-logo-item-editor,
+.partner-logo-wrap,
+.csr-partner-logo-wrap {
+    .partner-logo {
+        max-width: var(--logo-max-width, 120px);
+        width: auto;
+        height: auto;
+        object-fit: contain;
+    }
+}

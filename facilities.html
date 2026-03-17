@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Facilities & Gallery | Jivaka Hospital</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <style>
+        /* --- CORE VARIABLES & RESET --- */
+        :root {
+            --primary-orange: #f48b2a;
+            --brand-orange-hover: #e67a22;
+            --dark-grey: #212121;
+            --medium-grey: #666;
+            --light-grey-bg: #f8f9fa;
+            --white: #ffffff;
+            --border: #e0e0e0;
+            --shadow-sm: 0 5px 15px rgba(0, 0, 0, 0.05);
+            --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.1);
+            --radius: 12px;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Roboto", sans-serif;
+            color: var(--dark-grey);
+            line-height: 1.6;
+            background: #fff;
+            overflow-x: hidden;
+            /* Anti-FOUC: Reveal body only when JS runs */
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        /* Class to reveal body after load */
+        body.loaded {
+            opacity: 1;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: 0.3s;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .jivaka-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        /* Buttons */
+        .jivaka-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 30px;
+            border-radius: 5px;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+
+        .btn-primary {
+            background: var(--primary-orange);
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(244, 139, 42, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: var(--brand-orange-hover);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--dark-grey);
+            color: var(--dark-grey);
+        }
+
+        .btn-outline:hover {
+            background: var(--dark-grey);
+            color: #fff;
+        }
+
+        /* --- HERO SECTION --- */
+        .page-hero {
+            position: relative;
+            height: 450px;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            background: #000;
+            color: #fff;
+        }
+
+        .hero-bg-wrapper {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 120%;
+            z-index: 1;
+        }
+
+        .hero-bg-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            opacity: 0.6;
+            filter: brightness(0.7);
+        }
+
+        .hero-container {
+            position: relative;
+            z-index: 3;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 900;
+            margin: 0 0 10px 0;
+        }
+
+        .hero-breadcrumb {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--primary-orange);
+            font-weight: 700;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 5px 15px;
+            border-radius: 20px;
+            backdrop-filter: blur(5px);
+        }
+
+        /* --- ROOM RATES --- */
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 50px;
+            padding: 0 15px;
+        }
+
+        .section-header h2 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            /* Responsive Font Size */
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+
+        .section-header p {
+            color: var(--medium-grey);
+            font-size: clamp(1rem, 2vw, 1.1rem);
+            /* Responsive Font Size */
+        }
+
+        .rooms-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .room-card {
+            background: #fff;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: 0.3s;
+            border: 1px solid #eee;
+            display: flex;
+            flex-direction: column;
+            opacity: 1;
+            /* Reset opacity for JS handling */
+        }
+
+        .room-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-orange);
+        }
+
+        .room-img {
+            height: 220px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .room-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+
+        .room-card:hover .room-img img {
+            transform: scale(1.1);
+        }
+
+        .room-price {
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            background: var(--primary-orange);
+            color: #fff;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .room-details {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .room-details h3 {
+            margin: 0 0 10px;
+            font-size: 1.4rem;
+        }
+
+        .room-amenities {
+            list-style: none;
+            margin: 15px 0;
+            padding: 0;
+            color: var(--medium-grey);
+            font-size: 0.9rem;
+        }
+
+        .room-amenities li {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .room-amenities li i {
+            color: var(--primary-orange);
+            width: 20px;
+            text-align: center;
+        }
+
+        .room-btn {
+            margin-top: auto;
+            width: 100%;
+            text-align: center;
+            padding: 10px;
+            border: 1px solid var(--dark-grey);
+            border-radius: 5px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            transition: 0.3s;
+        }
+
+        .room-btn:hover {
+            background: var(--primary-orange);
+            border-color: var(--primary-orange);
+            color: #fff;
+        }
+
+        /* --- GALLERY SECTION --- */
+        .gallery-section {
+            background: var(--light-grey-bg);
+        }
+
+        .gallery-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            padding: 10px 25px;
+            border: none;
+            background: #fff;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 700;
+            color: var(--medium-grey);
+            transition: 0.3s;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+
+        .tab-btn.active,
+        .tab-btn:hover {
+            background: var(--primary-orange);
+            color: #fff;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            grid-auto-rows: 250px;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.4);
+            opacity: 0;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 2rem;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        /* Grid Spans */
+        .gallery-item:nth-child(1) {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+
+        .gallery-item:nth-child(4) {
+            grid-column: span 2;
+        }
+
+        .gallery-item:nth-child(9) {
+            grid-column: span 2;
+            grid-row: span 1;
+        }
+
+        .gallery-item:nth-child(12) {
+            grid-column: span 2;
+        }
+
+        /* --- LIGHTBOX --- */
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 2000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .lightbox.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .lightbox-img {
+            max-width: 90%;
+            max-height: 85vh;
+            border-radius: 5px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            transform: scale(0.9);
+            transition: transform 0.3s;
+        }
+
+        .lightbox.active .lightbox-img {
+            transform: scale(1);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: #fff;
+            font-size: 2.5rem;
+            cursor: pointer;
+            transition: 0.3s;
+            font-weight: 300;
+        }
+
+        .lightbox-close:hover {
+            color: var(--primary-orange);
+        }
+
+        /* --- VIRTUAL TOUR --- */
+        .tour-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://jivakahospital.com/wp-content/uploads/2025/10/bgn-slider-02.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            color: #fff;
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        .tour-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: var(--primary-orange);
+            cursor: pointer;
+            transition: 0.3s;
+            display: inline-block;
+        }
+
+        .tour-icon:hover {
+            transform: scale(1.1);
+            text-shadow: 0 0 20px rgba(244, 139, 42, 0.6);
+        }
+
+        /* --- ANIMATION HELPER --- */
+        /* Important: We hide elements via JS GSAP.set to avoid accessibility issues if JS fails */
+        /* However, for a smoother load, we can set opacity 0 in CSS and let GSAP handle the rest */
+        .fade-up {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 992px) {
+            .rooms-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                grid-auto-rows: 200px;
+            }
+
+            .gallery-item:nth-child(1) {
+                grid-column: span 2;
+                grid-row: span 1;
+            }
+
+            .gallery-item:nth-child(9) {
+                grid-column: span 1;
+            }
+
+            .gallery-item:nth-child(12) {
+                grid-column: span 2;
+            }
+
+            .section-padding {
+                padding: 60px 0;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .rooms-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                grid-auto-rows: 250px;
+            }
+
+            .gallery-item:nth-child(1),
+            .gallery-item:nth-child(4),
+            .gallery-item:nth-child(9),
+            .gallery-item:nth-child(12) {
+                grid-column: span 1;
+            }
+
+            .section-padding {
+                padding: 50px 0;
+            }
+
+            .section-header h2 {
+                font-size: 1.8rem;
+            }
+
+            .page-hero {
+                height: 350px;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <section class="page-hero">
+        <div class="hero-bg-wrapper">
+            <img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&q=80&w=2000" alt="Hospital Interior"
+                class="hero-bg-img">
+        </div>
+        <div class="hero-container animate-hero">
+            <span class="hero-breadcrumb">Comfort & Care</span>
+            <h1 class="hero-title">World-Class <br><span style="color: var(--primary-orange);">Facilities</span></h1>
+        </div>
+    </section>
+
+    <section class="section-padding">
+        <div class="jivaka-container">
+            <div class="section-header fade-up">
+                <h2>Accommodation Options</h2>
+                <p>Designed for your comfort and speedy recovery.</p>
+            </div>
+
+            <div class="rooms-grid">
+                <div class="room-card fade-up">
+                    <div class="room-img">
+                        <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=800"
+                            alt="Standard Ward">
+                        <div class="room-price">30,000 MMK / Night</div>
+                    </div>
+                    <div class="room-details">
+                        <h3>Standard Ward</h3>
+                        <ul class="room-amenities">
+                            <li><i class="fas fa-bed"></i> Adjustable Patient Bed</li>
+                            <li><i class="fas fa-wifi"></i> Free Wi-Fi</li>
+                            <li><i class="fas fa-fan"></i> Air Conditioning</li>
+                            <li><i class="fas fa-users"></i> Shared Bathroom</li>
+                        </ul>
+                        <a href="contact.html?room=standard" class="room-btn">Check Availability</a>
+                    </div>
+                </div>
+
+                <div class="room-card fade-up">
+                    <div class="room-img">
+                        <img src="https://images.unsplash.com/photo-1596541223130-5d31a73fb6c6?auto=format&fit=crop&q=80&w=800"
+                            alt="Private Room">
+                        <div class="room-price">65,000 MMK / Night</div>
+                    </div>
+                    <div class="room-details">
+                        <h3>Private Room</h3>
+                        <ul class="room-amenities">
+                            <li><i class="fas fa-bed"></i> Electric Bed</li>
+                            <li><i class="fas fa-tv"></i> LED TV</li>
+                            <li><i class="fas fa-couch"></i> Sofa for Attendant</li>
+                            <li><i class="fas fa-bath"></i> Private Bathroom</li>
+                        </ul>
+                        <a href="contact.html?room=private" class="room-btn">Check Availability</a>
+                    </div>
+                </div>
+
+                <div class="room-card fade-up">
+                    <div class="room-img">
+                        <img src="https://images.unsplash.com/photo-1578683010236-d716f9a3f461?auto=format&fit=crop&q=80&w=800"
+                            alt="VIP Suite">
+                        <div class="room-price">120,000 MMK / Night</div>
+                    </div>
+                    <div class="room-details">
+                        <h3 style="color: var(--primary-orange);">VIP Suite</h3>
+                        <ul class="room-amenities">
+                            <li><i class="fas fa-layer-group"></i> Separate Living Area</li>
+                            <li><i class="fas fa-utensils"></i> Kitchenette & Fridge</li>
+                            <li><i class="fas fa-tv"></i> 2 LED TVs</li>
+                            <li><i class="fas fa-concierge-bell"></i> 24/7 Dedicated Nurse</li>
+                        </ul>
+                        <a href="contact.html?room=vip" class="room-btn"
+                            style="background: var(--primary-orange); color: #fff; border-color: var(--primary-orange);">Book Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding gallery-section">
+        <div class="jivaka-container">
+            <div class="section-header fade-up">
+                <h2>Our Gallery</h2>
+                <p>Explore our advanced medical facilities.</p>
+            </div>
+
+            <div class="gallery-tabs fade-up">
+                <button class="tab-btn active" data-filter="all">All Photos</button>
+                <button class="tab-btn" data-filter="rooms">Patient Rooms</button>
+                <button class="tab-btn" data-filter="tech">Technology</button>
+                <button class="tab-btn" data-filter="amenity">Amenities</button>
+            </div>
+
+            <div class="gallery-grid" id="galleryGrid">
+                <div class="gallery-item fade-up" data-category="tech">
+                    <img src="https://jivakahospital.com/wp-content/uploads/2025/10/img-box-04.jpg" alt="Cath Lab">
+                    <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+                </div>
+                <div class="gallery-item fade-up" data-category="rooms">
+                    <img src="https://images.unsplash.com/photo-1512678080530-7760d81faba6?auto=format&fit=crop&q=80&w=800" alt="Room">
+                    <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+                </div>
+                <div class="gallery-item fade-up" data-category="amenity">
+                    <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=800" alt="Lobby">
+                    <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+                </div>
+                <div class="gallery-item fade-up" data-category="tech">
+                    <img src="https://jivakahospital.com/wp-content/uploads/2025/10/img-box-02.jpg" alt="OT Room">
+                    <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+                </div>
+                <div class="gallery-item fade-up" data-category="amenity">
+                    <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=800" alt="Reception">
+                    <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+                </div>
+                <div class="gallery-item fade-up" data-category="rooms">
+                    <img src="https://images.unsplash.com/photo-1538108149393-fbbd81895907?auto=format&fit=crop&q=80&w=800" alt="Corridor">
+                    <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+                </div>
+                <div class="gallery-item fade-up" data-category="amenity">
+                    <img src="https://images.unsplash.com/photo-1554743365-a80c1243316e?auto=format&fit=crop&q=80&w=800" alt="Cafeteria">
+                    <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+                </div>
+                <div class="gallery-item fade-up" data-category="tech">
+                    <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=800" alt="MRI Scan">
+                    <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+                </div>
+                <div class="gallery-item fade-up" data-category="rooms">
+                    <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&q=80&w=800" alt="VIP Room">
+                    <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+                </div>
+                <div class="gallery-item fade-up" data-category="tech">
+                    <img src="https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&q=80&w=800"
+                        alt="Laboratory">
+                    <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+                </div>
+                <div class="gallery-item fade-up" data-category="amenity">
+                    <img src="https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&q=80&w=800" alt="Exterior">
+                    <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+                </div>
+                <div class="gallery-item fade-up" data-category="rooms">
+                    <img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&q=80&w=800" alt="ICU">
+                    <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="tour-section">
+        <div class="jivaka-container fade-up">
+            <div class="tour-icon"><i class="fas fa-play-circle"></i></div>
+            <h2 style="font-size: 2.5rem; margin-bottom: 15px;">Experience Jivaka</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 30px; opacity: 0.9;">Take a virtual tour of our state-of-the-art facilities.</p>
+            <a href="#" class="jivaka-btn btn-primary">Watch Video</a>
+        </div>
+    </section>
+
+    <div class="lightbox" id="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <img src="" alt="Zoomed Image" class="lightbox-img" id="lightboxImg">
+    </div>
+
+    <script>
+        // Critical: Wait for window.load to ensure images and layout are ready
+        window.addEventListener("load", function () {
+            gsap.registerPlugin(ScrollTrigger);
+
+            // 1. Reveal Body (Fixes Flash of Unstyled Content)
+            document.body.classList.add('loaded');
+
+            // 2. Hero Animation
+            const tl = gsap.timeline();
+            tl.fromTo(".animate-hero > *",
+                { y: 50, opacity: 0 },
+                { y: 0, opacity: 1, duration: 1, stagger: 0.2, ease: "power3.out" }
+            );
+
+            // Parallax Effect
+            gsap.to(".hero-bg-img", {
+                yPercent: 20, ease: "none",
+                scrollTrigger: { trigger: ".page-hero", start: "top top", end: "bottom top", scrub: true }
+            });
+
+            // 3. Scroll Reveal Animations (Best Practice: Batching)
+            // Using ScrollTrigger.batch is more efficient for grids and fixes the "white space" issue
+            // by ensuring elements animate in as soon as they enter the viewport.
+            ScrollTrigger.batch(".fade-up", {
+                start: "top 90%", // Trigger a bit earlier
+                onEnter: batch => gsap.to(batch, {
+                    opacity: 1,
+                    autoAlpha: 1,
+                    y: 0,
+                    stagger: 0.15,
+                    duration: 0.8,
+                    ease: "power2.out",
+                    overwrite: true
+                }),
+                // once: true ensures they stay visible after animating in. 
+                // This solves the "disappearing when scrolling back up" issue.
+                once: true
+            });
+
+            // 4. Gallery Filtering Logic
+            const tabs = document.querySelectorAll('.tab-btn');
+            const items = document.querySelectorAll('.gallery-item');
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    tabs.forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
+                    const filter = tab.getAttribute('data-filter');
+
+                    items.forEach(item => {
+                        const category = item.getAttribute('data-category');
+
+                        if (filter === 'all' || filter === category) {
+                            item.style.display = 'block';
+                            // Reset opacity for filtered items to ensure they are visible
+                            gsap.fromTo(item,
+                                { opacity: 0, scale: 0.9 },
+                                { opacity: 1, scale: 1, duration: 0.4, ease: "power1.out" }
+                            );
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+
+                    // Critical: Refresh ScrollTrigger after layout changes
+                    ScrollTrigger.refresh();
+                });
+            });
+
+            // 5. Lightbox Logic
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightboxImg');
+            const closeBtn = document.querySelector('.lightbox-close');
+
+            items.forEach(item => {
+                item.addEventListener('click', () => {
+                    const imgSrc = item.querySelector('img').src;
+                    lightboxImg.src = imgSrc;
+                    lightbox.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+
+            closeBtn.addEventListener('click', () => {
+                lightbox.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            });
+
+            lightbox.addEventListener('click', (e) => {
+                if (e.target === lightbox) {
+                    lightbox.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

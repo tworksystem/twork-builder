@@ -1,0 +1,399 @@
+// Key Service Item Styles
+// Individual service item within the Key Services Section
+
+// === EDITOR STYLES ===
+.editor-styles-wrapper,
+.block-editor-block-list__layout {
+    .twork-key-service-item-editor,
+    .key-service-item,
+    .twork-key-service-item {
+        h3, p {
+            &[contenteditable="true"]:focus {
+                outline: 1px dashed #2271b1;
+                outline-offset: 2px;
+            }
+        }
+
+        .jivaka-btn {
+            pointer-events: none;
+            user-select: none;
+        }
+        
+        // Icon styles in editor
+        i {
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            font-style: normal !important;
+            font-weight: normal !important;
+            line-height: 1 !important;
+            text-rendering: auto !important;
+            -webkit-font-smoothing: antialiased !important;
+            -moz-osx-font-smoothing: grayscale !important;
+            
+            // Support both Font Awesome 5 and 6 class formats
+            &[class*="fa-"] {
+                font-family: "Font Awesome 6 Free", "Font Awesome 5 Free", "FontAwesome" !important;
+            }
+            
+            // Support solid icons (fas)
+            &[class*="fas"] {
+                font-weight: 900 !important;
+            }
+            
+            // Support regular icons (far)
+            &[class*="far"] {
+                font-weight: 400 !important;
+            }
+            
+            // Support light icons (fal)
+            &[class*="fal"] {
+                font-weight: 300 !important;
+            }
+            
+            // Support brands (fab)
+            &[class*="fab"] {
+                font-family: "Font Awesome 6 Brands", "Font Awesome 5 Brands" !important;
+                font-weight: 400 !important;
+            }
+            
+            // Support old Font Awesome 4 format (fa fa-*)
+            &[class*="fa fa-"] {
+                font-family: "FontAwesome" !important;
+                font-weight: normal !important;
+            }
+        }
+    }
+}
+
+// === FRONTEND STYLES ===
+.key-service-item,
+.twork-key-service-item {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: all 0.3s ease;
+    min-width: 0; // Prevent flex items from overflowing
+    box-sizing: border-box;
+    width: 100%;
+    
+    // CRITICAL: Override WordPress core CSS - ensure no unwanted borders by default
+    // WordPress core rule: html :where([style*=border-width]) { border-style: solid; }
+    // Default: NO borders unless explicitly enabled
+    border: none !important;
+    border-width: 0 !important;
+    border-style: none !important;
+    border-color: transparent !important;
+    border-top: none !important;
+    border-right: none !important;
+    border-bottom: none !important;
+    border-left: none !important;
+    
+    // Item borders - using CSS custom properties via data attributes to avoid WordPress core CSS interference
+    // Only apply borders when explicitly enabled AND width > 0
+    &[data-enable-item-border="true"] {
+        &[data-item-border-width]:not([data-item-border-width="0"]) {
+            border-top-width: var(--item-border-width-top, 0px) !important;
+            border-right-width: var(--item-border-width-right, 0px) !important;
+            border-bottom-width: var(--item-border-width-bottom, 0px) !important;
+            border-left-width: var(--item-border-width-left, 0px) !important;
+            border-color: var(--item-border-color, #e0e0e0) !important;
+            border-style: var(--item-border-style, solid) !important;
+            opacity: var(--item-border-opacity, 1) !important;
+            
+            // Apply individual side widths if set, otherwise use main width
+            &[data-item-border-width-top]:not([data-item-border-width-top="0"]) {
+                border-top-width: var(--item-border-width-top, var(--item-border-width, 0px)) !important;
+            }
+            &[data-item-border-width-right]:not([data-item-border-width-right="0"]) {
+                border-right-width: var(--item-border-width-right, var(--item-border-width, 0px)) !important;
+            }
+            &[data-item-border-width-bottom]:not([data-item-border-width-bottom="0"]) {
+                border-bottom-width: var(--item-border-width-bottom, var(--item-border-width, 0px)) !important;
+            }
+            &[data-item-border-width-left]:not([data-item-border-width-left="0"]) {
+                border-left-width: var(--item-border-width-left, var(--item-border-width, 0px)) !important;
+            }
+        }
+        
+        // Hover effect for border color
+        &[data-item-border-color-hover]:hover {
+            border-color: var(--item-border-color-hover, var(--item-border-color, #e0e0e0)) !important;
+        }
+    }
+    
+    // Default: no borders unless explicitly enabled
+    &:not([data-enable-item-border="true"]),
+    &[data-enable-item-border="false"],
+    &[data-item-border-width="0"] {
+        border: none !important;
+        border-width: 0 !important;
+        border-style: none !important;
+        border-color: transparent !important;
+        border-top: none !important;
+        border-right: none !important;
+        border-bottom: none !important;
+        border-left: none !important;
+    }
+
+    // Icon
+    i {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        transition: all 0.3s ease;
+        font-size: var(--icon-size, 4rem) !important;
+        color: var(--icon-color, #f48b2a) !important;
+        margin-bottom: var(--icon-margin-bottom, 20px) !important;
+        font-style: normal !important;
+        font-weight: normal !important;
+        line-height: 1 !important;
+        text-rendering: auto !important;
+        -webkit-font-smoothing: antialiased !important;
+        -moz-osx-font-smoothing: grayscale !important;
+        
+        // Support both Font Awesome 5 and 6 class formats
+        &[class*="fa-"] {
+            font-family: "Font Awesome 6 Free", "Font Awesome 5 Free", "FontAwesome" !important;
+        }
+        
+        // Support solid icons (fas)
+        &[class*="fas"] {
+            font-weight: 900 !important;
+        }
+        
+        // Support regular icons (far)
+        &[class*="far"] {
+            font-weight: 400 !important;
+        }
+        
+        // Support light icons (fal)
+        &[class*="fal"] {
+            font-weight: 300 !important;
+        }
+        
+        // Support brands (fab)
+        &[class*="fab"] {
+            font-family: "Font Awesome 6 Brands", "Font Awesome 5 Brands" !important;
+            font-weight: 400 !important;
+        }
+    }
+
+    // Image
+    .key-service-image,
+    img {
+        display: block;
+        transition: all 0.3s ease;
+        margin-bottom: var(--image-margin-bottom, 20px);
+    }
+
+    // Title
+    .key-service-title,
+    h3 {
+        margin-top: 0;
+        margin-bottom: var(--title-margin-bottom, 25px);
+        position: relative;
+        transition: color 0.3s ease;
+        word-wrap: break-word;
+    }
+
+    // Title underline
+    .key-service-title-underline {
+        display: block;
+        transition: all 0.3s ease;
+    }
+
+    // Description
+    .key-service-description,
+    p {
+        margin-top: 0;
+        flex-grow: 1;
+        transition: color 0.3s ease;
+        word-wrap: break-word;
+    }
+
+    // Button
+    .key-service-button,
+    .jivaka-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: auto;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        cursor: pointer;
+
+        i {
+            transition: transform 0.3s ease;
+            margin-bottom: 0;
+        }
+
+        &:hover {
+            transform: translateX(4px);
+            opacity: 0.9;
+
+            i {
+                transform: translateX(2px);
+            }
+        }
+
+        &:active {
+            transform: translateX(0);
+        }
+
+        &:focus-visible {
+            outline: 3px solid var(--primary-orange, #f48b2a);
+            outline-offset: 2px;
+        }
+    }
+
+    // Hover effects
+    &:hover {
+        i {
+            color: var(--icon-color-hover, var(--icon-color, #e67a22)) !important;
+            transform: scale(1.1);
+        }
+
+        .key-service-title {
+            color: var(--title-color-hover, #f48b2a);
+        }
+    }
+}
+
+// === RESPONSIVE STYLES ===
+
+// Tablet (768px - 991px)
+@media (max-width: 991px) {
+    .key-service-item,
+    .twork-key-service-item {
+        &[data-item-padding-mobile] {
+            padding: var(--item-padding-mobile, 20px) !important;
+        }
+
+        i {
+            font-size: var(--icon-size-mobile, var(--icon-size, 3rem)) !important;
+            margin-bottom: var(--icon-margin-bottom-mobile, var(--icon-margin-bottom, 15px)) !important;
+        }
+
+        .key-service-image,
+        img {
+            width: var(--image-width-mobile, 60px) !important;
+            height: var(--image-height-mobile, 60px) !important;
+            margin-bottom: var(--image-margin-bottom-mobile, 15px) !important;
+        }
+
+        .key-service-title,
+        h3 {
+            font-size: var(--title-font-size-mobile, 1.3rem) !important;
+            margin-bottom: var(--title-margin-bottom-mobile, 20px) !important;
+        }
+
+        .key-service-description,
+        p {
+            font-size: var(--description-font-size-mobile, 0.9rem) !important;
+        }
+    }
+}
+
+// Mobile (<768px)
+@media (max-width: 767px) {
+    .key-service-item,
+    .twork-key-service-item {
+        width: 100% !important;
+        max-width: 100% !important;
+        flex: 1 1 100% !important;
+        box-sizing: border-box !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        display: flex !important;
+        flex-direction: column !important;
+
+        &[data-item-padding-mobile] {
+            padding: var(--item-padding-mobile, 20px) !important;
+        }
+        
+        // Mobile border width override
+        &[data-enable-item-border="true"][data-item-border-width-mobile]:not([data-item-border-width-mobile="0"]) {
+            border-top-width: var(--item-border-width-mobile, var(--item-border-width, 0px)) !important;
+            border-right-width: var(--item-border-width-mobile, var(--item-border-width, 0px)) !important;
+            border-bottom-width: var(--item-border-width-mobile, var(--item-border-width, 0px)) !important;
+            border-left-width: var(--item-border-width-mobile, var(--item-border-width, 0px)) !important;
+        }
+
+        i {
+            font-size: var(--icon-size-mobile, var(--icon-size, 3rem)) !important;
+            color: var(--icon-color, #f48b2a) !important;
+            margin-bottom: var(--icon-margin-bottom-mobile, var(--icon-margin-bottom, 15px)) !important;
+            display: block !important;
+        }
+
+        .key-service-image,
+        img {
+            width: var(--image-width-mobile, 60px) !important;
+            height: var(--image-height-mobile, 60px) !important;
+            margin-bottom: var(--image-margin-bottom-mobile, 15px) !important;
+            display: block !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
+        }
+
+        .key-service-title,
+        h3 {
+            font-size: var(--title-font-size-mobile, 1.3rem) !important;
+            margin-bottom: var(--title-margin-bottom-mobile, 20px) !important;
+            width: 100% !important;
+            text-align: center !important;
+        }
+
+        .key-service-description,
+        p {
+            font-size: var(--description-font-size-mobile, 0.9rem) !important;
+            width: 100% !important;
+            text-align: center !important;
+        }
+
+        // Remove border on mobile if it's the last item
+        &:last-child {
+            border-bottom: none !important;
+            padding-bottom: 0 !important;
+            margin-bottom: 0 !important;
+        }
+    }
+}
+
+// === ACCESSIBILITY ===
+.key-service-item,
+.twork-key-service-item {
+    &:focus-within {
+        outline: 2px solid var(--primary-orange, #f48b2a);
+        outline-offset: 2px;
+    }
+
+    a:focus-visible {
+        outline: 3px solid var(--primary-orange, #f48b2a);
+        outline-offset: 2px;
+    }
+}
+
+// === PRINT STYLES ===
+@media print {
+    .key-service-item,
+    .twork-key-service-item {
+        break-inside: avoid;
+        page-break-inside: avoid;
+
+        .key-service-button {
+            display: none;
+        }
+    }
+}
+
+// === DARK MODE SUPPORT ===
+@media (prefers-color-scheme: dark) {
+    .key-service-item,
+    .twork-key-service-item {
+        .key-service-description {
+            color: rgba(255, 255, 255, 0.8);
+        }
+    }
+}

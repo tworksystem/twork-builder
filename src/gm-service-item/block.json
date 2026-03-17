@@ -1,0 +1,30 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "twork/gm-service-item",
+    "title": "Service Item",
+    "category": "twork-builder",
+    "parent": ["twork/gm-services-section"],
+    "attributes": {
+        "icon": {
+            "type": "string",
+            "default": "fas fa-thermometer-half"
+        },
+        "title": {
+            "type": "string",
+            "default": "Service Title"
+        },
+        "description": {
+            "type": "string",
+            "default": "Service description goes here."
+        }
+    },
+    "supports": {
+        "html": false,
+        "reusable": false
+    },
+    "textdomain": "twork-builder",
+    "editorScript": "file:./index.js",
+    "style": "file:./style-index.css"
+}
+

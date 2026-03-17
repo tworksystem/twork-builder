@@ -1,0 +1,25 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "twork/paediatrics-service-card",
+  "version": "1.0.0",
+  "title": "Service Card",
+  "category": "twork-builder",
+  "icon": "list-view",
+  "description": "Single service card (icon, title, description, list) for Paediatrics Our Services section.",
+  "keywords": ["paediatrics", "service", "card", "twork"],
+  "parent": ["twork/paediatrics-services-section"],
+  "attributes": {
+    "iconClass": { "type": "string", "default": "fas fa-baby-carriage" },
+    "title": { "type": "string", "default": "Service Title" },
+    "description": { "type": "string", "default": "" },
+    "listItems": {
+      "type": "array",
+      "default": []
+    }
+  },
+  "supports": { "html": false },
+  "textdomain": "twork-builder",
+  "editorScript": "file:./index.js",
+  "style": "file:./style-index.css"
+}

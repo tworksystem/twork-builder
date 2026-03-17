@@ -1,0 +1,1300 @@
+// Centre Layout Section – reusable template for Neuro, Heart, Cancer, etc.
+// Matches neuro-centre.html structure: sidebar (menu + contact) + main content sections.
+
+.twork-centre-layout-section {
+    --centre-primary-orange: #f48b2a;
+    --centre-dark-grey: #212121;
+    --centre-medium-grey: #666;
+    --centre-radius: 12px;
+    --centre-shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.05);
+    --centre-shadow-md: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+// === LAYOUT ===
+.twork-centre-layout-section .centre-layout {
+    background: #fff;
+}
+
+.twork-centre-layout-section .jivaka-container.centre-grid {
+    max-width: var(--centre-container-max, 1200px);
+    margin: 0 auto;
+    padding: 0 var(--centre-container-padding, 20px);
+    display: grid;
+    grid-template-columns: var(--centre-sidebar-width, 280px) 1fr;
+    gap: var(--centre-gap, 60px);
+    align-items: start;
+}
+
+.twork-centre-layout-section .sidebar-wrapper {
+    position: relative;
+}
+
+// Hook for scroll/animation scripts (e.g. GSAP); block does not set transform
+.twork-centre-layout-section .sidebar.animate-sidebar,
+.twork-centre-layout-section .sidebar-contact.animate-sidebar {
+    will-change: transform;
+}
+
+.twork-centre-layout-section .sidebar {
+    position: sticky;
+    top: 100px;
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: var(--centre-radius);
+    overflow: hidden;
+    box-shadow: var(--centre-shadow-sm);
+}
+
+.twork-centre-layout-section .sidebar-header {
+    background: var(--centre-dark-grey);
+    color: #fff;
+    padding: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+.twork-centre-layout-section .sidebar-menu a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    border-bottom: 1px solid #eee;
+    font-weight: 500;
+    color: var(--centre-medium-grey);
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.twork-centre-layout-section .sidebar-menu a:hover,
+.twork-centre-layout-section .sidebar-menu a.active {
+    background: #fff8f0;
+    color: var(--centre-primary-orange);
+    padding-left: 25px;
+    border-left: 4px solid var(--centre-primary-orange);
+}
+
+.twork-centre-layout-section .sidebar-menu a i,
+.twork-centre-layout-section .sidebar-menu a .centre-icon-wrap {
+    font-size: 0.8em;
+    opacity: 0.7;
+}
+
+// Nav arrow icon: image/video/dashicons (same slot as FA chevron)
+.twork-centre-layout-section .sidebar-menu a .centre-nav-arrow-icon.centre-icon-wrap {
+    display: inline-flex;
+    align-items: center;
+    vertical-align: middle;
+}
+.twork-centre-layout-section .sidebar-menu a .centre-nav-arrow-icon .centre-icon-img,
+.twork-centre-layout-section .sidebar-menu a .centre-nav-arrow-icon .centre-icon-video {
+    width: 1em;
+    height: 1em;
+    object-fit: contain;
+    vertical-align: middle;
+}
+.twork-centre-layout-section .sidebar-menu a .centre-nav-arrow-icon .dashicons {
+    font-size: 1em;
+    width: 1em;
+    height: 1em;
+}
+
+.twork-centre-layout-section .sidebar-contact {
+    padding: 30px;
+    text-align: center;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+        url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=600&q=80');
+    background-size: cover;
+    color: #fff;
+    margin-top: 30px;
+    border-radius: var(--centre-radius);
+}
+
+.twork-centre-layout-section .sidebar-contact h3 {
+    margin: 0 0 10px;
+    font-size: 1.5rem;
+}
+
+.twork-centre-layout-section .sidebar-contact p {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    margin-bottom: 20px;
+}
+
+.twork-centre-layout-section .sidebar-contact .jivaka-btn.btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    min-height: 48px;
+    padding: 14px 24px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-decoration: none;
+    color: #fff;
+    background: var(--centre-primary-orange);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 15px rgba(244, 139, 42, 0.4);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.twork-centre-layout-section .sidebar-contact .jivaka-btn.btn-primary:hover {
+    background: #e67a22;
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(244, 139, 42, 0.5);
+}
+
+.twork-centre-layout-section .sidebar-contact .jivaka-btn.btn-primary:focus-visible {
+    outline: 3px solid rgba(255, 255, 255, 0.8);
+    outline-offset: 2px;
+}
+
+.twork-centre-layout-section .sidebar-contact .jivaka-btn.btn-primary i,
+.twork-centre-layout-section .sidebar-contact .jivaka-btn.btn-primary .centre-icon-wrap {
+    font-size: 1em;
+}
+
+// Contact widget main icon (image / video / dashicons / FA)
+.twork-centre-layout-section .sidebar-contact .sidebar-contact-main-icon.centre-icon-wrap {
+    display: block;
+    margin-bottom: 15px;
+}
+.twork-centre-layout-section .sidebar-contact .sidebar-contact-main-icon .centre-icon-img,
+.twork-centre-layout-section .sidebar-contact .sidebar-contact-main-icon .centre-icon-video {
+    max-width: 80px;
+    max-height: 80px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    margin: 0 auto;
+    display: block;
+}
+.twork-centre-layout-section .sidebar-contact .sidebar-contact-main-icon .dashicons {
+    font-size: 3rem;
+    width: 3rem;
+    height: 3rem;
+}
+.twork-centre-layout-section .sidebar-contact .sidebar-contact-main-icon i {
+    font-size: 3rem;
+}
+
+// Phone button icon (image / video / dashicons / FA)
+.twork-centre-layout-section .sidebar-contact .sidebar-contact-phone-icon.centre-icon-wrap {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+.twork-centre-layout-section .sidebar-contact .sidebar-contact-phone-icon .centre-icon-img,
+.twork-centre-layout-section .sidebar-contact .sidebar-contact-phone-icon .centre-icon-video {
+    width: 1.2em;
+    height: 1.2em;
+    object-fit: contain;
+    vertical-align: middle;
+}
+.twork-centre-layout-section .sidebar-contact .sidebar-contact-phone-icon .dashicons {
+    font-size: 1.2em;
+    width: 1.2em;
+    height: 1.2em;
+}
+
+.twork-centre-layout-section.twork-centre-layout-editor .sidebar-contact .centre-editor-phone-btn {
+    pointer-events: none;
+    cursor: default;
+}
+
+.twork-centre-layout-section .main-content {
+    min-width: 0;
+}
+
+.twork-centre-layout-section .desktop-only {
+    display: block;
+}
+
+.twork-centre-layout-section .mobile-only {
+    display: none;
+}
+
+// === CONTENT SECTIONS ===
+.twork-centre-layout-section .content-section {
+    margin-bottom: 60px;
+    scroll-margin-top: 120px;
+}
+
+.twork-centre-layout-section .content-section h2 {
+    font-size: 2rem;
+    color: var(--centre-dark-grey);
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.twork-centre-layout-section .content-section h2::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background: var(--centre-primary-orange);
+    border-radius: 2px;
+}
+
+.twork-centre-layout-section .lead-text {
+    font-size: 1.15rem;
+    color: #444;
+    line-height: 1.8;
+    margin-bottom: 25px;
+}
+
+.twork-centre-layout-section .body-text {
+    color: var(--centre-medium-grey);
+    margin-bottom: 15px;
+}
+
+.twork-centre-layout-section .centre-overview-img {
+    border-radius: var(--centre-radius);
+    margin-top: 25px;
+    width: 100%;
+    box-shadow: var(--centre-shadow-sm);
+    height: auto;
+    max-height: 400px;
+    object-fit: cover;
+}
+
+// === TREATMENT GRID ===
+.twork-centre-layout-section .treatment-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 35px;
+}
+
+.twork-centre-layout-section .treatment-card {
+    background: #fff;
+    border: 1px solid #eee;
+    padding: 30px;
+    border-radius: var(--centre-radius);
+    transition: 0.4s ease;
+}
+
+.twork-centre-layout-section .treatment-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+    border-color: var(--centre-primary-orange);
+}
+
+.twork-centre-layout-section .treatment-card i,
+.twork-centre-layout-section .treatment-card .centre-icon-wrap.treatment-card-icon {
+    font-size: 2.5rem;
+    color: var(--centre-primary-orange);
+    margin-bottom: 20px;
+    display: inline-block;
+}
+
+.twork-centre-layout-section .treatment-card .treatment-card-icon .centre-icon-img,
+.twork-centre-layout-section .treatment-card .treatment-card-icon .centre-icon-video {
+    width: 2.5rem;
+    height: 2.5rem;
+    object-fit: contain;
+    vertical-align: middle;
+}
+
+.twork-centre-layout-section .treatment-card .treatment-card-icon .dashicons {
+    font-size: 2.5rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    color: var(--centre-primary-orange);
+}
+
+.twork-centre-layout-section .treatment-card h4 {
+    margin: 0 0 10px;
+    color: var(--centre-dark-grey);
+    font-size: 1.2rem;
+}
+
+.twork-centre-layout-section .treatment-card p {
+    font-size: 0.95rem;
+    color: var(--centre-medium-grey);
+    margin: 0;
+    line-height: 1.6;
+}
+
+// === CONDITIONS SECTION (toggle visibility) ===
+.twork-centre-layout-section .centre-conditions-section--hidden {
+    display: none !important;
+}
+
+// === CONDITIONS GRID ===
+.twork-centre-layout-section .conditions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 25px;
+    margin-top: 35px;
+}
+
+.twork-centre-layout-section .condition-card {
+    background: #fff;
+    border: 1px solid #eee;
+    padding: 35px 25px;
+    border-radius: var(--centre-radius);
+    text-align: center;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    cursor: default;
+}
+
+.twork-centre-layout-section .condition-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+    border-color: transparent;
+}
+
+.twork-centre-layout-section .condition-card i,
+.twork-centre-layout-section .condition-card .centre-icon-wrap.condition-card-icon {
+    font-size: 2.8rem;
+    color: var(--centre-primary-orange);
+    margin-bottom: 20px;
+    display: inline-block;
+    transition: 0.3s;
+}
+
+.twork-centre-layout-section .condition-card:hover i,
+.twork-centre-layout-section .condition-card:hover .centre-icon-wrap.condition-card-icon {
+    transform: scale(1.1);
+}
+
+.twork-centre-layout-section .condition-card .condition-card-icon .centre-icon-img,
+.twork-centre-layout-section .condition-card .condition-card-icon .centre-icon-video {
+    width: 2.8rem;
+    height: 2.8rem;
+    object-fit: contain;
+    vertical-align: middle;
+}
+
+.twork-centre-layout-section .condition-card .condition-card-icon .dashicons {
+    font-size: 2.8rem;
+    width: 2.8rem;
+    height: 2.8rem;
+    color: var(--centre-primary-orange);
+}
+
+.twork-centre-layout-section .condition-card h4 {
+    margin: 0;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--centre-dark-grey);
+}
+
+// === SPECIALISTS SECTION (list layout – toggle visibility) ===
+.twork-centre-layout-section .centre-specialists-section--hidden {
+    display: none !important;
+}
+
+// Specialists doc-card list (horizontal rows: photo | info | button)
+.twork-centre-layout-section .specialists-doc-list .doc-card {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: var(--centre-radius);
+    padding: 30px;
+    margin-bottom: 25px;
+    transition: 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.twork-centre-layout-section .specialists-doc-list .doc-card:hover {
+    box-shadow: var(--centre-shadow-md);
+    border-color: transparent;
+}
+
+.twork-centre-layout-section .specialists-doc-list .doc-card::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: var(--centre-primary-orange);
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.twork-centre-layout-section .specialists-doc-list .doc-card:hover::before {
+    opacity: 1;
+}
+
+.twork-centre-layout-section .specialists-doc-list .doc-card .specialist-card-photo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-right: 30px;
+}
+
+.twork-centre-layout-section .specialists-doc-list .doc-card .specialist-card-photo .doc-img,
+.twork-centre-layout-section .specialists-doc-list .doc-card .specialist-card-photo .centre-icon-img,
+.twork-centre-layout-section .specialists-doc-list .doc-card .specialist-card-photo .centre-icon-video {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #f9f9f9;
+    box-shadow: var(--centre-shadow-sm);
+}
+
+.twork-centre-layout-section .specialists-doc-list .doc-card .specialist-card-photo .doc-img-placeholder {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    background: #eee;
+    border: 4px solid #f9f9f9;
+}
+
+.twork-centre-layout-section .specialists-doc-list .doc-card .specialist-card-photo .dashicons,
+.twork-centre-layout-section .specialists-doc-list .doc-card .specialist-card-photo i {
+    font-size: 3rem;
+    width: 110px;
+    height: 110px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--centre-primary-orange);
+    background: #f9f9f9;
+    border-radius: 50%;
+    border: 4px solid #f9f9f9;
+    box-shadow: var(--centre-shadow-sm);
+}
+
+.twork-centre-layout-section .specialists-doc-list .doc-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.twork-centre-layout-section .specialists-doc-list .doc-info h4 {
+    margin: 0 0 6px 0;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--centre-dark-grey);
+}
+
+.twork-centre-layout-section .specialists-doc-list .doc-info span {
+    font-size: 0.85rem;
+    color: var(--centre-primary-orange);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.twork-centre-layout-section .specialists-doc-list .doc-info p {
+    font-size: 0.95rem;
+    color: var(--centre-medium-grey);
+    margin: 0;
+}
+
+.twork-centre-layout-section .specialists-doc-list .doc-btn {
+    margin-left: 20px;
+    padding: 12px 25px;
+    font-size: 0.85rem;
+    background: #f4f4f4;
+    border-radius: 50px;
+    color: var(--centre-dark-grey);
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.3s;
+    flex-shrink: 0;
+}
+
+.twork-centre-layout-section .specialists-doc-list .doc-btn:hover {
+    background: var(--centre-primary-orange);
+    color: #fff;
+    box-shadow: 0 4px 10px rgba(244, 139, 42, 0.3);
+}
+
+.twork-centre-layout-section.twork-centre-layout-editor .specialists-doc-list .doc-btn {
+    pointer-events: none;
+    cursor: default;
+}
+
+// Responsive: stack doc-card
+@media (max-width: 600px) {
+    .twork-centre-layout-section .specialists-doc-list .doc-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px 20px;
+    }
+
+    .twork-centre-layout-section .specialists-doc-list .doc-card .specialist-card-photo {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .twork-centre-layout-section .specialists-doc-list .doc-card .specialist-card-photo .doc-img,
+    .twork-centre-layout-section .specialists-doc-list .doc-card .specialist-card-photo .centre-icon-img,
+    .twork-centre-layout-section .specialists-doc-list .doc-card .specialist-card-photo .centre-icon-video {
+        width: 120px;
+        height: 120px;
+    }
+
+    .twork-centre-layout-section .specialists-doc-list .doc-card .specialist-card-photo .doc-img-placeholder {
+        width: 120px;
+        height: 120px;
+    }
+
+    .twork-centre-layout-section .specialists-doc-list .doc-card .specialist-card-photo .dashicons,
+    .twork-centre-layout-section .specialists-doc-list .doc-card .specialist-card-photo i {
+        width: 120px;
+        height: 120px;
+    }
+
+    .twork-centre-layout-section .specialists-doc-list .doc-btn {
+        margin: 20px 0 0 0;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+}
+
+// === TECHNOLOGY SECTION (Toggle On/Off) ===
+// When showSection is false, save outputs .centre-technology-section--hidden.
+// Hidden in Editor (placeholder shown), Front-end, and all Responsive viewports.
+.twork-centre-layout-section .centre-technology-section--hidden {
+    display: none !important;
+}
+
+.twork-centre-layout-section .tech-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    margin-top: 25px;
+}
+
+.twork-centre-layout-section .tech-item {
+    position: relative;
+    height: 280px;
+    border-radius: var(--centre-radius);
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: var(--centre-shadow-sm);
+}
+
+.twork-centre-layout-section .tech-item .tech-item-media {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+    display: block;
+}
+
+.twork-centre-layout-section .tech-item:hover .tech-item-media {
+    transform: scale(1.08);
+}
+
+.twork-centre-layout-section .tech-item .tech-item-placeholder {
+    position: absolute;
+    inset: 0;
+    background: #e8e8e8;
+}
+
+.twork-centre-layout-section .tech-item .tech-item-icon {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    color: var(--centre-primary-orange);
+    background: linear-gradient(135deg, #f9f9f9 0%, #eee 100%);
+}
+
+.twork-centre-layout-section .tech-item .tech-item-icon.dashicons {
+    font-size: 4rem;
+    width: 100%;
+    height: 100%;
+}
+
+.twork-centre-layout-section .tech-item .tech-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.1rem;
+    transform: translateY(100%);
+    transition: transform 0.4s ease;
+}
+
+.twork-centre-layout-section .tech-item:hover .tech-caption {
+    transform: translateY(0);
+}
+
+@media (max-width: 600px) {
+    .twork-centre-layout-section .tech-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .twork-centre-layout-section .tech-item {
+        height: 220px;
+    }
+
+    .twork-centre-layout-section .tech-item .tech-caption {
+        transform: translateY(0);
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+    }
+}
+
+// === DOCTORS SECTION ===
+.twork-centre-layout-section .centre-doctors-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.twork-centre-layout-section .centre-doctors-header h2,
+.twork-centre-layout-section .centre-doctors-title {
+    margin: 0;
+    font-size: 2rem;
+    color: var(--centre-dark-grey);
+}
+
+.twork-centre-layout-section .centre-view-all-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--centre-primary-orange);
+    font-weight: 700;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: color 0.3s ease, opacity 0.3s ease;
+}
+
+.twork-centre-layout-section .centre-view-all-link:hover {
+    opacity: 0.9;
+    color: var(--centre-primary-orange);
+}
+
+.twork-centre-layout-section .centre-view-all-link:focus-visible {
+    outline: 2px solid var(--centre-primary-orange);
+    outline-offset: 2px;
+}
+
+.twork-centre-layout-section .centre-view-all-link i,
+.twork-centre-layout-section .centre-view-all-link .centre-icon-wrap.centre-view-all-icon {
+    font-size: 0.85em;
+    transition: transform 0.2s ease;
+}
+
+.twork-centre-layout-section .centre-view-all-link .centre-view-all-icon .centre-icon-img,
+.twork-centre-layout-section .centre-view-all-link .centre-view-all-icon .centre-icon-video {
+    width: 1em;
+    height: 1em;
+    object-fit: contain;
+    vertical-align: middle;
+}
+
+.twork-centre-layout-section .centre-view-all-link .centre-view-all-icon .dashicons {
+    font-size: 1em;
+    width: 1em;
+    height: 1em;
+}
+
+.twork-centre-layout-section .centre-view-all-link:hover i,
+.twork-centre-layout-section .centre-view-all-link:hover .centre-icon-wrap {
+    transform: translateX(3px);
+}
+
+.twork-centre-layout-section.twork-centre-layout-editor .centre-view-all-link {
+    pointer-events: none;
+    cursor: default;
+}
+
+.twork-centre-layout-section .dept-doctors {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.twork-centre-layout-section .doctor-card-mini {
+    border: 1px solid #eee;
+    border-radius: var(--centre-radius);
+    overflow: hidden;
+    text-align: center;
+    padding-bottom: 20px;
+    transition: 0.3s;
+    background: #fff;
+}
+
+.twork-centre-layout-section .doctor-card-mini:hover {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    border-color: var(--centre-primary-orange);
+}
+
+.twork-centre-layout-section .doc-img-wrap {
+    height: 250px;
+    overflow: hidden;
+    position: relative;
+}
+
+.twork-centre-layout-section .doc-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.5s;
+    object-position: top center;
+}
+
+.twork-centre-layout-section .doctor-card-mini:hover .doc-img-wrap img {
+    transform: scale(1.05);
+}
+
+.twork-centre-layout-section .doc-img-wrap .doc-img-placeholder {
+    width: 100%;
+    height: 100%;
+    background: #eee;
+}
+
+.twork-centre-layout-section .doc-info {
+    padding: 15px;
+}
+
+.twork-centre-layout-section .doc-info h4 {
+    margin: 10px 0 5px;
+    font-size: 1.1rem;
+    color: var(--centre-dark-grey);
+}
+
+.twork-centre-layout-section .doc-info span {
+    color: var(--centre-primary-orange);
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.twork-centre-layout-section .doc-info .btn-outline-dark,
+.twork-centre-layout-section .doctor-card-mini .btn-outline-dark {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    color: var(--centre-dark-grey);
+    background: transparent;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: border-color 0.3s ease, color 0.3s ease;
+}
+
+.twork-centre-layout-section .doc-info .btn-outline-dark:hover,
+.twork-centre-layout-section .doctor-card-mini .btn-outline-dark:hover {
+    border-color: var(--centre-primary-orange);
+    color: var(--centre-primary-orange);
+}
+
+.twork-centre-layout-section .doc-info .btn-outline-dark:focus-visible,
+.twork-centre-layout-section .doctor-card-mini .btn-outline-dark:focus-visible {
+    outline: 2px solid var(--centre-primary-orange);
+    outline-offset: 2px;
+}
+
+.twork-centre-layout-section.twork-centre-layout-editor .doc-info .btn-outline-dark,
+.twork-centre-layout-section.twork-centre-layout-editor .doctor-card-mini .btn-outline-dark {
+    pointer-events: none;
+    cursor: default;
+}
+
+// === FAQ ===
+.twork-centre-layout-section .faq-item {
+    border-bottom: 1px solid #eee;
+}
+
+.twork-centre-layout-section .faq-item:last-child {
+    border-bottom: none;
+}
+
+.twork-centre-layout-section .faq-btn {
+    width: 100%;
+    text-align: left;
+    padding: 20px 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--centre-dark-grey);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.3s;
+}
+
+.twork-centre-layout-section .faq-btn:hover {
+    color: var(--centre-primary-orange);
+}
+
+.twork-centre-layout-section .faq-btn.active {
+    color: var(--centre-primary-orange);
+}
+
+.twork-centre-layout-section .faq-btn i,
+.twork-centre-layout-section .faq-btn .centre-icon-wrap.faq-accordion-icon {
+    transition: 0.3s;
+}
+
+.twork-centre-layout-section .faq-btn .faq-accordion-icon .centre-icon-img,
+.twork-centre-layout-section .faq-btn .faq-accordion-icon .centre-icon-video {
+    width: 1em;
+    height: 1em;
+    object-fit: contain;
+    vertical-align: middle;
+}
+
+.twork-centre-layout-section .faq-btn .faq-accordion-icon .dashicons {
+    font-size: 1em;
+    width: 1em;
+    height: 1em;
+}
+
+.twork-centre-layout-section .faq-btn.active i,
+.twork-centre-layout-section .faq-btn.active .centre-icon-wrap.faq-accordion-icon {
+    transform: rotate(180deg);
+}
+
+.twork-centre-layout-section .faq-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    color: var(--centre-medium-grey);
+    padding-right: 20px;
+}
+
+.twork-centre-layout-section .faq-content.faq-content--open {
+    max-height: 500px; // enough for content; JS can use scrollHeight if needed
+}
+
+.twork-centre-layout-section .faq-content p {
+    margin-bottom: 20px;
+}
+
+// === CTA BOX ===
+.twork-centre-layout-section .centre-cta {
+    margin-top: 40px;
+    box-sizing: border-box;
+}
+
+.twork-centre-layout-section .centre-cta-title {
+    margin-top: 0;
+    margin-bottom: 0.5em;
+    font-size: 1.8rem;
+    color: var(--centre-primary-orange);
+    line-height: 1.3;
+}
+
+.twork-centre-layout-section .centre-cta-text {
+    margin-bottom: 25px;
+    font-size: 1.1rem;
+    opacity: 0.9;
+    line-height: 1.6;
+}
+
+.twork-centre-layout-section .centre-cta .centre-cta-btn,
+.twork-centre-layout-section .centre-cta .jivaka-btn.btn-primary.centre-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    font-weight: 700;
+    padding: 15px 35px;
+    min-height: 48px;
+    border: none;
+    border-radius: 6px;
+    background: var(--centre-primary-orange);
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 15px rgba(244, 139, 42, 0.4);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.twork-centre-layout-section .centre-cta .centre-cta-btn:hover,
+.twork-centre-layout-section .centre-cta .jivaka-btn.btn-primary.centre-cta-btn:hover {
+    background: #e67a22;
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(244, 139, 42, 0.5);
+}
+
+.twork-centre-layout-section .centre-cta .centre-cta-btn:focus-visible,
+.twork-centre-layout-section .centre-cta .jivaka-btn.btn-primary.centre-cta-btn:focus-visible {
+    outline: 3px solid var(--centre-primary-orange);
+    outline-offset: 2px;
+}
+
+.twork-centre-layout-section.twork-centre-layout-editor .centre-cta .centre-cta-btn {
+    pointer-events: none;
+    cursor: default;
+}
+
+// === ANIMATION: only hide when JS has run (class .centre-animations-enabled) ===
+// Without JS, sections stay visible. With JS, script adds class then observer reveals on scroll.
+.twork-centre-layout-section.centre-animations-enabled .content-section.fade-up,
+.twork-centre-layout-section.centre-animations-enabled .centre-cta.fade-up {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out, visibility 0.8s;
+}
+
+.twork-centre-layout-section.centre-animations-enabled .treatment-card.stagger-card,
+.twork-centre-layout-section.centre-animations-enabled .doctor-card-mini.stagger-doc {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(40px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out, visibility 0.6s;
+}
+
+// In editor, always show all content (no scroll animation)
+.twork-centre-layout-section.twork-centre-layout-editor .fade-up,
+.twork-centre-layout-section.twork-centre-layout-editor .stagger-card,
+.twork-centre-layout-section.twork-centre-layout-editor .stagger-doc {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+}
+
+// === EDITOR STYLES ===
+.editor-styles-wrapper .twork-centre-layout-section.twork-centre-layout-editor .centre-grid,
+.block-editor-block-list__layout .twork-centre-layout-section.twork-centre-layout-editor .centre-grid {
+    display: grid !important;
+    grid-template-columns: var(--centre-sidebar-width, 280px) 1fr !important;
+    gap: var(--centre-gap, 60px) !important;
+    align-items: start !important;
+    min-width: 0;
+}
+
+.twork-centre-layout-section.twork-centre-layout-editor .sidebar-menu a {
+    pointer-events: none;
+    cursor: default;
+}
+
+.twork-centre-layout-section.twork-centre-layout-editor .centre-editor-phone-btn {
+    pointer-events: none;
+    cursor: default;
+}
+
+.twork-centre-layout-section.twork-centre-layout-editor .centre-content-area-editor {
+    min-width: 0;
+    min-height: 300px;
+}
+
+.twork-centre-layout-section.twork-centre-layout-editor .centre-editor-label {
+    background: #2271b1;
+    color: #fff;
+    padding: 8px 12px;
+    font-size: 12px;
+    margin-bottom: 16px;
+    border-radius: 4px;
+    font-weight: 600;
+}
+
+.twork-centre-layout-section.twork-centre-layout-editor .centre-editor-sidebar-label {
+    background: #1e4620;
+    color: #fff;
+    padding: 6px 12px;
+    font-size: 11px;
+    margin-bottom: 12px;
+    border-radius: 4px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.twork-centre-layout-section.twork-centre-layout-editor .main-content .block-editor-inner-blocks {
+    width: 100%;
+    min-width: 0;
+}
+
+.twork-centre-layout-section.twork-centre-layout-editor .main-content .block-editor-block-list__layout {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 100%;
+}
+
+// Ensure each centre section block wrapper is visible and has space (Editor + Front-end)
+.twork-centre-layout-section .main-content [data-type="twork/centre-overview-section"],
+.twork-centre-layout-section .main-content [data-type="twork/centre-treatments-section"],
+.twork-centre-layout-section .main-content [data-type="twork/centre-doctors-section"],
+.twork-centre-layout-section .main-content [data-type="twork/centre-faq-section"],
+.twork-centre-layout-section .main-content [data-type="twork/centre-cta-section"] {
+    min-height: 80px;
+    display: block;
+}
+
+.twork-centre-layout-section.twork-centre-layout-editor .content-section,
+.twork-centre-layout-section.twork-centre-layout-editor .centre-cta {
+    display: block !important;
+    min-height: 1px;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+// Treatment grid: InnerBlocks as grid children in editor
+.twork-centre-layout-section.twork-centre-layout-editor .treatment-grid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)) !important;
+    gap: 25px !important;
+
+    > .block-editor-inner-blocks {
+        display: contents !important;
+
+        > .block-editor-block-list__layout {
+            display: contents !important;
+
+            > .wp-block,
+            > [data-type="twork/centre-treatment-card"] {
+                min-height: 0;
+            }
+        }
+    }
+}
+
+// Doctors grid: InnerBlocks as grid children in editor
+.twork-centre-layout-section.twork-centre-layout-editor .dept-doctors {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)) !important;
+    gap: 25px !important;
+
+    > .block-editor-inner-blocks {
+        display: contents !important;
+
+        > .block-editor-block-list__layout {
+            display: contents !important;
+
+            > .wp-block,
+            > [data-type="twork/centre-doctor-card"] {
+                min-height: 0;
+            }
+        }
+    }
+}
+
+// FAQ section: list FAQ items in editor
+.twork-centre-layout-section.twork-centre-layout-editor .twork-centre-faq-editor {
+    > .block-editor-inner-blocks > .block-editor-block-list__layout {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+    }
+}
+
+// Technology grid: InnerBlocks as grid children in editor (Editor + Front-end parity)
+.twork-centre-layout-section.twork-centre-layout-editor .tech-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 25px !important;
+    margin-top: 25px !important;
+
+    > .block-editor-inner-blocks {
+        display: contents !important;
+
+        > .block-editor-block-list__layout {
+            display: contents !important;
+
+            > .wp-block,
+            > [data-type="twork/centre-technology-item"] {
+                min-height: 0;
+                display: flex !important;
+                flex-direction: column !important;
+
+                > .block-editor-block-list__block-edit,
+                > .block-editor-block-list__block-edit > div {
+                    display: flex !important;
+                    flex: 1 !important;
+                    flex-direction: column !important;
+                    width: 100%;
+                    min-height: 280px;
+                }
+            }
+        }
+    }
+}
+
+// Technology section: editable h2/p focus styles in editor
+.twork-centre-layout-section.twork-centre-layout-editor .twork-centre-technology-editor {
+    h2,
+    p {
+        &[contenteditable="true"]:focus {
+            outline: 1px dashed #2271b1;
+            outline-offset: 2px;
+        }
+    }
+}
+
+// Conditions grid: InnerBlocks as grid children in editor (Editor + Front-end parity)
+.twork-centre-layout-section.twork-centre-layout-editor .conditions-grid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)) !important;
+    gap: 25px !important;
+    margin-top: 35px !important;
+
+    > .block-editor-inner-blocks {
+        display: contents !important;
+
+        > .block-editor-block-list__layout {
+            display: contents !important;
+
+            > .wp-block,
+            > [data-type="twork/centre-condition-card"] {
+                min-height: 0;
+                display: flex !important;
+                flex-direction: column !important;
+
+                > .block-editor-block-list__block-edit,
+                > .block-editor-block-list__block-edit > div {
+                    display: flex !important;
+                    flex: 1 !important;
+                    flex-direction: column !important;
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+
+// Conditions section: editable h2 focus in editor
+.twork-centre-layout-section.twork-centre-layout-editor .twork-centre-conditions-editor {
+    h2 {
+        &[contenteditable="true"]:focus {
+            outline: 1px dashed #2271b1;
+            outline-offset: 2px;
+        }
+    }
+}
+
+// === RESPONSIVE ===
+@media (max-width: 992px) {
+    .twork-centre-layout-section .jivaka-container.centre-grid {
+        grid-template-columns: 1fr;
+        flex-direction: column;
+        display: flex;
+        gap: 40px;
+    }
+
+    .twork-centre-layout-section .main-content {
+        order: 1;
+    }
+
+    .twork-centre-layout-section .sidebar-wrapper {
+        order: 2;
+        width: 100%;
+    }
+
+    .twork-centre-layout-section .sidebar {
+        display: none;
+    }
+
+    .twork-centre-layout-section .sidebar-contact.desktop-only {
+        display: none;
+    }
+
+    .twork-centre-layout-section .sidebar-contact.mobile-only {
+        display: block;
+        margin-top: 48px;
+        margin-bottom: 0;
+    }
+
+    .twork-centre-layout-section .main-content {
+        gap: 0;
+    }
+
+    .twork-centre-layout-section .dept-doctors {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    }
+}
+
+@media (max-width: 600px) {
+    .twork-centre-layout-section .centre-doctors-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .twork-centre-layout-section .treatment-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .twork-centre-layout-section .conditions-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .twork-centre-layout-section .dept-doctors {
+        grid-template-columns: 1fr;
+    }
+
+    .twork-centre-layout-section .doc-info .btn-outline-dark,
+    .twork-centre-layout-section .doctor-card-mini .btn-outline-dark {
+        min-height: 44px;
+        padding: 10px 20px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .twork-centre-layout-section .centre-cta {
+        padding: 32px 24px !important;
+        margin-top: 32px;
+    }
+
+    .twork-centre-layout-section .centre-cta-title {
+        font-size: 1.5rem;
+    }
+
+    .twork-centre-layout-section .centre-cta-text {
+        font-size: 1rem;
+        margin-bottom: 20px;
+    }
+
+    .twork-centre-layout-section .centre-cta .centre-cta-btn,
+    .twork-centre-layout-section .centre-cta .jivaka-btn.btn-primary.centre-cta-btn {
+        font-size: 0.9rem;
+        padding: 12px 28px;
+        width: 100%;
+        max-width: 280px;
+    }
+
+    .twork-centre-layout-section .sidebar-contact.mobile-only {
+        margin-top: 56px;
+        padding: 28px 20px;
+    }
+
+    .twork-centre-layout-section .sidebar-contact .jivaka-btn.btn-primary {
+        min-height: 52px;
+        font-size: 0.95rem;
+        padding: 16px 24px;
+    }
+
+    .twork-centre-layout-section .main-content [data-type="twork/centre-cta-section"] {
+        margin-bottom: 0;
+    }
+}

@@ -1,0 +1,123 @@
+// GM Testimonials (Patient Stories) – mirrors general-medicine.html
+
+// Editor: force 3 columns in a row (same selector pattern as before-you-come-section so styles apply in all editor contexts)
+.editor-styles-wrapper,
+.block-editor-block-list__layout,
+.wp-block-twork-gm-testimonials-section {
+    .twork-gm-testimonials-section-editor {
+        .jivaka-gm-testimonials {
+            display: grid !important;
+            grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+            width: 100% !important;
+
+            > .block-editor-inner-blocks {
+                display: contents !important;
+            }
+
+            > .block-editor-inner-blocks > .block-editor-block-list__layout {
+                display: contents !important;
+            }
+
+            > .block-editor-inner-blocks > .block-editor-block-list__layout > .wp-block,
+            > .block-editor-inner-blocks > .block-editor-block-list__layout > [data-type="twork/gm-review-card"],
+            > .block-editor-inner-blocks > .block-editor-block-list__layout > .block-editor-block-list__block {
+                min-width: 0 !important;
+            }
+        }
+    }
+}
+
+.twork-gm-testimonials-section {
+    --gm-orange: #f48b2a;
+    --gm-dark: #212121;
+    --gm-grey: #555555;
+    --gm-radius: 12px;
+
+    .jivaka-gm-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 24px;
+        position: relative;
+    }
+
+    .jivaka-gm-header-center {
+        text-align: center;
+        max-width: 800px;
+        margin: 0 auto 60px;
+    }
+
+    .jivaka-gm-header-center h2 {
+        font-size: 2.5rem;
+        color: var(--gm-dark);
+        margin-bottom: 15px;
+    }
+
+    .jivaka-gm-header-center p {
+        margin: 0;
+        color: var(--gm-grey);
+        line-height: 1.6;
+    }
+
+    .jivaka-gm-testimonials {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+    }
+
+    .jivaka-gm-review-card {
+        background: #fff;
+        padding: 40px 30px;
+        border-radius: var(--gm-radius);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        position: relative;
+        border: 1px solid #eee;
+    }
+
+    .jivaka-gm-quote-icon {
+        font-size: 2rem;
+        color: #f0f0f0;
+        position: absolute;
+        top: 20px;
+        left: 20px;
+    }
+
+    .jivaka-gm-review-text {
+        font-style: italic;
+        color: var(--gm-grey);
+        margin-bottom: 20px;
+        position: relative;
+        z-index: 1;
+        line-height: 1.8;
+    }
+
+    .jivaka-gm-reviewer h5 {
+        margin: 0;
+        font-size: 1.1rem;
+    }
+
+    .jivaka-gm-reviewer span {
+        font-size: 0.9rem;
+        color: var(--gm-orange);
+        font-weight: 500;
+    }
+}
+
+@media (max-width: 768px) {
+    .twork-gm-testimonials-section {
+        .jivaka-gm-header-center {
+            margin-bottom: 40px;
+        }
+
+        .jivaka-gm-header-center h2 {
+            font-size: 2rem;
+        }
+
+        .jivaka-gm-testimonials {
+            gap: 20px;
+        }
+
+        .jivaka-gm-review-card {
+            padding: 30px 24px;
+        }
+    }
+}

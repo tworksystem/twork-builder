@@ -1,0 +1,30 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "twork/hc-packages-section",
+    "version": "1.0.0",
+    "title": "Packages Section",
+    "category": "twork-builder",
+    "icon": "grid-view",
+    "description": "Care Packages section: header + grid of package cards. Matches home-care.html.",
+    "keywords": ["home care", "packages", "pricing", "plans", "twork"],
+    "attributes": {
+        "backgroundColor": { "type": "string", "default": "#ffffff" },
+        "paddingTop": { "type": "number", "default": 60 },
+        "paddingBottom": { "type": "number", "default": 60 },
+        "containerMaxWidth": { "type": "number", "default": 1200 },
+        "containerPadding": { "type": "number", "default": 20 },
+        "showSectionTitle": { "type": "boolean", "default": true },
+        "sectionTitle": { "type": "string", "default": "Care Packages" },
+        "sectionSubtitle": { "type": "string", "default": "Affordable plans for long-term recovery." },
+        "sectionTitleColor": { "type": "string", "default": "#212121" },
+        "sectionSubtitleColor": { "type": "string", "default": "#555555" },
+        "gap": { "type": "number", "default": 30 },
+        "animationOnScroll": { "type": "boolean", "default": true },
+        "animationType": { "type": "string", "default": "fade-up" }
+    },
+    "supports": { "html": false, "anchor": true, "align": ["wide", "full"] },
+    "textdomain": "twork-builder",
+    "editorScript": "file:./index.js",
+    "style": "file:./style-index.css"
+}

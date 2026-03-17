@@ -1,0 +1,17 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "twork/dept-doc-card-item",
+    "title": "Doc Card Item",
+    "category": "twork-builder",
+    "parent": ["twork/dept-specialists-section"],
+    "attributes": {
+        "imageUrl": { "type": "string", "default": "" },
+        "imageId": { "type": "number" },
+        "name": { "type": "string", "default": "Dr. Kyaw Swar" },
+        "specialization": { "type": "string", "default": "Interventional Cardiologist" },
+        "qualifications": { "type": "string", "default": "MBBS, M.Med.Sc, MRCP (UK)" },
+        "profileUrl": { "type": "string", "default": "#" }
+    },
+    "editorScript": "file:./index.js"
+}

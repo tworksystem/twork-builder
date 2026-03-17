@@ -1,0 +1,162 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "twork/amb-map-section",
+  "version": "1.0.0",
+  "title": "Ambulance Map Section",
+  "category": "twork-builder",
+  "icon": "location-alt",
+  "description": "Coverage section with icon, title, description and township/location tags.",
+  "keywords": ["ambulance", "map", "coverage", "townships", "twork"],
+  "attributes": {
+    "sectionPaddingTop": {
+      "type": "number",
+      "default": 80
+    },
+    "sectionPaddingBottom": {
+      "type": "number",
+      "default": 80
+    },
+    "containerMaxWidth": {
+      "type": "number",
+      "default": 1200
+    },
+    "containerPadding": {
+      "type": "number",
+      "default": 20
+    },
+    "showIcon": {
+      "type": "boolean",
+      "default": true
+    },
+    "icon": {
+      "type": "string",
+      "default": "fa-map-marked-alt"
+    },
+    "iconSize": {
+      "type": "number",
+      "default": 3
+    },
+    "iconColor": {
+      "type": "string",
+      "default": "#f48b2a"
+    },
+    "iconMarginBottom": {
+      "type": "number",
+      "default": 20
+    },
+    "title": {
+      "type": "string",
+      "default": "We Cover All Major Townships"
+    },
+    "titleColor": {
+      "type": "string",
+      "default": "#0f172a"
+    },
+    "titleFontSize": {
+      "type": "number",
+      "default": 2
+    },
+    "titleFontWeight": {
+      "type": "number",
+      "default": 700
+    },
+    "titleMarginBottom": {
+      "type": "number",
+      "default": 15
+    },
+    "description": {
+      "type": "string",
+      "default": "From downtown Yangon to the outskirts, we are always nearby."
+    },
+    "descriptionColor": {
+      "type": "string",
+      "default": "#666666"
+    },
+    "descriptionFontSize": {
+      "type": "number",
+      "default": 1.1
+    },
+    "boxBackgroundColor": {
+      "type": "string",
+      "default": "#f1f5f9"
+    },
+    "boxPadding": {
+      "type": "number",
+      "default": 60
+    },
+    "boxBorderRadius": {
+      "type": "number",
+      "default": 8
+    },
+    "boxBorderStyle": {
+      "type": "string",
+      "default": "dashed"
+    },
+    "boxBorderColor": {
+      "type": "string",
+      "default": "#cccccc"
+    },
+    "boxBorderWidth": {
+      "type": "number",
+      "default": 2
+    },
+    "townships": {
+      "type": "array",
+      "default": [
+        { "id": 1, "text": "Kamaryut" },
+        { "id": 2, "text": "Bahan" },
+        { "id": 3, "text": "Sanchaung" },
+        { "id": 4, "text": "Yankin" },
+        { "id": 5, "text": "Mayangone" },
+        { "id": 6, "text": "Tamwe" },
+        { "id": 7, "text": "South Okkalapa" },
+        { "id": 8, "text": "North Dagon" }
+      ]
+    },
+    "townshipsGap": {
+      "type": "number",
+      "default": 15
+    },
+    "townshipsMarginTop": {
+      "type": "number",
+      "default": 30
+    },
+    "townshipBgColor": {
+      "type": "string",
+      "default": "#ffffff"
+    },
+    "townshipTextColor": {
+      "type": "string",
+      "default": "#0f172a"
+    },
+    "townshipPaddingVertical": {
+      "type": "number",
+      "default": 10
+    },
+    "townshipPaddingHorizontal": {
+      "type": "number",
+      "default": 25
+    },
+    "townshipBorderRadius": {
+      "type": "number",
+      "default": 50
+    },
+    "townshipFontWeight": {
+      "type": "number",
+      "default": 600
+    },
+    "animationOnScroll": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "align": ["wide", "full"]
+  },
+  "textdomain": "twork-builder",
+  "editorScript": "file:./index.js",
+  "style": "file:./style-index.css"
+}

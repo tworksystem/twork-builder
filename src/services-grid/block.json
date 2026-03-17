@@ -3,7 +3,7 @@
     "apiVersion": 3,
     "name": "twork/services-grid",
     "version": "1.0.0",
-    "title": "Twork Services Grid",
+    "title": "Services Grid",
     "category": "twork-builder",
     "icon": "grid-view",
     "description": "A professional services grid container with customizable layout and styling options.",

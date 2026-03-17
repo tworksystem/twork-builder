@@ -1,0 +1,29 @@
+// Admission Process Item – editor-only and item-level overrides
+// Main process-card styles live in admission-process-section/style.scss
+
+.editor-styles-wrapper {
+    .twork-admission-process-item-editor {
+        .step-number,
+        h3,
+        p,
+        .process-list {
+            &[contenteditable="true"]:focus,
+            &:focus-within {
+                outline: 1px dashed #2271b1;
+                outline-offset: 2px;
+            }
+        }
+
+        .process-list li {
+            outline: none;
+        }
+    }
+}
+
+// Frontend: ensure item inherits section's process-card styles when inside section
+.wp-block-twork-admission-process-section .process-card {
+    // Overrides from item-level CSS vars can go here if needed
+    .step-number {
+        // Section may set --primary-orange; item can override via inline style
+    }
+}

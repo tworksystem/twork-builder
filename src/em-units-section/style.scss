@@ -1,0 +1,107 @@
+/**
+ * Emergency Units Section – frontend (PHP-rendered) & editor preview
+ * Matches 24/7.html .em-units-section, .em-unit-card, .em-unit-img, .em-unit-body, .em-unit-link
+ */
+
+$em-radius: 16px;
+$em-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+$em-primary: #f48b2a;
+$em-light: #fffbf7;
+
+// --- Section (shared) ---
+.em-section.em-units-section,
+.twork-em-units-section-editor {
+    position: relative;
+
+    .em-container {
+        position: relative;
+    }
+
+    .em-header {
+        text-align: center;
+
+        h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        p {
+            margin: 0;
+        }
+    }
+
+    .em-triage-grid {
+        display: grid;
+        width: 100%;
+    }
+}
+
+// --- Unit card: whole card is one link to post detail (frontend & ServerSideRender preview) ---
+.em-unit-card {
+    background: #fff;
+    border-radius: $em-radius;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: 0.3s ease;
+    box-shadow: $em-shadow;
+    text-align: center;
+}
+
+a.em-unit-card {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+
+    &:hover {
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        transform: translateY(-4px);
+    }
+
+    &:focus {
+        outline: 2px solid $em-primary;
+        outline-offset: 2px;
+    }
+}
+
+.em-unit-img {
+    height: 220px;
+    width: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.em-unit-body {
+    padding: 25px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    h3 {
+        font-size: 1.25rem;
+        margin: 0 0 10px;
+        font-weight: 700;
+    }
+
+    p {
+        font-size: 0.95rem;
+        color: #555;
+        margin: 0 0 12px;
+        line-height: 1.5;
+        flex-grow: 1;
+    }
+}
+
+// em-unit-link: label at bottom of card; block controls (color, font-size, weight, transform) applied inline by PHP
+.em-unit-link {
+    display: inline-block;
+    color: $em-primary;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    // Inline styles from block attributes override the above when present
+}

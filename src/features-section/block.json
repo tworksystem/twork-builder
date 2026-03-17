@@ -1,0 +1,57 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "twork/features-section",
+  "version": "1.0.0",
+  "title": "Features Section (About)",
+  "category": "twork-builder",
+  "icon": "grid-view",
+  "description": "About section with a grid of feature cards (icon, title, description). Matches general-surgery about block.",
+  "keywords": ["features", "about", "grid", "twork"],
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "align": ["wide", "full"]
+  },
+  "attributes": {
+    "sectionId": {
+      "type": "string",
+      "default": "about"
+    },
+    "containerClass": {
+      "type": "string",
+      "default": "container"
+    },
+    "columns": {
+      "type": "number",
+      "default": 3
+    },
+    "columnsTablet": {
+      "type": "number",
+      "default": 2
+    },
+    "columnsMobile": {
+      "type": "number",
+      "default": 1
+    },
+    "gap": {
+      "type": "number",
+      "default": 30
+    },
+    "containerMaxWidth": {
+      "type": "number",
+      "default": 1200
+    },
+    "containerPadding": {
+      "type": "number",
+      "default": 24
+    },
+    "gridMinItemWidth": {
+      "type": "number",
+      "default": 260
+    }
+  },
+  "textdomain": "twork-builder",
+  "editorScript": "file:./index.js",
+  "style": "file:./style-index.css"
+}

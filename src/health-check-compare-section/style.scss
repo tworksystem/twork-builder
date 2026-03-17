@@ -1,0 +1,124 @@
+// Health Check Compare Section – matches health-check-up.html
+.twork-health-check-compare-section.chk-section.chk-compare-section,
+.chk-section.chk-compare-section.twork-health-check-compare-section {
+    --chk-secondary: #005f73;
+    --chk-radius: 20px;
+    --chk-shadow: 0 15px 40px rgba(0, 95, 115, 0.1);
+    font-family: "Roboto", sans-serif;
+
+    .chk-header {
+        text-align: center;
+        max-width: 700px;
+        margin: 0 auto 50px;
+
+        h2 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 15px;
+        }
+
+        p {
+            margin: 0;
+            font-size: 1.1rem;
+        }
+    }
+
+    .chk-table-wrap {
+        overflow-x: auto;
+        background: #fff;
+        border-radius: var(--chk-radius);
+        box-shadow: var(--chk-shadow);
+        padding: 30px;
+    }
+
+    .chk-table {
+        width: 100%;
+        border-collapse: collapse;
+        min-width: 800px;
+    }
+
+    .chk-table th,
+    .chk-table td {
+        padding: 15px;
+        text-align: center;
+        border-bottom: 1px solid #eee;
+    }
+
+    .chk-table th {
+        background: #f8fafc;
+        color: var(--chk-secondary);
+        font-weight: 700;
+        font-size: 1.1rem;
+    }
+
+    .chk-table td:first-child,
+    .chk-table th:first-child {
+        text-align: left;
+        font-weight: 600;
+        color: #333;
+    }
+
+    .chk-table tr:hover {
+        background: #fafafa;
+    }
+
+    .chk-check {
+        color: var(--chk-check-color, #2ecc71);
+        font-size: 1.2rem;
+    }
+
+    .chk-cross {
+        color: var(--chk-cross-color, #e74c3c);
+        font-size: 1.2rem;
+    }
+}
+
+// === EDITOR STYLES (prevent cut-off / clipping) ===
+.editor-styles-wrapper .wp-block-twork-health-check-compare-section,
+.block-editor-block-list__layout .wp-block-twork-health-check-compare-section {
+    overflow: visible !important;
+}
+
+.twork-health-check-compare-editor {
+    overflow: visible !important;
+    min-height: 280px;
+    width: 100%;
+    box-sizing: border-box;
+
+    .chk-container {
+        overflow: visible;
+    }
+
+    .chk-table-wrap {
+        overflow-x: auto;
+        overflow-y: visible;
+        -webkit-overflow-scrolling: touch;
+        max-width: 100%;
+    }
+
+    .chk-header h2[contenteditable="true"],
+    .chk-header p[contenteditable="true"] {
+        &:focus {
+            outline: 2px dashed #2271b1;
+            outline-offset: 2px;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .twork-health-check-compare-section.chk-section.chk-compare-section,
+    .chk-section.chk-compare-section.twork-health-check-compare-section {
+        .chk-header h2 {
+            font-size: 2rem;
+        }
+        .chk-table {
+            min-width: 600px;
+        }
+    }
+}
+
+.chk-table th:focus-visible,
+.chk-table td:focus-visible {
+    outline: 2px solid var(--chk-secondary);
+    outline-offset: 1px;
+}

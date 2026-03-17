@@ -1,0 +1,125 @@
+// Radiology Preparation FAQ Section
+// Matches radiology&imaging.html:
+// .rad-faq-grid, .rad-faq-item, .rad-faq-q, .rad-faq-a
+
+// Core variables (shared with other Radiology blocks)
+:root {
+  --rad-primary: #f48b2a;
+  --rad-dark: #212121;
+  --rad-light: #f8fafc;
+  --rad-white: #ffffff;
+  --rad-radius: 8px;
+  --rad-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+// === EDITOR STYLES ===
+.editor-styles-wrapper,
+.block-editor-block-list__layout,
+.wp-block-twork-rad-prep-faq-section {
+  .twork-rad-prep-faq-section-editor {
+    position: relative;
+
+    .rad-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      position: relative;
+    }
+
+    .rad-faq-grid {
+      display: grid !important;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+
+      .rad-faq-list {
+        > .block-editor-inner-blocks {
+          display: contents !important;
+
+          > .block-editor-block-list__layout {
+            display: contents !important;
+
+            > .wp-block,
+            > [data-type='twork/rad-faq-item'] {
+              display: block !important;
+            }
+          }
+        }
+      }
+    }
+
+    .twork-rad-faq-item-editor.rad-faq-item {
+      .rad-faq-q,
+      .rad-faq-a {
+        &[contenteditable='true']:focus {
+          outline: 1px dashed #2271b1;
+          outline-offset: 2px;
+        }
+      }
+    }
+  }
+}
+
+// === FRONTEND STYLES ===
+.twork-rad-prep-faq-section {
+  font-family: 'Roboto', sans-serif;
+
+  .rad-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+  }
+
+  .rad-faq-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+  }
+
+  .rad-faq-item {
+    border-bottom: 1px solid #eee;
+  }
+
+  .rad-faq-q {
+    width: 100%;
+    text-align: left;
+    padding: 20px 0;
+    background: none;
+    border: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+
+    i {
+      margin-left: 8px;
+    }
+  }
+
+  .rad-faq-a {
+    max-height: 0;
+    overflow: hidden;
+    transition: 0.3s;
+    color: #666666;
+  }
+
+  .rad-faq-q.active + .rad-faq-a {
+    max-height: 300px;
+    padding-bottom: 20px;
+  }
+
+  .rad-faq-q.active {
+    color: var(--rad-primary);
+  }
+}
+
+// === RESPONSIVE ===
+@media (max-width: 992px) {
+  .twork-rad-prep-faq-section {
+    .rad-faq-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+

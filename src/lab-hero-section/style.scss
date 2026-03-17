@@ -1,0 +1,303 @@
+/**
+ * Lab Hero Section – Front-end & editor styles
+ * Matches laboratory-services.html lab-hero: glass panel, badge, title, buttons, stat bubbles.
+ * Self-contained CSS variables so block works without theme.
+ */
+
+// Block-scoped variables (match laboratory-services.html :root)
+.twork-lab-hero-section,
+.twork-lab-hero-section-editor {
+    --lab-primary: #f48b2a;
+    --lab-secondary: #005f73;
+    --lab-accent: #e9d8a6;
+    --lab-light: #f0f4f8;
+    --lab-white: #ffffff;
+    --lab-text: #333;
+    --lab-radius: 16px;
+    --lab-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+}
+
+// === BASE HERO (front + editor) ===
+.lab-hero.twork-lab-hero-section,
+.lab-hero.twork-lab-hero-section-editor {
+    position: relative;
+    min-height: 700px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: var(--lab-secondary); // fallback when no image
+}
+
+.lab-hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.lab-hero .lab-container {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+// Glass content panel
+.lab-hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 600px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 50px;
+    border-radius: var(--lab-radius);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+}
+
+.lab-hero-badge {
+    color: var(--lab-primary);
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    display: inline-block;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+}
+
+.lab-hero h1 {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 900;
+    margin: 0 0 20px 0;
+    color: var(--lab-secondary);
+    line-height: 1.2;
+}
+
+.lab-hero-content p {
+    font-size: 1.1rem;
+    margin: 0 0 30px 0;
+    color: #555;
+    line-height: 1.6;
+}
+
+.lab-hero-actions {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.lab-hero-actions .lab-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 35px;
+    border-radius: 50px;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    background: var(--lab-primary);
+    color: #fff;
+    transition: transform 0.3s, background-color 0.3s, color 0.3s, box-shadow 0.3s;
+    border: 2px solid transparent;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(244, 139, 42, 0.3);
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+.lab-hero-actions .lab-btn:hover {
+    background: #d6701b;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(244, 139, 42, 0.4);
+}
+
+.lab-hero-actions .lab-btn-outline {
+    background: transparent;
+    border-color: var(--lab-primary);
+    color: var(--lab-primary);
+    box-shadow: none;
+}
+
+.lab-hero-actions .lab-btn-outline:hover {
+    background: var(--lab-primary);
+    color: #fff;
+}
+
+// Stat bubbles (desktop: right side)
+.lab-hero-stats {
+    position: absolute;
+    right: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    z-index: 2;
+}
+
+.lab-stat-bubble {
+    background: var(--lab-primary);
+    color: #fff;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    animation: lab-hero-float 6s ease-in-out infinite;
+    box-sizing: border-box;
+}
+
+.lab-stat-bubble:nth-child(2) {
+    margin-left: -50px;
+    animation-delay: 2s;
+    background: var(--lab-secondary);
+}
+
+.lab-stat-bubble span {
+    font-weight: 900;
+    font-size: 1.8rem;
+    line-height: 1;
+}
+
+.lab-stat-bubble small {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    margin-top: 5px;
+    opacity: 0.95;
+}
+
+@keyframes lab-hero-float {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+// === RESPONSIVE (match laboratory-services.html: 992px hides stats) ===
+@media (max-width: 992px) {
+    .lab-hero.twork-lab-hero-section,
+    .lab-hero.twork-lab-hero-section-editor {
+        min-height: 600px;
+    }
+
+    .lab-hero .lab-container {
+        justify-content: flex-start;
+    }
+
+    .lab-hero-stats {
+        display: none;
+    }
+
+    .lab-hero-content {
+        max-width: 100%;
+        padding: 40px 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .lab-hero.twork-lab-hero-section,
+    .lab-hero.twork-lab-hero-section-editor {
+        min-height: 500px;
+        align-items: center;
+    }
+
+    .lab-hero .lab-container {
+        padding: 0 16px;
+    }
+
+    .lab-hero-content {
+        padding: 30px 20px;
+    }
+
+    .lab-hero h1 {
+        font-size: clamp(1.75rem, 6vw, 2.5rem);
+    }
+
+    .lab-hero-content p {
+        font-size: 1rem;
+        margin-bottom: 24px;
+    }
+
+    .lab-hero-actions {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .lab-hero-actions .lab-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+// === EDITOR-SPECIFIC ===
+.editor-styles-wrapper .lab-hero.twork-lab-hero-section-editor,
+.wp-block-twork-lab-hero-section .lab-hero.twork-lab-hero-section-editor {
+    min-height: 400px;
+}
+
+.editor-styles-wrapper,
+.wp-block-twork-lab-hero-section {
+    .twork-lab-hero-section-editor {
+        .lab-hero-content h1[contenteditable="true"],
+        .lab-hero-content p[contenteditable="true"],
+        .lab-hero-content .lab-btn[contenteditable="true"],
+        .lab-hero-badge[contenteditable="true"] {
+            &:focus {
+                outline: 2px dashed #2271b1;
+                outline-offset: 2px;
+            }
+        }
+
+        .lab-hero-actions a.lab-btn {
+            pointer-events: none;
+            cursor: default;
+        }
+    }
+}
+
+// Editor: mirror responsive so layout is accurate
+@media (max-width: 992px) {
+    .editor-styles-wrapper .lab-hero.twork-lab-hero-section-editor .lab-hero-stats {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .editor-styles-wrapper .lab-hero.twork-lab-hero-section-editor {
+        min-height: 380px;
+    }
+}
+
+// === ACCESSIBILITY ===
+.lab-hero-actions .lab-btn:focus-visible {
+    outline: 3px solid var(--lab-primary);
+    outline-offset: 2px;
+}
+
+.lab-stat-bubble:focus-within {
+    outline: 3px solid var(--lab-primary);
+    outline-offset: 2px;
+}

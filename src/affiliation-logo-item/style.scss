@@ -1,0 +1,40 @@
+// Affiliation Logo Item - inherits most styling from parent affiliations-section.
+// Logo color/grayscale and visibility are controlled by the parent section (full color by default).
+
+.wp-block-twork-affiliation-logo-item,
+.partner-logo-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+    .partner-logo {
+        max-width: 100%;
+        width: auto;
+        height: auto;
+        display: block;
+        object-fit: contain;
+        // Inline width/height from item attributes override these when set.
+        // Parent section sets --logo-max-width, --logo-max-height and --logo-grayscale.
+    }
+
+    a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        transition: opacity 0.3s ease;
+
+        &:focus-visible {
+            outline: 2px solid currentColor;
+            outline-offset: 4px;
+        }
+    }
+}
+
+// Editor
+.twork-affiliation-logo-item-editor {
+    .partner-logo {
+        transition: opacity 0.3s, filter 0.3s;
+    }
+}

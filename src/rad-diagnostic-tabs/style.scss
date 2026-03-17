@@ -1,0 +1,167 @@
+// Radiology Diagnostic Services Tabs Section
+// Matches the design from radiology&imaging.html for:
+// .rad-tabs-container, .rad-tab-menu, .rad-tab-btn, .rad-tab-content-area, .rad-tab-pane, .rad-pane-img, .rad-pane-title, .rad-pane-list
+
+// Ensure shared variables exist
+:root {
+  --rad-primary: #f48b2a;
+  --rad-dark: #212121;
+  --rad-radius: 12px;
+}
+
+// FRONTEND + EDITOR STYLES
+.twork-rad-diagnostic-tabs {
+  font-family: 'Roboto', sans-serif;
+
+  .rad-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .rad-header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 50px;
+
+    h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+      color: var(--rad-dark);
+      line-height: 1.2;
+    }
+
+    p {
+      margin: 0;
+      color: #666;
+      line-height: 1.6;
+    }
+  }
+
+  .rad-tabs-container {
+    display: flex;
+    gap: 40px;
+    min-height: 500px;
+  }
+
+  // Left menu
+  .rad-tab-menu {
+    flex: 0 0 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .rad-tab-btn {
+    padding: 20px;
+    text-align: left;
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: var(--rad-radius);
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: 0.3s;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    i {
+      margin-left: 10px;
+    }
+  }
+
+  .rad-tab-btn:hover {
+    background: #f9f9f9;
+    color: var(--rad-primary);
+  }
+
+  .rad-tab-btn.active {
+    background: var(--rad-primary);
+    color: #fff;
+    border-color: var(--rad-primary);
+    box-shadow: 0 5px 15px rgba(244, 139, 42, 0.3);
+  }
+
+  // Right content
+  .rad-tab-content-area {
+    flex: 1;
+    position: relative;
+  }
+
+  .rad-tab-pane {
+    display: none;
+    animation: fadeIn 0.5s ease;
+  }
+
+  .rad-tab-pane.active {
+    display: block;
+  }
+
+  .rad-pane-img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: var(--rad-radius);
+    margin-bottom: 25px;
+  }
+
+  .rad-pane-title {
+    font-size: 2rem;
+    margin-bottom: 15px;
+  }
+
+  .rad-pane-list li {
+    margin-bottom: 10px;
+    padding-left: 20px;
+    position: relative;
+  }
+
+  .rad-pane-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 6px;
+    height: 6px;
+    background: var(--rad-primary);
+    border-radius: 50%;
+  }
+
+  // Simple fade-in keyframes
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+// RESPONSIVE
+@media (max-width: 992px) {
+  .twork-rad-diagnostic-tabs {
+    .rad-tabs-container {
+      flex-direction: column;
+    }
+
+    .rad-tab-menu {
+      flex: auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .twork-rad-diagnostic-tabs {
+    .rad-tab-menu {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+

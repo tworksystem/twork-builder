@@ -2,8 +2,10 @@
     "$schema": "https://schemas.wp.org/trunk/block.json",
     "apiVersion": 3,
     "name": "twork/team-member-item",
-    "title": "Twork Team Member Item",
+    "title": "Team Member Item",
     "parent": ["twork/team-members-grid"],
+    "description": "Single team member card with image, name, position, bio, specializations, contact, social links, and CTA button.",
+    "keywords": ["team", "member", "specialist", "doctor", "twork"],
     "attributes": {
         "memberImage": {
             "type": "string",
@@ -417,6 +419,6 @@
             "default": 0
         }
     },
+    "textdomain": "twork-builder",
     "editorScript": "file:./index.js"
 }
-

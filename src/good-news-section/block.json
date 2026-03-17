@@ -1,0 +1,1330 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "twork/good-news-section",
+    "title": "Good News Section",
+    "category": "twork-builder",
+    "description": "Professional newsletter subscription section with split layout and comprehensive customization options",
+    "keywords": ["newsletter", "subscribe", "email", "form", "good news", "twork"],
+    "attributes": {
+        "backgroundColor": {
+            "type": "string",
+            "default": "#ffffff"
+        },
+        "paddingTop": {
+            "type": "number",
+            "default": 0
+        },
+        "paddingBottom": {
+            "type": "number",
+            "default": 0
+        },
+        "layoutDirection": {
+            "type": "string",
+            "default": "content-left"
+        },
+        "contentWidth": {
+            "type": "number",
+            "default": 50
+        },
+        "imageWidth": {
+            "type": "number",
+            "default": 50
+        },
+        "contentWidthTablet": {
+            "type": "number",
+            "default": 100
+        },
+        "imageWidthTablet": {
+            "type": "number",
+            "default": 100
+        },
+        "contentWidthMobile": {
+            "type": "number",
+            "default": 100
+        },
+        "imageWidthMobile": {
+            "type": "number",
+            "default": 100
+        },
+        "backgroundImage": {
+            "type": "string",
+            "default": "https://jivakahospital.com/wp-content/uploads/2025/12/bgn-newsletter-subscribe.jpg"
+        },
+        "backgroundImageId": {
+            "type": "number"
+        },
+        "backgroundImageTablet": {
+            "type": "string",
+            "default": ""
+        },
+        "backgroundImageTabletId": {
+            "type": "number"
+        },
+        "backgroundImageMobile": {
+            "type": "string",
+            "default": ""
+        },
+        "backgroundImageMobileId": {
+            "type": "number"
+        },
+        "useResponsiveImages": {
+            "type": "boolean",
+            "default": false
+        },
+        "backgroundImagePosition": {
+            "type": "string",
+            "default": "center right"
+        },
+        "backgroundImageSize": {
+            "type": "string",
+            "default": "cover"
+        },
+        "backgroundImageSizeTablet": {
+            "type": "string",
+            "default": "cover"
+        },
+        "backgroundImageSizeMobile": {
+            "type": "string",
+            "default": "cover"
+        },
+        "backgroundImagePositionTablet": {
+            "type": "string",
+            "default": "center"
+        },
+        "backgroundImagePositionMobile": {
+            "type": "string",
+            "default": "center"
+        },
+        "backgroundImageCustomSize": {
+            "type": "string",
+            "default": ""
+        },
+        "backgroundImageCustomSizeTablet": {
+            "type": "string",
+            "default": ""
+        },
+        "backgroundImageCustomSizeMobile": {
+            "type": "string",
+            "default": ""
+        },
+        "showBackgroundOverlay": {
+            "type": "boolean",
+            "default": false
+        },
+        "backgroundOverlayColor": {
+            "type": "string",
+            "default": "rgba(255, 255, 255, 0.1)"
+        },
+        "backgroundOverlayOpacity": {
+            "type": "number",
+            "default": 0.1
+        },
+        "contentBackgroundColor": {
+            "type": "string",
+            "default": "#ffffff"
+        },
+        "contentPadding": {
+            "type": "number",
+            "default": 80
+        },
+        "contentPaddingTablet": {
+            "type": "number",
+            "default": 60
+        },
+        "contentPaddingMobile": {
+            "type": "number",
+            "default": 30
+        },
+        "contentMaxWidth": {
+            "type": "number",
+            "default": 500
+        },
+        "contentMarginRight": {
+            "type": "number",
+            "default": 10
+        },
+        "contentMarginRightTablet": {
+            "type": "number",
+            "default": 0
+        },
+        "contentMarginRightMobile": {
+            "type": "number",
+            "default": 0
+        },
+        "contentAlignment": {
+            "type": "string",
+            "default": "left"
+        },
+        "contentAlignmentTablet": {
+            "type": "string",
+            "default": "center"
+        },
+        "contentAlignmentMobile": {
+            "type": "string",
+            "default": "center"
+        },
+        "imageMinHeight": {
+            "type": "number",
+            "default": 500
+        },
+        "imageMinHeightTablet": {
+            "type": "number",
+            "default": 400
+        },
+        "imageMinHeightMobile": {
+            "type": "number",
+            "default": 300
+        },
+        "imageObjectFit": {
+            "type": "string",
+            "default": "cover"
+        },
+        "imageObjectPosition": {
+            "type": "string",
+            "default": "center right"
+        },
+        "imageMaxWidth": {
+            "type": "number",
+            "default": 0
+        },
+        "imageMaxWidthTablet": {
+            "type": "number",
+            "default": 0
+        },
+        "imageMaxWidthMobile": {
+            "type": "number",
+            "default": 0
+        },
+        "imageMaxHeight": {
+            "type": "number",
+            "default": 0
+        },
+        "imageMaxHeightTablet": {
+            "type": "number",
+            "default": 0
+        },
+        "imageMaxHeightMobile": {
+            "type": "number",
+            "default": 0
+        },
+        "imageAspectRatio": {
+            "type": "string",
+            "default": ""
+        },
+        "imageOverflow": {
+            "type": "string",
+            "default": "hidden"
+        },
+        "imageMarginTop": {
+            "type": "number",
+            "default": 0
+        },
+        "imageMarginTopTablet": {
+            "type": "number",
+            "default": 0
+        },
+        "imageMarginTopMobile": {
+            "type": "number",
+            "default": 0
+        },
+        "imageMarginRight": {
+            "type": "number",
+            "default": 0
+        },
+        "imageMarginRightTablet": {
+            "type": "number",
+            "default": 0
+        },
+        "imageMarginRightMobile": {
+            "type": "number",
+            "default": 0
+        },
+        "imageMarginBottom": {
+            "type": "number",
+            "default": 0
+        },
+        "imageMarginBottomTablet": {
+            "type": "number",
+            "default": 0
+        },
+        "imageMarginBottomMobile": {
+            "type": "number",
+            "default": 0
+        },
+        "imageMarginLeft": {
+            "type": "number",
+            "default": 0
+        },
+        "imageMarginLeftTablet": {
+            "type": "number",
+            "default": 0
+        },
+        "imageMarginLeftMobile": {
+            "type": "number",
+            "default": 0
+        },
+        "imagePaddingTop": {
+            "type": "number",
+            "default": 0
+        },
+        "imagePaddingTopTablet": {
+            "type": "number",
+            "default": 0
+        },
+        "imagePaddingTopMobile": {
+            "type": "number",
+            "default": 0
+        },
+        "imagePaddingRight": {
+            "type": "number",
+            "default": 0
+        },
+        "imagePaddingRightTablet": {
+            "type": "number",
+            "default": 0
+        },
+        "imagePaddingRightMobile": {
+            "type": "number",
+            "default": 0
+        },
+        "imagePaddingBottom": {
+            "type": "number",
+            "default": 0
+        },
+        "imagePaddingBottomTablet": {
+            "type": "number",
+            "default": 0
+        },
+        "imagePaddingBottomMobile": {
+            "type": "number",
+            "default": 0
+        },
+        "imagePaddingLeft": {
+            "type": "number",
+            "default": 0
+        },
+        "imagePaddingLeftTablet": {
+            "type": "number",
+            "default": 0
+        },
+        "imagePaddingLeftMobile": {
+            "type": "number",
+            "default": 0
+        },
+        "paddingTopTablet": {
+            "type": "number",
+            "default": 0
+        },
+        "paddingTopMobile": {
+            "type": "number",
+            "default": 0
+        },
+        "paddingBottomTablet": {
+            "type": "number",
+            "default": 0
+        },
+        "paddingBottomMobile": {
+            "type": "number",
+            "default": 0
+        },
+        "showMetaTitle": {
+            "type": "boolean",
+            "default": true
+        },
+        "metaTitle": {
+            "type": "string",
+            "default": "JOIN OUR COMMUNITY"
+        },
+        "metaTitleColor": {
+            "type": "string",
+            "default": "#212121"
+        },
+        "metaTitleFontSize": {
+            "type": "number",
+            "default": 0.8
+        },
+        "metaTitleFontSizeTablet": {
+            "type": "number",
+            "default": 0.75
+        },
+        "metaTitleFontSizeMobile": {
+            "type": "number",
+            "default": 0.7
+        },
+        "metaTitleFontWeight": {
+            "type": "number",
+            "default": 700
+        },
+        "metaTitleFontWeightTablet": {
+            "type": "number",
+            "default": 700
+        },
+        "metaTitleFontWeightMobile": {
+            "type": "number",
+            "default": 700
+        },
+        "metaTitleColorTablet": {
+            "type": "string",
+            "default": ""
+        },
+        "metaTitleColorMobile": {
+            "type": "string",
+            "default": ""
+        },
+        "metaTitleTextTransform": {
+            "type": "string",
+            "default": "uppercase"
+        },
+        "metaTitleTextTransformTablet": {
+            "type": "string",
+            "default": ""
+        },
+        "metaTitleTextTransformMobile": {
+            "type": "string",
+            "default": ""
+        },
+        "metaTitleLetterSpacing": {
+            "type": "number",
+            "default": 1.5
+        },
+        "metaTitleLetterSpacingTablet": {
+            "type": "number",
+            "default": 1.5
+        },
+        "metaTitleLetterSpacingMobile": {
+            "type": "number",
+            "default": 1.5
+        },
+        "metaTitleMarginTop": {
+            "type": "number",
+            "default": 0
+        },
+        "metaTitleMarginTopTablet": {
+            "type": "number",
+            "default": 0
+        },
+        "metaTitleMarginTopMobile": {
+            "type": "number",
+            "default": 0
+        },
+        "metaTitleMarginBottom": {
+            "type": "number",
+            "default": 15
+        },
+        "metaTitleMarginBottomTablet": {
+            "type": "number",
+            "default": 15
+        },
+        "metaTitleMarginBottomMobile": {
+            "type": "number",
+            "default": 15
+        },
+        "metaTitleMarginLeft": {
+            "type": "number",
+            "default": 0
+        },
+        "metaTitleMarginLeftTablet": {
+            "type": "number",
+            "default": 0
+        },
+        "metaTitleMarginLeftMobile": {
+            "type": "number",
+            "default": 0
+        },
+        "metaTitleMarginRight": {
+            "type": "number",
+            "default": 0
+        },
+        "metaTitleMarginRightTablet": {
+            "type": "number",
+            "default": 0
+        },
+        "metaTitleMarginRightMobile": {
+            "type": "number",
+            "default": 0
+        },
+        "metaTitlePaddingTop": {
+            "type": "number",
+            "default": 0
+        },
+        "metaTitlePaddingTopTablet": {
+            "type": "number",
+            "default": 0
+        },
+        "metaTitlePaddingTopMobile": {
+            "type": "number",
+            "default": 0
+        },
+        "metaTitlePaddingBottom": {
+            "type": "number",
+            "default": 0
+        },
+        "metaTitlePaddingBottomTablet": {
+            "type": "number",
+            "default": 0
+        },
+        "metaTitlePaddingBottomMobile": {
+            "type": "number",
+            "default": 0
+        },
+        "metaTitlePaddingLeft": {
+            "type": "number",
+            "default": 0
+        },
+        "metaTitlePaddingLeftTablet": {
+            "type": "number",
+            "default": 0
+        },
+        "metaTitlePaddingLeftMobile": {
+            "type": "number",
+            "default": 0
+        },
+        "metaTitlePaddingRight": {
+            "type": "number",
+            "default": 0
+        },
+        "metaTitlePaddingRightTablet": {
+            "type": "number",
+            "default": 0
+        },
+        "metaTitlePaddingRightMobile": {
+            "type": "number",
+            "default": 0
+        },
+        "metaTitleAlignment": {
+            "type": "string",
+            "default": "left"
+        },
+        "metaTitleAlignmentTablet": {
+            "type": "string",
+            "default": ""
+        },
+        "metaTitleAlignmentMobile": {
+            "type": "string",
+            "default": ""
+        },
+        "showHeading": {
+            "type": "boolean",
+            "default": true
+        },
+        "heading": {
+            "type": "string",
+            "default": "Stay Healthy,\nStay Informed"
+        },
+        "headingColor": {
+            "type": "string",
+            "default": "#212121"
+        },
+        "headingFontSize": {
+            "type": "number",
+            "default": 3
+        },
+        "headingFontSizeTablet": {
+            "type": "number",
+            "default": 2.75
+        },
+        "headingFontSizeMobile": {
+            "type": "number",
+            "default": 2
+        },
+        "headingFontWeight": {
+            "type": "number",
+            "default": 300
+        },
+        "headingFontWeightTablet": {
+            "type": "number",
+            "default": 300
+        },
+        "headingFontWeightMobile": {
+            "type": "number",
+            "default": 300
+        },
+        "headingColorTablet": {
+            "type": "string",
+            "default": ""
+        },
+        "headingColorMobile": {
+            "type": "string",
+            "default": ""
+        },
+        "headingLineHeight": {
+            "type": "number",
+            "default": 1.1
+        },
+        "headingLineHeightTablet": {
+            "type": "number",
+            "default": 1.1
+        },
+        "headingLineHeightMobile": {
+            "type": "number",
+            "default": 1.1
+        },
+        "headingLetterSpacing": {
+            "type": "number",
+            "default": -0.01
+        },
+        "headingLetterSpacingTablet": {
+            "type": "number",
+            "default": -0.01
+        },
+        "headingLetterSpacingMobile": {
+            "type": "number",
+            "default": -0.01
+        },
+        "headingMarginTop": {
+            "type": "number",
+            "default": 0
+        },
+        "headingMarginTopTablet": {
+            "type": "number",
+            "default": 0
+        },
+        "headingMarginTopMobile": {
+            "type": "number",
+            "default": 0
+        },
+        "headingMarginBottom": {
+            "type": "number",
+            "default": 25
+        },
+        "headingMarginBottomTablet": {
+            "type": "number",
+            "default": 25
+        },
+        "headingMarginBottomMobile": {
+            "type": "number",
+            "default": 25
+        },
+        "headingMarginLeft": {
+            "type": "number",
+            "default": 0
+        },
+        "headingMarginLeftTablet": {
+            "type": "number",
+            "default": 0
+        },
+        "headingMarginLeftMobile": {
+            "type": "number",
+            "default": 0
+        },
+        "headingMarginRight": {
+            "type": "number",
+            "default": 0
+        },
+        "headingMarginRightTablet": {
+            "type": "number",
+            "default": 0
+        },
+        "headingMarginRightMobile": {
+            "type": "number",
+            "default": 0
+        },
+        "headingPaddingTop": {
+            "type": "number",
+            "default": 0
+        },
+        "headingPaddingTopTablet": {
+            "type": "number",
+            "default": 0
+        },
+        "headingPaddingTopMobile": {
+            "type": "number",
+            "default": 0
+        },
+        "headingPaddingBottom": {
+            "type": "number",
+            "default": 0
+        },
+        "headingPaddingBottomTablet": {
+            "type": "number",
+            "default": 0
+        },
+        "headingPaddingBottomMobile": {
+            "type": "number",
+            "default": 0
+        },
+        "headingPaddingLeft": {
+            "type": "number",
+            "default": 0
+        },
+        "headingPaddingLeftTablet": {
+            "type": "number",
+            "default": 0
+        },
+        "headingPaddingLeftMobile": {
+            "type": "number",
+            "default": 0
+        },
+        "headingPaddingRight": {
+            "type": "number",
+            "default": 0
+        },
+        "headingPaddingRightTablet": {
+            "type": "number",
+            "default": 0
+        },
+        "headingPaddingRightMobile": {
+            "type": "number",
+            "default": 0
+        },
+        "headingAlignment": {
+            "type": "string",
+            "default": ""
+        },
+        "headingAlignmentTablet": {
+            "type": "string",
+            "default": ""
+        },
+        "headingAlignmentMobile": {
+            "type": "string",
+            "default": ""
+        },
+        "showHighlight": {
+            "type": "boolean",
+            "default": true
+        },
+        "highlightText": {
+            "type": "string",
+            "default": "Stay Informed"
+        },
+        "highlightColor": {
+            "type": "string",
+            "default": "#f48b2a"
+        },
+        "highlightFontWeight": {
+            "type": "number",
+            "default": 900
+        },
+        "highlightFontSize": {
+            "type": "number",
+            "default": 1.2
+        },
+        "highlightFontSizeTablet": {
+            "type": "number",
+            "default": 1.15
+        },
+        "highlightFontSizeMobile": {
+            "type": "number",
+            "default": 1.1
+        },
+        "highlightColorTablet": {
+            "type": "string",
+            "default": ""
+        },
+        "highlightColorMobile": {
+            "type": "string",
+            "default": ""
+        },
+        "highlightFontWeightTablet": {
+            "type": "number",
+            "default": 900
+        },
+        "highlightFontWeightMobile": {
+            "type": "number",
+            "default": 900
+        },
+        "showDescription": {
+            "type": "boolean",
+            "default": true
+        },
+        "description": {
+            "type": "string",
+            "default": "Subscribe to the Jivaka Hospital newsletter to receive the latest updates on our Community Health Talks, exclusive Check-up Package offers, and expert health tips. Be the first to know about our upcoming Mobile Clinics and CSR activities near you."
+        },
+        "descriptionColor": {
+            "type": "string",
+            "default": "#212121"
+        },
+        "descriptionFontSize": {
+            "type": "number",
+            "default": 1.1
+        },
+        "descriptionFontSizeTablet": {
+            "type": "number",
+            "default": 1.05
+        },
+        "descriptionFontSizeMobile": {
+            "type": "number",
+            "default": 1
+        },
+        "descriptionColorTablet": {
+            "type": "string",
+            "default": ""
+        },
+        "descriptionColorMobile": {
+            "type": "string",
+            "default": ""
+        },
+        "descriptionLineHeight": {
+            "type": "number",
+            "default": 1.6
+        },
+        "descriptionLineHeightTablet": {
+            "type": "number",
+            "default": 1.6
+        },
+        "descriptionLineHeightMobile": {
+            "type": "number",
+            "default": 1.6
+        },
+        "descriptionMarginTop": {
+            "type": "number",
+            "default": 0
+        },
+        "descriptionMarginTopTablet": {
+            "type": "number",
+            "default": 0
+        },
+        "descriptionMarginTopMobile": {
+            "type": "number",
+            "default": 0
+        },
+        "descriptionMarginBottom": {
+            "type": "number",
+            "default": 30
+        },
+        "descriptionMarginBottomTablet": {
+            "type": "number",
+            "default": 30
+        },
+        "descriptionMarginBottomMobile": {
+            "type": "number",
+            "default": 30
+        },
+        "descriptionMarginLeft": {
+            "type": "number",
+            "default": 0
+        },
+        "descriptionMarginLeftTablet": {
+            "type": "number",
+            "default": 0
+        },
+        "descriptionMarginLeftMobile": {
+            "type": "number",
+            "default": 0
+        },
+        "descriptionMarginRight": {
+            "type": "number",
+            "default": 0
+        },
+        "descriptionMarginRightTablet": {
+            "type": "number",
+            "default": 0
+        },
+        "descriptionMarginRightMobile": {
+            "type": "number",
+            "default": 0
+        },
+        "descriptionPaddingTop": {
+            "type": "number",
+            "default": 0
+        },
+        "descriptionPaddingTopTablet": {
+            "type": "number",
+            "default": 0
+        },
+        "descriptionPaddingTopMobile": {
+            "type": "number",
+            "default": 0
+        },
+        "descriptionPaddingBottom": {
+            "type": "number",
+            "default": 0
+        },
+        "descriptionPaddingBottomTablet": {
+            "type": "number",
+            "default": 0
+        },
+        "descriptionPaddingBottomMobile": {
+            "type": "number",
+            "default": 0
+        },
+        "descriptionPaddingLeft": {
+            "type": "number",
+            "default": 0
+        },
+        "descriptionPaddingLeftTablet": {
+            "type": "number",
+            "default": 0
+        },
+        "descriptionPaddingLeftMobile": {
+            "type": "number",
+            "default": 0
+        },
+        "descriptionPaddingRight": {
+            "type": "number",
+            "default": 0
+        },
+        "descriptionPaddingRightTablet": {
+            "type": "number",
+            "default": 0
+        },
+        "descriptionPaddingRightMobile": {
+            "type": "number",
+            "default": 0
+        },
+        "descriptionAlignment": {
+            "type": "string",
+            "default": ""
+        },
+        "descriptionAlignmentTablet": {
+            "type": "string",
+            "default": ""
+        },
+        "descriptionAlignmentMobile": {
+            "type": "string",
+            "default": ""
+        },
+        "showNewsletterForm": {
+            "type": "boolean",
+            "default": true
+        },
+        "formMarginTop": {
+            "type": "number",
+            "default": 30
+        },
+        "formMarginTopTablet": {
+            "type": "number",
+            "default": 25
+        },
+        "formMarginTopMobile": {
+            "type": "number",
+            "default": 20
+        },
+        "formMarginBottom": {
+            "type": "number",
+            "default": 0
+        },
+        "formMarginBottomTablet": {
+            "type": "number",
+            "default": 0
+        },
+        "formMarginBottomMobile": {
+            "type": "number",
+            "default": 0
+        },
+        "formMarginLeft": {
+            "type": "number",
+            "default": 0
+        },
+        "formMarginLeftTablet": {
+            "type": "number",
+            "default": 0
+        },
+        "formMarginLeftMobile": {
+            "type": "number",
+            "default": 0
+        },
+        "formMarginRight": {
+            "type": "number",
+            "default": 0
+        },
+        "formMarginRightTablet": {
+            "type": "number",
+            "default": 0
+        },
+        "formMarginRightMobile": {
+            "type": "number",
+            "default": 0
+        },
+        "formPaddingTop": {
+            "type": "number",
+            "default": 0
+        },
+        "formPaddingTopTablet": {
+            "type": "number",
+            "default": 0
+        },
+        "formPaddingTopMobile": {
+            "type": "number",
+            "default": 0
+        },
+        "formPaddingBottom": {
+            "type": "number",
+            "default": 0
+        },
+        "formPaddingBottomTablet": {
+            "type": "number",
+            "default": 0
+        },
+        "formPaddingBottomMobile": {
+            "type": "number",
+            "default": 0
+        },
+        "formPaddingLeft": {
+            "type": "number",
+            "default": 0
+        },
+        "formPaddingLeftTablet": {
+            "type": "number",
+            "default": 0
+        },
+        "formPaddingLeftMobile": {
+            "type": "number",
+            "default": 0
+        },
+        "formPaddingRight": {
+            "type": "number",
+            "default": 0
+        },
+        "formPaddingRightTablet": {
+            "type": "number",
+            "default": 0
+        },
+        "formPaddingRightMobile": {
+            "type": "number",
+            "default": 0
+        },
+        "formMaxWidth": {
+            "type": "number",
+            "default": 500
+        },
+        "formMaxWidthTablet": {
+            "type": "number",
+            "default": 500
+        },
+        "formMaxWidthMobile": {
+            "type": "number",
+            "default": 500
+        },
+        "formBorderRadius": {
+            "type": "number",
+            "default": 50
+        },
+        "formBorderRadiusTablet": {
+            "type": "number",
+            "default": 50
+        },
+        "formBorderRadiusMobile": {
+            "type": "number",
+            "default": 50
+        },
+        "formAlignment": {
+            "type": "string",
+            "default": ""
+        },
+        "formAlignmentTablet": {
+            "type": "string",
+            "default": ""
+        },
+        "formAlignmentMobile": {
+            "type": "string",
+            "default": ""
+        },
+        "formBoxShadow": {
+            "type": "boolean",
+            "default": true
+        },
+        "formBoxShadowColor": {
+            "type": "string",
+            "default": "rgba(0, 0, 0, 0.1)"
+        },
+        "formBoxShadowBlur": {
+            "type": "number",
+            "default": 15
+        },
+        "formBoxShadowSpread": {
+            "type": "number",
+            "default": 0
+        },
+        "formBoxShadowOffsetX": {
+            "type": "number",
+            "default": 0
+        },
+        "formBoxShadowOffsetY": {
+            "type": "number",
+            "default": 4
+        },
+        "formFocusShadowColor": {
+            "type": "string",
+            "default": "rgba(244, 139, 42, 0.2)"
+        },
+        "formFocusShadowBlur": {
+            "type": "number",
+            "default": 20
+        },
+        "emailPlaceholder": {
+            "type": "string",
+            "default": "Type in your email address"
+        },
+        "emailBgColor": {
+            "type": "string",
+            "default": "#f0f0f0"
+        },
+        "emailBorderColor": {
+            "type": "string",
+            "default": "transparent"
+        },
+        "emailFocusBgColor": {
+            "type": "string",
+            "default": "#ffffff"
+        },
+        "emailFocusBorderColor": {
+            "type": "string",
+            "default": "#f48b2a"
+        },
+        "emailTextColor": {
+            "type": "string",
+            "default": "#212121"
+        },
+        "emailTextColorTablet": {
+            "type": "string",
+            "default": ""
+        },
+        "emailTextColorMobile": {
+            "type": "string",
+            "default": ""
+        },
+        "emailPlaceholderColor": {
+            "type": "string",
+            "default": "#666666"
+        },
+        "emailPlaceholderColorTablet": {
+            "type": "string",
+            "default": ""
+        },
+        "emailPlaceholderColorMobile": {
+            "type": "string",
+            "default": ""
+        },
+        "emailBgColorTablet": {
+            "type": "string",
+            "default": ""
+        },
+        "emailBgColorMobile": {
+            "type": "string",
+            "default": ""
+        },
+        "emailBorderColorTablet": {
+            "type": "string",
+            "default": ""
+        },
+        "emailBorderColorMobile": {
+            "type": "string",
+            "default": ""
+        },
+        "emailFocusBgColorTablet": {
+            "type": "string",
+            "default": ""
+        },
+        "emailFocusBgColorMobile": {
+            "type": "string",
+            "default": ""
+        },
+        "emailFocusBorderColorTablet": {
+            "type": "string",
+            "default": ""
+        },
+        "emailFocusBorderColorMobile": {
+            "type": "string",
+            "default": ""
+        },
+        "emailFontSize": {
+            "type": "number",
+            "default": 1
+        },
+        "emailFontSizeTablet": {
+            "type": "number",
+            "default": 0.95
+        },
+        "emailFontSizeMobile": {
+            "type": "number",
+            "default": 0.9
+        },
+        "emailPaddingVertical": {
+            "type": "number",
+            "default": 16
+        },
+        "emailPaddingVerticalTablet": {
+            "type": "number",
+            "default": 15
+        },
+        "emailPaddingVerticalMobile": {
+            "type": "number",
+            "default": 14
+        },
+        "emailPaddingHorizontal": {
+            "type": "number",
+            "default": 24
+        },
+        "emailPaddingHorizontalTablet": {
+            "type": "number",
+            "default": 22
+        },
+        "emailPaddingHorizontalMobile": {
+            "type": "number",
+            "default": 18
+        },
+        "buttonText": {
+            "type": "string",
+            "default": "SUBSCRIBE"
+        },
+        "buttonBgColor": {
+            "type": "string",
+            "default": "#f48b2a"
+        },
+        "buttonHoverBgColor": {
+            "type": "string",
+            "default": "#e67a22"
+        },
+        "buttonTextColor": {
+            "type": "string",
+            "default": "#ffffff"
+        },
+        "buttonFontSize": {
+            "type": "number",
+            "default": 0.9
+        },
+        "buttonFontSizeTablet": {
+            "type": "number",
+            "default": 0.85
+        },
+        "buttonFontSizeMobile": {
+            "type": "number",
+            "default": 0.8
+        },
+        "buttonFontWeight": {
+            "type": "number",
+            "default": 700
+        },
+        "buttonFontWeightTablet": {
+            "type": "number",
+            "default": 700
+        },
+        "buttonFontWeightMobile": {
+            "type": "number",
+            "default": 700
+        },
+        "buttonTextColorTablet": {
+            "type": "string",
+            "default": ""
+        },
+        "buttonTextColorMobile": {
+            "type": "string",
+            "default": ""
+        },
+        "buttonBgColorTablet": {
+            "type": "string",
+            "default": ""
+        },
+        "buttonBgColorMobile": {
+            "type": "string",
+            "default": ""
+        },
+        "buttonHoverBgColorTablet": {
+            "type": "string",
+            "default": ""
+        },
+        "buttonHoverBgColorMobile": {
+            "type": "string",
+            "default": ""
+        },
+        "buttonTextTransform": {
+            "type": "string",
+            "default": "uppercase"
+        },
+        "buttonTextTransformTablet": {
+            "type": "string",
+            "default": ""
+        },
+        "buttonTextTransformMobile": {
+            "type": "string",
+            "default": ""
+        },
+        "buttonLetterSpacing": {
+            "type": "number",
+            "default": 0.5
+        },
+        "buttonLetterSpacingTablet": {
+            "type": "number",
+            "default": 0.5
+        },
+        "buttonLetterSpacingMobile": {
+            "type": "number",
+            "default": 0.5
+        },
+        "buttonPaddingVertical": {
+            "type": "number",
+            "default": 16
+        },
+        "buttonPaddingVerticalTablet": {
+            "type": "number",
+            "default": 15
+        },
+        "buttonPaddingVerticalMobile": {
+            "type": "number",
+            "default": 14
+        },
+        "buttonPaddingHorizontal": {
+            "type": "number",
+            "default": 32
+        },
+        "buttonPaddingHorizontalTablet": {
+            "type": "number",
+            "default": 28
+        },
+        "buttonPaddingHorizontalMobile": {
+            "type": "number",
+            "default": 20
+        },
+        "buttonBoxShadow": {
+            "type": "boolean",
+            "default": true
+        },
+        "buttonBoxShadowColor": {
+            "type": "string",
+            "default": "rgba(244, 139, 42, 0.3)"
+        },
+        "buttonBoxShadowBlur": {
+            "type": "number",
+            "default": 8
+        },
+        "buttonBoxShadowSpread": {
+            "type": "number",
+            "default": 0
+        },
+        "buttonBoxShadowOffsetX": {
+            "type": "number",
+            "default": 0
+        },
+        "buttonBoxShadowOffsetY": {
+            "type": "number",
+            "default": 2
+        },
+        "buttonHoverShadowBlur": {
+            "type": "number",
+            "default": 12
+        },
+        "buttonHoverShadowOffsetY": {
+            "type": "number",
+            "default": 4
+        },
+        "buttonHoverTranslateY": {
+            "type": "number",
+            "default": -1
+        },
+        "animationOnScroll": {
+            "type": "boolean",
+            "default": true
+        },
+        "animationType": {
+            "type": "string",
+            "default": "fadeInUp"
+        },
+        "animationDelay": {
+            "type": "number",
+            "default": 100
+        }
+    },
+    "supports": {
+        "html": false,
+        "anchor": true,
+        "align": ["wide", "full"]
+    },
+    "textdomain": "twork-builder",
+    "editorScript": "file:./index.js",
+    "viewScript": "file:./view.js",
+    "style": "file:./style-index.css"
+}
+

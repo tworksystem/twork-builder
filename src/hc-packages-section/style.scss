@@ -1,0 +1,317 @@
+// Home Care Packages Section – "Care Packages" header + grid of cards
+// Matches home-care.html: .hc-section, .hc-container, .hc-header, .hc-pkg-grid, .hc-pkg-card, .hc-pkg-head, .hc-pkg-body, .hc-pkg-list, .hc-price, .hc-btn
+
+:root {
+    --hc-primary: #f48b2a;
+    --hc-light: #fff8f0;
+    --hc-radius: 16px;
+    --hc-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+// === EDITOR STYLES ===
+// Ensure section and cards display correctly in the block editor
+.editor-styles-wrapper,
+.block-editor-block-list__layout,
+.wp-block-twork-hc-packages-section {
+    .twork-hc-packages-section-editor {
+        .hc-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .hc-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 50px;
+
+            h2 {
+                font-size: 2.2rem;
+                font-weight: 700;
+                margin-bottom: 15px;
+            }
+        }
+
+        .hc-pkg-grid {
+            display: grid !important;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
+            width: 100% !important;
+            min-width: 0;
+            /* gap comes from edit.js inline style (attributes.gap) – do not override */
+
+            > .block-editor-inner-blocks {
+                display: contents !important;
+                width: 100%;
+
+                > .block-editor-block-list__layout {
+                    display: contents !important;
+
+                    > .wp-block,
+                    > .block-editor-block-list__block,
+                    > [data-type="twork/hc-package-card"] {
+                        display: flex !important;
+                        flex-direction: column !important;
+                        min-width: 0;
+                        width: 100%;
+                    }
+
+                    /* Block wrapper: fill grid cell so card is visible */
+                    > .wp-block > .block-editor-block-list__block-edit,
+                    > .block-editor-block-list__block > .block-editor-block-list__block-edit,
+                    > [data-type="twork/hc-package-card"] > .block-editor-block-list__block-edit {
+                        display: flex !important;
+                        flex: 1 !important;
+                        flex-direction: column !important;
+                        width: 100%;
+                        min-height: 0;
+                    }
+
+                    > .wp-block > .block-editor-block-list__block-edit > div,
+                    > .block-editor-block-list__block > .block-editor-block-list__block-edit > div,
+                    > [data-type="twork/hc-package-card"] > .block-editor-block-list__block-edit > div {
+                        display: flex !important;
+                        flex: 1 !important;
+                        flex-direction: column !important;
+                        width: 100%;
+                        min-width: 0;
+                    }
+                }
+            }
+        }
+
+        // Card appearance in editor (match front-end so content is visible)
+        .twork-hc-package-card-editor.hc-pkg-card,
+        .hc-pkg-card.twork-hc-package-card-editor {
+            border: 2px dashed #e0e0e0;
+            border-radius: var(--hc-radius);
+            overflow: hidden;
+            background: #fff;
+            display: flex !important;
+            flex-direction: column !important;
+            min-height: 200px;
+
+            &.is-selected {
+                border-color: #2271b1;
+                box-shadow: 0 0 0 1px #2271b1;
+            }
+
+            .hc-pkg-head {
+                padding: 30px;
+                background: #fafafa;
+                text-align: center;
+
+                h4 {
+                    font-size: 1.3rem;
+                    margin-bottom: 10px;
+                    margin-top: 0;
+                }
+            }
+
+            .hc-price {
+                font-size: 2rem;
+                font-weight: 900;
+                color: var(--hc-primary);
+
+                span {
+                    font-size: 0.9rem;
+                    color: #888;
+                    font-weight: 400;
+                }
+            }
+
+            .hc-pkg-body {
+                padding: 30px;
+                flex-grow: 1;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .hc-pkg-list {
+                list-style: none;
+                padding: 0;
+                margin: 0 0 20px;
+
+                li {
+                    margin-bottom: 12px;
+                    padding-bottom: 12px;
+                    border-bottom: 1px dashed #eee;
+                    font-size: 0.95rem;
+                    color: #555;
+
+                    &:last-child {
+                        border-bottom: none;
+                    }
+                }
+            }
+
+            .hc-btn {
+                padding: 12px 30px;
+                border-radius: 50px;
+                font-weight: 700;
+                font-size: 0.85rem;
+                text-decoration: none;
+                border: 2px solid transparent;
+                margin-top: auto;
+            }
+
+            .hc-btn-primary {
+                background: var(--hc-primary);
+                color: #fff;
+            }
+
+            .hc-btn-outline {
+                background: transparent;
+                border-color: var(--hc-primary);
+                color: var(--hc-primary);
+            }
+        }
+
+        /* Card root must fill wrapper */
+        .block-editor-block-list__block-edit > .hc-pkg-card {
+            width: 100%;
+            flex: 1;
+            min-height: 200px;
+        }
+
+        .hc-header h2,
+        .hc-header p {
+            &[contenteditable="true"]:focus {
+                outline: 1px dashed #2271b1;
+                outline-offset: 2px;
+            }
+        }
+    }
+}
+
+// === FRONTEND STYLES ===
+.twork-hc-packages-section {
+    font-family: "Roboto", sans-serif;
+
+    .hc-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .hc-header {
+        text-align: center;
+        max-width: 700px;
+        margin: 0 auto 50px;
+
+        h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+    }
+
+    .hc-pkg-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+    }
+
+    .hc-pkg-card {
+        background: #fff;
+        border-radius: var(--hc-radius);
+        overflow: hidden;
+        border: 1px solid #eee;
+        transition: 0.3s;
+        box-shadow: var(--hc-shadow);
+        display: flex;
+        flex-direction: column;
+
+        &:hover {
+            transform: scale(1.02);
+            border-color: var(--hc-primary);
+        }
+    }
+
+    .hc-pkg-head {
+        padding: 30px;
+        background: #fafafa;
+        text-align: center;
+
+        h4 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            margin-top: 0;
+        }
+    }
+
+    .hc-price {
+        font-size: 2rem;
+        font-weight: 900;
+        color: var(--hc-primary);
+
+        span {
+            font-size: 0.9rem;
+            color: #888;
+            font-weight: 400;
+        }
+    }
+
+    .hc-pkg-body {
+        padding: 30px;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .hc-pkg-list {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 20px;
+        flex-grow: 1;
+
+        li {
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px dashed #eee;
+            font-size: 0.95rem;
+            color: #555;
+
+            &:last-child {
+                border: none;
+            }
+        }
+    }
+
+    .hc-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 12px 30px;
+        border-radius: 50px;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 0.85rem;
+        letter-spacing: 1px;
+        transition: 0.3s;
+        cursor: pointer;
+        border: 2px solid transparent;
+        text-decoration: none;
+    }
+
+    .hc-btn-primary {
+        background: var(--hc-primary);
+        color: #fff;
+        box-shadow: 0 4px 15px rgba(244, 139, 42, 0.3);
+
+        &:hover {
+            background: #e67a22;
+            transform: translateY(-3px);
+        }
+    }
+
+    .hc-btn-outline {
+        background: transparent;
+        border-color: var(--hc-primary);
+        color: var(--hc-primary);
+
+        &:hover {
+            background: var(--hc-primary);
+            color: #fff;
+        }
+    }
+}

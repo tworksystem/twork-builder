@@ -1,0 +1,15 @@
+// Radiology Safety Card – editor helpers (main styles live in rad-safety-section/style.scss)
+
+.editor-styles-wrapper,
+.block-editor-block-list__layout {
+  .twork-rad-safety-card-editor.rad-safety-card {
+    h4,
+    p {
+      &[contenteditable='true']:focus {
+        outline: 1px dashed #2271b1;
+        outline-offset: 2px;
+      }
+    }
+  }
+}
+

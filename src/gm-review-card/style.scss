@@ -1,0 +1,32 @@
+// GM Review Card – minimal; main styles live in parent gm-testimonials-section
+// Ensures card looks correct when used standalone or in other contexts
+.wp-block-twork-gm-review-card,
+.twork-gm-review-card-editor {
+    .jivaka-gm-quote-icon {
+        font-size: 2rem;
+        color: #f0f0f0;
+        position: absolute;
+        top: 20px;
+        left: 20px;
+    }
+
+    .jivaka-gm-review-text {
+        font-style: italic;
+        color: #555;
+        margin-bottom: 20px;
+        position: relative;
+        z-index: 1;
+        line-height: 1.8;
+    }
+
+    .jivaka-gm-reviewer h5 {
+        margin: 0;
+        font-size: 1.1rem;
+    }
+
+    .jivaka-gm-reviewer span {
+        font-size: 0.9rem;
+        color: #f48b2a;
+        font-weight: 500;
+    }
+}

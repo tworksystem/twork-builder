@@ -1,0 +1,14 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "twork/centre-faq-section",
+  "version": "1.0.0",
+  "title": "FAQ Section",
+  "category": "twork-builder",
+  "parent": ["twork/centre-layout-section"],
+  "attributes": {
+    "sectionId": { "type": "string", "default": "faq" },
+    "title": { "type": "string", "default": "Common Questions" }
+  },
+  "editorScript": "file:./index.js"
+}

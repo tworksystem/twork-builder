@@ -1,0 +1,239 @@
+// Jivaka Hero Section – follows team-members-grid / services-grid standards
+// Hero section for Jivaka Care app: title, subtitle, app badges, phone mockup
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
+
+:root {
+    --jivaka-hero-gradient-start: #f6892e;
+    --jivaka-hero-gradient-end: #e07a25;
+    --jivaka-hero-text: #ffffff;
+    --jivaka-badge-height: 45px;
+}
+
+// === EDITOR STYLES ===
+.editor-styles-wrapper,
+.block-editor-block-list__layout,
+.wp-block-twork-jivaka-hero-section {
+    .twork-jivaka-hero-section-editor {
+        position: relative;
+        min-height: 400px;
+        box-sizing: border-box;
+
+        .jivaka-hero-container {
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .jivaka-hero-text-content {
+            h1[contenteditable="true"],
+            p[contenteditable="true"] {
+                &:focus {
+                    outline: 1px dashed #2271b1;
+                    outline-offset: 2px;
+                }
+            }
+        }
+
+        .jivaka-hero-badges {
+            display: flex !important;
+            flex-wrap: wrap !important;
+            gap: var(--jivaka-badge-height, 12px) 12px;
+            align-items: center;
+
+            > .block-editor-inner-blocks {
+                display: contents !important;
+
+                > .block-editor-block-list__layout {
+                    display: contents !important;
+
+                    > .wp-block,
+                    > [data-type="twork/jivaka-badge-item"] {
+                        display: flex !important;
+                        align-items: center !important;
+                        flex: 0 0 auto !important;
+                    }
+                }
+            }
+        }
+
+        .jivaka-hero-phone-mockup {
+            img {
+                display: block;
+            }
+        }
+    }
+}
+
+// === FRONTEND STYLES ===
+.jivaka-hero-section,
+.twork-jivaka-hero-section {
+    font-family: "Inter", sans-serif;
+    margin-left: calc(50% - 50vw);
+    width: 100vw;
+    box-sizing: border-box;
+    overflow-x: hidden;
+
+    .jivaka-hero-container {
+        max-width: 1200px;
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 20px;
+        padding-right: 20px;
+        box-sizing: border-box;
+    }
+
+    .jivaka-hero-text-content {
+        flex: 1 1 400px;
+        padding: 20px;
+    }
+
+    .jivaka-hero-title {
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        font-weight: 700;
+        margin: 0 0 10px 0;
+        line-height: 1.2;
+    }
+
+    .jivaka-hero-subtitle {
+        margin: 0 0 30px 0;
+        font-size: 1.5rem;
+        opacity: 0.9;
+        line-height: 1.4;
+    }
+
+    .jivaka-hero-badges {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+
+        .jivaka-badge-item,
+        .twork-jivaka-badge-item {
+            flex: 0 0 auto;
+        }
+
+        .jivaka-badge-link {
+            display: block;
+            transition: transform 0.3s ease;
+
+            &:hover img {
+                transform: translateY(-5px);
+            }
+        }
+
+        .jivaka-badge-image {
+            height: var(--jivaka-badge-height, 45px);
+            width: auto;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+    }
+
+    .jivaka-hero-phone-mockup {
+        flex: 1 1 400px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+    }
+
+    .jivaka-hero-phone-image {
+        width: 100%;
+        max-width: 320px;
+        height: auto;
+        filter: drop-shadow(0 20px 50px rgba(0, 0, 0, 0.2));
+    }
+
+    // Float animation when enabled via data attribute
+    &[data-float-animation="true"] .jivaka-hero-phone-image {
+        animation: jivaka-float 4s ease-in-out infinite;
+    }
+}
+
+@keyframes jivaka-float {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+// === RESPONSIVE ===
+@media (max-width: 960px) {
+    .jivaka-hero-section,
+    .twork-jivaka-hero-section {
+        padding-top: 60px !important;
+        padding-bottom: 60px !important;
+        min-height: auto !important;
+
+        .jivaka-hero-container {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .jivaka-hero-text-content {
+            padding-bottom: 40px;
+            text-align: center;
+        }
+
+        .jivaka-hero-badges {
+            justify-content: center;
+        }
+
+        .jivaka-hero-phone-image {
+            max-width: 250px;
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .jivaka-hero-section,
+    .twork-jivaka-hero-section {
+        .jivaka-hero-title {
+            font-size: 2rem;
+        }
+
+        .jivaka-hero-subtitle {
+            font-size: 1.2rem;
+        }
+
+        .jivaka-hero-badges {
+            gap: 8px;
+        }
+
+        .jivaka-hero-phone-image {
+            max-width: 220px;
+        }
+    }
+}
+
+// === ACCESSIBILITY ===
+.jivaka-hero-section .jivaka-badge-link,
+.twork-jivaka-hero-section .jivaka-badge-link {
+    &:focus-visible {
+        outline: 3px solid rgba(255, 255, 255, 0.9);
+        outline-offset: 2px;
+    }
+}
+
+// === PRINT ===
+@media print {
+    .jivaka-hero-section,
+    .twork-jivaka-hero-section {
+        min-height: auto !important;
+        padding: 20px 0 !important;
+
+        .jivaka-hero-phone-image {
+            filter: none;
+        }
+
+        &[data-float-animation="true"] .jivaka-hero-phone-image {
+            animation: none;
+        }
+    }
+}

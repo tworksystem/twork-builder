@@ -1,0 +1,232 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "twork/testimonial-section",
+    "version": "1.0.0",
+    "title": "Testimonial Section",
+    "category": "twork-builder",
+    "icon": "format-quote",
+    "description": "Patient testimonials with meta-title, highlight heading, avatar, quote and procedure. Matches home.html design.",
+    "keywords": ["testimonial", "patient", "stories", "quote", "review", "twork"],
+    "attributes": {
+        "backgroundColor": {
+            "type": "string",
+            "default": "#f48b2a"
+        },
+        "backgroundImage": {
+            "type": "string",
+            "default": ""
+        },
+        "backgroundImageId": {
+            "type": "number"
+        },
+        "backgroundOverlay": {
+            "type": "boolean",
+            "default": false
+        },
+        "backgroundOverlayColor": {
+            "type": "string",
+            "default": "rgba(244, 139, 42, 0.9)"
+        },
+        "backgroundOverlayOpacity": {
+            "type": "number",
+            "default": 0.9
+        },
+        "paddingTop": {
+            "type": "number",
+            "default": 80
+        },
+        "paddingBottom": {
+            "type": "number",
+            "default": 80
+        },
+        "paddingTopMobile": {
+            "type": "number",
+            "default": 60
+        },
+        "paddingBottomMobile": {
+            "type": "number",
+            "default": 60
+        },
+        "showSectionTopLink": {
+            "type": "boolean",
+            "default": true
+        },
+        "sectionTopLinkText": {
+            "type": "string",
+            "default": "View All Services"
+        },
+        "sectionTopLinkUrl": {
+            "type": "string",
+            "default": "#"
+        },
+        "showMetaTitle": {
+            "type": "boolean",
+            "default": true
+        },
+        "metaTitle": {
+            "type": "string",
+            "default": "A good word means a lot"
+        },
+        "metaTitleColor": {
+            "type": "string",
+            "default": "#ffffff"
+        },
+        "metaTitleFontSize": {
+            "type": "number",
+            "default": 0.9
+        },
+        "metaTitleFontSizeTablet": {
+            "type": "number",
+            "default": 0.85
+        },
+        "metaTitleFontSizeMobile": {
+            "type": "number",
+            "default": 0.8
+        },
+        "showSectionTitle": {
+            "type": "boolean",
+            "default": true
+        },
+        "sectionTitle": {
+            "type": "string",
+            "default": "Patient "
+        },
+        "highlightText": {
+            "type": "string",
+            "default": "testimonials"
+        },
+        "showSubtitle": {
+            "type": "boolean",
+            "default": true
+        },
+        "subtitle": {
+            "type": "string",
+            "default": "It's always the word of mouth that's the best advice. Here are some of our..."
+        },
+        "subtitleColor": {
+            "type": "string",
+            "default": "rgba(255, 255, 255, 0.9)"
+        },
+        "subtitleFontSize": {
+            "type": "number",
+            "default": 1.1
+        },
+        "subtitleFontSizeTablet": {
+            "type": "number",
+            "default": 1.05
+        },
+        "subtitleFontSizeMobile": {
+            "type": "number",
+            "default": 1
+        },
+        "highlightColor": {
+            "type": "string",
+            "default": "#212121"
+        },
+        "columns": {
+            "type": "number",
+            "default": 4
+        },
+        "columnsTablet": {
+            "type": "number",
+            "default": 3
+        },
+        "columnsMobile": {
+            "type": "number",
+            "default": 1
+        },
+        "gap": {
+            "type": "number",
+            "default": 20
+        },
+        "gapMobile": {
+            "type": "number",
+            "default": 40
+        },
+        "minColumnWidth": {
+            "type": "number",
+            "default": 250
+        },
+        "sectionTitleColor": {
+            "type": "string",
+            "default": "#ffffff"
+        },
+        "sectionTitleFontSize": {
+            "type": "number",
+            "default": 2.5
+        },
+        "sectionTitleFontSizeTablet": {
+            "type": "number",
+            "default": 2.2
+        },
+        "sectionTitleFontSizeMobile": {
+            "type": "number",
+            "default": 1.8
+        },
+        "sectionTitleAlignmentTablet": {
+            "type": "string",
+            "default": "center"
+        },
+        "sectionTitleAlignmentMobile": {
+            "type": "string",
+            "default": "center"
+        },
+        "sectionTitleFontWeight": {
+            "type": "number",
+            "default": 300
+        },
+        "sectionTitleAlignment": {
+            "type": "string",
+            "default": "center"
+        },
+        "sectionTitleMarginBottom": {
+            "type": "number",
+            "default": 10
+        },
+        "containerMaxWidth": {
+            "type": "number",
+            "default": 1200
+        },
+        "containerPadding": {
+            "type": "number",
+            "default": 20
+        },
+        "containerPaddingMobile": {
+            "type": "number",
+            "default": 20
+        },
+        "cardBorderRadius": {
+            "type": "number",
+            "default": 12
+        },
+        "cardBorderColor": {
+            "type": "string",
+            "default": "#eeeeee"
+        },
+        "cardBoxShadow": {
+            "type": "boolean",
+            "default": true
+        },
+        "animationOnScroll": {
+            "type": "boolean",
+            "default": true
+        },
+        "animationDelay": {
+            "type": "number",
+            "default": 100
+        },
+        "animationType": {
+            "type": "string",
+            "default": "fadeInUp"
+        }
+    },
+    "supports": {
+        "html": false,
+        "anchor": true,
+        "align": ["wide", "full"]
+    },
+    "textdomain": "twork-builder",
+    "editorScript": "file:./index.js",
+    "style": "file:./style-index.css"
+}

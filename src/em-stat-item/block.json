@@ -1,0 +1,30 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "twork/em-stat-item",
+    "version": "1.0.0",
+    "title": "Stat Item",
+    "parent": ["twork/em-stats-section"],
+    "category": "twork-builder",
+    "description": "Single stat item (icon, value, label) for Emergency Stats Section.",
+    "keywords": ["emergency", "stat", "icon", "twork"],
+    "attributes": {
+        "iconClass": {
+            "type": "string",
+            "default": "fas fa-clock"
+        },
+        "statValue": {
+            "type": "string",
+            "default": "24/7"
+        },
+        "statLabel": {
+            "type": "string",
+            "default": "Open All Day"
+        }
+    },
+    "supports": {
+        "html": false
+    },
+    "textdomain": "twork-builder",
+    "editorScript": "file:./index.js"
+}

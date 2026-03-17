@@ -1,0 +1,196 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "twork/tour-section",
+    "version": "1.0.0",
+    "title": "Virtual Tour Section",
+    "category": "twork-builder",
+    "description": "Virtual tour CTA section with background image, overlay, icon, title, subtitle and button. Matches facilities page tour section.",
+    "keywords": ["tour", "virtual", "video", "cta", "facilities", "jivaka", "twork"],
+    "icon": "video-alt3",
+    "attributes": {
+        "backgroundColor": {
+            "type": "string",
+            "default": "#1a1a1a"
+        },
+        "backgroundImage": {
+            "type": "string",
+            "default": "https://jivakahospital.com/wp-content/uploads/2025/10/bgn-slider-02.jpg"
+        },
+        "backgroundImageId": {
+            "type": "number"
+        },
+        "backgroundOverlay": {
+            "type": "boolean",
+            "default": true
+        },
+        "overlayColor": {
+            "type": "string",
+            "default": "rgba(0, 0, 0, 0.7)"
+        },
+        "overlayOpacity": {
+            "type": "number",
+            "default": 0.7
+        },
+        "backgroundAttachment": {
+            "type": "string",
+            "default": "fixed"
+        },
+        "paddingTop": {
+            "type": "number",
+            "default": 100
+        },
+        "paddingBottom": {
+            "type": "number",
+            "default": 100
+        },
+        "paddingTopMobile": {
+            "type": "number",
+            "default": 80
+        },
+        "paddingBottomMobile": {
+            "type": "number",
+            "default": 80
+        },
+        "showIcon": {
+            "type": "boolean",
+            "default": true
+        },
+        "iconClass": {
+            "type": "string",
+            "default": "fas fa-play-circle"
+        },
+        "iconColor": {
+            "type": "string",
+            "default": "#f48b2a"
+        },
+        "iconSize": {
+            "type": "number",
+            "default": 4
+        },
+        "iconSizeMobile": {
+            "type": "number",
+            "default": 3
+        },
+        "iconMarginBottom": {
+            "type": "number",
+            "default": 20
+        },
+        "title": {
+            "type": "string",
+            "default": "Experience Jivaka"
+        },
+        "titleColor": {
+            "type": "string",
+            "default": "#ffffff"
+        },
+        "titleFontSize": {
+            "type": "number",
+            "default": 2.5
+        },
+        "titleFontSizeMobile": {
+            "type": "number",
+            "default": 2
+        },
+        "titleFontWeight": {
+            "type": "number",
+            "default": 700
+        },
+        "titleMarginBottom": {
+            "type": "number",
+            "default": 15
+        },
+        "subtitle": {
+            "type": "string",
+            "default": "Take a virtual tour of our state-of-the-art facilities."
+        },
+        "subtitleColor": {
+            "type": "string",
+            "default": "#ffffff"
+        },
+        "subtitleFontSize": {
+            "type": "number",
+            "default": 1.2
+        },
+        "subtitleFontSizeMobile": {
+            "type": "number",
+            "default": 1.05
+        },
+        "subtitleOpacity": {
+            "type": "number",
+            "default": 0.9
+        },
+        "subtitleMarginBottom": {
+            "type": "number",
+            "default": 30
+        },
+        "showButton": {
+            "type": "boolean",
+            "default": true
+        },
+        "buttonText": {
+            "type": "string",
+            "default": "Watch Video"
+        },
+        "buttonUrl": {
+            "type": "string",
+            "default": "#"
+        },
+        "buttonTarget": {
+            "type": "boolean",
+            "default": false
+        },
+        "buttonRel": {
+            "type": "string",
+            "default": "noopener noreferrer"
+        },
+        "buttonBgColor": {
+            "type": "string",
+            "default": "#f48b2a"
+        },
+        "buttonTextColor": {
+            "type": "string",
+            "default": "#ffffff"
+        },
+        "buttonHoverBgColor": {
+            "type": "string",
+            "default": "#e67a22"
+        },
+        "buttonFontSize": {
+            "type": "number",
+            "default": 0.85
+        },
+        "buttonFontWeight": {
+            "type": "number",
+            "default": 700
+        },
+        "buttonPaddingVertical": {
+            "type": "number",
+            "default": 12
+        },
+        "buttonPaddingHorizontal": {
+            "type": "number",
+            "default": 30
+        },
+        "buttonBorderRadius": {
+            "type": "number",
+            "default": 5
+        },
+        "containerMaxWidth": {
+            "type": "number",
+            "default": 1200
+        },
+        "containerPadding": {
+            "type": "number",
+            "default": 20
+        }
+    },
+    "supports": {
+        "html": false,
+        "anchor": true,
+        "align": ["wide", "full"]
+    },
+    "textdomain": "twork-builder",
+    "editorScript": "file:./index.js",
+    "style": "file:./style-index.css"
+}

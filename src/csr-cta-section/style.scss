@@ -1,0 +1,137 @@
+// Variables
+:root {
+    --primary-orange: #f48b2a;
+    --dark-grey: #212121;
+}
+
+// === EDITOR STYLES ===
+.editor-styles-wrapper,
+.block-editor-block-list__layout,
+.wp-block-twork-csr-cta-section {
+    .twork-csr-cta-section-editor {
+        position: relative;
+
+        h2[contenteditable="true"],
+        p[contenteditable="true"] {
+            &:focus {
+                outline: 1px dashed #2271b1;
+                outline-offset: 2px;
+            }
+        }
+
+        // Force visible in editor when fade-up (view.js doesn't run in editor)
+        .jivaka-container.fade-up {
+            opacity: 1 !important;
+            transform: none !important;
+        }
+    }
+}
+
+// === FRONTEND STYLES ===
+.twork-csr-cta-section {
+    font-family: "Roboto", -apple-system, BlinkMacSystemFont, sans-serif;
+    position: relative;
+
+    // Background video
+    .csr-cta-bg-video-wrap {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        z-index: 1;
+        pointer-events: none;
+    }
+
+    .csr-cta-bg-video {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        min-width: 100%;
+        min-height: 100%;
+        width: auto;
+        height: auto;
+        transform: translate(-50%, -50%);
+        object-fit: cover;
+    }
+
+    .csr-cta-overlay {
+        pointer-events: none;
+    }
+
+    .jivaka-container {
+        position: relative;
+        z-index: 2;
+
+        &.fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+
+            &.is-visible {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    }
+
+    h2 {
+        margin: 0;
+        line-height: 1.2;
+    }
+
+    p {
+        margin: 0;
+    }
+
+    .jivaka-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 12px 28px;
+        border-radius: 6px;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 0.9rem;
+        letter-spacing: 0.8px;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        cursor: pointer;
+        border: 1px solid transparent;
+
+        &.btn-primary {
+            background: var(--primary-orange);
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(244, 139, 42, 0.3);
+        }
+
+        &.btn-primary:hover {
+            background: #e67a22;
+            transform: translateY(-2px);
+        }
+    }
+
+    .jivaka-btn:focus-visible {
+        outline: 3px solid var(--primary-orange);
+        outline-offset: 2px;
+    }
+}
+
+// === RESPONSIVE ===
+@media (max-width: 768px) {
+    .twork-csr-cta-section {
+        h2 {
+            font-size: 1.5rem !important;
+        }
+
+        p {
+            font-size: 1rem !important;
+        }
+
+        .jivaka-btn {
+            font-size: 0.85rem;
+            padding: 10px 24px;
+        }
+    }
+}

@@ -1,0 +1,190 @@
+// Variables
+:root {
+    --primary-orange: #f48b2a;
+    --dark-grey: #212121;
+    --medium-grey: #666;
+    --radius: 12px;
+}
+
+// === EDITOR STYLES ===
+.editor-styles-wrapper,
+.block-editor-block-list__layout,
+.wp-block-twork-csr-moments-gallery-section {
+    .twork-csr-moments-gallery-section-editor {
+        position: relative;
+
+        .moments-gallery-header {
+            h2[contenteditable="true"]:focus {
+                outline: 1px dashed #2271b1;
+                outline-offset: 2px;
+            }
+        }
+
+        .twork-csr-moments-gallery-grid {
+            > .block-editor-inner-blocks {
+                display: contents !important;
+
+                > .block-editor-block-list__layout {
+                    display: contents !important;
+
+                    > .wp-block,
+                    > [data-type="twork/csr-moments-gallery-item"] {
+                        display: block !important;
+                        min-height: 180px;
+
+                        &.is-selected {
+                            outline: 2px solid #2271b1;
+                            outline-offset: 2px;
+                            z-index: 1;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// === FRONTEND STYLES ===
+.twork-csr-moments-gallery-section {
+    font-family: "Roboto", sans-serif;
+    position: relative;
+
+    .moments-gallery-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        flex-wrap: wrap;
+        gap: 15px;
+
+        h2 {
+            margin: 0;
+            line-height: 1.2;
+        }
+
+        a {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: opacity 0.3s ease;
+
+            &:hover {
+                opacity: 0.85;
+            }
+
+            &:focus-visible {
+                outline: 3px solid var(--primary-orange);
+                outline-offset: 2px;
+            }
+
+            i {
+                font-size: 0.85em;
+                transition: transform 0.3s ease;
+            }
+
+            &:hover i {
+                transform: translateX(4px);
+            }
+        }
+    }
+
+    .gallery-grid {
+        display: grid;
+        gap: 15px;
+        margin-top: 40px;
+
+        .gallery-item.animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+
+            &.is-visible {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .gallery-item {
+            height: var(--item-height, 250px);
+            border-radius: var(--radius);
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+
+            &.span-two {
+                grid-column: span 2;
+            }
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: 0.4s;
+                display: block;
+            }
+
+            &:hover img {
+                transform: scale(1.05);
+                filter: brightness(0.8);
+            }
+
+            &:focus-visible {
+                outline: 3px solid var(--primary-orange);
+                outline-offset: 2px;
+            }
+        }
+
+    }
+}
+
+// === RESPONSIVE ===
+@media (max-width: 992px) {
+    .twork-csr-moments-gallery-section {
+        .gallery-grid {
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: var(--grid-gap, 15px) !important;
+
+            .gallery-item:first-child,
+            .gallery-item.span-two {
+                grid-column: span 1;
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .twork-csr-moments-gallery-section {
+        padding: 60px 0 !important;
+
+        .moments-gallery-header {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .gallery-grid {
+            grid-template-columns: 1fr !important;
+            margin-top: 30px;
+
+            .gallery-item {
+                height: 220px;
+            }
+
+            .gallery-item:first-child,
+            .gallery-item.span-two {
+                grid-column: span 1;
+            }
+        }
+    }
+}
+
+// === PRINT ===
+@media print {
+    .twork-csr-moments-gallery-section {
+        .moments-gallery-header a {
+            display: none;
+        }
+
+        .gallery-item {
+            break-inside: avoid;
+        }
+    }
+}

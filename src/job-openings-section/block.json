@@ -1,0 +1,109 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "twork/job-openings-section",
+    "version": "1.0.0",
+    "title": "Job Openings Section",
+    "category": "twork-builder",
+    "icon": "portfolio",
+    "description": "Current openings section with job categories and listings for career page.",
+    "keywords": ["job", "openings", "career", " listings", "apply", "twork"],
+    "attributes": {
+        "backgroundColor": {
+            "type": "string",
+            "default": "#ffffff"
+        },
+        "paddingTop": {
+            "type": "number",
+            "default": 80
+        },
+        "paddingBottom": {
+            "type": "number",
+            "default": 80
+        },
+        "paddingTopMobile": {
+            "type": "number",
+            "default": 60
+        },
+        "paddingBottomMobile": {
+            "type": "number",
+            "default": 60
+        },
+        "showSectionHeader": {
+            "type": "boolean",
+            "default": true
+        },
+        "sectionTitle": {
+            "type": "string",
+            "default": "Current Openings"
+        },
+        "sectionTitleColor": {
+            "type": "string",
+            "default": "#212121"
+        },
+        "sectionTitleFontSize": {
+            "type": "number",
+            "default": 2.2
+        },
+        "sectionTitleFontSizeMobile": {
+            "type": "number",
+            "default": 1.8
+        },
+        "sectionSubtitle": {
+            "type": "string",
+            "default": "Explore exciting opportunities to join our medical and administrative teams."
+        },
+        "sectionSubtitleColor": {
+            "type": "string",
+            "default": "#666666"
+        },
+        "sectionSubtitleFontSize": {
+            "type": "number",
+            "default": 1
+        },
+        "sectionSubtitleMaxWidth": {
+            "type": "number",
+            "default": 600
+        },
+        "showHeaderLine": {
+            "type": "boolean",
+            "default": true
+        },
+        "headerLineColor": {
+            "type": "string",
+            "default": "#f48b2a"
+        },
+        "headerMarginBottom": {
+            "type": "number",
+            "default": 50
+        },
+        "containerMaxWidth": {
+            "type": "number",
+            "default": 1200
+        },
+        "containerPadding": {
+            "type": "number",
+            "default": 20
+        },
+        "containerPaddingMobile": {
+            "type": "number",
+            "default": 20
+        },
+        "animationOnScroll": {
+            "type": "boolean",
+            "default": true
+        },
+        "animationDelay": {
+            "type": "number",
+            "default": 80
+        }
+    },
+    "supports": {
+        "html": false,
+        "anchor": true,
+        "align": ["wide", "full"]
+    },
+    "textdomain": "twork-builder",
+    "editorScript": "file:./index.js",
+    "style": "file:./style-index.css"
+}

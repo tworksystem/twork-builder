@@ -1,0 +1,513 @@
+// Hero New Section – two-column hero with glass card (e.g. Heart Centre).
+// Scoped to block so it doesn’t pollute global styles.
+
+// Variables (block-level)
+.wp-block-twork-hero-new-section {
+    --hero-primary-orange: #f48b2a;
+    --hero-brand-orange-hover: #e67a22;
+}
+
+// === ROOT ===
+.wp-block-twork-hero-new-section.hero-new {
+    position: relative;
+    width: 100%;
+    min-height: var(--hero-new-min-height, 700px);
+    display: flex;
+    align-items: center;
+    background-color: #050505;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.wp-block-twork-hero-new-section .hero-bg-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    z-index: 0;
+}
+
+// Video background wrapper & element (full-bleed, behind overlay/content)
+.wp-block-twork-hero-new-section .hero-bg-video-wrap {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.wp-block-twork-hero-new-section .hero-bg-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+}
+
+// Slideshow background container & slides
+.wp-block-twork-hero-new-section .hero-bg-slideshow {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.wp-block-twork-hero-new-section .hero-bg-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+    pointer-events: none;
+}
+
+/* Image position: where to anchor the image (top / center / bottom / left / right) */
+.wp-block-twork-hero-new-section .hero-bg-slideshow[data-slideshow-position="top"] .hero-bg-slide {
+    object-position: center top;
+}
+.wp-block-twork-hero-new-section .hero-bg-slideshow[data-slideshow-position="center"] .hero-bg-slide {
+    object-position: center center;
+}
+.wp-block-twork-hero-new-section .hero-bg-slideshow[data-slideshow-position="bottom"] .hero-bg-slide {
+    object-position: center bottom;
+}
+.wp-block-twork-hero-new-section .hero-bg-slideshow[data-slideshow-position="left"] .hero-bg-slide {
+    object-position: left center;
+}
+.wp-block-twork-hero-new-section .hero-bg-slideshow[data-slideshow-position="right"] .hero-bg-slide {
+    object-position: right center;
+}
+
+/* --- Slideshow style: Fade (default) --- */
+.wp-block-twork-hero-new-section .hero-bg-slideshow[data-slideshow-style="fade"] .hero-bg-slide.is-active {
+    opacity: 1;
+}
+
+/* --- Slideshow style: Slide from left (active from right, others off left) --- */
+.wp-block-twork-hero-new-section .hero-bg-slideshow[data-slideshow-style="slide-left"] .hero-bg-slide {
+    opacity: 1;
+    transform: translateX(-100%);
+}
+.wp-block-twork-hero-new-section .hero-bg-slideshow[data-slideshow-style="slide-left"] .hero-bg-slide.is-active {
+    transform: translateX(0);
+}
+
+/* --- Slideshow style: Slide from right --- */
+.wp-block-twork-hero-new-section .hero-bg-slideshow[data-slideshow-style="slide-right"] .hero-bg-slide {
+    opacity: 1;
+    transform: translateX(100%);
+}
+.wp-block-twork-hero-new-section .hero-bg-slideshow[data-slideshow-style="slide-right"] .hero-bg-slide.is-active {
+    transform: translateX(0);
+}
+
+/* --- Slideshow style: Slide from top --- */
+.wp-block-twork-hero-new-section .hero-bg-slideshow[data-slideshow-style="slide-up"] .hero-bg-slide {
+    opacity: 1;
+    transform: translateY(-100%);
+}
+.wp-block-twork-hero-new-section .hero-bg-slideshow[data-slideshow-style="slide-up"] .hero-bg-slide.is-active {
+    transform: translateY(0);
+}
+
+/* --- Slideshow style: Slide from bottom --- */
+.wp-block-twork-hero-new-section .hero-bg-slideshow[data-slideshow-style="slide-down"] .hero-bg-slide {
+    opacity: 1;
+    transform: translateY(100%);
+}
+.wp-block-twork-hero-new-section .hero-bg-slideshow[data-slideshow-style="slide-down"] .hero-bg-slide.is-active {
+    transform: translateY(0);
+}
+
+/* --- Slideshow style: Zoom (inactive slightly zoomed in, active scale 1) --- */
+.wp-block-twork-hero-new-section .hero-bg-slideshow[data-slideshow-style="zoom"] .hero-bg-slide {
+    opacity: 1;
+    transform: scale(1.08);
+}
+.wp-block-twork-hero-new-section .hero-bg-slideshow[data-slideshow-style="zoom"] .hero-bg-slide.is-active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.wp-block-twork-hero-new-section .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.wp-block-twork-hero-new-section .hero-content-wrapper {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    margin: 0 auto;
+    padding-left: var(--hero-container-padding, 20px);
+    padding-right: var(--hero-container-padding, 20px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+}
+
+.wp-block-twork-hero-new-section .hero-text-col {
+    flex: 1 1 auto;
+    min-width: 0;
+    max-width: 650px;
+    color: #fff;
+    padding-right: 40px;
+}
+
+// Only hide when animation enabled; init script reveals via .is-revealed (IntersectionObserver)
+// Fallback: content visible if JS fails (handled by init script setTimeout)
+.wp-block-twork-hero-new-section[data-animation="true"] .hero-text-col.gsap-reveal {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease, transform 0.8s ease, visibility 0.8s ease;
+}
+
+.wp-block-twork-hero-new-section.is-revealed .hero-text-col.gsap-reveal,
+.wp-block-twork-hero-new-section[data-animation="false"] .hero-text-col {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+// Tagline
+.wp-block-twork-hero-new-section .top-tagline {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.wp-block-twork-hero-new-section .top-tagline .dot {
+    width: 6px;
+    height: 6px;
+    background-color: var(--hero-primary-orange);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--hero-primary-orange);
+    flex-shrink: 0;
+}
+
+// Heading
+.wp-block-twork-hero-new-section .main-heading {
+    font-size: clamp(3rem, 5vw, 4.5rem);
+    font-weight: 900;
+    line-height: 1.1;
+    margin: 0 0 30px 0;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.wp-block-twork-hero-new-section .main-heading .text-orange {
+    color: var(--hero-primary-orange);
+    display: inline-block;
+}
+
+// Description
+.wp-block-twork-hero-new-section .hero-desc {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    margin-bottom: 45px;
+    color: rgba(255, 255, 255, 0.9);
+    border-left: 4px solid var(--hero-primary-orange);
+    padding-left: 24px;
+    max-width: min(580px, 100%);
+}
+
+// Buttons
+.wp-block-twork-hero-new-section .hero-btns {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.wp-block-twork-hero-new-section .jivaka-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 32px;
+    border-radius: 6px;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    border: 1px solid transparent;
+    gap: 10px;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    text-decoration: none;
+    color: inherit;
+}
+
+.wp-block-twork-hero-new-section .btn-primary {
+    background: var(--hero-primary-orange);
+    color: #fff;
+    box-shadow: 0 4px 20px rgba(244, 139, 42, 0.4);
+    border-color: var(--hero-primary-orange);
+}
+
+.wp-block-twork-hero-new-section .btn-primary:hover {
+    background: var(--hero-brand-orange-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(244, 139, 42, 0.5);
+    color: #fff;
+}
+
+.wp-block-twork-hero-new-section .btn-primary:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 10px rgba(244, 139, 42, 0.3);
+}
+
+// Custom hover colors when set via attributes
+.wp-block-twork-hero-new-section .hero-btn-primary[style*="--hero-primary-hover-bg"]:hover,
+.wp-block-twork-hero-new-section .hero-btn-primary[style*="--hero-primary-hover-color"]:hover {
+    background-color: var(--hero-primary-hover-bg) !important;
+    color: var(--hero-primary-hover-color) !important;
+}
+
+.wp-block-twork-hero-new-section .btn-glass {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    color: #fff;
+}
+
+.wp-block-twork-hero-new-section .btn-glass:hover {
+    background: #fff;
+    color: var(--hero-primary-orange);
+    border-color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.wp-block-twork-hero-new-section .btn-glass:active {
+    transform: translateY(0);
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.wp-block-twork-hero-new-section .hero-btn-secondary[style*="--hero-secondary-hover-bg"]:hover,
+.wp-block-twork-hero-new-section .hero-btn-secondary[style*="--hero-secondary-hover-color"]:hover {
+    background-color: var(--hero-secondary-hover-bg) !important;
+    color: var(--hero-secondary-hover-color) !important;
+}
+
+// Button icon (image/GIF) and Dashicons sizing
+.wp-block-twork-hero-new-section .jivaka-btn .hero-btn-icon {
+    width: 1.2em;
+    height: 1.2em;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.wp-block-twork-hero-new-section .jivaka-btn .dashicons {
+    font-size: 1.2em;
+    width: 1.2em;
+    height: 1.2em;
+    flex-shrink: 0;
+}
+
+// Glass card
+.wp-block-twork-hero-new-section .glass-card-col {
+    flex: 0 0 320px;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 30px;
+}
+
+.wp-block-twork-hero-new-section[data-animation="true"] .glass-card-col.gsap-reveal {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease, visibility 0.8s ease;
+}
+
+.wp-block-twork-hero-new-section.is-revealed .glass-card-col.gsap-reveal,
+.wp-block-twork-hero-new-section[data-animation="false"] .glass-card-col {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+}
+
+.wp-block-twork-hero-new-section .glass-card {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-left: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 16px;
+    padding: 40px 35px;
+    width: 100%;
+    color: #fff;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.wp-block-twork-hero-new-section .glass-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.wp-block-twork-hero-new-section .glass-card h3 {
+    color: var(--hero-primary-orange);
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin: 0 0 8px 0;
+    line-height: 1;
+}
+
+.wp-block-twork-hero-new-section .glass-card p {
+    font-size: 1.05rem;
+    line-height: 1.5;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.85);
+    font-weight: 400;
+}
+
+// === RESPONSIVE ===
+@media (max-width: 992px) {
+    .wp-block-twork-hero-new-section.hero-new {
+        min-height: var(--hero-new-min-height-tablet, 600px);
+        padding: 80px 0 60px;
+    }
+
+    .wp-block-twork-hero-new-section .hero-content-wrapper {
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+    }
+
+    .wp-block-twork-hero-new-section .hero-text-col {
+        flex: 0 0 auto;
+        width: 100%;
+        max-width: 100%;
+        padding-right: 0;
+        margin-bottom: 40px;
+    }
+
+    .wp-block-twork-hero-new-section .glass-card-col {
+        flex: 0 0 auto;
+        width: 100%;
+        max-width: 100%;
+        justify-content: flex-start;
+        margin-top: 0;
+    }
+
+    .wp-block-twork-hero-new-section .glass-card {
+        max-width: 100%;
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
+
+@media (max-width: 768px) {
+    .wp-block-twork-hero-new-section .hero-content-wrapper {
+        padding-left: var(--hero-container-padding-mobile, 16px);
+        padding-right: var(--hero-container-padding-mobile, 16px);
+    }
+
+    .wp-block-twork-hero-new-section .hero-text-col {
+        margin-bottom: 30px;
+    }
+
+    .wp-block-twork-hero-new-section .top-tagline {
+        font-size: 0.75rem;
+        gap: 8px;
+    }
+
+    .wp-block-twork-hero-new-section .hero-desc {
+        font-size: 1rem;
+        padding-left: 16px;
+        margin-bottom: 30px;
+    }
+
+    .wp-block-twork-hero-new-section .glass-card {
+        padding: 28px 24px;
+    }
+
+    .wp-block-twork-hero-new-section .glass-card h3 {
+        font-size: 2rem;
+    }
+
+    .wp-block-twork-hero-new-section .glass-card p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .wp-block-twork-hero-new-section.hero-new {
+        min-height: var(--hero-new-min-height-mobile, 500px);
+        padding: 60px 0 40px;
+    }
+
+    .wp-block-twork-hero-new-section .hero-btns {
+        flex-direction: column;
+        width: 100%;
+        gap: 12px;
+    }
+
+    .wp-block-twork-hero-new-section .jivaka-btn {
+        width: 100%;
+        justify-content: center;
+        padding: 12px 24px;
+        font-size: 0.8rem;
+    }
+
+    .wp-block-twork-hero-new-section .main-heading {
+        font-size: clamp(2rem, 8vw, 2.5rem);
+    }
+
+    .wp-block-twork-hero-new-section .glass-card {
+        padding: 24px 20px;
+    }
+
+    .wp-block-twork-hero-new-section .glass-card h3 {
+        font-size: 1.75rem;
+    }
+}
+
+// === EDITOR ===
+.editor-styles-wrapper .wp-block-twork-hero-new-section.twork-hero-new-section-editor {
+    .hero-text-col {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .glass-card-col {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .top-tagline [contenteditable="true"]:focus,
+    .main-heading [contenteditable="true"]:focus,
+    .hero-desc[contenteditable="true"]:focus,
+    .glass-card h3[contenteditable="true"]:focus,
+    .glass-card p[contenteditable="true"]:focus {
+        outline: 1px dashed #2271b1;
+        outline-offset: 2px;
+    }
+}

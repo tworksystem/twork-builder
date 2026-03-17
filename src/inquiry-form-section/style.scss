@@ -1,0 +1,229 @@
+// Inquiry Form Section
+// international-patients.html "Plan Your Treatment" – inquiry-wrapper, form
+
+:root {
+    --primary-orange: #f48b2a;
+    --border: #e0e0e0;
+    --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.08);
+    --radius: 12px;
+}
+
+// === EDITOR STYLES ===
+.editor-styles-wrapper,
+.block-editor-block-list__layout,
+.wp-block-twork-inquiry-form-section {
+    .twork-inquiry-form-section-editor {
+        .inquiry-img {
+            position: relative;
+            min-height: 300px;
+        }
+
+        .inquiry-text h3,
+        .inquiry-text p {
+            &[contenteditable="true"]:focus {
+                outline: 1px dashed #2271b1;
+                outline-offset: 2px;
+            }
+        }
+    }
+}
+
+// === FRONTEND STYLES ===
+// Target both block class and WordPress wrapper for max compatibility
+.twork-inquiry-form-section,
+.wp-block-twork-inquiry-form-section .twork-inquiry-form-section {
+    font-family: "Roboto", sans-serif;
+    position: relative;
+    padding-top: var(--section-padding-top, 80px);
+    padding-bottom: var(--section-padding-bottom, 80px);
+    box-sizing: border-box;
+
+    .jivaka-container {
+        position: relative;
+        padding-left: var(--container-padding, 20px);
+        padding-right: var(--container-padding, 20px);
+        box-sizing: border-box;
+    }
+
+    .inquiry-wrapper {
+        background: #fff;
+        border-radius: var(--radius);
+        box-shadow: var(--shadow-md);
+        overflow: hidden;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        margin-top: var(--wrapper-margin-top, 60px);
+        width: 100%;
+    }
+
+    .inquiry-img {
+        background: center/cover no-repeat;
+        position: relative;
+        min-height: 400px;
+
+        .inquiry-overlay {
+            pointer-events: none;
+        }
+
+        .inquiry-text {
+            position: relative;
+            z-index: 2;
+            padding: var(--left-content-padding, 60px);
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100%;
+            box-sizing: border-box;
+
+            h3 {
+                font-size: 2rem;
+                margin: 0 0 20px 0;
+            }
+
+            p {
+                font-size: 1.1rem;
+                opacity: 0.9;
+            }
+        }
+    }
+
+    .form-container {
+        padding: var(--form-padding, 60px);
+        box-sizing: border-box;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        font-family: inherit;
+        font-size: 1rem;
+        transition: border-color 0.3s;
+
+        &:focus {
+            outline: none;
+            border-color: var(--primary-orange);
+        }
+    }
+
+    textarea.form-control {
+        resize: vertical;
+        min-height: 100px;
+    }
+
+    .form-row-2col,
+    .form-row.form-row-2col {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+
+    .jivaka-btn.btn-primary.inquiry-submit {
+        &:hover {
+            opacity: 0.95;
+            transform: translateY(-2px);
+        }
+    }
+}
+
+// === RESPONSIVE ===
+// Use !important to override theme .section-padding, .jivaka-container
+@media (max-width: 992px) {
+    .twork-inquiry-form-section,
+    .wp-block-twork-inquiry-form-section .twork-inquiry-form-section,
+    .wp-block-twork-inquiry-form-section {
+        .inquiry-wrapper {
+            grid-template-columns: 1fr !important;
+        }
+
+        .inquiry-img {
+            min-height: 300px !important;
+            height: 300px !important;
+        }
+
+        .inquiry-img .inquiry-text {
+            padding: var(--left-content-padding-mobile, 40px) !important;
+        }
+
+        .form-container {
+            padding: var(--form-padding-mobile, 40px) !important;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .twork-inquiry-form-section,
+    .wp-block-twork-inquiry-form-section .twork-inquiry-form-section,
+    .wp-block-twork-inquiry-form-section {
+        padding-top: var(--section-padding-top-mobile, 60px) !important;
+        padding-bottom: var(--section-padding-bottom-mobile, 60px) !important;
+
+        .jivaka-container {
+            padding-left: var(--container-padding-mobile, 20px) !important;
+            padding-right: var(--container-padding-mobile, 20px) !important;
+        }
+
+        .inquiry-img {
+            min-height: 280px !important;
+            height: 280px !important;
+
+            .inquiry-text h3 {
+                font-size: 1.6rem !important;
+            }
+        }
+
+        .form-container {
+            padding: var(--form-padding-mobile, 40px) !important;
+        }
+
+        .form-row-2col,
+        .form-row.form-row-2col {
+            grid-template-columns: 1fr !important;
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .twork-inquiry-form-section,
+    .wp-block-twork-inquiry-form-section .twork-inquiry-form-section {
+        .jivaka-container {
+            padding-left: 16px !important;
+            padding-right: 16px !important;
+        }
+
+        .inquiry-img {
+            min-height: 240px !important;
+            height: 240px !important;
+
+            .inquiry-text h3 {
+                font-size: 1.4rem !important;
+            }
+        }
+
+        .form-container {
+            padding: 24px !important;
+        }
+    }
+}
+
+// === ACCESSIBILITY ===
+.twork-inquiry-form-section {
+    .form-control:focus-visible,
+    .jivaka-btn:focus-visible {
+        outline: 3px solid var(--primary-orange);
+        outline-offset: 2px;
+    }
+}

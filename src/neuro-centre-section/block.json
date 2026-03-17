@@ -1,0 +1,174 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "twork/neuro-centre-section",
+    "version": "1.0.0",
+    "title": "Centre Content Section",
+    "category": "twork-builder",
+    "icon": "heart-pulse",
+    "description": "Neuro Centre overview, treatments, specialists, FAQ and CTA laid out in a two-column grid.",
+    "supports": {
+        "html": false,
+        "align": [
+            "full",
+            "wide"
+        ]
+    },
+    "attributes": {
+        "paddingTop": {
+            "type": "number",
+            "default": 80
+        },
+        "paddingBottom": {
+            "type": "number",
+            "default": 80
+        },
+        "showSidebar": {
+            "type": "boolean",
+            "default": true
+        },
+        "showOverview": {
+            "type": "boolean",
+            "default": true
+        },
+        "showTreatments": {
+            "type": "boolean",
+            "default": true
+        },
+        "showSpecialists": {
+            "type": "boolean",
+            "default": true
+        },
+        "showFaq": {
+            "type": "boolean",
+            "default": true
+        },
+        "showCta": {
+            "type": "boolean",
+            "default": true
+        },
+        "showNearbyAccommodation": {
+            "type": "boolean",
+            "default": false
+        },
+        "nearbyAccommodationTitle": {
+            "type": "string",
+            "default": "Nearby Accommodation"
+        },
+        "overviewTitle": {
+            "type": "string",
+            "default": "Overview"
+        },
+        "overviewLead": {
+            "type": "string",
+            "default": "The Jivaka Neuro Centre offers world-class expertise in the diagnosis and treatment of neurological disorders. From chronic headaches to complex brain tumors and spinal injuries, we provide comprehensive care."
+        },
+        "overviewBody": {
+            "type": "string",
+            "default": "Our multidisciplinary team of neurologists, neurosurgeons, and rehabilitation specialists work together to deliver personalized treatment plans. We are equipped with high-precision MRI (1.5 Tesla), CT Scans, and specialized Microscopes for delicate surgeries."
+        },
+        "overviewImageUrl": {
+            "type": "string",
+            "default": "https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=1200&q=80"
+        },
+        "overviewImageId": {
+            "type": "number"
+        },
+        "treatmentsTitle": {
+            "type": "string",
+            "default": "Treatments & Services"
+        },
+        "treatmentsIntro": {
+            "type": "string",
+            "default": "We specialize in minimally invasive spine surgery and stroke management."
+        },
+        "specialistsTitle": {
+            "type": "string",
+            "default": "Our Neuro Specialists"
+        },
+        "specialistsViewAllText": {
+            "type": "string",
+            "default": "View All"
+        },
+        "specialistsViewAllUrl": {
+            "type": "string",
+            "default": "/doctors/"
+        },
+        "doctor1Name": {
+            "type": "string",
+            "default": "Dr. Susan May"
+        },
+        "doctor1Role": {
+            "type": "string",
+            "default": "Neurosurgeon"
+        },
+        "doctor1ImageUrl": {
+            "type": "string",
+            "default": "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=400&q=80"
+        },
+        "doctor1ProfileUrl": {
+            "type": "string",
+            "default": "/doctor-profile/"
+        },
+        "doctor2Name": {
+            "type": "string",
+            "default": "Dr. Nilar"
+        },
+        "doctor2Role": {
+            "type": "string",
+            "default": "Neurologist"
+        },
+        "doctor2ImageUrl": {
+            "type": "string",
+            "default": "https://i.pravatar.cc/400?img=49"
+        },
+        "doctor2ProfileUrl": {
+            "type": "string",
+            "default": "/doctor-profile/"
+        },
+        "doctor3Name": {
+            "type": "string",
+            "default": "Dr. Zaw Win"
+        },
+        "doctor3Role": {
+            "type": "string",
+            "default": "Spine Surgeon"
+        },
+        "doctor3ImageUrl": {
+            "type": "string",
+            "default": "https://i.pravatar.cc/400?img=12"
+        },
+        "doctor3ProfileUrl": {
+            "type": "string",
+            "default": "/doctor-profile/"
+        },
+        "faqTitle": {
+            "type": "string",
+            "default": "Common Questions"
+        },
+        "faq1Question": { "type": "string" },
+        "faq1Answer": { "type": "string" },
+        "faq2Question": { "type": "string" },
+        "faq2Answer": { "type": "string" },
+        "ctaTitle": {
+            "type": "string",
+            "default": "Expert Neurological Care"
+        },
+        "ctaText": {
+            "type": "string",
+            "default": "Don't ignore the symptoms. Schedule a consultation with our specialists today."
+        },
+        "ctaButtonText": {
+            "type": "string",
+            "default": "Book Appointment"
+        },
+        "ctaButtonUrl": {
+            "type": "string",
+            "default": "/appointment/"
+        }
+    },
+    "editorScript": "file:./index.js",
+    "style": "file:./style-index.css",
+    "textdomain": "twork-builder"
+}
+

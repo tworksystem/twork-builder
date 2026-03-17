@@ -1,0 +1,19 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "twork/centre-overview-section",
+  "version": "1.0.0",
+  "title": "Overview Section",
+  "category": "twork-builder",
+  "parent": ["twork/centre-layout-section"],
+  "attributes": {
+    "sectionId": { "type": "string", "default": "overview" },
+    "title": { "type": "string", "default": "Overview" },
+    "leadText": { "type": "string", "default": "The Jivaka Neuro Centre offers world-class expertise in the diagnosis and treatment of neurological disorders." },
+    "content": { "type": "string", "default": "Our multidisciplinary team of neurologists, neurosurgeons, and rehabilitation specialists work together to deliver personalized treatment plans." },
+    "imageUrl": { "type": "string", "default": "" },
+    "imageId": { "type": "number" },
+    "imageAlt": { "type": "string", "default": "" }
+  },
+  "editorScript": "file:./index.js"
+}

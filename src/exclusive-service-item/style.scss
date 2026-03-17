@@ -1,0 +1,16 @@
+// Exclusive Service Item – editor-only
+// Main svc-card styles live in exclusive-services-section/style.scss
+
+.editor-styles-wrapper {
+    .twork-exclusive-service-item-editor {
+        .svc-icon,
+        h4,
+        p {
+            &[contenteditable="true"]:focus,
+            &:focus-within {
+                outline: 1px dashed #2271b1;
+                outline-offset: 2px;
+            }
+        }
+    }
+}

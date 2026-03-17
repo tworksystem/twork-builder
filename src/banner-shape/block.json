@@ -3,7 +3,7 @@
     "apiVersion": 3,
     "name": "twork/banner-shape",
     "version": "1.0.0",
-    "title": "Twork Banner Shape",
+    "title": "Banner Shape",
     "category": "twork-builder",
     "icon": "cover-image",
     "description": "Professional banner with customizable background, overlay, and shape decoration using Jivaka theme colors.",

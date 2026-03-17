@@ -1,0 +1,311 @@
+// Health Check Hero – matches health-check-up.html
+.twork-health-check-hero.chk-hero,
+.chk-hero.twork-health-check-hero {
+    --chk-primary: #f48b2a;
+    --chk-secondary: #005f73;
+    --chk-light: #f4f8fb;
+    --chk-shadow: 0 15px 40px rgba(0, 95, 115, 0.1);
+    font-family: "Roboto", sans-serif;
+    display: flex;
+    align-items: center;
+    background: #fff;
+    position: relative;
+    overflow: hidden;
+
+    // Overlay shape (block outputs div when showOverlayShape; no ::before needed)
+    .chk-hero-overlay-shape {
+        pointer-events: none;
+    }
+
+    .chk-container {
+        position: relative;
+        z-index: 1;
+    }
+
+    .chk-hero-grid {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 60px;
+        align-items: center;
+        position: relative;
+        z-index: 1;
+    }
+
+    .chk-hero-text {
+        .chk-hero-title,
+        h1 {
+            font-size: clamp(3rem, 5vw, 4.5rem);
+            font-weight: 900;
+            margin-bottom: 20px;
+            margin-top: 0;
+            line-height: 1.2;
+            background: var(--chk-gradient-text);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        p {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 30px;
+            max-width: 550px;
+            line-height: 1.6;
+        }
+    }
+
+    .chk-btn {
+        display: inline-block;
+        padding: 14px 40px;
+        border-radius: 50px;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 0.9rem;
+        letter-spacing: 1px;
+        background: var(--chk-primary);
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        box-shadow: 0 5px 15px rgba(244, 139, 42, 0.4);
+        transition: 0.3s;
+        text-decoration: none;
+    }
+
+    .chk-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(244, 139, 42, 0.6);
+        color: #fff;
+    }
+
+    .chk-hero-img-box {
+        position: relative;
+    }
+
+    .chk-hero-img {
+        width: 100%;
+        border-radius: 30px;
+        box-shadow: -20px 20px 0 var(--chk-primary);
+        object-fit: cover;
+        height: 500px;
+    }
+
+    .chk-hero-img-placeholder {
+        background: #f0f0f0 !important;
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        color: #999;
+        font-size: 1rem;
+        box-shadow: none;
+
+        .chk-hero-img-placeholder-text {
+            font-size: 1rem;
+        }
+    }
+
+    .chk-badge {
+        position: absolute;
+        bottom: 40px;
+        left: -40px;
+        background: #fff;
+        padding: 20px 30px;
+        border-radius: 15px;
+        box-shadow: var(--chk-shadow);
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        animation: chk-badge-bounce 3s infinite ease-in-out;
+    }
+
+    .chk-badge i {
+        font-size: 2rem;
+        color: var(--chk-primary);
+    }
+
+    .chk-badge div strong {
+        display: block;
+        font-size: 1.5rem;
+        color: var(--chk-secondary);
+        line-height: 1;
+    }
+
+    .chk-badge div small {
+        display: block;
+        font-size: 0.85rem;
+        margin-top: 4px;
+    }
+}
+
+@keyframes chk-badge-bounce {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+// === EDITOR STYLES (match health-check-up.html layout, no smearing) ===
+.editor-styles-wrapper .wp-block-twork-health-check-hero,
+.block-editor-block-list__layout .wp-block-twork-health-check-hero,
+.block-editor-block-list__block .wp-block-twork-health-check-hero {
+    overflow: visible !important;
+    display: block !important;
+    min-height: 400px;
+}
+
+.editor-styles-wrapper .wp-block-twork-health-check-hero .block-editor-block-list__block-edit,
+.block-editor-block-list__layout .wp-block-twork-health-check-hero .block-editor-block-list__block-edit {
+    overflow: visible !important;
+    display: block !important;
+}
+
+// Editor: same layout as frontend (flex + grid) so design does not look smeared
+.twork-health-check-hero-editor.chk-hero {
+    overflow: visible !important;
+    display: flex !important;
+    align-items: center !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box;
+    padding: 0 !important;
+
+    .chk-hero-text {
+        h1 {
+            line-height: 1.2 !important;
+        }
+        h1[contenteditable="true"],
+        p[contenteditable="true"] {
+            &:focus {
+                outline: 2px dashed #2271b1;
+                outline-offset: 2px;
+            }
+        }
+    }
+
+    .chk-hero-overlay-shape {
+        pointer-events: none;
+    }
+
+    .chk-container {
+        position: relative;
+        z-index: 1;
+        overflow: visible !important;
+        width: 100%;
+        min-width: 0;
+    }
+
+    .chk-hero-grid {
+        display: grid !important;
+        grid-template-columns: 1.1fr 0.9fr !important;
+        gap: 60px !important;
+        align-items: center !important;
+        position: relative !important;
+        z-index: 1 !important;
+        width: 100% !important;
+        min-width: 0 !important;
+    }
+
+    .chk-hero-text {
+        min-width: 0;
+    }
+
+    .chk-hero-img-box {
+        overflow: visible !important;
+        min-width: 0;
+    }
+
+    .chk-hero-img,
+    .chk-hero-img-placeholder {
+        width: 100% !important;
+        max-width: 100%;
+        object-fit: cover;
+        display: block;
+    }
+
+    .chk-badge {
+        overflow: visible;
+    }
+}
+
+// Responsive – match health-check-up.html
+@media (max-width: 992px) {
+    .twork-health-check-hero.chk-hero,
+    .chk-hero.twork-health-check-hero {
+        .chk-hero-overlay-shape {
+            width: 100% !important;
+            height: 50% !important;
+            top: auto !important;
+            bottom: 0 !important;
+            border-radius: 0 !important;
+            border-bottom-left-radius: 0 !important;
+            border-top-left-radius: 100px;
+            border-top-right-radius: 100px;
+        }
+
+        .chk-hero-grid {
+            grid-template-columns: 1fr;
+            text-align: center;
+        }
+
+        .chk-hero-text {
+            h1,
+            .chk-hero-title {
+                margin-top: 50px;
+            }
+
+            p {
+                margin-left: auto;
+                margin-right: auto;
+                margin-bottom: 30px;
+            }
+        }
+
+        .chk-hero-img {
+            height: 350px;
+            margin-bottom: -50px;
+        }
+
+        .chk-hero-img-placeholder {
+            height: 350px !important;
+        }
+
+        .chk-badge {
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: -20px;
+            width: max-content;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .twork-health-check-hero.chk-hero,
+    .chk-hero.twork-health-check-hero {
+        min-height: auto;
+        padding-top: 40px;
+        padding-bottom: 40px;
+
+        .chk-hero-text {
+            h1,
+            .chk-hero-title {
+                font-size: 2.5rem;
+            }
+        }
+
+        .chk-hero-img {
+            height: 280px;
+        }
+
+        .chk-hero-img-placeholder {
+            height: 280px !important;
+        }
+    }
+}
+
+// Focus for accessibility
+.chk-btn:focus-visible {
+    outline: 3px solid var(--chk-primary);
+    outline-offset: 2px;
+}

@@ -1,0 +1,16 @@
+// Journey Step Item – editor-only and item-level overrides
+// Main step-card styles live in journey-steps-section/style.scss
+
+.editor-styles-wrapper {
+    .twork-journey-step-item-editor {
+        .step-num,
+        h4,
+        p {
+            &[contenteditable="true"]:focus,
+            &:focus-within {
+                outline: 1px dashed #2271b1;
+                outline-offset: 2px;
+            }
+        }
+    }
+}

@@ -1,0 +1,237 @@
+// Home Care Testimonials Section – "What Families Say"
+// Matches home-care.html: .hc-section, .hc-container, .hc-header, .hc-testi-grid, .hc-testi-card, .hc-stars, .hc-review, .hc-client
+
+:root {
+    --hc-light: #fff8f0;
+    --hc-radius: 16px;
+}
+
+// === EDITOR STYLES ===
+// Ensure section and testimonial cards display correctly in the block editor
+.editor-styles-wrapper,
+.block-editor-block-list__layout,
+.wp-block-twork-hc-testimonials-section {
+    .twork-hc-testimonials-section-editor {
+        .hc-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .hc-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 50px;
+
+            h2 {
+                font-size: 2.2rem;
+                font-weight: 700;
+                margin-bottom: 15px;
+            }
+        }
+
+        .hc-testi-grid {
+            display: grid !important;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
+            width: 100% !important;
+            min-width: 0;
+            /* gap comes from edit.js inline style (attributes.gap) – do not override */
+
+            > .block-editor-inner-blocks {
+                display: contents !important;
+                width: 100%;
+
+                > .block-editor-block-list__layout {
+                    display: contents !important;
+
+                    > .wp-block,
+                    > .block-editor-block-list__block,
+                    > [data-type="twork/hc-testimonial-card"] {
+                        display: flex !important;
+                        flex-direction: column !important;
+                        min-width: 0;
+                        width: 100%;
+                    }
+
+                    /* Block wrapper: fill grid cell so card is visible */
+                    > .wp-block > .block-editor-block-list__block-edit,
+                    > .block-editor-block-list__block > .block-editor-block-list__block-edit,
+                    > [data-type="twork/hc-testimonial-card"] > .block-editor-block-list__block-edit {
+                        display: flex !important;
+                        flex: 1 !important;
+                        flex-direction: column !important;
+                        width: 100%;
+                        min-height: 0;
+                    }
+
+                    > .wp-block > .block-editor-block-list__block-edit > div,
+                    > .block-editor-block-list__block > .block-editor-block-list__block-edit > div,
+                    > [data-type="twork/hc-testimonial-card"] > .block-editor-block-list__block-edit > div {
+                        display: flex !important;
+                        flex: 1 !important;
+                        flex-direction: column !important;
+                        width: 100%;
+                        min-width: 0;
+                    }
+                }
+            }
+        }
+
+        /* Card appearance in editor (match front-end so content is visible) */
+        .twork-hc-testimonial-card-editor.hc-testi-card,
+        .hc-testi-card.twork-hc-testimonial-card-editor {
+            border: 2px dashed #e0e0e0;
+            border-radius: var(--hc-radius);
+            background: #fff;
+            padding: 30px;
+            min-height: 180px;
+            display: flex !important;
+            flex-direction: column !important;
+            flex: 1;
+
+            &.is-selected {
+                border-color: #2271b1;
+                box-shadow: 0 0 0 1px #2271b1;
+            }
+
+            .hc-stars {
+                color: #ffc107;
+                margin-bottom: 15px;
+                font-size: 0.9rem;
+            }
+
+            .hc-review {
+                font-style: italic;
+                margin-bottom: 20px;
+                color: #666;
+                font-size: 0.95rem;
+            }
+
+            .hc-client {
+                display: flex;
+                align-items: center;
+                gap: 15px;
+                margin-top: auto; /* push to bottom of card in editor */
+
+                .hc-client-img,
+                .hc-client-img-placeholder {
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 50%;
+                    object-fit: cover;
+                    flex-shrink: 0;
+                }
+
+                h5 {
+                    font-size: 1rem;
+                    margin: 0;
+                }
+
+                span {
+                    font-size: 0.8rem;
+                    color: #888;
+                }
+            }
+        }
+
+        .block-editor-block-list__block-edit > .hc-testi-card {
+            width: 100%;
+            flex: 1;
+        }
+
+        .hc-header h2,
+        .hc-header p {
+            &[contenteditable="true"]:focus {
+                outline: 1px dashed #2271b1;
+                outline-offset: 2px;
+            }
+        }
+    }
+}
+
+// === FRONTEND STYLES ===
+.twork-hc-testimonials-section {
+    font-family: "Roboto", sans-serif;
+
+    .hc-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .hc-header {
+        text-align: center;
+        max-width: 700px;
+        margin: 0 auto 50px;
+
+        h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+    }
+
+    .hc-testi-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+    }
+
+    .hc-testi-card {
+        background: #fff;
+        padding: 30px;
+        border-radius: var(--hc-radius);
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        border: 1px solid #f0f0f0;
+        position: relative;
+    }
+
+    .hc-testi-card::before {
+        content: '\f10d';
+        font-family: 'Font Awesome 6 Free';
+        font-weight: 900;
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        font-size: 2rem;
+        color: var(--hc-light);
+    }
+
+    .hc-stars {
+        color: #ffc107;
+        margin-bottom: 15px;
+        font-size: 0.9rem;
+    }
+
+    .hc-review {
+        font-style: italic;
+        margin-bottom: 20px;
+        color: #666;
+        position: relative;
+        z-index: 1;
+    }
+
+    .hc-client {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-top: auto;
+    }
+
+    .hc-client-img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    .hc-client h5 {
+        font-size: 1rem;
+        margin: 0;
+    }
+
+    .hc-client span {
+        font-size: 0.8rem;
+        color: #888;
+    }
+}

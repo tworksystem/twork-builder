@@ -1,0 +1,94 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "twork/amb-fleet-card-item",
+  "title": "Ambulance Fleet Card",
+  "parent": ["twork/amb-fleet-section"],
+  "category": "twork-builder",
+  "description": "Single fleet card with badge, image, title, description and feature list.",
+  "keywords": ["ambulance", "fleet", "card", "ALS", "BLS", "twork"],
+  "attributes": {
+    "badgeText": {
+      "type": "string",
+      "default": "Critical Care"
+    },
+    "badgeStyle": {
+      "type": "string",
+      "default": "dark"
+    },
+    "badgeBgColor": {
+      "type": "string",
+      "default": ""
+    },
+    "image": {
+      "type": "string",
+      "default": ""
+    },
+    "imageId": {
+      "type": "number"
+    },
+    "imageAlt": {
+      "type": "string",
+      "default": ""
+    },
+    "imageHeight": {
+      "type": "number",
+      "default": 300
+    },
+    "imageObjectFit": {
+      "type": "string",
+      "default": "cover"
+    },
+    "title": {
+      "type": "string",
+      "default": "ALS (Advanced Life Support)"
+    },
+    "titleColor": {
+      "type": "string",
+      "default": "#0f172a"
+    },
+    "titleFontSize": {
+      "type": "number",
+      "default": 1.5
+    },
+    "titleFontWeight": {
+      "type": "number",
+      "default": 700
+    },
+    "description": {
+      "type": "string",
+      "default": "Designed for critical patients requiring intensive monitoring during transport."
+    },
+    "descriptionColor": {
+      "type": "string",
+      "default": "#666666"
+    },
+    "descriptionFontSize": {
+      "type": "number",
+      "default": 1
+    },
+    "descriptionMarginBottom": {
+      "type": "number",
+      "default": 20
+    },
+    "listItems": {
+      "type": "array",
+      "default": [
+        { "id": 1, "text": "Ventilator & Defibrillator", "icon": "fa-check-circle" },
+        { "id": 2, "text": "Cardiac Monitor", "icon": "fa-check-circle" },
+        { "id": 3, "text": "Infusion Pumps", "icon": "fa-check-circle" },
+        { "id": 4, "text": "Doctor & Paramedic on board", "icon": "fa-user-nurse" }
+      ]
+    },
+    "listIconColor": {
+      "type": "string",
+      "default": "#f48b2a"
+    },
+    "infoPadding": {
+      "type": "number",
+      "default": 40
+    }
+  },
+  "textdomain": "twork-builder",
+  "editorScript": "file:./index.js"
+}

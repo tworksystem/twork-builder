@@ -1,0 +1,58 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "twork/visiting-hours-item",
+    "title": "Visiting Hours Row",
+    "parent": ["twork/visiting-info-section"],
+    "description": "Single row for visiting hours (ward name + icon + time slot).",
+    "keywords": ["visiting", "hours", "ward", "time", "twork"],
+    "attributes": {
+        "wardName": {
+            "type": "string",
+            "default": "General Ward"
+        },
+        "timeSlot": {
+            "type": "string",
+            "default": "10:00 AM – 8:00 PM"
+        },
+        "iconClass": {
+            "type": "string",
+            "default": "fas fa-procedures"
+        },
+        "wardNameColor": {
+            "type": "string",
+            "default": "#212121"
+        },
+        "wardNameFontSize": {
+            "type": "number",
+            "default": 1.1
+        },
+        "wardNameFontWeight": {
+            "type": "number",
+            "default": 700
+        },
+        "timeSlotColor": {
+            "type": "string",
+            "default": "#555555"
+        },
+        "timeSlotFontSize": {
+            "type": "number",
+            "default": 0.9
+        },
+        "timeSlotBgColor": {
+            "type": "string",
+            "default": "#f0f0f0"
+        },
+        "iconColor": {
+            "type": "string",
+            "default": "#f48b2a"
+        },
+        "rowPaddingVertical": {
+            "type": "number",
+            "default": 15
+        }
+    },
+    "textdomain": "twork-builder",
+    "editorScript": "file:./index.js",
+    "style": "file:./style-index.css"
+}

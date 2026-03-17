@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>General Surgery | Jivaka Hospital</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <style>
+        /* --- CORE VARIABLES --- */
+        :root {
+            --primary: #0093E9;
+            --primary-gradient: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+            --secondary: #0f172a;
+            --accent: #FF8C00;
+            --light: #f8fafc;
+            --white: #ffffff;
+            --glass: rgba(255, 255, 255, 0.9);
+            --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+            --radius: 16px;
+        }
+
+        /* --- RESET & BASE --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: #475569;
+            background-color: var(--light);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Poppins', sans-serif;
+            color: var(--secondary);
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+            border-radius: var(--radius);
+        }
+
+        /* --- UTILITIES --- */
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            /* Fixed: Ensures container spans full width in flex parent */
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        .section-padding {
+            padding: 100px 0;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .bg-white {
+            background: var(--white);
+        }
+
+        .text-gradient {
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* --- BUTTONS --- */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            box-shadow: 0 4px 15px rgba(0, 147, 233, 0.3);
+        }
+
+        .btn-primary {
+            background-image: var(--primary-gradient);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 147, 233, 0.5);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--white);
+            color: var(--white);
+        }
+
+        .btn-outline:hover {
+            background: var(--white);
+            color: var(--primary);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: url('https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+            /* Removed padding-top since navbar is gone, but kept slight padding for breathing room if needed */
+            padding-top: 0;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, rgba(15, 23, 42, 0.9) 0%, rgba(15, 23, 42, 0.7) 60%, rgba(15, 23, 42, 0.2) 100%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 650px;
+            color: var(--white);
+            text-align: left;
+            /* Force Left Align */
+        }
+
+        .hero h1 {
+            color: var(--white);
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #cbd5e1;
+            margin-bottom: 35px;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 30px;
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            justify-content: flex-start;
+            /* Ensure stats start from left */
+        }
+
+        .stat-item h3 {
+            font-size: 2rem;
+            color: #80D0C7;
+            margin-bottom: 5px;
+        }
+
+        .stat-item p {
+            font-size: 0.9rem;
+            color: #94a3b8;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* --- WAVE SEPARATORS --- */
+        .wave-bottom {
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+            transform: rotate(180deg);
+        }
+
+        .wave-bottom svg {
+            position: relative;
+            display: block;
+            width: calc(137% + 1.3px);
+            height: 100px;
+        }
+
+        /* --- FEATURES GRID --- */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+            margin-top: -80px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .feature-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-lg);
+            transition: 0.4s;
+            border-bottom: 4px solid transparent;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-bottom-color: #0093E9;
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(0, 147, 233, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: #0093E9;
+            margin-bottom: 20px;
+        }
+
+        /* --- SPECIALTIES --- */
+        .service-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: 0.4s;
+            position: relative;
+            border: 1px solid #f1f5f9;
+        }
+
+        .service-card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-5px);
+        }
+
+        .service-content {
+            padding: 30px;
+        }
+
+        .service-icon-bg {
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            font-size: 8rem;
+            color: rgba(0, 147, 233, 0.05);
+            z-index: 0;
+        }
+
+        .service-header {
+            position: relative;
+            z-index: 1;
+            margin-bottom: 15px;
+        }
+
+        .service-header i {
+            font-size: 2rem;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        .service-link {
+            display: inline-block;
+            margin-top: 15px;
+            font-weight: 600;
+            color: #0093E9;
+            position: relative;
+        }
+
+        .service-link::after {
+            content: '';
+            position: absolute;
+            width: 0%;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #0093E9;
+            transition: 0.3s;
+        }
+
+        .service-card:hover .service-link::after {
+            width: 100%;
+        }
+
+        /* --- LAPAROSCOPY SPOTLIGHT (Split Section) --- */
+        .split-section {
+            background: var(--secondary);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .split-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .lap-img-container {
+            position: relative;
+        }
+
+        .lap-img-container img {
+            border: 8px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        .floating-badge {
+            position: absolute;
+            bottom: 30px;
+            left: -20px;
+            background: var(--white);
+            color: var(--secondary);
+            padding: 20px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-lg);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            max-width: 250px;
+        }
+
+        .floating-badge i {
+            font-size: 2rem;
+            color: #FF8C00;
+        }
+
+        .lap-list li {
+            display: flex;
+            align-items: start;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .lap-list i {
+            background: rgba(255, 255, 255, 0.2);
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            color: #80D0C7;
+            flex-shrink: 0;
+        }
+
+        /* --- DOCTORS --- */
+        .doc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+        }
+
+        .doc-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .doc-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .doc-img-box {
+            height: 280px;
+            overflow: hidden;
+            background: #e2e8f0;
+        }
+
+        .doc-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+            border-radius: 0;
+        }
+
+        .doc-card:hover .doc-img-box img {
+            transform: scale(1.1);
+        }
+
+        .doc-info {
+            padding: 25px;
+        }
+
+        .doc-spec {
+            color: #0093E9;
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        /* --- NEW SECTION: REVIEWS --- */
+        .review-card {
+            background: #fff;
+            padding: 30px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-sm);
+            position: relative;
+        }
+
+        .review-quote {
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 15px;
+            opacity: 0.3;
+        }
+
+        .review-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 20px;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+
+        .review-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #ddd;
+            object-fit: cover;
+        }
+
+        /* --- NEW SECTION: PARTNERS --- */
+        .partner-strip {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            opacity: 0.6;
+        }
+
+        .partner-logo {
+            height: 40px;
+            filter: grayscale(100%);
+            transition: 0.3s;
+            opacity: 0.7;
+        }
+
+        .partner-logo:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+
+        /* --- FAQ ACCORDION --- */
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--white);
+            margin-bottom: 15px;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+        }
+
+        .faq-question {
+            padding: 20px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--white);
+            transition: 0.3s;
+        }
+
+        .faq-question:hover {
+            color: #0093E9;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            background: #f8fafc;
+        }
+
+        .faq-answer p {
+            padding: 20px;
+            color: #64748b;
+            margin: 0;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .faq-icon {
+            transition: 0.3s;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+            color: #0093E9;
+        }
+
+        /* --- CTA FOOTER --- */
+        .cta-section {
+            background: var(--primary-gradient);
+            color: var(--white);
+            text-align: center;
+            border-radius: 30px 30px 0 0;
+            margin-top: 50px;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 992px) {
+            .split-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-content {
+                text-align: left;
+                margin: 0;
+                padding-left: 20px;
+            }
+
+            .hero-stats {
+                justify-content: flex-start;
+                padding-left: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+
+            .hero-content,
+            .hero-stats {
+                padding-left: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="hero">
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="hero-content fade-up">
+                <span style="color: #80D0C7; font-weight: 600; letter-spacing: 2px; text-transform: uppercase;">Excellence in Surgery</span>
+                <h1>Advanced Care.<br>Faster Recovery.</h1>
+                <p>Leading the way in minimally invasive surgery with state-of-the-art technology and compassionate care.</p>
+                <div style="display: flex; gap: 15px; flex-wrap: wrap; justify-content: flex-start;">
+                    <a href="#services" class="btn btn-primary">Our Specialties</a>
+                    <a href="#doctors" class="btn btn-outline">Meet the Team</a>
+                </div>
+
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <h3>5k+</h3>
+                        <p>Surgeries</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>99%</h3>
+                        <p>Success</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>24/7</h3>
+                        <p>Emergency</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="wave-bottom">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path
+                    d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+                    fill="#f8fafc"></path>
+            </svg>
+        </div>
+    </header>
+
+    <section class="container" id="about">
+        <div class="features-grid">
+            <div class="feature-card stagger-up">
+                <div class="feature-icon"><i class="fas fa-microscope"></i></div>
+                <h4>Advanced Tech</h4>
+                <p style="color: #64748b; font-size: 0.95rem;">4K Laparoscopy towers and modern modular operation theaters.</p>
+            </div>
+            <div class="feature-card stagger-up">
+                <div class="feature-icon"><i class="fas fa-user-md"></i></div>
+                <h4>Expert Team</h4>
+                <p style="color: #64748b; font-size: 0.95rem;">Senior consultants with over 20 years of surgical experience.</p>
+            </div>
+            <div class="feature-card stagger-up">
+                <div class="feature-icon"><i class="fas fa-heart-pulse"></i></div>
+                <h4>Patient Centric</h4>
+                <p style="color: #64748b; font-size: 0.95rem;">Personalized care plans ensuring comfort and safety.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding" id="services">
+        <div class="container">
+            <div class="text-center fade-up" style="margin-bottom: 60px; max-width: 700px; margin-left: auto; margin-right: auto;">
+                <h4 style="color: #0093E9; text-transform: uppercase; letter-spacing: 1px;">Our Expertise</h4>
+                <h2 style="font-size: 2.5rem;">Surgical Procedures</h2>
+                <p style="color: #64748b;">Comprehensive surgical solutions ranging from routine day-care procedures to complex
+                    interventions.</p>
+            </div>
+
+            <div class="doc-grid" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));">
+                <div class="service-card stagger-up">
+                    <i class="fas fa-procedures service-icon-bg"></i>
+                    <div class="service-content">
+                        <div class="service-header"><i class="fas fa-procedures"></i></div>
+                        <h3>GI Surgery</h3>
+                        <p style="color: #64748b; margin-bottom: 15px;">Advanced treatment for stomach, liver, and colorectal conditions
+                            using modern protocols.</p>
+                        <ul style="color: #475569; font-size: 0.9rem; margin-bottom: 15px;">
+                            <li><i class="fas fa-check" style="color:#0093E9; margin-right:5px;"></i> Gallbladder Stones</li>
+                            <li><i class="fas fa-check" style="color:#0093E9; margin-right:5px;"></i> Appendicitis</li>
+                        </ul>
+                        <a href="#" class="service-link">Read More <i class="fas fa-arrow-right" style="font-size:0.8rem;"></i></a>
+                    </div>
+                </div>
+
+                <div class="service-card stagger-up">
+                    <i class="fas fa-dot-circle service-icon-bg"></i>
+                    <div class="service-content">
+                        <div class="service-header"><i class="fas fa-dot-circle"></i></div>
+                        <h3>Hernia Repair</h3>
+                        <p style="color: #64748b; margin-bottom: 15px;">Minimally invasive mesh repair for inguinal, umbilical, and
+                            incisional hernias.</p>
+                        <ul style="color: #475569; font-size: 0.9rem; margin-bottom: 15px;">
+                            <li><i class="fas fa-check" style="color:#0093E9; margin-right:5px;"></i> 3D Mesh Technology</li>
+                            <li><i class="fas fa-check" style="color:#0093E9; margin-right:5px;"></i> Day-care Procedure</li>
+                        </ul>
+                        <a href="#" class="service-link">Read More <i class="fas fa-arrow-right" style="font-size:0.8rem;"></i></a>
+                    </div>
+                </div>
+
+                <div class="service-card stagger-up">
+                    <i class="fas fa-crutch service-icon-bg"></i>
+                    <div class="service-content">
+                        <div class="service-header"><i class="fas fa-crutch"></i></div>
+                        <h3>Trauma & Emergency</h3>
+                        <p style="color: #64748b; margin-bottom: 15px;">24/7 readiness for accident victims and acute surgical emergencies.
+                        </p>
+                        <ul style="color: #475569; font-size: 0.9rem; margin-bottom: 15px;">
+                            <li><i class="fas fa-check" style="color:#0093E9; margin-right:5px;"></i> Rapid Response</li>
+                            <li><i class="fas fa-check" style="color:#0093E9; margin-right:5px;"></i> Multi-disciplinary Team</li>
+                        </ul>
+                        <a href="#" class="service-link">Read More <i class="fas fa-arrow-right" style="font-size:0.8rem;"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding split-section">
+        <div class="container">
+            <div class="split-grid">
+                <div class="fade-up">
+                    <span style="color: #80D0C7; font-weight: 700; text-transform: uppercase;">Minimally Invasive</span>
+                    <h2 style="color: white; font-size: 2.5rem; margin-top: 10px;">Laparoscopic Surgery</h2>
+                    <p style="color: #cbd5e1; margin-bottom: 30px;">
+                        Also known as Keyhole Surgery. We use tiny incisions and cameras to perform complex operations, resulting in
+                        significantly less pain and scarring.
+                    </p>
+                    <ul class="lap-list">
+                        <li>
+                            <i class="fas fa-compress-arrows-alt"></i>
+                            <div>
+                                <h4 style="color: white; margin-bottom: 5px;">Micro Incisions</h4>
+                                <p style="color: #94a3b8; font-size: 0.9rem; margin:0;">Tiny cuts (0.5cm - 1cm) leading to better cosmetic
+                                    results.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-running"></i>
+                            <div>
+                                <h4 style="color: white; margin-bottom: 5px;">Rapid Recovery</h4>
+                                <p style="color: #94a3b8; font-size: 0.9rem; margin:0;">Return to normal activities within days, not weeks.
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                    <a href="#" class="btn btn-primary" style="background: white; color: var(--secondary);">Learn about Keyhole</a>
+                </div>
+                <div class="lap-img-container fade-up">
+                    <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        alt="Surgery">
+                    <div class="floating-badge">
+                        <i class="fas fa-star"></i>
+                        <div>
+                            <strong style="display: block; color: var(--secondary);">Gold Standard</strong>
+                            <span style="font-size: 0.8rem; color: #64748b;">Safety Protocols</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding" id="doctors" style="background: #f1f5f9;">
+        <div class="container">
+            <div class="text-center fade-up" style="margin-bottom: 60px;">
+                <h2>Meet Our Surgeons</h2>
+                <p style="color: #64748b;">Highly qualified consultants dedicated to your health.</p>
+            </div>
+
+            <div class="doc-grid">
+                <div class="doc-card stagger-up">
+                    <div class="doc-img-box">
+                        <img src="https://jivakahospital.com/wp-content/uploads/2025/12/img-team-member-03.jpg" alt="Doctor 1">
+                    </div>
+                    <div class="doc-info">
+                        <h4>Prof. Dr. Tun Tun</h4>
+                        <span class="doc-spec">Senior Surgeon</span>
+                        <p style="color: #64748b; font-size: 0.9rem;">Specialist in Hepatobiliary & Pancreatic Surgery.</p>
+                        <div style="margin-top: 15px; display: flex; justify-content: center; gap: 10px;">
+                            <a href="#" style="color: #0093E9;"><i class="fab fa-linkedin fa-lg"></i></a>
+                            <a href="#" style="color: #0093E9;"><i class="fas fa-envelope fa-lg"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="doc-card stagger-up">
+                    <div class="doc-img-box">
+                        <img src="https://i.pravatar.cc/400?img=11" alt="Doctor 2">
+                    </div>
+                    <div class="doc-info">
+                        <h4>Dr. Nay Lin</h4>
+                        <span class="doc-spec">Laparoscopic Surgeon</span>
+                        <p style="color: #64748b; font-size: 0.9rem;">Expert in advanced hernia and gallbladder repairs.</p>
+                        <div style="margin-top: 15px; display: flex; justify-content: center; gap: 10px;">
+                            <a href="#" style="color: #0093E9;"><i class="fab fa-linkedin fa-lg"></i></a>
+                            <a href="#" style="color: #0093E9;"><i class="fas fa-envelope fa-lg"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="doc-card stagger-up">
+                    <div class="doc-img-box">
+                        <img src="https://i.pravatar.cc/400?img=5" alt="Doctor 3">
+                    </div>
+                    <div class="doc-info">
+                        <h4>Dr. Khin Mar</h4>
+                        <span class="doc-spec">General Surgeon</span>
+                        <p style="color: #64748b; font-size: 0.9rem;">Specializes in breast surgery and thyroid disorders.</p>
+                        <div style="margin-top: 15px; display: flex; justify-content: center; gap: 10px;">
+                            <a href="#" style="color: #0093E9;"><i class="fab fa-linkedin fa-lg"></i></a>
+                            <a href="#" style="color: #0093E9;"><i class="fas fa-envelope fa-lg"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding" id="reviews" style="background: var(--white);">
+        <div class="container">
+            <div class="text-center fade-up" style="margin-bottom: 60px;">
+                <h4 style="color: #0093E9; text-transform: uppercase; letter-spacing: 1px;">Testimonials</h4>
+                <h2>Patient Stories</h2>
+            </div>
+            <div class="doc-grid" style="gap: 30px;">
+                <div class="review-card stagger-up">
+                    <i class="fas fa-quote-left review-quote"></i>
+                    <p style="color: #666; font-style: italic;">"I was very nervous about my gallbladder surgery, but Dr. Nay Lin explained
+                        everything clearly. Recovery was so fast!"</p>
+                    <div class="review-author">
+                        <img src="https://i.pravatar.cc/100?img=32" class="review-avatar" alt="Patient">
+                        <div>
+                            <h5 style="margin:0; font-size:1rem;">Daw Hla Hla</h5>
+                            <span style="font-size:0.8rem; color:#888;">Laparoscopic Cholecystectomy</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-card stagger-up">
+                    <i class="fas fa-quote-left review-quote"></i>
+                    <p style="color: #666; font-style: italic;">"The facilities at Jivaka are world-class. The nursing staff took great care
+                        of me after my hernia repair."</p>
+                    <div class="review-author">
+                        <img src="https://i.pravatar.cc/100?img=12" class="review-avatar" alt="Patient">
+                        <div>
+                            <h5 style="margin:0; font-size:1rem;">U Kyaw Swar</h5>
+                            <span style="font-size:0.8rem; color:#888;">Inguinal Hernia Repair</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-card stagger-up">
+                    <i class="fas fa-quote-left review-quote"></i>
+                    <p style="color: #666; font-style: italic;">"Thank you to Prof. Tun Tun for saving my father's life. The emergency team
+                        was incredibly professional."</p>
+                    <div class="review-author">
+                        <img src="https://i.pravatar.cc/100?img=9" class="review-avatar" alt="Patient">
+                        <div>
+                            <h5 style="margin:0; font-size:1rem;">Ma Thida</h5>
+                            <span style="font-size:0.8rem; color:#888;">Emergency Surgery</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section style="padding: 50px 0; background: #f8fafc; border-top: 1px solid #eee;">
+        <div class="container">
+            <div class="text-center fade-up" style="margin-bottom: 30px;">
+                <h5 style="color: #94a3b8; font-weight: 500;">Direct Insurance Billing Available</h5>
+            </div>
+            <div class="partner-strip fade-up">
+                <div style="display:flex; align-items:center; gap:10px; font-weight:700; color:#555;"><i
+                        class="fas fa-shield-alt fa-2x"></i> AIA</div>
+                <div style="display:flex; align-items:center; gap:10px; font-weight:700; color:#555;"><i class="fas fa-umbrella fa-2x"></i>
+                    PRUDENTIAL</div>
+                <div style="display:flex; align-items:center; gap:10px; font-weight:700; color:#555;"><i class="fas fa-medkit fa-2x"></i>
+                    MANULIFE</div>
+                <div style="display:flex; align-items:center; gap:10px; font-weight:700; color:#555;"><i class="fas fa-heart fa-2x"></i>
+                    IKBZ</div>
+                <div style="display:flex; align-items:center; gap:10px; font-weight:700; color:#555;"><i
+                        class="fas fa-plus-square fa-2x"></i> GGI</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding" style="background: var(--white);">
+        <div class="container">
+            <div class="text-center fade-up" style="margin-bottom: 50px;">
+                <h2>Common Questions</h2>
+            </div>
+            <div class="faq-container">
+                <div class="faq-item fade-up">
+                    <div class="faq-question">
+                        Is laparoscopic surgery painful?
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>It is significantly less painful than traditional open surgery. Most patients only require mild pain relievers
+                            for a few days.</p>
+                    </div>
+                </div>
+                <div class="faq-item fade-up">
+                    <div class="faq-question">
+                        How long is the hospital stay?
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>For most routine procedures like appendectomy or gallstone removal, patients are discharged within 24 to 48
+                            hours.</p>
+                    </div>
+                </div>
+                <div class="faq-item fade-up">
+                    <div class="faq-question">
+                        What preparation is needed?
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Generally, you will need to fast for 6-8 hours. Our team will provide a specific checklist regarding medications
+                            and hygiene before your date.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding cta-section" id="contact">
+        <div class="container fade-up">
+            <h2 style="color: white; margin-bottom: 20px;">Ready to consult a surgeon?</h2>
+            <p style="color: rgba(255,255,255,0.9); margin-bottom: 40px; font-size: 1.1rem;">Book an appointment today for a healthier
+                tomorrow.</p>
+            <a href="#" class="btn" style="background: white; color: #0093E9; font-weight: bold;">Make an Appointment</a>
+        </div>
+    </section>
+
+    <script>
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(item => {
+            item.addEventListener('click', () => {
+                const parent = item.parentElement;
+                const answer = parent.querySelector('.faq-answer');
+
+                // Toggle Active Class
+                parent.classList.toggle('active');
+
+                if (parent.classList.contains('active')) {
+                    answer.style.maxHeight = answer.scrollHeight + "px";
+                } else {
+                    answer.style.maxHeight = null;
+                }
+            });
+        });
+
+        // GSAP Animations
+        document.addEventListener("DOMContentLoaded", function () {
+            gsap.registerPlugin(ScrollTrigger);
+
+            // General Fade Up
+            gsap.utils.toArray('.fade-up').forEach(el => {
+                gsap.fromTo(el,
+                    { y: 50, opacity: 0 },
+                    {
+                        y: 0, opacity: 1, duration: 0.8, ease: "power3.out",
+                        scrollTrigger: { trigger: el, start: "top 85%" }
+                    }
+                );
+            });
+
+            // Staggered Elements
+            ScrollTrigger.batch(".stagger-up", {
+                start: "top 85%",
+                onEnter: batch => gsap.fromTo(batch,
+                    { y: 60, opacity: 0 },
+                    { y: 0, opacity: 1, stagger: 0.15, duration: 0.8, ease: "back.out(1.7)", overwrite: true }
+                )
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,81 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "twork/job-card-item",
+    "title": "Job Card Item",
+    "parent": ["twork/job-category-item"],
+    "description": "Single job listing card with title, meta (location, type, department) and Apply button.",
+    "keywords": ["job", "career", "listing", "apply", "twork"],
+    "attributes": {
+        "jobTitle": {
+            "type": "string",
+            "default": "Senior Staff Nurse (ICU)"
+        },
+        "jobTitleColor": {
+            "type": "string",
+            "default": "#212121"
+        },
+        "jobTitleFontSize": {
+            "type": "number",
+            "default": 1.2
+        },
+        "jobTitleFontWeight": {
+            "type": "number",
+            "default": 700
+        },
+        "location": {
+            "type": "string",
+            "default": "Mandalay"
+        },
+        "employmentType": {
+            "type": "string",
+            "default": "Full Time"
+        },
+        "departmentIcon": {
+            "type": "string",
+            "default": "fas fa-stethoscope"
+        },
+        "department": {
+            "type": "string",
+            "default": "Nursing Dept"
+        },
+        "metaColor": {
+            "type": "string",
+            "default": "#666666"
+        },
+        "metaFontSize": {
+            "type": "number",
+            "default": 0.9
+        },
+        "metaIconColor": {
+            "type": "string",
+            "default": "#f48b2a"
+        },
+        "applyUrl": {
+            "type": "string",
+            "default": "#"
+        },
+        "applyText": {
+            "type": "string",
+            "default": "Apply Now"
+        },
+        "applyTarget": {
+            "type": "boolean",
+            "default": false
+        },
+        "applyButtonStyle": {
+            "type": "string",
+            "default": "primary"
+        },
+        "cardPadding": {
+            "type": "number",
+            "default": 25
+        },
+        "cardPaddingMobile": {
+            "type": "number",
+            "default": 20
+        }
+    },
+    "textdomain": "twork-builder",
+    "editorScript": "file:./index.js"
+}

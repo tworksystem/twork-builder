@@ -1,0 +1,1098 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Heart Centre | Jivaka Hospital</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <style>
+        /* --- 1. CSS VARIABLES & RESET --- */
+        :root {
+            --primary-orange: #f48b2a;
+            --brand-orange-hover: #e67a22;
+            --dark-grey: #212121;
+            --medium-grey: #666666;
+            --light-grey-bg: #f9f9f9;
+            --white-color: #ffffff;
+            --border-color: #e0e0e0;
+            --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Roboto", sans-serif;
+            color: var(--dark-grey);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background: #fff;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .jivaka-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        /* --- 2. PROFESSIONAL BUTTON STYLES --- */
+        .jivaka-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 32px;
+            /* Slightly larger touch target */
+            border-radius: 6px;
+            /* Modern border radius */
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            /* Smooth spring-like transition */
+            cursor: pointer;
+            border: 1px solid transparent;
+            /* Base border for layout stability */
+            gap: 10px;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        /* Primary Button (Call to Action) */
+        .btn-primary {
+            background: var(--primary-orange);
+            color: #fff;
+            box-shadow: 0 4px 20px rgba(244, 139, 42, 0.4);
+            border-color: var(--primary-orange);
+        }
+
+        .btn-primary:hover {
+            background: var(--brand-orange-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(244, 139, 42, 0.5);
+        }
+
+        .btn-primary:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 10px rgba(244, 139, 42, 0.3);
+        }
+
+        /* Glass/Secondary Button (Meet Specialists) */
+        /* Best Practice: Use a semi-transparent background to ensure readability over any image */
+        .btn-glass {
+            background: rgba(255, 255, 255, 0.15);
+            /* Subtle white tint */
+            backdrop-filter: blur(10px);
+            /* Frosted glass effect */
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            /* Semi-transparent white border */
+            color: #fff;
+        }
+
+        .btn-glass:hover {
+            background: #fff;
+            /* Solid white on hover */
+            color: var(--primary-orange);
+            /* Orange text on hover for contrast */
+            border-color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-glass:active {
+            transform: translateY(0);
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        /* --- 3. HERO SECTION (Refined) --- */
+        .hero-new {
+            position: relative;
+            width: 100%;
+            min-height: 700px;
+            /* Increased height for grandeur */
+            display: flex;
+            align-items: center;
+            background-color: #050505;
+            /* Deep dark background base */
+            overflow: hidden;
+        }
+
+        .hero-bg-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top center;
+            z-index: 0;
+            opacity: 0.85;
+            /* Slightly more visible image */
+            transform: scale(1.05);
+            /* Slight zoom for parallax feel potential */
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* Professional gradient: Dark on left for text readability, transparent on right */
+            background: linear-gradient(90deg,
+                    rgba(0, 0, 0, 0.85) 0%,
+                    rgba(0, 0, 0, 0.6) 40%,
+                    rgba(0, 0, 0, 0.1) 100%);
+            z-index: 1;
+        }
+
+        .hero-content-wrapper {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .hero-text-col {
+            flex: 1;
+            max-width: 650px;
+            color: #fff;
+            padding-right: 40px;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .top-tagline {
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .top-tagline .dot {
+            width: 6px;
+            height: 6px;
+            background-color: var(--primary-orange);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--primary-orange);
+            /* Glow effect */
+        }
+
+        .main-heading {
+            font-size: clamp(3rem, 5vw, 4.5rem);
+            font-weight: 900;
+            line-height: 1.1;
+            margin: 0 0 30px 0;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .main-heading .text-orange {
+            color: var(--primary-orange);
+            display: inline-block;
+            /* Allows transform if needed */
+        }
+
+        .hero-desc {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            margin-bottom: 45px;
+            color: rgba(255, 255, 255, 0.9);
+            border-left: 4px solid var(--primary-orange);
+            padding-left: 24px;
+            max-width: 580px;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        /* Glass Card (Right Side) */
+        .glass-card-col {
+            flex: 0 0 320px;
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 30px;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-left: 1px solid rgba(255, 255, 255, 0.3);
+            /* Lighting effect from left */
+            border-radius: 16px;
+            padding: 40px 35px;
+            width: 100%;
+            color: #fff;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.12);
+        }
+
+        .glass-card h3 {
+            color: var(--primary-orange);
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin: 0 0 8px 0;
+            line-height: 1;
+        }
+
+        .glass-card p {
+            font-size: 1.05rem;
+            line-height: 1.5;
+            margin: 0;
+            color: rgba(255, 255, 255, 0.85);
+            font-weight: 400;
+        }
+
+        @media (max-width: 992px) {
+            .hero-new {
+                min-height: auto;
+                padding: 120px 0 80px;
+            }
+
+            .hero-content-wrapper {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .hero-text-col {
+                padding-right: 0;
+                margin-bottom: 50px;
+            }
+
+            .glass-card-col {
+                width: 100%;
+                justify-content: flex-start;
+                flex: auto;
+            }
+
+            .glass-card {
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero-btns {
+                flex-direction: column;
+                width: 100%;
+                gap: 15px;
+            }
+
+            .jivaka-btn {
+                width: 100%;
+            }
+
+            .main-heading {
+                font-size: 2.5rem;
+            }
+        }
+
+        /* --- 4. DEPARTMENT LAYOUT & CONTENT --- */
+        .dept-layout {
+            padding: 80px 0;
+            background: #fff;
+        }
+
+        .dept-grid {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        /* Sidebar Navigation */
+        .dept-sidebar {
+            position: sticky;
+            top: 120px;
+            background: #fff;
+            border: 1px solid #f0f0f0;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            z-index: 90;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .dept-sidebar:hover {
+            box-shadow: var(--shadow-md);
+        }
+
+        .sidebar-nav a {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 24px;
+            border-bottom: 1px solid #f5f5f5;
+            font-weight: 500;
+            color: var(--medium-grey);
+            transition: all 0.2s ease;
+            font-size: 0.95rem;
+        }
+
+        .sidebar-nav a i {
+            font-size: 0.8em;
+            opacity: 0.5;
+            transition: 0.2s;
+        }
+
+        .sidebar-nav a:hover,
+        .sidebar-nav a.active {
+            background: #fff9f2;
+            color: var(--primary-orange);
+            padding-left: 28px;
+            border-left: 4px solid var(--primary-orange);
+            font-weight: 600;
+        }
+
+        .sidebar-nav a:hover i,
+        .sidebar-nav a.active i {
+            opacity: 1;
+            transform: translateX(3px);
+        }
+
+        .sidebar-widget {
+            padding: 30px 25px;
+            background: var(--dark-grey);
+            color: #fff;
+            text-align: center;
+        }
+
+        .sidebar-widget h4 {
+            color: var(--primary-orange);
+            margin-top: 0;
+            font-size: 1.2rem;
+        }
+
+        .sidebar-widget p {
+            opacity: 0.7;
+            font-size: 0.9rem;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        .sidebar-widget .btn-primary {
+            width: 100%;
+            border: none;
+        }
+
+        .desktop-only {
+            display: block;
+        }
+
+        .mobile-only {
+            display: none;
+        }
+
+        /* Content Section Styling */
+        .content-section {
+            margin-bottom: 60px;
+            scroll-margin-top: 140px;
+        }
+
+        .content-section h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 15px;
+            display: inline-block;
+            color: var(--dark-grey);
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .content-section h2::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--primary-orange);
+            border-radius: 2px;
+        }
+
+        .lead-text {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 25px;
+            font-weight: 400;
+        }
+
+        /* Conditions Grid */
+        .conditions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 25px;
+            margin-top: 35px;
+        }
+
+        .condition-card {
+            background: #fff;
+            border: 1px solid #eee;
+            padding: 35px 25px;
+            border-radius: 12px;
+            text-align: center;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            cursor: default;
+        }
+
+        .condition-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+            border-color: transparent;
+        }
+
+        .condition-card i {
+            font-size: 2.8rem;
+            color: var(--primary-orange);
+            margin-bottom: 20px;
+            transition: 0.3s;
+        }
+
+        .condition-card:hover i {
+            transform: scale(1.1);
+        }
+
+        .condition-card h4 {
+            margin: 0;
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--dark-grey);
+        }
+
+        /* Doctor List */
+        .doc-card {
+            display: flex;
+            align-items: center;
+            background: #fff;
+            border: 1px solid #eee;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 25px;
+            transition: 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .doc-card:hover {
+            box-shadow: var(--shadow-md);
+            border-color: transparent;
+        }
+
+        .doc-card::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: var(--primary-orange);
+            opacity: 0;
+            transition: 0.3s;
+        }
+
+        .doc-card:hover::before {
+            opacity: 1;
+        }
+
+        .doc-img {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 30px;
+            border: 4px solid #f9f9f9;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .doc-info {
+            flex: 1;
+        }
+
+        .doc-info h4 {
+            margin: 0 0 6px 0;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--dark-grey);
+        }
+
+        .doc-info span {
+            font-size: 0.85rem;
+            color: var(--primary-orange);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .doc-info p {
+            font-size: 0.95rem;
+            color: var(--medium-grey);
+            margin: 0;
+        }
+
+        .doc-btn {
+            margin-left: 20px;
+            padding: 12px 25px;
+            font-size: 0.85rem;
+            background: #f4f4f4;
+            border-radius: 50px;
+            color: var(--dark-grey);
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .doc-btn:hover {
+            background: var(--primary-orange);
+            color: #fff;
+            box-shadow: 0 4px 10px rgba(244, 139, 42, 0.3);
+        }
+
+        /* Tech Gallery */
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin-top: 25px;
+        }
+
+        .tech-item {
+            position: relative;
+            height: 280px;
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .tech-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .tech-item:hover img {
+            transform: scale(1.08);
+        }
+
+        .tech-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            color: #fff;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transform: translateY(100%);
+            transition: transform 0.4s ease;
+        }
+
+        .tech-item:hover .tech-caption {
+            transform: translateY(0);
+        }
+
+        /* FAQ Accordion */
+        .faq-item {
+            border-bottom: 1px solid #eee;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-question {
+            width: 100%;
+            text-align: left;
+            padding: 25px 0;
+            background: none;
+            border: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--dark-grey);
+            transition: 0.3s;
+        }
+
+        .faq-question:hover {
+            color: var(--primary-orange);
+        }
+
+        .faq-question i {
+            color: var(--medium-grey);
+            transition: transform 0.3s ease;
+        }
+
+        .faq-question.active i {
+            transform: rotate(180deg);
+            color: var(--primary-orange);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0, 1, 0, 1);
+            color: var(--medium-grey);
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        .faq-answer p {
+            margin-bottom: 25px;
+            padding-right: 20px;
+        }
+
+        /* Media Queries Update */
+        @media(max-width: 992px) {
+            .dept-grid {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+
+            .dept-sidebar {
+                position: relative;
+                top: 0;
+                margin-bottom: 30px;
+                box-shadow: none;
+                border: none;
+                background: transparent;
+                padding: 0;
+            }
+
+            .sidebar-nav {
+                display: flex;
+                overflow-x: auto;
+                white-space: nowrap;
+                border-bottom: 1px solid #eee;
+                padding-bottom: 15px;
+                -webkit-overflow-scrolling: touch;
+                background: #fff;
+            }
+
+            .sidebar-nav a {
+                border: 1px solid #eee;
+                background: #fff;
+                margin-right: 12px;
+                border-radius: 50px;
+                padding: 10px 24px;
+                font-size: 0.9rem;
+                flex-shrink: 0;
+            }
+
+            .sidebar-nav a.active {
+                background: var(--primary-orange);
+                color: #fff;
+                border-color: var(--primary-orange);
+                padding-left: 24px;
+                border-left: 1px solid var(--primary-orange);
+            }
+
+            .desktop-only {
+                display: none;
+            }
+
+            .mobile-only {
+                display: block;
+                margin-top: 50px;
+                border-radius: 12px;
+            }
+        }
+
+        @media(max-width: 600px) {
+            .doc-card {
+                flex-direction: column;
+                text-align: center;
+                padding: 30px 20px;
+            }
+
+            .doc-img {
+                margin: 0 0 20px 0;
+                width: 120px;
+                height: 120px;
+            }
+
+            .doc-btn {
+                margin: 20px 0 0 0;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+            }
+
+            .tech-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .tech-item {
+                height: 220px;
+            }
+
+            .tech-caption {
+                transform: translateY(0);
+                background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+                padding: 15px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <section class="hero-new">
+        <img src="https://jivakahospital.com/wp-content/uploads/2025/10/bgn-slider-02.jpg" alt="Heart Care" class="hero-bg-img">
+
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content-wrapper">
+            <div class="hero-text-col gsap-reveal">
+                <div class="top-tagline">
+                    <span class="dot"></span> Centres of Excellence &nbsp;/&nbsp; Heart Centre
+                </div>
+                <h1 class="main-heading">
+                    Advanced<br>
+                    <span class="text-orange">Heart Care</span> Centre
+                </h1>
+                <p class="hero-desc">
+                    Combining world-class technology with compassionate care. From preventive screening to complex cardiac surgeries, your
+                    heart is in safe hands.
+                </p>
+                <div class="hero-btns">
+                    <a href="#appointment" class="jivaka-btn btn-primary">
+                        Book Appointment <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="#specialists" class="jivaka-btn btn-glass">
+                        Meet Specialists <i class="fas fa-user-md"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="glass-card-col gsap-reveal">
+                <div class="glass-card">
+                    <h3>24/7</h3>
+                    <p>Emergency Cardiac Care Unit Available</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="dept-layout">
+        <div class="jivaka-container dept-grid">
+
+            <aside class="dept-sidebar">
+                <nav class="sidebar-nav">
+                    <a href="#overview" class="active">Overview <i class="fas fa-chevron-right"></i></a>
+                    <a href="#conditions">Conditions <i class="fas fa-chevron-right"></i></a>
+                    <a href="#specialists">Specialists <i class="fas fa-chevron-right"></i></a>
+                    <a href="#technology">Technology <i class="fas fa-chevron-right"></i></a>
+                    <a href="#faq">FAQ <i class="fas fa-chevron-right"></i></a>
+                </nav>
+
+                <div class="sidebar-widget desktop-only">
+                    <h4>Need Help?</h4>
+                    <p>Our heart specialists are available for consultation.</p>
+                    <a href="#" class="jivaka-btn btn-primary">Contact Us</a>
+                    <div style="margin-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 15px;">
+                        <i class="fas fa-phone-alt" style="margin-right: 8px; color: var(--primary-orange);"></i> 09-789 101 101
+                    </div>
+                </div>
+            </aside>
+
+            <div class="content-area">
+
+                <section id="overview" class="content-section gsap-fade-up">
+                    <h2>Overview</h2>
+                    <p class="lead-text">
+                        The Jivaka Heart Centre is dedicated to providing the highest standard of cardiovascular care. Our team of expert
+                        cardiologists and cardiothoracic surgeons work together to offer a full spectrum of services, from early detection
+                        to advanced surgical interventions.
+                    </p>
+                    <p>We are equipped with a state-of-the-art <strong>Cath Lab</strong> and dedicated Cardiac Operation Theatres to handle
+                        complex cases with precision. Our goal is to ensure every patient receives personalized care for a healthy heart.
+                    </p>
+                    <img src="https://jivakahospital.com/wp-content/uploads/2025/10/img-box-01.jpg" alt="Overview"
+                        style="border-radius: 12px; margin-top: 30px; width: 100%; box-shadow: var(--shadow-md); height: 400px; object-fit: cover;">
+                </section>
+
+                <section id="conditions" class="content-section gsap-fade-up">
+                    <h2>Conditions We Treat</h2>
+                    <div class="conditions-grid">
+                        <div class="condition-card">
+                            <i class="fas fa-heart-broken"></i>
+                            <h4>Coronary Artery Disease</h4>
+                        </div>
+                        <div class="condition-card">
+                            <i class="fas fa-bolt"></i>
+                            <h4>Arrhythmia</h4>
+                        </div>
+                        <div class="condition-card">
+                            <i class="fas fa-heartbeat"></i>
+                            <h4>Heart Failure</h4>
+                        </div>
+                        <div class="condition-card">
+                            <i class="fas fa-child"></i>
+                            <h4>Congenital Defects</h4>
+                        </div>
+                        <div class="condition-card">
+                            <i class="fas fa-procedures"></i>
+                            <h4>Valvular Disease</h4>
+                        </div>
+                        <div class="condition-card">
+                            <i class="fas fa-user-md"></i>
+                            <h4>Hypertension</h4>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="specialists" class="content-section gsap-fade-up">
+                    <h2>Our Specialists</h2>
+                    <div class="doc-card">
+                        <img src="https://jivakahospital.com/wp-content/uploads/2025/12/img-team-member-01.jpg" class="doc-img" alt="Dr">
+                        <div class="doc-info">
+                            <h4>Dr. Kyaw Swar</h4>
+                            <span>Interventional Cardiologist</span>
+                            <p>MBBS, M.Med.Sc, MRCP (UK)</p>
+                        </div>
+                        <a href="#" class="doc-btn">View Profile</a>
+                    </div>
+                    <div class="doc-card">
+                        <img src="https://i.pravatar.cc/300?img=11" class="doc-img" alt="Dr">
+                        <div class="doc-info">
+                            <h4>Dr. Susan May</h4>
+                            <span>Cardiothoracic Surgeon</span>
+                            <p>MBBS, Dr.Med.Sc (Surgery)</p>
+                        </div>
+                        <a href="#" class="doc-btn">View Profile</a>
+                    </div>
+                    <div class="doc-card">
+                        <img src="https://i.pravatar.cc/300?img=60" class="doc-img" alt="Dr">
+                        <div class="doc-info">
+                            <h4>Dr. Hlaing Min</h4>
+                            <span>Senior Cardiologist</span>
+                            <p>MBBS, M.Med.Sc (Internal Med), Dip.Cardio</p>
+                        </div>
+                        <a href="#" class="doc-btn">View Profile</a>
+                    </div>
+                    <div class="doc-card">
+                        <img src="https://i.pravatar.cc/300?img=33" class="doc-img" alt="Dr">
+                        <div class="doc-info">
+                            <h4>Dr. Thida Win</h4>
+                            <span>Electrophysiologist</span>
+                            <p>MBBS, Ph.D. (Cardiology)</p>
+                        </div>
+                        <a href="#" class="doc-btn">View Profile</a>
+                    </div>
+                </section>
+
+                <section id="technology" class="content-section gsap-fade-up">
+                    <h2>Technology & Facilities</h2>
+                    <p>We utilize the latest medical technology to ensure accurate diagnosis and effective treatment.</p>
+                    <div class="tech-grid">
+                        <div class="tech-item">
+                            <img src="https://jivakahospital.com/wp-content/uploads/2025/10/img-box-04.jpg" alt="Cath Lab">
+                            <div class="tech-caption">Philips Azurion Cath Lab</div>
+                        </div>
+                        <div class="tech-item">
+                            <img src="https://jivakahospital.com/wp-content/uploads/2025/10/img-box-02.jpg" alt="Cardiac OT">
+                            <div class="tech-caption">Modular Cardiac OT</div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="faq" class="content-section gsap-fade-up">
+                    <h2>Frequently Asked Questions</h2>
+                    <div class="faq-item">
+                        <button class="faq-question">What are the signs of a heart attack? <i class="fas fa-chevron-down"></i></button>
+                        <div class="faq-answer">
+                            <p>Symptoms include chest pain, shortness of breath, pain in the arm or jaw, and cold sweats. Seek emergency
+                                care immediately.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">Do I need an appointment for ECG? <i class="fas fa-chevron-down"></i></button>
+                        <div class="faq-answer">
+                            <p>Routine ECGs require appointments, but emergency ECGs are available 24/7 at our Emergency Department.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">Does Jivaka accept international insurance? <i
+                                class="fas fa-chevron-down"></i></button>
+                        <div class="faq-answer">
+                            <p>Yes, we partner with major international insurance providers including Cigna, Aetna, and Allianz. Please
+                                bring your insurance card upon arrival.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">How do I prepare for a TMT (Treadmill Test)? <i
+                                class="fas fa-chevron-down"></i></button>
+                        <div class="faq-answer">
+                            <p>Wear comfortable clothing and running shoes. Avoid heavy meals 2 hours before the test. Consult your doctor
+                                regarding any medications you are taking.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="sidebar-widget mobile-only">
+                    <h4>Need Help?</h4>
+                    <p>Our heart specialists are available for consultation.</p>
+                    <a href="#" class="jivaka-btn btn-primary">Contact Us</a>
+                    <div style="margin-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 15px;">
+                        <i class="fas fa-phone-alt" style="margin-right: 8px; color: var(--primary-orange);"></i> 09-789 101 101
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+            // 1. GSAP Hero Animation
+            gsap.registerPlugin(ScrollTrigger);
+
+            const tl = gsap.timeline();
+
+            // Animate Text Column with better easing
+            tl.fromTo(".gsap-reveal",
+                { y: 60, autoAlpha: 0 },
+                { y: 0, autoAlpha: 1, duration: 1.2, stagger: 0.15, ease: "power4.out" }
+            );
+
+            // Animate Glass Card Column
+            tl.fromTo(".glass-card-col",
+                { x: 30, autoAlpha: 0 },
+                { x: 0, autoAlpha: 1, duration: 1.2, ease: "power4.out" },
+                "-=0.8"
+            );
+
+            // 2. Scroll Animation for Content Sections using Intersection Observer
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        gsap.to(entry.target, { y: 0, opacity: 1, duration: 0.8, ease: "power2.out" });
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.15, rootMargin: "0px 0px -50px 0px" });
+
+            document.querySelectorAll('.gsap-fade-up').forEach(el => {
+                gsap.set(el, { y: 60, opacity: 0 });
+                observer.observe(el);
+            });
+
+            // 3. FAQ Accordion Logic
+            document.querySelectorAll('.faq-question').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const answer = btn.nextElementSibling;
+                    const isActive = btn.classList.contains('active');
+
+                    // Optional: Close others
+                    document.querySelectorAll('.faq-question').forEach(otherBtn => {
+                        if (otherBtn !== btn && otherBtn.classList.contains('active')) {
+                            otherBtn.classList.remove('active');
+                            otherBtn.nextElementSibling.style.maxHeight = 0;
+                        }
+                    });
+
+                    btn.classList.toggle('active');
+                    if (!isActive) {
+                        answer.style.maxHeight = answer.scrollHeight + "px";
+                    } else {
+                        answer.style.maxHeight = 0;
+                    }
+                });
+            });
+
+            // 4. Sidebar Scroll Spy
+            const sections = document.querySelectorAll('.content-section');
+            const navLinks = document.querySelectorAll('.sidebar-nav a');
+
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    // Adjusted offset for sticky header considerations
+                    if (pageYOffset >= (sectionTop - 200)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href').includes(current)) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+
+        });
+    </script>
+</body>
+
+</html>

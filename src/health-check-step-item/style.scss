@@ -1,0 +1,15 @@
+/**
+ * Health Check Step Item – icon circle + title + description.
+ * Grid and .chk-step-icon / .chk-step-item layout live in health-check-steps-section.
+ */
+
+.editor-styles-wrapper .twork-chk-step-item-editor,
+.wp-block-twork-health-check-step-item .twork-chk-step-item-editor {
+    h4[contenteditable="true"],
+    p[contenteditable="true"] {
+        &:focus {
+            outline: 2px dashed #2271b1;
+            outline-offset: 2px;
+        }
+    }
+}

@@ -1,0 +1,77 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "twork/career-cta-section",
+    "version": "1.0.0",
+    "title": "Career CTA Section",
+    "category": "twork-builder",
+    "icon": "email-alt",
+    "description": "Don't see the right fit? CV submission CTA for career page with title, description and Email Your CV button.",
+    "keywords": ["career", "cta", "cv", "email", "job", "twork"],
+    "attributes": {
+        "ctaTitle": {
+            "type": "string",
+            "default": "Don't see the right fit?"
+        },
+        "ctaDescription": {
+            "type": "string",
+            "default": "We are always looking for talented individuals. Send us your CV and we will keep it on file for future opportunities."
+        },
+        "ctaButtonText": {
+            "type": "string",
+            "default": "Email Your CV"
+        },
+        "ctaButtonUrl": {
+            "type": "string",
+            "default": "mailto:hr@jivakahospital.com"
+        },
+        "ctaButtonIcon": {
+            "type": "string",
+            "default": "fas fa-envelope"
+        },
+        "ctaBackgroundStart": {
+            "type": "string",
+            "default": "#212121"
+        },
+        "ctaBackgroundEnd": {
+            "type": "string",
+            "default": "#333333"
+        },
+        "containerMaxWidth": {
+            "type": "number",
+            "default": 1200
+        },
+        "containerPadding": {
+            "type": "number",
+            "default": 20
+        },
+        "paddingTop": {
+            "type": "number",
+            "default": 60
+        },
+        "paddingBottom": {
+            "type": "number",
+            "default": 60
+        },
+        "paddingTopMobile": {
+            "type": "number",
+            "default": 40
+        },
+        "paddingBottomMobile": {
+            "type": "number",
+            "default": 40
+        },
+        "animationOnScroll": {
+            "type": "boolean",
+            "default": true
+        }
+    },
+    "supports": {
+        "html": false,
+        "anchor": true,
+        "align": ["wide", "full"]
+    },
+    "textdomain": "twork-builder",
+    "editorScript": "file:./index.js",
+    "style": "file:./style-index.css"
+}

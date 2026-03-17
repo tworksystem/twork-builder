@@ -1,0 +1,229 @@
+// Variables (match telemedicine.html)
+:root {
+    --primary-orange: #f48b2a;
+    --dark-grey: #212121;
+}
+
+// === EDITOR STYLES ===
+.editor-styles-wrapper,
+.block-editor-block-list__layout,
+.wp-block-twork-tele-download-section {
+    .twork-tele-download-section-editor {
+        position: relative;
+
+        .tele-cta {
+            &::after,
+            &::before {
+                content: '';
+                position: absolute;
+                width: 500px;
+                height: 500px;
+                background: rgba(255, 255, 255, 0.08);
+                border-radius: 50%;
+                pointer-events: none;
+            }
+            &::after {
+                top: -50%;
+                left: -10%;
+            }
+            &::before {
+                bottom: -50%;
+                right: -10%;
+            }
+        }
+
+        .store-btns {
+            // InnerBlocks wrapper: make it flex so store buttons sit in a row
+            > .block-editor-inner-blocks {
+                display: flex !important;
+                flex-wrap: wrap !important;
+                gap: inherit !important;
+                justify-content: center !important;
+                width: 100%;
+
+                > .block-editor-block-list__layout {
+                    display: flex !important;
+                    flex-wrap: wrap !important;
+                    gap: inherit !important;
+                    justify-content: center !important;
+                    width: 100%;
+
+                    > .wp-block,
+                    > [data-type="twork/tele-store-btn"] {
+                        flex: 0 0 auto;
+                        min-width: 0;
+                    }
+                }
+            }
+        }
+
+        .store-btn {
+            cursor: default;
+        }
+
+        h2[contenteditable="true"],
+        p[contenteditable="true"] {
+            &:focus {
+                outline: 1px dashed #2271b1;
+                outline-offset: 2px;
+            }
+        }
+    }
+}
+
+// === FRONTEND STYLES ===
+.twork-tele-download-section {
+    position: relative;
+    font-family: "Roboto", sans-serif;
+
+    .jivaka-container {
+        position: relative;
+        z-index: 0;
+    }
+
+    .tele-cta {
+        color: #fff;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+
+        &::after,
+        &::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        &::after {
+            top: -50%;
+            left: -10%;
+        }
+
+        &::before {
+            bottom: -50%;
+            right: -10%;
+        }
+
+        h2 {
+            position: relative;
+            z-index: 1;
+            margin: 0 0 15px 0;
+            line-height: 1.2;
+        }
+
+        p {
+            position: relative;
+            z-index: 1;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+    }
+
+    .store-btns {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        position: relative;
+        z-index: 1;
+        flex-wrap: wrap;
+    }
+
+    .store-btn {
+        background: #fff;
+        color: var(--dark-grey);
+        padding: 12px 24px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-weight: 700;
+        font-size: 0.9rem;
+        transition: 0.3s;
+        border: 2px solid #fff;
+        text-align: left;
+        min-width: 180px;
+        justify-content: center;
+        text-decoration: none;
+
+        &:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+            background: var(--dark-grey);
+            color: #fff;
+            border-color: var(--dark-grey);
+        }
+
+        /* Image-only variant (tele-store-btn with image link) */
+        &.store-btn-image {
+            padding: 0;
+            min-width: 0;
+            background: transparent;
+            border: none;
+
+            &:hover {
+                background: transparent;
+                border: none;
+                transform: translateY(-3px);
+                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            }
+
+            .store-btn-img {
+                display: block;
+                width: auto;
+            }
+        }
+
+        i {
+            font-size: 1.8rem;
+        }
+
+        div {
+            text-align: left;
+            line-height: 1.1;
+
+            span {
+                font-size: 0.7rem;
+                font-weight: 400;
+                display: block;
+            }
+        }
+    }
+
+    // Animation classes (GSAP may target these)
+    .fade-up {
+        opacity: 1;
+        visibility: inherit;
+    }
+}
+
+// === RESPONSIVE ===
+@media (max-width: 768px) {
+    .twork-tele-download-section {
+        .tele-cta {
+            padding: 50px 20px !important;
+
+            h2 {
+                font-size: 1.8rem !important;
+            }
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    .twork-tele-download-section {
+        .store-btns {
+            flex-direction: column;
+            align-items: stretch;
+            gap: 15px;
+        }
+
+        .store-btn {
+            width: 100%;
+            justify-content: center;
+        }
+    }
+}

@@ -1,0 +1,148 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "twork/nearby-accommodation-section",
+    "version": "1.0.0",
+  "title": "Nearby Locations / Cards Section",
+    "category": "twork-builder",
+    "icon": "building",
+    "description": "Nearby accommodation / hotel section with image cards and overlay for international patients.",
+    "keywords": ["accommodation", "hotel", "nearby", "international", "patient", "twork"],
+    "attributes": {
+        "backgroundColor": {
+            "type": "string",
+            "default": "#ffffff"
+        },
+        "backgroundImage": {
+            "type": "string",
+            "default": ""
+        },
+        "backgroundImageId": {
+            "type": "number"
+        },
+        "backgroundOverlay": {
+            "type": "boolean",
+            "default": false
+        },
+        "backgroundOverlayColor": {
+            "type": "string",
+            "default": "rgba(0, 0, 0, 0.5)"
+        },
+        "backgroundOverlayOpacity": {
+            "type": "number",
+            "default": 0.5
+        },
+        "paddingTop": {
+            "type": "number",
+            "default": 80
+        },
+        "paddingBottom": {
+            "type": "number",
+            "default": 80
+        },
+        "paddingTopMobile": {
+            "type": "number",
+            "default": 60
+        },
+        "paddingBottomMobile": {
+            "type": "number",
+            "default": 60
+        },
+        "columns": {
+            "type": "number",
+            "default": 4
+        },
+        "columnsTablet": {
+            "type": "number",
+            "default": 2
+        },
+        "columnsMobile": {
+            "type": "number",
+            "default": 1
+        },
+        "gap": {
+            "type": "number",
+            "default": 20
+        },
+        "gapMobile": {
+            "type": "number",
+            "default": 16
+        },
+        "minColumnWidth": {
+            "type": "number",
+            "default": 250
+        },
+        "showSectionTitle": {
+            "type": "boolean",
+            "default": true
+        },
+        "sectionTitle": {
+            "type": "string",
+            "default": "Nearby Accommodation"
+        },
+        "sectionTitleColor": {
+            "type": "string",
+            "default": "#212121"
+        },
+        "sectionTitleFontSize": {
+            "type": "number",
+            "default": 2.2
+        },
+        "sectionTitleFontSizeMobile": {
+            "type": "number",
+            "default": 1.8
+        },
+        "sectionTitleFontWeight": {
+            "type": "number",
+            "default": 700
+        },
+        "sectionTitleAlignment": {
+            "type": "string",
+            "default": "left"
+        },
+        "sectionTitleMarginBottom": {
+            "type": "number",
+            "default": 30
+        },
+        "showSectionDescription": {
+            "type": "boolean",
+            "default": false
+        },
+        "sectionDescription": {
+            "type": "string",
+            "default": ""
+        },
+        "containerMaxWidth": {
+            "type": "number",
+            "default": 1200
+        },
+        "containerPadding": {
+            "type": "number",
+            "default": 20
+        },
+        "containerPaddingMobile": {
+            "type": "number",
+            "default": 20
+        },
+        "animationOnScroll": {
+            "type": "boolean",
+            "default": true
+        },
+        "animationDelay": {
+            "type": "number",
+            "default": 100
+        },
+        "animationType": {
+            "type": "string",
+            "default": "fadeInUp"
+        }
+    },
+    "supports": {
+        "html": false,
+        "anchor": true,
+        "align": ["wide", "full"]
+    },
+    "textdomain": "twork-builder",
+    "editorScript": "file:./index.js",
+    "style": "file:./style-index.css"
+}

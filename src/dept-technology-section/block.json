@@ -1,0 +1,14 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "twork/dept-technology-section",
+    "title": "Technology Section",
+    "category": "twork-builder",
+    "parent": ["twork/dept-layout-section"],
+    "attributes": {
+        "sectionId": { "type": "string", "default": "technology" },
+        "title": { "type": "string", "default": "Technology & Facilities" },
+        "intro": { "type": "string", "default": "We utilize the latest medical technology to ensure accurate diagnosis and effective treatment." }
+    },
+    "editorScript": "file:./index.js"
+}

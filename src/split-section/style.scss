@@ -1,0 +1,288 @@
+// Split Section (Laparoscopy / Keyhole) – Editor, Front-end, Responsive
+// Matches general-surgery.html split-section block
+
+$split-bg: var(--secondary, #0f766e);
+$split-label: #80D0C7;
+$split-title: #fff;
+$split-desc: #cbd5e1;
+$split-list-subtitle: #94a3b8;
+$badge-icon: #FF8C00;
+
+// === EDITOR STYLES ===
+.editor-styles-wrapper,
+.block-editor-block-list__layout,
+.wp-block-twork-split-section {
+    .twork-split-section-editor {
+        .editor-label {
+            margin-bottom: 20px;
+        }
+
+        .split-section-text {
+            span[contenteditable="true"],
+            h2[contenteditable="true"],
+            p[contenteditable="true"] {
+                &:focus {
+                    outline: 1px dashed #2271b1;
+                    outline-offset: 2px;
+                }
+            }
+        }
+
+        .split-grid {
+            min-height: 200px;
+        }
+
+        .lap-list {
+            list-style: none;
+            padding-left: 0;
+            margin: 0 0 20px 0;
+        }
+
+        .lap-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 16px;
+        }
+
+        .lap-list li i {
+            flex-shrink: 0;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            color: $split-label;
+        }
+
+        .lap-img-container .components-placeholder {
+            min-height: 280px;
+            border: 2px dashed rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+        }
+    }
+}
+
+// === FRONTEND STYLES ===
+.section-padding.split-section {
+    background: $split-bg;
+    color: $split-title;
+    position: relative;
+    overflow: hidden;
+    padding: 100px 0;
+}
+
+.split-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 60px;
+}
+
+.split-section-label,
+.split-section .split-section-text > span {
+    color: $split-label !important;
+    font-weight: 700;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.split-section-title,
+.split-section .split-section-text h2 {
+    color: $split-title !important;
+    font-size: 2.5rem;
+    margin-top: 10px;
+    margin-bottom: 12px;
+    line-height: 1.2;
+}
+
+.split-section-description,
+.split-section .split-section-text > p {
+    color: $split-desc !important;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.lap-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 0 0 30px 0;
+}
+
+.lap-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.lap-list li i {
+    background: rgba(255, 255, 255, 0.2);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: $split-label;
+    flex-shrink: 0;
+}
+
+.lap-list-title,
+.lap-list h4 {
+    color: $split-title !important;
+    margin: 0 0 5px 0;
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.lap-list-subtitle,
+.lap-list p {
+    color: $split-list-subtitle !important;
+    font-size: 0.9rem;
+    margin: 0;
+    line-height: 1.5;
+}
+
+.split-section-btn,
+.split-section .btn.btn-primary.split-section-btn {
+    background: #fff !important;
+    color: var(--secondary) !important;
+    padding: 12px 28px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    }
+}
+
+.lap-img-container {
+    position: relative;
+}
+
+.lap-img-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border: 8px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+}
+
+.floating-badge {
+    position: absolute;
+    bottom: 30px;
+    left: -20px;
+    background: #fff;
+    color: var(--secondary);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    max-width: 250px;
+}
+
+.floating-badge i {
+    font-size: 2rem;
+    color: $badge-icon;
+    flex-shrink: 0;
+}
+
+.floating-badge-title,
+.floating-badge strong {
+    display: block;
+    color: var(--secondary);
+    font-size: 1rem;
+    margin-bottom: 2px;
+}
+
+.floating-badge-subtitle,
+.floating-badge span {
+    font-size: 0.8rem;
+    color: #64748b;
+}
+
+// === RESPONSIVE ===
+@media (max-width: 992px) {
+    .split-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .lap-img-container {
+        order: -1;
+    }
+
+    .lap-img-container img {
+        max-height: 400px;
+        object-fit: cover;
+    }
+
+    .floating-badge {
+        left: 20px;
+        bottom: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .section-padding.split-section {
+        padding: 60px 0;
+    }
+
+    .split-section-title,
+    .split-section .split-section-text h2 {
+        font-size: 2rem;
+    }
+
+    .split-grid {
+        gap: 30px;
+    }
+
+    .lap-list li {
+        margin-bottom: 20px;
+    }
+
+    .floating-badge {
+        max-width: 220px;
+        padding: 16px;
+        bottom: 16px;
+        left: 16px;
+    }
+
+    .floating-badge i {
+        font-size: 1.5rem;
+    }
+}
+
+// === ACCESSIBILITY ===
+.split-section-btn:focus-visible,
+.split-section .btn.btn-primary:focus-visible {
+    outline: 3px solid #fff;
+    outline-offset: 2px;
+}
+
+// === PRINT ===
+@media print {
+    .split-section {
+        background: #f1f5f9 !important;
+        color: #1e293b;
+    }
+
+    .split-section-label { color: #0f766e !important; }
+    .split-section-title { color: #1e293b !important; }
+    .split-section-description { color: #475569 !important; }
+    .lap-list-title { color: #1e293b !important; }
+    .lap-list-subtitle { color: #64748b !important; }
+    .lap-list li i { background: #e2e8f0; color: #0f766e; }
+    .floating-badge { box-shadow: none; border: 1px solid #e2e8f0; }
+}

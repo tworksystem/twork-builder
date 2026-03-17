@@ -1,0 +1,137 @@
+/**
+ * Emergency Specialists Section – frontend & editor
+ * Matches 24/7.html .em-doc-grid, .em-doc-card, .em-doc-img, .em-doc-role
+ * Editor: 3 columns in a row via display:contents on InnerBlocks (team-members-grid / services-grid flow).
+ */
+
+$em-primary: #f48b2a;
+$em-radius: 16px;
+
+// === EDITOR STYLES ===
+.editor-styles-wrapper,
+.block-editor-block-list__layout,
+.wp-block-twork-em-doc-section {
+  .twork-em-doc-section-editor {
+    position: relative;
+    min-height: 200px;
+
+    .em-doc-grid.twork-em-doc-grid-container {
+      // Base grid setup on the editor container (for modern editors)
+      display: grid !important;
+      grid-template-columns: repeat(var(--grid-columns, 3), 1fr) !important;
+      gap: var(--grid-gap, 30px) !important;
+      width: 100% !important;
+
+      // Treat the inner block list as transparent so cards become real grid items
+      > .block-editor-inner-blocks {
+        display: contents !important;
+
+        > .block-editor-block-list__layout {
+          display: contents !important;
+
+          > .wp-block,
+          > [data-type="twork/em-doc-card"] {
+            display: flex !important;
+            flex-direction: column !important;
+            min-height: 280px;
+            transition: all 0.3s ease;
+
+            &:hover {
+              box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            }
+
+            &.is-selected {
+              box-shadow: 0 0 0 2px #2271b1;
+              z-index: 1;
+            }
+
+            > .block-editor-block-list__block-edit,
+            > .block-editor-block-list__block-edit > div {
+              display: flex !important;
+              flex: 1 !important;
+              flex-direction: column !important;
+              width: 100%;
+            }
+          }
+        }
+      }
+
+      // Fallback for editor DOM variations – make the inner layout itself the grid container
+      > .block-editor-inner-blocks > .block-editor-block-list__layout {
+        display: grid !important;
+        grid-template-columns: repeat(var(--grid-columns, 3), 1fr) !important;
+        gap: var(--grid-gap, 30px) !important;
+        width: 100% !important;
+      }
+    }
+
+    .em-header h2,
+    .em-header p {
+      &[contenteditable="true"]:focus {
+        outline: 1px dashed #2271b1;
+        outline-offset: 2px;
+      }
+    }
+  }
+}
+
+// === FRONTEND & SHARED ===
+.twork-em-doc-section.em-section,
+.twork-em-doc-section-editor.em-section {
+  position: relative;
+
+  .em-container {
+    position: relative;
+  }
+
+  .em-header {
+    h2 {
+      margin-top: 0;
+      margin-bottom: 15px;
+    }
+
+    p {
+      margin: 0;
+    }
+  }
+
+  .em-doc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 30px;
+  }
+
+  .em-doc-card {
+    background: #fff;
+    border-radius: $em-radius;
+    padding: 30px 20px;
+    text-align: center;
+    border: 1px solid #eee;
+    transition: 0.3s ease;
+
+    &:hover {
+      border-color: $em-primary;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    }
+  }
+
+  .em-doc-img {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 20px;
+    border: 4px solid #fffbf7;
+    display: block;
+  }
+
+  .em-doc-role {
+    color: $em-primary;
+    font-weight: 700;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 8px;
+  }
+}
+

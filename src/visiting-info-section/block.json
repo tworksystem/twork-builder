@@ -1,0 +1,178 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "twork/visiting-info-section",
+    "title": "Visiting Information Section",
+    "category": "twork-builder",
+    "description": "Visiting hours section with two-column layout (content + image) for patient guide.",
+    "keywords": ["visiting", "hours", "patient", "guide", "hospital", "wards", "twork"],
+    "icon": "clock",
+    "attributes": {
+        "backgroundColor": {
+            "type": "string",
+            "default": "#f8f9fa"
+        },
+        "backgroundImage": {
+            "type": "string",
+            "default": ""
+        },
+        "backgroundImageId": {
+            "type": "number"
+        },
+        "backgroundOverlay": {
+            "type": "boolean",
+            "default": false
+        },
+        "backgroundOverlayColor": {
+            "type": "string",
+            "default": "rgba(0, 0, 0, 0.5)"
+        },
+        "backgroundOverlayOpacity": {
+            "type": "number",
+            "default": 0.5
+        },
+        "paddingTop": {
+            "type": "number",
+            "default": 80
+        },
+        "paddingBottom": {
+            "type": "number",
+            "default": 80
+        },
+        "paddingTopMobile": {
+            "type": "number",
+            "default": 60
+        },
+        "paddingBottomMobile": {
+            "type": "number",
+            "default": 60
+        },
+        "showSectionTitle": {
+            "type": "boolean",
+            "default": true
+        },
+        "sectionTitle": {
+            "type": "string",
+            "default": "Visiting Information"
+        },
+        "sectionTitleColor": {
+            "type": "string",
+            "default": "#212121"
+        },
+        "sectionTitleFontSize": {
+            "type": "number",
+            "default": 2
+        },
+        "sectionTitleFontSizeMobile": {
+            "type": "number",
+            "default": 1.6
+        },
+        "sectionTitleFontWeight": {
+            "type": "number",
+            "default": 700
+        },
+        "sectionTitleMarginBottom": {
+            "type": "number",
+            "default": 20
+        },
+        "showSectionDescription": {
+            "type": "boolean",
+            "default": true
+        },
+        "sectionDescription": {
+            "type": "string",
+            "default": "We recognize the importance of family and friends in the healing process. However, to ensure patient rest and safety, please adhere to our visiting hours."
+        },
+        "sectionDescriptionColor": {
+            "type": "string",
+            "default": "#666666"
+        },
+        "sectionDescriptionFontSize": {
+            "type": "number",
+            "default": 1
+        },
+        "sectionDescriptionMarginBottom": {
+            "type": "number",
+            "default": 30
+        },
+        "showImage": {
+            "type": "boolean",
+            "default": true
+        },
+        "imageUrl": {
+            "type": "string",
+            "default": "https://images.unsplash.com/photo-1538108149393-fbbd81895907?auto=format&fit=crop&q=80&w=800"
+        },
+        "imageId": {
+            "type": "number"
+        },
+        "imageAlt": {
+            "type": "string",
+            "default": "Reception"
+        },
+        "imageBorderRadius": {
+            "type": "number",
+            "default": 12
+        },
+        "imageBoxShadow": {
+            "type": "boolean",
+            "default": true
+        },
+        "containerMaxWidth": {
+            "type": "number",
+            "default": 1200
+        },
+        "containerPadding": {
+            "type": "number",
+            "default": 20
+        },
+        "layoutGap": {
+            "type": "number",
+            "default": 50
+        },
+        "layoutGapMobile": {
+            "type": "number",
+            "default": 30
+        },
+        "imageFirstOnMobile": {
+            "type": "boolean",
+            "default": false
+        },
+        "hoursCardBgColor": {
+            "type": "string",
+            "default": "#ffffff"
+        },
+        "hoursCardPadding": {
+            "type": "number",
+            "default": 40
+        },
+        "hoursCardBorderRadius": {
+            "type": "number",
+            "default": 12
+        },
+        "hoursCardBoxShadow": {
+            "type": "boolean",
+            "default": true
+        },
+        "animationOnScroll": {
+            "type": "boolean",
+            "default": true
+        },
+        "animationType": {
+            "type": "string",
+            "default": "fadeInUp"
+        },
+        "animationDelay": {
+            "type": "number",
+            "default": 100
+        }
+    },
+    "supports": {
+        "html": false,
+        "anchor": true,
+        "align": ["wide", "full"]
+    },
+    "textdomain": "twork-builder",
+    "editorScript": "file:./index.js",
+    "style": "file:./style-index.css"
+}

@@ -1,0 +1,32 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "twork/paediatrics-services-section",
+  "version": "1.0.0",
+  "title": "Our Services Section",
+  "category": "twork-builder",
+  "icon": "grid-view",
+  "description": "Our Services section with header and grid of service cards. Matches paediatrics-centre.html.",
+  "keywords": ["paediatrics", "services", "grid", "twork"],
+  "attributes": {
+    "backgroundColor": { "type": "string", "default": "#f8f9fa" },
+    "paddingTop": { "type": "number", "default": 80 },
+    "paddingBottom": { "type": "number", "default": 80 },
+    "containerMaxWidth": { "type": "number", "default": 1200 },
+    "containerPadding": { "type": "number", "default": 20 },
+    "showSectionHeader": { "type": "boolean", "default": true },
+    "sectionTitle": { "type": "string", "default": "Our Services" },
+    "sectionSubtitle": { "type": "string", "default": "We offer specialized services tailored to the unique needs of growing children." },
+    "sectionTitleColor": { "type": "string", "default": "#212121" },
+    "sectionSubtitleColor": { "type": "string", "default": "#666666" },
+    "sectionTitleFontSize": { "type": "number", "default": 2.2 },
+    "sectionSubtitleFontSize": { "type": "number", "default": 1.05 },
+    "minColumnWidth": { "type": "number", "default": 320 },
+    "gap": { "type": "number", "default": 30 },
+    "animationOnScroll": { "type": "boolean", "default": true }
+  },
+  "supports": { "html": false, "anchor": true, "align": ["wide", "full"] },
+  "textdomain": "twork-builder",
+  "editorScript": "file:./index.js",
+  "style": "file:./style-index.css"
+}

@@ -1,0 +1,145 @@
+// Physio Stats Section – matches physiotherapy-rehab.html .phy-container, .phy-stats-grid, .phy-stat-card
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
+
+:root {
+    --phy-primary: #f48b2a;
+    --phy-radius: 20px;
+    --phy-shadow: 0 15px 35px rgba(0, 0, 0, 0.06);
+}
+
+// === EDITOR STYLES ===
+.editor-styles-wrapper,
+.block-editor-block-list__layout,
+.wp-block-twork-phy-stats-section {
+    .twork-phy-stats-section-editor {
+        position: relative;
+        min-height: 80px;
+
+        .phy-container {
+            position: relative;
+        }
+
+        .phy-stats-grid-editor,
+        .phy-stats-grid {
+            display: grid !important;
+            width: 100% !important;
+            min-width: 0;
+
+            > .block-editor-inner-blocks {
+                display: contents !important;
+
+                > .block-editor-block-list__layout {
+                    display: contents !important;
+
+                    > .wp-block,
+                    > .block-editor-block-list__block,
+                    > [data-type="twork/phy-stat-card"] {
+                        display: flex !important;
+                        flex-direction: column !important;
+                        min-width: 0;
+                    }
+
+                    > .wp-block > .block-editor-block-list__block-edit,
+                    > .block-editor-block-list__block > .block-editor-block-list__block-edit,
+                    > [data-type="twork/phy-stat-card"] > .block-editor-block-list__block-edit {
+                        display: flex !important;
+                        flex: 1 !important;
+                        flex-direction: column !important;
+                        width: 100%;
+                    }
+
+                    > .wp-block > .block-editor-block-list__block-edit > div,
+                    > .block-editor-block-list__block > .block-editor-block-list__block-edit > div,
+                    > [data-type="twork/phy-stat-card"] > .block-editor-block-list__block-edit > div {
+                        display: flex !important;
+                        flex: 1 !important;
+                        flex-direction: column !important;
+                        width: 100%;
+                        min-width: 0;
+                    }
+                }
+            }
+        }
+
+        .phy-stat-card {
+            border: 2px dashed #e0e0e0;
+            border-radius: var(--phy-stat-card-radius, var(--phy-radius));
+
+            &.is-selected {
+                border-color: #2271b1;
+                box-shadow: 0 0 0 1px #2271b1;
+            }
+        }
+    }
+}
+
+// === FRONTEND STYLES ===
+.twork-phy-stats-section {
+    font-family: "Roboto", sans-serif;
+    position: relative;
+    overflow: hidden;
+
+    .phy-container {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 24px;
+        position: relative;
+    }
+
+    .phy-stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: var(--phy-stat-gap, 30px);
+        margin-top: 0;
+        position: relative;
+        z-index: 3;
+    }
+
+    .phy-stat-card {
+        background: #fff;
+        padding: var(--phy-stat-card-padding, 30px);
+        border-radius: var(--phy-stat-card-radius, var(--phy-radius));
+        box-shadow: var(--phy-shadow);
+        text-align: center;
+        border-bottom: var(--phy-stat-card-border-bottom, 5px solid var(--phy-primary));
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .phy-stat-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    }
+
+    .phy-stat-num {
+        font-size: 2.5rem;
+        font-weight: 900;
+        color: var(--phy-primary);
+        display: block;
+        margin-bottom: 4px;
+    }
+
+    .phy-stat-card p {
+        margin: 0;
+        font-size: 1rem;
+        color: #555;
+        line-height: 1.4;
+    }
+}
+
+// === RESPONSIVE ===
+@media (max-width: 768px) {
+    .twork-phy-stats-section {
+        .phy-stats-grid {
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 20px;
+        }
+
+        .phy-stat-num {
+            font-size: 2rem;
+        }
+
+        .phy-stat-card p {
+            font-size: 0.9rem;
+        }
+    }
+}

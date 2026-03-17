@@ -1,0 +1,40 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "twork/health-check-packages-section",
+  "version": "1.0.0",
+  "title": "Packages Section",
+  "category": "twork-builder",
+  "icon": "grid-view",
+  "description": "Our Packages section with tab filters and package cards. Matches health-check-up.html.",
+  "keywords": ["health", "checkup", "packages", "tabs", "chk", "twork"],
+  "attributes": {
+    "sectionTitle": { "type": "string", "default": "Our Packages" },
+    "sectionSubtitle": { "type": "string", "default": "Select a category to view detailed plans." },
+    "sectionTitleColor": { "type": "string", "default": "#005f73" },
+    "sectionSubtitleColor": { "type": "string", "default": "#666666" },
+    "tabs": {
+      "type": "array",
+      "default": [
+        { "label": "General Wellness", "value": "basic" },
+        { "label": "Specialized", "value": "special" },
+        { "label": "Men & Women", "value": "gender" }
+      ]
+    },
+    "backgroundColor": { "type": "string", "default": "#ffffff" },
+    "paddingTop": { "type": "number", "default": 90 },
+    "paddingBottom": { "type": "number", "default": 90 },
+    "containerMaxWidth": { "type": "number", "default": 1200 },
+    "containerPadding": { "type": "number", "default": 20 },
+    "primaryColor": { "type": "string", "default": "#f48b2a" },
+    "secondaryColor": { "type": "string", "default": "#005f73" },
+    "tabActiveBg": { "type": "string", "default": "#005f73" },
+    "tabActiveText": { "type": "string", "default": "#ffffff" },
+    "animationOnScroll": { "type": "boolean", "default": true }
+  },
+  "supports": { "html": false, "anchor": true, "align": ["wide", "full"] },
+  "textdomain": "twork-builder",
+  "editorScript": "file:./index.js",
+  "style": "file:./style-index.css",
+  "viewScript": "file:./view.js"
+}

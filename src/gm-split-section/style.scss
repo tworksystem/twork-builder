@@ -1,0 +1,141 @@
+// GM Split Section – Why Choose Jivaka (image + content, feature list, CTA)
+// Mirrors general-medicine.html .jivaka-gm-split and related styles
+
+.twork-gm-split-section {
+    --gm-orange: #f48b2a;
+    --gm-orange-hover: #e67a22;
+    --gm-dark: #212121;
+    --gm-grey: #555555;
+    --gm-radius: 12px;
+
+    .jivaka-gm-container.jivaka-gm-split {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 80px;
+        align-items: center;
+    }
+
+    .jivaka-gm-img-wrapper {
+        position: relative;
+        border-radius: var(--gm-radius);
+        overflow: hidden;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+
+        img {
+            width: 100%;
+            height: auto;
+            display: block;
+            vertical-align: middle;
+        }
+    }
+
+    .jivaka-gm-split-section h2 {
+        font-size: 2.2rem;
+        margin: 0 0 20px 0;
+        line-height: 1.2;
+        color: var(--gm-dark);
+    }
+
+    .jivaka-gm-split-section p {
+        margin: 0 0 24px 0;
+        font-size: 1.05rem;
+        line-height: 1.6;
+        color: var(--gm-grey);
+    }
+
+    .jivaka-gm-feature-list {
+        list-style: none;
+        padding: 0;
+        margin: 30px 0;
+    }
+
+    .jivaka-gm-feature-list li {
+        margin-bottom: 15px;
+        position: relative;
+        padding-left: 35px;
+        font-size: 1.1rem;
+        color: var(--gm-dark);
+        line-height: 1.5;
+    }
+
+    .jivaka-gm-feature-list li::before {
+        content: '\f00c';
+        font-family: 'Font Awesome 6 Free';
+        font-weight: 900;
+        position: absolute;
+        left: 0;
+        top: 4px;
+        color: var(--gm-orange);
+    }
+
+    .jivaka-gm-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 14px 32px;
+        border-radius: 8px;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 0.9rem;
+        letter-spacing: 1px;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        border: 1px solid transparent;
+        gap: 10px;
+        text-decoration: none;
+    }
+
+    .jivaka-gm-btn-primary {
+        background: var(--gm-orange);
+        color: #fff;
+        box-shadow: 0 8px 20px rgba(244, 139, 42, 0.3);
+    }
+
+    .jivaka-gm-btn-primary:hover {
+        background: var(--gm-orange-hover);
+        transform: translateY(-3px);
+    }
+
+    // Editor: ensure split layout in block preview
+    &.twork-gm-split-section-editor .jivaka-gm-container.jivaka-gm-split {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        align-items: start !important;
+
+        > * {
+            min-width: 0;
+        }
+    }
+}
+
+// Responsive: single column; image always first on small screens (regardless of desktop left/right)
+@media (max-width: 992px) {
+    .twork-gm-split-section .jivaka-gm-container.jivaka-gm-split {
+        grid-template-columns: 1fr !important;
+        gap: 40px !important;
+        // Image column first on mobile/tablet (even when desktop layout is "image right")
+        .gm-split-image-col {
+            order: -1;
+        }
+        .gm-split-content-col {
+            order: 0;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .twork-gm-split-section {
+        h2 {
+            font-size: 1.75rem;
+        }
+
+        .jivaka-gm-feature-list li {
+            font-size: 1rem;
+        }
+
+        .jivaka-gm-btn {
+            width: 100%;
+            justify-content: center;
+        }
+    }
+}

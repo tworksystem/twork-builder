@@ -1,0 +1,85 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "twork/tele-specialty-section",
+    "version": "1.0.0",
+    "title": "Specialty Section",
+    "category": "twork-builder",
+    "icon": "grid-view",
+    "description": "Available for Tele-Consultation section with title, description and specialty grid.",
+    "keywords": ["telemedicine", "specialty", "consultation", "grid", "twork"],
+    "attributes": {
+        "sectionPaddingTop": {
+            "type": "number",
+            "default": 100
+        },
+        "sectionPaddingBottom": {
+            "type": "number",
+            "default": 100
+        },
+        "containerMaxWidth": {
+            "type": "number",
+            "default": 1200
+        },
+        "containerPadding": {
+            "type": "number",
+            "default": 24
+        },
+        "showSectionTitle": {
+            "type": "boolean",
+            "default": true
+        },
+        "sectionTitle": {
+            "type": "string",
+            "default": "Available for Tele-Consultation"
+        },
+        "sectionSubtitle": {
+            "type": "string",
+            "default": "Not all conditions require a physical hospital visit. Save time and consult online for these specialties:"
+        },
+        "sectionTitleColor": {
+            "type": "string",
+            "default": "#212121"
+        },
+        "sectionSubtitleColor": {
+            "type": "string",
+            "default": "#555555"
+        },
+        "sectionTitleAlignment": {
+            "type": "string",
+            "default": "center"
+        },
+        "sectionTitleFontSize": {
+            "type": "number",
+            "default": 2.5
+        },
+        "sectionSubtitleFontSize": {
+            "type": "number",
+            "default": 1.1
+        },
+        "sectionHeaderMarginBottom": {
+            "type": "number",
+            "default": 60
+        },
+        "gridGap": {
+            "type": "number",
+            "default": 25
+        },
+        "minItemWidth": {
+            "type": "number",
+            "default": 220
+        },
+        "useFadeUp": {
+            "type": "boolean",
+            "default": true
+        }
+    },
+    "supports": {
+        "html": false,
+        "anchor": true,
+        "align": ["wide", "full"]
+    },
+    "textdomain": "twork-builder",
+    "editorScript": "file:./index.js",
+    "style": "file:./style-index.css"
+}

@@ -1,0 +1,266 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "twork/key-services-section",
+    "version": "1.0.0",
+    "title": "Key Services Section",
+    "category": "twork-builder",
+    "icon": "star-filled",
+    "description": "A professional key services section with icon-based service items and comprehensive customization options.",
+    "keywords": ["services", "key", "features", "icons", "grid", "twork"],
+    "supports": {
+        "html": false,
+        "align": ["full", "wide"],
+        "anchor": true
+    },
+    "attributes": {
+        "backgroundColor": {
+            "type": "string",
+            "default": "#ffffff"
+        },
+        "backgroundImage": {
+            "type": "string",
+            "default": ""
+        },
+        "backgroundImageId": {
+            "type": "number"
+        },
+        "backgroundOverlay": {
+            "type": "boolean",
+            "default": false
+        },
+        "backgroundOverlayColor": {
+            "type": "string",
+            "default": "rgba(0, 0, 0, 0.5)"
+        },
+        "backgroundOverlayOpacity": {
+            "type": "number",
+            "default": 0.5
+        },
+        "paddingTop": {
+            "type": "number",
+            "default": 80
+        },
+        "paddingBottom": {
+            "type": "number",
+            "default": 80
+        },
+        "paddingTopMobile": {
+            "type": "number",
+            "default": 60
+        },
+        "paddingBottomMobile": {
+            "type": "number",
+            "default": 60
+        },
+        "columns": {
+            "type": "number",
+            "default": 3
+        },
+        "columnsTablet": {
+            "type": "number",
+            "default": 2
+        },
+        "columnsMobile": {
+            "type": "number",
+            "default": 1
+        },
+        "gap": {
+            "type": "number",
+            "default": 30
+        },
+        "gapMobile": {
+            "type": "number",
+            "default": 30
+        },
+        "showBorder": {
+            "type": "boolean",
+            "default": false
+        },
+        "borderPosition": {
+            "type": "string",
+            "default": "vertical"
+        },
+        "borderColor": {
+            "type": "string",
+            "default": "#e0e0e0"
+        },
+        "borderColorHover": {
+            "type": "string",
+            "default": ""
+        },
+        "borderWidth": {
+            "type": "number",
+            "default": 0
+        },
+        "borderWidthMobile": {
+            "type": "number",
+            "default": 0
+        },
+        "disableAllBorders": {
+            "type": "boolean",
+            "default": true
+        },
+        "borderStyle": {
+            "type": "string",
+            "default": "solid"
+        },
+        "borderOpacity": {
+            "type": "number",
+            "default": 1
+        },
+        "showBorderDesktop": {
+            "type": "boolean",
+            "default": false
+        },
+        "showBorderTablet": {
+            "type": "boolean",
+            "default": false
+        },
+        "showBorderMobile": {
+            "type": "boolean",
+            "default": false
+        },
+        "sectionBorderWidth": {
+            "type": "number",
+            "default": 0
+        },
+        "sectionBorderColor": {
+            "type": "string",
+            "default": "#e0e0e0"
+        },
+        "sectionBorderStyle": {
+            "type": "string",
+            "default": "solid"
+        },
+        "sectionBorderRadius": {
+            "type": "number",
+            "default": 0
+        },
+        "sectionBoxShadow": {
+            "type": "boolean",
+            "default": false
+        },
+        "sectionBoxShadowColor": {
+            "type": "string",
+            "default": "rgba(0, 0, 0, 0.1)"
+        },
+        "sectionBoxShadowBlur": {
+            "type": "number",
+            "default": 10
+        },
+        "sectionBoxShadowSpread": {
+            "type": "number",
+            "default": 0
+        },
+        "sectionBoxShadowX": {
+            "type": "number",
+            "default": 0
+        },
+        "sectionBoxShadowY": {
+            "type": "number",
+            "default": 4
+        },
+        "containerMaxWidth": {
+            "type": "number",
+            "default": 1200
+        },
+        "containerPadding": {
+            "type": "number",
+            "default": 30
+        },
+        "containerPaddingMobile": {
+            "type": "number",
+            "default": 20
+        },
+        "showSectionTitle": {
+            "type": "boolean",
+            "default": false
+        },
+        "sectionTitle": {
+            "type": "string",
+            "default": "Key Services"
+        },
+        "sectionTitleColor": {
+            "type": "string",
+            "default": "#212121"
+        },
+        "sectionTitleFontSize": {
+            "type": "number",
+            "default": 2.5
+        },
+        "sectionTitleFontSizeMobile": {
+            "type": "number",
+            "default": 2
+        },
+        "sectionTitleFontWeight": {
+            "type": "number",
+            "default": 700
+        },
+        "sectionTitleAlignment": {
+            "type": "string",
+            "default": "center"
+        },
+        "sectionTitleMarginBottom": {
+            "type": "number",
+            "default": 10
+        },
+        "showSectionSubtitle": {
+            "type": "boolean",
+            "default": false
+        },
+        "sectionSubtitle": {
+            "type": "string",
+            "default": "Our comprehensive healthcare services"
+        },
+        "sectionSubtitleColor": {
+            "type": "string",
+            "default": "#666666"
+        },
+        "sectionSubtitleFontSize": {
+            "type": "number",
+            "default": 1.1
+        },
+        "sectionSubtitleFontSizeMobile": {
+            "type": "number",
+            "default": 0.95
+        },
+        "sectionSubtitleFontWeight": {
+            "type": "number",
+            "default": 400
+        },
+        "sectionSubtitleMarginBottom": {
+            "type": "number",
+            "default": 50
+        },
+        "animationOnScroll": {
+            "type": "boolean",
+            "default": true
+        },
+        "animationDelay": {
+            "type": "number",
+            "default": 100
+        },
+        "animationType": {
+            "type": "string",
+            "default": "fadeInUp"
+        },
+        "hoverEffect": {
+            "type": "boolean",
+            "default": true
+        },
+        "hoverScale": {
+            "type": "number",
+            "default": 1.05
+        },
+        "hoverTranslateY": {
+            "type": "number",
+            "default": -5
+        }
+    },
+    "textdomain": "twork-builder",
+    "editorScript": "file:./index.js",
+    "viewScript": "file:./view.js",
+    "style": "file:./style-index.css"
+}
+

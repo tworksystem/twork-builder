@@ -1,0 +1,155 @@
+// Emergency Hero (24/7) – same design as page-hero Emergency style
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
+
+.wp-block-twork-emergency-hero.em-hero,
+.em-hero.page-hero-emergency {
+    --em-primary: #f48b2a;
+    --em-hover: #d6701b;
+    --em-alert: #dc3545;
+
+    font-family: "Roboto", sans-serif;
+    position: relative;
+    height: 600px;
+    display: flex;
+    align-items: center;
+    background: #0b1c2c;
+    color: #fff;
+    overflow: hidden;
+
+    .em-hero-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.4;
+        z-index: 1;
+    }
+
+    .em-container {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 20px;
+        text-align: center;
+    }
+
+    .em-hero-content {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        text-align: center;
+    }
+
+    .em-hero-badge {
+        display: inline-block;
+        background: var(--em-alert);
+        color: #fff;
+        padding: 5px 15px;
+        border-radius: 4px;
+        font-weight: 700;
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+        letter-spacing: 1px;
+    }
+
+    .em-hero-title,
+    .em-hero h1 {
+        font-size: clamp(2.5rem, 5vw, 4.5rem);
+        margin: 0 0 20px;
+        font-weight: 900;
+        color: #fff;
+        line-height: 1.2;
+    }
+
+    .em-hero-desc,
+    .em-hero p {
+        font-size: 1.2rem;
+        opacity: 0.9;
+        max-width: 700px;
+        margin: 0 auto 40px;
+        line-height: 1.6;
+    }
+
+    .em-hero-buttons {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .em-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 14px 32px;
+        border-radius: 50px;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 0.9rem;
+        letter-spacing: 1px;
+        transition: all 0.3s;
+        cursor: pointer;
+        border: 2px solid transparent;
+        gap: 10px;
+        text-decoration: none;
+        color: inherit;
+    }
+
+    .em-btn-primary {
+        background: var(--em-primary);
+        color: #fff;
+        box-shadow: 0 5px 15px rgba(244, 139, 42, 0.3);
+    }
+
+    .em-btn-primary:hover {
+        background: var(--em-hover);
+        transform: translateY(-3px);
+        color: #fff;
+    }
+
+    .em-btn-pulse {
+        animation: em-hero-pulse 2s infinite;
+    }
+
+    .em-btn-glass {
+        background: rgba(255, 255, 255, 0.2);
+        color: #fff;
+        backdrop-filter: blur(5px);
+        border: 1px solid #fff;
+    }
+
+    .em-btn-glass:hover {
+        background: rgba(255, 255, 255, 0.3);
+        color: #fff;
+        transform: translateY(-2px);
+    }
+}
+
+@keyframes em-hero-pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(244, 139, 42, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 15px rgba(244, 139, 42, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(244, 139, 42, 0);
+    }
+}
+
+@media (max-width: 768px) {
+    .wp-block-twork-emergency-hero.em-hero,
+    .em-hero.page-hero-emergency {
+        height: 500px;
+
+        .em-hero-buttons {
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+}

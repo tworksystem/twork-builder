@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dr. Kyaw Swar - Profile | Jivaka Hospital</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <style>
+        /* --- CORE STYLES --- */
+        :root {
+            --primary-orange: #f48b2a;
+            --brand-orange-hover: #e67a22;
+            --dark-grey: #212121;
+            --medium-grey: #666;
+            --light-grey-bg: #f9f9f9;
+            --white: #ffffff;
+            --border: #e0e0e0;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Roboto", sans-serif;
+            color: var(--dark-grey);
+            line-height: 1.6;
+            background: #fff;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: 0.3s;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .jivaka-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        /* Buttons */
+        .jivaka-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 30px;
+            border-radius: 5px;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: 2px solid transparent;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: var(--primary-orange);
+            color: #fff;
+            box-shadow: 0 4px 10px rgba(244, 139, 42, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: #e67a22;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--dark-grey);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--primary-orange);
+            color: var(--primary-orange);
+        }
+
+        /* --- PROFILE HERO --- */
+        .profile-hero {
+            background: linear-gradient(135deg, #fff8f2 0%, #fff 100%);
+            padding: 60px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .profile-grid {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 50px;
+            align-items: start;
+        }
+
+        .profile-img-box {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            background: #fff;
+        }
+
+        .profile-img-box img {
+            width: 100%;
+            height: auto;
+        }
+
+        .profile-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #fff;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--primary-orange);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-info h1 {
+            font-size: 2.5rem;
+            margin: 0 0 5px 0;
+            color: var(--dark-grey);
+        }
+
+        .profile-info .designation {
+            font-size: 1.1rem;
+            color: var(--primary-orange);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .profile-specs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .spec-item {
+            background: #fff;
+            border: 1px solid #eee;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            color: var(--medium-grey);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .spec-item i {
+            color: var(--primary-orange);
+        }
+
+        .profile-bio {
+            margin-bottom: 30px;
+            font-size: 1rem;
+            color: #555;
+        }
+
+        .profile-actions {
+            display: flex;
+            gap: 15px;
+        }
+
+        /* --- TABS SECTION --- */
+        .tabs-section {
+            padding: 40px 0;
+        }
+
+        .tabs-nav {
+            display: flex;
+            border-bottom: 2px solid #eee;
+            margin-bottom: 30px;
+            gap: 20px;
+        }
+
+        .tab-btn {
+            padding: 15px 10px;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--medium-grey);
+            background: none;
+            border: none;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            transition: 0.3s;
+            position: relative;
+            bottom: -2px;
+        }
+
+        .tab-btn:hover {
+            color: var(--primary-orange);
+        }
+
+        .tab-btn.active {
+            color: var(--primary-orange);
+            border-bottom-color: var(--primary-orange);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Schedule Table */
+        .schedule-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #fff;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-top: 20px;
+        }
+
+        .schedule-table th,
+        .schedule-table td {
+            padding: 15px 20px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        .schedule-table th {
+            background: #f9f9f9;
+            color: var(--dark-grey);
+            font-weight: 700;
+            width: 30%;
+        }
+
+        .available-tag {
+            display: inline-block;
+            background: #e6fffa;
+            color: #00b894;
+            padding: 3px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+
+        /* Booking Sidebar */
+        .booking-sidebar {
+            background: #fff;
+            border: 1px solid #eee;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 100px;
+        }
+
+        /* Mobile Specifics */
+        @media (max-width: 992px) {
+            .profile-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .profile-img-box {
+                max-width: 300px;
+                margin: 0 auto;
+            }
+
+            .profile-info {
+                text-align: center;
+            }
+
+            .profile-specs {
+                justify-content: center;
+            }
+
+            .profile-actions {
+                justify-content: center;
+            }
+
+            .booking-sidebar {
+                display: none;
+            }
+
+            /* Use mobile bar instead */
+        }
+
+        .mobile-booking-bar {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: #fff;
+            padding: 15px 20px;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 2000;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        @media (max-width: 992px) {
+            .mobile-booking-bar {
+                display: flex;
+            }
+        }
+
+        /* Remove default opacity 0 to ensure visibility if JS fails */
+        .animate-up {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="profile-hero">
+        <div class="jivaka-container profile-grid">
+            <div class="profile-img-box animate-item">
+                <img src="https://jivakahospital.com/wp-content/uploads/2025/12/img-team-member-01.jpg" alt="Dr. Kyaw Swar">
+                <span class="profile-badge"><i class="fas fa-check-circle"></i> Available Today</span>
+            </div>
+
+            <div class="profile-info animate-item">
+                <h1>Dr. Kyaw Swar</h1>
+                <span class="designation">Interventional Cardiologist</span>
+
+                <div class="profile-specs">
+                    <div class="spec-item"><i class="fas fa-graduation-cap"></i> MBBS, M.Med.Sc, MRCP (UK)</div>
+                    <div class="spec-item"><i class="fas fa-briefcase"></i> 15+ Years Experience</div>
+                    <div class="spec-item"><i class="fas fa-language"></i> English, Myanmar</div>
+                </div>
+
+                <p class="profile-bio">
+                    Dr. Kyaw Swar is a highly skilled Interventional Cardiologist specializing in coronary angioplasty, pacemaker
+                    implantation, and heart failure management. Dedicated to patient-centered care using the latest medical technologies.
+                </p>
+
+                <div class="profile-actions">
+                    <a href="#book" class="jivaka-btn btn-primary">Book Appointment</a>
+                    <a href="#" class="jivaka-btn btn-outline">Share Profile</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="jivaka-container" style="padding-bottom: 80px; margin-top: 40px;">
+        <div class="profile-grid">
+
+            <div class="main-content animate-item">
+                <div class="tabs-nav">
+                    <button class="tab-btn active" onclick="openTab(event, 'schedule')">OPD Schedule</button>
+                    <button class="tab-btn" onclick="openTab(event, 'experience')">Experience</button>
+                </div>
+
+                <div id="schedule" class="tab-content active">
+                    <h3 style="margin-bottom: 20px;">Weekly Schedule</h3>
+                    <table class="schedule-table">
+                        <tr>
+                            <th>Monday</th>
+                            <td>09:00 AM - 12:00 PM <span class="available-tag">Confirmed</span></td>
+                        </tr>
+                        <tr>
+                            <th>Wednesday</th>
+                            <td>02:00 PM - 05:00 PM</td>
+                        </tr>
+                        <tr>
+                            <th>Friday</th>
+                            <td>09:00 AM - 12:00 PM</td>
+                        </tr>
+                        <tr>
+                            <th>Saturday</th>
+                            <td>04:00 PM - 06:00 PM</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div id="experience" class="tab-content">
+                    <h3 style="margin-bottom: 20px;">Education & Career</h3>
+                    <ul style="list-style: disc; padding-left: 20px; color: var(--medium-grey);">
+                        <li><strong>2015 - Present:</strong> Senior Consultant Cardiologist, Jivaka Hospital</li>
+                        <li><strong>2008:</strong> MRCP (UK), Royal College of Physicians</li>
+                        <li><strong>2003:</strong> MBBS, University of Medicine 1, Yangon</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="booking-sidebar animate-item" id="book">
+                <h3 style="color: var(--primary-orange);">Book Appointment</h3>
+                <p>Consultation Fee: <strong>25,000 MMK</strong></p>
+                <form>
+                    <div style="margin-bottom: 15px;">
+                        <label style="font-size: 0.8rem; font-weight: 700; display: block; margin-bottom: 5px;">Date</label>
+                        <input type="date" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
+                    </div>
+                    <div style="margin-bottom: 20px;">
+                        <label style="font-size: 0.8rem; font-weight: 700; display: block; margin-bottom: 5px;">Name</label>
+                        <input type="text" placeholder="Patient Name"
+                            style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
+                    </div>
+                    <button type="button" class="jivaka-btn btn-primary" style="width: 100%;">Confirm Booking</button>
+                </form>
+                <p style="font-size: 0.8rem; margin-top: 15px; text-align: center;">Hotline: 09-789 101 101</p>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="mobile-booking-bar">
+        <div>
+            <div style="font-weight: 700; font-size: 1.1rem;">25,000 MMK</div>
+            <span style="font-size: 0.75rem; color: #666;">Consultation Fee</span>
+        </div>
+        <a href="#book" class="jivaka-btn btn-primary">Book Now</a>
+    </div>
+
+    <script>
+        // GSAP Animation: Apply 'from' animation so default is visible
+        document.addEventListener("DOMContentLoaded", function () {
+            gsap.registerPlugin(ScrollTrigger);
+            gsap.from(".animate-item", {
+                y: 30,
+                opacity: 0,
+                duration: 0.8,
+                stagger: 0.2,
+                ease: "power2.out",
+                clearProps: "all" // Clears inline styles after animation
+            });
+        });
+
+        // Tab Logic
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+                tabcontent[i].classList.remove("active");
+            }
+            tablinks = document.getElementsByClassName("tab-btn");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            setTimeout(() => { document.getElementById(tabName).classList.add("active"); }, 10);
+            evt.currentTarget.className += " active";
+        }
+    </script>
+</body>
+
+</html>

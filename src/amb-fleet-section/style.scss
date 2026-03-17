@@ -1,0 +1,284 @@
+// Ambulance Fleet Section – variables aligned with ambulance-service.html
+:root {
+    --amb-primary: #f48b2a;
+    --amb-dark: #0f172a;
+    --amb-light: #f1f5f9;
+    --amb-radius: 8px;
+    --amb-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+// === EDITOR STYLES ===
+.editor-styles-wrapper,
+.block-editor-block-list__layout,
+.wp-block-twork-amb-fleet-section {
+    .twork-amb-fleet-section-editor {
+        position: relative;
+        min-height: 200px;
+
+        .background-overlay {
+            pointer-events: none;
+        }
+
+        .section-header.amb-fleet-header {
+            h2,
+            p {
+                &[contenteditable="true"]:focus {
+                    outline: 1px dashed #2271b1;
+                    outline-offset: 2px;
+                }
+            }
+        }
+
+        .twork-amb-fleet-grid-container {
+            display: grid !important;
+            width: 100% !important;
+
+            > .block-editor-inner-blocks {
+                display: contents !important;
+
+                > .block-editor-block-list__layout {
+                    display: contents !important;
+
+                    > .wp-block,
+                    > [data-type="twork/amb-fleet-card-item"] {
+                        display: flex !important;
+                        flex-direction: column !important;
+                        min-height: 320px;
+                        transition: all 0.2s ease;
+
+                        &:hover {
+                            border-color: #2271b1;
+                            box-shadow: 0 4px 12px rgba(34, 113, 177, 0.1);
+                            z-index: 1;
+                        }
+
+                        &.is-selected {
+                            border-color: #2271b1;
+                            box-shadow: 0 0 0 1px #2271b1;
+                            z-index: 2;
+                        }
+                    }
+                }
+            }
+
+            .editor-label {
+                grid-column: 1 / -1;
+            }
+        }
+    }
+}
+
+.twork-amb-fleet-card-item-editor {
+    .amb-fleet-info {
+        h3,
+        p {
+            &[contenteditable="true"]:focus {
+                outline: 1px dashed #2271b1;
+                outline-offset: 2px;
+            }
+        }
+    }
+}
+
+// === FRONTEND STYLES ===
+.twork-amb-fleet-section.amb-fleet-section {
+    font-family: "Roboto", sans-serif;
+    position: relative;
+    overflow: hidden;
+
+    .background-overlay {
+        pointer-events: none;
+    }
+
+    .amb-container.jivaka-container {
+        position: relative;
+        z-index: 2;
+    }
+
+    .section-header.amb-fleet-header,
+    .amb-header {
+        .section-title {
+            margin: 0;
+            line-height: 1.2;
+        }
+
+        .section-subtitle {
+            margin: 0;
+            line-height: 1.6;
+        }
+    }
+
+    .amb-fleet-grid.twork-amb-fleet-grid {
+        display: grid;
+        width: 100%;
+    }
+
+    // Fleet card
+    .amb-fleet-card.twork-amb-fleet-card {
+        position: relative;
+        background: #fff;
+        border-radius: var(--amb-radius);
+        overflow: hidden;
+        box-shadow: var(--amb-shadow);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        display: flex;
+        flex-direction: column;
+
+        &:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 24px 48px rgba(0, 0, 0, 0.18);
+        }
+    }
+
+    .amb-fleet-img {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+        display: block;
+    }
+
+    .amb-fleet-badge {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        z-index: 2;
+        padding: 5px 15px;
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        font-weight: 700;
+        color: #fff;
+    }
+
+    .amb-fleet-info {
+        padding: 40px;
+        flex: 1;
+
+        h3 {
+            margin: 0 0 15px 0;
+            line-height: 1.3;
+            color: var(--amb-dark);
+        }
+
+        p {
+            margin: 0 0 20px 0;
+            line-height: 1.6;
+        }
+    }
+
+    .amb-fleet-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        i {
+            color: var(--amb-primary);
+            flex-shrink: 0;
+        }
+    }
+
+    // Scroll animation (optional, when data-animation="true")
+    &[data-animation="true"] {
+        .amb-fleet-card.twork-amb-fleet-card {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+
+            &.is-visible {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    }
+
+    .amb-fleet-card.twork-amb-fleet-card {
+        &:nth-child(1) {
+            transition-delay: 0.1s;
+        }
+        &:nth-child(2) {
+            transition-delay: 0.2s;
+        }
+        &:nth-child(3) {
+            transition-delay: 0.3s;
+        }
+        &:nth-child(4) {
+            transition-delay: 0.4s;
+        }
+    }
+}
+
+// === RESPONSIVE ===
+@media (max-width: 992px) {
+    .twork-amb-fleet-section.amb-fleet-section {
+        .amb-fleet-grid.twork-amb-fleet-grid {
+            grid-template-columns: 1fr !important;
+        }
+
+        .amb-fleet-info {
+            padding: 30px;
+        }
+    }
+
+    .editor-styles-wrapper .twork-amb-fleet-section-editor .twork-amb-fleet-grid-container {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .twork-amb-fleet-section.amb-fleet-section {
+        padding: 60px 0 100px;
+
+        .section-header.amb-fleet-header .section-title {
+            font-size: 2rem !important;
+        }
+
+        .section-subtitle {
+            font-size: 1rem !important;
+        }
+
+        .amb-fleet-grid.twork-amb-fleet-grid {
+            margin-top: 30px;
+            gap: 30px;
+        }
+
+        .amb-fleet-img {
+            height: 250px;
+        }
+
+        .amb-fleet-info {
+            padding: 25px;
+
+            h3 {
+                font-size: 1.3rem !important;
+            }
+        }
+    }
+}
+
+// === ACCESSIBILITY ===
+.amb-fleet-card.twork-amb-fleet-card {
+    &:focus-visible {
+        outline: 3px solid var(--amb-primary);
+        outline-offset: 2px;
+    }
+}
+
+// === PRINT ===
+@media print {
+    .twork-amb-fleet-section.amb-fleet-section {
+        clip-path: none !important;
+        padding-bottom: 60px !important;
+
+        .amb-fleet-card.twork-amb-fleet-card {
+            box-shadow: none;
+            border: 1px solid #ddd;
+            page-break-inside: avoid;
+        }
+    }
+}

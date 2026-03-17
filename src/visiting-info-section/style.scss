@@ -1,0 +1,256 @@
+// Google Fonts
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;600;700;900&display=swap");
+
+// Variables
+:root {
+    --primary-orange: #f48b2a;
+    --dark-grey: #212121;
+    --medium-grey: #666;
+    --light-grey-bg: #f8f9fa;
+    --white-color: #ffffff;
+    --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.1);
+    --radius: 12px;
+}
+
+// === EDITOR STYLES ===
+.editor-styles-wrapper,
+.block-editor-block-list__layout,
+.wp-block-twork-visiting-info-section {
+    .twork-visiting-info-section-editor {
+        position: relative;
+        min-height: 200px;
+
+        .info-layout {
+            display: grid !important;
+            grid-template-columns: 1fr 1fr !important;
+            gap: var(--layout-gap, 50px) !important;
+            align-items: center !important;
+
+            @media (max-width: 768px) {
+                grid-template-columns: 1fr !important;
+                gap: var(--layout-gap-mobile, 30px) !important;
+            }
+        }
+
+        .info-content {
+            .info-header {
+                h2,
+                p {
+                    &[contenteditable="true"]:focus {
+                        outline: 1px dashed #2271b1;
+                        outline-offset: 2px;
+                    }
+                }
+            }
+        }
+
+        .hours-card {
+            position: relative;
+
+            > .block-editor-inner-blocks {
+                display: block !important;
+
+                > .block-editor-block-list__layout {
+                    display: flex !important;
+                    flex-direction: column !important;
+                    gap: 0 !important;
+
+                    > .wp-block,
+                    > [data-type="twork/visiting-hours-item"] {
+                        width: 100% !important;
+                    }
+                }
+            }
+        }
+
+        .info-img-placeholder {
+            min-height: 280px;
+            border: 2px dashed #ccc;
+            border-radius: 12px;
+        }
+    }
+}
+
+// === FRONTEND STYLES ===
+.twork-visiting-info-section {
+    font-family: "Roboto", sans-serif;
+    position: relative;
+    overflow: hidden;
+
+    .background-overlay {
+        pointer-events: none;
+    }
+
+    .jivaka-container {
+        position: relative;
+        z-index: 2;
+    }
+
+    .info-layout {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--layout-gap, 50px);
+        align-items: center;
+
+        &[data-image-first-mobile="true"] {
+            @media (max-width: 768px) {
+                .info-img {
+                    order: -1;
+                }
+            }
+        }
+    }
+
+    .info-content {
+        .info-header {
+            .info-section-title {
+                margin: 0 0 20px 0;
+                line-height: 1.2;
+            }
+
+            .info-section-description {
+                margin: 0 0 30px 0;
+                line-height: 1.6;
+                color: var(--medium-grey, #666);
+            }
+        }
+    }
+
+    .hours-card {
+        background: var(--white-color);
+        padding: 40px;
+        border-radius: var(--radius);
+        box-shadow: var(--shadow-lg);
+    }
+
+    .hours-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 0;
+        border-bottom: 1px dashed #eee;
+        gap: 16px;
+        flex-wrap: wrap;
+
+        &:last-child {
+            border-bottom: none;
+        }
+
+        .ward-name {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--dark-grey);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex: 1;
+            min-width: 0;
+
+            i {
+                color: var(--primary-orange);
+                flex-shrink: 0;
+            }
+        }
+
+        .time-slot {
+            font-weight: 500;
+            color: #555;
+            background: #f0f0f0;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+    }
+
+    .info-img {
+        img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+        }
+    }
+}
+
+// === RESPONSIVE STYLES ===
+@media (max-width: 992px) {
+    .twork-visiting-info-section {
+        .info-layout {
+            gap: 40px;
+        }
+
+        .hours-card {
+            padding: 30px;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .twork-visiting-info-section {
+        padding-top: var(--padding-top-mobile, 60px) !important;
+        padding-bottom: var(--padding-bottom-mobile, 60px) !important;
+
+        .info-layout {
+            grid-template-columns: 1fr !important;
+            gap: var(--layout-gap-mobile, 30px) !important;
+        }
+
+        .info-content {
+            .info-header {
+                .info-section-title {
+                    font-size: var(--title-font-size-mobile, 1.6rem) !important;
+                }
+
+                .info-section-description {
+                    font-size: 0.95rem !important;
+                }
+            }
+        }
+
+        .hours-card {
+            padding: 24px;
+        }
+
+        .hours-row {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 10px;
+
+            .ward-name {
+                font-size: 1rem;
+            }
+
+            .time-slot {
+                font-size: 0.85rem;
+            }
+        }
+
+        .info-img {
+            order: 0;
+        }
+    }
+}
+
+// === ANIMATION (fade-up) ===
+// Content is visible by default. When view script adds .is-visible on scroll, animation plays.
+// Without view script, content stays visible (no opacity:0 to avoid invisible content).
+.twork-visiting-info-section {
+    .fade-up {
+        opacity: 1;
+        transform: translateY(0);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    &[data-animation="true"] {
+        .fade-up:not(.is-visible) {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .fade-up.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+}

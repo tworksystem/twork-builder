@@ -1,0 +1,28 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "twork/tele-specialty-item",
+    "title": "Specialty Item",
+    "parent": ["twork/tele-specialty-section"],
+    "category": "twork-builder",
+    "icon": "admin-generic",
+    "description": "Single specialty card (icon + title) for Tele Specialty section.",
+    "keywords": ["specialty", "telemedicine", "card", "icon", "twork"],
+    "attributes": {
+        "iconClass": {
+            "type": "string",
+            "default": "fas fa-stethoscope"
+        },
+        "title": {
+            "type": "string",
+            "default": "General Medicine"
+        }
+    },
+    "supports": {
+        "html": false,
+        "reusable": false
+    },
+    "textdomain": "twork-builder",
+    "editorScript": "file:./index.js",
+    "style": "file:./style-index.css"
+}

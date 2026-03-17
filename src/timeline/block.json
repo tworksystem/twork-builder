@@ -3,7 +3,7 @@
     "apiVersion": 3,
     "name": "twork/timeline",
     "version": "1.0.0",
-    "title": "Twork Timeline",
+    "title": "Timeline",
     "category": "twork-builder",
     "icon": "networking",
     "description": "Professional timeline section with accordion functionality for displaying milestones and events.",

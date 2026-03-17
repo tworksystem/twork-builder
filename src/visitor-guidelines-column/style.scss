@@ -1,0 +1,10 @@
+// Visitor Guidelines Column – editor-only; frontend .guide-col styles live in visitor-guidelines-section
+
+.editor-styles-wrapper {
+    .twork-visitor-guidelines-column-editor {
+        .guide-title [contenteditable="true"]:focus {
+            outline: 1px dashed #2271b1;
+            outline-offset: 2px;
+        }
+    }
+}

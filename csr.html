@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSR | Jivaka Hospital</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <style>
+        /* --- 1. CORE VARIABLES --- */
+        :root {
+            --primary-orange: #f48b2a;
+            --brand-orange-hover: #e67a22;
+            --dark-grey: #212121;
+            --medium-grey: #666;
+            --light-grey-bg: #f8f9fa;
+            --white: #ffffff;
+            --border: #e0e0e0;
+            --radius: 12px;
+            --shadow-sm: 0 5px 15px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Roboto", sans-serif;
+            color: var(--dark-grey);
+            line-height: 1.6;
+            background: #fff;
+            overflow-x: hidden;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        body.loaded {
+            opacity: 1;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: 0.3s;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .jivaka-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        /* Buttons */
+        .jivaka-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 28px;
+            border-radius: 6px;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 0.8px;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            cursor: pointer;
+            border: 1px solid transparent;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: var(--primary-orange);
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(244, 139, 42, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: var(--brand-orange-hover);
+            transform: translateY(-2px);
+        }
+
+        /* --- 2. HERO SECTION --- */
+        .page-hero {
+            position: relative;
+            height: 450px;
+            display: flex;
+            align-items: center;
+            background-color: #0b1c2c;
+            color: #fff;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.5;
+            object-position: center;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            text-align: center;
+        }
+
+        .hero-breadcrumb {
+            display: inline-block;
+            padding: 6px 16px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            border-radius: 50px;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 900;
+            margin: 0 0 15px 0;
+            text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* --- 3. IMPACT STATS --- */
+        .stats-section {
+            background: var(--light-grey-bg);
+            margin-top: -60px;
+            /* Overlap hero */
+            position: relative;
+            z-index: 5;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-md);
+            max-width: 1100px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 40px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 2.5rem;
+            color: var(--primary-orange);
+            margin: 0;
+            font-weight: 900;
+        }
+
+        .stat-item p {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--dark-grey);
+            text-transform: uppercase;
+            margin-top: 5px;
+        }
+
+        /* --- 4. INITIATIVES (CARDS) --- */
+        .intro-text {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 60px;
+        }
+
+        .intro-text h2 {
+            font-size: 2.2rem;
+            color: var(--dark-grey);
+            margin-bottom: 20px;
+        }
+
+        .intro-text p {
+            color: var(--medium-grey);
+            font-size: 1.1rem;
+        }
+
+        .initiatives-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .initiative-card {
+            background: #fff;
+            border: 1px solid #eee;
+            border-radius: var(--radius);
+            overflow: hidden;
+            transition: 0.4s ease;
+        }
+
+        .initiative-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary-orange);
+        }
+
+        .init-img-wrap {
+            height: 220px;
+            overflow: hidden;
+        }
+
+        .init-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+
+        .initiative-card:hover .init-img-wrap img {
+            transform: scale(1.1);
+        }
+
+        .init-content {
+            padding: 30px;
+        }
+
+        .init-icon {
+            color: var(--primary-orange);
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            background: #fff3e0;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+
+        .init-content h3 {
+            margin: 0 0 10px;
+            font-size: 1.3rem;
+            color: var(--dark-grey);
+        }
+
+        .init-content p {
+            color: var(--medium-grey);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+
+        /* --- 5. UPCOMING EVENTS --- */
+        .event-card {
+            display: flex;
+            background: #fff;
+            border: 1px solid #eee;
+            border-radius: var(--radius);
+            overflow: hidden;
+            margin-bottom: 20px;
+            transition: 0.3s;
+        }
+
+        .event-card:hover {
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary-orange);
+        }
+
+        .event-date {
+            background: var(--primary-orange);
+            color: #fff;
+            width: 100px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+            flex-shrink: 0;
+        }
+
+        .event-date span {
+            display: block;
+        }
+
+        .date-day {
+            font-size: 1.8rem;
+            font-weight: 900;
+            line-height: 1;
+        }
+
+        .date-month {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+
+        .event-details {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .event-info h4 {
+            margin: 0 0 5px 0;
+            font-size: 1.2rem;
+        }
+
+        .event-info p {
+            margin: 0;
+            color: var(--medium-grey);
+            font-size: 0.95rem;
+        }
+
+        /* --- 6. GALLERY --- */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-top: 40px;
+        }
+
+        .gallery-item {
+            height: 250px;
+            border-radius: var(--radius);
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .gallery-item:nth-child(1) {
+            grid-column: span 2;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.4s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+            filter: brightness(0.8);
+        }
+
+        /* --- LIGHTBOX (IMAGE PREVIEW) STYLES --- */
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: 0.3s;
+            padding: 20px;
+        }
+
+        .lightbox.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90vh;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            object-fit: contain;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 2.5rem;
+            color: #fff;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 10px;
+        }
+
+        .lightbox-close:hover {
+            color: var(--primary-orange);
+        }
+
+        /* --- 7. PARTNERS LOGO GRID --- */
+        .logo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 40px;
+            align-items: center;
+            justify-items: center;
+            margin-top: 40px;
+        }
+
+        .partner-logo {
+            max-width: 120px;
+            opacity: 0.6;
+            filter: grayscale(100%);
+            transition: 0.4s;
+            object-fit: contain;
+            max-height: 60px;
+        }
+
+        .partner-logo:hover {
+            opacity: 1;
+            filter: grayscale(0%);
+            transform: scale(1.05);
+        }
+
+        /* Animation Classes */
+        .fade-up,
+        .stagger-card,
+        .stagger-img,
+        .stagger-event {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .stats-section {
+                margin-top: 0;
+                border-radius: 0;
+                background: #fff;
+                padding: 60px 20px;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .event-card {
+                flex-direction: column;
+            }
+
+            .event-date {
+                width: 100%;
+                padding: 15px;
+                flex-direction: row;
+                gap: 10px;
+            }
+
+            .date-day {
+                font-size: 1.5rem;
+            }
+
+            .event-details {
+                padding: 20px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .page-hero {
+                height: 350px;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-item:nth-child(1) {
+                grid-column: span 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="lightbox" class="lightbox">
+        <button class="lightbox-close">&times;</button>
+        <img id="lightbox-img" src="" alt="Preview">
+    </div>
+
+    <header class="page-hero">
+        <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=1920&q=80" alt="Community Care"
+            class="hero-bg"
+            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.5; z-index: 0;">
+
+        <div class="jivaka-container hero-content animate-hero">
+            <span class="hero-breadcrumb">Giving Back</span>
+            <h1 class="hero-title">Community & CSR</h1>
+            <p class="hero-subtitle">Jivaka Hospital is dedicated to improving the health and well-being of the communities we serve across
+                Myanmar.</p>
+        </div>
+    </header>
+
+    <div class="jivaka-container">
+        <div class="stats-section fade-up">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>50+</h3>
+                    <p>Rural Medical Camps</p>
+                </div>
+                <div class="stat-item">
+                    <h3>10k+</h3>
+                    <p>Patients Screened</p>
+                </div>
+                <div class="stat-item">
+                    <h3>200+</h3>
+                    <p>Free Surgeries</p>
+                </div>
+                <div class="stat-item">
+                    <h3>1.5k</h3>
+                    <p>Units of Blood Donated</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="section-padding">
+        <div class="jivaka-container">
+
+            <div class="intro-text fade-up">
+                <h2>Our Core Initiatives</h2>
+                <p>We focus on sustainable health projects that provide long-term benefits to underprivileged communities.</p>
+            </div>
+
+            <div class="initiatives-grid">
+                <div class="initiative-card stagger-card">
+                    <div class="init-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1581056771107-24ca5f033842?auto=format&fit=crop&w=600&q=80"
+                            alt="Mobile Clinic">
+                    </div>
+                    <div class="init-content">
+                        <div class="init-icon"><i class="fas fa-ambulance"></i></div>
+                        <h3>Mobile Medical Clinics</h3>
+                        <p>Our teams travel to remote villages in Mandalay Region to provide free check-ups, basic medicines, and health
+                            education.</p>
+                    </div>
+                </div>
+
+                <div class="initiative-card stagger-card">
+                    <div class="init-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=600&q=80" alt="Surgery">
+                    </div>
+                    <div class="init-content">
+                        <div class="init-icon"><i class="fas fa-heart"></i></div>
+                        <h3>Charity Surgeries</h3>
+                        <p>We partner with local NGOs to perform free cleft lip, palate, and cataract surgeries for children and elderly in
+                            need.</p>
+                    </div>
+                </div>
+
+                <div class="initiative-card stagger-card">
+                    <div class="init-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1536856136534-bb679c52a9aa?auto=format&fit=crop&w=600&q=80"
+                            alt="Blood Donation">
+                    </div>
+                    <div class="init-content">
+                        <div class="init-icon"><i class="fas fa-hand-holding-heart"></i></div>
+                        <h3>Blood Donation Drives</h3>
+                        <p>Quarterly blood donation camps organized with our staff and public volunteers to support the National Blood Bank.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="section-padding" style="background-color: var(--light-grey-bg);">
+        <div class="jivaka-container">
+            <div class="intro-text fade-up">
+                <h2>Upcoming CSR Events</h2>
+                <p>Join us in our upcoming missions to serve the community.</p>
+            </div>
+
+            <div class="event-card stagger-event">
+                <div class="event-date">
+                    <span class="date-day">15</span>
+                    <span class="date-month">Nov</span>
+                </div>
+                <div class="event-details">
+                    <div class="event-info">
+                        <h4>Free Eye Check-up Camp</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Kyaukse Township &nbsp;|&nbsp; <i class="fas fa-clock"></i> 8:00 AM - 4:00
+                            PM</p>
+                    </div>
+                    <a href="#" class="jivaka-btn btn-primary" style="font-size: 0.75rem; padding: 10px 20px;">Volunteer</a>
+                </div>
+            </div>
+
+            <div class="event-card stagger-event">
+                <div class="event-date">
+                    <span class="date-day">05</span>
+                    <span class="date-month">Dec</span>
+                </div>
+                <div class="event-details">
+                    <div class="event-info">
+                        <h4>Annual Blood Donation Drive</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Jivaka Hospital Main Hall &nbsp;|&nbsp; <i class="fas fa-clock"></i> 9:00
+                            AM - 3:00 PM</p>
+                    </div>
+                    <a href="#" class="jivaka-btn btn-primary" style="font-size: 0.75rem; padding: 10px 20px;">Register</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding">
+        <div class="jivaka-container">
+            <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 20px;">
+                <h2 style="margin: 0; font-size: 2rem; color: var(--dark-grey);">Moments of Care</h2>
+                <a href="#" style="color: var(--primary-orange); font-weight: 700;">View All Photos <i class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <div class="gallery-grid">
+                <div class="gallery-item stagger-img">
+                    <img src="https://images.unsplash.com/photo-1544027993-37dbfe43562a?auto=format&fit=crop&w=800&q=80" alt="Community 1">
+                </div>
+                <div class="gallery-item stagger-img">
+                    <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=500&q=80"
+                        alt="Community 2">
+                </div>
+                <div class="gallery-item stagger-img">
+                    <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=500&q=80"
+                        alt="Community 3">
+                </div>
+                <div class="gallery-item stagger-img">
+                    <img src="https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=500&q=80"
+                        alt="Community 4">
+                </div>
+                <div class="gallery-item stagger-img">
+                    <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=500&q=80"
+                        alt="Community 5">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding" style="background-color: var(--light-grey-bg); text-align: center;">
+        <div class="jivaka-container">
+            <h3 style="margin-bottom: 40px; color: var(--medium-grey); text-transform: uppercase; letter-spacing: 1px; font-size: 1rem;">In
+                Collaboration With</h3>
+            <div class="logo-grid fade-up">
+                <img src="https://cdn-icons-png.flaticon.com/512/2913/2913520.png" class="partner-logo" alt="Red Cross">
+                <img src="https://cdn-icons-png.flaticon.com/512/2966/2966334.png" class="partner-logo" alt="WHO">
+                <img src="https://cdn-icons-png.flaticon.com/512/4320/4320350.png" class="partner-logo" alt="Local NGO">
+                <img src="https://cdn-icons-png.flaticon.com/512/3063/3063822.png" class="partner-logo" alt="Charity Foundation">
+                <img src="https://cdn-icons-png.flaticon.com/512/3209/3209265.png" class="partner-logo" alt="Community Health">
+            </div>
+        </div>
+    </section>
+
+    <div style="background: var(--dark-grey); color: #fff; padding: 60px 0; text-align: center;">
+        <div class="jivaka-container fade-up">
+            <h2 style="margin-top: 0;">Join Our Mission</h2>
+            <p style="opacity: 0.8; margin-bottom: 30px; max-width: 600px; margin-left: auto; margin-right: auto;">
+                Are you a medical professional or a volunteer who wants to make a difference? Join our next CSR mission.
+            </p>
+            <a href="contact.html" class="jivaka-btn btn-primary">Become a Volunteer</a>
+        </div>
+    </div>
+
+    <script>
+        window.addEventListener("load", function () {
+            gsap.registerPlugin(ScrollTrigger);
+            document.body.classList.add('loaded');
+
+            // --- 1. GSAP ANIMATIONS ---
+            // Hero Animation
+            const tl = gsap.timeline();
+            tl.fromTo(".animate-hero > *",
+                { y: 40, opacity: 0 },
+                { y: 0, opacity: 1, duration: 1, stagger: 0.2, ease: "power3.out" }
+            );
+
+            // Section Fade Ups
+            const fadeUps = gsap.utils.toArray('.fade-up');
+            fadeUps.forEach(el => {
+                gsap.fromTo(el,
+                    { y: 50, opacity: 0, autoAlpha: 0 },
+                    {
+                        y: 0, opacity: 1, autoAlpha: 1, duration: 0.8, ease: "power2.out",
+                        scrollTrigger: { trigger: el, start: "top 85%" }
+                    }
+                );
+            });
+
+            // Staggered Items
+            ScrollTrigger.batch(".stagger-card, .stagger-event, .stagger-img", {
+                start: "top 90%",
+                onEnter: batch => gsap.fromTo(batch,
+                    { y: 40, opacity: 0, autoAlpha: 0 },
+                    { y: 0, opacity: 1, autoAlpha: 1, stagger: 0.15, duration: 0.6, ease: "power2.out" }
+                ),
+                once: true
+            });
+
+            // --- 2. LIGHTBOX LOGIC ---
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const lightboxClose = document.querySelector('.lightbox-close');
+            const galleryImages = document.querySelectorAll('.gallery-item img'); // Only target gallery images
+
+            // Open Lightbox
+            galleryImages.forEach(img => {
+                img.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    lightboxImg.src = img.src;
+                    lightbox.classList.add('active');
+                });
+            });
+
+            // Close Lightbox functions
+            const closeLightbox = () => {
+                lightbox.classList.remove('active');
+                setTimeout(() => { lightboxImg.src = ''; }, 300); // Clear src after fade out
+            };
+
+            lightboxClose.addEventListener('click', closeLightbox);
+
+            // Close on background click
+            lightbox.addEventListener('click', (e) => {
+                if (e.target === lightbox) {
+                    closeLightbox();
+                }
+            });
+
+            // Close on Escape key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+                    closeLightbox();
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

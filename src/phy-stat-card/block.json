@@ -1,0 +1,27 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "twork/phy-stat-card",
+  "version": "1.0.0",
+  "title": "Stat Card",
+  "category": "twork-builder",
+  "parent": ["twork/phy-stats-section"],
+  "icon": "minus",
+  "description": "Single stat card: number + label (e.g. 5k+ Happy Patients). Use inside Physio Stats Section.",
+  "keywords": ["physio", "stat", "card", "number", "twork"],
+  "attributes": {
+    "statNumber": {
+      "type": "string",
+      "default": "5k+"
+    },
+    "label": {
+      "type": "string",
+      "default": "Happy Patients"
+    }
+  },
+  "supports": {
+    "html": false
+  },
+  "textdomain": "twork-builder",
+  "editorScript": "file:./index.js"
+}

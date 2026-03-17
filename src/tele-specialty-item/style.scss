@@ -1,0 +1,15 @@
+// Tele Specialty Item – child block (used inside tele-specialty-section)
+// Main card styles live in parent; this file can add wrapper or overrides.
+
+.twork-tele-specialty-item-wrapper {
+    min-width: 0;
+}
+
+.twork-tele-specialty-section .specialty-grid .twork-tele-specialty-item-wrapper .specialty-item {
+    display: block;
+    height: 100%;
+}
+
+.twork-tele-specialty-section .specialty-item h5 {
+    margin: 0;
+}

@@ -1,0 +1,1709 @@
+// Good News Section Styles
+// Professional newsletter subscription section with split layout
+
+// Google Fonts
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;600;700;900&display=swap");
+
+// Variables
+:root {
+    --primary-orange: #f48b2a;
+    --dark-grey: #212121;
+    --medium-grey: #666;
+    --light-grey-bg: #f9f9f9;
+    --white-color: #ffffff;
+    --border-color: #e0e0e0;
+}
+
+// Global highlight styles for better specificity
+.highlight-red,
+span.highlight-red,
+.good-news-heading .highlight-red,
+h2.highlight-red,
+h2 .highlight-red {
+    font-weight: var(--highlight-font-weight, 900) !important;
+    color: var(--highlight-color, var(--primary-orange, #f48b2a)) !important;
+    display: block !important;
+    line-height: 1 !important;
+    font-size: var(--highlight-font-size, 1.2em) !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: relative !important;
+    z-index: 1 !important;
+}
+
+// === EDITOR STYLES ===
+.editor-styles-wrapper,
+.block-editor-block-list__layout,
+.wp-block-twork-good-news-section {
+    .twork-good-news-section-editor {
+        position: relative;
+        min-height: 500px;
+        font-family: "Roboto", sans-serif;
+        box-sizing: border-box;
+        overflow: hidden;
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: inherit;
+        }
+
+        .good-news-grid {
+            display: flex !important;
+            align-items: stretch;
+            min-height: 500px;
+            width: 100%;
+            position: relative;
+            box-sizing: border-box;
+        }
+
+        .good-news-content-wrapper {
+            display: flex !important;
+            align-items: center;
+            justify-content: flex-end;
+            position: relative;
+            z-index: 2;
+            background-color: var(--white-color, #ffffff);
+            min-height: 500px;
+            padding: 80px 0;
+            box-sizing: border-box;
+            flex-basis: var(--content-width, 50%);
+        }
+
+        .good-news-content {
+            width: 100%;
+            max-width: 500px;
+            padding: 0;
+            margin-right: 10%;
+            box-sizing: border-box;
+
+            .meta-title {
+                font-size: var(--meta-font-size, 0.8rem);
+                font-weight: var(--meta-font-weight, 700);
+                color: var(--meta-color, var(--dark-grey, #212121));
+                text-transform: var(--meta-text-transform, uppercase);
+                letter-spacing: var(--meta-letter-spacing, 1.5px);
+                position: relative;
+                display: block;
+                text-align: var(--meta-alignment, var(--content-alignment, left));
+                margin-top: var(--meta-margin-top, 0);
+                margin-right: var(--meta-margin-right, 0);
+                margin-bottom: var(--meta-margin-bottom, 15px);
+                margin-left: var(--meta-margin-left, 0);
+                padding-top: var(--meta-padding-top, 0);
+                padding-right: var(--meta-padding-right, 0);
+                padding-bottom: var(--meta-padding-bottom, 5px);
+                padding-left: var(--meta-padding-left, 0);
+                letter-spacing: 1.5px;
+
+                &::after {
+                    content: "";
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    width: 40px;
+                    height: 2px;
+                    background-color: var(--primary-orange, #f48b2a);
+                }
+            }
+
+            .meta-title,
+            h2,
+            .good-news-heading,
+            .good-news-description {
+                &[contenteditable="true"]:focus {
+                    outline: 1px dashed #2271b1;
+                    outline-offset: 2px;
+                }
+            }
+
+            .good-news-heading,
+            h2 {
+                font-size: var(--heading-font-size, clamp(2rem, 4vw, 3rem));
+                font-weight: 300;
+                color: var(--dark-grey, #212121);
+                line-height: 1.1;
+                margin-top: var(--heading-margin-top, 0);
+                margin-right: var(--heading-margin-right, 0);
+                margin-bottom: var(--heading-margin-bottom, 25px);
+                margin-left: var(--heading-margin-left, 0);
+                padding-top: var(--heading-padding-top, 0);
+                padding-right: var(--heading-padding-right, 0);
+                padding-bottom: var(--heading-padding-bottom, 0);
+                padding-left: var(--heading-padding-left, 0);
+                letter-spacing: -0.01em;
+                text-align: var(--heading-alignment, var(--content-alignment, left));
+
+                .highlight-red,
+                span.highlight-red {
+                    font-weight: var(--highlight-font-weight, 900) !important;
+                    color: var(--highlight-color, var(--primary-orange, #f48b2a)) !important;
+                    display: block !important;
+                    line-height: 1 !important;
+                    font-size: var(--highlight-font-size, 1.2em) !important;
+                    visibility: visible !important;
+                    opacity: 1 !important;
+                    position: relative !important;
+                    z-index: 1 !important;
+                }
+
+                br {
+                    display: block;
+                    line-height: 0.3;
+                    margin: 0;
+                    padding: 0;
+                    height: 0.2em;
+                    font-size: 0;
+                }
+            }
+
+            .good-news-description {
+                font-size: var(--description-font-size, clamp(0.95rem, 1.5vw, 1.1rem));
+                line-height: var(--description-line-height, 1.6);
+                color: var(--description-color, var(--dark-grey, #212121));
+                margin-top: var(--description-margin-top, 0);
+                margin-right: var(--description-margin-right, 0);
+                margin-bottom: var(--description-margin-bottom, 30px);
+                margin-left: var(--description-margin-left, 0);
+                padding-top: var(--description-padding-top, 0);
+                padding-right: var(--description-padding-right, 0);
+                padding-bottom: var(--description-padding-bottom, 0);
+                padding-left: var(--description-padding-left, 0);
+                text-align: var(--description-alignment, var(--content-alignment, left));
+            }
+
+            .newsletter-form {
+                margin-top: var(--form-margin-top, 30px);
+                margin-right: var(--form-margin-right, 0);
+                margin-bottom: var(--form-margin-bottom, 0);
+                margin-left: var(--form-margin-left, 0);
+                padding-top: var(--form-padding-top, 0);
+                padding-right: var(--form-padding-right, 0);
+                padding-bottom: var(--form-padding-bottom, 0);
+                padding-left: var(--form-padding-left, 0);
+                width: 100%;
+                text-align: var(--form-alignment, var(--content-alignment, left));
+
+                .form-group {
+                    display: flex;
+                    border-radius: 50px;
+                    overflow: hidden;
+                    max-width: 500px;
+                    width: 100%;
+                    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+                    transition: box-shadow 0.3s ease;
+                    background-color: var(--white-color, #ffffff);
+                    margin-left: var(--form-group-margin-left, auto);
+                    margin-right: var(--form-group-margin-right, auto);
+
+                    input[type="email"] {
+                        flex-grow: 1;
+                        flex-shrink: 1;
+                        border: 2px solid transparent;
+                        padding: clamp(14px, 2vw, 16px) clamp(20px, 3vw, 24px);
+                        font-size: clamp(0.9rem, 1.5vw, 1rem);
+                        background-color: #f0f0f0;
+                        color: var(--dark-grey, #212121);
+                        min-width: 0;
+                        border-radius: 50px 0 0 50px;
+                        transition: all 0.3s ease;
+                        font-family: "Roboto", sans-serif;
+                        width: 100%;
+                        box-sizing: border-box;
+
+                        &::placeholder {
+                            color: var(--medium-grey, #666);
+                            opacity: 0.7;
+                            font-size: clamp(0.85rem, 1.5vw, 0.95rem);
+                        }
+                    }
+
+                    button {
+                        border: none;
+                        background-color: var(--primary-orange, #f48b2a);
+                        color: var(--white-color, #ffffff);
+                        padding: clamp(14px, 2vw, 16px) clamp(24px, 4vw, 32px);
+                        font-weight: 700;
+                        font-size: clamp(0.8rem, 1.5vw, 0.9rem);
+                        cursor: pointer;
+                        white-space: nowrap;
+                        border-radius: 0 50px 50px 0;
+                        text-transform: uppercase;
+                        letter-spacing: 0.5px;
+                        box-shadow: 0 2px 8px rgba(244, 139, 42, 0.3);
+                        flex-shrink: 0;
+                        font-family: inherit;
+                    }
+                }
+            }
+        }
+
+        .good-news-image-bg {
+            position: relative;
+            background-image: var(--background-image, none);
+            background-size: var(--background-size, cover);
+            background-position: var(--background-position, center right);
+            background-repeat: no-repeat;
+            background-attachment: scroll;
+            min-height: 500px;
+            height: 500px;
+            background-color: #f0f0f0;
+            display: flex;
+            // Responsive margin and padding in editor
+            margin-top: var(--image-margin-top, 0px);
+            margin-right: var(--image-margin-right, 0px);
+            margin-bottom: var(--image-margin-bottom, 0px);
+            margin-left: var(--image-margin-left, 0px);
+            padding-top: var(--image-padding-top, 0px);
+            padding-right: var(--image-padding-right, 0px);
+            padding-bottom: var(--image-padding-bottom, 0px);
+            padding-left: var(--image-padding-left, 0px);
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 0.9rem;
+            flex-basis: var(--image-width, 50%);
+            width: 100%;
+            box-sizing: border-box;
+            z-index: 1;
+            overflow: var(--image-overflow, hidden);
+            max-width: var(--image-max-width, none);
+            max-height: var(--image-max-height, none);
+            aspect-ratio: var(--image-aspect-ratio, auto);
+            margin: 0;
+            padding: 0;
+
+            &::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: linear-gradient(
+                    90deg,
+                    rgba(255, 255, 255, 0.1) 0%,
+                    transparent 100%
+                );
+                pointer-events: none;
+                z-index: 1;
+            }
+
+            > div {
+                position: relative;
+                z-index: 2;
+            }
+
+            .image-overlay {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                pointer-events: none;
+                z-index: 2;
+            }
+        }
+
+        .newsletter-form {
+            pointer-events: none;
+
+            input,
+            button {
+                pointer-events: none;
+                user-select: none;
+            }
+        }
+
+        // Responsive Editor Styles
+        @media (max-width: 992px) {
+            .twork-good-news-section-editor {
+                padding-top: var(--padding-top-tablet, 0) !important;
+                padding-bottom: var(--padding-bottom-tablet, 0) !important;
+            }
+
+            .good-news-grid {
+                flex-direction: column-reverse;
+                min-height: auto;
+            }
+
+            .good-news-content-wrapper {
+                flex-basis: 100% !important;
+                padding: var(--content-padding-tablet, 60px) 0;
+                justify-content: center;
+            }
+
+            .good-news-content {
+                margin-right: 0;
+                padding: 0 30px;
+                max-width: var(--content-max-width, 600px);
+                width: 100%;
+                text-align: center;
+                box-sizing: border-box;
+            }
+
+            .good-news-image-bg {
+                flex-basis: 100% !important;
+                background-image: var(--background-image-tablet, var(--background-image, none)) !important;
+                min-height: var(--image-min-height-tablet, 400px);
+                height: var(--image-min-height-tablet, 400px);
+                max-height: var(--image-max-height-tablet, none);
+                max-width: var(--image-max-width-tablet, none);
+                background-size: var(--background-size-tablet, cover) !important;
+                background-position: var(--background-position-tablet, center) !important;
+                // Responsive margin for tablet in editor
+                margin-top: var(--image-margin-top-tablet, var(--image-margin-top, 0px)) !important;
+                margin-right: var(--image-margin-right-tablet, var(--image-margin-right, 0px)) !important;
+                margin-bottom: var(--image-margin-bottom-tablet, var(--image-margin-bottom, 0px)) !important;
+                margin-left: var(--image-margin-left-tablet, var(--image-margin-left, 0px)) !important;
+                // Responsive padding for tablet in editor
+                padding-top: var(--image-padding-top-tablet, var(--image-padding-top, 0px)) !important;
+                padding-right: var(--image-padding-right-tablet, var(--image-padding-right, 0px)) !important;
+                padding-bottom: var(--image-padding-bottom-tablet, var(--image-padding-bottom, 0px)) !important;
+                padding-left: var(--image-padding-left-tablet, var(--image-padding-left, 0px)) !important;
+            }
+
+            .good-news-content {
+                .meta-title {
+                    font-size: var(--meta-font-size-tablet, 0.75rem) !important;
+                    font-weight: var(--meta-font-weight-tablet, 700) !important;
+                    color: var(--meta-color-tablet, var(--meta-color, #212121)) !important;
+                    text-transform: var(--meta-text-transform-tablet, uppercase) !important;
+                    letter-spacing: var(--meta-letter-spacing-tablet, 1.5px) !important;
+                    text-align: var(--meta-alignment-tablet, var(--meta-alignment, var(--content-alignment-tablet, center))) !important;
+                    margin-top: var(--meta-margin-top-tablet, var(--meta-margin-top, 0)) !important;
+                    margin-right: var(--meta-margin-right-tablet, var(--meta-margin-right, 0)) !important;
+                    margin-bottom: var(--meta-margin-bottom-tablet, var(--meta-margin-bottom, 15px)) !important;
+                    margin-left: var(--meta-margin-left-tablet, var(--meta-margin-left, 0)) !important;
+                    padding-top: var(--meta-padding-top-tablet, var(--meta-padding-top, 0)) !important;
+                    padding-right: var(--meta-padding-right-tablet, var(--meta-padding-right, 0)) !important;
+                    padding-bottom: var(--meta-padding-bottom-tablet, var(--meta-padding-bottom, 5px)) !important;
+                    padding-left: var(--meta-padding-left-tablet, var(--meta-padding-left, 0)) !important;
+                }
+
+                h2,
+                .good-news-heading {
+                    font-size: var(--heading-font-size-tablet, 2.75rem) !important;
+                    font-weight: var(--heading-font-weight-tablet, 300) !important;
+                    color: var(--heading-color-tablet, var(--heading-color, #212121)) !important;
+                    line-height: var(--heading-line-height-tablet, 1.1) !important;
+                    letter-spacing: var(--heading-letter-spacing-tablet, -0.01em) !important;
+                    margin-top: var(--heading-margin-top-tablet, var(--heading-margin-top, 0)) !important;
+                    margin-right: var(--heading-margin-right-tablet, var(--heading-margin-right, 0)) !important;
+                    margin-bottom: var(--heading-margin-bottom-tablet, var(--heading-margin-bottom, 25px)) !important;
+                    margin-left: var(--heading-margin-left-tablet, var(--heading-margin-left, 0)) !important;
+                    padding-top: var(--heading-padding-top-tablet, var(--heading-padding-top, 0)) !important;
+                    padding-right: var(--heading-padding-right-tablet, var(--heading-padding-right, 0)) !important;
+                    padding-bottom: var(--heading-padding-bottom-tablet, var(--heading-padding-bottom, 0)) !important;
+                    padding-left: var(--heading-padding-left-tablet, var(--heading-padding-left, 0)) !important;
+
+                    .highlight-red,
+                    span.highlight-red {
+                        font-weight: var(--highlight-font-weight-tablet, 900) !important;
+                        color: var(--highlight-color-tablet, var(--highlight-color, #f48b2a)) !important;
+                        font-size: var(--highlight-font-size-tablet, 1.15em) !important;
+                    }
+                }
+
+                    .good-news-description {
+                        font-size: var(--description-font-size-tablet, 1.05rem) !important;
+                        color: var(--description-color-tablet, var(--description-color, #212121)) !important;
+                        line-height: var(--description-line-height-tablet, 1.6) !important;
+                        margin-bottom: var(--description-margin-bottom-tablet, 30px) !important;
+                        text-align: var(--description-alignment-tablet, var(--description-alignment, var(--content-alignment-tablet, center))) !important;
+                    }
+            }
+
+            .newsletter-form {
+                .form-group {
+                    max-width: var(--form-max-width-tablet, 500px) !important;
+                    border-radius: var(--form-border-radius-tablet, 50px) !important;
+
+                    input[type="email"] {
+                        font-size: var(--email-font-size-tablet, 0.95rem) !important;
+                        padding: var(--email-padding-vertical-tablet, 15px) var(--email-padding-horizontal-tablet, 22px) !important;
+                        background-color: var(--email-bg-color-tablet, var(--email-bg-color, #f0f0f0)) !important;
+                        color: var(--email-text-color-tablet, var(--email-text-color, #212121)) !important;
+                        border-color: var(--email-border-color-tablet, var(--email-border-color, transparent)) !important;
+
+                        &::placeholder {
+                            color: var(--email-placeholder-color-tablet, var(--email-placeholder-color, #666)) !important;
+                        }
+
+                        &:focus {
+                            background-color: var(--email-focus-bg-tablet, var(--email-focus-bg, #ffffff)) !important;
+                            border-color: var(--email-focus-border-tablet, var(--email-focus-border, #f48b2a)) !important;
+                        }
+                    }
+
+                    button {
+                        font-size: var(--button-font-size-tablet, 0.85rem) !important;
+                        padding: var(--button-padding-vertical-tablet, 15px) var(--button-padding-horizontal-tablet, 28px) !important;
+                        background-color: var(--button-bg-color-tablet, var(--button-bg-color, #f48b2a)) !important;
+                        color: var(--button-text-color-tablet, var(--button-text-color, #ffffff)) !important;
+                        font-weight: var(--button-font-weight-tablet, 700) !important;
+                        text-transform: var(--button-text-transform-tablet, uppercase) !important;
+                        letter-spacing: var(--button-letter-spacing-tablet, 0.5px) !important;
+
+                        &:hover {
+                            background-color: var(--button-hover-bg-tablet, var(--button-hover-bg, #e67a22)) !important;
+                        }
+                    }
+                }
+            }
+        }
+
+        @media (max-width: 768px) {
+            .twork-good-news-section-editor {
+                padding-top: var(--padding-top-mobile, var(--padding-top-tablet, 0)) !important;
+                padding-bottom: var(--padding-bottom-mobile, var(--padding-bottom-tablet, 0)) !important;
+            }
+
+            .good-news-content-wrapper {
+                padding: var(--content-padding-mobile, 50px) 0;
+            }
+
+            .good-news-content {
+                padding: 0 20px;
+                max-width: var(--content-max-width, 500px);
+                width: 100%;
+                box-sizing: border-box;
+
+                .meta-title {
+                    font-size: var(--meta-font-size-mobile, 0.7rem) !important;
+                    font-weight: var(--meta-font-weight-mobile, var(--meta-font-weight-tablet, 700)) !important;
+                    color: var(--meta-color-mobile, var(--meta-color-tablet, var(--meta-color, #212121))) !important;
+                    text-transform: var(--meta-text-transform-mobile, var(--meta-text-transform-tablet, uppercase)) !important;
+                    letter-spacing: var(--meta-letter-spacing-mobile, var(--meta-letter-spacing-tablet, 1.5px)) !important;
+                    margin-top: var(--meta-margin-top-mobile, var(--meta-margin-top-tablet, var(--meta-margin-top, 0))) !important;
+                    margin-right: var(--meta-margin-right-mobile, var(--meta-margin-right-tablet, var(--meta-margin-right, 0))) !important;
+                    margin-bottom: var(--meta-margin-bottom-mobile, var(--meta-margin-bottom-tablet, var(--meta-margin-bottom, 15px))) !important;
+                    margin-left: var(--meta-margin-left-mobile, var(--meta-margin-left-tablet, var(--meta-margin-left, 0))) !important;
+                    padding-top: var(--meta-padding-top-mobile, var(--meta-padding-top-tablet, var(--meta-padding-top, 0))) !important;
+                    padding-right: var(--meta-padding-right-mobile, var(--meta-padding-right-tablet, var(--meta-padding-right, 0))) !important;
+                    padding-bottom: var(--meta-padding-bottom-mobile, var(--meta-padding-bottom-tablet, var(--meta-padding-bottom, 5px))) !important;
+                    padding-left: var(--meta-padding-left-mobile, var(--meta-padding-left-tablet, var(--meta-padding-left, 0))) !important;
+                    text-align: var(--meta-alignment-mobile, var(--meta-alignment-tablet, var(--meta-alignment, var(--content-alignment-mobile, center)))) !important;
+                }
+
+                h2,
+                .good-news-heading {
+                    font-size: var(--heading-font-size-mobile, clamp(1.75rem, 6vw, 2.5rem)) !important;
+                    font-weight: var(--heading-font-weight-mobile, var(--heading-font-weight-tablet, 300)) !important;
+                    color: var(--heading-color-mobile, var(--heading-color-tablet, var(--heading-color, #212121))) !important;
+                    line-height: var(--heading-line-height-mobile, var(--heading-line-height-tablet, 1.1)) !important;
+                    letter-spacing: var(--heading-letter-spacing-mobile, var(--heading-letter-spacing-tablet, -0.01em)) !important;
+                    margin-bottom: var(--heading-margin-bottom-mobile, var(--heading-margin-bottom-tablet, 15px)) !important;
+                    text-align: var(--heading-alignment-mobile, var(--heading-alignment-tablet, var(--heading-alignment, var(--content-alignment-mobile, center)))) !important;
+
+                    .highlight-red,
+                    span.highlight-red {
+                        font-weight: var(--highlight-font-weight-mobile, var(--highlight-font-weight-tablet, 900)) !important;
+                        color: var(--highlight-color-mobile, var(--highlight-color-tablet, var(--highlight-color, #f48b2a))) !important;
+                        font-size: var(--highlight-font-size-mobile, var(--highlight-font-size-tablet, 1.1em)) !important;
+                    }
+                }
+
+                .good-news-description {
+                    font-size: var(--description-font-size-mobile, 1rem) !important;
+                    color: var(--description-color-mobile, var(--description-color-tablet, var(--description-color, #212121))) !important;
+                    line-height: var(--description-line-height-mobile, var(--description-line-height-tablet, 1.6)) !important;
+                    margin-top: var(--description-margin-top-mobile, var(--description-margin-top-tablet, var(--description-margin-top, 0))) !important;
+                    margin-right: var(--description-margin-right-mobile, var(--description-margin-right-tablet, var(--description-margin-right, 0))) !important;
+                    margin-bottom: var(--description-margin-bottom-mobile, var(--description-margin-bottom-tablet, var(--description-margin-bottom, 25px))) !important;
+                    margin-left: var(--description-margin-left-mobile, var(--description-margin-left-tablet, var(--description-margin-left, 0))) !important;
+                    padding-top: var(--description-padding-top-mobile, var(--description-padding-top-tablet, var(--description-padding-top, 0))) !important;
+                    padding-right: var(--description-padding-right-mobile, var(--description-padding-right-tablet, var(--description-padding-right, 0))) !important;
+                    padding-bottom: var(--description-padding-bottom-mobile, var(--description-padding-bottom-tablet, var(--description-padding-bottom, 0))) !important;
+                    padding-left: var(--description-padding-left-mobile, var(--description-padding-left-tablet, var(--description-padding-left, 0))) !important;
+                }
+            }
+
+            .good-news-image-bg {
+                background-image: var(--background-image-mobile, var(--background-image-tablet, var(--background-image, none))) !important;
+                min-height: var(--image-min-height-mobile, 300px);
+                height: var(--image-min-height-mobile, 300px);
+                max-height: var(--image-max-height-mobile, none);
+                max-width: var(--image-max-width-mobile, none);
+                background-size: var(--background-size-mobile, cover) !important;
+                background-position: var(--background-position-mobile, center) !important;
+                order: -1;
+                // Responsive margin for mobile
+                margin-top: var(--image-margin-top-mobile, var(--image-margin-top-tablet, var(--image-margin-top, 0px))) !important;
+                margin-right: var(--image-margin-right-mobile, var(--image-margin-right-tablet, var(--image-margin-right, 0px))) !important;
+                margin-bottom: var(--image-margin-bottom-mobile, var(--image-margin-bottom-tablet, var(--image-margin-bottom, 0px))) !important;
+                margin-left: var(--image-margin-left-mobile, var(--image-margin-left-tablet, var(--image-margin-left, 0px))) !important;
+                // Responsive padding for mobile
+                padding-top: var(--image-padding-top-mobile, var(--image-padding-top-tablet, var(--image-padding-top, 0px))) !important;
+                padding-right: var(--image-padding-right-mobile, var(--image-padding-right-tablet, var(--image-padding-right, 0px))) !important;
+                padding-bottom: var(--image-padding-bottom-mobile, var(--image-padding-bottom-tablet, var(--image-padding-bottom, 0px))) !important;
+                padding-left: var(--image-padding-left-mobile, var(--image-padding-left-tablet, var(--image-padding-left, 0px))) !important;
+            }
+
+            .newsletter-form {
+                text-align: var(--form-alignment-mobile, var(--form-alignment-tablet, var(--form-alignment, var(--content-alignment-mobile, center)))) !important;
+
+                .form-group {
+                    max-width: var(--form-max-width-mobile, var(--form-max-width-tablet, 100%)) !important;
+                    border-radius: var(--form-border-radius-mobile, var(--form-border-radius-tablet, 50px)) !important;
+                    margin-left: auto !important;
+                    margin-right: auto !important;
+
+                    input[type="email"] {
+                        font-size: var(--email-font-size-mobile, 0.9rem) !important;
+                        padding: var(--email-padding-vertical-mobile, 14px) var(--email-padding-horizontal-mobile, 18px) !important;
+                        background-color: var(--email-bg-color-mobile, var(--email-bg-color-tablet, var(--email-bg-color, #f0f0f0))) !important;
+                        color: var(--email-text-color-mobile, var(--email-text-color-tablet, var(--email-text-color, #212121))) !important;
+                        border-color: var(--email-border-color-mobile, var(--email-border-color-tablet, var(--email-border-color, transparent))) !important;
+
+                        &::placeholder {
+                            color: var(--email-placeholder-color-mobile, var(--email-placeholder-color-tablet, var(--email-placeholder-color, #666))) !important;
+                        }
+
+                        &:focus {
+                            background-color: var(--email-focus-bg-mobile, var(--email-focus-bg-tablet, var(--email-focus-bg, #ffffff))) !important;
+                            border-color: var(--email-focus-border-mobile, var(--email-focus-border-tablet, var(--email-focus-border, #f48b2a))) !important;
+                        }
+                    }
+
+                    button {
+                        font-size: var(--button-font-size-mobile, 0.8rem) !important;
+                        padding: var(--button-padding-vertical-mobile, 14px) var(--button-padding-horizontal-mobile, 20px) !important;
+                        background-color: var(--button-bg-color-mobile, var(--button-bg-color-tablet, var(--button-bg-color, #f48b2a))) !important;
+                        color: var(--button-text-color-mobile, var(--button-text-color-tablet, var(--button-text-color, #ffffff))) !important;
+                        font-weight: var(--button-font-weight-mobile, var(--button-font-weight-tablet, 700)) !important;
+                        text-transform: var(--button-text-transform-mobile, var(--button-text-transform-tablet, uppercase)) !important;
+                        letter-spacing: var(--button-letter-spacing-mobile, var(--button-letter-spacing-tablet, 0.5px)) !important;
+
+                        &:hover {
+                            background-color: var(--button-hover-bg-mobile, var(--button-hover-bg-tablet, var(--button-hover-bg, #e67a22))) !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// === FRONTEND STYLES ===
+.good-news-section,
+section.good-news-section,
+.wp-block-twork-good-news-section {
+    font-family: "Roboto", sans-serif !important;
+    padding: 0 !important;
+    padding-top: var(--padding-top, 0) !important;
+    padding-bottom: var(--padding-bottom, 0) !important;
+    position: relative !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+    background-image: none !important;
+    background-size: auto !important;
+    background-position: center !important;
+    margin: 0 !important;
+    width: 100% !important;
+
+    *,
+    *::before,
+    *::after {
+        box-sizing: inherit;
+    }
+
+    .background-overlay {
+        pointer-events: none;
+    }
+
+    .good-news-grid {
+        display: flex !important;
+        align-items: stretch !important;
+        min-height: 500px !important;
+        width: 100% !important;
+        position: relative !important;
+        box-sizing: border-box !important;
+        flex-wrap: nowrap !important;
+        margin: 0 !important;
+        padding: 0 !important;
+
+        // Content Wrapper
+        .good-news-content-wrapper {
+            flex-basis: var(--content-width, 50%) !important;
+            background-color: var(--white-color, #ffffff) !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: flex-end !important;
+            position: relative !important;
+            z-index: 10 !important;
+            padding: 80px 0 !important;
+            width: 100% !important;
+            min-height: 500px !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            overflow: visible !important;
+            margin: 0 !important;
+            box-sizing: border-box !important;
+
+            .good-news-content {
+                max-width: var(--content-max-width, 500px) !important;
+                padding: 0 20px !important;
+                margin-right: var(--content-margin-right, 10%) !important;
+                width: 100% !important;
+                position: relative !important;
+                z-index: 11 !important;
+                visibility: visible !important;
+                opacity: 1 !important;
+                display: block !important;
+                box-sizing: border-box !important;
+
+            .meta-title {
+                font-size: var(--meta-font-size, 0.8rem) !important;
+                font-weight: var(--meta-font-weight, 700) !important;
+                color: var(--meta-color, var(--dark-grey, #212121)) !important;
+                text-transform: var(--meta-text-transform, uppercase) !important;
+                letter-spacing: var(--meta-letter-spacing, 1.5px) !important;
+                position: relative !important;
+                display: block !important;
+                margin-top: var(--meta-margin-top, 0) !important;
+                margin-right: var(--meta-margin-right, 0) !important;
+                margin-bottom: var(--meta-margin-bottom, 15px) !important;
+                margin-left: var(--meta-margin-left, 0) !important;
+                padding-top: var(--meta-padding-top, 0) !important;
+                padding-right: var(--meta-padding-right, 0) !important;
+                padding-bottom: var(--meta-padding-bottom, 5px) !important;
+                padding-left: var(--meta-padding-left, 0) !important;
+                visibility: visible !important;
+                opacity: 1 !important;
+                text-align: var(--meta-alignment, var(--content-alignment, left)) !important;
+
+                    &::after {
+                        content: "";
+                        position: absolute;
+                        bottom: 0;
+                        left: 0;
+                        width: 40px;
+                        height: 2px;
+                        background-color: var(--primary-orange, #f48b2a);
+                    }
+
+                    @media (max-width: 992px) {
+                        font-size: var(--meta-font-size-tablet, var(--meta-font-size, 0.75rem)) !important;
+                        font-weight: var(--meta-font-weight-tablet, var(--meta-font-weight, 700)) !important;
+                        color: var(--meta-color-tablet, var(--meta-color, #212121)) !important;
+                        text-transform: var(--meta-text-transform-tablet, var(--meta-text-transform, uppercase)) !important;
+                        letter-spacing: var(--meta-letter-spacing-tablet, var(--meta-letter-spacing, 1.5px)) !important;
+                        margin-top: var(--meta-margin-top-tablet, var(--meta-margin-top, 0)) !important;
+                        margin-right: var(--meta-margin-right-tablet, var(--meta-margin-right, 0)) !important;
+                        margin-bottom: var(--meta-margin-bottom-tablet, var(--meta-margin-bottom, 15px)) !important;
+                        margin-left: var(--meta-margin-left-tablet, var(--meta-margin-left, 0)) !important;
+                        padding-top: var(--meta-padding-top-tablet, var(--meta-padding-top, 0)) !important;
+                        padding-right: var(--meta-padding-right-tablet, var(--meta-padding-right, 0)) !important;
+                        padding-bottom: var(--meta-padding-bottom-tablet, var(--meta-padding-bottom, 5px)) !important;
+                        padding-left: var(--meta-padding-left-tablet, var(--meta-padding-left, 0)) !important;
+                        text-align: var(--meta-alignment-tablet, var(--meta-alignment, var(--content-alignment-tablet, center))) !important;
+                    }
+
+                    @media (max-width: 768px) {
+                        font-size: var(--meta-font-size-mobile, var(--meta-font-size-tablet, var(--meta-font-size, 0.7rem))) !important;
+                        font-weight: var(--meta-font-weight-mobile, var(--meta-font-weight-tablet, var(--meta-font-weight, 700))) !important;
+                        color: var(--meta-color-mobile, var(--meta-color-tablet, var(--meta-color, #212121))) !important;
+                        text-transform: var(--meta-text-transform-mobile, var(--meta-text-transform-tablet, var(--meta-text-transform, uppercase))) !important;
+                        letter-spacing: var(--meta-letter-spacing-mobile, var(--meta-letter-spacing-tablet, var(--meta-letter-spacing, 1.5px))) !important;
+                        margin-top: var(--meta-margin-top-mobile, var(--meta-margin-top-tablet, var(--meta-margin-top, 0))) !important;
+                        margin-right: var(--meta-margin-right-mobile, var(--meta-margin-right-tablet, var(--meta-margin-right, 0))) !important;
+                        margin-bottom: var(--meta-margin-bottom-mobile, var(--meta-margin-bottom-tablet, var(--meta-margin-bottom, 15px))) !important;
+                        margin-left: var(--meta-margin-left-mobile, var(--meta-margin-left-tablet, var(--meta-margin-left, 0))) !important;
+                        padding-top: var(--meta-padding-top-mobile, var(--meta-padding-top-tablet, var(--meta-padding-top, 0))) !important;
+                        padding-right: var(--meta-padding-right-mobile, var(--meta-padding-right-tablet, var(--meta-padding-right, 0))) !important;
+                        padding-bottom: var(--meta-padding-bottom-mobile, var(--meta-padding-bottom-tablet, var(--meta-padding-bottom, 5px))) !important;
+                        padding-left: var(--meta-padding-left-mobile, var(--meta-padding-left-tablet, var(--meta-padding-left, 0))) !important;
+                        text-align: var(--meta-alignment-mobile, var(--meta-alignment-tablet, var(--meta-alignment, var(--content-alignment-mobile, center)))) !important;
+                    }
+                }
+
+                h2,
+                .good-news-heading {
+                    font-size: var(--heading-font-size, clamp(2rem, 4vw, 3rem)) !important;
+                    font-weight: var(--heading-font-weight, 300) !important;
+                    color: var(--heading-color, var(--dark-grey, #212121)) !important;
+                    line-height: var(--heading-line-height, 1.1) !important;
+                    letter-spacing: var(--heading-letter-spacing, -0.01em) !important;
+                    margin-top: var(--heading-margin-top, 0) !important;
+                    margin-right: var(--heading-margin-right, 0) !important;
+                    margin-bottom: var(--heading-margin-bottom, 25px) !important;
+                    margin-left: var(--heading-margin-left, 0) !important;
+                    padding-top: var(--heading-padding-top, 0) !important;
+                    padding-right: var(--heading-padding-right, 0) !important;
+                    padding-bottom: var(--heading-padding-bottom, 0) !important;
+                    padding-left: var(--heading-padding-left, 0) !important;
+                    visibility: visible !important;
+                    opacity: 1 !important;
+                    display: block !important;
+                    text-align: var(--heading-alignment, var(--content-alignment, left)) !important;
+
+                    .highlight-red,
+                    span.highlight-red {
+                        font-weight: var(--highlight-font-weight, 900) !important;
+                        color: var(--highlight-color, var(--primary-orange, #f48b2a)) !important;
+                        display: block !important;
+                        font-size: var(--highlight-font-size, 1.2em) !important;
+                        line-height: 1 !important;
+                        visibility: visible !important;
+                        opacity: 1 !important;
+                        position: relative !important;
+                        z-index: 1 !important;
+                    }
+
+                    br {
+                        display: block;
+                        line-height: 0.3;
+                        margin: 0;
+                        padding: 0;
+                        height: 0.2em;
+                        font-size: 0;
+                    }
+
+                    @media (max-width: 992px) {
+                        font-size: var(--heading-font-size-tablet, var(--heading-font-size, clamp(2rem, 4.5vw, 2.75rem))) !important;
+                        font-weight: var(--heading-font-weight-tablet, var(--heading-font-weight, 300)) !important;
+                        color: var(--heading-color-tablet, var(--heading-color, #212121)) !important;
+                        line-height: var(--heading-line-height-tablet, var(--heading-line-height, 1.1)) !important;
+                        letter-spacing: var(--heading-letter-spacing-tablet, var(--heading-letter-spacing, -0.01em)) !important;
+                        margin-top: var(--heading-margin-top-tablet, var(--heading-margin-top, 0)) !important;
+                        margin-right: var(--heading-margin-right-tablet, var(--heading-margin-right, 0)) !important;
+                        margin-bottom: var(--heading-margin-bottom-tablet, var(--heading-margin-bottom, 25px)) !important;
+                        margin-left: var(--heading-margin-left-tablet, var(--heading-margin-left, 0)) !important;
+                        padding-top: var(--heading-padding-top-tablet, var(--heading-padding-top, 0)) !important;
+                        padding-right: var(--heading-padding-right-tablet, var(--heading-padding-right, 0)) !important;
+                        padding-bottom: var(--heading-padding-bottom-tablet, var(--heading-padding-bottom, 0)) !important;
+                        padding-left: var(--heading-padding-left-tablet, var(--heading-padding-left, 0)) !important;
+                        text-align: var(--heading-alignment-tablet, var(--heading-alignment, var(--content-alignment-tablet, center))) !important;
+
+                        .highlight-red,
+                        span.highlight-red {
+                            font-weight: var(--highlight-font-weight-tablet, var(--highlight-font-weight, 900)) !important;
+                            color: var(--highlight-color-tablet, var(--highlight-color, #f48b2a)) !important;
+                            font-size: var(--highlight-font-size-tablet, var(--highlight-font-size, 1.15em)) !important;
+                        }
+                    }
+
+                    @media (max-width: 768px) {
+                        font-size: var(--heading-font-size-mobile, var(--heading-font-size-tablet, var(--heading-font-size, clamp(1.75rem, 6vw, 2.5rem)))) !important;
+                        font-weight: var(--heading-font-weight-mobile, var(--heading-font-weight-tablet, var(--heading-font-weight, 300))) !important;
+                        color: var(--heading-color-mobile, var(--heading-color-tablet, var(--heading-color, #212121))) !important;
+                        line-height: var(--heading-line-height-mobile, var(--heading-line-height-tablet, var(--heading-line-height, 1.1))) !important;
+                        letter-spacing: var(--heading-letter-spacing-mobile, var(--heading-letter-spacing-tablet, var(--heading-letter-spacing, -0.01em))) !important;
+                        margin-top: var(--heading-margin-top-mobile, var(--heading-margin-top-tablet, var(--heading-margin-top, 0))) !important;
+                        margin-right: var(--heading-margin-right-mobile, var(--heading-margin-right-tablet, var(--heading-margin-right, 0))) !important;
+                        margin-bottom: var(--heading-margin-bottom-mobile, var(--heading-margin-bottom-tablet, var(--heading-margin-bottom, 15px))) !important;
+                        margin-left: var(--heading-margin-left-mobile, var(--heading-margin-left-tablet, var(--heading-margin-left, 0))) !important;
+                        padding-top: var(--heading-padding-top-mobile, var(--heading-padding-top-tablet, var(--heading-padding-top, 0))) !important;
+                        padding-right: var(--heading-padding-right-mobile, var(--heading-padding-right-tablet, var(--heading-padding-right, 0))) !important;
+                        padding-bottom: var(--heading-padding-bottom-mobile, var(--heading-padding-bottom-tablet, var(--heading-padding-bottom, 0))) !important;
+                        padding-left: var(--heading-padding-left-mobile, var(--heading-padding-left-tablet, var(--heading-padding-left, 0))) !important;
+                        text-align: var(--heading-alignment-mobile, var(--heading-alignment-tablet, var(--heading-alignment, var(--content-alignment-mobile, center)))) !important;
+
+                        .highlight-red,
+                        span.highlight-red {
+                            font-weight: var(--highlight-font-weight-mobile, var(--highlight-font-weight-tablet, var(--highlight-font-weight, 900))) !important;
+                            color: var(--highlight-color-mobile, var(--highlight-color-tablet, var(--highlight-color, #f48b2a))) !important;
+                            font-size: var(--highlight-font-size-mobile, var(--highlight-font-size-tablet, var(--highlight-font-size, 1.1em))) !important;
+                        }
+                    }
+                }
+
+                .good-news-description {
+                    font-size: var(--description-font-size, clamp(0.95rem, 1.5vw, 1.1rem)) !important;
+                    line-height: var(--description-line-height, 1.6) !important;
+                    color: var(--description-color, var(--dark-grey, #212121)) !important;
+                    margin-top: var(--description-margin-top, 0) !important;
+                    margin-right: var(--description-margin-right, 0) !important;
+                    margin-bottom: var(--description-margin-bottom, 30px) !important;
+                    margin-left: var(--description-margin-left, 0) !important;
+                    padding-top: var(--description-padding-top, 0) !important;
+                    padding-right: var(--description-padding-right, 0) !important;
+                    padding-bottom: var(--description-padding-bottom, 0) !important;
+                    padding-left: var(--description-padding-left, 0) !important;
+                    text-align: var(--description-alignment, var(--content-alignment, left)) !important;
+                    visibility: visible !important;
+                    opacity: 1 !important;
+                    display: block !important;
+
+                    @media (max-width: 992px) {
+                        font-size: var(--description-font-size-tablet, var(--description-font-size, 1.05rem)) !important;
+                        line-height: var(--description-line-height-tablet, var(--description-line-height, 1.6)) !important;
+                        color: var(--description-color-tablet, var(--description-color, #212121)) !important;
+                        margin-top: var(--description-margin-top-tablet, var(--description-margin-top, 0)) !important;
+                        margin-right: var(--description-margin-right-tablet, var(--description-margin-right, 0)) !important;
+                        margin-bottom: var(--description-margin-bottom-tablet, var(--description-margin-bottom, 30px)) !important;
+                        margin-left: var(--description-margin-left-tablet, var(--description-margin-left, 0)) !important;
+                        padding-top: var(--description-padding-top-tablet, var(--description-padding-top, 0)) !important;
+                        padding-right: var(--description-padding-right-tablet, var(--description-padding-right, 0)) !important;
+                        padding-bottom: var(--description-padding-bottom-tablet, var(--description-padding-bottom, 0)) !important;
+                        padding-left: var(--description-padding-left-tablet, var(--description-padding-left, 0)) !important;
+                        text-align: var(--description-alignment-tablet, var(--description-alignment, center)) !important;
+                    }
+
+                    @media (max-width: 768px) {
+                        font-size: var(--description-font-size-mobile, var(--description-font-size-tablet, var(--description-font-size, 1rem))) !important;
+                        line-height: var(--description-line-height-mobile, var(--description-line-height-tablet, 1.6)) !important;
+                        color: var(--description-color-mobile, var(--description-color-tablet, var(--description-color, #212121))) !important;
+                        margin-top: var(--description-margin-top-mobile, var(--description-margin-top-tablet, var(--description-margin-top, 0))) !important;
+                        margin-right: var(--description-margin-right-mobile, var(--description-margin-right-tablet, var(--description-margin-right, 0))) !important;
+                        margin-bottom: var(--description-margin-bottom-mobile, var(--description-margin-bottom-tablet, var(--description-margin-bottom, 25px))) !important;
+                        margin-left: var(--description-margin-left-mobile, var(--description-margin-left-tablet, var(--description-margin-left, 0))) !important;
+                        padding-top: var(--description-padding-top-mobile, var(--description-padding-top-tablet, var(--description-padding-top, 0))) !important;
+                        padding-right: var(--description-padding-right-mobile, var(--description-padding-right-tablet, var(--description-padding-right, 0))) !important;
+                        padding-bottom: var(--description-padding-bottom-mobile, var(--description-padding-bottom-tablet, var(--description-padding-bottom, 0))) !important;
+                        padding-left: var(--description-padding-left-mobile, var(--description-padding-left-tablet, var(--description-padding-left, 0))) !important;
+                        text-align: var(--description-alignment-mobile, var(--description-alignment-tablet, var(--description-alignment, center))) !important;
+                    }
+                }
+            }
+        }
+
+        // Image Background
+        .good-news-image-bg {
+            flex-basis: var(--image-width, 50%) !important;
+            flex-grow: 0 !important;
+            flex-shrink: 0 !important;
+            background-image: var(--background-image, none) !important;
+            background-size: var(--background-size, cover) !important;
+            background-position: var(--background-position, center right) !important;
+            background-repeat: no-repeat !important;
+            background-attachment: scroll !important;
+            min-height: 500px !important;
+            height: 500px !important;
+            position: relative !important;
+            width: 100% !important;
+            will-change: transform;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            z-index: 1 !important;
+            min-width: 0 !important;
+            overflow: var(--image-overflow, hidden) !important;
+            max-width: var(--image-max-width, none) !important;
+            max-height: var(--image-max-height, none) !important;
+            aspect-ratio: var(--image-aspect-ratio, auto) !important;
+            display: block !important;
+            box-sizing: border-box !important;
+            // Responsive margin using CSS custom properties
+            margin-top: var(--image-margin-top, 0px) !important;
+            margin-right: var(--image-margin-right, 0px) !important;
+            margin-bottom: var(--image-margin-bottom, 0px) !important;
+            margin-left: var(--image-margin-left, 0px) !important;
+            // Responsive padding using CSS custom properties
+            padding-top: var(--image-padding-top, 0px) !important;
+            padding-right: var(--image-padding-right, 0px) !important;
+            padding-bottom: var(--image-padding-bottom, 0px) !important;
+            padding-left: var(--image-padding-left, 0px) !important;
+
+            &::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: linear-gradient(
+                    90deg,
+                    rgba(255, 255, 255, 0.1) 0%,
+                    transparent 100%
+                );
+                pointer-events: none;
+                z-index: 1;
+            }
+
+            .image-overlay {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                pointer-events: none;
+                z-index: 2;
+            }
+        }
+    }
+
+    // Newsletter Form Styles
+    .newsletter-form {
+        margin-top: var(--form-margin-top, 30px) !important;
+        margin-right: var(--form-margin-right, 0) !important;
+        margin-bottom: var(--form-margin-bottom, 0) !important;
+        margin-left: var(--form-margin-left, 0) !important;
+        padding-top: var(--form-padding-top, 0) !important;
+        padding-right: var(--form-padding-right, 0) !important;
+        padding-bottom: var(--form-padding-bottom, 0) !important;
+        padding-left: var(--form-padding-left, 0) !important;
+        width: 100% !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        display: block !important;
+        text-align: var(--form-alignment, var(--content-alignment, left)) !important;
+
+        .form-group {
+            display: flex !important;
+            border-radius: 50px !important;
+            overflow: hidden !important;
+            max-width: 500px !important;
+            width: 100% !important;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1) !important;
+            transition: box-shadow 0.3s ease !important;
+            background-color: var(--white-color, #ffffff) !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            margin-left: var(--form-group-margin-left, auto) !important;
+            margin-right: var(--form-group-margin-right, auto) !important;
+            
+            @media (max-width: 992px) {
+                margin-left: var(--form-group-margin-left, auto) !important;
+                margin-right: var(--form-group-margin-right, auto) !important;
+            }
+            
+            @media (max-width: 768px) {
+                margin-left: var(--form-group-margin-left-mobile, var(--form-group-margin-left, auto)) !important;
+                margin-right: var(--form-group-margin-right-mobile, var(--form-group-margin-right, auto)) !important;
+            }
+
+            &:focus-within {
+                box-shadow: 0 6px 20px rgba(244, 139, 42, 0.2);
+            }
+
+            input[type="email"] {
+                flex-grow: 1;
+                flex-shrink: 1;
+                border: 2px solid transparent;
+                padding: clamp(14px, 2vw, 16px) clamp(20px, 3vw, 24px);
+                font-size: clamp(0.9rem, 1.5vw, 1rem);
+                background-color: var(--email-bg-color, #f0f0f0);
+                color: var(--email-text-color, var(--dark-grey, #212121));
+                min-width: 0;
+                border-radius: 50px 0 0 50px;
+                transition: all 0.3s ease;
+                font-family: "Roboto", sans-serif;
+                width: 100%;
+                box-sizing: border-box;
+
+                &::placeholder {
+                    color: var(--email-placeholder-color, var(--medium-grey, #666));
+                    opacity: 0.7;
+                    font-size: clamp(0.85rem, 1.5vw, 0.95rem);
+                }
+
+                &:focus {
+                    outline: none;
+                    background-color: var(--email-focus-bg, var(--white-color, #ffffff));
+                    border-color: var(--email-focus-border, var(--primary-orange, #f48b2a));
+                }
+            }
+
+            button {
+                border: none;
+                background-color: var(--primary-orange, #f48b2a);
+                color: var(--white-color, #ffffff);
+                padding: clamp(14px, 2vw, 16px) clamp(24px, 4vw, 32px);
+                font-weight: 700;
+                font-size: clamp(0.8rem, 1.5vw, 0.9rem);
+                cursor: pointer;
+                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                white-space: nowrap;
+                border-radius: 0 50px 50px 0;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+                box-shadow: 0 2px 8px rgba(244, 139, 42, 0.3);
+                flex-shrink: 0;
+                font-family: inherit;
+
+                &:hover {
+                    background-color: var(--button-hover-bg, #e67a22);
+                    transform: translateY(var(--button-hover-translate-y, -1px));
+                    box-shadow: 0 var(--button-hover-shadow-offset-y, 4px) var(--button-hover-shadow-blur, 12px) rgba(244, 139, 42, 0.4);
+                }
+
+                &:active {
+                    transform: translateY(0);
+                    box-shadow: 0 2px 6px rgba(244, 139, 42, 0.3);
+                }
+
+                &:focus-visible {
+                    outline: 3px solid var(--white-color, #ffffff);
+                    outline-offset: 2px;
+                }
+            }
+        }
+    }
+
+    // Visually Hidden Label
+    .visually-hidden {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+    }
+}
+
+// === RESPONSIVE STYLES ===
+
+// Tablet (992px and below)
+@media (max-width: 992px) {
+    .good-news-section,
+    section.good-news-section,
+    .wp-block-twork-good-news-section {
+        padding-top: var(--padding-top-tablet, var(--padding-top, 0)) !important;
+        padding-bottom: var(--padding-bottom-tablet, var(--padding-bottom, 0)) !important;
+
+        .good-news-grid {
+            flex-direction: column-reverse !important;
+            flex-wrap: nowrap !important;
+            min-height: auto !important;
+            display: flex !important;
+            width: 100% !important;
+            margin: 0 !important;
+            padding: 0 !important;
+
+            .good-news-content-wrapper {
+                justify-content: center !important;
+                flex-basis: 100% !important;
+                flex-grow: 0 !important;
+                flex-shrink: 0 !important;
+                padding: var(--content-padding-tablet, 60px) 0 !important;
+                visibility: visible !important;
+                opacity: 1 !important;
+                z-index: 10 !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                order: 2 !important;
+                min-width: 0 !important;
+
+                .good-news-content {
+                    margin-right: 0 !important;
+                    margin-left: 0 !important;
+                    padding: 0 30px !important;
+                    max-width: var(--content-max-width, 600px) !important;
+                    width: 100% !important;
+                    text-align: var(--content-alignment-tablet, center) !important;
+                    visibility: visible !important;
+                    opacity: 1 !important;
+                    z-index: 11 !important;
+                    display: block !important;
+                    box-sizing: border-box !important;
+
+                    .meta-title {
+                        font-size: var(--meta-font-size-tablet, var(--meta-font-size, 0.75rem)) !important;
+                        font-weight: var(--meta-font-weight-tablet, var(--meta-font-weight, 700)) !important;
+                        color: var(--meta-color-tablet, var(--meta-color, #212121)) !important;
+                        text-transform: var(--meta-text-transform-tablet, var(--meta-text-transform, uppercase)) !important;
+                        letter-spacing: var(--meta-letter-spacing-tablet, var(--meta-letter-spacing, 1.5px)) !important;
+                        margin-top: var(--meta-margin-top-tablet, var(--meta-margin-top, 0)) !important;
+                        margin-right: var(--meta-margin-right-tablet, var(--meta-margin-right, 0)) !important;
+                        margin-bottom: var(--meta-margin-bottom-tablet, var(--meta-margin-bottom, 15px)) !important;
+                        margin-left: var(--meta-margin-left-tablet, var(--meta-margin-left, 0)) !important;
+                        padding-top: var(--meta-padding-top-tablet, var(--meta-padding-top, 0)) !important;
+                        padding-right: var(--meta-padding-right-tablet, var(--meta-padding-right, 0)) !important;
+                        padding-bottom: var(--meta-padding-bottom-tablet, var(--meta-padding-bottom, 5px)) !important;
+                        padding-left: var(--meta-padding-left-tablet, var(--meta-padding-left, 0)) !important;
+                        text-align: var(--meta-alignment-tablet, var(--meta-alignment, var(--content-alignment-tablet, center))) !important;
+                    }
+
+                    h2,
+                    .good-news-heading {
+                        font-size: var(--heading-font-size-tablet, var(--heading-font-size, clamp(2rem, 4.5vw, 2.75rem))) !important;
+                        font-weight: var(--heading-font-weight-tablet, var(--heading-font-weight, 300)) !important;
+                        color: var(--heading-color-tablet, var(--heading-color, #212121)) !important;
+                        line-height: var(--heading-line-height-tablet, var(--heading-line-height, 1.1)) !important;
+                        letter-spacing: var(--heading-letter-spacing-tablet, var(--heading-letter-spacing, -0.01em)) !important;
+                        text-align: var(--heading-alignment-tablet, var(--heading-alignment, var(--content-alignment-tablet, center))) !important;
+                        margin-top: var(--heading-margin-top-tablet, var(--heading-margin-top, 0)) !important;
+                        margin-right: var(--heading-margin-right-tablet, var(--heading-margin-right, 0)) !important;
+                        margin-bottom: var(--heading-margin-bottom-tablet, var(--heading-margin-bottom, 25px)) !important;
+                        margin-left: var(--heading-margin-left-tablet, var(--heading-margin-left, 0)) !important;
+                        padding-top: var(--heading-padding-top-tablet, var(--heading-padding-top, 0)) !important;
+                        padding-right: var(--heading-padding-right-tablet, var(--heading-padding-right, 0)) !important;
+                        padding-bottom: var(--heading-padding-bottom-tablet, var(--heading-padding-bottom, 0)) !important;
+                        padding-left: var(--heading-padding-left-tablet, var(--heading-padding-left, 0)) !important;
+
+                        .highlight-red,
+                        span.highlight-red {
+                            font-weight: var(--highlight-font-weight-tablet, var(--highlight-font-weight, 900)) !important;
+                            color: var(--highlight-color-tablet, var(--highlight-color, var(--primary-orange, #f48b2a))) !important;
+                            font-size: var(--highlight-font-size-tablet, var(--highlight-font-size, 1.15em)) !important;
+                            display: block !important;
+                            line-height: 1 !important;
+                            visibility: visible !important;
+                            opacity: 1 !important;
+                            position: relative !important;
+                            z-index: 1 !important;
+                        }
+                    }
+
+                    .good-news-description {
+                        font-size: var(--description-font-size-tablet, 1.05rem) !important;
+                        margin-top: var(--description-margin-top-tablet, var(--description-margin-top, 0)) !important;
+                        margin-right: var(--description-margin-right-tablet, var(--description-margin-right, 0)) !important;
+                        margin-bottom: var(--description-margin-bottom-tablet, var(--description-margin-bottom, 30px)) !important;
+                        margin-left: var(--description-margin-left-tablet, var(--description-margin-left, 0)) !important;
+                        padding-top: var(--description-padding-top-tablet, var(--description-padding-top, 0)) !important;
+                        padding-right: var(--description-padding-right-tablet, var(--description-padding-right, 0)) !important;
+                        padding-bottom: var(--description-padding-bottom-tablet, var(--description-padding-bottom, 0)) !important;
+                        padding-left: var(--description-padding-left-tablet, var(--description-padding-left, 0)) !important;
+                    }
+                }
+            }
+
+            .good-news-image-bg {
+                flex-basis: 100% !important;
+                flex-grow: 0 !important;
+                flex-shrink: 0 !important;
+                background-image: var(--background-image-tablet, var(--background-image, none)) !important;
+                min-height: var(--image-min-height-tablet, 400px) !important;
+                height: var(--image-min-height-tablet, 400px) !important;
+                max-height: var(--image-max-height-tablet, var(--image-min-height-tablet, 400px)) !important;
+                max-width: var(--image-max-width-tablet, 100%) !important;
+                background-position: var(--background-position-tablet, center) !important;
+                background-size: var(--background-size-tablet, cover) !important;
+                background-repeat: no-repeat !important;
+                width: 100% !important;
+                order: 1 !important;
+                display: block !important;
+                min-width: 0 !important;
+                overflow: var(--image-overflow, hidden) !important;
+                aspect-ratio: var(--image-aspect-ratio, auto) !important;
+                box-sizing: border-box !important;
+                // Responsive margin for tablet
+                margin-top: var(--image-margin-top-tablet, var(--image-margin-top, 0px)) !important;
+                margin-right: var(--image-margin-right-tablet, var(--image-margin-right, 0px)) !important;
+                margin-bottom: var(--image-margin-bottom-tablet, var(--image-margin-bottom, 0px)) !important;
+                margin-left: var(--image-margin-left-tablet, var(--image-margin-left, 0px)) !important;
+                // Responsive padding for tablet
+                padding-top: var(--image-padding-top-tablet, var(--image-padding-top, 0px)) !important;
+                padding-right: var(--image-padding-right-tablet, var(--image-padding-right, 0px)) !important;
+                padding-bottom: var(--image-padding-bottom-tablet, var(--image-padding-bottom, 0px)) !important;
+                padding-left: var(--image-padding-left-tablet, var(--image-padding-left, 0px)) !important;
+            }
+
+            .newsletter-form {
+                margin-top: var(--form-margin-top-tablet, var(--form-margin-top, 25px)) !important;
+                margin-right: var(--form-margin-right-tablet, var(--form-margin-right, 0)) !important;
+                margin-bottom: var(--form-margin-bottom-tablet, var(--form-margin-bottom, 0)) !important;
+                margin-left: var(--form-margin-left-tablet, var(--form-margin-left, 0)) !important;
+                padding-top: var(--form-padding-top-tablet, var(--form-padding-top, 0)) !important;
+                padding-right: var(--form-padding-right-tablet, var(--form-padding-right, 0)) !important;
+                padding-bottom: var(--form-padding-bottom-tablet, var(--form-padding-bottom, 0)) !important;
+                padding-left: var(--form-padding-left-tablet, var(--form-padding-left, 0)) !important;
+                width: 100% !important;
+                display: block !important;
+
+                .form-group {
+                    max-width: var(--form-max-width-tablet, 100%) !important;
+                    width: 100% !important;
+                    display: flex !important;
+                    border-radius: var(--form-border-radius-tablet, 50px) !important;
+
+                    input[type="email"] {
+                        font-size: var(--email-font-size-tablet, 0.95rem) !important;
+                        padding: var(--email-padding-vertical-tablet, 15px) var(--email-padding-horizontal-tablet, 22px) !important;
+                        background-color: var(--email-bg-color-tablet, var(--email-bg-color, #f0f0f0)) !important;
+                        color: var(--email-text-color-tablet, var(--email-text-color, #212121)) !important;
+                        border-color: var(--email-border-color-tablet, var(--email-border-color, transparent)) !important;
+
+                        &::placeholder {
+                            color: var(--email-placeholder-color-tablet, var(--email-placeholder-color, #666)) !important;
+                        }
+
+                        &:focus {
+                            background-color: var(--email-focus-bg-tablet, var(--email-focus-bg, #ffffff)) !important;
+                            border-color: var(--email-focus-border-tablet, var(--email-focus-border, #f48b2a)) !important;
+                        }
+                    }
+
+                    button {
+                        font-size: var(--button-font-size-tablet, 0.85rem) !important;
+                        padding: var(--button-padding-vertical-tablet, 15px) var(--button-padding-horizontal-tablet, 28px) !important;
+                        background-color: var(--button-bg-color-tablet, var(--button-bg-color, #f48b2a)) !important;
+                        color: var(--button-text-color-tablet, var(--button-text-color, #ffffff)) !important;
+                        font-weight: var(--button-font-weight-tablet, 700) !important;
+                        text-transform: var(--button-text-transform-tablet, uppercase) !important;
+                        letter-spacing: var(--button-letter-spacing-tablet, 0.5px) !important;
+
+                        &:hover {
+                            background-color: var(--button-hover-bg-tablet, var(--button-hover-bg, #e67a22)) !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Mobile (768px and below)
+@media (max-width: 768px) {
+    .good-news-section,
+    section.good-news-section,
+    .wp-block-twork-good-news-section {
+        padding-top: var(--padding-top-mobile, var(--padding-top-tablet, var(--padding-top, 0))) !important;
+        padding-bottom: var(--padding-bottom-mobile, var(--padding-bottom-tablet, var(--padding-bottom, 0))) !important;
+
+        .good-news-grid {
+            flex-direction: column !important;
+            flex-wrap: nowrap !important;
+            min-height: auto !important;
+            display: flex !important;
+            width: 100% !important;
+            margin: 0 !important;
+            padding: 0 !important;
+
+            .good-news-content-wrapper {
+                flex-basis: 100% !important;
+                flex-grow: 0 !important;
+                flex-shrink: 0 !important;
+                padding: var(--content-padding-mobile, 50px) 0 !important;
+                visibility: visible !important;
+                opacity: 1 !important;
+                z-index: 10 !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                order: 2 !important;
+                min-width: 0 !important;
+                margin: 0 !important;
+                box-sizing: border-box !important;
+
+                .good-news-content {
+                    padding: 0 20px !important;
+                    margin-right: 0 !important;
+                    margin-left: 0 !important;
+                    max-width: var(--content-max-width, 500px) !important;
+                    width: 100% !important;
+                    text-align: var(--content-alignment-mobile, center) !important;
+                    visibility: visible !important;
+                    opacity: 1 !important;
+                    z-index: 11 !important;
+                    display: block !important;
+                    box-sizing: border-box !important;
+
+                    .meta-title {
+                        font-size: var(--meta-font-size-mobile, var(--meta-font-size-tablet, var(--meta-font-size, 0.7rem))) !important;
+                        font-weight: var(--meta-font-weight-mobile, var(--meta-font-weight-tablet, var(--meta-font-weight, 700))) !important;
+                        color: var(--meta-color-mobile, var(--meta-color-tablet, var(--meta-color, #212121))) !important;
+                        text-transform: var(--meta-text-transform-mobile, var(--meta-text-transform-tablet, var(--meta-text-transform, uppercase))) !important;
+                        letter-spacing: var(--meta-letter-spacing-mobile, var(--meta-letter-spacing-tablet, var(--meta-letter-spacing, 1.5px))) !important;
+                        margin-top: var(--meta-margin-top-mobile, var(--meta-margin-top-tablet, var(--meta-margin-top, 0))) !important;
+                        margin-right: var(--meta-margin-right-mobile, var(--meta-margin-right-tablet, var(--meta-margin-right, 0))) !important;
+                        margin-bottom: var(--meta-margin-bottom-mobile, var(--meta-margin-bottom-tablet, var(--meta-margin-bottom, 15px))) !important;
+                        margin-left: var(--meta-margin-left-mobile, var(--meta-margin-left-tablet, var(--meta-margin-left, 0))) !important;
+                        padding-top: var(--meta-padding-top-mobile, var(--meta-padding-top-tablet, var(--meta-padding-top, 0))) !important;
+                        padding-right: var(--meta-padding-right-mobile, var(--meta-padding-right-tablet, var(--meta-padding-right, 0))) !important;
+                        padding-bottom: var(--meta-padding-bottom-mobile, var(--meta-padding-bottom-tablet, var(--meta-padding-bottom, 5px))) !important;
+                        padding-left: var(--meta-padding-left-mobile, var(--meta-padding-left-tablet, var(--meta-padding-left, 0))) !important;
+                        text-align: var(--meta-alignment-mobile, var(--meta-alignment-tablet, var(--meta-alignment, var(--content-alignment-mobile, center)))) !important;
+                    }
+
+                    h2,
+                    .good-news-heading {
+                        font-size: var(--heading-font-size-mobile, var(--heading-font-size-tablet, var(--heading-font-size, clamp(1.75rem, 6vw, 2.5rem)))) !important;
+                        font-weight: var(--heading-font-weight-mobile, var(--heading-font-weight-tablet, var(--heading-font-weight, 300))) !important;
+                        color: var(--heading-color-mobile, var(--heading-color-tablet, var(--heading-color, #212121))) !important;
+                        line-height: var(--heading-line-height-mobile, var(--heading-line-height-tablet, var(--heading-line-height, 1.1))) !important;
+                        letter-spacing: var(--heading-letter-spacing-mobile, var(--heading-letter-spacing-tablet, var(--heading-letter-spacing, -0.01em))) !important;
+                        margin-top: var(--heading-margin-top-mobile, var(--heading-margin-top-tablet, var(--heading-margin-top, 0))) !important;
+                        margin-right: var(--heading-margin-right-mobile, var(--heading-margin-right-tablet, var(--heading-margin-right, 0))) !important;
+                        margin-bottom: var(--heading-margin-bottom-mobile, var(--heading-margin-bottom-tablet, var(--heading-margin-bottom, 15px))) !important;
+                        margin-left: var(--heading-margin-left-mobile, var(--heading-margin-left-tablet, var(--heading-margin-left, 0))) !important;
+                        padding-top: var(--heading-padding-top-mobile, var(--heading-padding-top-tablet, var(--heading-padding-top, 0))) !important;
+                        padding-right: var(--heading-padding-right-mobile, var(--heading-padding-right-tablet, var(--heading-padding-right, 0))) !important;
+                        padding-bottom: var(--heading-padding-bottom-mobile, var(--heading-padding-bottom-tablet, var(--heading-padding-bottom, 0))) !important;
+                        padding-left: var(--heading-padding-left-mobile, var(--heading-padding-left-tablet, var(--heading-padding-left, 0))) !important;
+                        text-align: var(--heading-alignment-mobile, var(--heading-alignment-tablet, var(--heading-alignment, var(--content-alignment-mobile, center)))) !important;
+
+                        .highlight-red,
+                        span.highlight-red {
+                            font-weight: var(--highlight-font-weight-mobile, var(--highlight-font-weight-tablet, var(--highlight-font-weight, 900))) !important;
+                            color: var(--highlight-color-mobile, var(--highlight-color-tablet, var(--highlight-color, var(--primary-orange, #f48b2a)))) !important;
+                            font-size: var(--highlight-font-size-mobile, var(--highlight-font-size-tablet, var(--highlight-font-size, 1.1em))) !important;
+                            display: block !important;
+                            line-height: 1 !important;
+                            visibility: visible !important;
+                            opacity: 1 !important;
+                            position: relative !important;
+                            z-index: 1 !important;
+                        }
+                    }
+
+                    .good-news-description {
+                        font-size: var(--description-font-size-mobile, 1rem) !important;
+                        color: var(--description-color-mobile, var(--description-color-tablet, var(--description-color, #212121))) !important;
+                        line-height: var(--description-line-height-mobile, var(--description-line-height-tablet, 1.6)) !important;
+                        margin-top: var(--description-margin-top-mobile, var(--description-margin-top-tablet, var(--description-margin-top, 0))) !important;
+                        margin-right: var(--description-margin-right-mobile, var(--description-margin-right-tablet, var(--description-margin-right, 0))) !important;
+                        margin-bottom: var(--description-margin-bottom-mobile, var(--description-margin-bottom-tablet, var(--description-margin-bottom, 25px))) !important;
+                        margin-left: var(--description-margin-left-mobile, var(--description-margin-left-tablet, var(--description-margin-left, 0))) !important;
+                        padding-top: var(--description-padding-top-mobile, var(--description-padding-top-tablet, var(--description-padding-top, 0))) !important;
+                        padding-right: var(--description-padding-right-mobile, var(--description-padding-right-tablet, var(--description-padding-right, 0))) !important;
+                        padding-bottom: var(--description-padding-bottom-mobile, var(--description-padding-bottom-tablet, var(--description-padding-bottom, 0))) !important;
+                        padding-left: var(--description-padding-left-mobile, var(--description-padding-left-tablet, var(--description-padding-left, 0))) !important;
+                        text-align: var(--description-alignment-mobile, var(--description-alignment-tablet, var(--description-alignment, var(--content-alignment-mobile, center)))) !important;
+                    }
+                }
+            }
+
+            .good-news-image-bg {
+                flex-basis: 100% !important;
+                flex-grow: 0 !important;
+                flex-shrink: 0 !important;
+                background-image: var(--background-image-mobile, var(--background-image-tablet, var(--background-image, none))) !important;
+                min-height: var(--image-min-height-mobile, 300px) !important;
+                height: var(--image-min-height-mobile, 300px) !important;
+                max-height: var(--image-max-height-mobile, var(--image-min-height-mobile, 300px)) !important;
+                max-width: var(--image-max-width-mobile, 100%) !important;
+                background-position: var(--background-position-mobile, center) !important;
+                background-size: var(--background-size-mobile, cover) !important;
+                background-repeat: no-repeat !important;
+                width: 100% !important;
+                order: 1 !important;
+                display: block !important;
+                min-width: 0 !important;
+                overflow: var(--image-overflow, hidden) !important;
+                aspect-ratio: var(--image-aspect-ratio, auto) !important;
+                box-sizing: border-box !important;
+                // Responsive margin for mobile
+                margin-top: var(--image-margin-top-mobile, var(--image-margin-top-tablet, var(--image-margin-top, 0px))) !important;
+                margin-right: var(--image-margin-right-mobile, var(--image-margin-right-tablet, var(--image-margin-right, 0px))) !important;
+                margin-bottom: var(--image-margin-bottom-mobile, var(--image-margin-bottom-tablet, var(--image-margin-bottom, 0px))) !important;
+                margin-left: var(--image-margin-left-mobile, var(--image-margin-left-tablet, var(--image-margin-left, 0px))) !important;
+                // Responsive padding for mobile
+                padding-top: var(--image-padding-top-mobile, var(--image-padding-top-tablet, var(--image-padding-top, 0px))) !important;
+                padding-right: var(--image-padding-right-mobile, var(--image-padding-right-tablet, var(--image-padding-right, 0px))) !important;
+                padding-bottom: var(--image-padding-bottom-mobile, var(--image-padding-bottom-tablet, var(--image-padding-bottom, 0px))) !important;
+                padding-left: var(--image-padding-left-mobile, var(--image-padding-left-tablet, var(--image-padding-left, 0px))) !important;
+
+                &::before {
+                    background: linear-gradient(
+                        180deg,
+                        rgba(255, 255, 255, 0.1) 0%,
+                        transparent 100%
+                    );
+                }
+            }
+
+            .newsletter-form {
+                margin-top: var(--form-margin-top-mobile, var(--form-margin-top-tablet, var(--form-margin-top, 20px))) !important;
+                margin-right: var(--form-margin-right-mobile, var(--form-margin-right-tablet, var(--form-margin-right, 0))) !important;
+                margin-bottom: var(--form-margin-bottom-mobile, var(--form-margin-bottom-tablet, var(--form-margin-bottom, 0))) !important;
+                margin-left: var(--form-margin-left-mobile, var(--form-margin-left-tablet, var(--form-margin-left, 0))) !important;
+                padding-top: var(--form-padding-top-mobile, var(--form-padding-top-tablet, var(--form-padding-top, 0))) !important;
+                padding-right: var(--form-padding-right-mobile, var(--form-padding-right-tablet, var(--form-padding-right, 0))) !important;
+                padding-bottom: var(--form-padding-bottom-mobile, var(--form-padding-bottom-tablet, var(--form-padding-bottom, 0))) !important;
+                padding-left: var(--form-padding-left-mobile, var(--form-padding-left-tablet, var(--form-padding-left, 0))) !important;
+                width: 100% !important;
+                display: block !important;
+                text-align: var(--form-alignment-mobile, var(--form-alignment-tablet, var(--form-alignment, var(--content-alignment-mobile, center)))) !important;
+
+                .form-group {
+                    display: flex !important;
+                    flex-direction: row !important;
+                    border-radius: var(--form-border-radius-mobile, var(--form-border-radius-tablet, 50px)) !important;
+                    max-width: var(--form-max-width-mobile, var(--form-max-width-tablet, 100%)) !important;
+                    width: 100% !important;
+                    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
+                    gap: 0 !important;
+                    background-color: var(--white-color, #ffffff) !important;
+                    overflow: hidden !important;
+                    margin-left: var(--form-group-margin-left-mobile, var(--form-group-margin-left, auto)) !important;
+                    margin-right: var(--form-group-margin-right-mobile, var(--form-group-margin-right, auto)) !important;
+
+                    &:focus-within {
+                        box-shadow: var(--form-focus-shadow, 0 4px 15px rgba(244, 139, 42, 0.2));
+                    }
+
+                    input[type="email"] {
+                        flex: 1;
+                        flex-grow: 1;
+                        flex-shrink: 1;
+                        border: 2px solid var(--email-border-color-mobile, var(--email-border-color-tablet, var(--email-border-color, transparent)));
+                        border-right: none;
+                        border-radius: var(--form-border-radius-mobile, var(--form-border-radius-tablet, 50px)) 0 0 var(--form-border-radius-mobile, var(--form-border-radius-tablet, 50px));
+                        padding: var(--email-padding-vertical-mobile, 14px) var(--email-padding-horizontal-mobile, 18px);
+                        font-size: var(--email-font-size-mobile, 0.9rem);
+                        min-width: 0;
+                        margin: 0;
+                        background-color: var(--email-bg-color-mobile, var(--email-bg-color-tablet, var(--email-bg-color, #f0f0f0)));
+                        color: var(--email-text-color-mobile, var(--email-text-color-tablet, var(--email-text-color, var(--dark-grey, #212121))));
+                        box-sizing: border-box;
+
+                        &::placeholder {
+                            font-size: 0.85rem;
+                            color: var(--email-placeholder-color-mobile, var(--email-placeholder-color-tablet, var(--email-placeholder-color, var(--medium-grey, #666))));
+                        }
+
+                        &:focus {
+                            outline: none;
+                            border-color: var(--email-focus-border-mobile, var(--email-focus-border-tablet, var(--email-focus-border, var(--primary-orange, #f48b2a))));
+                            background-color: var(--email-focus-bg-mobile, var(--email-focus-bg-tablet, var(--email-focus-bg, var(--white-color, #ffffff))));
+                        }
+                    }
+
+                    button {
+                        flex-shrink: 0;
+                        border: none;
+                        border-radius: 0 var(--form-border-radius-mobile, var(--form-border-radius-tablet, 50px)) var(--form-border-radius-mobile, var(--form-border-radius-tablet, 50px)) 0;
+                        padding: var(--button-padding-vertical-mobile, 14px) var(--button-padding-horizontal-mobile, 20px);
+                        font-size: var(--button-font-size-mobile, 0.8rem);
+                        font-weight: var(--button-font-weight-mobile, var(--button-font-weight-tablet, 700)) !important;
+                        white-space: nowrap;
+                        background-color: var(--button-bg-color-mobile, var(--button-bg-color-tablet, var(--button-bg-color, var(--primary-orange, #f48b2a))));
+                        color: var(--button-text-color-mobile, var(--button-text-color-tablet, var(--button-text-color, var(--white-color, #ffffff))));
+                        text-transform: var(--button-text-transform-mobile, var(--button-text-transform-tablet, uppercase)) !important;
+                        letter-spacing: var(--button-letter-spacing-mobile, var(--button-letter-spacing-tablet, 0.5px)) !important;
+                        cursor: pointer;
+                        box-shadow: 0 2px 8px rgba(244, 139, 42, 0.3);
+                        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+                        &:hover {
+                            background-color: var(--button-hover-bg-mobile, var(--button-hover-bg-tablet, var(--button-hover-bg, #e67a22)));
+                            transform: translateY(var(--button-hover-translate-y, -1px));
+                            box-shadow: 0 var(--button-hover-shadow-offset-y, 4px) var(--button-hover-shadow-blur, 12px) rgba(244, 139, 42, 0.4);
+                        }
+
+                        &:active {
+                            transform: translateY(0);
+                            box-shadow: 0 2px 6px rgba(244, 139, 42, 0.3);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Small Mobile (480px and below)
+@media (max-width: 480px) {
+    .good-news-section,
+    section.good-news-section,
+    .wp-block-twork-good-news-section {
+        padding-top: var(--padding-top-mobile, var(--padding-top-tablet, var(--padding-top, 0))) !important;
+        padding-bottom: var(--padding-bottom-mobile, var(--padding-bottom-tablet, var(--padding-bottom, 0))) !important;
+
+        .good-news-grid {
+            flex-direction: column !important;
+            flex-wrap: nowrap !important;
+            display: flex !important;
+            width: 100% !important;
+            margin: 0 !important;
+            padding: 0 !important;
+
+            .good-news-content-wrapper {
+                flex-basis: 100% !important;
+                flex-grow: 0 !important;
+                flex-shrink: 0 !important;
+                padding: var(--content-padding-mobile, 30px) 0 !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                order: 2 !important;
+                min-width: 0 !important;
+                margin: 0 !important;
+                box-sizing: border-box !important;
+
+                .good-news-content {
+                    padding: 0 15px !important;
+                    max-width: 100% !important;
+
+                    .meta-title {
+                        font-size: var(--meta-font-size-mobile, var(--meta-font-size-tablet, var(--meta-font-size, 0.65rem))) !important;
+                        margin-bottom: var(--meta-margin-bottom-mobile, var(--meta-margin-bottom-tablet, var(--meta-margin-bottom, 12px))) !important;
+                    }
+
+                    h2,
+                    .good-news-heading {
+                        font-size: var(--heading-font-size-mobile, var(--heading-font-size-tablet, var(--heading-font-size, clamp(1.5rem, 7vw, 2rem)))) !important;
+                        margin-bottom: 12px !important;
+
+                        .highlight-red,
+                        span.highlight-red {
+                            font-weight: var(--highlight-font-weight-mobile, var(--highlight-font-weight-tablet, var(--highlight-font-weight, 900))) !important;
+                            color: var(--highlight-color-mobile, var(--highlight-color-tablet, var(--highlight-color, var(--primary-orange, #f48b2a)))) !important;
+                            font-size: var(--highlight-font-size-mobile, var(--highlight-font-size-tablet, var(--highlight-font-size, 1.1em))) !important;
+                            display: block !important;
+                            line-height: 1 !important;
+                            visibility: visible !important;
+                            opacity: 1 !important;
+                            position: relative !important;
+                            z-index: 1 !important;
+                        }
+                    }
+
+                    .good-news-description {
+                        font-size: var(--description-font-size-mobile, 0.95rem) !important;
+                        margin-bottom: 20px !important;
+                    }
+                }
+            }
+
+            .good-news-image-bg {
+                flex-basis: 100% !important;
+                flex-grow: 0 !important;
+                flex-shrink: 0 !important;
+                background-image: var(--background-image-mobile, var(--background-image-tablet, var(--background-image, none))) !important;
+                min-height: var(--image-min-height-mobile, 250px) !important;
+                height: var(--image-min-height-mobile, 250px) !important;
+                max-height: var(--image-max-height-mobile, var(--image-min-height-mobile, 250px)) !important;
+                max-width: var(--image-max-width-mobile, 100%) !important;
+                background-position: var(--background-position-mobile, center) !important;
+                background-size: var(--background-size-mobile, cover) !important;
+                background-repeat: no-repeat !important;
+                width: 100% !important;
+                order: 1 !important;
+                min-width: 0 !important;
+                overflow: var(--image-overflow, hidden) !important;
+                aspect-ratio: var(--image-aspect-ratio, auto) !important;
+                box-sizing: border-box !important;
+            }
+
+            .newsletter-form {
+                margin-top: var(--form-margin-top-mobile, 15px) !important;
+                width: 100% !important;
+                display: block !important;
+
+                .form-group {
+                    max-width: 100% !important;
+                    width: 100% !important;
+
+                    input[type="email"] {
+                        padding: 12px 16px !important;
+                        font-size: 0.85rem !important;
+                    }
+
+                    button {
+                        padding: 12px 16px !important;
+                        font-size: 0.75rem !important;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Large Screens (1400px and above)
+@media (min-width: 1400px) {
+    .good-news-section,
+    section.good-news-section,
+    .wp-block-twork-good-news-section {
+        .good-news-grid {
+            .good-news-image-bg {
+                min-height: 600px !important;
+                background-image: var(--background-image, none) !important;
+                background-position: var(--background-position, center right) !important;
+                background-size: var(--background-size, cover) !important;
+            }
+        }
+    }
+}
+
+// === ANIMATION SUPPORT ===
+// Default state - always visible
+.good-news-section {
+    .good-news-content-wrapper,
+    .good-news-image-bg {
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+}
+
+// Animation enabled state
+.good-news-section[data-animation="true"] {
+    .good-news-content-wrapper,
+    .good-news-image-bg {
+        opacity: 0;
+        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        visibility: visible;
+    }
+
+    .good-news-content-wrapper[data-animation-type="fadeInUp"],
+    .good-news-image-bg[data-animation-type="fadeInUp"] {
+        transform: translateY(30px);
+    }
+
+    .good-news-content-wrapper[data-animation-type="fadeIn"],
+    .good-news-image-bg[data-animation-type="fadeIn"] {
+        transform: none;
+    }
+
+    .good-news-content-wrapper[data-animation-type="slideInLeft"],
+    .good-news-image-bg[data-animation-type="slideInLeft"] {
+        transform: translateX(-50px);
+    }
+
+    .good-news-content-wrapper[data-animation-type="slideInRight"],
+    .good-news-image-bg[data-animation-type="slideInRight"] {
+        transform: translateX(50px);
+    }
+
+    .good-news-content-wrapper[data-animation-type="zoomIn"],
+    .good-news-image-bg[data-animation-type="zoomIn"] {
+        transform: scale(0.9);
+    }
+
+    &.is-visible,
+    &.animated {
+        .good-news-content-wrapper,
+        .good-news-image-bg {
+            opacity: 1 !important;
+            transform: translate(0, 0) scale(1) !important;
+            visibility: visible !important;
+        }
+    }
+}
+
+// === ACCESSIBILITY ===
+.good-news-section {
+    &:focus-within {
+        outline: 2px solid var(--primary-orange, #f48b2a);
+        outline-offset: 2px;
+    }
+
+    .newsletter-form {
+        input[type="email"]:focus-visible {
+            outline: 3px solid var(--primary-orange, #f48b2a);
+            outline-offset: 2px;
+        }
+
+        button:focus-visible {
+            outline: 3px solid var(--white-color, #ffffff);
+            outline-offset: 2px;
+        }
+    }
+}
+
+// === PRINT STYLES ===
+@media print {
+    .good-news-section {
+        .good-news-image-bg {
+            print-color-adjust: exact;
+            -webkit-print-color-adjust: exact;
+        }
+
+        .newsletter-form {
+            display: none;
+        }
+    }
+}
+
+// === DARK MODE SUPPORT ===
+@media (prefers-color-scheme: dark) {
+    .good-news-section {
+        .good-news-content-wrapper {
+            background-color: var(--dark-grey, #212121);
+            color: var(--white-color, #ffffff);
+
+            .good-news-content {
+                .meta-title,
+                .good-news-heading,
+                .good-news-description {
+                    color: var(--white-color, #ffffff);
+                }
+            }
+        }
+    }
+}
+

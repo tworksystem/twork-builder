@@ -1,0 +1,14 @@
+// Gallery Item – editor-only; frontend .gallery-item styles live in gallery-section
+
+.editor-styles-wrapper {
+    .twork-gallery-item-editor {
+        .gallery-item-placeholder {
+            min-height: 180px;
+            border: 2px dashed #ccc;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+}

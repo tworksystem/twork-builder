@@ -1,0 +1,27 @@
+// Radiology Why Choose Item
+
+// === EDITOR STYLES ===
+.editor-styles-wrapper {
+  .rad-why-item-editor {
+    border: 1px dashed #ddd;
+    border-radius: 8px;
+    padding: 24px;
+
+    h4,
+    p {
+      &[contenteditable='true']:focus {
+        outline: 1px dashed #2271b1;
+        outline-offset: 2px;
+      }
+    }
+  }
+}
+
+// === FRONTEND STYLES ===
+// Main card styles live in rad-why-section/style.scss; this file just keeps
+// the item block aligned with that design if used elsewhere.
+.rad-why-item {
+  display: flex;
+  flex-direction: column;
+}
+

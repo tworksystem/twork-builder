@@ -1,0 +1,157 @@
+// Paediatrics Conditions Section – matches paediatrics-centre.html
+// Variables (scoped so they don’t conflict elsewhere)
+.paed-conditions-section {
+    --paed-primary: #f48b2a;
+    --paed-dark: #212121;
+    --paed-soft-orange: #fff9f2;
+}
+
+// === EDITOR STYLES ===
+.editor-styles-wrapper,
+.block-editor-block-list__layout {
+    .twork-paed-conditions-section-editor {
+        .paed-header {
+            h2[contenteditable="true"],
+            p[contenteditable="true"] {
+                &:focus {
+                    outline: 1px dashed #2271b1;
+                    outline-offset: 2px;
+                }
+            }
+        }
+
+        .paed-conditions-grid {
+            // InnerBlocks participate in grid via contents
+            > .block-editor-inner-blocks {
+                display: contents !important;
+
+                > .block-editor-block-list__layout {
+                    display: contents !important;
+
+                    > .wp-block,
+                    > [data-type="twork/paediatrics-condition-card"] {
+                        min-height: 1px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// === FRONTEND STYLES ===
+.twork-paed-conditions-section.paed-section,
+.paed-section.twork-paed-conditions-section {
+    position: relative;
+    overflow: hidden;
+
+    .paed-container {
+        position: relative;
+    }
+
+    .paed-header {
+        text-align: center;
+        max-width: 800px;
+        margin: 0 auto 60px;
+
+        h2 {
+            margin: 0 0 15px 0;
+            line-height: 1.2;
+        }
+
+        p {
+            margin: 0;
+            line-height: 1.6;
+        }
+    }
+
+    .paed-conditions-grid {
+        display: grid;
+        width: 100%;
+    }
+
+    // Condition cards (output by paediatrics-condition-card block)
+    .paed-cond-card {
+        background: var(--paed-soft-orange);
+        padding: 25px;
+        border-radius: 12px;
+        text-align: center;
+        transition: 0.3s;
+        cursor: default;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        &:hover {
+            background: #ffe0b2;
+            transform: translateY(-3px);
+        }
+    }
+
+    .paed-cond-icon {
+        font-size: 2rem;
+        color: var(--paed-primary);
+        margin-bottom: 15px;
+    }
+
+    .paed-cond-card h5 {
+        margin: 0;
+        font-size: 1rem;
+        color: var(--paed-dark);
+        font-weight: 700;
+    }
+
+    .paed-cond-card span {
+        font-size: 0.85rem;
+        color: #777;
+        margin-top: 5px;
+        display: block;
+    }
+}
+
+// === RESPONSIVE ===
+@media (max-width: 768px) {
+    .twork-paed-conditions-section.paed-section,
+    .paed-section.twork-paed-conditions-section {
+        .paed-header {
+            margin-bottom: 40px;
+
+            h2 {
+                font-size: 1.75rem !important;
+            }
+
+            p {
+                font-size: 0.95rem !important;
+            }
+        }
+
+        .paed-conditions-grid {
+            gap: 16px !important;
+        }
+
+        .paed-cond-card {
+            padding: 20px;
+        }
+
+        .paed-cond-icon {
+            font-size: 1.75rem;
+        }
+
+        .paed-cond-card h5 {
+            font-size: 0.95rem;
+        }
+
+        .paed-cond-card span {
+            font-size: 0.8rem;
+        }
+    }
+}
+
+// === ACCESSIBILITY ===
+.paed-cond-card {
+    &:focus-visible {
+        outline: 3px solid var(--paed-primary);
+        outline-offset: 2px;
+    }
+}

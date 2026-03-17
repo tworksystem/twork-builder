@@ -1,0 +1,15 @@
+// Benefit Item – editor-only
+// Main benefit-card styles live in benefits-section/style.scss
+
+.editor-styles-wrapper {
+    .twork-benefit-item-editor {
+        h4,
+        p {
+            &[contenteditable="true"]:focus,
+            &:focus-within {
+                outline: 1px dashed #2271b1;
+                outline-offset: 2px;
+            }
+        }
+    }
+}

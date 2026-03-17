@@ -1,0 +1,81 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "twork/nearby-accommodation-item",
+    "title": "Nearby Location Card",
+    "parent": ["twork/nearby-accommodation-section", "twork/neuro-centre-section"],
+    "description": "Single hotel/accommodation card with image and overlay (name, rating, distance).",
+    "keywords": ["accommodation", "hotel", "nearby", "international", "patient", "twork"],
+    "attributes": {
+        "image": {
+            "type": "string",
+            "default": "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=600&q=80"
+        },
+        "imageId": {
+            "type": "number"
+        },
+        "imageAlt": {
+            "type": "string",
+            "default": "Hotel"
+        },
+        "title": {
+            "type": "string",
+            "default": "Mandalay Hill Resort"
+        },
+        "titleColor": {
+            "type": "string",
+            "default": "#ffffff"
+        },
+        "titleFontSize": {
+            "type": "number",
+            "default": 1.1
+        },
+        "titleFontWeight": {
+            "type": "number",
+            "default": 700
+        },
+        "subtitle": {
+            "type": "string",
+            "default": "5 Star • 5 mins away"
+        },
+        "subtitleColor": {
+            "type": "string",
+            "default": "rgba(255, 255, 255, 0.9)"
+        },
+        "subtitleFontSize": {
+            "type": "number",
+            "default": 0.85
+        },
+        "overlayPadding": {
+            "type": "number",
+            "default": 20
+        },
+        "overlayGradientStart": {
+            "type": "string",
+            "default": "transparent"
+        },
+        "overlayGradientEnd": {
+            "type": "string",
+            "default": "rgba(0, 0, 0, 0.8)"
+        },
+        "cardHeight": {
+            "type": "number",
+            "default": 200
+        },
+        "cardBorderRadius": {
+            "type": "number",
+            "default": 12
+        },
+        "linkUrl": {
+            "type": "string",
+            "default": ""
+        },
+        "linkOpenInNewTab": {
+            "type": "boolean",
+            "default": false
+        }
+    },
+    "textdomain": "twork-builder",
+    "editorScript": "file:./index.js",
+    "style": "file:./style-index.css"
+}

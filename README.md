@@ -52,7 +52,11 @@
    ```bash
    npm run build
    ```
-   Builds the plugin for production (minified and optimized).
+   Builds the plugin for production (minified and optimized).  
+   The build runs with increased Node.js heap (4GB) to avoid out-of-memory on large block sets. If you still see `JavaScript heap out of memory`, run:
+   ```bash
+   NODE_OPTIONS=--max-old-space-size=8192 npm run build
+   ```
 
 5. **Create Plugin ZIP**
    ```bash

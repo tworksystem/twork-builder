@@ -1,0 +1,13 @@
+// Visiting Hours Item – editor-only; frontend .hours-row styles live in visiting-info-section
+
+.editor-styles-wrapper {
+    .twork-visiting-hours-item-editor {
+        .ward-name,
+        .time-slot {
+            [contenteditable="true"]:focus {
+                outline: 1px dashed #2271b1;
+                outline-offset: 2px;
+            }
+        }
+    }
+}

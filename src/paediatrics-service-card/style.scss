@@ -1,0 +1,17 @@
+/**
+ * Paediatrics Service Card – card layout/styles live in parent section.
+ * Editor focus for contenteditable only.
+ */
+
+.editor-styles-wrapper,
+.wp-block-twork-paediatrics-service-card {
+    .twork-paed-service-card-editor {
+        h3[contenteditable="true"],
+        p[contenteditable="true"] {
+            &:focus {
+                outline: 2px dashed #2271b1;
+                outline-offset: 2px;
+            }
+        }
+    }
+}

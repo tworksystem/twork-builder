@@ -1,0 +1,132 @@
+// Pharmacy "Shop by Category" – bento grid, matches pharmacy.html
+
+.twork-ph-shop-category-section.ph-section {
+  background: #ffffff;
+
+  .ph-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  // Section header: high specificity so theme/global CSS cannot hide it on front-end
+  .section-header,
+  .twork-ph-shop-category-section-header {
+    display: block;
+    visibility: visible;
+    text-align: left;
+    margin-bottom: 30px;
+
+    h2,
+    .twork-ph-shop-category-section-title {
+      display: block;
+      visibility: visible;
+      font-size: 2rem;
+      margin: 0 0 10px 0;
+      color: inherit;
+      line-height: 1.3;
+    }
+
+    p,
+    .twork-ph-shop-category-section-subtitle {
+      display: block;
+      visibility: visible;
+      margin: 0;
+      color: #666;
+      font-size: inherit;
+      line-height: 1.5;
+    }
+  }
+
+  .ph-bento-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 220px;
+    gap: 20px;
+  }
+
+  .ph-bento-item {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: 0.4s;
+    background: #eee;
+    display: block;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .ph-bento-item:hover .ph-bento-img {
+    transform: scale(1.1);
+  }
+
+  .ph-bento-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.5s;
+  }
+
+  .ph-bento-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    color: #fff;
+    z-index: 2;
+
+    h3 {
+      margin: 0 0 5px 0;
+      font-size: 1.2rem;
+    }
+
+    p {
+      margin: 0;
+      font-size: 0.95rem;
+      opacity: 0.9;
+    }
+  }
+
+  // Grid span helpers
+  .bento-large {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+
+  .bento-tall {
+    grid-column: span 1;
+    grid-row: span 2;
+  }
+
+  .bento-wide {
+    grid-column: span 2;
+    grid-row: span 1;
+  }
+
+  .bento-std {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+}
+
+@media (max-width: 992px) {
+  .twork-ph-shop-category-section.ph-section {
+    .ph-bento-grid {
+      grid-template-columns: repeat(2, 1fr);
+      grid-auto-rows: 220px;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .twork-ph-shop-category-section.ph-section {
+    .ph-bento-grid {
+      grid-template-columns: 1fr;
+      grid-auto-rows: 220px;
+    }
+  }
+}
+

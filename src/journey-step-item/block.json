@@ -1,0 +1,66 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "twork/journey-step-item",
+    "title": "Journey Step Item",
+    "parent": ["twork/journey-steps-section", "twork/how-it-works-section"],
+    "description": "Single step card for the journey section (e.g. Inquiry & Estimate, Travel & Visa).",
+    "keywords": ["journey", "step", "card", "international", "patient", "twork"],
+    "attributes": {
+        "stepNumber": {
+            "type": "number",
+            "default": 1
+        },
+        "title": {
+            "type": "string",
+            "default": "Inquiry & Estimate"
+        },
+        "titleColor": {
+            "type": "string",
+            "default": "#212121"
+        },
+        "titleFontSize": {
+            "type": "number",
+            "default": 1.2
+        },
+        "titleFontWeight": {
+            "type": "number",
+            "default": 700
+        },
+        "description": {
+            "type": "string",
+            "default": "Send us your medical reports. Our specialists will review them and provide a treatment plan and cost estimate."
+        },
+        "descriptionColor": {
+            "type": "string",
+            "default": "#666666"
+        },
+        "descriptionFontSize": {
+            "type": "number",
+            "default": 0.9
+        },
+        "stepNumberBgColor": {
+            "type": "string",
+            "default": "#f48b2a"
+        },
+        "stepNumberTextColor": {
+            "type": "string",
+            "default": "#ffffff"
+        },
+        "stepNumberSize": {
+            "type": "number",
+            "default": 40
+        },
+        "cardPadding": {
+            "type": "number",
+            "default": 30
+        },
+        "cardPaddingMobile": {
+            "type": "number",
+            "default": 24
+        }
+    },
+    "textdomain": "twork-builder",
+    "editorScript": "file:./index.js",
+    "style": "file:./style-index.css"
+}

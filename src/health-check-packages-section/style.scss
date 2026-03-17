@@ -1,0 +1,257 @@
+// Health Check Packages Section – matches health-check-up.html
+.twork-health-check-packages-section.chk-section {
+    --chk-primary: #f48b2a;
+    --chk-secondary: #005f73;
+    --chk-radius: 20px;
+    --chk-shadow: 0 15px 40px rgba(0, 95, 115, 0.1);
+    font-family: "Roboto", sans-serif;
+
+    .chk-header {
+        text-align: center;
+        max-width: 700px;
+        margin: 0 auto 50px;
+
+        h2 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 15px;
+        }
+
+        p {
+            margin: 0;
+            font-size: 1.1rem;
+        }
+    }
+
+    .chk-tabs-wrapper {
+        text-align: center;
+        margin-bottom: 50px;
+    }
+
+    .chk-tab-btn {
+        background: #fff;
+        border: 2px solid #eee;
+        padding: 12px 30px;
+        border-radius: 50px;
+        font-weight: 600;
+        color: #666;
+        cursor: pointer;
+        margin: 0 5px 10px;
+        transition: 0.3s;
+        font-size: 1rem;
+    }
+
+    .chk-tab-btn.active,
+    .chk-tab-btn:hover {
+        background: var(--chk-tab-active-bg, var(--chk-secondary));
+        color: var(--chk-tab-active-text, #fff);
+        border-color: var(--chk-tab-active-bg, var(--chk-secondary));
+        box-shadow: 0 5px 15px rgba(0, 95, 115, 0.3);
+    }
+
+    .chk-pkg-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        animation: chk-slideUp 0.5s ease;
+    }
+
+    // Tab filtering: show only cards whose data-category matches grid's data-active
+    .chk-pkg-grid[data-active="basic"] .chk-pkg-card:not([data-category="basic"]) {
+        display: none !important;
+    }
+    .chk-pkg-grid[data-active="basic"] .chk-pkg-card[data-category="basic"] {
+        display: flex;
+    }
+    .chk-pkg-grid[data-active="special"] .chk-pkg-card:not([data-category="special"]) {
+        display: none !important;
+    }
+    .chk-pkg-grid[data-active="special"] .chk-pkg-card[data-category="special"] {
+        display: flex;
+    }
+    .chk-pkg-grid[data-active="gender"] .chk-pkg-card:not([data-category="gender"]) {
+        display: none !important;
+    }
+    .chk-pkg-grid[data-active="gender"] .chk-pkg-card[data-category="gender"] {
+        display: flex;
+    }
+
+    .chk-pkg-card {
+        background: #fff;
+        border-radius: var(--chk-radius);
+        padding: 40px 30px;
+        box-shadow: var(--chk-shadow);
+        transition: 0.3s;
+        border: 1px solid #f0f0f0;
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .chk-pkg-card:hover {
+        transform: translateY(-10px);
+        border-color: var(--chk-primary);
+    }
+
+    .chk-pkg-card.popular {
+        border-top: 5px solid var(--chk-primary);
+    }
+
+    .chk-pkg-card.popular::before {
+        content: 'Recommended';
+        position: absolute;
+        top: 20px;
+        right: -30px;
+        background: var(--chk-primary);
+        color: #fff;
+        padding: 5px 40px;
+        transform: rotate(45deg);
+        font-size: 0.8rem;
+        font-weight: 700;
+    }
+
+    .chk-pkg-card h3 {
+        margin: 0;
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--chk-secondary);
+    }
+
+    .chk-price {
+        font-size: 2.5rem;
+        font-weight: 900;
+        color: var(--chk-secondary);
+        margin: 20px 0;
+    }
+
+    .chk-price span {
+        font-size: 1rem;
+        font-weight: 400;
+        color: #999;
+    }
+
+    .chk-list {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 30px;
+        text-align: left;
+        flex-grow: 1;
+    }
+
+    .chk-list li {
+        padding: 10px 0;
+        border-bottom: 1px dashed #eee;
+        color: #555;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .chk-list li i {
+        color: #2ecc71;
+    }
+
+    .chk-btn {
+        display: inline-block;
+        padding: 14px 40px;
+        border-radius: 50px;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 0.9rem;
+        letter-spacing: 1px;
+        background: var(--chk-primary);
+        color: #fff;
+        border: 2px solid transparent;
+        cursor: pointer;
+        box-shadow: 0 5px 15px rgba(244, 139, 42, 0.4);
+        transition: 0.3s;
+        text-decoration: none;
+        text-align: center;
+    }
+
+    .chk-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(244, 139, 42, 0.6);
+        color: #fff;
+    }
+
+    .chk-btn.chk-btn-outline {
+        background: transparent;
+        border-color: var(--chk-primary);
+        color: var(--chk-primary);
+        box-shadow: none;
+    }
+
+    .chk-btn.chk-btn-outline:hover {
+        background: var(--chk-primary);
+        color: #fff;
+    }
+}
+
+@keyframes chk-slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+// === EDITOR STYLES (prevent cut-off / clipping) ===
+.editor-styles-wrapper .wp-block-twork-health-check-packages-section,
+.block-editor-block-list__layout .wp-block-twork-health-check-packages-section {
+    overflow: visible !important;
+}
+
+.editor-styles-wrapper .twork-health-check-packages-section-editor,
+.wp-block-twork-health-check-packages-section .twork-health-check-packages-section-editor {
+    overflow: visible !important;
+    min-height: 400px;
+    width: 100%;
+    box-sizing: border-box;
+
+    .chk-container {
+        overflow: visible;
+    }
+
+    .twork-chk-pkg-grid-editor {
+        overflow: visible;
+        min-height: 320px;
+
+        > .block-editor-inner-blocks {
+            display: contents !important;
+        }
+        > .block-editor-inner-blocks > .block-editor-block-list__layout {
+            display: contents !important;
+        }
+
+        // Prevent package cards from being clipped in editor
+        > .block-editor-inner-blocks > .block-editor-block-list__layout > .wp-block,
+        > .block-editor-inner-blocks > .block-editor-block-list__layout > [data-type="twork/health-check-package-card"] {
+            overflow: visible !important;
+            min-height: 280px;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .twork-health-check-packages-section.chk-section {
+        .chk-header h2 {
+            font-size: 2rem;
+        }
+        .chk-tab-btn {
+            display: block;
+            width: 100%;
+            margin: 5px 0;
+        }
+    }
+}
+
+.chk-tab-btn:focus-visible,
+.chk-btn:focus-visible {
+    outline: 3px solid var(--chk-primary);
+    outline-offset: 2px;
+}

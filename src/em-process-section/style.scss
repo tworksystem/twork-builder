@@ -1,0 +1,205 @@
+/**
+ * Emergency Process Section – frontend & editor
+ * Matches 24/7.html .em-process-grid, .em-step, .em-step-num
+ */
+
+$em-primary: #f48b2a;
+$em-alert: #dc3545;
+
+// === EDITOR STYLES ===
+// Ensure process grid and steps display correctly in the block editor
+.editor-styles-wrapper,
+.block-editor-block-list__layout,
+.wp-block-twork-em-process-section {
+  .twork-em-process-section-editor.em-section {
+    position: relative;
+    min-height: 200px;
+
+    .em-container {
+      position: relative;
+    }
+
+    .em-header {
+      h2 {
+        margin-top: 0;
+        margin-bottom: 15px;
+      }
+
+      p {
+        margin: 0;
+      }
+
+      h2[contenteditable="true"]:focus,
+      p[contenteditable="true"]:focus {
+        outline: 1px dashed #2271b1;
+        outline-offset: 2px;
+      }
+    }
+
+    .em-process-grid {
+      display: grid !important;
+      width: 100% !important;
+      text-align: center;
+      position: relative;
+      min-width: 0;
+
+      > .block-editor-inner-blocks {
+        display: contents !important;
+        width: 100%;
+
+        > .block-editor-block-list__layout {
+          display: contents !important;
+
+          > .wp-block,
+          > .block-editor-block-list__block,
+          > [data-type="twork/em-process-step"] {
+            display: block !important;
+            min-width: 0;
+            width: 100%;
+          }
+        }
+      }
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 40px;
+        left: 10%;
+        width: 80%;
+        height: 2px;
+        background: rgba($em-primary, 0.2);
+        z-index: 0;
+      }
+    }
+
+    .twork-em-process-step-editor.em-step,
+    .em-step.twork-em-process-step-editor {
+      position: relative;
+      z-index: 1;
+      border: 2px dashed #e0e0e0;
+      border-radius: 8px;
+      padding: 20px;
+      background: #fafafa;
+
+      &.is-selected {
+        border-color: #2271b1;
+        background: #fff;
+      }
+
+      .em-step-num {
+        width: 80px;
+        height: 80px;
+        margin: 0 auto 20px;
+        background: #fff;
+        border: 3px solid $em-primary;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.8rem;
+        color: $em-primary;
+        font-weight: 900;
+      }
+
+      h4 {
+        margin: 12px 0 6px;
+        font-size: 1.1rem;
+        font-weight: 700;
+      }
+
+      p {
+        margin: 0;
+        font-size: 0.95rem;
+        color: #555;
+      }
+    }
+
+    .block-editor-block-list__block-edit > .em-step {
+      width: 100%;
+    }
+  }
+}
+
+// === FRONTEND STYLES ===
+.twork-em-process-section.em-section,
+.twork-em-process-section-editor.em-section {
+  position: relative;
+
+  .em-container {
+    position: relative;
+  }
+
+  .em-header {
+    h2 {
+      margin-top: 0;
+      margin-bottom: 15px;
+    }
+
+    p {
+      margin: 0;
+    }
+  }
+
+  .em-process-grid {
+    display: grid;
+    width: 100%;
+    text-align: center;
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 40px;
+      left: 10%;
+      width: 80%;
+      height: 2px;
+      background: rgba($em-primary, 0.2);
+      z-index: 0;
+    }
+  }
+}
+
+.em-step {
+  position: relative;
+  z-index: 1;
+
+  h4 {
+    margin: 12px 0 6px;
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+
+  p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: #555;
+  }
+}
+
+.em-step-num {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 20px;
+  background: #fff;
+  border: 3px solid $em-primary;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  color: $em-primary;
+  font-weight: 900;
+}
+
+@media (max-width: 992px) {
+  .twork-em-process-section .em-process-grid,
+  .twork-em-process-section-editor .em-process-grid {
+    grid-template-columns: 1fr !important;
+    gap: 50px;
+
+    &::before {
+      display: none;
+    }
+  }
+}
+

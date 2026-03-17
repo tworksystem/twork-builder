@@ -1,0 +1,109 @@
+// GM Services Section – mirrors general-medicine.html cards
+
+// Editor: force 3 columns in a row for clearer preview
+.editor-styles-wrapper .twork-gm-services-section-editor .jivaka-gm-services-grid,
+.block-editor-block-list__block-edit .twork-gm-services-section-editor .jivaka-gm-services-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+}
+
+.twork-gm-services-section {
+    // Container
+    .jivaka-gm-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 24px;
+        position: relative;
+    }
+
+    // Section padding is controlled via inline styles from attributes
+
+    // Header
+    .jivaka-gm-header-center {
+        text-align: center;
+        max-width: 800px;
+        margin: 0 auto 60px;
+    }
+
+    .jivaka-gm-header-center h2 {
+        font-size: 2.5rem;
+        color: #212121;
+        margin-bottom: 15px;
+    }
+
+    .jivaka-gm-header-center p {
+        margin: 0;
+        color: #555555;
+        line-height: 1.6;
+    }
+
+    // Services grid
+    .jivaka-gm-services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+    }
+
+    .jivaka-gm-service-card {
+        background: #ffffff;
+        padding: 40px 30px;
+        border-radius: 12px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        border: 1px solid #f0f0f0;
+        transition: 0.3s ease;
+        position: relative;
+        overflow: hidden;
+        height: 100%;
+    }
+
+    .jivaka-gm-service-card:hover {
+        transform: translateY(-8px);
+        border-color: #f48b2a;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+    }
+
+    .jivaka-gm-icon-box {
+        width: 70px;
+        height: 70px;
+        background: #fff4e6;
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        color: #f48b2a;
+        margin-bottom: 25px;
+    }
+
+    .jivaka-gm-service-card h3 {
+        font-size: 1.25rem;
+        margin: 0 0 12px 0;
+        color: #212121;
+    }
+
+    .jivaka-gm-service-card p {
+        margin: 0;
+        color: #555555;
+        line-height: 1.7;
+        font-size: 0.95rem;
+    }
+
+    @media (max-width: 768px) {
+        .jivaka-gm-header-center {
+            margin-bottom: 40px;
+        }
+
+        .jivaka-gm-header-center h2 {
+            font-size: 2rem;
+        }
+
+        .jivaka-gm-services-grid {
+            gap: 20px;
+        }
+
+        .jivaka-gm-service-card {
+            padding: 30px 24px;
+        }
+    }
+}
+

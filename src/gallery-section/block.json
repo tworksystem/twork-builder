@@ -1,0 +1,130 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "twork/gallery-section",
+    "title": "Gallery Section",
+    "category": "twork-builder",
+    "description": "Filterable gallery section with tabs and grid of gallery items for facilities.",
+    "keywords": ["gallery", "photos", "filter", "facilities", "twork"],
+    "icon": "format-gallery",
+    "attributes": {
+        "backgroundColor": {
+            "type": "string",
+            "default": "#f8f9fa"
+        },
+        "paddingTop": {
+            "type": "number",
+            "default": 80
+        },
+        "paddingBottom": {
+            "type": "number",
+            "default": 80
+        },
+        "paddingTopMobile": {
+            "type": "number",
+            "default": 60
+        },
+        "paddingBottomMobile": {
+            "type": "number",
+            "default": 60
+        },
+        "showSectionTitle": {
+            "type": "boolean",
+            "default": true
+        },
+        "sectionTitle": {
+            "type": "string",
+            "default": "Our Gallery"
+        },
+        "sectionTitleColor": {
+            "type": "string",
+            "default": "#212121"
+        },
+        "sectionTitleFontSize": {
+            "type": "number",
+            "default": 2
+        },
+        "sectionTitleFontSizeMobile": {
+            "type": "number",
+            "default": 1.6
+        },
+        "sectionTitleFontWeight": {
+            "type": "number",
+            "default": 700
+        },
+        "showSectionSubtitle": {
+            "type": "boolean",
+            "default": true
+        },
+        "sectionSubtitle": {
+            "type": "string",
+            "default": "Explore our advanced medical facilities."
+        },
+        "sectionSubtitleColor": {
+            "type": "string",
+            "default": "#666666"
+        },
+        "sectionSubtitleFontSize": {
+            "type": "number",
+            "default": 1.05
+        },
+        "sectionTitleAlignment": {
+            "type": "string",
+            "default": "center"
+        },
+        "sectionHeaderMarginBottom": {
+            "type": "number",
+            "default": 40
+        },
+        "tabsMarginBottom": {
+            "type": "number",
+            "default": 40
+        },
+        "tabs": {
+            "type": "array",
+            "default": [
+                { "id": 1, "label": "All Photos", "filter": "all" },
+                { "id": 2, "label": "Patient Rooms", "filter": "rooms" },
+                { "id": 3, "label": "Technology", "filter": "tech" },
+                { "id": 4, "label": "Amenities", "filter": "amenity" }
+            ]
+        },
+        "containerMaxWidth": {
+            "type": "number",
+            "default": 1200
+        },
+        "containerPadding": {
+            "type": "number",
+            "default": 20
+        },
+        "gridColumns": {
+            "type": "number",
+            "default": 4
+        },
+        "gridColumnsTablet": {
+            "type": "number",
+            "default": 2
+        },
+        "gridColumnsMobile": {
+            "type": "number",
+            "default": 1
+        },
+        "gridGap": {
+            "type": "number",
+            "default": 15
+        },
+        "gridAutoRows": {
+            "type": "number",
+            "default": 250
+        }
+    },
+    "supports": {
+        "html": false,
+        "anchor": true,
+        "align": ["wide", "full"]
+    },
+    "textdomain": "twork-builder",
+    "editorScript": "file:./index.js",
+    "viewScript": "file:./view.js",
+    "style": "file:./style-index.css"
+}

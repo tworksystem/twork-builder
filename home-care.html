@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home Care Services | Jivaka Hospital</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <style>
+        /* --- CORE VARIABLES --- */
+        :root {
+            --hc-primary: #f48b2a;
+            --hc-hover: #e67a22;
+            --hc-dark: #212121;
+            --hc-text: #555;
+            --hc-light: #fff8f0;
+            --hc-white: #ffffff;
+            --hc-radius: 16px;
+            --hc-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --hc-gradient: linear-gradient(135deg, #f48b2a 0%, #ffad60 100%);
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Roboto", sans-serif;
+            color: var(--hc-text);
+            line-height: 1.6;
+            background: #fff;
+            overflow-x: hidden;
+            opacity: 1;
+            /* Changed from 0 to 1 to ensure visibility even if JS fails */
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            color: var(--hc-dark);
+            line-height: 1.2;
+            margin-top: 0;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: 0.3s;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .hc-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        .hc-section {
+            padding: 60px 0;
+            position: relative;
+        }
+
+        /* Buttons */
+        .hc-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            transition: 0.3s;
+            cursor: pointer;
+            border: 2px solid transparent;
+            gap: 8px;
+        }
+
+        .hc-btn-primary {
+            background: var(--hc-primary);
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(244, 139, 42, 0.3);
+        }
+
+        .hc-btn-primary:hover {
+            background: var(--hc-hover);
+            transform: translateY(-3px);
+        }
+
+        .hc-btn-outline {
+            background: transparent;
+            border-color: var(--hc-primary);
+            color: var(--hc-primary);
+        }
+
+        .hc-btn-outline:hover {
+            background: var(--hc-primary);
+            color: #fff;
+        }
+
+        /* --- 1. HERO SECTION --- */
+        .hc-hero {
+            position: relative;
+            height: 550px;
+            display: flex;
+            align-items: center;
+            background-color: #0b1c2c;
+            color: #fff;
+            overflow: hidden;
+        }
+
+        .hc-hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.4;
+        }
+
+        .hc-hero-content {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 700px;
+        }
+
+        .hc-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(5px);
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .hc-hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 20px;
+            font-weight: 900;
+            color: #fff;
+        }
+
+        .hc-hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 30px;
+            line-height: 1.7;
+        }
+
+        /* --- 2. ABOUT / INTRO --- */
+        .hc-intro-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .hc-intro-img {
+            border-radius: var(--hc-radius);
+            box-shadow: var(--hc-shadow);
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        .hc-check-list li {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--hc-dark);
+            font-weight: 500;
+        }
+
+        .hc-check-list i {
+            color: var(--hc-primary);
+            font-size: 1.1rem;
+        }
+
+        /* --- 3. SERVICES --- */
+        .hc-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 50px;
+        }
+
+        .hc-header h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .hc-svc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .hc-svc-card {
+            background: #fff;
+            padding: 35px 25px;
+            border-radius: var(--hc-radius);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border: 1px solid #eee;
+            transition: 0.3s;
+            text-align: center;
+            height: 100%;
+        }
+
+        .hc-svc-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--hc-primary);
+            box-shadow: var(--hc-shadow);
+        }
+
+        .hc-svc-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--hc-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: var(--hc-primary);
+            font-size: 1.8rem;
+        }
+
+        .hc-svc-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        /* --- 4. PROCESS --- */
+        .hc-process-section {
+            background: var(--hc-light);
+        }
+
+        .hc-process-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        /* Line connecting steps */
+        .hc-process-grid::before {
+            content: '';
+            position: absolute;
+            top: 30px;
+            left: 10%;
+            width: 80%;
+            height: 2px;
+            background: #e0e0e0;
+            z-index: 0;
+        }
+
+        .hc-step {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hc-step-num {
+            width: 60px;
+            height: 60px;
+            background: #fff;
+            border: 2px solid var(--hc-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-weight: 900;
+            font-size: 1.2rem;
+            color: var(--hc-primary);
+        }
+
+        /* --- 5. PACKAGES --- */
+        .hc-pkg-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .hc-pkg-card {
+            background: #fff;
+            border-radius: var(--hc-radius);
+            overflow: hidden;
+            border: 1px solid #eee;
+            transition: 0.3s;
+            box-shadow: var(--hc-shadow);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .hc-pkg-card:hover {
+            transform: scale(1.02);
+            border-color: var(--hc-primary);
+        }
+
+        .hc-pkg-head {
+            padding: 30px;
+            background: #fafafa;
+            text-align: center;
+        }
+
+        .hc-pkg-head h4 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        .hc-price {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--hc-primary);
+        }
+
+        .hc-price span {
+            font-size: 0.9rem;
+            color: #888;
+            font-weight: 400;
+        }
+
+        .hc-pkg-body {
+            padding: 30px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .hc-pkg-list {
+            padding: 0;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .hc-pkg-list li {
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px dashed #eee;
+            font-size: 0.95rem;
+            color: #555;
+        }
+
+        .hc-pkg-list li:last-child {
+            border: none;
+        }
+
+        /* --- NEW SECTION 1: TESTIMONIALS --- */
+        .hc-testi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .hc-testi-card {
+            background: #fff;
+            padding: 30px;
+            border-radius: var(--hc-radius);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            border: 1px solid #f0f0f0;
+            position: relative;
+        }
+
+        .hc-testi-card::before {
+            content: '\f10d';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 2rem;
+            color: var(--hc-light);
+        }
+
+        .hc-stars {
+            color: #ffc107;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+
+        .hc-review {
+            font-style: italic;
+            margin-bottom: 20px;
+            color: #666;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hc-client {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: auto;
+        }
+
+        .hc-client-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .hc-client h5 {
+            font-size: 1rem;
+            margin: 0;
+        }
+
+        .hc-client span {
+            font-size: 0.8rem;
+            color: #888;
+        }
+
+        /* --- NEW SECTION 2: COVERAGE AREA --- */
+        .hc-area-section {
+            background-color: var(--hc-dark);
+            color: #fff;
+            text-align: center;
+        }
+
+        .hc-area-grid {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .hc-area-tag {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        /* --- 6. FAQ --- */
+        .hc-faq-item {
+            border-bottom: 1px solid #eee;
+            margin-bottom: 10px;
+        }
+
+        .hc-faq-q {
+            width: 100%;
+            text-align: left;
+            padding: 15px 0;
+            background: none;
+            border: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            color: var(--hc-dark);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .hc-faq-a {
+            max-height: 0;
+            overflow: hidden;
+            transition: 0.3s;
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .hc-faq-q.active {
+            color: var(--hc-primary);
+        }
+
+        .hc-faq-q.active+.hc-faq-a {
+            max-height: 200px;
+            padding-bottom: 20px;
+        }
+
+        /* --- 7. CTA --- */
+        .hc-cta {
+            background: var(--hc-primary);
+            color: #fff;
+            text-align: center;
+            border-radius: var(--hc-radius);
+            padding: 60px 20px;
+        }
+
+        /* Animations: Set default opacity to 1 and visibility visible to prevent flash of unstyled content if JS fails, then handle with JS */
+        .fade-up,
+        .stagger-up {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hc-hero {
+                height: auto;
+                padding: 100px 0;
+            }
+
+            .hc-intro-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hc-process-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .hc-process-grid::before {
+                display: none;
+            }
+
+            /* Hide line on mobile */
+            .hc-step {
+                display: flex;
+                align-items: center;
+                text-align: left;
+                gap: 20px;
+                justify-content: flex-start;
+            }
+
+            .hc-step-num {
+                margin: 0;
+                flex-shrink: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="hc-hero">
+        <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1920&q=80" alt="Home Care"
+            class="hc-hero-bg">
+        <div class="hc-container">
+            <div class="hc-hero-content hc-animate-hero">
+                <span class="hc-badge">Hospital Quality at Home</span>
+                <h1>Professional Care,<br>Right at Your Doorstep.</h1>
+                <p>Jivaka Home Care brings doctors, nurses, and therapists to your home, ensuring your loved ones receive the best medical
+                    attention in their comfort zone.</p>
+                <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+                    <a href="#book" class="hc-btn hc-btn-primary">Book a Visit</a>
+                    <a href="#services" class="hc-btn hc-btn-outline" style="color: #fff; border-color: #fff;">Our Services</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="hc-section">
+        <div class="hc-container hc-intro-grid">
+            <div class="fade-up">
+                <img src="https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=800&q=80"
+                    alt="Doctor Visiting Patient" class="hc-intro-img">
+            </div>
+            <div class="fade-up">
+                <h4 style="color: var(--hc-primary); text-transform: uppercase; letter-spacing: 1px;">Why Jivaka Home Care?</h4>
+                <h2 style="font-size: 2.2rem; font-weight: 700; margin-bottom: 20px;">Compassionate Care for Your Family</h2>
+                <p style="margin-bottom: 25px;">
+                    Recovering at home is often more comfortable and effective. Our team handles everything from post-surgical care to
+                    chronic disease management.
+                </p>
+                <ul class="hc-check-list">
+                    <li><i class="fas fa-check-circle"></i> Licensed & Verified Professionals</li>
+                    <li><i class="fas fa-check-circle"></i> Personalized Care Plans</li>
+                    <li><i class="fas fa-check-circle"></i> 24/7 Support & Monitoring</li>
+                    <li><i class="fas fa-check-circle"></i> Latest Medical Equipment</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="hc-section" id="services" style="background-color: #fafafa;">
+        <div class="hc-container">
+            <div class="hc-header fade-up">
+                <h2>Our Services</h2>
+                <p>Comprehensive healthcare solutions tailored to your needs.</p>
+            </div>
+
+            <div class="hc-svc-grid">
+                <div class="hc-svc-card stagger-up">
+                    <div class="hc-svc-icon"><i class="fas fa-user-md"></i></div>
+                    <h3>Doctor Home Visit</h3>
+                    <p>General physicians and specialists available for consultation, checkups, and prescriptions at home.</p>
+                </div>
+                <div class="hc-svc-card stagger-up">
+                    <div class="hc-svc-icon"><i class="fas fa-user-nurse"></i></div>
+                    <h3>Nursing Care</h3>
+                    <p>Skilled nurses for wound dressing, injections, IV infusions, and post-operative monitoring.</p>
+                </div>
+                <div class="hc-svc-card stagger-up">
+                    <div class="hc-svc-icon"><i class="fas fa-running"></i></div>
+                    <h3>Physiotherapy</h3>
+                    <p>Rehabilitation for stroke, orthopedic surgery recovery, and mobility improvement.</p>
+                </div>
+                <div class="hc-svc-card stagger-up">
+                    <div class="hc-svc-icon"><i class="fas fa-vials"></i></div>
+                    <h3>Lab Sample Collection</h3>
+                    <p>We collect blood and urine samples at your home and deliver digital reports promptly.</p>
+                </div>
+                <div class="hc-svc-card stagger-up">
+                    <div class="hc-svc-icon"><i class="fas fa-blind"></i></div>
+                    <h3>Elderly Care</h3>
+                    <p>Assisted living support for seniors, including hygiene assistance and medication management.</p>
+                </div>
+                <div class="hc-svc-card stagger-up">
+                    <div class="hc-svc-icon"><i class="fas fa-pump-medical"></i></div>
+                    <h3>Medical Equipment</h3>
+                    <p>Rental services for Oxygen concentrators, hospital beds, wheelchairs, and monitors.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="hc-section hc-process-section">
+        <div class="hc-container">
+            <div class="hc-header fade-up">
+                <h2>How It Works</h2>
+                <p>Get care in 4 simple steps.</p>
+            </div>
+            <div class="hc-process-grid">
+                <div class="hc-step stagger-up">
+                    <div class="hc-step-num">1</div>
+                    <div>
+                        <h4>Request</h4>
+                        <p style="font-size:0.9rem;">Call us or book via app.</p>
+                    </div>
+                </div>
+                <div class="hc-step stagger-up">
+                    <div class="hc-step-num">2</div>
+                    <div>
+                        <h4>Assess</h4>
+                        <p style="font-size:0.9rem;">We evaluate patient needs.</p>
+                    </div>
+                </div>
+                <div class="hc-step stagger-up">
+                    <div class="hc-step-num">3</div>
+                    <div>
+                        <h4>Plan</h4>
+                        <p style="font-size:0.9rem;">Customized care plan created.</p>
+                    </div>
+                </div>
+                <div class="hc-step stagger-up">
+                    <div class="hc-step-num">4</div>
+                    <div>
+                        <h4>Care</h4>
+                        <p style="font-size:0.9rem;">Our team arrives at your door.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="hc-section">
+        <div class="hc-container">
+            <div class="hc-header fade-up">
+                <h2>Care Packages</h2>
+                <p>Affordable plans for long-term recovery.</p>
+            </div>
+            <div class="hc-pkg-grid">
+                <div class="hc-pkg-card stagger-up">
+                    <div class="hc-pkg-head">
+                        <h4>Nursing (Short Term)</h4>
+                        <div class="hc-price">30,000 <span>MMK / Day</span></div>
+                    </div>
+                    <div class="hc-pkg-body">
+                        <ul class="hc-pkg-list">
+                            <li>12 Hours Duty</li>
+                            <li>Vitals Monitoring</li>
+                            <li>Medication Administration</li>
+                            <li>Basic Hygiene Care</li>
+                        </ul>
+                        <a href="#" class="hc-btn hc-btn-outline" style="width: 100%; margin-top: auto;">Choose Plan</a>
+                    </div>
+                </div>
+                <div class="hc-pkg-card stagger-up">
+                    <div class="hc-pkg-head" style="background: var(--hc-light);">
+                        <h4>Physio Recovery</h4>
+                        <div class="hc-price">25,000 <span>MMK / Session</span></div>
+                    </div>
+                    <div class="hc-pkg-body">
+                        <ul class="hc-pkg-list">
+                            <li>45-60 Mins Session</li>
+                            <li>Manual Therapy</li>
+                            <li>Exercise Guidance</li>
+                            <li>Pain Management</li>
+                        </ul>
+                        <a href="#" class="hc-btn hc-btn-primary" style="width: 100%; margin-top: auto;">Choose Plan</a>
+                    </div>
+                </div>
+                <div class="hc-pkg-card stagger-up">
+                    <div class="hc-pkg-head">
+                        <h4>Doctor Visit</h4>
+                        <div class="hc-price">40,000 <span>MMK / Visit</span></div>
+                    </div>
+                    <div class="hc-pkg-body">
+                        <ul class="hc-pkg-list">
+                            <li>Comprehensive Checkup</li>
+                            <li>Prescription Review</li>
+                            <li>Specialist Referral (if needed)</li>
+                            <li>Dietary Advice</li>
+                        </ul>
+                        <a href="#" class="hc-btn hc-btn-outline" style="width: 100%; margin-top: auto;">Choose Plan</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="hc-section" style="background-color: #fafafa;">
+        <div class="hc-container">
+            <div class="hc-header fade-up">
+                <h2>What Families Say</h2>
+                <p>Real stories from our patients.</p>
+            </div>
+            <div class="hc-testi-grid">
+                <div class="hc-testi-card stagger-up">
+                    <div class="hc-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                            class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="hc-review">"The home nursing team was incredible. They took care of my father like their own family. Highly
+                        recommended!"</p>
+                    <div class="hc-client">
+                        <img src="https://i.pravatar.cc/100?img=12" alt="Client" class="hc-client-img">
+                        <div>
+                            <h5>U Kyaw Swar</h5>
+                            <span>Mandalay</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hc-testi-card stagger-up">
+                    <div class="hc-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                            class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="hc-review">"Very professional physiotherapy service. My recovery after surgery was much faster thanks to their
+                        home visits."</p>
+                    <div class="hc-client">
+                        <img src="https://i.pravatar.cc/100?img=5" alt="Client" class="hc-client-img">
+                        <div>
+                            <h5>Daw Hla Hla</h5>
+                            <span>Chanmyathazi</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hc-testi-card stagger-up">
+                    <div class="hc-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                            class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                    <p class="hc-review">"Convenient and reliable. The doctor arrived on time and was very thorough with the checkup."</p>
+                    <div class="hc-client">
+                        <img src="https://i.pravatar.cc/100?img=33" alt="Client" class="hc-client-img">
+                        <div>
+                            <h5>Ko Aung</h5>
+                            <span>Amarapura</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="hc-section hc-area-section">
+        <div class="hc-container fade-up">
+            <h2>Service Coverage Areas</h2>
+            <p style="opacity: 0.8; margin-bottom: 30px;">We currently provide home care services in the following townships:</p>
+            <div class="hc-area-grid">
+                <span class="hc-area-tag">Chanayethazan</span>
+                <span class="hc-area-tag">Chanmyathazi</span>
+                <span class="hc-area-tag">Maha Aungmye</span>
+                <span class="hc-area-tag">Aungmyethazan</span>
+                <span class="hc-area-tag">Pyigyidagun</span>
+                <span class="hc-area-tag">Amarapura</span>
+                <span class="hc-area-tag">Patheingyi</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="hc-section" style="background-color: #fafafa;">
+        <div class="hc-container">
+            <div class="hc-header fade-up">
+                <h2>Frequently Asked Questions</h2>
+            </div>
+            <div style="max-width: 800px; margin: 0 auto;">
+                <div class="hc-faq-item stagger-up">
+                    <button class="hc-faq-q">Is the service available 24/7? <i class="fas fa-plus"></i></button>
+                    <div class="hc-faq-a">Yes, our nursing and doctor visit services can be arranged for any time of the day, depending on
+                        availability.</div>
+                </div>
+                <div class="hc-faq-item stagger-up">
+                    <button class="hc-faq-q">Do you bring your own equipment? <i class="fas fa-plus"></i></button>
+                    <div class="hc-faq-a">Yes, our team comes equipped with basic diagnostic tools (BP machine, Oximeter, etc.). For
+                        specialized equipment like Oxygen concentrators, we offer rental services.</div>
+                </div>
+                <div class="hc-faq-item stagger-up">
+                    <button class="hc-faq-q">How do I pay? <i class="fas fa-plus"></i></button>
+                    <div class="hc-faq-a">We accept cash, KPay, WavePay, and major credit cards upon completion of the service or via
+                        advance booking.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="hc-container" style="margin-bottom: 80px; margin-top: 50px;">
+        <div class="hc-cta fade-up">
+            <h2>Need Care at Home?</h2>
+            <p style="opacity: 0.9; margin-bottom: 30px;">Call us now to discuss your specific requirements.</p>
+            <a href="tel:0912345678" class="hc-btn hc-btn-primary" style="background: #fff; color: var(--hc-primary);">
+                <i class="fas fa-phone"></i> Call 09-123 456 789
+            </a>
+        </div>
+    </div>
+
+    <script>
+        window.addEventListener("load", function () {
+            gsap.registerPlugin(ScrollTrigger);
+            document.body.classList.add('loaded');
+
+            // 1. Hero Animation
+            const tl = gsap.timeline();
+            tl.fromTo(".hc-animate-hero > *",
+                { y: 40, opacity: 0 },
+                { y: 0, opacity: 1, duration: 1, stagger: 0.2, ease: "power3.out" }
+            );
+
+            // 2. Section Fade Ups - FIXED: Ensures visibility once triggered
+            gsap.utils.toArray('.fade-up').forEach(el => {
+                gsap.fromTo(el,
+                    { y: 50, opacity: 0, autoAlpha: 0 },
+                    {
+                        y: 0, opacity: 1, autoAlpha: 1, duration: 0.8, ease: "power2.out",
+                        scrollTrigger: { trigger: el, start: "top 85%" }
+                    }
+                );
+            });
+
+            // 3. Staggered Items - FIXED: Ensures visibility once triggered
+            // We use a general selector logic to find containers with staggered items
+            const staggerContainers = document.querySelectorAll('.hc-svc-grid, .hc-process-grid, .hc-pkg-grid, .hc-testi-grid');
+
+            staggerContainers.forEach(container => {
+                const items = container.querySelectorAll('.stagger-up');
+                if (items.length > 0) {
+                    gsap.fromTo(items,
+                        { y: 40, opacity: 0, autoAlpha: 0 },
+                        {
+                            y: 0, opacity: 1, autoAlpha: 1, stagger: 0.15, duration: 0.6, ease: "power2.out",
+                            scrollTrigger: { trigger: container, start: "top 85%" }
+                        }
+                    );
+                }
+            });
+
+            // Manual stagger for FAQ and other isolated lists
+            const isolatedStaggers = document.querySelectorAll('.hc-faq-item.stagger-up');
+            if (isolatedStaggers.length > 0) {
+                ScrollTrigger.batch(isolatedStaggers, {
+                    start: "top 90%",
+                    onEnter: batch => gsap.fromTo(batch,
+                        { y: 40, opacity: 0, autoAlpha: 0 },
+                        { y: 0, opacity: 1, autoAlpha: 1, stagger: 0.15, duration: 0.6, ease: "power2.out" }
+                    ),
+                    once: true
+                });
+            }
+
+            // FAQ Logic
+            const faqs = document.querySelectorAll(".hc-faq-q");
+            faqs.forEach(btn => {
+                btn.addEventListener("click", () => {
+                    btn.classList.toggle("active");
+                    const content = btn.nextElementSibling;
+                    const icon = btn.querySelector("i");
+
+                    if (btn.classList.contains("active")) {
+                        content.style.maxHeight = content.scrollHeight + "px";
+                        icon.classList.replace("fa-plus", "fa-minus");
+                    } else {
+                        content.style.maxHeight = 0;
+                        icon.classList.replace("fa-minus", "fa-plus");
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

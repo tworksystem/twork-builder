@@ -1,0 +1,23 @@
+/**
+ * Lab Step Item – single row (number circle + content card)
+ * Layout and .lab-step-num / .lab-step-content styles live in lab-steps-section.
+ * This file only adds editor-specific tweaks.
+ */
+
+.editor-styles-wrapper,
+.wp-block-twork-lab-step-item {
+    .twork-lab-step-item-editor {
+        .lab-step-content h4[contenteditable="true"],
+        .lab-step-content p[contenteditable="true"] {
+            &:focus {
+                outline: 2px dashed #2271b1;
+                outline-offset: 2px;
+            }
+        }
+
+        .lab-step-content h4:empty::before,
+        .lab-step-content p:empty::before {
+            opacity: 0.6;
+        }
+    }
+}

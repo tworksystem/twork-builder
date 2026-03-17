@@ -1,0 +1,64 @@
+// Physio FAQ Section – accordion styles from physiotherapy-rehab.html
+
+.phy-section.twork-phy-faq-section {
+    .phy-container {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 24px;
+        position: relative;
+    }
+
+    .phy-header {
+        text-align: center;
+        max-width: 700px;
+        margin: 0 auto 30px;
+    }
+
+    .phy-faq-item {
+        background: #fff;
+        border-radius: 12px;
+        margin-bottom: 15px;
+        padding: 20px;
+        border-left: 4px solid transparent;
+        transition: 0.3s;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+    }
+
+    .phy-faq-item:hover {
+        border-left-color: var(--phy-primary, #f48b2a);
+    }
+
+    .phy-faq-q {
+        font-weight: 700;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .phy-faq-a {
+        max-height: 0;
+        overflow: hidden;
+        transition: 0.3s;
+        color: #666;
+        margin-top: 0;
+    }
+
+    .phy-faq-item.active .phy-faq-a {
+        max-height: 200px;
+        margin-top: 15px;
+    }
+}
+
+// Editor helpers – focus outline on section title
+.editor-styles-wrapper,
+.wp-block-twork-phy-faq-section {
+    .twork-phy-faq-section-editor {
+        .phy-header h2[contenteditable='true'] {
+            &:focus {
+                outline: 1px dashed #2271b1;
+                outline-offset: 2px;
+            }
+        }
+    }
+}
+

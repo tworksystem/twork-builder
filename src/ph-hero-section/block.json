@@ -1,0 +1,80 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "twork/ph-hero-section",
+  "version": "1.0.0",
+  "title": "Hero Section",
+  "category": "twork-builder",
+  "icon": "cart",
+  "description": "Pharmacy hero section with search box and floating pills.",
+  "keywords": [
+    "pharmacy",
+    "hero",
+    "search",
+    "twork"
+  ],
+  "attributes": {
+    "backgroundImage": {
+      "type": "string",
+      "default": "https://images.unsplash.com/photo-1631549916768-4119b2e5f926?auto=format&fit=crop&w=800&q=80"
+    },
+    "backgroundImageId": {
+      "type": "number"
+    },
+    "tagText": {
+      "type": "string",
+      "default": "Official Hospital Pharmacy"
+    },
+    "title": {
+      "type": "string",
+      "default": "Authentic Medicine,\nDelivered to You."
+    },
+    "description": {
+      "type": "string",
+      "default": "Order prescriptions, OTC medicines, and wellness products from Jivaka Hospital's trusted inventory. 100% genuine and safe."
+    },
+    "showSearch": {
+      "type": "boolean",
+      "default": true
+    },
+    "searchPlaceholder": {
+      "type": "string",
+      "default": "Search medicines (e.g. Paracetamol)..."
+    },
+    "popularText": {
+      "type": "string",
+      "default": "Popular: Vitamins, Diabetes, Baby Care"
+    },
+    "pill1Text": {
+      "type": "string",
+      "default": "Fast Delivery"
+    },
+    "pill1IconClass": {
+      "type": "string",
+      "default": "fas fa-shipping-fast"
+    },
+    "pill2Text": {
+      "type": "string",
+      "default": "100% Genuine"
+    },
+    "pill2IconClass": {
+      "type": "string",
+      "default": "fas fa-shield-alt"
+    },
+    "minHeight": {
+      "type": "number",
+      "default": 520
+    }
+  },
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "align": [
+      "wide",
+      "full"
+    ]
+  },
+  "textdomain": "twork-builder",
+  "editorScript": "file:./index.js",
+  "style": "file:./style-index.css"
+}

@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Eye Center | Jivaka Hospital</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <style>
+        /* --- CORE VARIABLES --- */
+        :root {
+            --eye-primary: #f48b2a;
+            /* Jivaka Orange */
+            --eye-secondary: #0f172a;
+            /* Deep Navy for contrast */
+            --eye-light: #fff7ed;
+            /* Very light orange for backgrounds */
+            --eye-white: #ffffff;
+            --eye-text: #334155;
+            --eye-radius: 16px;
+            --eye-shadow: 0 10px 40px rgba(244, 139, 42, 0.1);
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Roboto", sans-serif;
+            color: var(--eye-text);
+            line-height: 1.6;
+            background: var(--eye-white);
+            overflow-x: hidden;
+            opacity: 1;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            color: var(--eye-secondary);
+            margin-top: 0;
+            line-height: 1.2;
+        }
+
+        .eye-container {
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        .eye-section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        /* Buttons - Cleaned up */
+        .eye-btn {
+            display: inline-block;
+            padding: 14px 35px;
+            border-radius: 50px;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            background: var(--eye-primary);
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(244, 139, 42, 0.3);
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .eye-btn:hover {
+            transform: translateY(-3px);
+            background: #e67e22;
+            box-shadow: 0 12px 25px rgba(244, 139, 42, 0.4);
+        }
+
+        .eye-btn-outline {
+            background: transparent;
+            border: 2px solid var(--eye-primary);
+            color: var(--eye-primary);
+            box-shadow: none;
+        }
+
+        .eye-btn-outline:hover {
+            background: var(--eye-primary);
+            color: #fff;
+        }
+
+        /* --- 1. HERO SECTION (Left Aligned & Clean) --- */
+        .eye-hero {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(to right, #fff 50%, var(--eye-light) 50%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .eye-hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 600px;
+            text-align: left;
+            /* Explicitly Left Aligned */
+        }
+
+        /* Animation */
+        .blur-in {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .eye-hero h1 {
+            font-size: clamp(3rem, 5vw, 4.5rem);
+            font-weight: 900;
+            margin-bottom: 20px;
+            line-height: 1.1;
+        }
+
+        .eye-hero p {
+            font-size: 1.2rem;
+            color: #64748b;
+            margin-bottom: 40px;
+            max-width: 90%;
+        }
+
+        .eye-hero-img {
+            position: absolute;
+            right: 5%;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 500px;
+            height: 500px;
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            /* Organic shape */
+            background: url('https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+            box-shadow: 20px 20px 0px rgba(244, 139, 42, 0.1);
+            z-index: 1;
+            animation: morph 8s ease-in-out infinite;
+        }
+
+        @keyframes morph {
+            0% {
+                border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            }
+
+            50% {
+                border-radius: 70% 30% 30% 70% / 70% 70% 30% 30%;
+            }
+
+            100% {
+                border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            }
+        }
+
+        /* --- 2. SYMPTOMS (Clean Grid) --- */
+        .eye-symp-section {
+            background: #fff;
+        }
+
+        .eye-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+        }
+
+        .eye-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .eye-header span {
+            color: var(--eye-primary);
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .eye-symp-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+        }
+
+        .eye-symp-card {
+            background: #fff;
+            padding: 30px 20px;
+            border-radius: var(--eye-radius);
+            text-align: center;
+            transition: 0.3s;
+            border: 1px solid #f1f5f9;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+        }
+
+        .eye-symp-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--eye-shadow);
+            border-color: var(--eye-primary);
+        }
+
+        .eye-symp-icon {
+            font-size: 2.5rem;
+            color: var(--eye-primary);
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        /* --- 3. SERVICES (Professional Cards) --- */
+        .eye-svc-section {
+            background: var(--eye-light);
+        }
+
+        .eye-svc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .eye-svc-card {
+            background: #fff;
+            border-radius: var(--eye-radius);
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            /* Ensures equal height */
+        }
+
+        .eye-svc-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--eye-shadow);
+        }
+
+        .eye-svc-img {
+            height: 220px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .eye-svc-content {
+            padding: 30px;
+            flex-grow: 1;
+            /* Pushes content to fill space */
+        }
+
+        .eye-svc-content h3 {
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .eye-svc-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .eye-svc-list li {
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            color: #555;
+        }
+
+        .eye-svc-list i {
+            color: var(--eye-primary);
+            margin-top: 5px;
+        }
+
+        /* --- 4. TECHNOLOGY (Dark Contrast) --- */
+        .eye-tech-section {
+            background: var(--eye-secondary);
+            color: #fff;
+            padding: 120px 0;
+        }
+
+        .eye-tech-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .eye-tech-item {
+            margin-bottom: 40px;
+            display: flex;
+            gap: 20px;
+        }
+
+        .eye-tech-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(244, 139, 42, 0.15);
+            /* Orange tint */
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--eye-primary);
+            font-size: 1.8rem;
+            flex-shrink: 0;
+        }
+
+        /* --- 5. PROCESS (Timeline) --- */
+        .eye-process-wrapper {
+            padding: 40px 0;
+            position: relative;
+        }
+
+        .eye-process-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .eye-process-line {
+            position: absolute;
+            top: 30px;
+            left: 12%;
+            width: 76%;
+            height: 2px;
+            background: #e2e8f0;
+            z-index: 0;
+        }
+
+        .eye-process-circle {
+            width: 60px;
+            height: 60px;
+            background: #fff;
+            border: 2px solid var(--eye-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: var(--eye-primary);
+            font-weight: 700;
+            font-size: 1.2rem;
+            position: relative;
+            z-index: 1;
+            transition: 0.3s;
+        }
+
+        .eye-process-item:hover .eye-process-circle {
+            background: var(--eye-primary);
+            color: #fff;
+            transform: scale(1.1);
+        }
+
+        /* --- 6. TIPS & REVIEWS --- */
+        .eye-tip-card {
+            background: var(--eye-light);
+            padding: 30px;
+            border-radius: var(--eye-radius);
+            border-left: 5px solid var(--eye-primary);
+            transition: 0.3s;
+        }
+
+        .eye-tip-card:hover {
+            background: #fff;
+            box-shadow: var(--eye-shadow);
+        }
+
+        .eye-doc-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+            border: 4px solid var(--eye-light);
+            transition: 0.3s;
+        }
+
+        .eye-doc-card:hover .eye-doc-img {
+            border-color: var(--eye-primary);
+        }
+
+        /* --- 8. FAQ --- */
+        .eye-faq-item {
+            background: #fff;
+            border: 1px solid #eee;
+            margin-bottom: 15px;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .eye-faq-q {
+            padding: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            transition: 0.3s;
+        }
+
+        .eye-faq-q:hover {
+            color: var(--eye-primary);
+        }
+
+        .eye-faq-a {
+            max-height: 0;
+            overflow: hidden;
+            transition: 0.3s ease;
+            padding: 0 20px;
+            color: #666;
+            background: #fafafa;
+        }
+
+        .eye-faq-item.active .eye-faq-a {
+            max-height: 200px;
+            padding-bottom: 20px;
+        }
+
+        .eye-faq-item.active .eye-faq-q {
+            color: var(--eye-primary);
+            background: var(--eye-light);
+        }
+
+        /* Utils */
+        .fade-up,
+        .stagger-up {
+            opacity: 0;
+        }
+
+        /* Set initial opacity for GSAP */
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .eye-hero {
+                flex-direction: column;
+                padding-top: 120px;
+                background: linear-gradient(to bottom, #fff 60%, var(--eye-light) 40%);
+            }
+
+            .eye-hero-content {
+                width: 100%;
+                text-align: left;
+                padding: 0 10px;
+                margin-bottom: 40px;
+            }
+
+            .eye-hero-img {
+                position: relative;
+                width: 100%;
+                max-width: 400px;
+                height: 300px;
+                margin: 0 auto;
+                right: auto;
+                top: auto;
+                transform: none;
+                border-radius: 20px;
+            }
+
+            .eye-tech-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .eye-process-grid {
+                grid-template-columns: 1fr;
+                text-align: left;
+            }
+
+            .eye-process-line {
+                display: none;
+            }
+
+            .eye-process-item {
+                display: flex;
+                align-items: center;
+                gap: 20px;
+            }
+
+            .eye-process-circle {
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="eye-hero">
+        <div class="eye-container">
+            <div class="eye-hero-content">
+                <span style="color: var(--eye-primary); font-weight: 700; letter-spacing: 2px;">ADVANCED EYE CARE</span>
+                <h1 class="blur-in">See the World<br>With Clarity.</h1>
+                <p class="blur-in" style="animation-delay: 0.2s;">Comprehensive ophthalmology services using cutting-edge technology for
+                    precise diagnosis and treatment. Restoring your vision is our mission.</p>
+                <div class="blur-in" style="animation-delay: 0.4s;">
+                    <a href="#appointment" class="eye-btn">Book Eye Exam</a>
+                    <a href="#services" class="eye-btn eye-btn-outline" style="margin-left: 10px;">Our Services</a>
+                </div>
+            </div>
+        </div>
+        <div class="eye-hero-img fade-up"></div>
+    </header>
+
+    <section class="eye-section eye-symp-section">
+        <div class="eye-container">
+            <div class="eye-header fade-up">
+                <span>Symptoms</span>
+                <h2>What Are You Experiencing?</h2>
+                <p>Common signs that you might need a checkup.</p>
+            </div>
+            <div class="eye-symp-grid">
+                <div class="eye-symp-card stagger-up">
+                    <i class="fas fa-low-vision eye-symp-icon"></i>
+                    <h4>Blurry Vision</h4>
+                </div>
+                <div class="eye-symp-card stagger-up">
+                    <i class="fas fa-eye-dropper eye-symp-icon"></i>
+                    <h4>Dry & Red Eyes</h4>
+                </div>
+                <div class="eye-symp-card stagger-up">
+                    <i class="fas fa-glasses eye-symp-icon"></i>
+                    <h4>Reading Issues</h4>
+                </div>
+                <div class="eye-symp-card stagger-up">
+                    <i class="fas fa-moon eye-symp-icon"></i>
+                    <h4>Night Glare</h4>
+                </div>
+                <div class="eye-symp-card stagger-up">
+                    <i class="fas fa-head-side-virus eye-symp-icon"></i>
+                    <h4>Eye Pain</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="eye-section eye-svc-section" id="services">
+        <div class="eye-container">
+            <div class="eye-header fade-up">
+                <span>Expert Care</span>
+                <h2>Clinical Services</h2>
+                <p>From routine checkups to complex surgeries, we have you covered.</p>
+            </div>
+            <div class="eye-svc-grid">
+                <div class="eye-svc-card stagger-up">
+                    <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=600&q=80"
+                        class="eye-svc-img" alt="Cataract">
+                    <div class="eye-svc-content">
+                        <h3>Cataract Service</h3>
+                        <p style="font-size: 0.95rem; color:#666; margin-bottom: 20px;">Painless Phacoemulsification surgery with premium
+                            lens implants.</p>
+                        <ul class="eye-svc-list">
+                            <li><i class="fas fa-check-circle"></i> Sutureless Surgery</li>
+                            <li><i class="fas fa-check-circle"></i> Monofocal / Multifocal Lens</li>
+                            <li><i class="fas fa-check-circle"></i> Day Care Procedure</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="eye-svc-card stagger-up">
+                    <img src="https://plus.unsplash.com/premium_photo-1673953509975-576678fa6710?auto=format&fit=crop&w=600&q=80"
+                        class="eye-svc-img" alt="Glaucoma">
+                    <div class="eye-svc-content">
+                        <h3>Glaucoma Clinic</h3>
+                        <p style="font-size: 0.95rem; color:#666; margin-bottom: 20px;">Early detection and management to prevent
+                            irreversible blindness.</p>
+                        <ul class="eye-svc-list">
+                            <li><i class="fas fa-check-circle"></i> Eye Pressure Check</li>
+                            <li><i class="fas fa-check-circle"></i> Visual Field Test</li>
+                            <li><i class="fas fa-check-circle"></i> Laser Treatment</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="eye-svc-card stagger-up">
+                    <img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=600&q=80"
+                        class="eye-svc-img" alt="Retina">
+                    <div class="eye-svc-content">
+                        <h3>Retina & Diabetic</h3>
+                        <p style="font-size: 0.95rem; color:#666; margin-bottom: 20px;">Specialized care for Diabetic Retinopathy and
+                            Macular Degeneration.</p>
+                        <ul class="eye-svc-list">
+                            <li><i class="fas fa-check-circle"></i> Fundus Photography</li>
+                            <li><i class="fas fa-check-circle"></i> OCT Scan</li>
+                            <li><i class="fas fa-check-circle"></i> Intravitreal Injections</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="eye-section eye-tech-section">
+        <div class="eye-container">
+            <div class="eye-tech-grid">
+                <div class="fade-up">
+                    <span style="color: var(--eye-primary); font-weight: 700; letter-spacing: 1px;">ADVANCED DIAGNOSTICS</span>
+                    <h2 style="color: #fff; font-size: 2.5rem; margin-bottom: 20px;">Precision in Every Diagnosis</h2>
+                    <p style="margin-bottom: 40px; opacity: 0.8; font-size: 1.1rem;">We utilize the world's most advanced ophthalmic
+                        equipment to ensure accurate results and safe treatments.</p>
+
+                    <div class="eye-tech-item">
+                        <div class="eye-tech-icon"><i class="fas fa-microscope"></i></div>
+                        <div>
+                            <h3 style="color: #fff; margin: 0 0 5px;">OCT Scans</h3>
+                            <p style="color: #cbd5e1; font-size: 0.95rem; margin: 0;">High-resolution cross-section imaging of the retina.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="eye-tech-item">
+                        <div class="eye-tech-icon"><i class="fas fa-bolt"></i></div>
+                        <div>
+                            <h3 style="color: #fff; margin: 0 0 5px;">YAG Laser</h3>
+                            <p style="color: #cbd5e1; font-size: 0.95rem; margin: 0;">Quick & effective after-cataract treatment.</p>
+                        </div>
+                    </div>
+                    <div class="eye-tech-item">
+                        <div class="eye-tech-icon"><i class="fas fa-eye"></i></div>
+                        <div>
+                            <h3 style="color: #fff; margin: 0 0 5px;">Field Analyzer</h3>
+                            <p style="color: #cbd5e1; font-size: 0.95rem; margin: 0;">Gold standard for glaucoma visual field testing.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="fade-up">
+                    <img src="https://images.unsplash.com/photo-1576091160550-217358c7e618?auto=format&fit=crop&w=600&q=80"
+                        style="width: 100%; border-radius: var(--eye-radius); border: 5px solid rgba(255,255,255,0.1);" alt="Eye Machine">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="eye-section">
+        <div class="eye-container">
+            <div class="eye-header fade-up">
+                <span>Process</span>
+                <h2>Easy Steps to Better Vision</h2>
+            </div>
+            <div class="eye-process-wrapper">
+                <div class="eye-process-line"></div>
+                <div class="eye-process-grid">
+                    <div class="eye-process-item stagger-up">
+                        <div class="eye-process-circle">1</div>
+                        <h4>Exam</h4>
+                        <p style="font-size: 0.9rem; color: #666;">Comprehensive vision test.</p>
+                    </div>
+                    <div class="eye-process-item stagger-up">
+                        <div class="eye-process-circle">2</div>
+                        <h4>Diagnosis</h4>
+                        <p style="font-size: 0.9rem; color: #666;">Advanced scanning.</p>
+                    </div>
+                    <div class="eye-process-item stagger-up">
+                        <div class="eye-process-circle">3</div>
+                        <h4>Treatment</h4>
+                        <p style="font-size: 0.9rem; color: #666;">Laser or microsurgery.</p>
+                    </div>
+                    <div class="eye-process-item stagger-up">
+                        <div class="eye-process-circle">4</div>
+                        <h4>Care</h4>
+                        <p style="font-size: 0.9rem; color: #666;">Regular follow-ups.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="eye-section" style="background: #fff;">
+        <div class="eye-container">
+            <div class="eye-header fade-up">
+                <span>Education</span>
+                <h2>Eye Health Tips</h2>
+            </div>
+            <div class="eye-tips-grid">
+                <div class="eye-tip-card stagger-up">
+                    <i class="fas fa-desktop eye-tip-icon"></i>
+                    <h4>20-20-20 Rule</h4>
+                    <p style="font-size: 0.9rem; color: #666;">Every 20 minutes, look at something 20 feet away for 20 seconds to reduce
+                        screen strain.</p>
+                </div>
+                <div class="eye-tip-card stagger-up">
+                    <i class="fas fa-sun eye-tip-icon"></i>
+                    <h4>UV Protection</h4>
+                    <p style="font-size: 0.9rem; color: #666;">Always wear sunglasses that block 100% of UVA and UVB rays when outdoors.</p>
+                </div>
+                <div class="eye-tip-card stagger-up">
+                    <i class="fas fa-carrot eye-tip-icon"></i>
+                    <h4>Healthy Diet</h4>
+                    <p style="font-size: 0.9rem; color: #666;">Eat foods rich in Omega-3, Lutein, Zinc, and Vitamins C & E.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="eye-section" style="background: var(--eye-light);">
+        <div class="eye-container">
+            <div class="eye-header fade-up">
+                <span>Doctors</span>
+                <h2>Our Specialists</h2>
+            </div>
+            <div class="eye-doc-grid">
+                <div class="eye-doc-card stagger-up">
+                    <img src="https://jivakahospital.com/wp-content/uploads/2025/12/img-team-member-03.jpg" class="eye-doc-img"
+                        alt="Doctor">
+                    <span class="eye-doc-role">Senior Consultant</span>
+                    <h3>Dr. Thein Htut</h3>
+                    <p style="color: #666; font-size: 0.9rem;">Cataract & Refractive Surgeon</p>
+                </div>
+                <div class="eye-doc-card stagger-up">
+                    <img src="https://i.pravatar.cc/400?img=5" class="eye-doc-img" alt="Doctor">
+                    <span class="eye-doc-role">Retina Specialist</span>
+                    <h3>Dr. Ni Ni Win</h3>
+                    <p style="color: #666; font-size: 0.9rem;">Medical Retina & Diabetic Eye</p>
+                </div>
+                <div class="eye-doc-card stagger-up">
+                    <img src="https://i.pravatar.cc/400?img=12" class="eye-doc-img" alt="Doctor">
+                    <span class="eye-doc-role">Glaucoma Specialist</span>
+                    <h3>Dr. Aung Kyaw</h3>
+                    <p style="color: #666; font-size: 0.9rem;">Glaucoma Management & Surgery</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="eye-section">
+        <div class="eye-container">
+            <div class="eye-header fade-up">
+                <span>FAQ</span>
+                <h2>Common Questions</h2>
+            </div>
+            <div style="max-width: 800px; margin: 0 auto;" class="fade-up">
+                <div class="eye-faq-item">
+                    <div class="eye-faq-q">How often should I get my eyes checked? <i class="fas fa-plus"></i></div>
+                    <div class="eye-faq-a">For adults, we recommend a comprehensive eye exam every 1-2 years, or annually if you have
+                        diabetes.</div>
+                </div>
+                <div class="eye-faq-item">
+                    <div class="eye-faq-q">Is cataract surgery painful? <i class="fas fa-plus"></i></div>
+                    <div class="eye-faq-a">No, modern cataract surgery is performed under local anesthesia (eye drops) and is painless.
+                    </div>
+                </div>
+                <div class="eye-faq-item">
+                    <div class="eye-faq-q">What is Computer Vision Syndrome? <i class="fas fa-plus"></i></div>
+                    <div class="eye-faq-a">It's eye strain from prolonged screen use. Symptoms include dry eyes, blurred vision, and
+                        headaches.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div style="background: var(--eye-secondary); color: #fff; padding: 100px 0; text-align: center;">
+        <div class="eye-container fade-up">
+            <h2 style="color: #fff; margin-bottom: 20px;">Protect Your Vision Today</h2>
+            <p style="margin-bottom: 40px; font-size: 1.1rem; opacity: 0.8; max-width: 600px; margin-left: auto; margin-right: auto;">Don't
+                wait until your vision fades. Early detection is key to maintaining healthy eyes.</p>
+            <a href="appointment.html" class="eye-btn" style="background: var(--eye-primary); color: #fff; border: none;">Make an
+                Appointment</a>
+        </div>
+    </div>
+
+    <script>
+        // Accordion
+        document.querySelectorAll('.eye-faq-q').forEach(item => {
+            item.addEventListener('click', () => {
+                const parent = item.parentElement;
+                const content = parent.querySelector('.eye-faq-a');
+                const icon = item.querySelector('i');
+
+                // Close other items
+                document.querySelectorAll('.eye-faq-item.active').forEach(otherItem => {
+                    if (otherItem !== parent) {
+                        otherItem.classList.remove('active');
+                        otherItem.querySelector('.eye-faq-a').style.maxHeight = null;
+                        otherItem.querySelector('i').classList.replace('fa-minus', 'fa-plus');
+                    }
+                });
+
+                parent.classList.toggle('active');
+                if (parent.classList.contains('active')) {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                    icon.classList.replace('fa-plus', 'fa-minus');
+                } else {
+                    content.style.maxHeight = null;
+                    icon.classList.replace('fa-minus', 'fa-plus');
+                }
+            });
+        });
+
+        // GSAP Animations
+        document.addEventListener("DOMContentLoaded", function () {
+            gsap.registerPlugin(ScrollTrigger);
+
+            // Set initial state
+            gsap.set(".fade-up, .stagger-up, .blur-in", { y: 40, opacity: 0 });
+
+            // Blur In Effect for Hero
+            gsap.to(".blur-in", {
+                y: 0, opacity: 1, filter: "blur(0px)", stagger: 0.2, duration: 1, ease: "power2.out"
+            });
+
+            // Standard Fade Up
+            gsap.utils.toArray('.fade-up').forEach(el => {
+                gsap.to(el, {
+                    y: 0, opacity: 1, duration: 0.8, ease: "power2.out",
+                    scrollTrigger: { trigger: el, start: "top 85%" }
+                });
+            });
+
+            // Staggered Animations
+            ScrollTrigger.batch(".stagger-up", {
+                start: "top 85%",
+                onEnter: batch => gsap.to(batch, {
+                    y: 0, opacity: 1, stagger: 0.15, duration: 0.6, ease: "power2.out", overwrite: true
+                }),
+                once: true
+            });
+        });
+    </script>
+</body>
+
+</html>

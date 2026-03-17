@@ -1,0 +1,37 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "twork/rad-safety-card",
+  "version": "1.0.0",
+  "title": "Safety Card",
+  "parent": ["twork/rad-safety-section"],
+  "category": "twork-builder",
+  "description": "Single safety card (icon, title, description) for the Radiology Safety Section.",
+  "keywords": [
+    "radiology",
+    "safety",
+    "alara",
+    "twork"
+  ],
+  "attributes": {
+    "iconClass": {
+      "type": "string",
+      "default": "fas fa-shield-alt"
+    },
+    "title": {
+      "type": "string",
+      "default": "Dose Management"
+    },
+    "description": {
+      "type": "string",
+      "default": "Automated dose tracking for every patient to prevent overexposure."
+    }
+  },
+  "supports": {
+    "html": false
+  },
+  "textdomain": "twork-builder",
+  "editorScript": "file:./index.js",
+  "style": "file:./style-index.css"
+}
+

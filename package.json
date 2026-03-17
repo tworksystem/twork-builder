@@ -7,8 +7,8 @@
   "homepage": "https://www.tworksystem.com/twork-builder",
   "main": "index.js",
   "scripts": {
-    "build": "wp-scripts build",
-    "start": "wp-scripts start",
+    "build": "cross-env NODE_OPTIONS=--max-old-space-size=8192 wp-scripts build",
+    "start": "cross-env NODE_OPTIONS=--max-old-space-size=8192 wp-scripts start",
     "packages-update": "wp-scripts packages-update",
     "lint:css": "wp-scripts lint-style",
     "lint:js": "wp-scripts lint-js",
@@ -19,6 +19,7 @@
   },
   "devDependencies": {
     "@wordpress/scripts": "^27.0.0",
+    "cross-env": "^10.1.0",
     "sass": "^1.69.5"
   },
   "engines": {

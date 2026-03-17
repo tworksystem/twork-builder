@@ -1,0 +1,33 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "twork/gallery-item",
+    "title": "Gallery Item",
+    "parent": ["twork/gallery-section"],
+    "description": "Single gallery image with category for filtering and overlay icon.",
+    "keywords": ["gallery", "image", "photo", "filter", "twork"],
+    "attributes": {
+        "imageUrl": {
+            "type": "string",
+            "default": ""
+        },
+        "imageId": {
+            "type": "number"
+        },
+        "imageAlt": {
+            "type": "string",
+            "default": "Gallery"
+        },
+        "category": {
+            "type": "string",
+            "default": "tech"
+        },
+        "overlayIcon": {
+            "type": "string",
+            "default": "fas fa-search-plus"
+        }
+    },
+    "textdomain": "twork-builder",
+    "editorScript": "file:./index.js",
+    "style": "file:./style-index.css"
+}

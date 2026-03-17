@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Careers | Jivaka Hospital</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <style>
+        /* --- 1. CORE VARIABLES --- */
+        :root {
+            --primary-orange: #f48b2a;
+            --brand-orange-hover: #e67a22;
+            --dark-grey: #212121;
+            --medium-grey: #666;
+            --light-grey-bg: #f8f9fa;
+            --white: #ffffff;
+            --border: #e0e0e0;
+            --radius: 12px;
+            --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Roboto", sans-serif;
+            color: var(--dark-grey);
+            line-height: 1.6;
+            background: #fff;
+            overflow-x: hidden;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            /* Anti-FOUC */
+        }
+
+        body.loaded {
+            opacity: 1;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: 0.3s;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .jivaka-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        /* Buttons */
+        .jivaka-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 28px;
+            border-radius: 6px;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 0.8px;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            cursor: pointer;
+            border: 1px solid transparent;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: var(--primary-orange);
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(244, 139, 42, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: var(--brand-orange-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(244, 139, 42, 0.4);
+        }
+
+        .btn-outline-dark {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--dark-grey);
+        }
+
+        .btn-outline-dark:hover {
+            border-color: var(--primary-orange);
+            color: var(--primary-orange);
+            background: #fff;
+        }
+
+        /* --- 2. HERO SECTION --- */
+        .page-hero {
+            position: relative;
+            height: 450px;
+            display: flex;
+            align-items: center;
+            background-color: #0b1c2c;
+            color: #fff;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.5;
+            object-position: center 30%;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            text-align: center;
+        }
+
+        .hero-breadcrumb {
+            display: inline-block;
+            padding: 6px 16px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            border-radius: 50px;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 900;
+            margin: 0 0 15px 0;
+            text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* --- 3. BENEFITS SECTION --- */
+        .benefits-section {
+            background: var(--light-grey-bg);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            font-size: 2.2rem;
+            margin: 0 0 15px 0;
+            color: var(--dark-grey);
+        }
+
+        .section-header p {
+            color: var(--medium-grey);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .section-header .line {
+            width: 60px;
+            height: 4px;
+            background: var(--primary-orange);
+            margin: 20px auto 0;
+            border-radius: 2px;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .benefit-card {
+            background: #fff;
+            padding: 40px 30px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-card);
+            transition: 0.3s;
+            text-align: center;
+            border-bottom: 3px solid transparent;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-10px);
+            border-bottom-color: var(--primary-orange);
+        }
+
+        .b-icon {
+            width: 70px;
+            height: 70px;
+            background: #fff9f2;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 1.8rem;
+            color: var(--primary-orange);
+            transition: 0.3s;
+        }
+
+        .benefit-card:hover .b-icon {
+            background: var(--primary-orange);
+            color: #fff;
+        }
+
+        .benefit-card h4 {
+            margin: 0 0 10px 0;
+            font-size: 1.2rem;
+        }
+
+        .benefit-card p {
+            font-size: 0.95rem;
+            color: var(--medium-grey);
+            margin: 0;
+        }
+
+        /* --- 4. JOB LISTINGS --- */
+        .job-category {
+            margin-bottom: 60px;
+        }
+
+        .cat-title {
+            font-size: 1.5rem;
+            color: var(--dark-grey);
+            margin-bottom: 25px;
+            border-left: 5px solid var(--primary-orange);
+            padding-left: 15px;
+        }
+
+        .job-card {
+            background: #fff;
+            border: 1px solid #eee;
+            border-radius: 10px;
+            padding: 25px 30px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: 0.3s;
+        }
+
+        .job-card:hover {
+            border-color: var(--primary-orange);
+            box-shadow: 0 5px 20px rgba(244, 139, 42, 0.15);
+            transform: translateX(5px);
+        }
+
+        .job-info h3 {
+            margin: 0 0 8px 0;
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        .job-meta {
+            display: flex;
+            gap: 20px;
+            font-size: 0.9rem;
+            color: var(--medium-grey);
+        }
+
+        .job-meta span i {
+            color: var(--primary-orange);
+            margin-right: 5px;
+        }
+
+        .job-action {
+            flex-shrink: 0;
+            margin-left: 30px;
+        }
+
+        /* --- 5. CTA SECTION --- */
+        .career-cta {
+            background: linear-gradient(135deg, #212121 0%, #333 100%);
+            border-radius: var(--radius);
+            padding: 60px 40px;
+            text-align: center;
+            color: #fff;
+            margin-top: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .career-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 200px;
+            height: 100%;
+            background: var(--primary-orange);
+            opacity: 0.1;
+            transform: skewX(-20deg);
+        }
+
+        .career-cta h2 {
+            margin: 0 0 15px 0;
+            font-size: 2rem;
+        }
+
+        .career-cta p {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Animations */
+        .fade-up,
+        .stagger-job {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .page-hero {
+                height: 350px;
+            }
+
+            .section-header h2 {
+                font-size: 1.8rem;
+            }
+
+            .job-card {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+            }
+
+            .job-action {
+                margin-left: 0;
+                width: 100%;
+            }
+
+            .job-action .jivaka-btn {
+                width: 100%;
+            }
+
+            .job-meta {
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="page-hero">
+        <img src="https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=1920&q=80" alt="Medical Team"
+            class="hero-bg">
+        <div class="jivaka-container hero-content animate-hero">
+            <span class="hero-breadcrumb">Join Our Team</span>
+            <h1 class="hero-title">Build Your Career <br>With <span style="color: var(--primary-orange);">Compassion</span></h1>
+            <p class="hero-subtitle">Be part of a team that is dedicated to saving lives and shaping the future of healthcare in Myanmar.
+            </p>
+        </div>
+    </header>
+
+    <section class="section-padding benefits-section">
+        <div class="jivaka-container">
+            <div class="section-header fade-up">
+                <h2>Why Choose Jivaka?</h2>
+                <p>We provide an environment where you can grow professionally while making a real difference.</p>
+                <div class="line"></div>
+            </div>
+
+            <div class="benefits-grid">
+                <div class="benefit-card fade-up">
+                    <div class="b-icon"><i class="fas fa-user-md"></i></div>
+                    <h4>Professional Growth</h4>
+                    <p>Continuous learning opportunities, workshops, and international training programs.</p>
+                </div>
+                <div class="benefit-card fade-up">
+                    <div class="b-icon"><i class="fas fa-heartbeat"></i></div>
+                    <h4>Work-Life Balance</h4>
+                    <p>Flexible shift schedules and leave policies to help you maintain a healthy lifestyle.</p>
+                </div>
+                <div class="benefit-card fade-up">
+                    <div class="b-icon"><i class="fas fa-users"></i></div>
+                    <h4>Inclusive Culture</h4>
+                    <p>A collaborative environment where every voice is heard and teamwork is celebrated.</p>
+                </div>
+                <div class="benefit-card fade-up">
+                    <div class="b-icon"><i class="fas fa-briefcase-medical"></i></div>
+                    <h4>Modern Facilities</h4>
+                    <p>Work with state-of-the-art medical technology and advanced infrastructure.</p>
+                </div>
+                <div class="benefit-card fade-up">
+                    <div class="b-icon"><i class="fas fa-hand-holding-usd"></i></div>
+                    <h4>Competitive Benefits</h4>
+                    <p>Attractive salary packages, health insurance, and performance-based bonuses.</p>
+                </div>
+                <div class="benefit-card fade-up">
+                    <div class="b-icon"><i class="fas fa-globe-asia"></i></div>
+                    <h4>Community Impact</h4>
+                    <p>Participate in CSR initiatives and medical outreach programs across Myanmar.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding">
+        <div class="jivaka-container">
+            <div class="section-header fade-up">
+                <h2>Current Openings</h2>
+                <p>Explore exciting opportunities to join our medical and administrative teams.</p>
+                <div class="line"></div>
+            </div>
+
+            <div class="job-category">
+                <h3 class="cat-title fade-up">Medical & Nursing</h3>
+
+                <div class="job-card stagger-job">
+                    <div class="job-info">
+                        <h3>Senior Staff Nurse (ICU)</h3>
+                        <div class="job-meta">
+                            <span><i class="fas fa-map-marker-alt"></i> Mandalay</span>
+                            <span><i class="fas fa-clock"></i> Full Time</span>
+                            <span><i class="fas fa-stethoscope"></i> Nursing Dept</span>
+                        </div>
+                    </div>
+                    <div class="job-action">
+                        <a href="#" class="jivaka-btn btn-primary">Apply Now</a>
+                    </div>
+                </div>
+
+                <div class="job-card stagger-job">
+                    <div class="job-info">
+                        <h3>Resident Medical Officer (RMO)</h3>
+                        <div class="job-meta">
+                            <span><i class="fas fa-map-marker-alt"></i> Mandalay</span>
+                            <span><i class="fas fa-clock"></i> Rotational Shift</span>
+                            <span><i class="fas fa-user-md"></i> Emergency Dept</span>
+                        </div>
+                    </div>
+                    <div class="job-action">
+                        <a href="#" class="jivaka-btn btn-primary">Apply Now</a>
+                    </div>
+                </div>
+
+                <div class="job-card stagger-job">
+                    <div class="job-info">
+                        <h3>Radiology Technician</h3>
+                        <div class="job-meta">
+                            <span><i class="fas fa-map-marker-alt"></i> Mandalay</span>
+                            <span><i class="fas fa-clock"></i> Full Time</span>
+                            <span><i class="fas fa-x-ray"></i> Imaging Dept</span>
+                        </div>
+                    </div>
+                    <div class="job-action">
+                        <a href="#" class="jivaka-btn btn-primary">Apply Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="job-category">
+                <h3 class="cat-title fade-up">Administration & Support</h3>
+
+                <div class="job-card stagger-job">
+                    <div class="job-info">
+                        <h3>Human Resources Manager</h3>
+                        <div class="job-meta">
+                            <span><i class="fas fa-map-marker-alt"></i> Mandalay</span>
+                            <span><i class="fas fa-clock"></i> Full Time</span>
+                            <span><i class="fas fa-briefcase"></i> HR Dept</span>
+                        </div>
+                    </div>
+                    <div class="job-action">
+                        <a href="#" class="jivaka-btn btn-primary">Apply Now</a>
+                    </div>
+                </div>
+
+                <div class="job-card stagger-job">
+                    <div class="job-info">
+                        <h3>Customer Service Executive</h3>
+                        <div class="job-meta">
+                            <span><i class="fas fa-map-marker-alt"></i> Mandalay</span>
+                            <span><i class="fas fa-clock"></i> Full Time</span>
+                            <span><i class="fas fa-headset"></i> Front Office</span>
+                        </div>
+                    </div>
+                    <div class="job-action">
+                        <a href="#" class="jivaka-btn btn-primary">Apply Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="career-cta fade-up">
+                <h2>Don't see the right fit?</h2>
+                <p>We are always looking for talented individuals. Send us your CV and we will keep it on file for future opportunities.</p>
+                <a href="mailto:hr@jivakahospital.com" class="jivaka-btn btn-primary"
+                    style="background: #fff; color: var(--primary-orange);">
+                    <i class="fas fa-envelope"></i> Email Your CV
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <script>
+        window.addEventListener("load", function () {
+            gsap.registerPlugin(ScrollTrigger);
+            document.body.classList.add('loaded');
+
+            // 1. Hero Animation
+            const tl = gsap.timeline();
+            tl.fromTo(".animate-hero > *",
+                { y: 40, opacity: 0 },
+                { y: 0, opacity: 1, duration: 1, stagger: 0.2, ease: "power3.out" }
+            );
+
+            // 2. Section Fade Ups
+            const fadeUps = gsap.utils.toArray('.fade-up');
+            fadeUps.forEach(el => {
+                gsap.fromTo(el,
+                    { y: 50, opacity: 0, autoAlpha: 0 },
+                    {
+                        y: 0, opacity: 1, autoAlpha: 1, duration: 0.8, ease: "power2.out",
+                        scrollTrigger: { trigger: el, start: "top 85%" }
+                    }
+                );
+            });
+
+            // 3. Staggered Job Lists (Batch Animation)
+            ScrollTrigger.batch(".stagger-job", {
+                start: "top 90%",
+                onEnter: batch => gsap.fromTo(batch,
+                    { y: 30, opacity: 0, autoAlpha: 0 },
+                    { y: 0, opacity: 1, autoAlpha: 1, stagger: 0.1, duration: 0.6, ease: "power2.out" }
+                ),
+                once: true
+            });
+        });
+    </script>
+</body>
+
+</html>

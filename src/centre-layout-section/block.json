@@ -1,0 +1,166 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "twork/centre-layout-section",
+  "version": "1.0.0",
+  "title": "Layout Section",
+  "category": "twork-builder",
+  "icon": "layout",
+  "description": "Reusable clinical centre page layout: sidebar (centre menu + contact widget) and main content. Add, remove, or reorder Overview, Treatments, Specialists, FAQ, and CTA sections.",
+  "keywords": ["centre", "center", "clinical", "layout", "sidebar", "neuro", "heart", "department", "twork"],
+  "attributes": {
+    "sidebarHeader": {
+      "type": "string",
+      "default": "Clinical Centres"
+    },
+    "navItems": {
+      "type": "array",
+      "default": [
+        { "label": "Heart Centre", "href": "heart-centre.html" },
+        { "label": "Neuro Centre", "href": "#", "active": true },
+        { "label": "Cancer Centre", "href": "cancer-centre.html" },
+        { "label": "Orthopaedic & Rehab", "href": "#" },
+        { "label": "General Medicine", "href": "#" },
+        { "label": "Paediatrics", "href": "#" },
+        { "label": "Dental Clinic", "href": "#" }
+      ]
+    },
+    "contactIcon": {
+      "type": "string",
+      "default": "fas fa-headset"
+    },
+    "contactIconType": {
+      "type": "string",
+      "default": "fontawesome"
+    },
+    "contactDashicon": {
+      "type": "string",
+      "default": "dashicons-phone"
+    },
+    "contactIconImageUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "contactIconImageId": {
+      "type": "number"
+    },
+    "contactIconVideoUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "contactIconVideoId": {
+      "type": "number"
+    },
+    "contactPhoneIconType": {
+      "type": "string",
+      "default": "fontawesome"
+    },
+    "contactPhoneIcon": {
+      "type": "string",
+      "default": "fas fa-phone"
+    },
+    "contactPhoneDashicon": {
+      "type": "string",
+      "default": "dashicons-phone"
+    },
+    "contactPhoneIconImageUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "contactPhoneIconImageId": {
+      "type": "number"
+    },
+    "contactPhoneIconVideoUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "contactPhoneIconVideoId": {
+      "type": "number"
+    },
+    "navArrowIconType": {
+      "type": "string",
+      "default": "fontawesome"
+    },
+    "navArrowIcon": {
+      "type": "string",
+      "default": "fas fa-chevron-right"
+    },
+    "navArrowDashicon": {
+      "type": "string",
+      "default": "dashicons-arrow-right-alt2"
+    },
+    "navArrowImageUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "navArrowImageId": {
+      "type": "number"
+    },
+    "navArrowVideoUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "navArrowVideoId": {
+      "type": "number"
+    },
+    "contactTitle": {
+      "type": "string",
+      "default": "Emergency?"
+    },
+    "contactText": {
+      "type": "string",
+      "default": "Our Stroke Unit is ready 24/7."
+    },
+    "contactPhone": {
+      "type": "string",
+      "default": "09-789 101 101"
+    },
+    "contactPhoneUrl": {
+      "type": "string",
+      "default": "tel:09789101101"
+    },
+    "showSidebarContact": {
+      "type": "boolean",
+      "default": true
+    },
+    "contactBackgroundImage": {
+      "type": "string",
+      "default": ""
+    },
+    "contactBackgroundImageId": {
+      "type": "number"
+    },
+    "containerMaxWidth": {
+      "type": "number",
+      "default": 1200
+    },
+    "containerPadding": {
+      "type": "number",
+      "default": 20
+    },
+    "paddingTop": {
+      "type": "number",
+      "default": 80
+    },
+    "paddingBottom": {
+      "type": "number",
+      "default": 80
+    },
+    "sidebarWidth": {
+      "type": "number",
+      "default": 280
+    },
+    "gap": {
+      "type": "number",
+      "default": 60
+    }
+  },
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "align": ["wide", "full"]
+  },
+  "textdomain": "twork-builder",
+  "editorScript": "file:./index.js",
+  "style": "file:./style-index.css"
+}

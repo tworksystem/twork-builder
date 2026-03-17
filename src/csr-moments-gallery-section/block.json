@@ -1,0 +1,117 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "twork/csr-moments-gallery-section",
+    "version": "1.0.0",
+    "title": "Moments Gallery",
+    "category": "twork-builder",
+    "icon": "format-gallery",
+    "description": "Moments of Care gallery section for CSR pages - title with View All link and image grid.",
+    "keywords": ["gallery", "moments", "photos", "csr", "care", "twork"],
+    "attributes": {
+        "backgroundColor": {
+            "type": "string",
+            "default": "#ffffff"
+        },
+        "paddingTop": {
+            "type": "number",
+            "default": 80
+        },
+        "paddingBottom": {
+            "type": "number",
+            "default": 80
+        },
+        "showSectionTitle": {
+            "type": "boolean",
+            "default": true
+        },
+        "sectionTitle": {
+            "type": "string",
+            "default": "Moments of Care"
+        },
+        "sectionTitleColor": {
+            "type": "string",
+            "default": "#212121"
+        },
+        "sectionTitleFontSize": {
+            "type": "number",
+            "default": 2
+        },
+        "sectionTitleFontWeight": {
+            "type": "number",
+            "default": 700
+        },
+        "showViewAllLink": {
+            "type": "boolean",
+            "default": true
+        },
+        "viewAllText": {
+            "type": "string",
+            "default": "View All Photos"
+        },
+        "viewAllUrl": {
+            "type": "string",
+            "default": "#"
+        },
+        "viewAllOpensInNewTab": {
+            "type": "boolean",
+            "default": false
+        },
+        "viewAllLinkColor": {
+            "type": "string",
+            "default": "#f48b2a"
+        },
+        "viewAllLinkFontWeight": {
+            "type": "number",
+            "default": 700
+        },
+        "headerMarginBottom": {
+            "type": "number",
+            "default": 20
+        },
+        "gridColumns": {
+            "type": "number",
+            "default": 4
+        },
+        "gridColumnsTablet": {
+            "type": "number",
+            "default": 2
+        },
+        "gridColumnsMobile": {
+            "type": "number",
+            "default": 1
+        },
+        "gridGap": {
+            "type": "number",
+            "default": 15
+        },
+        "itemHeight": {
+            "type": "number",
+            "default": 250
+        },
+        "containerMaxWidth": {
+            "type": "number",
+            "default": 1200
+        },
+        "containerPadding": {
+            "type": "number",
+            "default": 30
+        },
+        "animationOnScroll": {
+            "type": "boolean",
+            "default": true
+        },
+        "animationDelay": {
+            "type": "number",
+            "default": 80
+        }
+    },
+    "supports": {
+        "html": false,
+        "anchor": true,
+        "align": ["wide", "full"]
+    },
+    "textdomain": "twork-builder",
+    "editorScript": "file:./index.js",
+    "style": "file:./style-index.css"
+}

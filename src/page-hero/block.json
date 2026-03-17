@@ -2,7 +2,7 @@
     "$schema": "https://schemas.wp.org/trunk/block.json",
     "apiVersion": 3,
     "name": "twork/page-hero",
-    "title": "Twork Page Hero",
+    "title": "Page Hero",
     "category": "twork-builder",
     "description": "Professional page hero section with background image, breadcrumb, and title with responsive settings",
     "keywords": ["hero", "banner", "page", "header", "twork"],
@@ -122,6 +122,46 @@
             "type": "number",
             "default": 10
         },
+        "showSubtitle": {
+            "type": "boolean",
+            "default": true
+        },
+        "subtitleText": {
+            "type": "string",
+            "default": ""
+        },
+        "subtitleColor": {
+            "type": "string",
+            "default": "rgba(255, 255, 255, 0.9)"
+        },
+        "subtitleFontSize": {
+            "type": "number",
+            "default": 1.1
+        },
+        "subtitleFontSizeTablet": {
+            "type": "number",
+            "default": 1.05
+        },
+        "subtitleFontSizeMobile": {
+            "type": "number",
+            "default": 1
+        },
+        "subtitleFontWeight": {
+            "type": "number",
+            "default": 400
+        },
+        "subtitleLineHeight": {
+            "type": "number",
+            "default": 1.5
+        },
+        "subtitleMarginTop": {
+            "type": "number",
+            "default": 10
+        },
+        "subtitleMaxWidth": {
+            "type": "number",
+            "default": 600
+        },
         "containerMaxWidth": {
             "type": "number",
             "default": 1200
@@ -157,6 +197,38 @@
         "imageSaturation": {
             "type": "number",
             "default": 0.8
+        },
+        "heroStyle": {
+            "type": "string",
+            "default": "default"
+        },
+        "showPrimaryButton": {
+            "type": "boolean",
+            "default": true
+        },
+        "primaryButtonText": {
+            "type": "string",
+            "default": "Call Ambulance: 199"
+        },
+        "primaryButtonUrl": {
+            "type": "string",
+            "default": "tel:199"
+        },
+        "primaryButtonPulse": {
+            "type": "boolean",
+            "default": true
+        },
+        "showSecondaryButton": {
+            "type": "boolean",
+            "default": true
+        },
+        "secondaryButtonText": {
+            "type": "string",
+            "default": "When to Visit?"
+        },
+        "secondaryButtonUrl": {
+            "type": "string",
+            "default": "#triage"
         }
     },
     "supports": {

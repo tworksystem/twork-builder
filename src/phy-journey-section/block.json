@@ -1,0 +1,37 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "twork/phy-journey-section",
+  "version": "1.0.0",
+  "title": "Journey Section",
+  "category": "twork-builder",
+  "icon": "schedule",
+  "description": "Patient journey vertical timeline section: header + list of steps, matching physiotherapy-rehab.html.",
+  "keywords": ["physio", "journey", "timeline", "steps", "twork"],
+  "attributes": {
+    "backgroundColor": { "type": "string", "default": "transparent" },
+    "paddingTop":      { "type": "number", "default": 60 },
+    "paddingBottom":   { "type": "number", "default": 60 },
+    "containerMaxWidth": { "type": "number", "default": 1280 },
+    "containerPadding":  { "type": "number", "default": 24 },
+
+    "showSectionTitle":       { "type": "boolean", "default": true },
+    "sectionTitle":           { "type": "string",  "default": "Your Road to Recovery" },
+    "showSectionSubtitle":    { "type": "boolean", "default": true },
+    "sectionSubtitle":        { "type": "string",  "default": "A structured approach to getting you back to 100%." },
+    "headerAlign":            { "type": "string",  "default": "center" },
+
+    "animationOnScroll":      { "type": "boolean", "default": true },
+    "animationType":          { "type": "string",  "default": "fade-up" },
+    "animationDelay":         { "type": "number",  "default": 100 }
+  },
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "align": ["wide", "full"]
+  },
+  "textdomain": "twork-builder",
+  "editorScript": "file:./index.js",
+  "style": "file:./style-index.css"
+}
+

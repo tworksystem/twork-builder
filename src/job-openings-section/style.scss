@@ -1,0 +1,244 @@
+// Job Openings Section
+// career.html "Current Openings" – section-header, job-category, job-card
+
+:root {
+    --primary-orange: #f48b2a;
+    --dark-grey: #212121;
+    --medium-grey: #666;
+}
+
+// === EDITOR STYLES ===
+.editor-styles-wrapper,
+.wp-block-twork-job-openings-section {
+    .twork-job-openings-section-editor {
+        .section-header h2,
+        .section-header p {
+            &[contenteditable="true"]:focus {
+                outline: 1px dashed #2271b1;
+                outline-offset: 2px;
+            }
+        }
+
+        // Editor: same button design as frontend
+        .jivaka-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 28px;
+            border-radius: 6px;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 0.8px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 1px solid transparent;
+            gap: 8px;
+            text-decoration: none;
+
+            &.btn-primary {
+                background: var(--primary-orange);
+                color: #fff !important;
+                box-shadow: 0 4px 15px rgba(244, 139, 42, 0.3);
+            }
+
+            &.btn-primary:hover {
+                background: #e67a22;
+                transform: translateY(-2px);
+                box-shadow: 0 6px 20px rgba(244, 139, 42, 0.4);
+            }
+
+            &.btn-outline-dark {
+                background: transparent;
+                border: 1px solid #e0e0e0;
+                color: var(--dark-grey) !important;
+            }
+
+            &.btn-outline-dark:hover {
+                border-color: var(--primary-orange);
+                color: var(--primary-orange) !important;
+                background: #fff;
+            }
+        }
+
+    }
+}
+
+// === FRONTEND STYLES ===
+.twork-job-openings-section {
+    font-family: "Roboto", sans-serif;
+    position: relative;
+
+    .section-header {
+        text-align: center;
+
+        h2 {
+            font-size: 2.2rem;
+            margin: 0 0 15px 0;
+            color: var(--dark-grey);
+        }
+
+        p {
+            color: var(--medium-grey);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .line {
+            width: 60px;
+            height: 4px;
+            background: var(--primary-orange);
+            margin: 20px auto 0;
+            border-radius: 2px;
+        }
+    }
+
+    // Job Category
+    .job-category {
+        margin-bottom: 60px;
+    }
+
+    .cat-title {
+        font-size: 1.5rem;
+        color: var(--dark-grey);
+        margin-bottom: 25px;
+        border-left: 5px solid var(--primary-orange);
+        padding-left: 15px;
+    }
+
+    // Job Card
+    .job-card {
+        background: #fff;
+        border: 1px solid #eee;
+        border-radius: 10px;
+        padding: 25px 30px;
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: 0.3s;
+    }
+
+    .job-card:hover {
+        border-color: var(--primary-orange);
+        box-shadow: 0 5px 20px rgba(244, 139, 42, 0.15);
+        transform: translateX(5px);
+    }
+
+    .job-info h3 {
+        margin: 0 0 8px 0;
+        font-size: 1.2rem;
+        font-weight: 700;
+    }
+
+    .job-meta {
+        display: flex;
+        gap: 20px;
+        font-size: 0.9rem;
+        color: var(--medium-grey);
+    }
+
+    .job-meta span i {
+        color: var(--primary-orange);
+        margin-right: 5px;
+    }
+
+    .job-action {
+        flex-shrink: 0;
+        margin-left: 30px;
+    }
+
+    // Apply button styles (base + variants)
+    .jivaka-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 12px 28px;
+        border-radius: 6px;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 0.8rem;
+        letter-spacing: 0.8px;
+        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        cursor: pointer;
+        border: 1px solid transparent;
+        gap: 8px;
+        text-decoration: none;
+
+        &.btn-primary {
+            background: var(--primary-orange);
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(244, 139, 42, 0.3);
+        }
+
+        &.btn-primary:hover {
+            background: #e67a22;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(244, 139, 42, 0.4);
+        }
+
+        &.btn-outline-dark {
+            background: transparent;
+            border: 1px solid #e0e0e0;
+            color: var(--dark-grey);
+        }
+
+        &.btn-outline-dark:hover {
+            border-color: var(--primary-orange);
+            color: var(--primary-orange);
+            background: #fff;
+        }
+    }
+
+    .jivaka-btn:focus-visible {
+        outline: 3px solid var(--primary-orange);
+        outline-offset: 2px;
+    }
+}
+
+// === RESPONSIVE ===
+@media (max-width: 768px) {
+    .twork-job-openings-section {
+        padding-top: var(--padding-top-mobile, 60px) !important;
+        padding-bottom: var(--padding-bottom-mobile, 60px) !important;
+
+        .jivaka-container {
+            padding-left: var(--container-padding-mobile, 20px) !important;
+            padding-right: var(--container-padding-mobile, 20px) !important;
+        }
+
+        .section-header h2 {
+            font-size: 1.8rem !important;
+        }
+
+        .job-card {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 20px;
+            padding: var(--card-padding-mobile, 20px) 24px !important;
+        }
+
+        .job-action {
+            margin-left: 0;
+            width: 100%;
+        }
+
+        .job-action .jivaka-btn {
+            width: 100%;
+        }
+
+        .job-meta {
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+    }
+}
+
+// === ANIMATION (handled by job-openings-init.js) ===
+.twork-job-openings-section[data-animation="true"] {
+    .fade-up,
+    .stagger-job {
+        opacity: 0;
+        visibility: hidden;
+    }
+}

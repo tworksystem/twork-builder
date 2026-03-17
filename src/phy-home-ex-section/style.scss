@@ -1,0 +1,54 @@
+// Physio Home Exercise Section – matches physiotherapy-rehab.html .phy-home-ex-grid
+
+.phy-section.twork-phy-home-ex-section {
+    .phy-container {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 24px;
+        position: relative;
+    }
+
+    .phy-home-ex-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: center;
+    }
+
+    .phy-home-ex-content h2 {
+        margin-bottom: 20px;
+    }
+
+    .phy-home-ex-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        li {
+            margin-bottom: 10px;
+        }
+    }
+}
+
+@media (max-width: 992px) {
+    .phy-section.twork-phy-home-ex-section {
+        .phy-home-ex-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+}
+
+// Editor helpers – focus outlines for editable text
+.editor-styles-wrapper,
+.wp-block-twork-phy-home-ex-section {
+    .twork-phy-home-ex-section-editor {
+        h2[contenteditable='true'],
+        p[contenteditable='true'] {
+            &:focus {
+                outline: 1px dashed #2271b1;
+                outline-offset: 2px;
+            }
+        }
+    }
+}
+

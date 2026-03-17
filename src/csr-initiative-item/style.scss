@@ -1,0 +1,29 @@
+// CSR Initiative Item - shared with section, minimal overrides
+// Main styles live in parent csr-initiatives-section for consistency
+
+.wp-block-twork-csr-initiative-item,
+.twork-csr-initiative-item-editor {
+    .init-img-wrap {
+        overflow: hidden;
+        position: relative;
+    }
+
+    .init-img-wrap img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+    }
+
+    .init-content {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .init-icon {
+        flex-shrink: 0;
+        i {
+            display: block;
+        }
+    }
+}

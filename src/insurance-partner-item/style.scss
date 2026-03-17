@@ -1,0 +1,33 @@
+// Insurance Partner Item – uses section's insurance-grid context
+// Primary styles come from insurance-partners-section
+
+.editor-styles-wrapper {
+    .twork-insurance-partner-item-editor {
+        .partner-logo {
+            span,
+            [contenteditable="true"] {
+                &:focus {
+                    outline: 1px dashed #2271b1;
+                    outline-offset: 2px;
+                }
+            }
+        }
+    }
+}
+
+// Frontend: insurance-card inherits from parent
+.wp-block-twork-insurance-partners-section {
+    .insurance-card {
+        .partner-logo {
+            color: var(--partner-name-color, #212121);
+            font-size: var(--partner-name-font-size, 1.1rem);
+            font-weight: var(--partner-name-font-weight, 700);
+            text-transform: var(--partner-name-transform, uppercase);
+
+            i {
+                color: var(--icon-color, #666);
+                font-size: var(--icon-size, 2.5rem);
+            }
+        }
+    }
+}

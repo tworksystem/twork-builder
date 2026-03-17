@@ -1,0 +1,109 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "twork/tele-download-section",
+    "version": "1.0.0",
+    "title": "Telemedicine Download Section",
+    "category": "twork-builder",
+    "icon": "download",
+    "description": "Download Jivaka Health App CTA section with title, description, and app store buttons.",
+    "keywords": ["telemedicine", "download", "app", "jivaka", "store", "twork"],
+    "attributes": {
+        "sectionPaddingTop": {
+            "type": "number",
+            "default": 100
+        },
+        "sectionPaddingBottom": {
+            "type": "number",
+            "default": 100
+        },
+        "containerMaxWidth": {
+            "type": "number",
+            "default": 1200
+        },
+        "containerPadding": {
+            "type": "number",
+            "default": 24
+        },
+        "title": {
+            "type": "string",
+            "default": "Download Jivaka Health App"
+        },
+        "description": {
+            "type": "string",
+            "default": "Manage appointments, view lab reports, and consult doctors on the go. Available for iOS and Android."
+        },
+        "ctaPaddingTop": {
+            "type": "number",
+            "default": 80
+        },
+        "ctaPaddingBottom": {
+            "type": "number",
+            "default": 80
+        },
+        "ctaPaddingHorizontal": {
+            "type": "number",
+            "default": 40
+        },
+        "ctaBorderRadius": {
+            "type": "number",
+            "default": 20
+        },
+        "gradientStart": {
+            "type": "string",
+            "default": "#f48b2a"
+        },
+        "gradientEnd": {
+            "type": "string",
+            "default": "#d35400"
+        },
+        "gradientAngle": {
+            "type": "number",
+            "default": 135
+        },
+        "titleColor": {
+            "type": "string",
+            "default": "#ffffff"
+        },
+        "titleFontSize": {
+            "type": "number",
+            "default": 2.5
+        },
+        "titleFontWeight": {
+            "type": "number",
+            "default": 700
+        },
+        "descriptionColor": {
+            "type": "string",
+            "default": "rgba(255, 255, 255, 0.9)"
+        },
+        "descriptionFontSize": {
+            "type": "number",
+            "default": 1.1
+        },
+        "descriptionMarginBottom": {
+            "type": "number",
+            "default": 40
+        },
+        "storeBtnsGap": {
+            "type": "number",
+            "default": 20
+        },
+        "useFadeUp": {
+            "type": "boolean",
+            "default": true
+        },
+        "sectionAnchor": {
+            "type": "string",
+            "default": "download"
+        }
+    },
+    "supports": {
+        "html": false,
+        "anchor": true,
+        "align": ["wide", "full"]
+    },
+    "textdomain": "twork-builder",
+    "editorScript": "file:./index.js",
+    "style": "file:./style-index.css"
+}

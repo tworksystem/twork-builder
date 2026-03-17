@@ -1,0 +1,243 @@
+/**
+ * Lab Departments Section – Hex icon grid
+ * Theme: #f48b2a, #000000. All colors overridable via block "Colors" panel (CSS vars from attributes).
+ */
+
+// Fallbacks when block attributes do not set custom colors
+.lab-section.twork-lab-depts-section,
+.lab-section.twork-lab-depts-section-editor {
+    --lab-primary: #f48b2a;
+    --lab-text: #000000;
+    --lab-text-muted: #666666;
+    --lab-bg: #ffffff;
+    --lab-hex-bg: #f2f2f2;
+    --lab-radius: 16px;
+    --lab-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    --lab-shadow-hover: 0 16px 48px rgba(0, 0, 0, 0.12);
+    --lab-border-subtle: rgba(0, 0, 0, 0.08);
+}
+
+.lab-section.twork-lab-depts-section,
+.lab-section.twork-lab-depts-section-editor {
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+
+    .lab-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+        position: relative;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .lab-header {
+        text-align: center;
+        margin-bottom: 40px;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+
+        h2 {
+            margin: 0 0 10px 0;
+            color: var(--lab-text);
+            font-size: clamp(1.75rem, 4vw, 2.25rem);
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        p {
+            margin: 0;
+            color: var(--lab-text-muted);
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+    }
+
+    .lab-dept-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        width: 100%;
+    }
+
+    .lab-dept-card {
+        background: var(--lab-bg);
+        padding: 40px 30px;
+        border-radius: var(--lab-radius);
+        box-shadow: var(--lab-shadow);
+        text-align: center;
+        transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        position: relative;
+        overflow: hidden;
+        border-bottom: 4px solid transparent;
+        box-sizing: border-box;
+    }
+
+    .lab-dept-card:hover {
+        transform: translateY(-10px);
+        border-bottom-color: var(--lab-primary);
+        box-shadow: var(--lab-shadow-hover);
+    }
+
+    .lab-hex-icon {
+        width: 80px;
+        height: 90px;
+        background: var(--lab-hex-bg);
+        margin: 0 auto 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .lab-dept-card:hover .lab-hex-icon {
+        background: var(--lab-primary);
+    }
+
+    .lab-hex-icon i {
+        font-size: 2rem;
+        color: var(--lab-primary);
+        transition: color 0.3s ease;
+    }
+
+    .lab-dept-card:hover .lab-hex-icon i {
+        color: var(--lab-bg);
+    }
+
+    .lab-dept-card h3 {
+        margin: 0;
+        font-size: 1.15rem;
+        font-weight: 700;
+        color: var(--lab-text);
+        line-height: 1.3;
+    }
+}
+
+// === EDITOR: grid layout with InnerBlocks ===
+.editor-styles-wrapper,
+.wp-block-twork-lab-depts-section {
+    .twork-lab-depts-section-editor {
+        .lab-header h2,
+        .lab-header p {
+            &[contenteditable="true"]:focus {
+                outline: 2px dashed #2271b1;
+                outline-offset: 2px;
+            }
+        }
+
+        .lab-dept-grid {
+            display: grid !important;
+            width: 100% !important;
+
+            > .block-editor-inner-blocks {
+                display: contents !important;
+
+                > .block-editor-block-list__layout {
+                    display: contents !important;
+
+                    > .wp-block,
+                    > [data-type="twork/lab-dept-card"] {
+                        min-height: 1px;
+                        display: flex !important;
+                        flex-direction: column !important;
+                        border: 2px dashed var(--lab-border-subtle);
+                        border-radius: var(--lab-radius, 16px);
+                        background: rgba(0, 0, 0, 0.02);
+                        padding: 24px 20px;
+                        transition: border-color 0.2s, background 0.2s;
+
+                        &:hover {
+                            border-color: var(--lab-primary);
+                            background: var(--lab-bg);
+                        }
+
+                        &.is-selected {
+                            border-color: #2271b1;
+                            background: var(--lab-bg);
+                            box-shadow: 0 0 0 1px #2271b1;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// === RESPONSIVE ===
+@media (max-width: 992px) {
+    .lab-section.twork-lab-depts-section,
+    .lab-section.twork-lab-depts-section-editor {
+        .lab-dept-grid {
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
+        }
+
+        .lab-header {
+            margin-bottom: 32px;
+        }
+
+        .lab-dept-card {
+            padding: 32px 24px;
+        }
+
+        .lab-dept-card h3 {
+            font-size: 1.1rem;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .lab-section.twork-lab-depts-section,
+    .lab-section.twork-lab-depts-section-editor {
+        .lab-container {
+            padding-left: 16px;
+            padding-right: 16px;
+        }
+
+        .lab-header {
+            margin-bottom: 28px;
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            p {
+                font-size: 1rem;
+            }
+        }
+
+        .lab-dept-grid {
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .lab-dept-card {
+            padding: 28px 20px;
+        }
+
+        .lab-hex-icon {
+            width: 70px;
+            height: 80px;
+            margin-bottom: 16px;
+        }
+
+        .lab-hex-icon i {
+            font-size: 1.75rem;
+        }
+
+        .lab-dept-card h3 {
+            font-size: 1.05rem;
+        }
+    }
+}
+
+// === ACCESSIBILITY ===
+.lab-dept-card {
+    &:focus-within {
+        outline: 2px solid var(--lab-primary);
+        outline-offset: 2px;
+    }
+}

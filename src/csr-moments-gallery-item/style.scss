@@ -1,0 +1,10 @@
+// CSR Moments Gallery Item - minimal, main styles in parent section
+.twork-csr-moments-gallery-item-editor,
+.gallery-item {
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: 0.4s;
+    }
+}

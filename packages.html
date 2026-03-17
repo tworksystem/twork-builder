@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Health Packages | Jivaka Hospital</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <style>
+        /* --- 1. CORE VARIABLES & RESET --- */
+        :root {
+            --primary-orange: #f48b2a;
+            --brand-orange-hover: #e67a22;
+            --dark-grey: #212121;
+            --medium-grey: #666;
+            --light-grey-bg: #f8f9fa;
+            --white: #ffffff;
+            --border: #e0e0e0;
+            --shadow-sm: 0 5px 15px rgba(0, 0, 0, 0.05);
+            --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.1);
+            --radius: 12px;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Roboto", sans-serif;
+            color: var(--dark-grey);
+            line-height: 1.6;
+            background: #fff;
+            overflow-x: hidden;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: 0.3s;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .jivaka-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        /* Buttons */
+        .jivaka-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 30px;
+            border-radius: 5px;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+
+        .btn-primary {
+            background: var(--primary-orange);
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(244, 139, 42, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: var(--brand-orange-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(244, 139, 42, 0.4);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--primary-orange);
+            color: var(--primary-orange);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-orange);
+            color: #fff;
+        }
+
+        /* --- HERO SECTION --- */
+        .page-hero {
+            position: relative;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            background: #000;
+            color: #fff;
+        }
+
+        .hero-bg-wrapper {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 120%;
+            z-index: 1;
+        }
+
+        .hero-bg-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.6;
+            filter: brightness(0.7);
+        }
+
+        .hero-container {
+            position: relative;
+            z-index: 3;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 900;
+            margin: 0 0 10px 0;
+            text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-breadcrumb {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--primary-orange);
+            font-weight: 700;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 5px 15px;
+            border-radius: 20px;
+            backdrop-filter: blur(5px);
+        }
+
+        /* --- FILTER TABS --- */
+        .filter-section {
+            padding: 60px 0 40px;
+            text-align: center;
+        }
+
+        .filter-tabs {
+            display: inline-flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 40px;
+            background: #f1f1f1;
+            padding: 5px;
+            border-radius: 50px;
+        }
+
+        .filter-btn {
+            padding: 10px 25px;
+            border: none;
+            background: transparent;
+            border-radius: 30px;
+            font-weight: 700;
+            color: var(--medium-grey);
+            cursor: pointer;
+            transition: 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .filter-btn:hover {
+            color: var(--primary-orange);
+        }
+
+        .filter-btn.active {
+            background: #fff;
+            color: var(--primary-orange);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* --- PRICING GRID --- */
+        .packages-section {
+            padding-bottom: 100px;
+            background: var(--light-grey-bg);
+        }
+
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .package-card {
+            background: #fff;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            border: 1px solid transparent;
+            /* Important: We handle opacity in JS now to avoid CSS conflicts */
+            opacity: 1;
+        }
+
+        .package-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+            border-color: rgba(244, 139, 42, 0.3);
+        }
+
+        /* Recommended Ribbon */
+        .package-card.recommended {
+            border: 2px solid var(--primary-orange);
+            transform: scale(1.02);
+            z-index: 2;
+        }
+
+        .package-card.recommended:hover {
+            transform: scale(1.02) translateY(-10px);
+        }
+
+        .ribbon {
+            position: absolute;
+            top: 15px;
+            right: -30px;
+            background: var(--primary-orange);
+            color: #fff;
+            padding: 5px 40px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            transform: rotate(45deg);
+            text-transform: uppercase;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .pkg-header {
+            padding: 30px;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+            background: linear-gradient(to bottom, #fff, #fcfcfc);
+        }
+
+        .pkg-name {
+            font-size: 1.3rem;
+            font-weight: 900;
+            color: var(--dark-grey);
+            margin: 0 0 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .pkg-price {
+            color: var(--primary-orange);
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            line-height: 1;
+        }
+
+        .currency {
+            font-size: 1rem;
+            margin-top: 5px;
+            margin-right: 2px;
+            font-weight: 700;
+        }
+
+        .amount {
+            font-size: 3rem;
+            font-weight: 800;
+        }
+
+        .pkg-desc {
+            font-size: 0.9rem;
+            color: var(--medium-grey);
+            margin-top: 10px;
+        }
+
+        .pkg-body {
+            padding: 30px;
+            flex-grow: 1;
+        }
+
+        .pkg-features {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .pkg-features li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+            color: #555;
+        }
+
+        .pkg-features li i {
+            color: #2ecc71;
+            margin-right: 12px;
+            margin-top: 4px;
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+
+        .pkg-features li.unavailable {
+            color: #999;
+            text-decoration: line-through;
+        }
+
+        .pkg-features li.unavailable i {
+            color: #ccc;
+        }
+
+        .pkg-footer {
+            padding: 0 30px 30px;
+            text-align: center;
+        }
+
+        .pkg-footer .jivaka-btn {
+            width: 100%;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 992px) {
+            .packages-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+
+            .package-card.recommended {
+                transform: scale(1);
+            }
+
+            .package-card.recommended:hover {
+                transform: translateY(-10px);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .packages-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .filter-tabs {
+                width: 100%;
+                border-radius: 10px;
+            }
+
+            .filter-btn {
+                flex: 1;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <section class="page-hero">
+        <div class="hero-bg-wrapper">
+            <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=2000" alt="Health Checkup"
+                class="hero-bg-img">
+        </div>
+        <div class="hero-container animate-hero">
+            <span class="hero-breadcrumb">Wellness For All</span>
+            <h1 class="hero-title">Health Checkup <br><span style="color: var(--primary-orange);">Packages</span></h1>
+            <p style="font-size: 1.1rem; color: rgba(255,255,255,0.9);">Invest in your health today for a better tomorrow.</p>
+        </div>
+    </section>
+
+    <div class="packages-section">
+        <div class="jivaka-container">
+
+            <div class="filter-section animate-up">
+                <div class="filter-tabs">
+                    <button class="filter-btn active" data-filter="all">All Packages</button>
+                    <button class="filter-btn" data-filter="general">General Health</button>
+                    <button class="filter-btn" data-filter="heart">Heart Care</button>
+                    <button class="filter-btn" data-filter="women">Women's Health</button>
+                </div>
+            </div>
+
+            <div class="packages-grid" id="packagesGrid">
+
+                <div class="package-card fade-up" data-category="general">
+                    <div class="pkg-header">
+                        <h3 class="pkg-name">Basic Health</h3>
+                        <div class="pkg-price">
+                            <span class="currency">MMK</span>
+                            <span class="amount">85,000</span>
+                        </div>
+                        <p class="pkg-desc">Essential screening for young adults.</p>
+                    </div>
+                    <div class="pkg-body">
+                        <ul class="pkg-features">
+                            <li><i class="fas fa-check-circle"></i> Physical Examination</li>
+                            <li><i class="fas fa-check-circle"></i> Complete Blood Count (CBC)</li>
+                            <li><i class="fas fa-check-circle"></i> Fasting Blood Sugar</li>
+                            <li><i class="fas fa-check-circle"></i> Urine Analysis</li>
+                            <li><i class="fas fa-check-circle"></i> Chest X-Ray</li>
+                            <li class="unavailable"><i class="fas fa-times-circle"></i> ECG & Ultrasound</li>
+                        </ul>
+                    </div>
+                    <div class="pkg-footer">
+                        <a href="contact.html?pkg=basic" class="jivaka-btn btn-outline">Choose Plan</a>
+                    </div>
+                </div>
+
+                <div class="package-card recommended fade-up" data-category="general">
+                    <div class="ribbon">Best Value</div>
+                    <div class="pkg-header">
+                        <h3 class="pkg-name">Executive Checkup</h3>
+                        <div class="pkg-price">
+                            <span class="currency">MMK</span>
+                            <span class="amount">150,000</span>
+                        </div>
+                        <p class="pkg-desc">Comprehensive screening for 35+ years.</p>
+                    </div>
+                    <div class="pkg-body">
+                        <ul class="pkg-features">
+                            <li><i class="fas fa-check-circle"></i> Everything in Basic Plan</li>
+                            <li><i class="fas fa-check-circle"></i> Liver Function Test</li>
+                            <li><i class="fas fa-check-circle"></i> Kidney Function Test</li>
+                            <li><i class="fas fa-check-circle"></i> Lipid Profile (Cholesterol)</li>
+                            <li><i class="fas fa-check-circle"></i> ECG (Electrocardiogram)</li>
+                            <li><i class="fas fa-check-circle"></i> Abdominal Ultrasound</li>
+                        </ul>
+                    </div>
+                    <div class="pkg-footer">
+                        <a href="contact.html?pkg=executive" class="jivaka-btn btn-primary">Choose Plan</a>
+                    </div>
+                </div>
+
+                <div class="package-card fade-up" data-category="heart">
+                    <div class="pkg-header">
+                        <h3 class="pkg-name">Healthy Heart</h3>
+                        <div class="pkg-price">
+                            <span class="currency">MMK</span>
+                            <span class="amount">220,000</span>
+                        </div>
+                        <p class="pkg-desc">Specialized cardiac assessment.</p>
+                    </div>
+                    <div class="pkg-body">
+                        <ul class="pkg-features">
+                            <li><i class="fas fa-check-circle"></i> Cardiologist Consultation</li>
+                            <li><i class="fas fa-check-circle"></i> ECG & ECHO</li>
+                            <li><i class="fas fa-check-circle"></i> TMT (Treadmill Test)</li>
+                            <li><i class="fas fa-check-circle"></i> Full Lipid Profile</li>
+                            <li><i class="fas fa-check-circle"></i> Chest X-Ray</li>
+                            <li><i class="fas fa-check-circle"></i> Blood Sugar (HbA1c)</li>
+                        </ul>
+                    </div>
+                    <div class="pkg-footer">
+                        <a href="contact.html?pkg=heart" class="jivaka-btn btn-outline">Choose Plan</a>
+                    </div>
+                </div>
+
+                <div class="package-card fade-up" data-category="women">
+                    <div class="pkg-header">
+                        <h3 class="pkg-name">Women's Wellness</h3>
+                        <div class="pkg-price">
+                            <span class="currency">MMK</span>
+                            <span class="amount">180,000</span>
+                        </div>
+                        <p class="pkg-desc">Designed for women's specific needs.</p>
+                    </div>
+                    <div class="pkg-body">
+                        <ul class="pkg-features">
+                            <li><i class="fas fa-check-circle"></i> Gynaecologist Consultation</li>
+                            <li><i class="fas fa-check-circle"></i> Pap Smear Test</li>
+                            <li><i class="fas fa-check-circle"></i> Breast Ultrasound / Mammogram</li>
+                            <li><i class="fas fa-check-circle"></i> Thyroid Function Test</li>
+                            <li><i class="fas fa-check-circle"></i> Urine Analysis</li>
+                            <li><i class="fas fa-check-circle"></i> Complete Blood Count</li>
+                        </ul>
+                    </div>
+                    <div class="pkg-footer">
+                        <a href="contact.html?pkg=women" class="jivaka-btn btn-outline">Choose Plan</a>
+                    </div>
+                </div>
+
+                <div class="package-card fade-up" data-category="general">
+                    <div class="pkg-header">
+                        <h3 class="pkg-name">Premium Whole Body</h3>
+                        <div class="pkg-price">
+                            <span class="currency">MMK</span>
+                            <span class="amount">350,000</span>
+                        </div>
+                        <p class="pkg-desc">The ultimate health assessment.</p>
+                    </div>
+                    <div class="pkg-body">
+                        <ul class="pkg-features">
+                            <li><i class="fas fa-check-circle"></i> Specialist Consultation (2)</li>
+                            <li><i class="fas fa-check-circle"></i> Advanced Cardiac Screening</li>
+                            <li><i class="fas fa-check-circle"></i> Full Cancer Markers</li>
+                            <li><i class="fas fa-check-circle"></i> Hepatitis B & C Screening</li>
+                            <li><i class="fas fa-check-circle"></i> Vitamin D & B12 Levels</li>
+                            <li><i class="fas fa-check-circle"></i> CT Calcium Score</li>
+                        </ul>
+                    </div>
+                    <div class="pkg-footer">
+                        <a href="contact.html?pkg=premium" class="jivaka-btn btn-outline">Choose Plan</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="jivaka-container" style="padding-bottom: 80px;">
+        <h2 style="text-align: center; margin-bottom: 40px; font-size: 2rem;">Before You Come</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+            <div style="background: #f9f9f9; padding: 25px; border-radius: 8px;">
+                <h4 style="margin: 0 0 10px; color: var(--primary-orange);"><i class="fas fa-clock"></i> Fasting</h4>
+                <p style="margin: 0; color: #666;">Please fast for at least 8-10 hours before the checkup. Water is allowed.</p>
+            </div>
+            <div style="background: #f9f9f9; padding: 25px; border-radius: 8px;">
+                <h4 style="margin: 0 0 10px; color: var(--primary-orange);"><i class="fas fa-file-medical"></i> Reports</h4>
+                <p style="margin: 0; color: #666;">Bring any previous medical records and current medication list.</p>
+            </div>
+            <div style="background: #f9f9f9; padding: 25px; border-radius: 8px;">
+                <h4 style="margin: 0 0 10px; color: var(--primary-orange);"><i class="fas fa-calendar-check"></i> Appointment</h4>
+                <p style="margin: 0; color: #666;">Booking is recommended to avoid long waiting times.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Use 'load' event to ensure images and layout are fully ready before calculating triggers
+        window.addEventListener("load", function () {
+            gsap.registerPlugin(ScrollTrigger);
+
+            // 1. Hero Entrance
+            const tl = gsap.timeline();
+            tl.from(".animate-hero > *", { y: 40, opacity: 0, duration: 1, stagger: 0.2, ease: "power3.out", clearProps: "all" });
+
+            gsap.to(".hero-bg-img", {
+                yPercent: 20, ease: "none",
+                scrollTrigger: { trigger: ".page-hero", start: "top top", end: "bottom top", scrub: true }
+            });
+
+            // 2. Package Cards Animation (More Robust Method)
+            const cards = document.querySelectorAll('.package-card');
+
+            // Step 2A: Set initial hidden state using JS (prevents initial flash or stuck state)
+            gsap.set(cards, { y: 50, opacity: 0 });
+
+            // Step 2B: Use .to() instead of .from() for stable entrance
+            ScrollTrigger.batch(cards, {
+                onEnter: batch => gsap.to(batch, {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.8,
+                    stagger: 0.15,
+                    ease: "power2.out",
+                    overwrite: true // Prevents conflicts with filter animation
+                }),
+                start: "top 90%", // Start animation when top of card hits 90% of viewport height
+                once: true // KEY: Only run once, don't hide on scroll up
+            });
+
+            // 3. Filter Logic
+            const buttons = document.querySelectorAll('.filter-btn');
+
+            buttons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Active State UI
+                    buttons.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+
+                    const filter = btn.getAttribute('data-filter');
+
+                    // Filter Animation Logic
+                    cards.forEach(card => {
+                        const category = card.getAttribute('data-category');
+
+                        // Check match
+                        if (filter === 'all' || category === filter) {
+                            card.style.display = 'flex';
+
+                            // Important: Animate TO visible state immediately
+                            // 'overwrite: true' kills any lingering ScrollTrigger animations
+                            gsap.to(card, {
+                                opacity: 1,
+                                scale: 1,
+                                y: 0,
+                                duration: 0.4,
+                                ease: "power2.out",
+                                overwrite: true
+                            });
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+
+                    // Refresh ScrollTrigger to recalculate positions after layout change
+                    ScrollTrigger.refresh();
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

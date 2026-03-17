@@ -1,0 +1,147 @@
+// Radiology Stats Strip
+// Matches radiology&imaging.html: .rad-stats, .rad-stats-box, .rad-stat-num, .rad-stat-label
+
+// Core variables (shared with other Radiology blocks)
+:root {
+  --rad-primary: #f48b2a;
+  --rad-dark: #212121;
+  --rad-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  --rad-radius: 8px;
+}
+
+// === EDITOR STYLES ===
+.editor-styles-wrapper,
+.block-editor-block-list__layout,
+.wp-block-twork-rad-stats-section {
+  .twork-rad-stats-section-editor {
+    position: relative;
+
+    .rad-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .rad-stats {
+      margin-top: -60px;
+      padding-bottom: 40px;
+    }
+
+    .rad-stats-box {
+      background: #ffffff;
+      box-shadow: var(--rad-shadow);
+      border-radius: var(--rad-radius);
+      padding: 40px;
+      display: grid !important;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      text-align: center;
+      border-bottom: 4px solid var(--rad-primary);
+
+      > .block-editor-inner-blocks {
+        display: contents !important;
+
+        > .block-editor-block-list__layout {
+          display: contents !important;
+
+          > .wp-block,
+          > [data-type='twork/rad-stat-item'] {
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center;
+            justify-content: center;
+          }
+        }
+      }
+    }
+
+    .rad-stat-item {
+      .rad-stat-num,
+      .rad-stat-label {
+        &[contenteditable='true']:focus {
+          outline: 1px dashed #2271b1;
+          outline-offset: 2px;
+        }
+      }
+    }
+  }
+}
+
+// === FRONTEND STYLES ===
+.twork-rad-stats-section {
+  font-family: 'Roboto', sans-serif;
+  position: relative;
+
+  .rad-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+  }
+
+  .rad-stats {
+    margin-top: var(--rad-stats-margin-top, -60px);
+    position: relative;
+    z-index: 5;
+    padding-bottom: 60px;
+  }
+
+  .rad-stats-box {
+    background: var(--rad-stats-background, #ffffff);
+    box-shadow: var(--rad-shadow);
+    border-radius: var(--rad-radius);
+    padding: var(--rad-stats-padding-top, 40px) 40px
+      var(--rad-stats-padding-bottom, 40px);
+    display: grid;
+    grid-template-columns: repeat(var(--rad-stats-columns-desktop, 4), 1fr);
+    gap: var(--rad-stats-gap, 20px);
+    text-align: center;
+    border-bottom: 4px solid var(--rad-primary);
+  }
+
+  .rad-stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .rad-stat-num {
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--rad-primary);
+    display: block;
+  }
+
+  .rad-stat-label {
+    font-size: 0.9rem;
+    color: #666666;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+  }
+}
+
+// === RESPONSIVE ===
+@media (max-width: 992px) {
+  .twork-rad-stats-section {
+    .rad-stats-box {
+      grid-template-columns: repeat(
+        var(--rad-stats-columns-tablet, 2),
+        1fr
+      );
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .twork-rad-stats-section {
+    .rad-stats-box {
+      grid-template-columns: repeat(
+        var(--rad-stats-columns-mobile, 1),
+        1fr
+      );
+    }
+  }
+}
+

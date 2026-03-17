@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>General Medicine | Jivaka Hospital</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <style>
+        /* --- 0. WORDPRESS SAFETY FIXES --- */
+        .wp-block-spacer {
+            display: none !important;
+            margin: 0 !important;
+        }
+
+        body :where(.is-layout-flow)>*,
+        body :where(.wp-site-blocks)>* {
+            margin-block-start: 0;
+            margin-top: 0;
+        }
+
+        /* --- 1. CORE VARIABLES --- */
+        :root {
+            --gm-orange: #f48b2a;
+            --gm-orange-hover: #e67a22;
+            --gm-dark: #212121;
+            --gm-grey: #555;
+            --gm-light-bg: #f8f9fa;
+            --gm-white: #ffffff;
+            --gm-radius: 12px;
+        }
+
+        /* --- 2. BASE STYLES --- */
+        .jivaka-gm-body {
+            font-family: "Roboto", sans-serif;
+            color: var(--gm-dark);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background: #fff;
+            overflow-x: hidden;
+        }
+
+        .jivaka-gm-body *,
+        .jivaka-gm-body *::before,
+        .jivaka-gm-body *::after {
+            box-sizing: border-box;
+        }
+
+        .jivaka-gm-body img {
+            max-width: 100%;
+            display: block;
+            height: auto;
+        }
+
+        .jivaka-gm-body h1,
+        .jivaka-gm-body h2,
+        .jivaka-gm-body h3 {
+            margin-top: 0;
+            line-height: 1.2;
+        }
+
+        /* --- CONTAINER STYLE --- */
+        .jivaka-gm-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            position: relative;
+        }
+
+        .jivaka-gm-section {
+            padding: 100px 0;
+        }
+
+        .jivaka-gm-bg-light {
+            background-color: var(--gm-light-bg);
+        }
+
+        /* --- 3. UNIQUE BUTTONS --- */
+        .jivaka-gm-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 32px;
+            border-radius: 8px;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 1px solid transparent;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .jivaka-gm-btn-primary {
+            background: var(--gm-orange);
+            color: #fff;
+            box-shadow: 0 8px 20px rgba(244, 139, 42, 0.3);
+        }
+
+        .jivaka-gm-btn-primary:hover {
+            background: var(--gm-orange-hover);
+            transform: translateY(-3px);
+        }
+
+        .jivaka-gm-btn-outline {
+            background: transparent;
+            border: 2px solid var(--gm-orange);
+            color: var(--gm-orange);
+        }
+
+        .jivaka-gm-btn-outline:hover {
+            background: var(--gm-orange);
+            color: #fff;
+            transform: translateY(-3px);
+        }
+
+        /* --- 4. HERO SECTION --- */
+        .jivaka-gm-hero {
+            position: relative;
+            min-height: 650px;
+            display: flex;
+            align-items: center;
+            background-color: #000000;
+            color: #fff;
+            overflow: visible;
+            padding: 100px 0;
+            z-index: 10;
+            text-align: left;
+        }
+
+        .jivaka-gm-hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.3;
+            z-index: 0;
+        }
+
+        /* Hero Container Specifics */
+        .jivaka-gm-hero .jivaka-gm-container {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .jivaka-gm-hero-content {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 800px;
+            text-align: left;
+        }
+
+        .jivaka-gm-tagline {
+            display: inline-block;
+            padding: 6px 16px;
+            background: rgba(244, 139, 42, 0.2);
+            color: var(--gm-orange);
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+            border: 1px solid rgba(244, 139, 42, 0.5);
+        }
+
+        .jivaka-gm-title {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-weight: 900;
+            margin: 0 0 24px 0;
+            line-height: 1.1;
+            text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .jivaka-gm-desc {
+            font-size: 1.25rem;
+            opacity: 0.95;
+            margin-bottom: 40px;
+            font-weight: 300;
+            max-width: 600px;
+            text-align: left;
+        }
+
+        .jivaka-gm-hero-btns {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+        }
+
+        /* --- 5. SERVICES GRID --- */
+        .jivaka-gm-header-center {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 60px;
+        }
+
+        .jivaka-gm-header-center h2 {
+            font-size: 2.5rem;
+            color: var(--gm-dark);
+            margin-bottom: 15px;
+        }
+
+        .jivaka-gm-services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .jivaka-gm-service-card {
+            background: #fff;
+            padding: 40px 30px;
+            border-radius: var(--gm-radius);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            border: 1px solid #f0f0f0;
+            transition: 0.3s;
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+        }
+
+        .jivaka-gm-service-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--gm-orange);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .jivaka-gm-icon-box {
+            width: 70px;
+            height: 70px;
+            background: #fff4e6;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--gm-orange);
+            margin-bottom: 25px;
+        }
+
+        .jivaka-gm-service-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+        }
+
+        .jivaka-gm-service-card p {
+            font-size: 1rem;
+            color: var(--gm-grey);
+            margin: 0;
+        }
+
+        /* --- 6. SPECIAL CLINICS --- */
+        .jivaka-gm-clinic-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .jivaka-gm-clinic-item {
+            background: #fff;
+            padding: 30px;
+            border-radius: var(--gm-radius);
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+            border: 1px solid #eee;
+            transition: 0.3s;
+        }
+
+        .jivaka-gm-clinic-item:hover {
+            border-color: var(--gm-orange);
+            transform: translateY(-3px);
+        }
+
+        .jivaka-gm-clinic-icon {
+            font-size: 2.2rem;
+            color: var(--gm-orange);
+            min-width: 50px;
+        }
+
+        .jivaka-gm-clinic-item h4 {
+            margin: 0 0 8px 0;
+            font-size: 1.2rem;
+        }
+
+        .jivaka-gm-clinic-item p {
+            margin: 0;
+            font-size: 0.95rem;
+            color: var(--gm-grey);
+        }
+
+        /* --- 7. ABOUT SPLIT SECTION --- */
+        .jivaka-gm-split {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .jivaka-gm-img-wrapper {
+            position: relative;
+            border-radius: var(--gm-radius);
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .jivaka-gm-feature-list {
+            list-style: none;
+            padding: 0;
+            margin: 30px 0;
+        }
+
+        .jivaka-gm-feature-list li {
+            margin-bottom: 15px;
+            position: relative;
+            padding-left: 35px;
+            font-size: 1.1rem;
+            color: var(--gm-dark);
+        }
+
+        .jivaka-gm-feature-list li::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 4px;
+            color: var(--gm-orange);
+        }
+
+        /* --- 8. DOCTORS CARDS --- */
+        .jivaka-gm-doc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 30px;
+        }
+
+        .jivaka-gm-doc-card {
+            background: #fff;
+            border-radius: var(--gm-radius);
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            border: 1px solid #eee;
+            transition: 0.3s;
+        }
+
+        .jivaka-gm-doc-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--gm-orange);
+        }
+
+        .jivaka-gm-doc-img {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            object-position: top;
+            background: #f0f0f0;
+        }
+
+        .jivaka-gm-doc-info {
+            padding: 25px;
+        }
+
+        .jivaka-gm-doc-name {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin: 0 0 5px 0;
+        }
+
+        .jivaka-gm-doc-spec {
+            font-size: 0.95rem;
+            color: var(--gm-orange);
+            font-weight: 500;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .jivaka-gm-doc-btn {
+            font-size: 0.9rem;
+            color: var(--gm-dark);
+            font-weight: 600;
+            text-decoration: none;
+            border-bottom: 2px solid var(--gm-orange);
+            padding-bottom: 2px;
+            transition: 0.2s;
+        }
+
+        .jivaka-gm-doc-btn:hover {
+            color: var(--gm-orange);
+        }
+
+        /* --- 9. PATIENT STORIES --- */
+        .jivaka-gm-testimonials {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .jivaka-gm-review-card {
+            background: #fff;
+            padding: 40px 30px;
+            border-radius: var(--gm-radius);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            position: relative;
+            border: 1px solid #eee;
+        }
+
+        .jivaka-gm-quote-icon {
+            font-size: 2rem;
+            color: #f0f0f0;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+
+        .jivaka-gm-review-text {
+            font-style: italic;
+            color: var(--gm-grey);
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+            line-height: 1.8;
+        }
+
+        .jivaka-gm-reviewer h5 {
+            margin: 0;
+            font-size: 1.1rem;
+        }
+
+        .jivaka-gm-reviewer span {
+            font-size: 0.9rem;
+            color: var(--gm-orange);
+            font-weight: 500;
+        }
+
+        /* --- 10. CTA SECTION --- */
+        .jivaka-gm-cta {
+            background: linear-gradient(135deg, #212121 0%, #000000 100%);
+            color: #fff;
+            text-align: center;
+            padding: 100px 0;
+        }
+
+        .jivaka-gm-cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .jivaka-gm-cta p {
+            max-width: 600px;
+            margin: 0 auto 35px;
+            opacity: 0.8;
+            font-size: 1.2rem;
+        }
+
+        /* Animation Helpers */
+        .gm-anim-fade,
+        .gm-anim-stagger {
+            opacity: 0;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 992px) {
+            .jivaka-gm-split {
+                grid-template-columns: 1fr !important;
+                gap: 40px !important;
+            }
+        }
+
+        /* TABLET & MOBILE */
+        @media (max-width: 768px) {
+            .jivaka-gm-hero {
+                display: block;
+                min-height: auto;
+                height: auto;
+                padding: 130px 0 80px;
+                text-align: left;
+            }
+
+            .jivaka-gm-hero .jivaka-gm-container {
+                display: block;
+                /* Reset Flex on Mobile */
+                padding: 0 20px;
+            }
+
+            .jivaka-gm-hero-content {
+                margin: 0;
+                width: 100%;
+            }
+
+            .jivaka-gm-hero-btns {
+                flex-direction: column;
+                align-items: flex-start;
+                width: 100%;
+                max-width: 400px;
+            }
+
+            .jivaka-gm-btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .jivaka-gm-section {
+                padding: 60px 0;
+            }
+
+            .jivaka-gm-title {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .jivaka-gm-title {
+                font-size: 2.2rem;
+            }
+
+            .jivaka-gm-doc-img {
+                height: 320px;
+            }
+        }
+    </style>
+</head>
+
+<body class="jivaka-gm-body">
+
+    <header class="jivaka-gm-hero">
+        <img src="https://images.unsplash.com/photo-1538108149393-fbbd81895907?auto=format&fit=crop&w=1920&q=80"
+            alt="General Medicine Jivaka" class="jivaka-gm-hero-bg">
+
+        <div class="jivaka-gm-container">
+            <div class="jivaka-gm-hero-content gm-anim-fade">
+                <span class="jivaka-gm-tagline">Primary Care Excellence</span>
+                <h1 class="jivaka-gm-title">Comprehensive Care<br>For Your Family</h1>
+                <p class="jivaka-gm-desc">From routine check-ups to chronic disease management, our experienced General Medicine team
+                    provides holistic care for patients of all ages.</p>
+                <div class="jivaka-gm-hero-btns">
+                    <a href="#appointment" class="jivaka-gm-btn jivaka-gm-btn-primary">Book Appointment</a>
+                    <a href="#doctors" class="jivaka-gm-btn jivaka-gm-btn-outline">View Doctors</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="jivaka-gm-section">
+        <div class="jivaka-gm-container">
+            <div class="jivaka-gm-header-center gm-anim-fade">
+                <h2>Our General Medicine Services</h2>
+                <p>We treat a wide range of acute and chronic conditions with a focus on preventative care and long-term health.</p>
+            </div>
+
+            <div class="jivaka-gm-services-grid">
+                <div class="jivaka-gm-service-card gm-anim-stagger">
+                    <div class="jivaka-gm-icon-box"><i class="fas fa-thermometer-half"></i></div>
+                    <h3>Acute Illnesses</h3>
+                    <p>Treatment for fevers, infections, flu, allergies, and common viral ailments requiring immediate attention.</p>
+                </div>
+                <div class="jivaka-gm-service-card gm-anim-stagger">
+                    <div class="jivaka-gm-icon-box"><i class="fas fa-heartbeat"></i></div>
+                    <h3>Chronic Management</h3>
+                    <p>Long-term care for hypertension, diabetes, thyroid disorders, and cholesterol management.</p>
+                </div>
+                <div class="jivaka-gm-service-card gm-anim-stagger">
+                    <div class="jivaka-gm-icon-box"><i class="fas fa-user-shield"></i></div>
+                    <h3>Preventative Care</h3>
+                    <p>Annual health screenings, vaccinations, and lifestyle counseling to prevent future health issues.</p>
+                </div>
+                <div class="jivaka-gm-service-card gm-anim-stagger">
+                    <div class="jivaka-gm-icon-box"><i class="fas fa-lungs"></i></div>
+                    <h3>Respiratory Care</h3>
+                    <p>Diagnosis and treatment for asthma, bronchitis, and other respiratory tract infections.</p>
+                </div>
+                <div class="jivaka-gm-service-card gm-anim-stagger">
+                    <div class="jivaka-gm-icon-box"><i class="fas fa-capsules"></i></div>
+                    <h3>Gastrointestinal Health</h3>
+                    <p>Management of digestive disorders including gastritis, acid reflux (GERD), and irritable bowel syndrome.</p>
+                </div>
+                <div class="jivaka-gm-service-card gm-anim-stagger">
+                    <div class="jivaka-gm-icon-box"><i class="fas fa-virus"></i></div>
+                    <h3>Infectious Diseases</h3>
+                    <p>Diagnosis and treatment of seasonal flu, dengue, malaria, typhoid, and other viral or bacterial infections.</p>
+                </div>
+                <div class="jivaka-gm-service-card gm-anim-stagger">
+                    <div class="jivaka-gm-icon-box"><i class="fas fa-band-aid"></i></div>
+                    <h3>Minor Procedures</h3>
+                    <p>On-site care for wound dressing, stitching of minor cuts, cyst removal, and burn treatment.</p>
+                </div>
+                <div class="jivaka-gm-service-card gm-anim-stagger">
+                    <div class="jivaka-gm-icon-box"><i class="fas fa-syringe"></i></div>
+                    <h3>Vaccinations</h3>
+                    <p>Routine immunizations for adults and children, including flu shots, hepatitis, and travel vaccines.</p>
+                </div>
+                <div class="jivaka-gm-service-card gm-anim-stagger">
+                    <div class="jivaka-gm-icon-box"><i class="fas fa-allergies"></i></div>
+                    <h3>Allergy Management</h3>
+                    <p>Comprehensive care for seasonal allergies, skin rashes, food intolerances, and allergic reactions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="jivaka-gm-section jivaka-gm-bg-light">
+        <div class="jivaka-gm-container">
+            <div class="jivaka-gm-header-center gm-anim-fade">
+                <h2>Specialized Clinics</h2>
+                <p>Focused care for specific health conditions managed by our expert physicians.</p>
+            </div>
+
+            <div class="jivaka-gm-clinic-grid">
+                <div class="jivaka-gm-clinic-item gm-anim-stagger">
+                    <i class="fas fa-tint jivaka-gm-clinic-icon"></i>
+                    <div>
+                        <h4>Diabetes Clinic</h4>
+                        <p>Comprehensive sugar control and diet planning.</p>
+                    </div>
+                </div>
+                <div class="jivaka-gm-clinic-item gm-anim-stagger">
+                    <i class="fas fa-heart-pulse jivaka-gm-clinic-icon"></i>
+                    <div>
+                        <h4>Hypertension Clinic</h4>
+                        <p>Blood pressure monitoring and heart health.</p>
+                    </div>
+                </div>
+                <div class="jivaka-gm-clinic-item gm-anim-stagger">
+                    <i class="fas fa-user-md jivaka-gm-clinic-icon"></i>
+                    <div>
+                        <h4>Senior Care</h4>
+                        <p>Geriatric medicine for elderly patients.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="jivaka-gm-section">
+        <div class="jivaka-gm-container jivaka-gm-split">
+            <div class="jivaka-gm-img-wrapper gm-anim-fade">
+                <img src="https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?auto=format&fit=crop&w=800&q=80"
+                    alt="Doctor Consultation">
+            </div>
+            <div class="gm-anim-fade">
+                <h2 style="font-size: 2.2rem; margin-bottom: 20px;">Why Choose Jivaka?</h2>
+                <p>Our General Physicians act as your first point of contact for any health concern, coordinating with specialists when
+                    necessary to ensure you receive the best possible care.</p>
+
+                <ul class="jivaka-gm-feature-list">
+                    <li><strong>Experienced Consultants:</strong> Senior doctors with over 10+ years of experience.</li>
+                    <li><strong>Holistic Approach:</strong> We treat the person, not just the symptoms.</li>
+                    <li><strong>Advanced Diagnostics:</strong> 24/7 onsite laboratory and imaging services.</li>
+                    <li><strong>Seamless Referral:</strong> Direct access to Jivaka's specialist departments.</li>
+                </ul>
+                <a href="#contact" class="jivaka-gm-btn jivaka-gm-btn-primary">Contact Us Today</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="jivaka-gm-section jivaka-gm-bg-light" id="doctors">
+        <div class="jivaka-gm-container">
+            <div class="jivaka-gm-header-center gm-anim-fade">
+                <h2>Meet Our Specialists</h2>
+                <p>Dedicated physicians committed to your well-being.</p>
+            </div>
+
+            <div class="jivaka-gm-doc-grid">
+                <div class="jivaka-gm-doc-card gm-anim-stagger">
+                    <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=600&q=80"
+                        class="jivaka-gm-doc-img" alt="Dr. Name">
+                    <div class="jivaka-gm-doc-info">
+                        <h4 class="jivaka-gm-doc-name">Dr. Thida Win</h4>
+                        <span class="jivaka-gm-doc-spec">Senior Consultant Physician</span>
+                        <a href="#" class="jivaka-gm-doc-btn">View Profile <i class="fas fa-arrow-right"
+                                style="font-size: 0.8rem; margin-left: 5px;"></i></a>
+                    </div>
+                </div>
+                <div class="jivaka-gm-doc-card gm-anim-stagger">
+                    <img src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&w=600&q=80"
+                        class="jivaka-gm-doc-img" alt="Dr. Name">
+                    <div class="jivaka-gm-doc-info">
+                        <h4 class="jivaka-gm-doc-name">Dr. Kyaw Myo Htut</h4>
+                        <span class="jivaka-gm-doc-spec">General Physician</span>
+                        <a href="#" class="jivaka-gm-doc-btn">View Profile <i class="fas fa-arrow-right"
+                                style="font-size: 0.8rem; margin-left: 5px;"></i></a>
+                    </div>
+                </div>
+                <div class="jivaka-gm-doc-card gm-anim-stagger">
+                    <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&w=600&q=80"
+                        class="jivaka-gm-doc-img" alt="Dr. Name">
+                    <div class="jivaka-gm-doc-info">
+                        <h4 class="jivaka-gm-doc-name">Dr. Susan May</h4>
+                        <span class="jivaka-gm-doc-spec">Consultant Physician</span>
+                        <a href="#" class="jivaka-gm-doc-btn">View Profile <i class="fas fa-arrow-right"
+                                style="font-size: 0.8rem; margin-left: 5px;"></i></a>
+                    </div>
+                </div>
+                <div class="jivaka-gm-doc-card gm-anim-stagger">
+                    <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=600&q=80"
+                        class="jivaka-gm-doc-img" alt="Dr. Name">
+                    <div class="jivaka-gm-doc-info">
+                        <h4 class="jivaka-gm-doc-name">Dr. Aung Naing</h4>
+                        <span class="jivaka-gm-doc-spec">General Practitioner</span>
+                        <a href="#" class="jivaka-gm-doc-btn">View Profile <i class="fas fa-arrow-right"
+                                style="font-size: 0.8rem; margin-left: 5px;"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="jivaka-gm-section">
+        <div class="jivaka-gm-container">
+            <div class="jivaka-gm-header-center gm-anim-fade">
+                <h2>Patient Stories</h2>
+                <p>What our patients say about their experience.</p>
+            </div>
+            <div class="jivaka-gm-testimonials">
+                <div class="jivaka-gm-review-card gm-anim-stagger">
+                    <i class="fas fa-quote-left jivaka-gm-quote-icon"></i>
+                    <p class="jivaka-gm-review-text">"Dr. Thida Win is incredibly patient and thorough. She explained my condition clearly
+                        and the treatment plan has worked wonders for my diabetes management."</p>
+                    <div class="jivaka-gm-reviewer">
+                        <h5>U Kyaw Zin</h5>
+                        <span>Diabetes Patient</span>
+                    </div>
+                </div>
+                <div class="jivaka-gm-review-card gm-anim-stagger">
+                    <i class="fas fa-quote-left jivaka-gm-quote-icon"></i>
+                    <p class="jivaka-gm-review-text">"I always come here for my family's check-ups. The nursing staff is friendly, and the
+                        doctors are top-notch. Highly recommended for general care."</p>
+                    <div class="jivaka-gm-reviewer">
+                        <h5>Daw Aye Aye</h5>
+                        <span>Regular Check-up</span>
+                    </div>
+                </div>
+                <div class="jivaka-gm-review-card gm-anim-stagger">
+                    <i class="fas fa-quote-left jivaka-gm-quote-icon"></i>
+                    <p class="jivaka-gm-review-text">"The Hypertension clinic helped me get my blood pressure under control. The follow-up
+                        system is excellent."</p>
+                    <div class="jivaka-gm-reviewer">
+                        <h5>U Myint Soe</h5>
+                        <span>Hypertension Patient</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="jivaka-gm-cta">
+        <div class="jivaka-gm-container gm-anim-fade">
+            <h2>Need Medical Advice?</h2>
+            <p>Don't ignore your symptoms. Walk in or book an appointment with our specialists today.</p>
+            <a href="#" class="jivaka-gm-btn jivaka-gm-btn-primary">Call 01-234-5678</a>
+        </div>
+    </section>
+
+    <script>
+        window.addEventListener("load", function () {
+            gsap.registerPlugin(ScrollTrigger);
+
+            // 1. Hero Animation (Unique Class)
+            gsap.fromTo(".jivaka-gm-hero-content > *",
+                { y: 40, opacity: 0 },
+                { y: 0, opacity: 1, duration: 1, stagger: 0.2, ease: "power3.out" }
+            );
+
+            // 2. Section Fade Ups
+            const fadeElements = gsap.utils.toArray('.gm-anim-fade');
+            fadeElements.forEach(el => {
+                gsap.fromTo(el,
+                    { y: 50, opacity: 0 },
+                    {
+                        y: 0, opacity: 1, duration: 0.8, ease: "power2.out",
+                        scrollTrigger: { trigger: el, start: "top 85%" }
+                    }
+                );
+            });
+
+            // 3. Staggered Cards (Services & Doctors)
+            ScrollTrigger.batch(".gm-anim-stagger", {
+                start: "top 90%",
+                onEnter: batch => gsap.fromTo(batch,
+                    { y: 40, opacity: 0 },
+                    { y: 0, opacity: 1, stagger: 0.1, duration: 0.6, ease: "power2.out" }
+                ),
+                once: true
+            });
+        });
+    </script>
+</body>
+
+</html>
