@@ -1,0 +1,330 @@
+/**
+ * Agrezer Shop Grid — WooCommerce shop layout (scoped to block).
+ * Based on my-avocado _shop-grid.scss.
+ */
+
+.wp-block-twork-agrezer-shop-grid-section.agrezer-shop-grid {
+    background: #f6f6f6;
+    padding: 80px 0 100px;
+}
+
+.wp-block-twork-agrezer-shop-grid-section .agrezer-shop-grid__container {
+    width: min(1240px, 92%);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 24px;
+}
+
+.wp-block-twork-agrezer-shop-grid-section .agrezer-shop-grid__sidebar {
+    display: grid;
+    gap: 20px;
+    align-self: start;
+}
+
+.wp-block-twork-agrezer-shop-grid-section .agrezer-shop-widget {
+    background: #9b9c70;
+    border-radius: 16px;
+    padding: 20px 18px;
+    color: #ffffff;
+}
+
+.wp-block-twork-agrezer-shop-grid-section .agrezer-shop-widget__title {
+    margin: 0 0 14px;
+    font-size: 1.9rem;
+    line-height: 1.15;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.wp-block-twork-agrezer-shop-grid-section .agrezer-shop-widget__dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #8bcf33;
+    flex-shrink: 0;
+}
+
+.wp-block-twork-agrezer-shop-grid-section .agrezer-shop-widget__category-list,
+.wp-block-twork-agrezer-shop-grid-section .agrezer-shop-widget__contact-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 10px;
+    font-size: 1.08rem;
+}
+
+.wp-block-twork-agrezer-shop-grid-section .agrezer-shop-widget__category-list a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.wp-block-twork-agrezer-shop-grid-section .agrezer-shop-widget__category-list a:hover,
+.wp-block-twork-agrezer-shop-grid-section .agrezer-shop-widget__category-list a:focus {
+    text-decoration: underline;
+}
+
+.wp-block-twork-agrezer-shop-grid-section .agrezer-shop-widget__mini-products {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 10px;
+}
+
+.wp-block-twork-agrezer-shop-grid-section .agrezer-shop-widget__mini-products li {
+    display: grid;
+    grid-template-columns: 1fr 56px;
+    gap: 10px;
+    align-items: center;
+}
+
+.wp-block-twork-agrezer-shop-grid-section .agrezer-shop-widget__mini-products h4 {
+    margin: 0;
+    font-size: 1.08rem;
+}
+
+.wp-block-twork-agrezer-shop-grid-section .agrezer-shop-widget__mini-products h4 a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.wp-block-twork-agrezer-shop-grid-section .agrezer-shop-widget__mini-products h4 a:hover {
+    text-decoration: underline;
+}
+
+.wp-block-twork-agrezer-shop-grid-section .agrezer-shop-widget__stars {
+    color: #ececb3;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+.wp-block-twork-agrezer-shop-grid-section .agrezer-shop-widget__mini-products p {
+    margin: 2px 0 0;
+    font-size: 1rem;
+}
+
+.wp-block-twork-agrezer-shop-grid-section .agrezer-shop-widget__mini-products del {
+    opacity: 0.7;
+    margin-right: 4px;
+}
+
+.wp-block-twork-agrezer-shop-grid-section .agrezer-shop-widget__mini-products .amount,
+.wp-block-twork-agrezer-shop-grid-section .agrezer-shop-widget__mini-products ins {
+    color: #ebf590;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.wp-block-twork-agrezer-shop-grid-section .agrezer-shop-widget__mini-products img {
+    width: 56px;
+    height: 56px;
+    object-fit: cover;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.wp-block-twork-agrezer-shop-grid-section .agrezer-shop-widget__thumb-link {
+    display: block;
+    line-height: 0;
+}
+
+.wp-block-twork-agrezer-shop-grid-section .agrezer-shop-widget__contact-list a {
+    color: inherit;
+}
+
+.wp-block-twork-agrezer-shop-grid-section .agrezer-shop-widget__empty {
+    margin: 0;
+    font-size: 0.95rem;
+    opacity: 0.9;
+}
+
+.wp-block-twork-agrezer-shop-grid-section .agrezer-shop-grid__toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.wp-block-twork-agrezer-shop-grid-section .agrezer-shop-grid__toolbar p {
+    margin: 0;
+    color: #5b5b5b;
+    font-size: 1.04rem;
+}
+
+.wp-block-twork-agrezer-shop-grid-section .agrezer-shop-grid__toolbar select {
+    height: 44px;
+    border-radius: 4px;
+    border: 1px solid #c7c7c7;
+    padding: 0 14px;
+    font-size: 1rem;
+    color: #656565;
+    background: #fdfdfd;
+}
+
+.wp-block-twork-agrezer-shop-grid-section .agrezer-shop-products {
+    display: grid;
+    grid-template-columns: repeat(var(--agrezer-shop-cols, 3), 1fr);
+    gap: 22px;
+}
+
+.wp-block-twork-agrezer-shop-grid-section .agrezer-product-card {
+    background: #ffffff;
+    border: 1px solid #b8b8b8;
+    border-radius: 8px;
+    text-align: center;
+    padding: 12px 16px 18px;
+    position: relative;
+}
+
+.wp-block-twork-agrezer-shop-grid-section .agrezer-product-card__badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: #8bcf33;
+    color: #ffffff;
+    font-size: 0.85rem;
+    border-radius: 4px;
+    padding: 2px 7px;
+}
+
+.wp-block-twork-agrezer-shop-grid-section .agrezer-product-card__image-link {
+    display: block;
+    text-decoration: none;
+}
+
+.wp-block-twork-agrezer-shop-grid-section .agrezer-product-card__image-link img {
+    width: min(180px, 90%);
+    height: 170px;
+    object-fit: contain;
+    margin: 28px auto 18px;
+    display: block;
+}
+
+.wp-block-twork-agrezer-shop-grid-section .agrezer-product-card__title {
+    margin: 0;
+    color: #2a2a2a;
+    font-size: 1.95rem;
+    line-height: 1.15;
+}
+
+.wp-block-twork-agrezer-shop-grid-section .agrezer-product-card__title a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.wp-block-twork-agrezer-shop-grid-section .agrezer-product-card__title a:hover {
+    text-decoration: underline;
+}
+
+.wp-block-twork-agrezer-shop-grid-section .agrezer-product-card__stars {
+    margin-top: 6px;
+    color: #7e7e7e;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+.wp-block-twork-agrezer-shop-grid-section .agrezer-product-card__price {
+    margin: 6px 0 0;
+    font-size: 1.08rem;
+}
+
+.wp-block-twork-agrezer-shop-grid-section .agrezer-product-card del {
+    color: #c5ca97;
+    margin-right: 5px;
+}
+
+.wp-block-twork-agrezer-shop-grid-section .agrezer-product-card .amount,
+.wp-block-twork-agrezer-shop-grid-section .agrezer-product-card ins {
+    color: #d5e373;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.wp-block-twork-agrezer-shop-grid-section .agrezer-shop-grid__empty {
+    grid-column: 1 / -1;
+    text-align: center;
+    color: #5b5b5b;
+    margin: 0;
+    padding: 24px;
+}
+
+.wp-block-twork-agrezer-shop-grid-section .agrezer-shop-grid__pagination {
+    margin-top: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.wp-block-twork-agrezer-shop-grid-section .agrezer-shop-grid__pagination a,
+.wp-block-twork-agrezer-shop-grid-section .agrezer-shop-grid__pagination span.page-numbers {
+    min-width: 40px;
+    height: 40px;
+    border: 1px solid #c8cf9f;
+    border-radius: 6px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #6a6a6a;
+    font-size: 1rem;
+    box-sizing: border-box;
+    padding: 0 8px;
+}
+
+.wp-block-twork-agrezer-shop-grid-section .agrezer-shop-grid__pagination a:hover {
+    border-color: #184838;
+    color: #184838;
+}
+
+.wp-block-twork-agrezer-shop-grid-section .agrezer-shop-grid__pagination span.page-numbers.current,
+.wp-block-twork-agrezer-shop-grid-section .agrezer-shop-grid__pagination a.page-numbers.current {
+    background: #184838;
+    color: #ffffff;
+    border-color: #184838;
+}
+
+.wp-block-twork-agrezer-shop-grid-section .agrezer-shop-grid__pagination span.page-numbers.dots {
+    border: none;
+    min-width: auto;
+}
+
+@media (max-width: 1100px) {
+    .wp-block-twork-agrezer-shop-grid-section .agrezer-shop-grid__container {
+        grid-template-columns: 1fr;
+    }
+
+    .wp-block-twork-agrezer-shop-grid-section .agrezer-shop-grid__sidebar {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 992px) {
+    .wp-block-twork-agrezer-shop-grid-section .agrezer-shop-products {
+        grid-template-columns: repeat(var(--agrezer-shop-cols-md, 2), 1fr);
+    }
+}
+
+@media (max-width: 640px) {
+    .wp-block-twork-agrezer-shop-grid-section.agrezer-shop-grid {
+        padding: 60px 0 80px;
+    }
+
+    .wp-block-twork-agrezer-shop-grid-section .agrezer-shop-grid__sidebar {
+        grid-template-columns: 1fr;
+    }
+
+    .wp-block-twork-agrezer-shop-grid-section .agrezer-shop-grid__toolbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .wp-block-twork-agrezer-shop-grid-section .agrezer-shop-products {
+        grid-template-columns: repeat(var(--agrezer-shop-cols-sm, 1), 1fr);
+    }
+}

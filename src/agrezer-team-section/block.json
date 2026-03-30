@@ -1,0 +1,125 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/agrezer-team-section",
+	"version": "1.0.0",
+	"title": "Agrezer Team Section",
+	"category": "twork-builder",
+	"icon": "groups",
+	"description": "Centered heading with a grid of team member cards (Agrezer layout).",
+	"keywords": [ "team", "staff", "people", "agrezer", "twork" ],
+	"supports": {
+		"html": false,
+		"align": [ "wide", "full" ],
+		"anchor": true
+	},
+	"attributes": {
+		"backgroundColor": {
+			"type": "string",
+			"default": "#f3f4f4"
+		},
+		"paddingTop": {
+			"type": "number",
+			"default": 90
+		},
+		"paddingBottom": {
+			"type": "number",
+			"default": 110
+		},
+		"containerMaxWidth": {
+			"type": "number",
+			"default": 1200
+		},
+		"containerWidthPct": {
+			"type": "number",
+			"default": 90
+		},
+		"gridGap": {
+			"type": "number",
+			"default": 22
+		},
+		"columns": {
+			"type": "number",
+			"default": 3
+		},
+		"headerMarginBottom": {
+			"type": "number",
+			"default": 34
+		},
+		"tagIcon": {
+			"type": "string",
+			"default": ""
+		},
+		"tagIconId": {
+			"type": "number"
+		},
+		"tagIconAlt": {
+			"type": "string",
+			"default": ""
+		},
+		"tagline": {
+			"type": "string",
+			"default": "Our farms"
+		},
+		"title": {
+			"type": "string",
+			"default": "Growing Together, Naturally<br>and Passionately"
+		}
+	},
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": {
+			"backgroundColor": "#f3f4f4",
+			"paddingTop": 90,
+			"paddingBottom": 110,
+			"containerMaxWidth": 1200,
+			"containerWidthPct": 90,
+			"gridGap": 22,
+			"columns": 3,
+			"headerMarginBottom": 34,
+			"tagline": "Our farms",
+			"title": "Growing Together, Naturally<br>and Passionately"
+		},
+		"innerBlocks": [
+			{
+				"name": "twork/agrezer-team-card",
+				"attributes": {
+					"image": "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=600&q=80",
+					"imageAlt": "Portrait of Harry Black",
+					"name": "Harry Black",
+					"role": "Chief Executive Officer",
+					"profileUrl": "#",
+					"profileOpenInNewTab": false,
+					"actionAriaLabel": "View profile"
+				}
+			},
+			{
+				"name": "twork/agrezer-team-card",
+				"attributes": {
+					"image": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80",
+					"imageAlt": "Portrait of Marry Olson",
+					"name": "Marry Olson",
+					"role": "Shop Keeper",
+					"profileUrl": "#",
+					"profileOpenInNewTab": false,
+					"actionAriaLabel": "View profile"
+				}
+			},
+			{
+				"name": "twork/agrezer-team-card",
+				"attributes": {
+					"image": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=600&q=80",
+					"imageAlt": "Portrait of Arun Patel",
+					"name": "Arun Patel",
+					"role": "Chief Agronomist",
+					"profileUrl": "#",
+					"profileOpenInNewTab": false,
+					"actionAriaLabel": "View profile"
+				}
+			}
+		]
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
+}

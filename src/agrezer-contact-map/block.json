@@ -1,0 +1,126 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/agrezer-contact-map",
+	"version": "1.0.0",
+	"title": "Agrezer Contact Map",
+	"category": "twork-builder",
+	"icon": "location-alt",
+	"description": "Contact form beside an embedded map (Agrezer UI). Set form action to your handler or a form plugin endpoint.",
+	"keywords": [ "contact", "form", "map", "google maps", "agrezer", "twork" ],
+	"attributes": {
+		"sectionTitle": {
+			"type": "string",
+			"default": "Reach Out, Let's Grow Organically"
+		},
+		"formAction": {
+			"type": "string",
+			"default": ""
+		},
+		"formMethod": {
+			"type": "string",
+			"default": "post"
+		},
+		"namePlaceholder": {
+			"type": "string",
+			"default": "Name *"
+		},
+		"phonePlaceholder": {
+			"type": "string",
+			"default": "Phone"
+		},
+		"emailPlaceholder": {
+			"type": "string",
+			"default": "Email *"
+		},
+		"subjectPlaceholder": {
+			"type": "string",
+			"default": "Subject *"
+		},
+		"messagePlaceholder": {
+			"type": "string",
+			"default": "Message"
+		},
+		"submitButtonText": {
+			"type": "string",
+			"default": "Send Message"
+		},
+		"mapEmbedUrl": {
+			"type": "string",
+			"default": "https://www.google.com/maps?q=London%20Eye&z=12&output=embed"
+		},
+		"mapIframeTitle": {
+			"type": "string",
+			"default": "Map location"
+		},
+		"sectionBackgroundColor": {
+			"type": "string",
+			"default": "#f6f6f6"
+		},
+		"containerBackgroundColor": {
+			"type": "string",
+			"default": "#efebe8"
+		},
+		"paddingTop": {
+			"type": "number",
+			"default": 0
+		},
+		"paddingBottom": {
+			"type": "number",
+			"default": 100
+		},
+		"containerMaxWidth": {
+			"type": "number",
+			"default": 1200
+		},
+		"containerBorderRadius": {
+			"type": "number",
+			"default": 14
+		},
+		"mapMinHeightDesktop": {
+			"type": "number",
+			"default": 520
+		},
+		"mapMinHeightTablet": {
+			"type": "number",
+			"default": 420
+		},
+		"mapMinHeightMobile": {
+			"type": "number",
+			"default": 340
+		}
+	},
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": {
+			"sectionTitle": "Reach Out, Let's Grow Organically",
+			"formAction": "",
+			"formMethod": "post",
+			"namePlaceholder": "Name *",
+			"phonePlaceholder": "Phone",
+			"emailPlaceholder": "Email *",
+			"subjectPlaceholder": "Subject *",
+			"messagePlaceholder": "Message",
+			"submitButtonText": "Send Message",
+			"mapEmbedUrl": "https://www.google.com/maps?q=London%20Eye&z=12&output=embed",
+			"mapIframeTitle": "Map location",
+			"sectionBackgroundColor": "#f6f6f6",
+			"containerBackgroundColor": "#efebe8",
+			"paddingTop": 0,
+			"paddingBottom": 100,
+			"containerMaxWidth": 1200,
+			"containerBorderRadius": 14,
+			"mapMinHeightDesktop": 480,
+			"mapMinHeightTablet": 400,
+			"mapMinHeightMobile": 320
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"align": [ "wide", "full" ]
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
+}

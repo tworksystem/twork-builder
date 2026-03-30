@@ -1,0 +1,166 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/agrezer-greener-section",
+	"version": "1.0.0",
+	"title": "Agrezer Greener Section",
+	"category": "twork-builder",
+	"icon": "palmtree",
+	"description": "Two-column greener farming block: hero image, stats, and service cards.",
+	"keywords": [ "greener", "farming", "organic", "agrezer", "twork" ],
+	"supports": {
+		"html": false,
+		"align": [ "wide", "full" ]
+	},
+	"attributes": {
+		"backgroundColor": {
+			"type": "string",
+			"default": "#f5f5f5"
+		},
+		"paddingTop": {
+			"type": "number",
+			"default": 88
+		},
+		"paddingBottom": {
+			"type": "number",
+			"default": 88
+		},
+		"containerMaxWidth": {
+			"type": "number",
+			"default": 1240
+		},
+		"containerGutter": {
+			"type": "number",
+			"default": 24
+		},
+		"mainColumnGap": {
+			"type": "number",
+			"default": 64
+		},
+		"mainImage": {
+			"type": "string",
+			"default": ""
+		},
+		"mainImageId": {
+			"type": "number"
+		},
+		"mainImageAlt": {
+			"type": "string",
+			"default": "Farmer"
+		},
+		"taglineIcon": {
+			"type": "string",
+			"default": "🌿"
+		},
+		"taglineText": {
+			"type": "string",
+			"default": "Agro Excellence"
+		},
+		"sectionTitle": {
+			"type": "string",
+			"default": "Building a Greener Farming"
+		},
+		"taglineColor": {
+			"type": "string",
+			"default": "#2a3328"
+		},
+		"taglineIconColor": {
+			"type": "string",
+			"default": "#8fbd45"
+		},
+		"titleColor": {
+			"type": "string",
+			"default": "#16191c"
+		},
+		"titleFontSize": {
+			"type": "number",
+			"default": 2.75
+		},
+		"titleFontWeight": {
+			"type": "number",
+			"default": 700
+		}
+	},
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": {
+			"backgroundColor": "#f5f5f5",
+			"paddingTop": 88,
+			"paddingBottom": 88,
+			"containerMaxWidth": 1240,
+			"containerGutter": 24,
+			"mainColumnGap": 64,
+			"mainImage": "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1000&q=80",
+			"mainImageAlt": "Farmer in a wide green field",
+			"taglineIcon": "🌿",
+			"taglineText": "Agro Excellence",
+			"sectionTitle": "Building a Greener Farming Future",
+			"taglineColor": "#2a3328",
+			"taglineIconColor": "#8fbd45",
+			"titleColor": "#16191c",
+			"titleFontSize": 2.75,
+			"titleFontWeight": 700
+		},
+		"innerBlocks": [
+			{
+				"name": "twork/agrezer-greener-stats-row",
+				"innerBlocks": [
+					{
+						"name": "twork/agrezer-greener-stat-item",
+						"attributes": {
+							"iconVariant": "growth",
+							"title": "80% Pure Growth",
+							"description": "Measured gains in plant vigor and stand uniformity across pilot fields."
+						}
+					},
+					{
+						"name": "twork/agrezer-greener-stat-item",
+						"attributes": {
+							"iconVariant": "organic",
+							"title": "95% Organic Roots",
+							"description": "Supply chain partners certified for organic handling and cold-chain integrity."
+						}
+					}
+				]
+			},
+			{
+				"name": "twork/agrezer-greener-cards-row",
+				"innerBlocks": [
+					{
+						"name": "twork/agrezer-greener-card-item",
+						"attributes": {
+							"title": "Organic Farm Solutions",
+							"linkText": "Read More",
+							"linkUrl": "#",
+							"image": "https://images.unsplash.com/photo-1500937386664-56d1dfef385a?auto=format&fit=crop&w=900&q=80",
+							"alt": "Rolling farm landscape"
+						}
+					},
+					{
+						"name": "twork/agrezer-greener-card-item",
+						"attributes": {
+							"title": "Eco-Friendly Farming",
+							"linkText": "Read More",
+							"linkUrl": "#",
+							"image": "https://images.unsplash.com/photo-1625246333195-f8989295e467?auto=format&fit=crop&w=900&q=80",
+							"alt": "Young crops in rows"
+						}
+					},
+					{
+						"name": "twork/agrezer-greener-card-item",
+						"attributes": {
+							"title": "Organic Produce Supply",
+							"linkText": "Read More",
+							"linkUrl": "#",
+							"image": "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=900&q=80",
+							"alt": "Fresh vegetables at market"
+						}
+					}
+				]
+			}
+		]
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
+}

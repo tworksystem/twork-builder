@@ -1,0 +1,153 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/agrezer-blog-section",
+	"version": "1.0.0",
+	"title": "Agrezer Blog (Posts)",
+	"category": "twork-builder",
+	"icon": "admin-post",
+	"description": "Latest posts grid with Agrezer styling. Pulls published posts from WordPress.",
+	"keywords": [ "blog", "posts", "news", "agrezer", "grid", "twork" ],
+	"attributes": {
+		"sectionTitle": {
+			"type": "string",
+			"default": "Explore Our Latest<br>News &amp; Blog"
+		},
+		"tagline": {
+			"type": "string",
+			"default": "Read Our Blog"
+		},
+		"tagIcon": {
+			"type": "string",
+			"default": ""
+		},
+		"tagIconId": {
+			"type": "number"
+		},
+		"tagIconAlt": {
+			"type": "string",
+			"default": ""
+		},
+		"moreButtonUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"moreButtonText": {
+			"type": "string",
+			"default": "More News ↗"
+		},
+		"moreButtonNewTab": {
+			"type": "boolean",
+			"default": false
+		},
+		"readMoreText": {
+			"type": "string",
+			"default": "Read More"
+		},
+		"postsToShow": {
+			"type": "number",
+			"default": 3
+		},
+		"columns": {
+			"type": "number",
+			"default": 3
+		},
+		"orderBy": {
+			"type": "string",
+			"default": "date"
+		},
+		"order": {
+			"type": "string",
+			"default": "DESC"
+		},
+		"categoryIds": {
+			"type": "string",
+			"default": ""
+		},
+		"excludeIds": {
+			"type": "string",
+			"default": ""
+		},
+		"offset": {
+			"type": "number",
+			"default": 0
+		},
+		"imageSize": {
+			"type": "string",
+			"default": "large"
+		},
+		"backgroundColor": {
+			"type": "string",
+			"default": "#FAFAFA"
+		},
+		"paddingTop": {
+			"type": "number",
+			"default": 100
+		},
+		"paddingBottom": {
+			"type": "number",
+			"default": 100
+		},
+		"containerMaxWidth": {
+			"type": "number",
+			"default": 1200
+		},
+		"containerWidthPct": {
+			"type": "number",
+			"default": 90
+		},
+		"showAuthorMeta": {
+			"type": "boolean",
+			"default": true
+		},
+		"authorPrefix": {
+			"type": "string",
+			"default": "👤 "
+		},
+		"showCommentsMeta": {
+			"type": "boolean",
+			"default": true
+		},
+		"commentPrefix": {
+			"type": "string",
+			"default": "💬 "
+		}
+	},
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": {
+			"sectionTitle": "Explore Our Latest<br>News &amp; Blog",
+			"tagline": "Read Our Blog",
+			"moreButtonUrl": "#",
+			"moreButtonText": "More News ↗",
+			"moreButtonNewTab": false,
+			"readMoreText": "Read More",
+			"postsToShow": 3,
+			"columns": 3,
+			"orderBy": "date",
+			"order": "DESC",
+			"categoryIds": "",
+			"excludeIds": "",
+			"offset": 0,
+			"imageSize": "large",
+			"backgroundColor": "#FAFAFA",
+			"paddingTop": 100,
+			"paddingBottom": 100,
+			"containerMaxWidth": 1200,
+			"containerWidthPct": 90,
+			"showAuthorMeta": true,
+			"authorPrefix": "👤 ",
+			"showCommentsMeta": true,
+			"commentPrefix": "💬 "
+		}
+	},
+	"supports": {
+		"html": false,
+		"align": [ "wide", "full" ],
+		"anchor": true
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css",
+	"editorStyle": "file:./style-index.css"
+}

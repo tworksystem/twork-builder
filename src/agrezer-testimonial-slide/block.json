@@ -1,0 +1,43 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/agrezer-testimonial-slide",
+	"version": "1.0.0",
+	"title": "Agrezer Testimonial Slide",
+	"category": "twork-builder",
+	"parent": [ "twork/agrezer-testimonials-section" ],
+	"icon": "format-quote",
+	"description": "One testimonial quote, author, and star rating for the carousel.",
+	"supports": {
+		"html": false,
+		"reusable": false
+	},
+	"attributes": {
+		"quote": {
+			"type": "string",
+			"default": ""
+		},
+		"authorName": {
+			"type": "string",
+			"default": ""
+		},
+		"authorRole": {
+			"type": "string",
+			"default": ""
+		},
+		"rating": {
+			"type": "number",
+			"default": 5
+		}
+	},
+	"example": {
+		"attributes": {
+			"quote": "Agrezer helped us cut input waste while improving tonnage—clear reporting and a team that actually picks up the phone.",
+			"authorName": "Alex Robin",
+			"authorRole": "Co-Founder",
+			"rating": 5
+		}
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js"
+}

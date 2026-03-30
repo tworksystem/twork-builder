@@ -1,0 +1,58 @@
+import { useStableBlockProps } from '@twork-builder/editor-utils';
+import { InnerBlocks } from '@wordpress/block-editor';
+
+const ALLOWED_BLOCKS = [ 'twork/agrezer-greener-card-item' ];
+const TEMPLATE = [
+	[
+		'twork/agrezer-greener-card-item',
+		{
+			title: 'Organic Farm Solutions',
+			linkText: 'Read More',
+			linkUrl: '#',
+			image: 'https://images.unsplash.com/photo-1500937386664-56d1dfef385a?auto=format&fit=crop&w=900&q=80',
+			alt: 'Organic farm solutions',
+		},
+	],
+
+	[
+		'twork/agrezer-greener-card-item',
+		{
+			title: 'The Eco-Friendly Farming',
+			linkText: 'Read More',
+			linkUrl: '#',
+			image: 'https://images.unsplash.com/photo-1625246333195-f8989295e467?auto=format&fit=crop&w=900&q=80',
+			alt: 'Eco-friendly farming',
+		},
+	],
+
+	[
+		'twork/agrezer-greener-card-item',
+		{
+			title: 'Organic Produce Supply',
+			linkText: 'Read More',
+			linkUrl: '#',
+			image: 'https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=900&q=80',
+			alt: 'Organic produce supply',
+		},
+	],
+];
+
+export default function Edit() {
+	const blockProps = useStableBlockProps(
+		() => ( {
+			className:
+				'agrezer-greener__cards twork-agrezer-greener-cards-row-editor',
+		} ),
+		[]
+	);
+
+	return (
+		<div { ...blockProps }>
+			<InnerBlocks
+				allowedBlocks={ ALLOWED_BLOCKS }
+				template={ TEMPLATE }
+				renderAppender={ InnerBlocks.ButtonBlockAppender }
+			/>
+		</div>
+	);
+}

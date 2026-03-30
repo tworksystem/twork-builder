@@ -1,0 +1,157 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/agrezer-why-choose-section",
+	"version": "1.0.0",
+	"title": "Agrezer Why Choose Section",
+	"category": "twork-builder",
+	"icon": "awards",
+	"description": "Why choose us stage with tractor hero and positioned benefit points.",
+	"keywords": [ "why", "choose", "farm", "tractor", "agrezer", "twork" ],
+	"supports": {
+		"html": false,
+		"align": [ "wide", "full" ]
+	},
+	"attributes": {
+		"paddingTop": {
+			"type": "number",
+			"default": 88
+		},
+		"paddingBottom": {
+			"type": "number",
+			"default": 0
+		},
+		"containerMaxWidth": {
+			"type": "number",
+			"default": 1240
+		},
+		"containerGutter": {
+			"type": "number",
+			"default": 24
+		},
+		"taglineIcon": {
+			"type": "string",
+			"default": "🌿"
+		},
+		"taglineText": {
+			"type": "string",
+			"default": "Why Choose Our Farm"
+		},
+		"sectionTitle": {
+			"type": "string",
+			"default": "Rooted in Nature, Growing<br>with Honest Purpose"
+		},
+		"taglineColor": {
+			"type": "string",
+			"default": "#2f3927"
+		},
+		"taglineIconColor": {
+			"type": "string",
+			"default": "#8fbd45"
+		},
+		"titleColor": {
+			"type": "string",
+			"default": "#161b14"
+		},
+		"titleFontSize": {
+			"type": "number",
+			"default": 2.75
+		},
+		"titleFontWeight": {
+			"type": "number",
+			"default": 700
+		},
+		"tractorImage": {
+			"type": "string",
+			"default": ""
+		},
+		"tractorImageId": {
+			"type": "number"
+		},
+		"tractorAlt": {
+			"type": "string",
+			"default": "Tractor"
+		},
+		"tractorMaxWidth": {
+			"type": "number",
+			"default": 550
+		},
+		"stageMinHeight": {
+			"type": "number",
+			"default": 700
+		},
+		"waveDecorationUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"waveDecorationId": {
+			"type": "number"
+		}
+	},
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": {
+			"paddingTop": 88,
+			"paddingBottom": 0,
+			"containerMaxWidth": 1240,
+			"containerGutter": 24,
+			"taglineIcon": "🌿",
+			"taglineText": "Why Choose Our Farm",
+			"sectionTitle": "Rooted in Nature, Growing<br>with Honest Purpose",
+			"taglineColor": "#2f3927",
+			"taglineIconColor": "#8fbd45",
+			"titleColor": "#161b14",
+			"titleFontSize": 2.75,
+			"titleFontWeight": 700,
+			"tractorImage": "https://images.unsplash.com/photo-1592982537447-7440770cbfc9?auto=format&fit=crop&w=1000&q=80",
+			"tractorAlt": "Green tractor in a field",
+			"tractorMaxWidth": 520,
+			"stageMinHeight": 620
+		},
+		"innerBlocks": [
+			{
+				"name": "twork/agrezer-why-choose-point-item",
+				"attributes": {
+					"slot": 1,
+					"badgeText": "01",
+					"pointText": "Health From the Earth"
+				}
+			},
+			{
+				"name": "twork/agrezer-why-choose-point-item",
+				"attributes": {
+					"slot": 2,
+					"badgeText": "02",
+					"pointText": "Rooted in Sustainable Growth"
+				}
+			},
+			{
+				"name": "twork/agrezer-why-choose-point-item",
+				"attributes": {
+					"slot": 3,
+					"badgeText": "03",
+					"pointText": "Technology Meets the Soil"
+				}
+			},
+			{
+				"name": "twork/agrezer-why-choose-point-item",
+				"attributes": {
+					"slot": 4,
+					"badgeText": "04",
+					"pointText": "Fields of Shared Prosperity"
+				}
+			},
+			{
+				"name": "twork/agrezer-why-choose-point-item",
+				"attributes": {
+					"slot": 5,
+					"badgeText": "05",
+					"pointText": "Seeds of Sustainable Futures"
+				}
+			}
+		]
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
+}

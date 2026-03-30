@@ -1,0 +1,162 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/agrezer-shop-grid-section",
+	"version": "1.0.0",
+	"title": "Agrezer Shop Grid",
+	"category": "twork-builder",
+	"icon": "cart",
+	"description": "WooCommerce shop layout: category list, mini products, and a paginated product grid (Agrezer UI).",
+	"keywords": [ "woocommerce", "shop", "products", "agrezer", "twork" ],
+	"attributes": {
+		"categoryTitle": {
+			"type": "string",
+			"default": "Product Category"
+		},
+		"productsTitle": {
+			"type": "string",
+			"default": "Products"
+		},
+		"contactTitle": {
+			"type": "string",
+			"default": "Contact Info"
+		},
+		"showCategoryWidget": {
+			"type": "boolean",
+			"default": true
+		},
+		"showMiniProductsWidget": {
+			"type": "boolean",
+			"default": true
+		},
+		"showContactWidget": {
+			"type": "boolean",
+			"default": true
+		},
+		"categoriesHideEmpty": {
+			"type": "boolean",
+			"default": false
+		},
+		"categoriesLimit": {
+			"type": "number",
+			"default": 0
+		},
+		"categoriesTopLevelOnly": {
+			"type": "boolean",
+			"default": false
+		},
+		"miniProductsCount": {
+			"type": "number",
+			"default": 5
+		},
+		"miniProductsSource": {
+			"type": "string",
+			"default": "rating"
+		},
+		"productsPerPage": {
+			"type": "number",
+			"default": 9
+		},
+		"gridColumns": {
+			"type": "number",
+			"default": 3
+		},
+		"gridColumnsTablet": {
+			"type": "number",
+			"default": 2
+		},
+		"gridColumnsMobile": {
+			"type": "number",
+			"default": 1
+		},
+		"defaultOrderby": {
+			"type": "string",
+			"default": "default"
+		},
+		"showToolbar": {
+			"type": "boolean",
+			"default": true
+		},
+		"showPagination": {
+			"type": "boolean",
+			"default": true
+		},
+		"mainCategoryId": {
+			"type": "number",
+			"default": 0
+		},
+		"contactAddress": {
+			"type": "string",
+			"default": "132, Tic St, Kingston, NY, USA"
+		},
+		"contactPhone": {
+			"type": "string",
+			"default": "+(528) 456-7592"
+		},
+		"contactEmail": {
+			"type": "string",
+			"default": "info@agrezen.com"
+		},
+		"backgroundColor": {
+			"type": "string",
+			"default": "#f6f6f6"
+		},
+		"paddingTop": {
+			"type": "number",
+			"default": 80
+		},
+		"paddingBottom": {
+			"type": "number",
+			"default": 100
+		},
+		"containerMaxWidth": {
+			"type": "number",
+			"default": 1240
+		},
+		"containerPadding": {
+			"type": "number",
+			"default": 0
+		}
+	},
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": {
+			"categoryTitle": "Product Category",
+			"productsTitle": "Products",
+			"contactTitle": "Contact Info",
+			"showCategoryWidget": true,
+			"showMiniProductsWidget": true,
+			"showContactWidget": true,
+			"categoriesHideEmpty": false,
+			"categoriesLimit": 0,
+			"categoriesTopLevelOnly": false,
+			"miniProductsCount": 5,
+			"miniProductsSource": "rating",
+			"productsPerPage": 9,
+			"gridColumns": 3,
+			"gridColumnsTablet": 2,
+			"gridColumnsMobile": 1,
+			"defaultOrderby": "default",
+			"showToolbar": true,
+			"showPagination": true,
+			"mainCategoryId": 0,
+			"contactAddress": "132, Tic St, Kingston, NY, USA",
+			"contactPhone": "+(528) 456-7592",
+			"contactEmail": "info@agrezen.com",
+			"backgroundColor": "#f6f6f6",
+			"paddingTop": 80,
+			"paddingBottom": 100,
+			"containerMaxWidth": 1240,
+			"containerPadding": 0
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"align": [ "wide", "full" ]
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css",
+	"editorStyle": "file:./style-index.css"
+}

@@ -1,0 +1,69 @@
+/**
+ * Editor-only: position InnerBlocks appender without JS MutationObserver (scales to hundreds of blocks).
+ * Loaded only with story-grid editor bundle (import from index.js).
+ */
+
+.wp-block-twork-story-grid.twork-story-grid-editor,
+.twork-story-grid-editor {
+    .twork-story-grid-container .block-list-appender,
+    .block-editor-inner-blocks > .block-list-appender {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        position: absolute !important;
+        bottom: 16px !important;
+        right: 16px !important;
+        left: auto !important;
+        top: auto !important;
+        width: 32px !important;
+        height: 32px !important;
+        min-width: 32px !important;
+        min-height: 32px !important;
+        max-width: 32px !important;
+        max-height: 32px !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        z-index: 1000 !important;
+        pointer-events: auto !important;
+        overflow: visible !important;
+        transform: none !important;
+        border: none !important;
+        background: transparent !important;
+        box-shadow: none !important;
+
+        .components-button,
+        button.block-editor-button-block-appender {
+            width: 32px !important;
+            height: 32px !important;
+            min-width: 32px !important;
+            min-height: 32px !important;
+            max-width: 32px !important;
+            max-height: 32px !important;
+            padding: 0 !important;
+            margin: 0 !important;
+            border-radius: 50% !important;
+            background-color: #2271b1 !important;
+            color: #ffffff !important;
+            border: 2px solid #ffffff !important;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            cursor: pointer !important;
+            transition: all 0.2s ease !important;
+            font-size: 18px !important;
+            line-height: 1 !important;
+            position: relative !important;
+
+            svg,
+            .block-editor-block-icon,
+            .dashicons {
+                width: 18px !important;
+                height: 18px !important;
+                font-size: 18px !important;
+                line-height: 1 !important;
+                margin: 0 !important;
+            }
+        }
+    }
+}

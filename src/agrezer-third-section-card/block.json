@@ -1,0 +1,51 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/agrezer-third-section-card",
+	"version": "1.0.0",
+	"title": "Agrezer Third Section Card",
+	"category": "twork-builder",
+	"parent": [ "twork/agrezer-third-section" ],
+	"icon": "chart-bar",
+	"description": "Image card with large stat and label overlay.",
+	"supports": {
+		"html": false,
+		"reusable": false
+	},
+	"attributes": {
+		"image": {
+			"type": "string",
+			"default": ""
+		},
+		"imageId": {
+			"type": "number"
+		},
+		"imageAlt": {
+			"type": "string",
+			"default": ""
+		},
+		"stat": {
+			"type": "string",
+			"default": "80%"
+		},
+		"label": {
+			"type": "string",
+			"default": ""
+		},
+		"cardAlign": {
+			"type": "string",
+			"default": "left"
+		}
+	},
+	"example": {
+		"attributes": {
+			"image": "https://images.unsplash.com/photo-1631368647931-4f3ec6d1df92?auto=format&fit=crop&w=1000&q=80",
+			"imageAlt": "Corn harvest in the field",
+			"stat": "80%",
+			"label": "Operational Efficiency",
+			"cardAlign": "left"
+		}
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js"
+}

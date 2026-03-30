@@ -1,0 +1,61 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/agrezer-team-card",
+	"version": "1.0.0",
+	"title": "Agrezer Team Card",
+	"category": "twork-builder",
+	"parent": [ "twork/agrezer-team-section" ],
+	"icon": "admin-users",
+	"description": "Team member photo, name, role, and profile link.",
+	"supports": {
+		"html": false,
+		"reusable": false
+	},
+	"attributes": {
+		"image": {
+			"type": "string",
+			"default": ""
+		},
+		"imageId": {
+			"type": "number"
+		},
+		"imageAlt": {
+			"type": "string",
+			"default": "Team member"
+		},
+		"name": {
+			"type": "string",
+			"default": ""
+		},
+		"role": {
+			"type": "string",
+			"default": ""
+		},
+		"profileUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"profileOpenInNewTab": {
+			"type": "boolean",
+			"default": false
+		},
+		"actionAriaLabel": {
+			"type": "string",
+			"default": "View profile"
+		}
+	},
+	"example": {
+		"attributes": {
+			"image": "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=600&q=80",
+			"imageAlt": "Team member portrait",
+			"name": "Harry Black",
+			"role": "Chief Executive Officer",
+			"profileUrl": "#",
+			"profileOpenInNewTab": false,
+			"actionAriaLabel": "View profile"
+		}
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js"
+}

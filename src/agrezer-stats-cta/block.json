@@ -1,0 +1,33 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/agrezer-stats-cta",
+	"version": "1.0.0",
+	"title": "Agrezer Stats CTA",
+	"category": "twork-builder",
+	"parent": [ "twork/agrezer-stats-column" ],
+	"icon": "external",
+	"description": "Call-to-action button for the stats section column.",
+	"supports": {
+		"html": false,
+		"reusable": false
+	},
+	"attributes": {
+		"buttonText": {
+			"type": "string",
+			"default": "Get In Touch"
+		},
+		"buttonUrl": {
+			"type": "string",
+			"default": "#"
+		}
+	},
+	"example": {
+		"attributes": {
+			"buttonText": "Get In Touch",
+			"buttonUrl": "#"
+		}
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js"
+}

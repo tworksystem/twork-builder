@@ -1,0 +1,228 @@
+/**
+ * Agrezer about intro — from my-avocado _about-intro.scss
+ */
+
+.agrezer-about-intro.twork-agrezer-about-intro-section,
+.wp-block-twork-agrezer-about-intro-section.agrezer-about-intro {
+	overflow: hidden;
+}
+
+.agrezer-about-intro__container {
+	max-width: var(--agrezer-about-intro-max, 1200px);
+	width: min(var(--agrezer-about-intro-width-pct, 90%), var(--agrezer-about-intro-max, 1200px));
+	margin: 0 auto;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: var(--agrezer-about-intro-gap, 80px);
+}
+
+.agrezer-about-intro__left {
+	flex: 0 0 45%;
+	position: relative;
+	min-width: 0;
+}
+
+.agrezer-about-intro__images-wrapper {
+	position: relative;
+	width: 100%;
+	padding-left: 30px;
+	padding-bottom: 50px;
+}
+
+.agrezer-about-intro__shape {
+	position: absolute;
+	top: -20px;
+	left: 0;
+	width: 80%;
+	height: 90%;
+	border-radius: 20px;
+	z-index: 1;
+}
+
+.agrezer-about-intro__img-main {
+	position: relative;
+	width: 100%;
+	height: auto;
+	aspect-ratio: 4 / 5;
+	object-fit: cover;
+	border-radius: 20px;
+	z-index: 2;
+	display: block;
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.agrezer-about-intro__img-sub {
+	position: absolute;
+	bottom: 0;
+	right: -40px;
+	width: 55%;
+	aspect-ratio: 1 / 1;
+	object-fit: cover;
+	border-radius: 20px;
+	border: 12px solid #fff;
+	z-index: 3;
+	box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+}
+
+.agrezer-about-intro__badge {
+	position: absolute;
+	top: 50%;
+	left: -40px;
+	transform: translateY(-50%);
+	width: 140px;
+	height: 140px;
+	z-index: 4;
+	background: #fff;
+	border-radius: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.agrezer-about-intro__badge-img {
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+	animation: agrezer-about-intro-badge-spin 15s linear infinite;
+}
+
+.agrezer-about-intro[data-badge-spin="false"] .agrezer-about-intro__badge-img {
+	animation: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.agrezer-about-intro__badge-img {
+		animation: none !important;
+	}
+}
+
+@keyframes agrezer-about-intro-badge-spin {
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+.agrezer-about-intro__right {
+	flex: 1;
+	min-width: 0;
+}
+
+.agrezer-about-intro__tagline {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	font-weight: 600;
+	margin-bottom: 15px;
+	color: #222;
+}
+
+.agrezer-about-intro__tag-icon {
+	width: 20px;
+	height: 20px;
+	object-fit: contain;
+	flex-shrink: 0;
+}
+
+.agrezer-about-intro__title {
+	font-size: clamp(1.85rem, 4vw, 3.2rem);
+	font-weight: 700;
+	line-height: 1.15;
+	margin: 0 0 25px;
+	color: #000;
+}
+
+.agrezer-about-intro__desc {
+	font-size: 1.1rem;
+	color: #555;
+	line-height: 1.8;
+	margin: 0 0 35px;
+}
+
+.agrezer-about-intro__features {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 20px;
+	margin-bottom: 40px;
+}
+
+.agrezer-about-intro__feature {
+	display: flex;
+	align-items: center;
+	gap: 15px;
+	font-weight: 700;
+	color: #000;
+	font-size: 1.1rem;
+	min-width: 0;
+}
+
+.agrezer-about-intro__feature-icon {
+	width: 24px;
+	height: 24px;
+	object-fit: contain;
+	flex-shrink: 0;
+}
+
+.agrezer-about-intro__author-row {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 20px;
+	flex-wrap: wrap;
+	border-top: 1px solid #eaeaea;
+	padding-top: 30px;
+}
+
+.agrezer-about-intro__author-info {
+	display: flex;
+	align-items: center;
+	gap: 15px;
+	min-width: 0;
+}
+
+.agrezer-about-intro__author-img {
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+	object-fit: cover;
+	flex-shrink: 0;
+}
+
+.agrezer-about-intro__author-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.agrezer-about-intro__author-name {
+	font-size: 1.25rem;
+	font-weight: 700;
+	color: #000;
+	margin: 0 0 5px;
+}
+
+.agrezer-about-intro__author-role {
+	font-size: 0.9rem;
+	color: #777;
+}
+
+.agrezer-about-intro__signature {
+	opacity: 0.8;
+}
+
+@media (max-width: 992px) {
+	.agrezer-about-intro__container {
+		flex-direction: column;
+		gap: 50px;
+	}
+
+	.agrezer-about-intro__left {
+		width: 100%;
+		max-width: 600px;
+		margin: 0 auto;
+	}
+
+	.agrezer-about-intro__features {
+		grid-template-columns: 1fr;
+	}
+}

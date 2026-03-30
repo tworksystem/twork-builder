@@ -1,0 +1,166 @@
+/**
+ * Agrezer hero — aligned with my-avocado reference (hero + features strip).
+ */
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Marcellus&display=swap");
+
+/* Reference tokens */
+$agrezer-hero-green-primary: #314d22;
+$agrezer-hero-green-light: #8fbd45;
+$agrezer-hero-button-yellow: #d9ea57;
+
+.agrezer-hero {
+	position: relative;
+	min-height: 760px;
+	padding: 154px 0 48px;
+	color: #fff;
+	font-family: "Manrope", Arial, sans-serif;
+	overflow: hidden;
+	background-size: cover;
+	background-position: center;
+}
+
+.agrezer-hero__overlay {
+	position: absolute;
+	inset: 0;
+	background:
+		radial-gradient(
+			circle at 18% 88%,
+			rgba(143, 189, 69, 0.3) 0,
+			rgba(143, 189, 69, 0) 42%
+		),
+		linear-gradient(
+			to top,
+			rgba(16, 37, 16, 0.65) 0,
+			rgba(16, 37, 16, 0.06) 38%,
+			rgba(16, 37, 16, 0) 100%
+		);
+	pointer-events: none;
+	z-index: 0;
+}
+
+.agrezer-hero__container {
+	position: relative;
+	z-index: 1;
+	width: min(
+		100% - 96px,
+		var(--agrezer-container-max-width, 1240px)
+	);
+	margin-inline: auto;
+	min-height: calc(760px - 202px);
+	display: grid;
+	grid-template-columns: 1fr;
+	align-content: space-between;
+	gap: 44px;
+	padding-left: var(--agrezer-container-padding, 24px);
+	padding-right: var(--agrezer-container-padding, 24px);
+	box-sizing: border-box;
+}
+
+.agrezer-hero__content {
+	max-width: 600px;
+	display: flex;
+	flex-direction: column;
+	gap: 1.4rem;
+}
+
+.agrezer-hero__tagline {
+	margin: 0;
+	display: inline-flex;
+	align-items: center;
+	gap: 0.55rem;
+	color: rgba(255, 255, 255, 0.95);
+	font-size: 1.04rem;
+	font-weight: 600;
+	width: fit-content;
+}
+
+.agrezer-hero__tagline-icon {
+	width: 1.45rem;
+	height: 1.45rem;
+	flex-shrink: 0;
+	fill: none;
+	stroke: $agrezer-hero-green-light;
+	stroke-width: 1.65;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+}
+
+.agrezer-hero__title {
+	margin: 0;
+	max-width: 600px;
+	font-family: "Marcellus", Georgia, serif;
+	font-size: clamp(3rem, 6vw, 5rem);
+	line-height: 1.06;
+	font-weight: 700;
+	letter-spacing: -0.02em;
+}
+
+.agrezer-hero__desc {
+	margin: 0;
+	max-width: 600px;
+	color: rgba(255, 255, 255, 0.86);
+	font-size: 1.125rem;
+	line-height: 1.6;
+}
+
+.agrezer-hero__btn {
+	margin-top: 0.25rem;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.55rem;
+	width: fit-content;
+	padding: 16px 32px;
+	border-radius: 16px;
+	background: $agrezer-hero-button-yellow;
+	color: #171b11;
+	font-weight: 600;
+	font-size: 1.125rem;
+	text-decoration: none;
+	transition: background-color 180ms ease, transform 180ms ease,
+		box-shadow 180ms ease;
+}
+
+.agrezer-hero__btn:hover {
+	background: #cfdc48;
+	transform: translateY(-2px);
+	box-shadow: 0 10px 22px rgba(0, 0, 0, 0.25);
+}
+
+.agrezer-hero__features-wrapper {
+	margin-left: auto;
+	width: min(100%, 560px);
+	display: flex;
+	gap: var(--agrezer-features-gap, 2rem);
+	align-items: flex-end;
+	flex-wrap: wrap;
+	justify-content: flex-end;
+}
+
+@media (max-width: 1000px) {
+	.agrezer-hero {
+		min-height: auto;
+		padding-top: 134px;
+		padding-bottom: 34px;
+	}
+
+	.agrezer-hero__container {
+		width: min(
+			100% - 36px,
+			var(--agrezer-container-max-width, 1240px)
+		);
+		min-height: auto;
+	}
+
+	.agrezer-hero__title {
+		font-size: clamp(2rem, 7vw, 3.5rem);
+	}
+
+	.agrezer-hero__features-wrapper {
+		margin-left: 0;
+		width: 100%;
+		max-width: 340px;
+		justify-content: space-between;
+		gap: 1.2rem;
+	}
+}

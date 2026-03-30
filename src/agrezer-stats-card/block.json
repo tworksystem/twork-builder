@@ -1,0 +1,46 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/agrezer-stats-card",
+	"version": "1.0.0",
+	"title": "Agrezer Stats Card",
+	"category": "twork-builder",
+	"parent": [ "twork/agrezer-stats-column" ],
+	"icon": "analytics",
+	"description": "Image card with stat value and label overlay.",
+	"supports": {
+		"html": false,
+		"reusable": false
+	},
+	"attributes": {
+		"image": {
+			"type": "string",
+			"default": ""
+		},
+		"imageId": {
+			"type": "number"
+		},
+		"alt": {
+			"type": "string",
+			"default": ""
+		},
+		"statValue": {
+			"type": "string",
+			"default": "80%"
+		},
+		"statLabel": {
+			"type": "string",
+			"default": "Efficiency"
+		}
+	},
+	"example": {
+		"attributes": {
+			"image": "https://images.unsplash.com/photo-1631368647931-4f3ec6d1df92?auto=format&fit=crop&w=1000&q=80",
+			"alt": "Corn cobs and leaves",
+			"statValue": "80%",
+			"statLabel": "Field Efficiency"
+		}
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js"
+}
