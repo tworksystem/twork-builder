@@ -1,40 +1,44 @@
 {
-  "name": "twork-builder",
-  "version": "1.0.0",
-  "description": "General Company Page Builder Blocks for Twork Ecosystem",
-  "author": "T-Work System Co., Ltd.",
-  "license": "GPL-2.0-or-later",
-  "homepage": "https://www.tworksystem.com/twork-builder",
-  "main": "index.js",
-  "scripts": {
-    "build": "cross-env NODE_OPTIONS=--max-old-space-size=8192 wp-scripts build",
-    "start": "cross-env NODE_OPTIONS=--max-old-space-size=8192 wp-scripts start",
-    "packages-update": "wp-scripts packages-update",
-    "lint:css": "wp-scripts lint-style",
-    "lint:js": "wp-scripts lint-js",
-    "format:js": "wp-scripts format",
-    "format": "npm run format:js",
-    "plugin-zip": "npm run build && npm run zip",
-    "zip": "./create-zip.sh"
-  },
-  "devDependencies": {
-    "@wordpress/scripts": "^27.0.0",
-    "cross-env": "^10.1.0",
-    "sass": "^1.69.5"
-  },
-  "engines": {
-    "node": ">=18.0.0",
-    "npm": ">=9.0.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": ""
-  },
-  "keywords": [
-    "wordpress",
-    "gutenberg",
-    "blocks",
-    "twork",
-    "page-builder"
-  ]
+	"name": "twork-builder",
+	"version": "1.0.0",
+	"description": "General Company Page Builder Blocks for Twork Ecosystem",
+	"author": "T-Work System Co., Ltd.",
+	"license": "GPL-2.0-or-later",
+	"homepage": "https://www.tworksystem.com/twork-builder",
+	"main": "index.js",
+	"scripts": {
+		"build": "cross-env NODE_OPTIONS=--max-old-space-size=8192 wp-scripts build",
+		"start": "cross-env NODE_OPTIONS=--max-old-space-size=8192 wp-scripts start",
+		"packages-update": "wp-scripts packages-update",
+		"lint:css": "wp-scripts lint-style",
+		"lint:js": "wp-scripts lint-js",
+		"format:js": "wp-scripts format",
+		"format": "npm run format:js",
+		"plugin-zip": "npm run build && npm run zip",
+		"zip": "./create-zip.sh",
+		"add-block-examples": "node scripts/add-block-examples.mjs",
+		"gate-inspector-is-selected": "node scripts/gate-inspector-is-selected.mjs",
+		"migrate-stable-block-props": "node scripts/migrate-stable-block-props.mjs"
+	},
+	"devDependencies": {
+		"@fortawesome/fontawesome-free": "^7.2.0",
+		"@wordpress/scripts": "^27.0.0",
+		"cross-env": "^10.1.0",
+		"sass": "^1.69.5"
+	},
+	"engines": {
+		"node": ">=18.0.0",
+		"npm": ">=9.0.0"
+	},
+	"repository": {
+		"type": "git",
+		"url": ""
+	},
+	"keywords": [
+		"wordpress",
+		"gutenberg",
+		"blocks",
+		"twork",
+		"page-builder"
+	]
 }

@@ -1,66 +1,100 @@
 {
-    "$schema": "https://schemas.wp.org/trunk/block.json",
-    "apiVersion": 3,
-    "name": "twork/doctor-directory-section",
-    "version": "1.0.0",
-    "title": "Doctor Directory Section",
-    "category": "twork-builder",
-    "icon": "grid-view",
-    "description": "Doctor directory section with filterable doctor cards grid. Add Doctor Card items as children.",
-    "keywords": ["doctor", "directory", "grid", "find a doctor", "twork"],
-    "attributes": {
-        "backgroundColor": {
-            "type": "string",
-            "default": "#ffffff"
-        },
-        "paddingTop": {
-            "type": "number",
-            "default": 0
-        },
-        "paddingBottom": {
-            "type": "number",
-            "default": 80
-        },
-        "columns": {
-            "type": "number",
-            "default": 4
-        },
-        "columnsTablet": {
-            "type": "number",
-            "default": 2
-        },
-        "columnsMobile": {
-            "type": "number",
-            "default": 1
-        },
-        "gap": {
-            "type": "number",
-            "default": 30
-        },
-        "containerMaxWidth": {
-            "type": "number",
-            "default": 1200
-        },
-        "containerPadding": {
-            "type": "number",
-            "default": 30
-        },
-        "noResultsHeading": {
-            "type": "string",
-            "default": "No doctors found matching your criteria."
-        },
-        "noResultsMessage": {
-            "type": "string",
-            "default": "Please try adjusting your filters or search term."
-        }
-    },
-    "supports": {
-        "html": false,
-        "anchor": true,
-        "align": ["wide", "full"]
-    },
-    "textdomain": "twork-builder",
-    "editorScript": "file:./index.js",
-    "viewScript": "file:./view.js",
-    "style": "file:./style-index.css"
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/doctor-directory-section",
+	"version": "1.0.0",
+	"title": "Doctor Directory Section",
+	"category": "twork-builder",
+	"icon": "grid-view",
+	"description": "Doctor directory section with filterable doctor cards grid. Add Doctor Card items as children.",
+	"keywords": [ "doctor", "directory", "grid", "find a doctor", "twork" ],
+	"attributes": {
+		"backgroundColor": {
+			"type": "string",
+			"default": "#ffffff"
+		},
+		"paddingTop": {
+			"type": "number",
+			"default": 0
+		},
+		"paddingBottom": {
+			"type": "number",
+			"default": 80
+		},
+		"columns": {
+			"type": "number",
+			"default": 4
+		},
+		"columnsTablet": {
+			"type": "number",
+			"default": 2
+		},
+		"columnsMobile": {
+			"type": "number",
+			"default": 1
+		},
+		"gap": {
+			"type": "number",
+			"default": 30
+		},
+		"containerMaxWidth": {
+			"type": "number",
+			"default": 1200
+		},
+		"containerPadding": {
+			"type": "number",
+			"default": 30
+		},
+		"noResultsHeading": {
+			"type": "string",
+			"default": "No doctors found matching your criteria."
+		},
+		"noResultsMessage": {
+			"type": "string",
+			"default": "Please try adjusting your filters or search term."
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"align": [ "wide", "full" ]
+	},
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": {
+			"backgroundColor": "#ffffff",
+			"paddingTop": 0,
+			"paddingBottom": 80,
+			"columns": 4,
+			"columnsTablet": 2,
+			"columnsMobile": 1,
+			"gap": 30,
+			"containerMaxWidth": 1200,
+			"containerPadding": 30,
+			"noResultsHeading": "No doctors found matching your criteria.",
+			"noResultsMessage": "Please try adjusting your filters or search term."
+		},
+		"innerBlocks": [
+			{
+				"name": "twork/doctor-card-item",
+				"attributes": {}
+			},
+			{
+				"name": "twork/doctor-card-item",
+				"attributes": {}
+			},
+			{
+				"name": "twork/doctor-card-item",
+				"attributes": {}
+			},
+			{
+				"name": "twork/doctor-card-item",
+				"attributes": {}
+			}
+		]
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"viewScript": "file:./view.js",
+	"style": "file:./style-index.css"
 }

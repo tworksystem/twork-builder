@@ -1,105 +1,158 @@
 {
-    "$schema": "https://schemas.wp.org/trunk/block.json",
-    "apiVersion": 3,
-    "name": "twork/gm-split-section",
-    "version": "1.0.0",
-    "title": "Split Section",
-    "category": "twork-builder",
-    "icon": "layout",
-    "description": "Why Choose Jivaka split layout: image + title, description, feature list, CTA button.",
-    "keywords": ["general medicine", "split", "why choose", "twork"],
-    "supports": {
-        "html": false,
-        "anchor": true,
-        "align": ["wide", "full"]
-    },
-    "attributes": {
-        "imageUrl": {
-            "type": "string",
-            "default": ""
-        },
-        "imageId": {
-            "type": "number"
-        },
-        "imageAlt": {
-            "type": "string",
-            "default": "Doctor Consultation"
-        },
-        "imagePosition": {
-            "type": "string",
-            "default": "left"
-        },
-        "title": {
-            "type": "string",
-            "default": "Why Choose Jivaka?"
-        },
-        "description": {
-            "type": "string",
-            "default": "Our General Physicians act as your first point of contact for any health concern, coordinating with specialists when necessary to ensure you receive the best possible care."
-        },
-        "featureItems": {
-            "type": "array",
-            "default": [
-                { "label": "Experienced Consultants:", "text": "Senior doctors with over 10+ years of experience." },
-                { "label": "Holistic Approach:", "text": "We treat the person, not just the symptoms." },
-                { "label": "Advanced Diagnostics:", "text": "24/7 onsite laboratory and imaging services." },
-                { "label": "Seamless Referral:", "text": "Direct access to Jivaka's specialist departments." }
-            ]
-        },
-        "showButton": {
-            "type": "boolean",
-            "default": true
-        },
-        "buttonText": {
-            "type": "string",
-            "default": "Contact Us Today"
-        },
-        "buttonUrl": {
-            "type": "string",
-            "default": "#contact"
-        },
-        "buttonTarget": {
-            "type": "boolean",
-            "default": false
-        },
-        "backgroundColor": {
-            "type": "string",
-            "default": "#ffffff"
-        },
-        "paddingTop": {
-            "type": "number",
-            "default": 100
-        },
-        "paddingBottom": {
-            "type": "number",
-            "default": 100
-        },
-        "containerMaxWidth": {
-            "type": "number",
-            "default": 1200
-        },
-        "containerPadding": {
-            "type": "number",
-            "default": 24
-        },
-        "titleColor": {
-            "type": "string",
-            "default": "#212121"
-        },
-        "titleFontSize": {
-            "type": "number",
-            "default": 2.2
-        },
-        "descriptionColor": {
-            "type": "string",
-            "default": "#555555"
-        },
-        "splitGap": {
-            "type": "number",
-            "default": 80
-        }
-    },
-    "textdomain": "twork-builder",
-    "editorScript": "file:./index.js",
-    "style": "file:./style-index.css"
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/gm-split-section",
+	"version": "1.0.0",
+	"title": "Split Section",
+	"category": "twork-builder",
+	"icon": "layout",
+	"description": "Why Choose Jivaka split layout: image + title, description, feature list, CTA button.",
+	"keywords": [ "general medicine", "split", "why choose", "twork" ],
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"align": [ "wide", "full" ]
+	},
+	"attributes": {
+		"imageUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"imageId": {
+			"type": "number"
+		},
+		"imageAlt": {
+			"type": "string",
+			"default": "Doctor Consultation"
+		},
+		"imagePosition": {
+			"type": "string",
+			"default": "left"
+		},
+		"title": {
+			"type": "string",
+			"default": "Why Choose Jivaka?"
+		},
+		"description": {
+			"type": "string",
+			"default": "Our General Physicians act as your first point of contact for any health concern, coordinating with specialists when necessary to ensure you receive the best possible care."
+		},
+		"featureItems": {
+			"type": "array",
+			"default": [
+				{
+					"label": "Experienced Consultants:",
+					"text": "Senior doctors with over 10+ years of experience."
+				},
+				{
+					"label": "Holistic Approach:",
+					"text": "We treat the person, not just the symptoms."
+				},
+				{
+					"label": "Advanced Diagnostics:",
+					"text": "24/7 onsite laboratory and imaging services."
+				},
+				{
+					"label": "Seamless Referral:",
+					"text": "Direct access to Jivaka's specialist departments."
+				}
+			]
+		},
+		"showButton": {
+			"type": "boolean",
+			"default": true
+		},
+		"buttonText": {
+			"type": "string",
+			"default": "Contact Us Today"
+		},
+		"buttonUrl": {
+			"type": "string",
+			"default": "#contact"
+		},
+		"buttonTarget": {
+			"type": "boolean",
+			"default": false
+		},
+		"backgroundColor": {
+			"type": "string",
+			"default": "#ffffff"
+		},
+		"paddingTop": {
+			"type": "number",
+			"default": 100
+		},
+		"paddingBottom": {
+			"type": "number",
+			"default": 100
+		},
+		"containerMaxWidth": {
+			"type": "number",
+			"default": 1200
+		},
+		"containerPadding": {
+			"type": "number",
+			"default": 24
+		},
+		"titleColor": {
+			"type": "string",
+			"default": "#212121"
+		},
+		"titleFontSize": {
+			"type": "number",
+			"default": 2.2
+		},
+		"descriptionColor": {
+			"type": "string",
+			"default": "#555555"
+		},
+		"splitGap": {
+			"type": "number",
+			"default": 80
+		}
+	},
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": {
+			"imageUrl": "",
+			"imageAlt": "Doctor Consultation",
+			"imagePosition": "left",
+			"title": "Why Choose Jivaka?",
+			"description": "Our General Physicians act as your first point of contact for any health concern, coordinating with specialists when necessary to ensure you receive the best possible care.",
+			"featureItems": [
+				{
+					"label": "Experienced Consultants:",
+					"text": "Senior doctors with over 10+ years of experience."
+				},
+				{
+					"label": "Holistic Approach:",
+					"text": "We treat the person, not just the symptoms."
+				},
+				{
+					"label": "Advanced Diagnostics:",
+					"text": "24/7 onsite laboratory and imaging services."
+				},
+				{
+					"label": "Seamless Referral:",
+					"text": "Direct access to Jivaka's specialist departments."
+				}
+			],
+			"showButton": true,
+			"buttonText": "Contact Us Today",
+			"buttonUrl": "#contact",
+			"buttonTarget": false,
+			"backgroundColor": "#ffffff",
+			"paddingTop": 100,
+			"paddingBottom": 100,
+			"containerMaxWidth": 1200,
+			"containerPadding": 24,
+			"titleColor": "#212121",
+			"titleFontSize": 2.2,
+			"descriptionColor": "#555555",
+			"splitGap": 80
+		}
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
 }

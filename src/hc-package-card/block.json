@@ -1,23 +1,71 @@
 {
-    "$schema": "https://schemas.wp.org/trunk/block.json",
-    "apiVersion": 3,
-    "name": "twork/hc-package-card",
-    "title": "Package Card",
-    "parent": ["twork/hc-packages-section"],
-    "category": "twork-builder",
-    "description": "Single care package card: title, price, feature list, and CTA button.",
-    "keywords": ["home care", "package", "pricing", "card", "twork"],
-    "attributes": {
-        "title": { "type": "string", "default": "Nursing (Short Term)" },
-        "price": { "type": "string", "default": "30,000" },
-        "priceUnit": { "type": "string", "default": "MMK / Day" },
-        "features": { "type": "array", "default": ["12 Hours Duty", "Vitals Monitoring", "Medication Administration", "Basic Hygiene Care"] },
-        "buttonText": { "type": "string", "default": "Choose Plan" },
-        "buttonUrl": { "type": "string", "default": "#" },
-        "buttonStyle": { "type": "string", "default": "outline" },
-        "headBackground": { "type": "string", "default": "" }
-    },
-    "supports": { "html": false },
-    "textdomain": "twork-builder",
-    "editorScript": "file:./index.js"
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/hc-package-card",
+	"title": "Package Card",
+	"parent": [ "twork/hc-packages-section" ],
+	"category": "twork-builder",
+	"description": "Single care package card: title, price, feature list, and CTA button.",
+	"keywords": [ "home care", "package", "pricing", "card", "twork" ],
+	"attributes": {
+		"title": {
+			"type": "string",
+			"default": "Nursing (Short Term)"
+		},
+		"price": {
+			"type": "string",
+			"default": "30,000"
+		},
+		"priceUnit": {
+			"type": "string",
+			"default": "MMK / Day"
+		},
+		"features": {
+			"type": "array",
+			"default": [
+				"12 Hours Duty",
+				"Vitals Monitoring",
+				"Medication Administration",
+				"Basic Hygiene Care"
+			]
+		},
+		"buttonText": {
+			"type": "string",
+			"default": "Choose Plan"
+		},
+		"buttonUrl": {
+			"type": "string",
+			"default": "#"
+		},
+		"buttonStyle": {
+			"type": "string",
+			"default": "outline"
+		},
+		"headBackground": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"supports": {
+		"html": false
+	},
+	"example": {
+		"attributes": {
+			"title": "Nursing (Short Term)",
+			"price": "30,000",
+			"priceUnit": "MMK / Day",
+			"features": [
+				"12 Hours Duty",
+				"Vitals Monitoring",
+				"Medication Administration",
+				"Basic Hygiene Care"
+			],
+			"buttonText": "Choose Plan",
+			"buttonUrl": "#",
+			"buttonStyle": "outline",
+			"headBackground": ""
+		}
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js"
 }

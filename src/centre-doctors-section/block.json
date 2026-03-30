@@ -1,23 +1,91 @@
 {
-  "$schema": "https://schemas.wp.org/trunk/block.json",
-  "apiVersion": 3,
-  "name": "twork/centre-doctors-section",
-  "version": "1.0.0",
-  "title": "Specialists Section",
-  "category": "twork-builder",
-  "parent": ["twork/centre-layout-section"],
-  "attributes": {
-    "sectionId": { "type": "string", "default": "specialists" },
-    "title": { "type": "string", "default": "Our Neuro Specialists" },
-    "viewAllText": { "type": "string", "default": "View All" },
-    "viewAllUrl": { "type": "string", "default": "doctors.html" },
-    "viewAllIconType": { "type": "string", "default": "fontawesome" },
-    "viewAllIcon": { "type": "string", "default": "fas fa-arrow-right" },
-    "viewAllDashicon": { "type": "string", "default": "dashicons-arrow-right-alt2" },
-    "viewAllIconImageUrl": { "type": "string", "default": "" },
-    "viewAllIconImageId": { "type": "number" },
-    "viewAllIconVideoUrl": { "type": "string", "default": "" },
-    "viewAllIconVideoId": { "type": "number" }
-  },
-  "editorScript": "file:./index.js"
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/centre-doctors-section",
+	"version": "1.0.0",
+	"title": "Specialists Section",
+	"category": "twork-builder",
+	"parent": [ "twork/centre-layout-section" ],
+	"attributes": {
+		"sectionId": {
+			"type": "string",
+			"default": "specialists"
+		},
+		"title": {
+			"type": "string",
+			"default": "Our Neuro Specialists"
+		},
+		"viewAllText": {
+			"type": "string",
+			"default": "View All"
+		},
+		"viewAllUrl": {
+			"type": "string",
+			"default": "doctors.html"
+		},
+		"viewAllIconType": {
+			"type": "string",
+			"default": "fontawesome"
+		},
+		"viewAllIcon": {
+			"type": "string",
+			"default": "fas fa-arrow-right"
+		},
+		"viewAllDashicon": {
+			"type": "string",
+			"default": "dashicons-arrow-right-alt2"
+		},
+		"viewAllIconImageUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"viewAllIconImageId": {
+			"type": "number"
+		},
+		"viewAllIconVideoUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"viewAllIconVideoId": {
+			"type": "number"
+		}
+	},
+	"editorScript": "file:./index.js",
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": {
+			"sectionId": "specialists",
+			"title": "Our Neuro Specialists",
+			"viewAllText": "View All",
+			"viewAllUrl": "doctors.html",
+			"viewAllIconType": "fontawesome",
+			"viewAllIcon": "fas fa-arrow-right",
+			"viewAllDashicon": "dashicons-arrow-right-alt2",
+			"viewAllIconImageUrl": "",
+			"viewAllIconVideoUrl": ""
+		},
+		"innerBlocks": [
+			{
+				"name": "twork/centre-doctor-card",
+				"attributes": {
+					"name": "Dr. Susan May",
+					"specialization": "Neurosurgeon"
+				}
+			},
+			{
+				"name": "twork/centre-doctor-card",
+				"attributes": {
+					"name": "Dr. Nilar",
+					"specialization": "Neurologist"
+				}
+			},
+			{
+				"name": "twork/centre-doctor-card",
+				"attributes": {
+					"name": "Dr. Zaw Win",
+					"specialization": "Spine Surgeon"
+				}
+			}
+		]
+	}
 }

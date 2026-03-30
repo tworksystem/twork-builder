@@ -1,28 +1,33 @@
 {
-  "$schema": "https://schemas.wp.org/trunk/block.json",
-  "apiVersion": 3,
-  "name": "twork/lab-dept-card",
-  "version": "1.0.0",
-  "title": "Department Card",
-  "category": "twork-builder",
-  "parent": ["twork/lab-depts-section"],
-  "icon": "screenoptions",
-  "description": "Single laboratory department card with hex icon and title (e.g. Biochemistry, Hematology).",
-  "keywords": ["lab", "department", "hex", "card", "twork"],
-  "attributes": {
-    "iconClass": {
-      "type": "string",
-      "default": "fas fa-flask"
-    },
-    "title": {
-      "type": "string",
-      "default": "Biochemistry"
-    }
-  },
-  "supports": {
-    "html": false
-  },
-  "textdomain": "twork-builder",
-  "editorScript": "file:./index.js"
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/lab-dept-card",
+	"version": "1.0.0",
+	"title": "Department Card",
+	"category": "twork-builder",
+	"parent": [ "twork/lab-depts-section" ],
+	"icon": "screenoptions",
+	"description": "Single laboratory department card with hex icon and title (e.g. Biochemistry, Hematology).",
+	"keywords": [ "lab", "department", "hex", "card", "twork" ],
+	"attributes": {
+		"iconClass": {
+			"type": "string",
+			"default": "fas fa-flask"
+		},
+		"title": {
+			"type": "string",
+			"default": "Biochemistry"
+		}
+	},
+	"supports": {
+		"html": false
+	},
+	"example": {
+		"attributes": {
+			"iconClass": "fas fa-flask",
+			"title": "Biochemistry"
+		}
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js"
 }
-

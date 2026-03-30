@@ -1,79 +1,127 @@
 {
-    "$schema": "https://schemas.wp.org/trunk/block.json",
-    "apiVersion": 3,
-    "name": "twork/visitor-guidelines-column",
-    "title": "Visitor Guidelines Column",
-    "parent": ["twork/visitor-guidelines-section"],
-    "description": "Single column for Do's or Don'ts with title and list items.",
-    "keywords": ["visitor", "guidelines", "dos", "donts", "column", "twork"],
-    "attributes": {
-        "columnType": {
-            "type": "string",
-            "default": "dos"
-        },
-        "title": {
-            "type": "string",
-            "default": "Do's"
-        },
-        "titleIcon": {
-            "type": "string",
-            "default": "fas fa-check-circle"
-        },
-        "itemIcon": {
-            "type": "string",
-            "default": "fas fa-check"
-        },
-        "listItems": {
-            "type": "array",
-            "default": [
-                { "id": 1, "text": "Wear a mask at all times within the premises." },
-                { "id": 2, "text": "Sanitize your hands before entering the ward." },
-                { "id": 3, "text": "Keep your mobile phones on silent mode." },
-                { "id": 4, "text": "Respect the privacy of other patients." }
-            ]
-        },
-        "titleColor": {
-            "type": "string",
-            "default": ""
-        },
-        "iconColor": {
-            "type": "string",
-            "default": ""
-        },
-        "titleFontSize": {
-            "type": "number",
-            "default": 1.5
-        },
-        "titleFontWeight": {
-            "type": "number",
-            "default": 900
-        },
-        "listItemFontSize": {
-            "type": "number",
-            "default": 1
-        },
-        "listItemColor": {
-            "type": "string",
-            "default": ""
-        },
-        "backgroundColor": {
-            "type": "string",
-            "default": ""
-        },
-        "borderColor": {
-            "type": "string",
-            "default": ""
-        },
-        "columnPadding": {
-            "type": "number",
-            "default": 30
-        },
-        "columnPaddingMobile": {
-            "type": "number",
-            "default": 24
-        }
-    },
-    "textdomain": "twork-builder",
-    "editorScript": "file:./index.js",
-    "style": "file:./style-index.css"
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/visitor-guidelines-column",
+	"title": "Visitor Guidelines Column",
+	"parent": [ "twork/visitor-guidelines-section" ],
+	"description": "Single column for Do's or Don'ts with title and list items.",
+	"keywords": [ "visitor", "guidelines", "dos", "donts", "column", "twork" ],
+	"attributes": {
+		"columnType": {
+			"type": "string",
+			"default": "dos"
+		},
+		"title": {
+			"type": "string",
+			"default": "Do's"
+		},
+		"titleIcon": {
+			"type": "string",
+			"default": "fas fa-check-circle"
+		},
+		"itemIcon": {
+			"type": "string",
+			"default": "fas fa-check"
+		},
+		"listItems": {
+			"type": "array",
+			"default": [
+				{
+					"id": 1,
+					"text": "Wear a mask at all times within the premises."
+				},
+				{
+					"id": 2,
+					"text": "Sanitize your hands before entering the ward."
+				},
+				{
+					"id": 3,
+					"text": "Keep your mobile phones on silent mode."
+				},
+				{
+					"id": 4,
+					"text": "Respect the privacy of other patients."
+				}
+			]
+		},
+		"titleColor": {
+			"type": "string",
+			"default": ""
+		},
+		"iconColor": {
+			"type": "string",
+			"default": ""
+		},
+		"titleFontSize": {
+			"type": "number",
+			"default": 1.5
+		},
+		"titleFontWeight": {
+			"type": "number",
+			"default": 900
+		},
+		"listItemFontSize": {
+			"type": "number",
+			"default": 1
+		},
+		"listItemColor": {
+			"type": "string",
+			"default": ""
+		},
+		"backgroundColor": {
+			"type": "string",
+			"default": ""
+		},
+		"borderColor": {
+			"type": "string",
+			"default": ""
+		},
+		"columnPadding": {
+			"type": "number",
+			"default": 30
+		},
+		"columnPaddingMobile": {
+			"type": "number",
+			"default": 24
+		}
+	},
+	"example": {
+		"attributes": {
+			"columnType": "dos",
+			"title": "Do's",
+			"titleIcon": "fas fa-check-circle",
+			"itemIcon": "fas fa-check",
+			"listItems": [
+				{
+					"id": 1,
+					"text": "Wear a mask at all times within the premises."
+				},
+				{
+					"id": 2,
+					"text": "Sanitize your hands before entering the ward."
+				},
+				{
+					"id": 3,
+					"text": "Keep your mobile phones on silent mode."
+				},
+				{
+					"id": 4,
+					"text": "Respect the privacy of other patients."
+				}
+			],
+			"titleColor": "",
+			"iconColor": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?auto=format&fit=crop&w=1200&q=80",
+			"titleFontSize": 1.5,
+			"titleFontWeight": 900,
+			"listItemFontSize": 1,
+			"listItemColor": "",
+			"backgroundColor": "",
+			"borderColor": "",
+			"columnPadding": 30,
+			"columnPaddingMobile": 24
+		}
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
 }

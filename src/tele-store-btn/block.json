@@ -1,47 +1,57 @@
 {
-    "$schema": "https://schemas.wp.org/trunk/block.json",
-    "apiVersion": 3,
-    "name": "twork/tele-store-btn",
-    "title": "Store Button",
-    "parent": ["twork/tele-download-section"],
-    "category": "twork-builder",
-    "icon": "external",
-    "description": "Single app store download button (image + link) for Telemedicine Download section.",
-    "keywords": ["store", "button", "app", "download", "image", "twork"],
-    "attributes": {
-        "image": {
-            "type": "string",
-            "default": ""
-        },
-        "imageId": {
-            "type": "number"
-        },
-        "alt": {
-            "type": "string",
-            "default": ""
-        },
-        "url": {
-            "type": "string",
-            "default": ""
-        },
-        "linkTarget": {
-            "type": "string",
-            "default": "_blank"
-        },
-        "linkRel": {
-            "type": "string",
-            "default": "noopener noreferrer"
-        },
-        "imageHeight": {
-            "type": "number",
-            "default": 45
-        }
-    },
-    "supports": {
-        "html": false,
-        "reusable": false
-    },
-    "textdomain": "twork-builder",
-    "editorScript": "file:./index.js",
-    "style": "file:./style-index.css"
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/tele-store-btn",
+	"title": "Store Button",
+	"parent": [ "twork/tele-download-section" ],
+	"category": "twork-builder",
+	"icon": "external",
+	"description": "Single app store download button (image + link) for Telemedicine Download section.",
+	"keywords": [ "store", "button", "app", "download", "image", "twork" ],
+	"attributes": {
+		"image": {
+			"type": "string",
+			"default": ""
+		},
+		"imageId": {
+			"type": "number"
+		},
+		"alt": {
+			"type": "string",
+			"default": ""
+		},
+		"url": {
+			"type": "string",
+			"default": ""
+		},
+		"linkTarget": {
+			"type": "string",
+			"default": "_blank"
+		},
+		"linkRel": {
+			"type": "string",
+			"default": "noopener noreferrer"
+		},
+		"imageHeight": {
+			"type": "number",
+			"default": 45
+		}
+	},
+	"supports": {
+		"html": false,
+		"reusable": false
+	},
+	"example": {
+		"attributes": {
+			"image": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?auto=format&fit=crop&w=1200&q=80",
+			"alt": "",
+			"url": "",
+			"linkTarget": "_blank",
+			"linkRel": "noopener noreferrer",
+			"imageHeight": 45
+		}
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
 }

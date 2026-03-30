@@ -1,15 +1,66 @@
 {
-  "$schema": "https://schemas.wp.org/trunk/block.json",
-  "apiVersion": 3,
-  "name": "twork/centre-treatments-section",
-  "version": "1.0.0",
-  "title": "Treatments Section",
-  "category": "twork-builder",
-  "parent": ["twork/centre-layout-section"],
-  "attributes": {
-    "sectionId": { "type": "string", "default": "treatments" },
-    "title": { "type": "string", "default": "Treatments & Services" },
-    "subtitle": { "type": "string", "default": "We specialize in minimally invasive spine surgery and stroke management." }
-  },
-  "editorScript": "file:./index.js"
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/centre-treatments-section",
+	"version": "1.0.0",
+	"title": "Treatments Section",
+	"category": "twork-builder",
+	"parent": [ "twork/centre-layout-section" ],
+	"attributes": {
+		"sectionId": {
+			"type": "string",
+			"default": "treatments"
+		},
+		"title": {
+			"type": "string",
+			"default": "Treatments & Services"
+		},
+		"subtitle": {
+			"type": "string",
+			"default": "We specialize in minimally invasive spine surgery and stroke management."
+		}
+	},
+	"editorScript": "file:./index.js",
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": {
+			"sectionId": "treatments",
+			"title": "Treatments & Services",
+			"subtitle": "We specialize in minimally invasive spine surgery and stroke management."
+		},
+		"innerBlocks": [
+			{
+				"name": "twork/centre-treatment-card",
+				"attributes": {
+					"iconClass": "fas fa-brain",
+					"title": "Stroke Management",
+					"description": "Rapid response \"Golden Hour\" treatment for ischemic and hemorrhagic strokes."
+				}
+			},
+			{
+				"name": "twork/centre-treatment-card",
+				"attributes": {
+					"iconClass": "fas fa-microscope",
+					"title": "Brain Tumor Surgery",
+					"description": "Precision removal of tumors using neuro-navigation systems to protect healthy tissue."
+				}
+			},
+			{
+				"name": "twork/centre-treatment-card",
+				"attributes": {
+					"iconClass": "fas fa-bone",
+					"title": "Spinal Surgery",
+					"description": "Treatments for slipped discs, spinal stenosis, and trauma with minimally invasive techniques."
+				}
+			},
+			{
+				"name": "twork/centre-treatment-card",
+				"attributes": {
+					"iconClass": "fas fa-wave-square",
+					"title": "EEG & EMG Services",
+					"description": "Diagnostic testing for epilepsy, nerve damage, and muscle disorders."
+				}
+			}
+		]
+	}
 }

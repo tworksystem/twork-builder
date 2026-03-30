@@ -1,47 +1,197 @@
 {
-  "$schema": "https://schemas.wp.org/trunk/block.json",
-  "apiVersion": 3,
-  "name": "twork/lab-steps-section",
-  "version": "1.0.0",
-  "title": "How It Works Section",
-  "category": "twork-builder",
-  "icon": "list-view",
-  "description": "Lab 'How It Works' section with vertical timeline and zig-zag step rows (number + content card).",
-  "keywords": ["lab", "steps", "process", "how it works", "timeline", "twork"],
-  "supports": {
-    "html": false,
-    "anchor": true,
-    "align": ["wide", "full"]
-  },
-  "attributes": {
-    "backgroundColor": { "type": "string", "default": "#fafafa" },
-    "paddingTop": { "type": "number", "default": 100 },
-    "paddingBottom": { "type": "number", "default": 100 },
-    "containerMaxWidth": { "type": "number", "default": 1200 },
-    "containerPadding": { "type": "number", "default": 20 },
-    "stepsContainerMaxWidth": { "type": "number", "default": 800 },
-    "stepsGap": { "type": "number", "default": 40 },
-    "showSectionTitle": { "type": "boolean", "default": true },
-    "sectionTitle": { "type": "string", "default": "How It Works" },
-    "sectionTitleColor": { "type": "string", "default": "#000000" },
-    "sectionTitleFontSize": { "type": "number", "default": 2.5 },
-    "sectionTitleFontWeight": { "type": "number", "default": 700 },
-    "sectionTitleAlignment": { "type": "string", "default": "center" },
-    "showSectionSubtitle": { "type": "boolean", "default": false },
-    "sectionSubtitle": { "type": "string", "default": "" },
-    "sectionSubtitleColor": { "type": "string", "default": "#666666" },
-    "sectionSubtitleFontSize": { "type": "number", "default": 1.1 },
-    "animationOnScroll": { "type": "boolean", "default": true },
-    "animationType": { "type": "string", "default": "stagger-up" },
-    "animationDelay": { "type": "number", "default": 100 },
-    "primaryColor": { "type": "string", "default": "#f48b2a" },
-    "stepNumTextColor": { "type": "string", "default": "#ffffff" },
-    "stepContentBgColor": { "type": "string", "default": "#ffffff" },
-    "stepTitleColor": { "type": "string", "default": "#000000" },
-    "stepDescColor": { "type": "string", "default": "#666666" },
-    "lineColor": { "type": "string", "default": "#eeeeee" }
-  },
-  "textdomain": "twork-builder",
-  "editorScript": "file:./index.js",
-  "style": "file:./style-index.css"
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/lab-steps-section",
+	"version": "1.0.0",
+	"title": "How It Works Section",
+	"category": "twork-builder",
+	"icon": "list-view",
+	"description": "Lab 'How It Works' section with vertical timeline and zig-zag step rows (number + content card).",
+	"keywords": [
+		"lab",
+		"steps",
+		"process",
+		"how it works",
+		"timeline",
+		"twork"
+	],
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"align": [ "wide", "full" ]
+	},
+	"attributes": {
+		"backgroundColor": {
+			"type": "string",
+			"default": "#fafafa"
+		},
+		"paddingTop": {
+			"type": "number",
+			"default": 100
+		},
+		"paddingBottom": {
+			"type": "number",
+			"default": 100
+		},
+		"containerMaxWidth": {
+			"type": "number",
+			"default": 1200
+		},
+		"containerPadding": {
+			"type": "number",
+			"default": 20
+		},
+		"stepsContainerMaxWidth": {
+			"type": "number",
+			"default": 800
+		},
+		"stepsGap": {
+			"type": "number",
+			"default": 40
+		},
+		"showSectionTitle": {
+			"type": "boolean",
+			"default": true
+		},
+		"sectionTitle": {
+			"type": "string",
+			"default": "How It Works"
+		},
+		"sectionTitleColor": {
+			"type": "string",
+			"default": "#000000"
+		},
+		"sectionTitleFontSize": {
+			"type": "number",
+			"default": 2.5
+		},
+		"sectionTitleFontWeight": {
+			"type": "number",
+			"default": 700
+		},
+		"sectionTitleAlignment": {
+			"type": "string",
+			"default": "center"
+		},
+		"showSectionSubtitle": {
+			"type": "boolean",
+			"default": false
+		},
+		"sectionSubtitle": {
+			"type": "string",
+			"default": ""
+		},
+		"sectionSubtitleColor": {
+			"type": "string",
+			"default": "#666666"
+		},
+		"sectionSubtitleFontSize": {
+			"type": "number",
+			"default": 1.1
+		},
+		"animationOnScroll": {
+			"type": "boolean",
+			"default": true
+		},
+		"animationType": {
+			"type": "string",
+			"default": "stagger-up"
+		},
+		"animationDelay": {
+			"type": "number",
+			"default": 100
+		},
+		"primaryColor": {
+			"type": "string",
+			"default": "#f48b2a"
+		},
+		"stepNumTextColor": {
+			"type": "string",
+			"default": "#ffffff"
+		},
+		"stepContentBgColor": {
+			"type": "string",
+			"default": "#ffffff"
+		},
+		"stepTitleColor": {
+			"type": "string",
+			"default": "#000000"
+		},
+		"stepDescColor": {
+			"type": "string",
+			"default": "#666666"
+		},
+		"lineColor": {
+			"type": "string",
+			"default": "#eeeeee"
+		}
+	},
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": {
+			"backgroundColor": "#fafafa",
+			"paddingTop": 100,
+			"paddingBottom": 100,
+			"containerMaxWidth": 1200,
+			"containerPadding": 20,
+			"stepsContainerMaxWidth": 800,
+			"stepsGap": 40,
+			"showSectionTitle": true,
+			"sectionTitle": "How It Works",
+			"sectionTitleColor": "#000000",
+			"sectionTitleFontSize": 2.5,
+			"sectionTitleFontWeight": 700,
+			"sectionTitleAlignment": "center",
+			"showSectionSubtitle": false,
+			"sectionSubtitle": "",
+			"sectionSubtitleColor": "#666666",
+			"sectionSubtitleFontSize": 1.1,
+			"animationOnScroll": true,
+			"animationType": "stagger-up",
+			"animationDelay": 100,
+			"primaryColor": "#f48b2a",
+			"stepNumTextColor": "#ffffff",
+			"stepContentBgColor": "#ffffff",
+			"stepTitleColor": "#000000",
+			"stepDescColor": "#666666",
+			"lineColor": "#eeeeee"
+		},
+		"innerBlocks": [
+			{
+				"name": "twork/lab-step-item",
+				"attributes": {
+					"stepNumber": "1",
+					"title": "Book a Test",
+					"description": "Call us or book online."
+				}
+			},
+			{
+				"name": "twork/lab-step-item",
+				"attributes": {
+					"stepNumber": "2",
+					"title": "Sample Collection",
+					"description": "Quick and painless collection."
+				}
+			},
+			{
+				"name": "twork/lab-step-item",
+				"attributes": {
+					"stepNumber": "3",
+					"title": "Analysis",
+					"description": "Processed in ISO lab."
+				}
+			},
+			{
+				"name": "twork/lab-step-item",
+				"attributes": {
+					"stepNumber": "4",
+					"title": "Report",
+					"description": "Sent via Email/SMS."
+				}
+			}
+		]
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
 }

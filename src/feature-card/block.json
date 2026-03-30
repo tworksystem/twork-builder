@@ -1,26 +1,33 @@
 {
-  "$schema": "https://schemas.wp.org/trunk/block.json",
-  "apiVersion": 3,
-  "name": "twork/feature-card",
-  "version": "1.0.0",
-  "title": "Feature Card",
-  "category": "twork-builder",
-  "parent": ["twork/features-section"],
-  "description": "Single feature card with icon, title, and description for the About features grid.",
-  "attributes": {
-    "iconClass": {
-      "type": "string",
-      "default": "fas fa-microscope"
-    },
-    "title": {
-      "type": "string",
-      "default": "Advanced Tech"
-    },
-    "description": {
-      "type": "string",
-      "default": "4K Laparoscopy towers and modern modular operation theaters."
-    }
-  },
-  "textdomain": "twork-builder",
-  "editorScript": "file:./index.js"
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/feature-card",
+	"version": "1.0.0",
+	"title": "Feature Card",
+	"category": "twork-builder",
+	"parent": [ "twork/features-section" ],
+	"description": "Single feature card with icon, title, and description for the About features grid.",
+	"attributes": {
+		"iconClass": {
+			"type": "string",
+			"default": "fas fa-microscope"
+		},
+		"title": {
+			"type": "string",
+			"default": "Advanced Tech"
+		},
+		"description": {
+			"type": "string",
+			"default": "4K Laparoscopy towers and modern modular operation theaters."
+		}
+	},
+	"example": {
+		"attributes": {
+			"iconClass": "fas fa-microscope",
+			"title": "Advanced Tech",
+			"description": "4K Laparoscopy towers and modern modular operation theaters."
+		}
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js"
 }

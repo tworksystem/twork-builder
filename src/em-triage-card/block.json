@@ -1,37 +1,48 @@
 {
-    "$schema": "https://schemas.wp.org/trunk/block.json",
-    "apiVersion": 3,
-    "name": "twork/em-triage-card",
-    "version": "1.0.0",
-    "title": "Triage Card",
-    "parent": ["twork/em-triage-section"],
-    "category": "twork-builder",
-    "description": "Single triage card with icon, title and bullet list for Emergency Triage Section.",
-    "keywords": ["emergency", "triage", "card", "list", "twork"],
-    "attributes": {
-        "iconClass": {
-            "type": "string",
-            "default": "fas fa-heartbeat"
-        },
-        "cardTitle": {
-            "type": "string",
-            "default": "Heart Attack Signs"
-        },
-        "listItems": {
-            "type": "array",
-            "default": [],
-            "items": {
-                "type": "object",
-                "properties": {
-                    "id": { "type": "number" },
-                    "text": { "type": "string" }
-                }
-            }
-        }
-    },
-    "supports": {
-        "html": false
-    },
-    "textdomain": "twork-builder",
-    "editorScript": "file:./index.js"
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/em-triage-card",
+	"version": "1.0.0",
+	"title": "Triage Card",
+	"parent": [ "twork/em-triage-section" ],
+	"category": "twork-builder",
+	"description": "Single triage card with icon, title and bullet list for Emergency Triage Section.",
+	"keywords": [ "emergency", "triage", "card", "list", "twork" ],
+	"attributes": {
+		"iconClass": {
+			"type": "string",
+			"default": "fas fa-heartbeat"
+		},
+		"cardTitle": {
+			"type": "string",
+			"default": "Heart Attack Signs"
+		},
+		"listItems": {
+			"type": "array",
+			"default": [],
+			"items": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "number"
+					},
+					"text": {
+						"type": "string"
+					}
+				}
+			}
+		}
+	},
+	"supports": {
+		"html": false
+	},
+	"example": {
+		"attributes": {
+			"iconClass": "fas fa-heartbeat",
+			"cardTitle": "Heart Attack Signs",
+			"listItems": []
+		}
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js"
 }

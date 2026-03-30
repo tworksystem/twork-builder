@@ -1,32 +1,38 @@
 {
-  "$schema": "https://schemas.wp.org/trunk/block.json",
-  "apiVersion": 3,
-  "name": "twork/phy-therapy-card",
-  "version": "1.0.0",
-  "title": "Therapy Card",
-  "category": "twork-builder",
-  "parent": ["twork/phy-therapies-section"],
-  "icon": "screenoptions",
-  "description": "Single therapy card with background image, title and description for the Physio Therapies section.",
-  "keywords": ["physio", "therapy", "service", "card", "twork"],
-  "attributes": {
-    "imageUrl": {
-      "type": "string",
-      "default": ""
-    },
-    "title": {
-      "type": "string",
-      "default": "Manual Therapy"
-    },
-    "description": {
-      "type": "string",
-      "default": "Hands-on techniques to mobilize joints and soft tissues, reducing pain and increasing range of motion."
-    }
-  },
-  "supports": {
-    "html": false
-  },
-  "textdomain": "twork-builder",
-  "editorScript": "file:./index.js"
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/phy-therapy-card",
+	"version": "1.0.0",
+	"title": "Therapy Card",
+	"category": "twork-builder",
+	"parent": [ "twork/phy-therapies-section" ],
+	"icon": "screenoptions",
+	"description": "Single therapy card with background image, title and description for the Physio Therapies section.",
+	"keywords": [ "physio", "therapy", "service", "card", "twork" ],
+	"attributes": {
+		"imageUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"title": {
+			"type": "string",
+			"default": "Manual Therapy"
+		},
+		"description": {
+			"type": "string",
+			"default": "Hands-on techniques to mobilize joints and soft tissues, reducing pain and increasing range of motion."
+		}
+	},
+	"supports": {
+		"html": false
+	},
+	"example": {
+		"attributes": {
+			"imageUrl": "",
+			"title": "Manual Therapy",
+			"description": "Hands-on techniques to mobilize joints and soft tissues, reducing pain and increasing range of motion."
+		}
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js"
 }
-

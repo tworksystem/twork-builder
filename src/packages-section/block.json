@@ -1,191 +1,368 @@
 {
-    "$schema": "https://schemas.wp.org/trunk/block.json",
-    "apiVersion": 3,
-    "name": "twork/packages-section",
-    "version": "1.0.0",
-    "title": "Packages Section",
-    "category": "twork-builder",
-    "icon": "grid-view",
-    "description": "Health packages / pricing grid with filter tabs and customizable package cards.",
-    "keywords": ["packages", "pricing", "health", "grid", "filter", "twork"],
-    "supports": {
-        "html": false,
-        "anchor": true,
-        "align": ["full", "wide"]
-    },
-    "attributes": {
-        "backgroundColor": {
-            "type": "string",
-            "default": "#f8f9fa"
-        },
-        "backgroundImage": {
-            "type": "string",
-            "default": ""
-        },
-        "backgroundImageId": {
-            "type": "number"
-        },
-        "backgroundOverlay": {
-            "type": "boolean",
-            "default": false
-        },
-        "backgroundOverlayColor": {
-            "type": "string",
-            "default": "rgba(0, 0, 0, 0.5)"
-        },
-        "backgroundOverlayOpacity": {
-            "type": "number",
-            "default": 0.5
-        },
-        "paddingTop": {
-            "type": "number",
-            "default": 60
-        },
-        "paddingBottom": {
-            "type": "number",
-            "default": 100
-        },
-        "containerMaxWidth": {
-            "type": "number",
-            "default": 1200
-        },
-        "containerPadding": {
-            "type": "number",
-            "default": 20
-        },
-        "showFilterSection": {
-            "type": "boolean",
-            "default": true
-        },
-        "filterTabs": {
-            "type": "array",
-            "default": [
-                { "label": "All Packages", "value": "all" },
-                { "label": "General Health", "value": "general" },
-                { "label": "Heart Care", "value": "heart" },
-                { "label": "Women's Health", "value": "women" }
-            ]
-        },
-        "filterBgColor": {
-            "type": "string",
-            "default": "#f1f1f1"
-        },
-        "filterActiveBgColor": {
-            "type": "string",
-            "default": "#ffffff"
-        },
-        "filterActiveTextColor": {
-            "type": "string",
-            "default": "#f48b2a"
-        },
-        "filterTextColor": {
-            "type": "string",
-            "default": "#666666"
-        },
-        "filterBorderRadius": {
-            "type": "number",
-            "default": 50
-        },
-        "filterSectionMarginBottom": {
-            "type": "number",
-            "default": 40
-        },
-        "columns": {
-            "type": "number",
-            "default": 3
-        },
-        "columnsTablet": {
-            "type": "number",
-            "default": 2
-        },
-        "columnsMobile": {
-            "type": "number",
-            "default": 1
-        },
-        "gap": {
-            "type": "number",
-            "default": 30
-        },
-        "cardBorderRadius": {
-            "type": "number",
-            "default": 12
-        },
-        "cardBoxShadow": {
-            "type": "boolean",
-            "default": true
-        },
-        "hoverEffect": {
-            "type": "boolean",
-            "default": true
-        },
-        "hoverTranslateY": {
-            "type": "number",
-            "default": -10
-        },
-        "animationOnScroll": {
-            "type": "boolean",
-            "default": true
-        },
-        "animationDelay": {
-            "type": "number",
-            "default": 100
-        },
-        "animationType": {
-            "type": "string",
-            "default": "fadeInUp"
-        },
-        "layoutStyle": {
-            "type": "string",
-            "default": "default"
-        },
-        "showSectionHeader": {
-            "type": "boolean",
-            "default": true
-        },
-        "sectionTitle": {
-            "type": "string",
-            "default": "Health Packages"
-        },
-        "sectionTitleColor": {
-            "type": "string",
-            "default": "#212121"
-        },
-        "sectionTitleAlignment": {
-            "type": "string",
-            "default": "center"
-        },
-        "showWaveDivider": {
-            "type": "boolean",
-            "default": true
-        },
-        "waveColor": {
-            "type": "string",
-            "default": "#f0f9ff"
-        },
-        "labSectionBgColor": { "type": "string", "default": "#f0f9ff" },
-        "labFeatureTextColor": { "type": "string", "default": "#555555" },
-        "labCurrencyColor": { "type": "string", "default": "#94a3b8" },
-        "primaryColor": { "type": "string", "default": "#f48b2a" },
-        "cardTitleColor": { "type": "string", "default": "#212121" },
-        "cardPriceColor": { "type": "string", "default": "#f48b2a" },
-        "cardDescColor": { "type": "string", "default": "#666666" },
-        "featureIconColor": { "type": "string", "default": "#2ecc71" },
-        "featureTextColor": { "type": "string", "default": "#555555" },
-        "buttonBgColor": { "type": "string", "default": "#f48b2a" },
-        "buttonTextColor": { "type": "string", "default": "#ffffff" },
-        "ribbonBgColor": { "type": "string", "default": "#f48b2a" },
-        "ribbonTextColor": { "type": "string", "default": "#ffffff" },
-        "labPrimaryColor": { "type": "string", "default": "#0284c7" },
-        "labSecondaryColor": { "type": "string", "default": "#0f172a" },
-        "labHeaderBgColor": { "type": "string", "default": "#0f172a" },
-        "labHeaderTextColor": { "type": "string", "default": "#ffffff" },
-        "labCardBgColor": { "type": "string", "default": "#ffffff" },
-        "labFeatureIconColor": { "type": "string", "default": "#0284c7" },
-        "labButtonBgColor": { "type": "string", "default": "#0284c7" },
-        "labButtonTextColor": { "type": "string", "default": "#ffffff" }
-    },
-    "textdomain": "twork-builder",
-    "editorScript": "file:./index.js",
-    "style": "file:./style-index.css",
-    "viewScript": "file:./view.js"
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/packages-section",
+	"version": "1.0.0",
+	"title": "Packages Section",
+	"category": "twork-builder",
+	"icon": "grid-view",
+	"description": "Health packages / pricing grid with filter tabs and customizable package cards.",
+	"keywords": [ "packages", "pricing", "health", "grid", "filter", "twork" ],
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"align": [ "full", "wide" ]
+	},
+	"attributes": {
+		"backgroundColor": {
+			"type": "string",
+			"default": "#f8f9fa"
+		},
+		"backgroundImage": {
+			"type": "string",
+			"default": ""
+		},
+		"backgroundImageId": {
+			"type": "number"
+		},
+		"backgroundOverlay": {
+			"type": "boolean",
+			"default": false
+		},
+		"backgroundOverlayColor": {
+			"type": "string",
+			"default": "rgba(0, 0, 0, 0.5)"
+		},
+		"backgroundOverlayOpacity": {
+			"type": "number",
+			"default": 0.5
+		},
+		"paddingTop": {
+			"type": "number",
+			"default": 60
+		},
+		"paddingBottom": {
+			"type": "number",
+			"default": 100
+		},
+		"containerMaxWidth": {
+			"type": "number",
+			"default": 1200
+		},
+		"containerPadding": {
+			"type": "number",
+			"default": 20
+		},
+		"showFilterSection": {
+			"type": "boolean",
+			"default": true
+		},
+		"filterTabs": {
+			"type": "array",
+			"default": [
+				{
+					"label": "All Packages",
+					"value": "all"
+				},
+				{
+					"label": "General Health",
+					"value": "general"
+				},
+				{
+					"label": "Heart Care",
+					"value": "heart"
+				},
+				{
+					"label": "Women's Health",
+					"value": "women"
+				}
+			]
+		},
+		"filterBgColor": {
+			"type": "string",
+			"default": "#f1f1f1"
+		},
+		"filterActiveBgColor": {
+			"type": "string",
+			"default": "#ffffff"
+		},
+		"filterActiveTextColor": {
+			"type": "string",
+			"default": "#f48b2a"
+		},
+		"filterTextColor": {
+			"type": "string",
+			"default": "#666666"
+		},
+		"filterBorderRadius": {
+			"type": "number",
+			"default": 50
+		},
+		"filterSectionMarginBottom": {
+			"type": "number",
+			"default": 40
+		},
+		"columns": {
+			"type": "number",
+			"default": 3
+		},
+		"columnsTablet": {
+			"type": "number",
+			"default": 2
+		},
+		"columnsMobile": {
+			"type": "number",
+			"default": 1
+		},
+		"gap": {
+			"type": "number",
+			"default": 30
+		},
+		"cardBorderRadius": {
+			"type": "number",
+			"default": 12
+		},
+		"cardBoxShadow": {
+			"type": "boolean",
+			"default": true
+		},
+		"hoverEffect": {
+			"type": "boolean",
+			"default": true
+		},
+		"hoverTranslateY": {
+			"type": "number",
+			"default": -10
+		},
+		"animationOnScroll": {
+			"type": "boolean",
+			"default": true
+		},
+		"animationDelay": {
+			"type": "number",
+			"default": 100
+		},
+		"animationType": {
+			"type": "string",
+			"default": "fadeInUp"
+		},
+		"layoutStyle": {
+			"type": "string",
+			"default": "default"
+		},
+		"showSectionHeader": {
+			"type": "boolean",
+			"default": true
+		},
+		"sectionTitle": {
+			"type": "string",
+			"default": "Health Packages"
+		},
+		"sectionTitleColor": {
+			"type": "string",
+			"default": "#212121"
+		},
+		"sectionTitleAlignment": {
+			"type": "string",
+			"default": "center"
+		},
+		"showWaveDivider": {
+			"type": "boolean",
+			"default": true
+		},
+		"waveColor": {
+			"type": "string",
+			"default": "#f0f9ff"
+		},
+		"labSectionBgColor": {
+			"type": "string",
+			"default": "#f0f9ff"
+		},
+		"labFeatureTextColor": {
+			"type": "string",
+			"default": "#555555"
+		},
+		"labCurrencyColor": {
+			"type": "string",
+			"default": "#94a3b8"
+		},
+		"primaryColor": {
+			"type": "string",
+			"default": "#f48b2a"
+		},
+		"cardTitleColor": {
+			"type": "string",
+			"default": "#212121"
+		},
+		"cardPriceColor": {
+			"type": "string",
+			"default": "#f48b2a"
+		},
+		"cardDescColor": {
+			"type": "string",
+			"default": "#666666"
+		},
+		"featureIconColor": {
+			"type": "string",
+			"default": "#2ecc71"
+		},
+		"featureTextColor": {
+			"type": "string",
+			"default": "#555555"
+		},
+		"buttonBgColor": {
+			"type": "string",
+			"default": "#f48b2a"
+		},
+		"buttonTextColor": {
+			"type": "string",
+			"default": "#ffffff"
+		},
+		"ribbonBgColor": {
+			"type": "string",
+			"default": "#f48b2a"
+		},
+		"ribbonTextColor": {
+			"type": "string",
+			"default": "#ffffff"
+		},
+		"labPrimaryColor": {
+			"type": "string",
+			"default": "#0284c7"
+		},
+		"labSecondaryColor": {
+			"type": "string",
+			"default": "#0f172a"
+		},
+		"labHeaderBgColor": {
+			"type": "string",
+			"default": "#0f172a"
+		},
+		"labHeaderTextColor": {
+			"type": "string",
+			"default": "#ffffff"
+		},
+		"labCardBgColor": {
+			"type": "string",
+			"default": "#ffffff"
+		},
+		"labFeatureIconColor": {
+			"type": "string",
+			"default": "#0284c7"
+		},
+		"labButtonBgColor": {
+			"type": "string",
+			"default": "#0284c7"
+		},
+		"labButtonTextColor": {
+			"type": "string",
+			"default": "#ffffff"
+		}
+	},
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": {
+			"backgroundColor": "#f8f9fa",
+			"backgroundImage": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?auto=format&fit=crop&w=1200&q=80",
+			"backgroundOverlay": false,
+			"backgroundOverlayColor": "rgba(0, 0, 0, 0.5)",
+			"backgroundOverlayOpacity": 0.5,
+			"paddingTop": 60,
+			"paddingBottom": 100,
+			"containerMaxWidth": 1200,
+			"containerPadding": 20,
+			"showFilterSection": true,
+			"filterTabs": [
+				{
+					"label": "All Packages",
+					"value": "all"
+				},
+				{
+					"label": "General Health",
+					"value": "general"
+				},
+				{
+					"label": "Heart Care",
+					"value": "heart"
+				},
+				{
+					"label": "Women's Health",
+					"value": "women"
+				}
+			],
+			"filterBgColor": "#f1f1f1",
+			"filterActiveBgColor": "#ffffff",
+			"filterActiveTextColor": "#f48b2a",
+			"filterTextColor": "#666666",
+			"filterBorderRadius": 50,
+			"filterSectionMarginBottom": 40,
+			"columns": 3,
+			"columnsTablet": 2,
+			"columnsMobile": 1,
+			"gap": 30,
+			"cardBorderRadius": 12,
+			"cardBoxShadow": true,
+			"hoverEffect": true,
+			"hoverTranslateY": -10,
+			"animationOnScroll": true,
+			"animationDelay": 100,
+			"animationType": "fadeInUp",
+			"layoutStyle": "default",
+			"showSectionHeader": true,
+			"sectionTitle": "Health Packages",
+			"sectionTitleColor": "#212121",
+			"sectionTitleAlignment": "center",
+			"showWaveDivider": true,
+			"waveColor": "#f0f9ff",
+			"labSectionBgColor": "#f0f9ff",
+			"labFeatureTextColor": "#555555",
+			"labCurrencyColor": "#94a3b8",
+			"primaryColor": "#f48b2a",
+			"cardTitleColor": "#212121",
+			"cardPriceColor": "#f48b2a",
+			"cardDescColor": "#666666",
+			"featureIconColor": "#2ecc71",
+			"featureTextColor": "#555555",
+			"buttonBgColor": "#f48b2a",
+			"buttonTextColor": "#ffffff",
+			"ribbonBgColor": "#f48b2a",
+			"ribbonTextColor": "#ffffff",
+			"labPrimaryColor": "#0284c7",
+			"labSecondaryColor": "#0f172a",
+			"labHeaderBgColor": "#0f172a",
+			"labHeaderTextColor": "#ffffff",
+			"labCardBgColor": "#ffffff",
+			"labFeatureIconColor": "#0284c7",
+			"labButtonBgColor": "#0284c7",
+			"labButtonTextColor": "#ffffff"
+		},
+		"innerBlocks": [
+			{
+				"name": "twork/package-item",
+				"attributes": {
+					"packageName": "Basic Health",
+					"category": "general"
+				}
+			},
+			{
+				"name": "twork/package-item",
+				"attributes": {
+					"packageName": "Executive Checkup",
+					"category": "general",
+					"isRecommended": true
+				}
+			},
+			{
+				"name": "twork/package-item",
+				"attributes": {
+					"packageName": "Healthy Heart",
+					"category": "heart"
+				}
+			}
+		]
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./view.js"
 }

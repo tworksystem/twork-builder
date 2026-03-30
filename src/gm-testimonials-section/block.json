@@ -1,77 +1,128 @@
 {
-    "$schema": "https://schemas.wp.org/trunk/block.json",
-    "apiVersion": 3,
-    "name": "twork/gm-testimonials-section",
-    "version": "1.0.0",
-    "title": "Patient Stories",
-    "category": "twork-builder",
-    "icon": "format-quote",
-    "description": "Patient Stories / testimonials section with optional title, subtitle and a grid of review cards.",
-    "keywords": ["general medicine", "patient stories", "testimonials", "reviews", "twork"],
-    "supports": {
-        "html": false,
-        "anchor": true,
-        "align": ["wide", "full"]
-    },
-    "attributes": {
-        "backgroundColor": {
-            "type": "string",
-            "default": "#ffffff"
-        },
-        "paddingTop": {
-            "type": "number",
-            "default": 100
-        },
-        "paddingBottom": {
-            "type": "number",
-            "default": 100
-        },
-        "containerMaxWidth": {
-            "type": "number",
-            "default": 1200
-        },
-        "containerPadding": {
-            "type": "number",
-            "default": 24
-        },
-        "showSectionTitle": {
-            "type": "boolean",
-            "default": true
-        },
-        "sectionTitle": {
-            "type": "string",
-            "default": "Patient Stories"
-        },
-        "sectionSubtitle": {
-            "type": "string",
-            "default": "What our patients say about their experience."
-        },
-        "sectionTitleColor": {
-            "type": "string",
-            "default": "#212121"
-        },
-        "sectionSubtitleColor": {
-            "type": "string",
-            "default": "#555555"
-        },
-        "sectionTitleAlignment": {
-            "type": "string",
-            "default": "center"
-        },
-        "sectionTitleFontSize": {
-            "type": "number",
-            "default": 2.5
-        },
-        "sectionSubtitleFontSize": {
-            "type": "number",
-            "default": 1.1
-        },
-        "gridGap": {
-            "type": "number",
-            "default": 30
-        }
-    },
-    "textdomain": "twork-builder",
-    "editorScript": "file:./index.js",
-    "style": "file:./style-index.css"
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/gm-testimonials-section",
+	"version": "1.0.0",
+	"title": "Patient Stories",
+	"category": "twork-builder",
+	"icon": "format-quote",
+	"description": "Patient Stories / testimonials section with optional title, subtitle and a grid of review cards.",
+	"keywords": [
+		"general medicine",
+		"patient stories",
+		"testimonials",
+		"reviews",
+		"twork"
+	],
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"align": [ "wide", "full" ]
+	},
+	"attributes": {
+		"backgroundColor": {
+			"type": "string",
+			"default": "#ffffff"
+		},
+		"paddingTop": {
+			"type": "number",
+			"default": 100
+		},
+		"paddingBottom": {
+			"type": "number",
+			"default": 100
+		},
+		"containerMaxWidth": {
+			"type": "number",
+			"default": 1200
+		},
+		"containerPadding": {
+			"type": "number",
+			"default": 24
+		},
+		"showSectionTitle": {
+			"type": "boolean",
+			"default": true
+		},
+		"sectionTitle": {
+			"type": "string",
+			"default": "Patient Stories"
+		},
+		"sectionSubtitle": {
+			"type": "string",
+			"default": "What our patients say about their experience."
+		},
+		"sectionTitleColor": {
+			"type": "string",
+			"default": "#212121"
+		},
+		"sectionSubtitleColor": {
+			"type": "string",
+			"default": "#555555"
+		},
+		"sectionTitleAlignment": {
+			"type": "string",
+			"default": "center"
+		},
+		"sectionTitleFontSize": {
+			"type": "number",
+			"default": 2.5
+		},
+		"sectionSubtitleFontSize": {
+			"type": "number",
+			"default": 1.1
+		},
+		"gridGap": {
+			"type": "number",
+			"default": 30
+		}
+	},
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": {
+			"backgroundColor": "#ffffff",
+			"paddingTop": 100,
+			"paddingBottom": 100,
+			"containerMaxWidth": 1200,
+			"containerPadding": 24,
+			"showSectionTitle": true,
+			"sectionTitle": "Patient Stories",
+			"sectionSubtitle": "What our patients say about their experience.",
+			"sectionTitleColor": "#212121",
+			"sectionSubtitleColor": "#555555",
+			"sectionTitleAlignment": "center",
+			"sectionTitleFontSize": 2.5,
+			"sectionSubtitleFontSize": 1.1,
+			"gridGap": 30
+		},
+		"innerBlocks": [
+			{
+				"name": "twork/gm-review-card",
+				"attributes": {
+					"reviewText": "\"Dr. Thida Win is incredibly patient and thorough. She explained my condition clearly and the treatment plan has worked wonders for my diabetes management.\"",
+					"reviewerName": "U Kyaw Zin",
+					"reviewerLabel": "Diabetes Patient"
+				}
+			},
+			{
+				"name": "twork/gm-review-card",
+				"attributes": {
+					"reviewText": "\"I always come here for my family's check-ups. The nursing staff is friendly, and the doctors are top-notch. Highly recommended for general care.\"",
+					"reviewerName": "Daw Aye Aye",
+					"reviewerLabel": "Regular Check-up"
+				}
+			},
+			{
+				"name": "twork/gm-review-card",
+				"attributes": {
+					"reviewText": "\"The Hypertension clinic helped me get my blood pressure under control. The follow-up system is excellent.\"",
+					"reviewerName": "U Myint Soe",
+					"reviewerLabel": "Hypertension Patient"
+				}
+			}
+		]
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
 }

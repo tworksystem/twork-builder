@@ -1,20 +1,50 @@
 {
-  "$schema": "https://schemas.wp.org/trunk/block.json",
-  "apiVersion": 3,
-  "name": "twork/centre-doctor-card",
-  "version": "1.0.0",
-  "title": "Doctor Card (Mini)",
-  "category": "twork-builder",
-  "parent": ["twork/centre-doctors-section"],
-  "description": "Single specialist/doctor card with photo, name, specialization, and profile link.",
-  "attributes": {
-    "imageUrl": { "type": "string", "default": "" },
-    "imageId": { "type": "number" },
-    "imageAlt": { "type": "string", "default": "" },
-    "name": { "type": "string", "default": "Dr. Susan May" },
-    "specialization": { "type": "string", "default": "Neurosurgeon" },
-    "profileUrl": { "type": "string", "default": "doctor-profile.html" },
-    "profileLinkText": { "type": "string", "default": "View Profile" }
-  },
-  "editorScript": "file:./index.js"
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/centre-doctor-card",
+	"version": "1.0.0",
+	"title": "Doctor Card (Mini)",
+	"category": "twork-builder",
+	"parent": [ "twork/centre-doctors-section" ],
+	"description": "Single specialist/doctor card with photo, name, specialization, and profile link.",
+	"attributes": {
+		"imageUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"imageId": {
+			"type": "number"
+		},
+		"imageAlt": {
+			"type": "string",
+			"default": ""
+		},
+		"name": {
+			"type": "string",
+			"default": "Dr. Susan May"
+		},
+		"specialization": {
+			"type": "string",
+			"default": "Neurosurgeon"
+		},
+		"profileUrl": {
+			"type": "string",
+			"default": "doctor-profile.html"
+		},
+		"profileLinkText": {
+			"type": "string",
+			"default": "View Profile"
+		}
+	},
+	"editorScript": "file:./index.js",
+	"example": {
+		"attributes": {
+			"imageUrl": "",
+			"imageAlt": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?auto=format&fit=crop&w=1200&q=80",
+			"name": "Dr. Susan May",
+			"specialization": "Neurosurgeon",
+			"profileUrl": "doctor-profile.html",
+			"profileLinkText": "View Profile"
+		}
+	}
 }

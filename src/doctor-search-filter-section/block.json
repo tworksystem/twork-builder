@@ -1,117 +1,146 @@
 {
-    "$schema": "https://schemas.wp.org/trunk/block.json",
-    "apiVersion": 3,
-    "name": "twork/doctor-search-filter-section",
-    "version": "1.0.0",
-    "title": "Doctor Search Filter",
-    "category": "twork-builder",
-    "icon": "search",
-    "description": "Search and filter bar for doctor directory. Use above Doctor Directory Section; IDs searchInput, deptFilter, genderFilter, resetBtn are required for filtering.",
-    "keywords": ["doctor", "search", "filter", "find a doctor", "twork"],
-    "attributes": {
-        "nameLabel": {
-            "type": "string",
-            "default": "Doctor's Name"
-        },
-        "searchPlaceholder": {
-            "type": "string",
-            "default": "Type name e.g. Kyaw"
-        },
-        "departmentLabel": {
-            "type": "string",
-            "default": "Department"
-        },
-        "departmentAllLabel": {
-            "type": "string",
-            "default": "All Departments"
-        },
-        "genderLabel": {
-            "type": "string",
-            "default": "Gender"
-        },
-        "genderAllLabel": {
-            "type": "string",
-            "default": "All Genders"
-        },
-        "resetButtonText": {
-            "type": "string",
-            "default": "Reset"
-        },
-        "containerMaxWidth": {
-            "type": "number",
-            "default": 1200
-        },
-        "containerPadding": {
-            "type": "number",
-            "default": 30
-        },
-        "sectionMarginTop": {
-            "type": "number",
-            "default": -80
-        },
-        "sectionMarginBottom": {
-            "type": "number",
-            "default": 60
-        },
-        "boxPadding": {
-            "type": "number",
-            "default": 30
-        },
-        "boxBorderRadius": {
-            "type": "number",
-            "default": 8
-        },
-        "boxBackgroundColor": {
-            "type": "string",
-            "default": "#ffffff"
-        },
-        "boxBorderTopColor": {
-            "type": "string",
-            "default": "#f48b2a"
-        },
-        "boxBorderTopWidth": {
-            "type": "number",
-            "default": 4
-        },
-        "labelColor": {
-            "type": "string",
-            "default": "#666666"
-        },
-        "inputBorderColor": {
-            "type": "string",
-            "default": "#dddddd"
-        },
-        "inputFocusBorderColor": {
-            "type": "string",
-            "default": "#f48b2a"
-        },
-        "resetButtonBg": {
-            "type": "string",
-            "default": "#f0f0f0"
-        },
-        "resetButtonColor": {
-            "type": "string",
-            "default": "#666666"
-        },
-        "resetButtonHoverBg": {
-            "type": "string",
-            "default": "#e0e0e0"
-        },
-        "resetButtonHoverColor": {
-            "type": "string",
-            "default": "#212121"
-        },
-        "addAnimationClass": {
-            "type": "boolean",
-            "default": true
-        }
-    },
-    "supports": {
-        "html": false,
-        "anchor": true,
-        "align": ["wide", "full"]
-    },
-    "textdomain": "twork-builder",
-    "editorScript": "file:./index.js",
-    "style": "file:./style-index.css"
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/doctor-search-filter-section",
+	"version": "1.0.0",
+	"title": "Doctor Search Filter",
+	"category": "twork-builder",
+	"icon": "search",
+	"description": "Search and filter bar for doctor directory. Use above Doctor Directory Section; IDs searchInput, deptFilter, genderFilter, resetBtn are required for filtering.",
+	"keywords": [ "doctor", "search", "filter", "find a doctor", "twork" ],
+	"attributes": {
+		"nameLabel": {
+			"type": "string",
+			"default": "Doctor's Name"
+		},
+		"searchPlaceholder": {
+			"type": "string",
+			"default": "Type name e.g. Kyaw"
+		},
+		"departmentLabel": {
+			"type": "string",
+			"default": "Department"
+		},
+		"departmentAllLabel": {
+			"type": "string",
+			"default": "All Departments"
+		},
+		"genderLabel": {
+			"type": "string",
+			"default": "Gender"
+		},
+		"genderAllLabel": {
+			"type": "string",
+			"default": "All Genders"
+		},
+		"resetButtonText": {
+			"type": "string",
+			"default": "Reset"
+		},
+		"containerMaxWidth": {
+			"type": "number",
+			"default": 1200
+		},
+		"containerPadding": {
+			"type": "number",
+			"default": 30
+		},
+		"sectionMarginTop": {
+			"type": "number",
+			"default": -80
+		},
+		"sectionMarginBottom": {
+			"type": "number",
+			"default": 60
+		},
+		"boxPadding": {
+			"type": "number",
+			"default": 30
+		},
+		"boxBorderRadius": {
+			"type": "number",
+			"default": 8
+		},
+		"boxBackgroundColor": {
+			"type": "string",
+			"default": "#ffffff"
+		},
+		"boxBorderTopColor": {
+			"type": "string",
+			"default": "#f48b2a"
+		},
+		"boxBorderTopWidth": {
+			"type": "number",
+			"default": 4
+		},
+		"labelColor": {
+			"type": "string",
+			"default": "#666666"
+		},
+		"inputBorderColor": {
+			"type": "string",
+			"default": "#dddddd"
+		},
+		"inputFocusBorderColor": {
+			"type": "string",
+			"default": "#f48b2a"
+		},
+		"resetButtonBg": {
+			"type": "string",
+			"default": "#f0f0f0"
+		},
+		"resetButtonColor": {
+			"type": "string",
+			"default": "#666666"
+		},
+		"resetButtonHoverBg": {
+			"type": "string",
+			"default": "#e0e0e0"
+		},
+		"resetButtonHoverColor": {
+			"type": "string",
+			"default": "#212121"
+		},
+		"addAnimationClass": {
+			"type": "boolean",
+			"default": true
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"align": [ "wide", "full" ]
+	},
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": {
+			"nameLabel": "Doctor's Name",
+			"searchPlaceholder": "Type name e.g. Kyaw",
+			"departmentLabel": "Department",
+			"departmentAllLabel": "All Departments",
+			"genderLabel": "Gender",
+			"genderAllLabel": "All Genders",
+			"resetButtonText": "Reset",
+			"containerMaxWidth": 1200,
+			"containerPadding": 30,
+			"sectionMarginTop": -80,
+			"sectionMarginBottom": 60,
+			"boxPadding": 30,
+			"boxBorderRadius": 8,
+			"boxBackgroundColor": "#ffffff",
+			"boxBorderTopColor": "#f48b2a",
+			"boxBorderTopWidth": 4,
+			"labelColor": "#666666",
+			"inputBorderColor": "#dddddd",
+			"inputFocusBorderColor": "#f48b2a",
+			"resetButtonBg": "#f0f0f0",
+			"resetButtonColor": "#666666",
+			"resetButtonHoverBg": "#e0e0e0",
+			"resetButtonHoverColor": "#212121",
+			"addAnimationClass": true
+		}
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
 }

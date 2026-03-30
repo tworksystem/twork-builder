@@ -1,66 +1,83 @@
 {
-  "$schema": "https://schemas.wp.org/trunk/block.json",
-  "apiVersion": 3,
-  "name": "twork/amb-tech-item",
-  "title": "Ambulance Tech Item",
-  "parent": ["twork/amb-tech-section"],
-  "category": "twork-builder",
-  "description": "Single tech/equipment item with icon, title and description.",
-  "keywords": ["ambulance", "tech", "icon", "equipment", "twork"],
-  "attributes": {
-    "icon": {
-      "type": "string",
-      "default": "fa-heartbeat"
-    },
-    "title": {
-      "type": "string",
-      "default": "Defibrillator"
-    },
-    "description": {
-      "type": "string",
-      "default": "Immediate response for cardiac arrest patients."
-    },
-    "iconColor": {
-      "type": "string",
-      "default": "#f48b2a"
-    },
-    "iconSize": {
-      "type": "number",
-      "default": 2.5
-    },
-    "iconMarginBottom": {
-      "type": "number",
-      "default": 20
-    },
-    "titleColor": {
-      "type": "string",
-      "default": "#ffffff"
-    },
-    "titleFontSize": {
-      "type": "number",
-      "default": 1.25
-    },
-    "titleFontWeight": {
-      "type": "number",
-      "default": 700
-    },
-    "titleMarginBottom": {
-      "type": "number",
-      "default": 10
-    },
-    "descriptionColor": {
-      "type": "string",
-      "default": "rgba(255, 255, 255, 0.7)"
-    },
-    "descriptionFontSize": {
-      "type": "number",
-      "default": 0.9
-    },
-    "itemPadding": {
-      "type": "number",
-      "default": 30
-    }
-  },
-  "textdomain": "twork-builder",
-  "editorScript": "file:./index.js"
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/amb-tech-item",
+	"title": "Ambulance Tech Item",
+	"parent": [ "twork/amb-tech-section" ],
+	"category": "twork-builder",
+	"description": "Single tech/equipment item with icon, title and description.",
+	"keywords": [ "ambulance", "tech", "icon", "equipment", "twork" ],
+	"attributes": {
+		"icon": {
+			"type": "string",
+			"default": "fa-heartbeat"
+		},
+		"title": {
+			"type": "string",
+			"default": "Defibrillator"
+		},
+		"description": {
+			"type": "string",
+			"default": "Immediate response for cardiac arrest patients."
+		},
+		"iconColor": {
+			"type": "string",
+			"default": "#f48b2a"
+		},
+		"iconSize": {
+			"type": "number",
+			"default": 2.5
+		},
+		"iconMarginBottom": {
+			"type": "number",
+			"default": 20
+		},
+		"titleColor": {
+			"type": "string",
+			"default": "#ffffff"
+		},
+		"titleFontSize": {
+			"type": "number",
+			"default": 1.25
+		},
+		"titleFontWeight": {
+			"type": "number",
+			"default": 700
+		},
+		"titleMarginBottom": {
+			"type": "number",
+			"default": 10
+		},
+		"descriptionColor": {
+			"type": "string",
+			"default": "rgba(255, 255, 255, 0.7)"
+		},
+		"descriptionFontSize": {
+			"type": "number",
+			"default": 0.9
+		},
+		"itemPadding": {
+			"type": "number",
+			"default": 30
+		}
+	},
+	"example": {
+		"attributes": {
+			"icon": "fa-heartbeat",
+			"title": "Defibrillator",
+			"description": "Immediate response for cardiac arrest patients.",
+			"iconColor": "#f48b2a",
+			"iconSize": 2.5,
+			"iconMarginBottom": 20,
+			"titleColor": "#ffffff",
+			"titleFontSize": 1.25,
+			"titleFontWeight": 700,
+			"titleMarginBottom": 10,
+			"descriptionColor": "rgba(255, 255, 255, 0.7)",
+			"descriptionFontSize": 0.9,
+			"itemPadding": 30
+		}
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js"
 }

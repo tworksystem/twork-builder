@@ -1,136 +1,214 @@
 {
-  "$schema": "https://schemas.wp.org/trunk/block.json",
-  "apiVersion": 3,
-  "name": "twork/rad-diagnostic-tabs",
-  "version": "1.0.0",
-  "title": "Diagnostic Tabs",
-  "category": "twork-builder",
-  "icon": "index-card",
-  "description": "Radiology diagnostic services section with tabbed content for different modalities.",
-  "keywords": [
-    "radiology",
-    "diagnostic",
-    "tabs",
-    "services",
-    "twork"
-  ],
-  "attributes": {
-    "sectionBackground": {
-      "type": "string",
-      "default": "#fafafa"
-    },
-    "paddingTop": {
-      "type": "string",
-      "default": "80px"
-    },
-    "paddingBottom": {
-      "type": "string",
-      "default": "80px"
-    },
-    "sectionTitle": {
-      "type": "string",
-      "default": "Diagnostic Services"
-    },
-    "sectionSubtitle": {
-      "type": "string",
-      "default": "Select a modality to learn more about our capabilities."
-    },
-    "activeTabId": {
-      "type": "string",
-      "default": "mri"
-    },
-    "tabs": {
-      "type": "array",
-      "default": [
-        {
-          "id": "mri",
-          "label": "MRI Scan",
-          "iconClass": "fas fa-chevron-right",
-          "imageUrl": "https://images.unsplash.com/photo-1559757175-5700dde675bc?auto=format&fit=crop&w=800&q=80",
-          "imageId": 0,
-          "imageAlt": "MRI",
-          "paneTitle": "Magnetic Resonance Imaging (MRI)",
-          "description": "Our 1.5 Tesla MRI provides high-resolution images of the brain, spine, and joints without any radiation.",
-          "features": [
-            "Silent Scan Technology for patient comfort",
-            "Full body screening capabilities",
-            "Stroke & Tumor detection"
-          ]
-        },
-        {
-          "id": "ct",
-          "label": "CT Scan",
-          "iconClass": "fas fa-chevron-right",
-          "imageUrl": "https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=800&q=80",
-          "imageId": 0,
-          "imageAlt": "CT",
-          "paneTitle": "Computed Tomography (CT)",
-          "description": "The 64-Slice CT scanner captures detailed cross-sectional images of the body in seconds.",
-          "features": [
-            "Cardiac CT Angiography",
-            "Low-dose radiation protocols",
-            "3D reconstruction available"
-          ]
-        },
-        {
-          "id": "xray",
-          "label": "Digital X-Ray",
-          "iconClass": "fas fa-chevron-right",
-          "imageUrl": "https://images.unsplash.com/photo-1530497610245-94d3c16cda28?auto=format&fit=crop&w=800&q=80",
-          "imageId": 0,
-          "imageAlt": "Xray",
-          "paneTitle": "Digital X-Ray",
-          "description": "Instant imaging for bone fractures and chest infections with minimal exposure.",
-          "features": [
-            "Instant digital results",
-            "Portable X-ray for bedridden patients",
-            "High clarity for orthopedics"
-          ]
-        },
-        {
-          "id": "ultra",
-          "label": "Ultrasound (4D)",
-          "iconClass": "fas fa-chevron-right",
-          "imageUrl": "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=800&q=80",
-          "imageId": 0,
-          "imageAlt": "Ultrasound",
-          "paneTitle": "4D Ultrasound",
-          "description": "Advanced sonography for pregnancy, abdominal, and vascular assessments.",
-          "features": [
-            "Pregnancy anomaly scan",
-            "Doppler studies for blood flow",
-            "Abdomen & Pelvis checkup"
-          ]
-        },
-        {
-          "id": "mammo",
-          "label": "Mammography",
-          "iconClass": "fas fa-chevron-right",
-          "imageUrl": "https://plus.unsplash.com/premium_photo-1661757827828-9759d571853d?auto=format&fit=crop&w=800&q=80",
-          "imageId": 0,
-          "imageAlt": "Mammogram",
-          "paneTitle": "Mammography",
-          "description": "Specialized imaging for early detection of breast cancer.",
-          "features": [
-            "Digital Mammogram",
-            "Pain-reduced compression",
-            "Expert female technicians"
-          ]
-        }
-      ]
-    }
-  },
-  "supports": {
-    "html": false,
-    "anchor": true,
-    "align": [
-      "wide",
-      "full"
-    ]
-  },
-  "textdomain": "twork-builder",
-  "editorScript": "file:./index.js",
-  "style": "file:./style-index.css",
-  "viewScript": "file:./view.js"
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/rad-diagnostic-tabs",
+	"version": "1.0.0",
+	"title": "Diagnostic Tabs",
+	"category": "twork-builder",
+	"icon": "index-card",
+	"description": "Radiology diagnostic services section with tabbed content for different modalities.",
+	"keywords": [ "radiology", "diagnostic", "tabs", "services", "twork" ],
+	"attributes": {
+		"sectionBackground": {
+			"type": "string",
+			"default": "#fafafa"
+		},
+		"paddingTop": {
+			"type": "string",
+			"default": "80px"
+		},
+		"paddingBottom": {
+			"type": "string",
+			"default": "80px"
+		},
+		"sectionTitle": {
+			"type": "string",
+			"default": "Diagnostic Services"
+		},
+		"sectionSubtitle": {
+			"type": "string",
+			"default": "Select a modality to learn more about our capabilities."
+		},
+		"activeTabId": {
+			"type": "string",
+			"default": "mri"
+		},
+		"tabs": {
+			"type": "array",
+			"default": [
+				{
+					"id": "mri",
+					"label": "MRI Scan",
+					"iconClass": "fas fa-chevron-right",
+					"imageUrl": "https://images.unsplash.com/photo-1559757175-5700dde675bc?auto=format&fit=crop&w=800&q=80",
+					"imageId": 0,
+					"imageAlt": "MRI",
+					"paneTitle": "Magnetic Resonance Imaging (MRI)",
+					"description": "Our 1.5 Tesla MRI provides high-resolution images of the brain, spine, and joints without any radiation.",
+					"features": [
+						"Silent Scan Technology for patient comfort",
+						"Full body screening capabilities",
+						"Stroke & Tumor detection"
+					]
+				},
+				{
+					"id": "ct",
+					"label": "CT Scan",
+					"iconClass": "fas fa-chevron-right",
+					"imageUrl": "https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=800&q=80",
+					"imageId": 0,
+					"imageAlt": "CT",
+					"paneTitle": "Computed Tomography (CT)",
+					"description": "The 64-Slice CT scanner captures detailed cross-sectional images of the body in seconds.",
+					"features": [
+						"Cardiac CT Angiography",
+						"Low-dose radiation protocols",
+						"3D reconstruction available"
+					]
+				},
+				{
+					"id": "xray",
+					"label": "Digital X-Ray",
+					"iconClass": "fas fa-chevron-right",
+					"imageUrl": "https://images.unsplash.com/photo-1530497610245-94d3c16cda28?auto=format&fit=crop&w=800&q=80",
+					"imageId": 0,
+					"imageAlt": "Xray",
+					"paneTitle": "Digital X-Ray",
+					"description": "Instant imaging for bone fractures and chest infections with minimal exposure.",
+					"features": [
+						"Instant digital results",
+						"Portable X-ray for bedridden patients",
+						"High clarity for orthopedics"
+					]
+				},
+				{
+					"id": "ultra",
+					"label": "Ultrasound (4D)",
+					"iconClass": "fas fa-chevron-right",
+					"imageUrl": "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=800&q=80",
+					"imageId": 0,
+					"imageAlt": "Ultrasound",
+					"paneTitle": "4D Ultrasound",
+					"description": "Advanced sonography for pregnancy, abdominal, and vascular assessments.",
+					"features": [
+						"Pregnancy anomaly scan",
+						"Doppler studies for blood flow",
+						"Abdomen & Pelvis checkup"
+					]
+				},
+				{
+					"id": "mammo",
+					"label": "Mammography",
+					"iconClass": "fas fa-chevron-right",
+					"imageUrl": "https://plus.unsplash.com/premium_photo-1661757827828-9759d571853d?auto=format&fit=crop&w=800&q=80",
+					"imageId": 0,
+					"imageAlt": "Mammogram",
+					"paneTitle": "Mammography",
+					"description": "Specialized imaging for early detection of breast cancer.",
+					"features": [
+						"Digital Mammogram",
+						"Pain-reduced compression",
+						"Expert female technicians"
+					]
+				}
+			]
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"align": [ "wide", "full" ]
+	},
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": {
+			"sectionBackground": "#fafafa",
+			"paddingTop": "80px",
+			"paddingBottom": "80px",
+			"sectionTitle": "Diagnostic Services",
+			"sectionSubtitle": "Select a modality to learn more about our capabilities.",
+			"activeTabId": "mri",
+			"tabs": [
+				{
+					"id": "mri",
+					"label": "MRI Scan",
+					"iconClass": "fas fa-chevron-right",
+					"imageUrl": "https://images.unsplash.com/photo-1559757175-5700dde675bc?auto=format&fit=crop&w=800&q=80",
+					"imageId": 0,
+					"imageAlt": "MRI",
+					"paneTitle": "Magnetic Resonance Imaging (MRI)",
+					"description": "Our 1.5 Tesla MRI provides high-resolution images of the brain, spine, and joints without any radiation.",
+					"features": [
+						"Silent Scan Technology for patient comfort",
+						"Full body screening capabilities",
+						"Stroke & Tumor detection"
+					]
+				},
+				{
+					"id": "ct",
+					"label": "CT Scan",
+					"iconClass": "fas fa-chevron-right",
+					"imageUrl": "https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=800&q=80",
+					"imageId": 0,
+					"imageAlt": "CT",
+					"paneTitle": "Computed Tomography (CT)",
+					"description": "The 64-Slice CT scanner captures detailed cross-sectional images of the body in seconds.",
+					"features": [
+						"Cardiac CT Angiography",
+						"Low-dose radiation protocols",
+						"3D reconstruction available"
+					]
+				},
+				{
+					"id": "xray",
+					"label": "Digital X-Ray",
+					"iconClass": "fas fa-chevron-right",
+					"imageUrl": "https://images.unsplash.com/photo-1530497610245-94d3c16cda28?auto=format&fit=crop&w=800&q=80",
+					"imageId": 0,
+					"imageAlt": "Xray",
+					"paneTitle": "Digital X-Ray",
+					"description": "Instant imaging for bone fractures and chest infections with minimal exposure.",
+					"features": [
+						"Instant digital results",
+						"Portable X-ray for bedridden patients",
+						"High clarity for orthopedics"
+					]
+				},
+				{
+					"id": "ultra",
+					"label": "Ultrasound (4D)",
+					"iconClass": "fas fa-chevron-right",
+					"imageUrl": "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=800&q=80",
+					"imageId": 0,
+					"imageAlt": "Ultrasound",
+					"paneTitle": "4D Ultrasound",
+					"description": "Advanced sonography for pregnancy, abdominal, and vascular assessments.",
+					"features": [
+						"Pregnancy anomaly scan",
+						"Doppler studies for blood flow",
+						"Abdomen & Pelvis checkup"
+					]
+				},
+				{
+					"id": "mammo",
+					"label": "Mammography",
+					"iconClass": "fas fa-chevron-right",
+					"imageUrl": "https://plus.unsplash.com/premium_photo-1661757827828-9759d571853d?auto=format&fit=crop&w=800&q=80",
+					"imageId": 0,
+					"imageAlt": "Mammogram",
+					"paneTitle": "Mammography",
+					"description": "Specialized imaging for early detection of breast cancer.",
+					"features": [
+						"Digital Mammogram",
+						"Pain-reduced compression",
+						"Expert female technicians"
+					]
+				}
+			]
+		}
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./view.js"
 }
-

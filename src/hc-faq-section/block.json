@@ -1,29 +1,105 @@
 {
-    "$schema": "https://schemas.wp.org/trunk/block.json",
-    "apiVersion": 3,
-    "name": "twork/hc-faq-section",
-    "version": "1.0.0",
-    "title": "FAQ Section",
-    "category": "twork-builder",
-    "icon": "editor-help",
-    "description": "Frequently Asked Questions: header + accordion list. Matches home-care.html.",
-    "keywords": ["home care", "faq", "accordion", "questions", "twork"],
-    "attributes": {
-        "backgroundColor": { "type": "string", "default": "#fafafa" },
-        "paddingTop": { "type": "number", "default": 60 },
-        "paddingBottom": { "type": "number", "default": 60 },
-        "containerMaxWidth": { "type": "number", "default": 1200 },
-        "containerPadding": { "type": "number", "default": 20 },
-        "contentMaxWidth": { "type": "number", "default": 800 },
-        "showSectionTitle": { "type": "boolean", "default": true },
-        "sectionTitle": { "type": "string", "default": "Frequently Asked Questions" },
-        "sectionTitleColor": { "type": "string", "default": "#212121" },
-        "animationOnScroll": { "type": "boolean", "default": true },
-        "animationType": { "type": "string", "default": "fade-up" }
-    },
-    "supports": { "html": false, "anchor": true, "align": ["wide", "full"] },
-    "textdomain": "twork-builder",
-    "editorScript": "file:./index.js",
-    "viewScript": "file:./view.js",
-    "style": "file:./style-index.css"
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/hc-faq-section",
+	"version": "1.0.0",
+	"title": "FAQ Section",
+	"category": "twork-builder",
+	"icon": "editor-help",
+	"description": "Frequently Asked Questions: header + accordion list. Matches home-care.html.",
+	"keywords": [ "home care", "faq", "accordion", "questions", "twork" ],
+	"attributes": {
+		"backgroundColor": {
+			"type": "string",
+			"default": "#fafafa"
+		},
+		"paddingTop": {
+			"type": "number",
+			"default": 60
+		},
+		"paddingBottom": {
+			"type": "number",
+			"default": 60
+		},
+		"containerMaxWidth": {
+			"type": "number",
+			"default": 1200
+		},
+		"containerPadding": {
+			"type": "number",
+			"default": 20
+		},
+		"contentMaxWidth": {
+			"type": "number",
+			"default": 800
+		},
+		"showSectionTitle": {
+			"type": "boolean",
+			"default": true
+		},
+		"sectionTitle": {
+			"type": "string",
+			"default": "Frequently Asked Questions"
+		},
+		"sectionTitleColor": {
+			"type": "string",
+			"default": "#212121"
+		},
+		"animationOnScroll": {
+			"type": "boolean",
+			"default": true
+		},
+		"animationType": {
+			"type": "string",
+			"default": "fade-up"
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"align": [ "wide", "full" ]
+	},
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": {
+			"backgroundColor": "#fafafa",
+			"paddingTop": 60,
+			"paddingBottom": 60,
+			"containerMaxWidth": 1200,
+			"containerPadding": 20,
+			"contentMaxWidth": 800,
+			"showSectionTitle": true,
+			"sectionTitle": "Frequently Asked Questions",
+			"sectionTitleColor": "#212121",
+			"animationOnScroll": true,
+			"animationType": "fade-up"
+		},
+		"innerBlocks": [
+			{
+				"name": "twork/hc-faq-item",
+				"attributes": {
+					"question": "Is the service available 24/7?",
+					"answer": "Yes, our nursing and doctor visit services can be arranged for any time of the day, depending on availability."
+				}
+			},
+			{
+				"name": "twork/hc-faq-item",
+				"attributes": {
+					"question": "Do you bring your own equipment?",
+					"answer": "Yes, our team comes equipped with basic diagnostic tools (BP machine, Oximeter, etc.). For specialized equipment like Oxygen concentrators, we offer rental services."
+				}
+			},
+			{
+				"name": "twork/hc-faq-item",
+				"attributes": {
+					"question": "How do I pay?",
+					"answer": "We accept cash, KPay, WavePay, and major credit cards upon completion of the service or via advance booking."
+				}
+			}
+		]
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"viewScript": "file:./view.js",
+	"style": "file:./style-index.css"
 }

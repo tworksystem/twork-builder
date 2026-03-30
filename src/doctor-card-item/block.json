@@ -1,87 +1,108 @@
 {
-    "$schema": "https://schemas.wp.org/trunk/block.json",
-    "apiVersion": 3,
-    "name": "twork/doctor-card-item",
-    "title": "Doctor Card Item",
-    "parent": ["twork/doctor-directory-section"],
-    "description": "Single doctor card for the Doctor Directory. Used inside Doctor Directory Section.",
-    "keywords": ["doctor", "card", "profile", "twork"],
-    "attributes": {
-        "doctorImage": {
-            "type": "string",
-            "default": ""
-        },
-        "doctorImageId": {
-            "type": "number"
-        },
-        "imageHeight": {
-            "type": "number",
-            "default": 260
-        },
-        "imageObjectFit": {
-            "type": "string",
-            "default": "cover"
-        },
-        "imageObjectPosition": {
-            "type": "string",
-            "default": "top center"
-        },
-        "showBadge": {
-            "type": "boolean",
-            "default": false
-        },
-        "badgeText": {
-            "type": "string",
-            "default": "Available Today"
-        },
-        "departmentSlug": {
-            "type": "string",
-            "default": "heart"
-        },
-        "departmentLabel": {
-            "type": "string",
-            "default": "Heart Centre"
-        },
-        "doctorName": {
-            "type": "string",
-            "default": "Dr. Kyaw Swar"
-        },
-        "qualifications": {
-            "type": "string",
-            "default": "MBBS, M.Med.Sc, MRCP (UK)"
-        },
-        "gender": {
-            "type": "string",
-            "default": "male"
-        },
-        "profileUrl": {
-            "type": "string",
-            "default": "#"
-        },
-        "profileOpenInNewTab": {
-            "type": "boolean",
-            "default": false
-        },
-        "bookUrl": {
-            "type": "string",
-            "default": "#"
-        },
-        "bookOpenInNewTab": {
-            "type": "boolean",
-            "default": false
-        },
-        "profileButtonText": {
-            "type": "string",
-            "default": "Profile"
-        },
-        "bookButtonText": {
-            "type": "string",
-            "default": "Book"
-        }
-    },
-    "supports": {
-        "html": false
-    },
-    "textdomain": "twork-builder",
-    "editorScript": "file:./index.js"
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/doctor-card-item",
+	"title": "Doctor Card Item",
+	"parent": [ "twork/doctor-directory-section" ],
+	"description": "Single doctor card for the Doctor Directory. Used inside Doctor Directory Section.",
+	"keywords": [ "doctor", "card", "profile", "twork" ],
+	"attributes": {
+		"doctorImage": {
+			"type": "string",
+			"default": ""
+		},
+		"doctorImageId": {
+			"type": "number"
+		},
+		"imageHeight": {
+			"type": "number",
+			"default": 260
+		},
+		"imageObjectFit": {
+			"type": "string",
+			"default": "cover"
+		},
+		"imageObjectPosition": {
+			"type": "string",
+			"default": "top center"
+		},
+		"showBadge": {
+			"type": "boolean",
+			"default": false
+		},
+		"badgeText": {
+			"type": "string",
+			"default": "Available Today"
+		},
+		"departmentSlug": {
+			"type": "string",
+			"default": "heart"
+		},
+		"departmentLabel": {
+			"type": "string",
+			"default": "Heart Centre"
+		},
+		"doctorName": {
+			"type": "string",
+			"default": "Dr. Kyaw Swar"
+		},
+		"qualifications": {
+			"type": "string",
+			"default": "MBBS, M.Med.Sc, MRCP (UK)"
+		},
+		"gender": {
+			"type": "string",
+			"default": "male"
+		},
+		"profileUrl": {
+			"type": "string",
+			"default": "#"
+		},
+		"profileOpenInNewTab": {
+			"type": "boolean",
+			"default": false
+		},
+		"bookUrl": {
+			"type": "string",
+			"default": "#"
+		},
+		"bookOpenInNewTab": {
+			"type": "boolean",
+			"default": false
+		},
+		"profileButtonText": {
+			"type": "string",
+			"default": "Profile"
+		},
+		"bookButtonText": {
+			"type": "string",
+			"default": "Book"
+		}
+	},
+	"supports": {
+		"html": false
+	},
+	"example": {
+		"attributes": {
+			"doctorImage": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?auto=format&fit=crop&w=1200&q=80",
+			"imageHeight": 260,
+			"imageObjectFit": "cover",
+			"imageObjectPosition": "top center",
+			"showBadge": false,
+			"badgeText": "Available Today",
+			"departmentSlug": "heart",
+			"departmentLabel": "Heart Centre",
+			"doctorName": "Dr. Kyaw Swar",
+			"qualifications": "MBBS, M.Med.Sc, MRCP (UK)",
+			"gender": "male",
+			"profileUrl": "#",
+			"profileOpenInNewTab": false,
+			"bookUrl": "#",
+			"bookOpenInNewTab": false,
+			"profileButtonText": "Profile",
+			"bookButtonText": "Book"
+		}
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js"
 }

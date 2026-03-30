@@ -1,88 +1,122 @@
 {
-  "$schema": "https://schemas.wp.org/trunk/block.json",
-  "apiVersion": 3,
-  "name": "twork/lab-hero-section",
-  "version": "1.0.0",
-  "title": "Hero Section",
-  "category": "twork-builder",
-  "icon": "welcome-widgets-menus",
-  "description": "Glass-morphism laboratory hero with badge, title, buttons and floating stats bubbles. Matches laboratory-services.html lab-hero.",
-  "keywords": ["lab", "hero", "header", "jivaka", "twork"],
-  "attributes": {
-    "backgroundImageUrl": {
-      "type": "string",
-      "default": "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
-    },
-    "backgroundImageId": {
-      "type": "number"
-    },
-    "backgroundOverlayColor": {
-      "type": "string",
-      "default": "rgba(0, 95, 115, 0.4)"
-    },
-    "backgroundOverlayOpacity": {
-      "type": "number",
-      "default": 0.4
-    },
-    "minHeight": {
-      "type": "number",
-      "default": 700
-    },
-    "containerMaxWidth": {
-      "type": "number",
-      "default": 1200
-    },
-    "containerPadding": {
-      "type": "number",
-      "default": 20
-    },
-    "badgeText": {
-      "type": "string",
-      "default": "ISO 15189 Certified"
-    },
-    "title": {
-      "type": "string",
-      "default": "Precision Science,\nAccurate Diagnosis."
-    },
-    "description": {
-      "type": "string",
-      "default": "Advanced pathology services using world-class analyzers. Trusted by thousands for accurate and timely results."
-    },
-    "primaryButtonText": {
-      "type": "string",
-      "default": "Check Prices"
-    },
-    "primaryButtonUrl": {
-      "type": "string",
-      "default": "#packages"
-    },
-    "secondaryButtonText": {
-      "type": "string",
-      "default": "Home Visit"
-    },
-    "secondaryButtonUrl": {
-      "type": "string",
-      "default": "#homecare"
-    },
-    "stats": {
-      "type": "array",
-      "default": [
-        { "value": "500+", "label": "Tests" },
-        { "value": "1 Hr", "label": "Results" }
-      ]
-    },
-    "animationOnScroll": {
-      "type": "boolean",
-      "default": true
-    }
-  },
-  "supports": {
-    "html": false,
-    "anchor": true,
-    "align": ["wide", "full"]
-  },
-  "textdomain": "twork-builder",
-  "editorScript": "file:./index.js",
-  "style": "file:./style-index.css"
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/lab-hero-section",
+	"version": "1.0.0",
+	"title": "Hero Section",
+	"category": "twork-builder",
+	"icon": "welcome-widgets-menus",
+	"description": "Glass-morphism laboratory hero with badge, title, buttons and floating stats bubbles. Matches laboratory-services.html lab-hero.",
+	"keywords": [ "lab", "hero", "header", "jivaka", "twork" ],
+	"attributes": {
+		"backgroundImageUrl": {
+			"type": "string",
+			"default": "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
+		},
+		"backgroundImageId": {
+			"type": "number"
+		},
+		"backgroundOverlayColor": {
+			"type": "string",
+			"default": "rgba(0, 95, 115, 0.4)"
+		},
+		"backgroundOverlayOpacity": {
+			"type": "number",
+			"default": 0.4
+		},
+		"minHeight": {
+			"type": "number",
+			"default": 700
+		},
+		"containerMaxWidth": {
+			"type": "number",
+			"default": 1200
+		},
+		"containerPadding": {
+			"type": "number",
+			"default": 20
+		},
+		"badgeText": {
+			"type": "string",
+			"default": "ISO 15189 Certified"
+		},
+		"title": {
+			"type": "string",
+			"default": "Precision Science,\nAccurate Diagnosis."
+		},
+		"description": {
+			"type": "string",
+			"default": "Advanced pathology services using world-class analyzers. Trusted by thousands for accurate and timely results."
+		},
+		"primaryButtonText": {
+			"type": "string",
+			"default": "Check Prices"
+		},
+		"primaryButtonUrl": {
+			"type": "string",
+			"default": "#packages"
+		},
+		"secondaryButtonText": {
+			"type": "string",
+			"default": "Home Visit"
+		},
+		"secondaryButtonUrl": {
+			"type": "string",
+			"default": "#homecare"
+		},
+		"stats": {
+			"type": "array",
+			"default": [
+				{
+					"value": "500+",
+					"label": "Tests"
+				},
+				{
+					"value": "1 Hr",
+					"label": "Results"
+				}
+			]
+		},
+		"animationOnScroll": {
+			"type": "boolean",
+			"default": true
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"align": [ "wide", "full" ]
+	},
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": {
+			"backgroundImageUrl": "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80",
+			"backgroundOverlayColor": "rgba(0, 95, 115, 0.4)",
+			"backgroundOverlayOpacity": 0.4,
+			"minHeight": 700,
+			"containerMaxWidth": 1200,
+			"containerPadding": 20,
+			"badgeText": "ISO 15189 Certified",
+			"title": "Precision Science,\nAccurate Diagnosis.",
+			"description": "Advanced pathology services using world-class analyzers. Trusted by thousands for accurate and timely results.",
+			"primaryButtonText": "Check Prices",
+			"primaryButtonUrl": "#packages",
+			"secondaryButtonText": "Home Visit",
+			"secondaryButtonUrl": "#homecare",
+			"stats": [
+				{
+					"value": "500+",
+					"label": "Tests"
+				},
+				{
+					"value": "1 Hr",
+					"label": "Results"
+				}
+			],
+			"animationOnScroll": true
+		}
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
 }
-

@@ -1,111 +1,164 @@
 {
-  "$schema": "https://schemas.wp.org/trunk/block.json",
-  "apiVersion": 3,
-  "name": "twork/em-doc-section",
-  "version": "1.0.0",
-  "title": "Specialists Section",
-  "category": "twork-builder",
-  "icon": "groups",
-  "description": "Emergency Specialists grid – section header with doctor cards (photo, role, name, specialty).",
-  "keywords": [
-    "emergency",
-    "specialists",
-    "doctors",
-    "team",
-    "twork"
-  ],
-  "attributes": {
-    "backgroundColor": {
-      "type": "string",
-      "default": "#ffffff"
-    },
-    "paddingTop": {
-      "type": "number",
-      "default": 80
-    },
-    "paddingBottom": {
-      "type": "number",
-      "default": 80
-    },
-    "containerMaxWidth": {
-      "type": "number",
-      "default": 1280
-    },
-    "containerPadding": {
-      "type": "number",
-      "default": 20
-    },
-    "gap": {
-      "type": "number",
-      "default": 30
-    },
-    "minColumnWidth": {
-      "type": "number",
-      "default": 240
-    },
-    "showSectionHeader": {
-      "type": "boolean",
-      "default": true
-    },
-    "sectionTitle": {
-      "type": "string",
-      "default": "Emergency Specialists"
-    },
-    "sectionTitleColor": {
-      "type": "string",
-      "default": "#212121"
-    },
-    "sectionTitleFontSize": {
-      "type": "number",
-      "default": 2.5
-    },
-    "sectionTitleFontWeight": {
-      "type": "number",
-      "default": 700
-    },
-    "showSectionSubtitle": {
-      "type": "boolean",
-      "default": false
-    },
-    "sectionSubtitle": {
-      "type": "string",
-      "default": ""
-    },
-    "sectionSubtitleColor": {
-      "type": "string",
-      "default": "#666666"
-    },
-    "sectionSubtitleFontSize": {
-      "type": "number",
-      "default": 1
-    },
-    "headerMaxWidth": {
-      "type": "number",
-      "default": 700
-    },
-    "headerMarginBottom": {
-      "type": "number",
-      "default": 40
-    },
-    "animationOnScroll": {
-      "type": "boolean",
-      "default": true
-    },
-    "animationType": {
-      "type": "string",
-      "default": "fade-up"
-    }
-  },
-  "supports": {
-    "html": false,
-    "anchor": true,
-    "align": [
-      "wide",
-      "full"
-    ]
-  },
-  "textdomain": "twork-builder",
-  "editorScript": "file:./index.js",
-  "style": "file:./style-index.css"
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/em-doc-section",
+	"version": "1.0.0",
+	"title": "Specialists Section",
+	"category": "twork-builder",
+	"icon": "groups",
+	"description": "Emergency Specialists grid – section header with doctor cards (photo, role, name, specialty).",
+	"keywords": [ "emergency", "specialists", "doctors", "team", "twork" ],
+	"attributes": {
+		"backgroundColor": {
+			"type": "string",
+			"default": "#ffffff"
+		},
+		"paddingTop": {
+			"type": "number",
+			"default": 80
+		},
+		"paddingBottom": {
+			"type": "number",
+			"default": 80
+		},
+		"containerMaxWidth": {
+			"type": "number",
+			"default": 1280
+		},
+		"containerPadding": {
+			"type": "number",
+			"default": 20
+		},
+		"gap": {
+			"type": "number",
+			"default": 30
+		},
+		"minColumnWidth": {
+			"type": "number",
+			"default": 240
+		},
+		"showSectionHeader": {
+			"type": "boolean",
+			"default": true
+		},
+		"sectionTitle": {
+			"type": "string",
+			"default": "Emergency Specialists"
+		},
+		"sectionTitleColor": {
+			"type": "string",
+			"default": "#212121"
+		},
+		"sectionTitleFontSize": {
+			"type": "number",
+			"default": 2.5
+		},
+		"sectionTitleFontWeight": {
+			"type": "number",
+			"default": 700
+		},
+		"showSectionSubtitle": {
+			"type": "boolean",
+			"default": false
+		},
+		"sectionSubtitle": {
+			"type": "string",
+			"default": ""
+		},
+		"sectionSubtitleColor": {
+			"type": "string",
+			"default": "#666666"
+		},
+		"sectionSubtitleFontSize": {
+			"type": "number",
+			"default": 1
+		},
+		"headerMaxWidth": {
+			"type": "number",
+			"default": 700
+		},
+		"headerMarginBottom": {
+			"type": "number",
+			"default": 40
+		},
+		"animationOnScroll": {
+			"type": "boolean",
+			"default": true
+		},
+		"animationType": {
+			"type": "string",
+			"default": "fade-up"
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"align": [ "wide", "full" ]
+	},
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": {
+			"backgroundColor": "#ffffff",
+			"paddingTop": 80,
+			"paddingBottom": 80,
+			"containerMaxWidth": 1280,
+			"containerPadding": 20,
+			"gap": 30,
+			"minColumnWidth": 240,
+			"showSectionHeader": true,
+			"sectionTitle": "Emergency Specialists",
+			"sectionTitleColor": "#212121",
+			"sectionTitleFontSize": 2.5,
+			"sectionTitleFontWeight": 700,
+			"showSectionSubtitle": false,
+			"sectionSubtitle": "",
+			"sectionSubtitleColor": "#666666",
+			"sectionSubtitleFontSize": 1,
+			"headerMaxWidth": 700,
+			"headerMarginBottom": 40,
+			"animationOnScroll": true,
+			"animationType": "fade-up"
+		},
+		"innerBlocks": [
+			{
+				"name": "twork/em-doc-card",
+				"attributes": {
+					"imageUrl": "https://jivakahospital.com/wp-content/uploads/2025/12/img-team-member-03.jpg",
+					"role": "Head of Emergency",
+					"name": "Dr. Aung Kyaw",
+					"specialty": "Trauma Specialist"
+				}
+			},
+			{
+				"name": "twork/em-doc-card",
+				"attributes": {
+					"imageUrl": "https://i.pravatar.cc/400?img=11",
+					"role": "Cardiologist",
+					"name": "Dr. Zaw Win",
+					"specialty": "Acute Cardiac Care"
+				}
+			},
+			{
+				"name": "twork/em-doc-card",
+				"attributes": {
+					"imageUrl": "https://i.pravatar.cc/400?img=5",
+					"role": "Anesthesiologist",
+					"name": "Dr. Thida Soe",
+					"specialty": "Critical Care"
+				}
+			},
+			{
+				"name": "twork/em-doc-card",
+				"attributes": {
+					"imageUrl": "https://i.pravatar.cc/400?img=33",
+					"role": "Physician",
+					"name": "Dr. Min Htet",
+					"specialty": "Pediatric Emergency"
+				}
+			}
+		]
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
 }
-

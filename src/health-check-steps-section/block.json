@@ -1,41 +1,188 @@
 {
-    "$schema": "https://schemas.wp.org/trunk/block.json",
-    "apiVersion": 3,
-    "name": "twork/health-check-steps-section",
-    "version": "1.0.0",
-    "title": "Steps Section",
-    "category": "twork-builder",
-    "icon": "list-view",
-    "description": "How to Prepare section: title + grid of steps (icon, title, description). Matches health-check-up.html.",
-    "keywords": ["health", "check", "steps", "prepare", "how to", "chk", "twork"],
-    "supports": { "html": false, "anchor": true, "align": ["wide", "full"] },
-    "attributes": {
-        "showSectionTitle": { "type": "boolean", "default": true },
-        "sectionTitle": { "type": "string", "default": "How to Prepare" },
-        "sectionTitleColor": { "type": "string", "default": "#005f73" },
-        "sectionTitleFontSize": { "type": "number", "default": 2.5 },
-        "sectionTitleFontWeight": { "type": "number", "default": 900 },
-        "sectionTitleAlignment": { "type": "string", "default": "center" },
-        "backgroundColor": { "type": "string", "default": "#ffffff" },
-        "paddingTop": { "type": "number", "default": 90 },
-        "paddingBottom": { "type": "number", "default": 90 },
-        "containerMaxWidth": { "type": "number", "default": 1200 },
-        "containerPadding": { "type": "number", "default": 20 },
-        "columns": { "type": "number", "default": 4 },
-        "columnsTablet": { "type": "number", "default": 2 },
-        "columnsMobile": { "type": "number", "default": 1 },
-        "gap": { "type": "number", "default": 30 },
-        "headerMarginBottom": { "type": "number", "default": 50 },
-        "primaryColor": { "type": "string", "default": "#f48b2a" },
-        "iconColor": { "type": "string", "default": "#f48b2a" },
-        "titleColor": { "type": "string", "default": "#212121" },
-        "descriptionColor": { "type": "string", "default": "#666666" },
-        "connectorLineColor": { "type": "string", "default": "#dddddd" },
-        "animationOnScroll": { "type": "boolean", "default": true },
-        "animationDelay": { "type": "number", "default": 100 },
-        "animationType": { "type": "string", "default": "stagger-up" }
-    },
-    "textdomain": "twork-builder",
-    "editorScript": "file:./index.js",
-    "style": "file:./style-index.css"
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/health-check-steps-section",
+	"version": "1.0.0",
+	"title": "Steps Section",
+	"category": "twork-builder",
+	"icon": "list-view",
+	"description": "How to Prepare section: title + grid of steps (icon, title, description). Matches health-check-up.html.",
+	"keywords": [
+		"health",
+		"check",
+		"steps",
+		"prepare",
+		"how to",
+		"chk",
+		"twork"
+	],
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"align": [ "wide", "full" ]
+	},
+	"attributes": {
+		"showSectionTitle": {
+			"type": "boolean",
+			"default": true
+		},
+		"sectionTitle": {
+			"type": "string",
+			"default": "How to Prepare"
+		},
+		"sectionTitleColor": {
+			"type": "string",
+			"default": "#005f73"
+		},
+		"sectionTitleFontSize": {
+			"type": "number",
+			"default": 2.5
+		},
+		"sectionTitleFontWeight": {
+			"type": "number",
+			"default": 900
+		},
+		"sectionTitleAlignment": {
+			"type": "string",
+			"default": "center"
+		},
+		"backgroundColor": {
+			"type": "string",
+			"default": "#ffffff"
+		},
+		"paddingTop": {
+			"type": "number",
+			"default": 90
+		},
+		"paddingBottom": {
+			"type": "number",
+			"default": 90
+		},
+		"containerMaxWidth": {
+			"type": "number",
+			"default": 1200
+		},
+		"containerPadding": {
+			"type": "number",
+			"default": 20
+		},
+		"columns": {
+			"type": "number",
+			"default": 4
+		},
+		"columnsTablet": {
+			"type": "number",
+			"default": 2
+		},
+		"columnsMobile": {
+			"type": "number",
+			"default": 1
+		},
+		"gap": {
+			"type": "number",
+			"default": 30
+		},
+		"headerMarginBottom": {
+			"type": "number",
+			"default": 50
+		},
+		"primaryColor": {
+			"type": "string",
+			"default": "#f48b2a"
+		},
+		"iconColor": {
+			"type": "string",
+			"default": "#f48b2a"
+		},
+		"titleColor": {
+			"type": "string",
+			"default": "#212121"
+		},
+		"descriptionColor": {
+			"type": "string",
+			"default": "#666666"
+		},
+		"connectorLineColor": {
+			"type": "string",
+			"default": "#dddddd"
+		},
+		"animationOnScroll": {
+			"type": "boolean",
+			"default": true
+		},
+		"animationDelay": {
+			"type": "number",
+			"default": 100
+		},
+		"animationType": {
+			"type": "string",
+			"default": "stagger-up"
+		}
+	},
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": {
+			"showSectionTitle": true,
+			"sectionTitle": "How to Prepare",
+			"sectionTitleColor": "#005f73",
+			"sectionTitleFontSize": 2.5,
+			"sectionTitleFontWeight": 900,
+			"sectionTitleAlignment": "center",
+			"backgroundColor": "#ffffff",
+			"paddingTop": 90,
+			"paddingBottom": 90,
+			"containerMaxWidth": 1200,
+			"containerPadding": 20,
+			"columns": 4,
+			"columnsTablet": 2,
+			"columnsMobile": 1,
+			"gap": 30,
+			"headerMarginBottom": 50,
+			"primaryColor": "#f48b2a",
+			"iconColor": "#f48b2a",
+			"titleColor": "#212121",
+			"descriptionColor": "#666666",
+			"connectorLineColor": "#dddddd",
+			"animationOnScroll": true,
+			"animationDelay": 100,
+			"animationType": "stagger-up"
+		},
+		"innerBlocks": [
+			{
+				"name": "twork/health-check-step-item",
+				"attributes": {
+					"icon": "fas fa-ban",
+					"title": "1. Fasting",
+					"description": "Do not eat for 8-10 hours before the test. Water is allowed."
+				}
+			},
+			{
+				"name": "twork/health-check-step-item",
+				"attributes": {
+					"icon": "fas fa-calendar-check",
+					"title": "2. Appointment",
+					"description": "Book your slot in advance to avoid waiting."
+				}
+			},
+			{
+				"name": "twork/health-check-step-item",
+				"attributes": {
+					"icon": "fas fa-vial",
+					"title": "3. Sample",
+					"description": "Provide blood/urine samples and undergo scans."
+				}
+			},
+			{
+				"name": "twork/health-check-step-item",
+				"attributes": {
+					"icon": "fas fa-file-medical-alt",
+					"title": "4. Review",
+					"description": "Consult with the doctor to understand your report."
+				}
+			}
+		]
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
 }

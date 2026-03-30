@@ -10,37 +10,51 @@
  * Use NODE_OPTIONS=--max-old-space-size=8192 if the build still hits OOM.
  */
 
-const TerserPlugin = require('terser-webpack-plugin');
-const defaultConfig = require('@wordpress/scripts/config/webpack.config');
+const path = require( 'path' );
+const TerserPlugin = require( 'terser-webpack-plugin' );
+const defaultConfig = require( '@wordpress/scripts/config/webpack.config' );
 
 module.exports = {
-    ...defaultConfig,
+	...defaultConfig,
 
-    // Optimization settings for better caching and performance
-    optimization: {
-        ...defaultConfig.optimization,
-        // Ensure consistent chunk IDs for better long-term caching
-        moduleIds: 'deterministic',
-        chunkIds: 'deterministic',
-        // Lower memory use: single-threaded Terser (avoids OOM on large block sets)
-        minimizer: [
-            new TerserPlugin({
-                parallel: false,
-                terserOptions: {
-                    output: { comments: /translators:/i },
-                    compress: { passes: 2 },
-                    mangle: { reserved: ['__', '_n', '_nx', '_x'] },
-                },
-                extractComments: false,
-            }),
-        ],
-    },
+	resolve: {
+		...defaultConfig.resolve,
+		alias: {
+			...( defaultConfig.resolve && defaultConfig.resolve.alias
+				? defaultConfig.resolve.alias
+				: {} ),
+			'@twork-builder/editor-utils': path.resolve(
+				__dirname,
+				'src/editor-utils/block-editor-performance.js'
+			),
+		},
+	},
 
-    // Performance hints - adjust thresholds as needed
-    performance: {
-        ...defaultConfig.performance,
-        hints: process.env.NODE_ENV === 'production' ? 'warning' : false,
-        maxAssetSize: 512000, // 500kb per asset
-        maxEntrypointSize: 512000, // 500kb per entry point
-    },
+	// Optimization settings for better caching and performance
+	optimization: {
+		...defaultConfig.optimization,
+		// Ensure consistent chunk IDs for better long-term caching
+		moduleIds: 'deterministic',
+		chunkIds: 'deterministic',
+		// Lower memory use: single-threaded Terser (avoids OOM on large block sets)
+		minimizer: [
+			new TerserPlugin( {
+				parallel: false,
+				terserOptions: {
+					output: { comments: /translators:/i },
+					compress: { passes: 2 },
+					mangle: { reserved: [ '__', '_n', '_nx', '_x' ] },
+				},
+				extractComments: false,
+			} ),
+		],
+	},
+
+	// Performance hints - adjust thresholds as needed
+	performance: {
+		...defaultConfig.performance,
+		hints: process.env.NODE_ENV === 'production' ? 'warning' : false,
+		maxAssetSize: 512000, // 500kb per asset
+		maxEntrypointSize: 512000, // 500kb per entry point
+	},
 };

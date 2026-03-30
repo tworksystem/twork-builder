@@ -1,30 +1,120 @@
 {
-    "$schema": "https://schemas.wp.org/trunk/block.json",
-    "apiVersion": 3,
-    "name": "twork/hc-testimonials-section",
-    "version": "1.0.0",
-    "title": "Testimonials Section",
-    "category": "twork-builder",
-    "icon": "format-quote",
-    "description": "What Families Say: header + grid of testimonial cards. Matches home-care.html.",
-    "keywords": ["home care", "testimonials", "reviews", "quotes", "twork"],
-    "attributes": {
-        "backgroundColor": { "type": "string", "default": "#fafafa" },
-        "paddingTop": { "type": "number", "default": 60 },
-        "paddingBottom": { "type": "number", "default": 60 },
-        "containerMaxWidth": { "type": "number", "default": 1200 },
-        "containerPadding": { "type": "number", "default": 20 },
-        "showSectionTitle": { "type": "boolean", "default": true },
-        "sectionTitle": { "type": "string", "default": "What Families Say" },
-        "sectionSubtitle": { "type": "string", "default": "Real stories from our patients." },
-        "sectionTitleColor": { "type": "string", "default": "#212121" },
-        "sectionSubtitleColor": { "type": "string", "default": "#555555" },
-        "gap": { "type": "number", "default": 30 },
-        "animationOnScroll": { "type": "boolean", "default": true },
-        "animationType": { "type": "string", "default": "fade-up" }
-    },
-    "supports": { "html": false, "anchor": true, "align": ["wide", "full"] },
-    "textdomain": "twork-builder",
-    "editorScript": "file:./index.js",
-    "style": "file:./style-index.css"
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/hc-testimonials-section",
+	"version": "1.0.0",
+	"title": "Testimonials Section",
+	"category": "twork-builder",
+	"icon": "format-quote",
+	"description": "What Families Say: header + grid of testimonial cards. Matches home-care.html.",
+	"keywords": [ "home care", "testimonials", "reviews", "quotes", "twork" ],
+	"attributes": {
+		"backgroundColor": {
+			"type": "string",
+			"default": "#fafafa"
+		},
+		"paddingTop": {
+			"type": "number",
+			"default": 60
+		},
+		"paddingBottom": {
+			"type": "number",
+			"default": 60
+		},
+		"containerMaxWidth": {
+			"type": "number",
+			"default": 1200
+		},
+		"containerPadding": {
+			"type": "number",
+			"default": 20
+		},
+		"showSectionTitle": {
+			"type": "boolean",
+			"default": true
+		},
+		"sectionTitle": {
+			"type": "string",
+			"default": "What Families Say"
+		},
+		"sectionSubtitle": {
+			"type": "string",
+			"default": "Real stories from our patients."
+		},
+		"sectionTitleColor": {
+			"type": "string",
+			"default": "#212121"
+		},
+		"sectionSubtitleColor": {
+			"type": "string",
+			"default": "#555555"
+		},
+		"gap": {
+			"type": "number",
+			"default": 30
+		},
+		"animationOnScroll": {
+			"type": "boolean",
+			"default": true
+		},
+		"animationType": {
+			"type": "string",
+			"default": "fade-up"
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"align": [ "wide", "full" ]
+	},
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": {
+			"backgroundColor": "#fafafa",
+			"paddingTop": 60,
+			"paddingBottom": 60,
+			"containerMaxWidth": 1200,
+			"containerPadding": 20,
+			"showSectionTitle": true,
+			"sectionTitle": "What Families Say",
+			"sectionSubtitle": "Real stories from our patients.",
+			"sectionTitleColor": "#212121",
+			"sectionSubtitleColor": "#555555",
+			"gap": 30,
+			"animationOnScroll": true,
+			"animationType": "fade-up"
+		},
+		"innerBlocks": [
+			{
+				"name": "twork/hc-testimonial-card",
+				"attributes": {
+					"starRating": 5,
+					"review": "\"The home nursing team was incredible. They took care of my father like their own family. Highly recommended!\"",
+					"clientName": "U Kyaw Swar",
+					"clientLocation": "Mandalay"
+				}
+			},
+			{
+				"name": "twork/hc-testimonial-card",
+				"attributes": {
+					"starRating": 5,
+					"review": "\"Very professional physiotherapy service. My recovery after surgery was much faster thanks to their home visits.\"",
+					"clientName": "Daw Hla Hla",
+					"clientLocation": "Chanmyathazi"
+				}
+			},
+			{
+				"name": "twork/hc-testimonial-card",
+				"attributes": {
+					"starRating": 4.5,
+					"review": "\"Convenient and reliable. The doctor arrived on time and was very thorough with the checkup.\"",
+					"clientName": "Ko Aung",
+					"clientLocation": "Amarapura"
+				}
+			}
+		]
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
 }

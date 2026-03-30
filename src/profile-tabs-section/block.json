@@ -1,117 +1,233 @@
 {
-    "$schema": "https://schemas.wp.org/trunk/block.json",
-    "apiVersion": 3,
-    "name": "twork/profile-tabs-section",
-    "version": "1.0.0",
-    "title": "Profile Tabs Section",
-    "category": "twork-builder",
-    "icon": "list-view",
-    "description": "Doctor profile tabs (OPD Schedule, Experience) and booking sidebar.",
-    "keywords": ["profile", "doctor", "tabs", "schedule", "booking", "twork", "jivaka"],
-    "supports": {
-        "html": false,
-        "align": ["full", "wide"]
-    },
-    "attributes": {
-        "sectionPaddingBottom": {
-            "type": "number",
-            "default": 80
-        },
-        "sectionMarginTop": {
-            "type": "number",
-            "default": 40
-        },
-        "sectionMarginBottom": {
-            "type": "number",
-            "default": 40
-        },
-        "containerMaxWidth": {
-            "type": "number",
-            "default": 1200
-        },
-        "containerPadding": {
-            "type": "number",
-            "default": 20
-        },
-        "tab1Id": {
-            "type": "string",
-            "default": "schedule"
-        },
-        "tab1Label": {
-            "type": "string",
-            "default": "OPD Schedule"
-        },
-        "tab2Id": {
-            "type": "string",
-            "default": "experience"
-        },
-        "tab2Label": {
-            "type": "string",
-            "default": "Experience"
-        },
-        "scheduleTitle": {
-            "type": "string",
-            "default": "Weekly Schedule"
-        },
-        "scheduleRows": {
-            "type": "array",
-            "default": [
-                { "id": 1, "day": "Monday", "time": "09:00 AM – 12:00 PM", "showAvailableTag": true, "availableTagText": "Confirmed" },
-                { "id": 2, "day": "Wednesday", "time": "02:00 PM – 05:00 PM", "showAvailableTag": false, "availableTagText": "" },
-                { "id": 3, "day": "Friday", "time": "09:00 AM – 12:00 PM", "showAvailableTag": false, "availableTagText": "" },
-                { "id": 4, "day": "Saturday", "time": "04:00 PM – 06:00 PM", "showAvailableTag": false, "availableTagText": "" }
-            ]
-        },
-        "experienceTitle": {
-            "type": "string",
-            "default": "Education & Career"
-        },
-        "experienceItems": {
-            "type": "array",
-            "default": [
-                { "id": 1, "year": "2015 – Present", "description": "Senior Consultant Cardiologist, Jivaka Hospital" },
-                { "id": 2, "year": "2008", "description": "MRCP (UK), Royal College of Physicians" },
-                { "id": 3, "year": "2003", "description": "MBBS, University of Medicine 1, Yangon" }
-            ]
-        },
-        "bookingSidebarId": {
-            "type": "string",
-            "default": "book"
-        },
-        "bookingTitle": {
-            "type": "string",
-            "default": "Book Appointment"
-        },
-        "consultationFeeLabel": {
-            "type": "string",
-            "default": "Consultation Fee:"
-        },
-        "consultationFeeAmount": {
-            "type": "string",
-            "default": "25,000 MMK"
-        },
-        "formDateLabel": {
-            "type": "string",
-            "default": "Date"
-        },
-        "formNameLabel": {
-            "type": "string",
-            "default": "Name"
-        },
-        "formNamePlaceholder": {
-            "type": "string",
-            "default": "Patient Name"
-        },
-        "formButtonText": {
-            "type": "string",
-            "default": "Confirm Booking"
-        },
-        "hotlineText": {
-            "type": "string",
-            "default": "09-789 101 101"
-        }
-    },
-    "textdomain": "twork-builder",
-    "editorScript": "file:./index.js",
-    "style": "file:./style-index.css"
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/profile-tabs-section",
+	"version": "1.0.0",
+	"title": "Profile Tabs Section",
+	"category": "twork-builder",
+	"icon": "list-view",
+	"description": "Doctor profile tabs (OPD Schedule, Experience) and booking sidebar.",
+	"keywords": [
+		"profile",
+		"doctor",
+		"tabs",
+		"schedule",
+		"booking",
+		"twork",
+		"jivaka"
+	],
+	"supports": {
+		"html": false,
+		"align": [ "full", "wide" ]
+	},
+	"attributes": {
+		"sectionPaddingBottom": {
+			"type": "number",
+			"default": 80
+		},
+		"sectionMarginTop": {
+			"type": "number",
+			"default": 40
+		},
+		"sectionMarginBottom": {
+			"type": "number",
+			"default": 40
+		},
+		"containerMaxWidth": {
+			"type": "number",
+			"default": 1200
+		},
+		"containerPadding": {
+			"type": "number",
+			"default": 20
+		},
+		"tab1Id": {
+			"type": "string",
+			"default": "schedule"
+		},
+		"tab1Label": {
+			"type": "string",
+			"default": "OPD Schedule"
+		},
+		"tab2Id": {
+			"type": "string",
+			"default": "experience"
+		},
+		"tab2Label": {
+			"type": "string",
+			"default": "Experience"
+		},
+		"scheduleTitle": {
+			"type": "string",
+			"default": "Weekly Schedule"
+		},
+		"scheduleRows": {
+			"type": "array",
+			"default": [
+				{
+					"id": 1,
+					"day": "Monday",
+					"time": "09:00 AM – 12:00 PM",
+					"showAvailableTag": true,
+					"availableTagText": "Confirmed"
+				},
+				{
+					"id": 2,
+					"day": "Wednesday",
+					"time": "02:00 PM – 05:00 PM",
+					"showAvailableTag": false,
+					"availableTagText": ""
+				},
+				{
+					"id": 3,
+					"day": "Friday",
+					"time": "09:00 AM – 12:00 PM",
+					"showAvailableTag": false,
+					"availableTagText": ""
+				},
+				{
+					"id": 4,
+					"day": "Saturday",
+					"time": "04:00 PM – 06:00 PM",
+					"showAvailableTag": false,
+					"availableTagText": ""
+				}
+			]
+		},
+		"experienceTitle": {
+			"type": "string",
+			"default": "Education & Career"
+		},
+		"experienceItems": {
+			"type": "array",
+			"default": [
+				{
+					"id": 1,
+					"year": "2015 – Present",
+					"description": "Senior Consultant Cardiologist, Jivaka Hospital"
+				},
+				{
+					"id": 2,
+					"year": "2008",
+					"description": "MRCP (UK), Royal College of Physicians"
+				},
+				{
+					"id": 3,
+					"year": "2003",
+					"description": "MBBS, University of Medicine 1, Yangon"
+				}
+			]
+		},
+		"bookingSidebarId": {
+			"type": "string",
+			"default": "book"
+		},
+		"bookingTitle": {
+			"type": "string",
+			"default": "Book Appointment"
+		},
+		"consultationFeeLabel": {
+			"type": "string",
+			"default": "Consultation Fee:"
+		},
+		"consultationFeeAmount": {
+			"type": "string",
+			"default": "25,000 MMK"
+		},
+		"formDateLabel": {
+			"type": "string",
+			"default": "Date"
+		},
+		"formNameLabel": {
+			"type": "string",
+			"default": "Name"
+		},
+		"formNamePlaceholder": {
+			"type": "string",
+			"default": "Patient Name"
+		},
+		"formButtonText": {
+			"type": "string",
+			"default": "Confirm Booking"
+		},
+		"hotlineText": {
+			"type": "string",
+			"default": "09-789 101 101"
+		}
+	},
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": {
+			"sectionPaddingBottom": 80,
+			"sectionMarginTop": 40,
+			"sectionMarginBottom": 40,
+			"containerMaxWidth": 1200,
+			"containerPadding": 20,
+			"tab1Id": "schedule",
+			"tab1Label": "OPD Schedule",
+			"tab2Id": "experience",
+			"tab2Label": "Experience",
+			"scheduleTitle": "Weekly Schedule",
+			"scheduleRows": [
+				{
+					"id": 1,
+					"day": "Monday",
+					"time": "09:00 AM – 12:00 PM",
+					"showAvailableTag": true,
+					"availableTagText": "Confirmed"
+				},
+				{
+					"id": 2,
+					"day": "Wednesday",
+					"time": "02:00 PM – 05:00 PM",
+					"showAvailableTag": false,
+					"availableTagText": ""
+				},
+				{
+					"id": 3,
+					"day": "Friday",
+					"time": "09:00 AM – 12:00 PM",
+					"showAvailableTag": false,
+					"availableTagText": ""
+				},
+				{
+					"id": 4,
+					"day": "Saturday",
+					"time": "04:00 PM – 06:00 PM",
+					"showAvailableTag": false,
+					"availableTagText": ""
+				}
+			],
+			"experienceTitle": "Education & Career",
+			"experienceItems": [
+				{
+					"id": 1,
+					"year": "2015 – Present",
+					"description": "Senior Consultant Cardiologist, Jivaka Hospital"
+				},
+				{
+					"id": 2,
+					"year": "2008",
+					"description": "MRCP (UK), Royal College of Physicians"
+				},
+				{
+					"id": 3,
+					"year": "2003",
+					"description": "MBBS, University of Medicine 1, Yangon"
+				}
+			],
+			"bookingSidebarId": "book",
+			"bookingTitle": "Book Appointment",
+			"consultationFeeLabel": "Consultation Fee:",
+			"consultationFeeAmount": "25,000 MMK",
+			"formDateLabel": "Date",
+			"formNameLabel": "Name",
+			"formNamePlaceholder": "Patient Name",
+			"formButtonText": "Confirm Booking",
+			"hotlineText": "09-789 101 101"
+		}
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
 }

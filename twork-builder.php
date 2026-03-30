@@ -37,6 +37,9 @@ require_once TWORK_BUILDER_PATH . 'includes/class-twork-updates-section.php';
 /** Load Blog Section (Blog layout: featured, grid, sidebar, pagination) render callback */
 require_once TWORK_BUILDER_PATH . 'includes/class-twork-blog-section.php';
 
+/** Load Agrezer Blog Section (post grid, Agrezer UI) render callback */
+require_once TWORK_BUILDER_PATH . 'includes/class-twork-agrezer-blog-section.php';
+
 /** Load Emergency Units Section (Specialized Units from Posts) render callback + post meta */
 require_once TWORK_BUILDER_PATH . 'includes/class-twork-em-units-section.php';
 
@@ -45,6 +48,9 @@ require_once TWORK_BUILDER_PATH . 'includes/class-twork-ph-shop-category-section
 
 /** Load Pharmacy Popular Products Section (WooCommerce products) render callback */
 require_once TWORK_BUILDER_PATH . 'includes/class-twork-ph-popular-products-section.php';
+
+/** Load Agrezer Shop Grid Section (WooCommerce shop layout) render callback */
+require_once TWORK_BUILDER_PATH . 'includes/class-twork-agrezer-shop-grid-section.php';
 
 /** Load Physio Facilities Section (Facilities cards from Posts) render callback */
 require_once TWORK_BUILDER_PATH . 'includes/class-twork-phy-facilities-section.php';
@@ -71,260 +77,148 @@ function twork_builder_register_category($categories)
 add_filter('block_categories_all', 'twork_builder_register_category', 10, 1);
 
 /**
- * 2. Enqueue Frontend Assets
- * Enqueues all necessary CSS and JavaScript for blocks.
- * All scripts use pure JavaScript - no external library dependencies.
+ * 2. Register frontend scripts for Twork Builder blocks.
+ * Scripts are registered globally and only enqueued conditionally per page.
+ */
+function twork_builder_register_frontend_scripts()
+{
+    $version   = TWORK_BUILDER_VERSION;
+    $assets_js = TWORK_BUILDER_URL . 'assets/js/';
+
+    $scripts = array(
+        'twork-jivaka-header-init'          => 'jivaka-header-init.js',
+        'twork-hero-new-init'             => 'hero-new-init.js',
+        'twork-lab-hero-init'             => 'lab-hero-init.js',
+        'twork-dept-layout-init'          => 'dept-layout-init.js',
+        'twork-centre-layout-init'        => 'centre-layout-init.js',
+        'twork-services-grid-init'        => 'services-grid-init.js',
+        'twork-contact-layout-init'       => 'contact-layout-init.js',
+        'twork-team-members-init'         => 'team-members-init.js',
+        'twork-amb-fleet-section-init'    => 'amb-fleet-section-init.js',
+        'twork-amb-tech-section-init'     => 'amb-tech-section-init.js',
+        'twork-amb-process-section-init'  => 'amb-process-section-init.js',
+        'twork-amb-map-section-init'      => 'amb-map-section-init.js',
+        'twork-doctor-directory-init'     => 'doctor-directory-init.js',
+        'twork-csr-initiatives-init'      => 'csr-initiatives-init.js',
+        'twork-csr-moments-gallery-init'  => 'csr-moments-gallery-init.js',
+        'twork-csr-events-init'           => 'csr-events-init.js',
+        'twork-journey-steps-init'        => 'journey-steps-init.js',
+        'twork-exclusive-services-init'   => 'exclusive-services-init.js',
+        'twork-testimonial-init'          => 'testimonial-init.js',
+        'twork-nearby-accommodation-init' => 'nearby-accommodation-init.js',
+        'twork-inquiry-form-init'         => 'inquiry-form-init.js',
+        'twork-profile-tabs-init'         => 'profile-tabs-init.js',
+        'twork-neuro-faq-init'            => 'neuro-faq-init.js',
+        'twork-rad-prep-faq-init'         => 'rad-prep-faq-init.js',
+        'twork-phy-faq-init'              => 'phy-faq-init.js',
+        'twork-neuro-centre-init'         => 'neuro-centre-init.js',
+        'twork-benefits-init'             => 'benefits-init.js',
+        'twork-job-openings-init'         => 'job-openings-init.js',
+    );
+
+    foreach ($scripts as $handle => $file) {
+        wp_register_script(
+            $handle,
+            $assets_js . $file,
+            array(),
+            $version,
+            true
+        );
+    }
+}
+
+add_action('init', 'twork_builder_register_frontend_scripts');
+
+/**
+ * 2a. Enqueue Frontend Assets
+ * Conditionally enqueues JavaScript for interactive blocks based on presence in the current post content.
+ * Also enqueues shared frontend styles (Font Awesome, Dashicons).
  */
 function twork_builder_enqueue_assets()
 {
-    // Hero New Section initialization script (Pure JavaScript, no GSAP)
-    wp_enqueue_script(
-        'twork-hero-new-init',
-        TWORK_BUILDER_URL . 'assets/js/hero-new-init.js',
-        array(),
-        TWORK_BUILDER_VERSION,
-        true
+    if (is_admin()) {
+        return;
+    }
+
+    // Header interactions are needed site-wide (template parts / site editor header).
+    if (wp_script_is('twork-jivaka-header-init', 'registered') && !wp_script_is('twork-jivaka-header-init', 'enqueued')) {
+        wp_enqueue_script('twork-jivaka-header-init');
+    }
+
+    global $post;
+    if (!$post instanceof WP_Post) {
+        // Fallback: no global post (e.g. template parts, some archives) – skip block-conditional scripts.
+        // Keep global assets (like header interactions) enqueued above.
+        return;
+    }
+
+    // Map block names to their frontend script handles.
+    $block_script_map = array(
+        // Hero / layout
+        'twork/hero-new-section'              => array('twork-hero-new-init'),
+        'twork/lab-hero-section'              => array('twork-lab-hero-init'),
+        'twork/dept-layout-section'           => array('twork-dept-layout-init'),
+        'twork/centre-layout-section'         => array('twork-centre-layout-init'),
+
+        // Services / team / contact
+        'twork/services-section'              => array('twork-services-grid-init'),
+        'twork/services-grid'                 => array('twork-services-grid-init'),
+        'twork/contact-layout-section'        => array('twork-contact-layout-init'),
+        'twork/team-members-section'          => array('twork-team-members-init'),
+
+        // Ambulance related
+        'twork/amb-fleet-section'             => array('twork-amb-fleet-section-init'),
+        'twork/amb-tech-section'              => array('twork-amb-tech-section-init'),
+        'twork/amb-process-section'           => array('twork-amb-process-section-init'),
+        'twork/amb-map-section'               => array('twork-amb-map-section-init'),
+
+        // Doctor directory
+        'twork/doctor-directory-section'      => array('twork-doctor-directory-init'),
+        'twork/doctor-search-filter-section'  => array('twork-doctor-directory-init'),
+
+        // CSR
+        'twork/csr-initiatives-section'       => array('twork-csr-initiatives-init'),
+        'twork/csr-moments-gallery-section'   => array('twork-csr-moments-gallery-init'),
+        'twork/csr-events-section'            => array('twork-csr-events-init'),
+
+        // Journey / Exclusive / Nearby
+        'twork/journey-steps-section'         => array('twork-journey-steps-init'),
+        'twork/exclusive-services-section'    => array('twork-exclusive-services-init'),
+        'twork/nearby-accommodation-section'  => array('twork-nearby-accommodation-init'),
+
+        // Forms / tabs
+        'twork/inquiry-form-section'          => array('twork-inquiry-form-init'),
+        'twork/profile-tabs-section'          => array('twork-profile-tabs-init'),
+
+        // Neuro / Rad / Physio
+        'twork/neuro-centre-section'          => array('twork-neuro-centre-init'),
+        'twork/neuro-faq-section'             => array('twork-neuro-faq-init'),
+        'twork/rad-prep-faq-section'          => array('twork-rad-prep-faq-init'),
+        'twork/phy-faq-section'               => array('twork-phy-faq-init'),
+
+        // Benefits / jobs
+        'twork/benefits-section'              => array('twork-benefits-init'),
+        'twork/job-openings-section'          => array('twork-job-openings-init'),
+
+        // Testimonials
+        'twork/testimonial-section'           => array('twork-testimonial-init'),
     );
 
-    // Lab Hero Section – fade-up reveal (Pure JavaScript, no GSAP)
-    wp_enqueue_script(
-        'twork-lab-hero-init',
-        TWORK_BUILDER_URL . 'assets/js/lab-hero-init.js',
-        array(),
-        TWORK_BUILDER_VERSION,
-        true
-    );
-
-    // Dept Layout Section – sidebar scroll spy
-    wp_enqueue_script(
-        'twork-dept-layout-init',
-        TWORK_BUILDER_URL . 'assets/js/dept-layout-init.js',
-        array(),
-        TWORK_BUILDER_VERSION,
-        true
-    );
-
-    // Centre Layout Section (Neuro / Heart / Cancer etc.) – FAQ accordion + scroll animations
-    wp_enqueue_script(
-        'twork-centre-layout-init',
-        TWORK_BUILDER_URL . 'assets/js/centre-layout-init.js',
-        array(),
-        TWORK_BUILDER_VERSION,
-        true
-    );
-
-    // Services Grid initialization script (Pure JavaScript)
-    wp_enqueue_script(
-        'twork-services-grid-init',
-        TWORK_BUILDER_URL . 'assets/js/services-grid-init.js',
-        array(),
-        TWORK_BUILDER_VERSION,
-        true
-    );
-
-    // Contact Layout Section – hotline accordion (Pure JavaScript)
-    wp_enqueue_script(
-        'twork-contact-layout-init',
-        TWORK_BUILDER_URL . 'assets/js/contact-layout-init.js',
-        array(),
-        TWORK_BUILDER_VERSION,
-        true
-    );
-
-    // Team Members Grid initialization script (Pure JavaScript)
-    wp_enqueue_script(
-        'twork-team-members-init',
-        TWORK_BUILDER_URL . 'assets/js/team-members-init.js',
-        array(),
-        TWORK_BUILDER_VERSION,
-        true
-    );
-
-    // Ambulance Fleet Section – scroll animations (Pure JavaScript)
-    wp_enqueue_script(
-        'twork-amb-fleet-section-init',
-        TWORK_BUILDER_URL . 'assets/js/amb-fleet-section-init.js',
-        array(),
-        TWORK_BUILDER_VERSION,
-        true
-    );
-
-    // Ambulance Tech Section (ICU on Wheels) – scroll animations (Pure JavaScript)
-    wp_enqueue_script(
-        'twork-amb-tech-section-init',
-        TWORK_BUILDER_URL . 'assets/js/amb-tech-section-init.js',
-        array(),
-        TWORK_BUILDER_VERSION,
-        true
-    );
-
-    // Ambulance Process Section (Emergency Protocol) – scroll animations (Pure JavaScript)
-    wp_enqueue_script(
-        'twork-amb-process-section-init',
-        TWORK_BUILDER_URL . 'assets/js/amb-process-section-init.js',
-        array(),
-        TWORK_BUILDER_VERSION,
-        true
-    );
-
-    // Ambulance Map / Coverage Section – scroll animation (Pure JavaScript)
-    wp_enqueue_script(
-        'twork-amb-map-section-init',
-        TWORK_BUILDER_URL . 'assets/js/amb-map-section-init.js',
-        array(),
-        TWORK_BUILDER_VERSION,
-        true
-    );
-
-    // Doctor Directory Section – search/filter (searchInput, deptFilter, genderFilter, resetBtn)
-    wp_enqueue_script(
-        'twork-doctor-directory-init',
-        TWORK_BUILDER_URL . 'assets/js/doctor-directory-init.js',
-        array(),
-        TWORK_BUILDER_VERSION,
-        true
-    );
-
-    // CSR Initiatives Section initialization script (Pure JavaScript)
-    wp_enqueue_script(
-        'twork-csr-initiatives-init',
-        TWORK_BUILDER_URL . 'assets/js/csr-initiatives-init.js',
-        array(),
-        TWORK_BUILDER_VERSION,
-        true
-    );
-
-    // CSR Moments Gallery initialization script (Pure JavaScript)
-    wp_enqueue_script(
-        'twork-csr-moments-gallery-init',
-        TWORK_BUILDER_URL . 'assets/js/csr-moments-gallery-init.js',
-        array(),
-        TWORK_BUILDER_VERSION,
-        true
-    );
-
-    // CSR Events Section initialization script (Pure JavaScript)
-    wp_enqueue_script(
-        'twork-csr-events-init',
-        TWORK_BUILDER_URL . 'assets/js/csr-events-init.js',
-        array(),
-        TWORK_BUILDER_VERSION,
-        true
-    );
-
-    // Journey Steps Section initialization script (Pure JavaScript)
-    wp_enqueue_script(
-        'twork-journey-steps-init',
-        TWORK_BUILDER_URL . 'assets/js/journey-steps-init.js',
-        array(),
-        TWORK_BUILDER_VERSION,
-        true
-    );
-
-    // Exclusive Services Section initialization script (Pure JavaScript)
-    wp_enqueue_script(
-        'twork-exclusive-services-init',
-        TWORK_BUILDER_URL . 'assets/js/exclusive-services-init.js',
-        array(),
-        TWORK_BUILDER_VERSION,
-        true
-    );
-
-    // Testimonial Section initialization script (Pure JavaScript)
-    wp_enqueue_script(
-        'twork-testimonial-init',
-        TWORK_BUILDER_URL . 'assets/js/testimonial-init.js',
-        array(),
-        TWORK_BUILDER_VERSION,
-        true
-    );
-
-    // Nearby Accommodation Section initialization script (Pure JavaScript)
-    wp_enqueue_script(
-        'twork-nearby-accommodation-init',
-        TWORK_BUILDER_URL . 'assets/js/nearby-accommodation-init.js',
-        array(),
-        TWORK_BUILDER_VERSION,
-        true
-    );
-
-    // Inquiry Form Section initialization script (Pure JavaScript)
-    wp_enqueue_script(
-        'twork-inquiry-form-init',
-        TWORK_BUILDER_URL . 'assets/js/inquiry-form-init.js',
-        array(),
-        TWORK_BUILDER_VERSION,
-        true
-    );
-
-    // Profile Tabs Section (OPD Schedule / Experience / Booking) initialization script (Pure JavaScript)
-    wp_enqueue_script(
-        'twork-profile-tabs-init',
-        TWORK_BUILDER_URL . 'assets/js/profile-tabs-init.js',
-        array(),
-        TWORK_BUILDER_VERSION,
-        true
-    );
-
-    // Neuro Centre Section – FAQ accordion (add/remove/open/close)
-    wp_enqueue_script(
-        'twork-neuro-faq-init',
-        TWORK_BUILDER_URL . 'assets/js/neuro-faq-init.js',
-        array(),
-        TWORK_BUILDER_VERSION,
-        true
-    );
-
-    // Radiology Prep FAQ Section – accordion (open/close FAQ items)
-    wp_enqueue_script(
-        'twork-rad-prep-faq-init',
-        TWORK_BUILDER_URL . 'assets/js/rad-prep-faq-init.js',
-        array(),
-        TWORK_BUILDER_VERSION,
-        true
-    );
-
-    // Physio FAQ Section – accordion (open/close FAQ items, plus/minus icon)
-    wp_enqueue_script(
-        'twork-phy-faq-init',
-        TWORK_BUILDER_URL . 'assets/js/phy-faq-init.js',
-        array(),
-        TWORK_BUILDER_VERSION,
-        true
-    );
-
-    // Neuro Centre Section – fade-up & stagger-card scroll animations
-    wp_enqueue_script(
-        'twork-neuro-centre-init',
-        TWORK_BUILDER_URL . 'assets/js/neuro-centre-init.js',
-        array(),
-        TWORK_BUILDER_VERSION,
-        true
-    );
-
-    // Benefits Section initialization script (Pure JavaScript)
-    wp_enqueue_script(
-        'twork-benefits-init',
-        TWORK_BUILDER_URL . 'assets/js/benefits-init.js',
-        array(),
-        TWORK_BUILDER_VERSION,
-        true
-    );
-
-    // Job Openings Section initialization script (Pure JavaScript)
-    wp_enqueue_script(
-        'twork-job-openings-init',
-        TWORK_BUILDER_URL . 'assets/js/job-openings-init.js',
-        array(),
-        TWORK_BUILDER_VERSION,
-        true
-    );
+    foreach ($block_script_map as $block_name => $handles) {
+        if (has_block($block_name, $post)) {
+            foreach ($handles as $handle) {
+                if (wp_script_is($handle, 'registered') && !wp_script_is($handle, 'enqueued')) {
+                    wp_enqueue_script($handle);
+                }
+            }
+        }
+    }
 
     // Font Awesome for icons (optional - only if not already loaded by theme)
-    if (!wp_style_is('font-awesome', 'enqueued')) {
+    if (!wp_style_is('twork-font-awesome', 'enqueued')) {
         wp_enqueue_style(
-            'font-awesome',
-            'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css',
+            'twork-font-awesome',
+            plugins_url('assets/vendor/fontawesome/css/all.min.css', __FILE__),
             array(),
             '6.5.2'
         );
@@ -343,10 +237,10 @@ add_action('wp_enqueue_scripts', 'twork_builder_enqueue_assets', 5); // Priority
 function twork_builder_enqueue_editor_assets()
 {
     // Font Awesome for icons in editor (optional - only if not already loaded)
-    if (!wp_style_is('font-awesome', 'enqueued')) {
+    if (!wp_style_is('twork-font-awesome', 'enqueued')) {
         wp_enqueue_style(
-            'font-awesome',
-            'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css',
+            'twork-font-awesome',
+            plugins_url('assets/vendor/fontawesome/css/all.min.css', __FILE__),
             array(),
             '6.5.2'
         );
@@ -474,6 +368,9 @@ function twork_builder_init_blocks()
             if (isset($block_data['name']) && $block_data['name'] === 'twork/blog-section') {
                 $block_args['render_callback'] = 'twork_render_blog_section';
             }
+            if (isset($block_data['name']) && $block_data['name'] === 'twork/agrezer-blog-section') {
+                $block_args['render_callback'] = 'twork_render_agrezer_blog_section';
+            }
             if (isset($block_data['name']) && $block_data['name'] === 'twork/em-units-section') {
                 $block_args['render_callback'] = 'twork_render_em_units_section';
             }
@@ -482,6 +379,9 @@ function twork_builder_init_blocks()
             }
             if (isset($block_data['name']) && $block_data['name'] === 'twork/ph-popular-products-section') {
                 $block_args['render_callback'] = 'twork_render_ph_popular_products_section';
+            }
+            if (isset($block_data['name']) && $block_data['name'] === 'twork/agrezer-shop-grid-section') {
+                $block_args['render_callback'] = 'twork_render_agrezer_shop_grid_section';
             }
             if (isset($block_data['name']) && $block_data['name'] === 'twork/phy-facilities-section') {
                 $block_args['render_callback'] = 'twork_render_phy_facilities_section';

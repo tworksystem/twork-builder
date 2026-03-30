@@ -1,155 +1,298 @@
 {
-    "$schema": "https://schemas.wp.org/trunk/block.json",
-    "apiVersion": 3,
-    "name": "twork/accommodation-options-section",
-    "title": "Accommodation Options Section",
-    "category": "twork-builder",
-    "description": "Accommodation options section with room cards (image, price, amenities, CTA) for facilities.",
-    "keywords": ["accommodation", "rooms", "facilities", "hospital", "twork"],
-    "icon": "admin-home",
-    "attributes": {
-        "backgroundColor": {
-            "type": "string",
-            "default": "#ffffff"
-        },
-        "backgroundImage": {
-            "type": "string",
-            "default": ""
-        },
-        "backgroundImageId": {
-            "type": "number"
-        },
-        "backgroundOverlay": {
-            "type": "boolean",
-            "default": false
-        },
-        "backgroundOverlayColor": {
-            "type": "string",
-            "default": "rgba(0, 0, 0, 0.5)"
-        },
-        "backgroundOverlayOpacity": {
-            "type": "number",
-            "default": 0.5
-        },
-        "paddingTop": {
-            "type": "number",
-            "default": 80
-        },
-        "paddingBottom": {
-            "type": "number",
-            "default": 80
-        },
-        "paddingTopMobile": {
-            "type": "number",
-            "default": 60
-        },
-        "paddingBottomMobile": {
-            "type": "number",
-            "default": 60
-        },
-        "columns": {
-            "type": "number",
-            "default": 3
-        },
-        "columnsTablet": {
-            "type": "number",
-            "default": 2
-        },
-        "columnsMobile": {
-            "type": "number",
-            "default": 1
-        },
-        "gap": {
-            "type": "number",
-            "default": 30
-        },
-        "gapMobile": {
-            "type": "number",
-            "default": 24
-        },
-        "showSectionTitle": {
-            "type": "boolean",
-            "default": true
-        },
-        "sectionTitle": {
-            "type": "string",
-            "default": "Accommodation Options"
-        },
-        "sectionTitleColor": {
-            "type": "string",
-            "default": "#212121"
-        },
-        "sectionTitleFontSize": {
-            "type": "number",
-            "default": 2
-        },
-        "sectionTitleFontSizeMobile": {
-            "type": "number",
-            "default": 1.6
-        },
-        "sectionTitleFontWeight": {
-            "type": "number",
-            "default": 700
-        },
-        "showSectionSubtitle": {
-            "type": "boolean",
-            "default": true
-        },
-        "sectionSubtitle": {
-            "type": "string",
-            "default": "Designed for your comfort and speedy recovery."
-        },
-        "sectionSubtitleColor": {
-            "type": "string",
-            "default": "#666666"
-        },
-        "sectionSubtitleFontSize": {
-            "type": "number",
-            "default": 1.05
-        },
-        "sectionTitleAlignment": {
-            "type": "string",
-            "default": "center"
-        },
-        "sectionHeaderMaxWidth": {
-            "type": "number",
-            "default": 700
-        },
-        "sectionHeaderMarginBottom": {
-            "type": "number",
-            "default": 50
-        },
-        "containerMaxWidth": {
-            "type": "number",
-            "default": 1200
-        },
-        "containerPadding": {
-            "type": "number",
-            "default": 20
-        },
-        "containerPaddingMobile": {
-            "type": "number",
-            "default": 20
-        },
-        "animationOnScroll": {
-            "type": "boolean",
-            "default": true
-        },
-        "animationDelay": {
-            "type": "number",
-            "default": 100
-        },
-        "animationType": {
-            "type": "string",
-            "default": "fadeInUp"
-        }
-    },
-    "supports": {
-        "html": false,
-        "anchor": true,
-        "align": ["wide", "full"]
-    },
-    "textdomain": "twork-builder",
-    "editorScript": "file:./index.js",
-    "style": "file:./style-index.css"
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/accommodation-options-section",
+	"title": "Accommodation Options Section",
+	"category": "twork-builder",
+	"description": "Accommodation options section with room cards (image, price, amenities, CTA) for facilities.",
+	"keywords": [ "accommodation", "rooms", "facilities", "hospital", "twork" ],
+	"icon": "admin-home",
+	"attributes": {
+		"backgroundColor": {
+			"type": "string",
+			"default": "#ffffff"
+		},
+		"backgroundImage": {
+			"type": "string",
+			"default": ""
+		},
+		"backgroundImageId": {
+			"type": "number"
+		},
+		"backgroundOverlay": {
+			"type": "boolean",
+			"default": false
+		},
+		"backgroundOverlayColor": {
+			"type": "string",
+			"default": "rgba(0, 0, 0, 0.5)"
+		},
+		"backgroundOverlayOpacity": {
+			"type": "number",
+			"default": 0.5
+		},
+		"paddingTop": {
+			"type": "number",
+			"default": 80
+		},
+		"paddingBottom": {
+			"type": "number",
+			"default": 80
+		},
+		"paddingTopMobile": {
+			"type": "number",
+			"default": 60
+		},
+		"paddingBottomMobile": {
+			"type": "number",
+			"default": 60
+		},
+		"columns": {
+			"type": "number",
+			"default": 3
+		},
+		"columnsTablet": {
+			"type": "number",
+			"default": 2
+		},
+		"columnsMobile": {
+			"type": "number",
+			"default": 1
+		},
+		"gap": {
+			"type": "number",
+			"default": 30
+		},
+		"gapMobile": {
+			"type": "number",
+			"default": 24
+		},
+		"showSectionTitle": {
+			"type": "boolean",
+			"default": true
+		},
+		"sectionTitle": {
+			"type": "string",
+			"default": "Accommodation Options"
+		},
+		"sectionTitleColor": {
+			"type": "string",
+			"default": "#212121"
+		},
+		"sectionTitleFontSize": {
+			"type": "number",
+			"default": 2
+		},
+		"sectionTitleFontSizeMobile": {
+			"type": "number",
+			"default": 1.6
+		},
+		"sectionTitleFontWeight": {
+			"type": "number",
+			"default": 700
+		},
+		"showSectionSubtitle": {
+			"type": "boolean",
+			"default": true
+		},
+		"sectionSubtitle": {
+			"type": "string",
+			"default": "Designed for your comfort and speedy recovery."
+		},
+		"sectionSubtitleColor": {
+			"type": "string",
+			"default": "#666666"
+		},
+		"sectionSubtitleFontSize": {
+			"type": "number",
+			"default": 1.05
+		},
+		"sectionTitleAlignment": {
+			"type": "string",
+			"default": "center"
+		},
+		"sectionHeaderMaxWidth": {
+			"type": "number",
+			"default": 700
+		},
+		"sectionHeaderMarginBottom": {
+			"type": "number",
+			"default": 50
+		},
+		"containerMaxWidth": {
+			"type": "number",
+			"default": 1200
+		},
+		"containerPadding": {
+			"type": "number",
+			"default": 20
+		},
+		"containerPaddingMobile": {
+			"type": "number",
+			"default": 20
+		},
+		"animationOnScroll": {
+			"type": "boolean",
+			"default": true
+		},
+		"animationDelay": {
+			"type": "number",
+			"default": 100
+		},
+		"animationType": {
+			"type": "string",
+			"default": "fadeInUp"
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"align": [ "wide", "full" ]
+	},
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": {
+			"backgroundColor": "#ffffff",
+			"backgroundImage": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?auto=format&fit=crop&w=1200&q=80",
+			"backgroundOverlay": false,
+			"backgroundOverlayColor": "rgba(0, 0, 0, 0.5)",
+			"backgroundOverlayOpacity": 0.5,
+			"paddingTop": 80,
+			"paddingBottom": 80,
+			"paddingTopMobile": 60,
+			"paddingBottomMobile": 60,
+			"columns": 3,
+			"columnsTablet": 2,
+			"columnsMobile": 1,
+			"gap": 30,
+			"gapMobile": 24,
+			"showSectionTitle": true,
+			"sectionTitle": "Accommodation Options",
+			"sectionTitleColor": "#212121",
+			"sectionTitleFontSize": 2,
+			"sectionTitleFontSizeMobile": 1.6,
+			"sectionTitleFontWeight": 700,
+			"showSectionSubtitle": true,
+			"sectionSubtitle": "Designed for your comfort and speedy recovery.",
+			"sectionSubtitleColor": "#666666",
+			"sectionSubtitleFontSize": 1.05,
+			"sectionTitleAlignment": "center",
+			"sectionHeaderMaxWidth": 700,
+			"sectionHeaderMarginBottom": 50,
+			"containerMaxWidth": 1200,
+			"containerPadding": 20,
+			"containerPaddingMobile": 20,
+			"animationOnScroll": true,
+			"animationDelay": 100,
+			"animationType": "fadeInUp"
+		},
+		"innerBlocks": [
+			{
+				"name": "twork/accommodation-room-card",
+				"attributes": {
+					"title": "Standard Ward",
+					"imageUrl": "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=800",
+					"imageAlt": "Standard Ward",
+					"priceText": "30,000 MMK / Night",
+					"amenities": [
+						{
+							"id": 1,
+							"icon": "fas fa-bed",
+							"text": "Adjustable Patient Bed"
+						},
+						{
+							"id": 2,
+							"icon": "fas fa-wifi",
+							"text": "Free Wi-Fi"
+						},
+						{
+							"id": 3,
+							"icon": "fas fa-fan",
+							"text": "Air Conditioning"
+						},
+						{
+							"id": 4,
+							"icon": "fas fa-users",
+							"text": "Shared Bathroom"
+						}
+					],
+					"buttonText": "Check Availability",
+					"buttonUrl": "contact.html?room=standard"
+				}
+			},
+			{
+				"name": "twork/accommodation-room-card",
+				"attributes": {
+					"title": "Private Room",
+					"imageUrl": "https://images.unsplash.com/photo-1596541223130-5d31a73fb6c6?auto=format&fit=crop&q=80&w=800",
+					"imageAlt": "Private Room",
+					"priceText": "65,000 MMK / Night",
+					"amenities": [
+						{
+							"id": 1,
+							"icon": "fas fa-bed",
+							"text": "Electric Bed"
+						},
+						{
+							"id": 2,
+							"icon": "fas fa-tv",
+							"text": "LED TV"
+						},
+						{
+							"id": 3,
+							"icon": "fas fa-couch",
+							"text": "Sofa for Attendant"
+						},
+						{
+							"id": 4,
+							"icon": "fas fa-bath",
+							"text": "Private Bathroom"
+						}
+					],
+					"buttonText": "Check Availability",
+					"buttonUrl": "contact.html?room=private"
+				}
+			},
+			{
+				"name": "twork/accommodation-room-card",
+				"attributes": {
+					"title": "VIP Suite",
+					"imageUrl": "https://images.unsplash.com/photo-1578683010236-d716f9a3f461?auto=format&fit=crop&q=80&w=800",
+					"imageAlt": "VIP Suite",
+					"priceText": "120,000 MMK / Night",
+					"titleColor": "#f48b2a",
+					"amenities": [
+						{
+							"id": 1,
+							"icon": "fas fa-layer-group",
+							"text": "Separate Living Area"
+						},
+						{
+							"id": 2,
+							"icon": "fas fa-utensils",
+							"text": "Kitchenette & Fridge"
+						},
+						{
+							"id": 3,
+							"icon": "fas fa-tv",
+							"text": "2 LED TVs"
+						},
+						{
+							"id": 4,
+							"icon": "fas fa-concierge-bell",
+							"text": "24/7 Dedicated Nurse"
+						}
+					],
+					"buttonText": "Book Now",
+					"buttonUrl": "contact.html?room=vip",
+					"buttonBgColor": "#f48b2a",
+					"buttonTextColor": "#ffffff",
+					"buttonBorderColor": "#f48b2a"
+				}
+			}
+		]
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
 }

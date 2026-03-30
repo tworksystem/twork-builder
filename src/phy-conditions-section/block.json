@@ -1,38 +1,137 @@
 {
-  "$schema": "https://schemas.wp.org/trunk/block.json",
-  "apiVersion": 3,
-  "name": "twork/phy-conditions-section",
-  "version": "1.0.0",
-  "title": "Conditions Section",
-  "category": "twork-builder",
-  "icon": "forms",
-  "description": "Conditions We Treat section: header + three condition columns, matching physiotherapy-rehab.html.",
-  "keywords": ["physio", "conditions", "body map", "treat", "twork"],
-  "attributes": {
-    "backgroundColor": { "type": "string", "default": "#f9f9f9" },
-    "paddingTop":      { "type": "number", "default": 60 },
-    "paddingBottom":   { "type": "number", "default": 80 },
-    "containerMaxWidth": { "type": "number", "default": 1280 },
-    "containerPadding":  { "type": "number", "default": 24 },
-
-    "showSectionTitle":    { "type": "boolean", "default": true },
-    "sectionTitle":        { "type": "string",  "default": "Conditions We Treat" },
-    "showSectionSubtitle": { "type": "boolean", "default": true },
-    "sectionSubtitle":     { "type": "string",  "default": "Targeted therapy for every part of your body." },
-    "headerAlign":         { "type": "string",  "default": "center" },
-
-    "gap":                { "type": "number", "default": 30 },
-    "animationOnScroll":  { "type": "boolean", "default": true },
-    "animationType":      { "type": "string",  "default": "fade-up" },
-    "animationDelay":     { "type": "number",  "default": 100 }
-  },
-  "supports": {
-    "html": false,
-    "anchor": true,
-    "align": ["wide", "full"]
-  },
-  "textdomain": "twork-builder",
-  "editorScript": "file:./index.js",
-  "style": "file:./style-index.css"
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/phy-conditions-section",
+	"version": "1.0.0",
+	"title": "Conditions Section",
+	"category": "twork-builder",
+	"icon": "forms",
+	"description": "Conditions We Treat section: header + three condition columns, matching physiotherapy-rehab.html.",
+	"keywords": [ "physio", "conditions", "body map", "treat", "twork" ],
+	"attributes": {
+		"backgroundColor": {
+			"type": "string",
+			"default": "#f9f9f9"
+		},
+		"paddingTop": {
+			"type": "number",
+			"default": 60
+		},
+		"paddingBottom": {
+			"type": "number",
+			"default": 80
+		},
+		"containerMaxWidth": {
+			"type": "number",
+			"default": 1280
+		},
+		"containerPadding": {
+			"type": "number",
+			"default": 24
+		},
+		"showSectionTitle": {
+			"type": "boolean",
+			"default": true
+		},
+		"sectionTitle": {
+			"type": "string",
+			"default": "Conditions We Treat"
+		},
+		"showSectionSubtitle": {
+			"type": "boolean",
+			"default": true
+		},
+		"sectionSubtitle": {
+			"type": "string",
+			"default": "Targeted therapy for every part of your body."
+		},
+		"headerAlign": {
+			"type": "string",
+			"default": "center"
+		},
+		"gap": {
+			"type": "number",
+			"default": 30
+		},
+		"animationOnScroll": {
+			"type": "boolean",
+			"default": true
+		},
+		"animationType": {
+			"type": "string",
+			"default": "fade-up"
+		},
+		"animationDelay": {
+			"type": "number",
+			"default": 100
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"align": [ "wide", "full" ]
+	},
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": {
+			"backgroundColor": "#f9f9f9",
+			"paddingTop": 60,
+			"paddingBottom": 80,
+			"containerMaxWidth": 1280,
+			"containerPadding": 24,
+			"showSectionTitle": true,
+			"sectionTitle": "Conditions We Treat",
+			"showSectionSubtitle": true,
+			"sectionSubtitle": "Targeted therapy for every part of your body.",
+			"headerAlign": "center",
+			"gap": 30,
+			"animationOnScroll": true,
+			"animationType": "fade-up",
+			"animationDelay": 100
+		},
+		"innerBlocks": [
+			{
+				"name": "twork/phy-condition-col",
+				"attributes": {
+					"iconClass": "fas fa-bone",
+					"heading": "Orthopedic",
+					"items": [
+						"Back & Neck Pain",
+						"Arthritis & Joint Pain",
+						"Post-Fracture Stiffness",
+						"Spondylosis"
+					]
+				}
+			},
+			{
+				"name": "twork/phy-condition-col",
+				"attributes": {
+					"iconClass": "fas fa-running",
+					"heading": "Sports Injury",
+					"items": [
+						"Ligament Tears (ACL/PCL)",
+						"Muscle Strains",
+						"Tennis Elbow",
+						"Rotator Cuff Injury"
+					]
+				}
+			},
+			{
+				"name": "twork/phy-condition-col",
+				"attributes": {
+					"iconClass": "fas fa-brain",
+					"heading": "Neurological",
+					"items": [
+						"Stroke Rehabilitation",
+						"Parkinson's Disease",
+						"Nerve Injuries",
+						"Bell's Palsy"
+					]
+				}
+			}
+		]
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
 }
-

@@ -1,23 +1,31 @@
 {
-    "$schema": "https://schemas.wp.org/trunk/block.json",
-    "apiVersion": 3,
-    "name": "twork/hc-intro-list-item",
-    "title": "Intro List Item",
-    "parent": ["twork/hc-intro-section"],
-    "category": "twork-builder",
-    "description": "Single checklist item (icon + text) for the Home Care Intro section.",
-    "keywords": ["home care", "intro", "list", "checklist", "twork"],
-    "attributes": {
-        "iconClass": {
-            "type": "string",
-            "default": "fas fa-check-circle"
-        },
-        "text": {
-            "type": "string",
-            "default": "List item"
-        }
-    },
-    "supports": { "html": false },
-    "textdomain": "twork-builder",
-    "editorScript": "file:./index.js"
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/hc-intro-list-item",
+	"title": "Intro List Item",
+	"parent": [ "twork/hc-intro-section" ],
+	"category": "twork-builder",
+	"description": "Single checklist item (icon + text) for the Home Care Intro section.",
+	"keywords": [ "home care", "intro", "list", "checklist", "twork" ],
+	"attributes": {
+		"iconClass": {
+			"type": "string",
+			"default": "fas fa-check-circle"
+		},
+		"text": {
+			"type": "string",
+			"default": "List item"
+		}
+	},
+	"supports": {
+		"html": false
+	},
+	"example": {
+		"attributes": {
+			"iconClass": "fas fa-check-circle",
+			"text": "List item"
+		}
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js"
 }

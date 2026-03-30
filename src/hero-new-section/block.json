@@ -1,301 +1,377 @@
 {
-    "$schema": "https://schemas.wp.org/trunk/block.json",
-    "apiVersion": 3,
-    "name": "twork/hero-new-section",
-    "version": "1.0.0",
-    "title": "Hero Section (Split Layout)",
-    "category": "twork-builder",
-    "icon": "cover-image",
-    "description": "Two-column hero with background image, tagline, heading with highlight, description, CTA buttons, and glass card (e.g. Heart Centre / Centres of Excellence).",
-    "keywords": ["hero", "banner", "page", "glass", "centres", "twork"],
-    "attributes": {
-        "backgroundType": {
-            "type": "string",
-            "default": "image"
-        },
-        "backgroundImage": {
-            "type": "string",
-            "default": ""
-        },
-        "backgroundImageId": {
-            "type": "number"
-        },
-        "backgroundImageAlt": {
-            "type": "string",
-            "default": ""
-        },
-        "slideshowImages": {
-            "type": "array",
-            "default": [],
-            "items": {
-                "type": "object",
-                "properties": {
-                    "url": { "type": "string" },
-                    "id": { "type": "number" },
-                    "alt": { "type": "string" }
-                }
-            }
-        },
-        "slideshowInterval": {
-            "type": "number",
-            "default": 5000
-        },
-        "slideshowStyle": {
-            "type": "string",
-            "default": "fade"
-        },
-        "slideshowImagePosition": {
-            "type": "string",
-            "default": "center"
-        },
-        "backgroundVideoUrl": {
-            "type": "string",
-            "default": ""
-        },
-        "backgroundVideoId": {
-            "type": "number"
-        },
-        "videoPosterUrl": {
-            "type": "string",
-            "default": ""
-        },
-        "videoLoop": {
-            "type": "boolean",
-            "default": true
-        },
-        "videoMuted": {
-            "type": "boolean",
-            "default": true
-        },
-        "videoAutoplay": {
-            "type": "boolean",
-            "default": true
-        },
-        "imageOpacity": {
-            "type": "number",
-            "default": 0.85
-        },
-        "imageScale": {
-            "type": "number",
-            "default": 1.05
-        },
-        "showOverlay": {
-            "type": "boolean",
-            "default": true
-        },
-        "overlayGradientStart": {
-            "type": "string",
-            "default": "rgba(0, 0, 0, 0.85)"
-        },
-        "overlayGradientMid": {
-            "type": "string",
-            "default": "rgba(0, 0, 0, 0.6)"
-        },
-        "overlayGradientEnd": {
-            "type": "string",
-            "default": "rgba(0, 0, 0, 0.1)"
-        },
-        "minHeight": {
-            "type": "number",
-            "default": 700
-        },
-        "minHeightTablet": {
-            "type": "number",
-            "default": 600
-        },
-        "minHeightMobile": {
-            "type": "number",
-            "default": 500
-        },
-        "taglineText": {
-            "type": "string",
-            "default": "Centres of Excellence &nbsp;/&nbsp; Heart Centre"
-        },
-        "headingLine1": {
-            "type": "string",
-            "default": "Advanced"
-        },
-        "headingHighlight": {
-            "type": "string",
-            "default": "Heart Care"
-        },
-        "headingLine2": {
-            "type": "string",
-            "default": "Centre"
-        },
-        "headingHighlightColor": {
-            "type": "string",
-            "default": "#f48b2a"
-        },
-        "description": {
-            "type": "string",
-            "default": "Combining world-class technology with compassionate care. From preventive screening to complex cardiac surgeries, your heart is in safe hands."
-        },
-        "primaryButtonText": {
-            "type": "string",
-            "default": "Book Appointment"
-        },
-        "primaryButtonUrl": {
-            "type": "string",
-            "default": "#appointment"
-        },
-        "primaryButtonOpenInNewTab": {
-            "type": "boolean",
-            "default": false
-        },
-        "showPrimaryButton": {
-            "type": "boolean",
-            "default": true
-        },
-        "secondaryButtonText": {
-            "type": "string",
-            "default": "Meet Specialists"
-        },
-        "secondaryButtonUrl": {
-            "type": "string",
-            "default": "#specialists"
-        },
-        "secondaryButtonOpenInNewTab": {
-            "type": "boolean",
-            "default": false
-        },
-        "showSecondaryButton": {
-            "type": "boolean",
-            "default": true
-        },
-        "primaryButtonIconType": {
-            "type": "string",
-            "default": "dashicon"
-        },
-        "primaryButtonIconValue": {
-            "type": "string",
-            "default": "dashicons-arrow-right-alt2"
-        },
-        "primaryButtonIconImageUrl": {
-            "type": "string",
-            "default": ""
-        },
-        "primaryButtonIconImageId": {
-            "type": "number"
-        },
-        "primaryButtonIconPosition": {
-            "type": "string",
-            "default": "right"
-        },
-        "primaryButtonBgColor": {
-            "type": "string",
-            "default": ""
-        },
-        "primaryButtonTextColor": {
-            "type": "string",
-            "default": ""
-        },
-        "primaryButtonBorderRadius": {
-            "type": "number",
-            "default": 6
-        },
-        "primaryButtonPaddingV": {
-            "type": "number",
-            "default": 14
-        },
-        "primaryButtonPaddingH": {
-            "type": "number",
-            "default": 32
-        },
-        "primaryButtonFontSize": {
-            "type": "number",
-            "default": 0.85
-        },
-        "primaryButtonHoverBgColor": {
-            "type": "string",
-            "default": ""
-        },
-        "primaryButtonHoverTextColor": {
-            "type": "string",
-            "default": ""
-        },
-        "secondaryButtonIconType": {
-            "type": "string",
-            "default": "dashicon"
-        },
-        "secondaryButtonIconValue": {
-            "type": "string",
-            "default": "dashicons-admin-users"
-        },
-        "secondaryButtonIconImageUrl": {
-            "type": "string",
-            "default": ""
-        },
-        "secondaryButtonIconImageId": {
-            "type": "number"
-        },
-        "secondaryButtonIconPosition": {
-            "type": "string",
-            "default": "right"
-        },
-        "secondaryButtonBgColor": {
-            "type": "string",
-            "default": ""
-        },
-        "secondaryButtonTextColor": {
-            "type": "string",
-            "default": ""
-        },
-        "secondaryButtonBorderRadius": {
-            "type": "number",
-            "default": 6
-        },
-        "secondaryButtonPaddingV": {
-            "type": "number",
-            "default": 14
-        },
-        "secondaryButtonPaddingH": {
-            "type": "number",
-            "default": 32
-        },
-        "secondaryButtonFontSize": {
-            "type": "number",
-            "default": 0.85
-        },
-        "secondaryButtonHoverBgColor": {
-            "type": "string",
-            "default": ""
-        },
-        "secondaryButtonHoverTextColor": {
-            "type": "string",
-            "default": ""
-        },
-        "showGlassCard": {
-            "type": "boolean",
-            "default": true
-        },
-        "glassCardTitle": {
-            "type": "string",
-            "default": "24/7"
-        },
-        "glassCardDescription": {
-            "type": "string",
-            "default": "Emergency Cardiac Care Unit Available"
-        },
-        "containerMaxWidth": {
-            "type": "number",
-            "default": 1200
-        },
-        "containerPadding": {
-            "type": "number",
-            "default": 20
-        },
-        "animationOnScroll": {
-            "type": "boolean",
-            "default": true
-        }
-    },
-    "supports": {
-        "html": false,
-        "anchor": true,
-        "align": ["wide", "full"]
-    },
-    "textdomain": "twork-builder",
-    "editorScript": "file:./index.js",
-    "style": "file:./style-index.css"
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/hero-new-section",
+	"version": "1.0.0",
+	"title": "Hero Section (Split Layout)",
+	"category": "twork-builder",
+	"icon": "cover-image",
+	"description": "Two-column hero with background image, tagline, heading with highlight, description, CTA buttons, and glass card (e.g. Heart Centre / Centres of Excellence).",
+	"keywords": [ "hero", "banner", "page", "glass", "centres", "twork" ],
+	"attributes": {
+		"backgroundType": {
+			"type": "string",
+			"default": "image"
+		},
+		"backgroundImage": {
+			"type": "string",
+			"default": ""
+		},
+		"backgroundImageId": {
+			"type": "number"
+		},
+		"backgroundImageAlt": {
+			"type": "string",
+			"default": ""
+		},
+		"slideshowImages": {
+			"type": "array",
+			"default": [],
+			"items": {
+				"type": "object",
+				"properties": {
+					"url": {
+						"type": "string"
+					},
+					"id": {
+						"type": "number"
+					},
+					"alt": {
+						"type": "string"
+					}
+				}
+			}
+		},
+		"slideshowInterval": {
+			"type": "number",
+			"default": 5000
+		},
+		"slideshowStyle": {
+			"type": "string",
+			"default": "fade"
+		},
+		"slideshowImagePosition": {
+			"type": "string",
+			"default": "center"
+		},
+		"backgroundVideoUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"backgroundVideoId": {
+			"type": "number"
+		},
+		"videoPosterUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"videoLoop": {
+			"type": "boolean",
+			"default": true
+		},
+		"videoMuted": {
+			"type": "boolean",
+			"default": true
+		},
+		"videoAutoplay": {
+			"type": "boolean",
+			"default": true
+		},
+		"imageOpacity": {
+			"type": "number",
+			"default": 0.85
+		},
+		"imageScale": {
+			"type": "number",
+			"default": 1.05
+		},
+		"showOverlay": {
+			"type": "boolean",
+			"default": true
+		},
+		"overlayGradientStart": {
+			"type": "string",
+			"default": "rgba(0, 0, 0, 0.85)"
+		},
+		"overlayGradientMid": {
+			"type": "string",
+			"default": "rgba(0, 0, 0, 0.6)"
+		},
+		"overlayGradientEnd": {
+			"type": "string",
+			"default": "rgba(0, 0, 0, 0.1)"
+		},
+		"minHeight": {
+			"type": "number",
+			"default": 700
+		},
+		"minHeightTablet": {
+			"type": "number",
+			"default": 600
+		},
+		"minHeightMobile": {
+			"type": "number",
+			"default": 500
+		},
+		"taglineText": {
+			"type": "string",
+			"default": "Centres of Excellence &nbsp;/&nbsp; Heart Centre"
+		},
+		"headingLine1": {
+			"type": "string",
+			"default": "Advanced"
+		},
+		"headingHighlight": {
+			"type": "string",
+			"default": "Heart Care"
+		},
+		"headingLine2": {
+			"type": "string",
+			"default": "Centre"
+		},
+		"headingHighlightColor": {
+			"type": "string",
+			"default": "#f48b2a"
+		},
+		"description": {
+			"type": "string",
+			"default": "Combining world-class technology with compassionate care. From preventive screening to complex cardiac surgeries, your heart is in safe hands."
+		},
+		"primaryButtonText": {
+			"type": "string",
+			"default": "Book Appointment"
+		},
+		"primaryButtonUrl": {
+			"type": "string",
+			"default": "#appointment"
+		},
+		"primaryButtonOpenInNewTab": {
+			"type": "boolean",
+			"default": false
+		},
+		"showPrimaryButton": {
+			"type": "boolean",
+			"default": true
+		},
+		"secondaryButtonText": {
+			"type": "string",
+			"default": "Meet Specialists"
+		},
+		"secondaryButtonUrl": {
+			"type": "string",
+			"default": "#specialists"
+		},
+		"secondaryButtonOpenInNewTab": {
+			"type": "boolean",
+			"default": false
+		},
+		"showSecondaryButton": {
+			"type": "boolean",
+			"default": true
+		},
+		"primaryButtonIconType": {
+			"type": "string",
+			"default": "dashicon"
+		},
+		"primaryButtonIconValue": {
+			"type": "string",
+			"default": "dashicons-arrow-right-alt2"
+		},
+		"primaryButtonIconImageUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"primaryButtonIconImageId": {
+			"type": "number"
+		},
+		"primaryButtonIconPosition": {
+			"type": "string",
+			"default": "right"
+		},
+		"primaryButtonBgColor": {
+			"type": "string",
+			"default": ""
+		},
+		"primaryButtonTextColor": {
+			"type": "string",
+			"default": ""
+		},
+		"primaryButtonBorderRadius": {
+			"type": "number",
+			"default": 6
+		},
+		"primaryButtonPaddingV": {
+			"type": "number",
+			"default": 14
+		},
+		"primaryButtonPaddingH": {
+			"type": "number",
+			"default": 32
+		},
+		"primaryButtonFontSize": {
+			"type": "number",
+			"default": 0.85
+		},
+		"primaryButtonHoverBgColor": {
+			"type": "string",
+			"default": ""
+		},
+		"primaryButtonHoverTextColor": {
+			"type": "string",
+			"default": ""
+		},
+		"secondaryButtonIconType": {
+			"type": "string",
+			"default": "dashicon"
+		},
+		"secondaryButtonIconValue": {
+			"type": "string",
+			"default": "dashicons-admin-users"
+		},
+		"secondaryButtonIconImageUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"secondaryButtonIconImageId": {
+			"type": "number"
+		},
+		"secondaryButtonIconPosition": {
+			"type": "string",
+			"default": "right"
+		},
+		"secondaryButtonBgColor": {
+			"type": "string",
+			"default": ""
+		},
+		"secondaryButtonTextColor": {
+			"type": "string",
+			"default": ""
+		},
+		"secondaryButtonBorderRadius": {
+			"type": "number",
+			"default": 6
+		},
+		"secondaryButtonPaddingV": {
+			"type": "number",
+			"default": 14
+		},
+		"secondaryButtonPaddingH": {
+			"type": "number",
+			"default": 32
+		},
+		"secondaryButtonFontSize": {
+			"type": "number",
+			"default": 0.85
+		},
+		"secondaryButtonHoverBgColor": {
+			"type": "string",
+			"default": ""
+		},
+		"secondaryButtonHoverTextColor": {
+			"type": "string",
+			"default": ""
+		},
+		"showGlassCard": {
+			"type": "boolean",
+			"default": true
+		},
+		"glassCardTitle": {
+			"type": "string",
+			"default": "24/7"
+		},
+		"glassCardDescription": {
+			"type": "string",
+			"default": "Emergency Cardiac Care Unit Available"
+		},
+		"containerMaxWidth": {
+			"type": "number",
+			"default": 1200
+		},
+		"containerPadding": {
+			"type": "number",
+			"default": 20
+		},
+		"animationOnScroll": {
+			"type": "boolean",
+			"default": true
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"align": [ "wide", "full" ]
+	},
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": {
+			"backgroundType": "image",
+			"backgroundImage": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?auto=format&fit=crop&w=1200&q=80",
+			"backgroundImageAlt": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?auto=format&fit=crop&w=1200&q=80",
+			"slideshowImages": [],
+			"slideshowInterval": 5000,
+			"slideshowStyle": "fade",
+			"slideshowImagePosition": "center",
+			"backgroundVideoUrl": "",
+			"videoPosterUrl": "",
+			"videoLoop": true,
+			"videoMuted": true,
+			"videoAutoplay": true,
+			"imageOpacity": 0.85,
+			"imageScale": 1.05,
+			"showOverlay": true,
+			"overlayGradientStart": "rgba(0, 0, 0, 0.85)",
+			"overlayGradientMid": "rgba(0, 0, 0, 0.6)",
+			"overlayGradientEnd": "rgba(0, 0, 0, 0.1)",
+			"minHeight": 700,
+			"minHeightTablet": 600,
+			"minHeightMobile": 500,
+			"taglineText": "Centres of Excellence &nbsp;/&nbsp; Heart Centre",
+			"headingLine1": "Advanced",
+			"headingHighlight": "Heart Care",
+			"headingLine2": "Centre",
+			"headingHighlightColor": "#f48b2a",
+			"description": "Combining world-class technology with compassionate care. From preventive screening to complex cardiac surgeries, your heart is in safe hands.",
+			"primaryButtonText": "Book Appointment",
+			"primaryButtonUrl": "#appointment",
+			"primaryButtonOpenInNewTab": false,
+			"showPrimaryButton": true,
+			"secondaryButtonText": "Meet Specialists",
+			"secondaryButtonUrl": "#specialists",
+			"secondaryButtonOpenInNewTab": false,
+			"showSecondaryButton": true,
+			"primaryButtonIconType": "dashicon",
+			"primaryButtonIconValue": "dashicons-arrow-right-alt2",
+			"primaryButtonIconImageUrl": "",
+			"primaryButtonIconPosition": "right",
+			"primaryButtonBgColor": "",
+			"primaryButtonTextColor": "",
+			"primaryButtonBorderRadius": 6,
+			"primaryButtonPaddingV": 14,
+			"primaryButtonPaddingH": 32,
+			"primaryButtonFontSize": 0.85,
+			"primaryButtonHoverBgColor": "",
+			"primaryButtonHoverTextColor": "",
+			"secondaryButtonIconType": "dashicon",
+			"secondaryButtonIconValue": "dashicons-admin-users",
+			"secondaryButtonIconImageUrl": "",
+			"secondaryButtonIconPosition": "right",
+			"secondaryButtonBgColor": "",
+			"secondaryButtonTextColor": "",
+			"secondaryButtonBorderRadius": 6,
+			"secondaryButtonPaddingV": 14,
+			"secondaryButtonPaddingH": 32,
+			"secondaryButtonFontSize": 0.85,
+			"secondaryButtonHoverBgColor": "",
+			"secondaryButtonHoverTextColor": "",
+			"showGlassCard": true,
+			"glassCardTitle": "24/7",
+			"glassCardDescription": "Emergency Cardiac Care Unit Available",
+			"containerMaxWidth": 1200,
+			"containerPadding": 20,
+			"animationOnScroll": true
+		}
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
 }

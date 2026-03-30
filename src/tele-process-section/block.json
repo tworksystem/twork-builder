@@ -1,93 +1,154 @@
 {
-    "$schema": "https://schemas.wp.org/trunk/block.json",
-    "apiVersion": 3,
-    "name": "twork/tele-process-section",
-    "version": "1.0.0",
-    "title": "Process Section",
-    "category": "twork-builder",
-    "icon": "list-view",
-    "description": "How It Works process section with step cards (icon, title, description).",
-    "keywords": ["telemedicine", "process", "how it works", "steps", "twork"],
-    "attributes": {
-        "sectionPaddingTop": {
-            "type": "number",
-            "default": 80
-        },
-        "sectionPaddingBottom": {
-            "type": "number",
-            "default": 80
-        },
-        "containerMaxWidth": {
-            "type": "number",
-            "default": 1200
-        },
-        "containerPadding": {
-            "type": "number",
-            "default": 24
-        },
-        "gridGap": {
-            "type": "number",
-            "default": 30
-        },
-        "minItemWidth": {
-            "type": "number",
-            "default": 240
-        },
-        "sectionAnchor": {
-            "type": "string",
-            "default": "how-it-works"
-        },
-        "backgroundColor": {
-            "type": "string",
-            "default": "#ffffff"
-        },
-        "showSectionTitle": {
-            "type": "boolean",
-            "default": false
-        },
-        "sectionTitle": {
-            "type": "string",
-            "default": "How It Works"
-        },
-        "sectionSubtitle": {
-            "type": "string",
-            "default": ""
-        },
-        "sectionTitleColor": {
-            "type": "string",
-            "default": "#212121"
-        },
-        "sectionSubtitleColor": {
-            "type": "string",
-            "default": "#555555"
-        },
-        "sectionTitleAlignment": {
-            "type": "string",
-            "default": "center"
-        },
-        "sectionTitleFontSize": {
-            "type": "number",
-            "default": 2.5
-        },
-        "sectionSubtitleFontSize": {
-            "type": "number",
-            "default": 1.1
-        },
-        "sectionHeaderMarginBottom": {
-            "type": "number",
-            "default": 50
-        },
-        "useHeaderFadeUp": {
-            "type": "boolean",
-            "default": true
-        }
-    },
-    "supports": {
-        "html": false,
-        "anchor": true,
-        "align": ["wide", "full"]
-    },
-    "textdomain": "twork-builder",
-    "editorScript": "file:./index.js",
-    "style": "file:./style-index.css"
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/tele-process-section",
+	"version": "1.0.0",
+	"title": "Process Section",
+	"category": "twork-builder",
+	"icon": "list-view",
+	"description": "How It Works process section with step cards (icon, title, description).",
+	"keywords": [ "telemedicine", "process", "how it works", "steps", "twork" ],
+	"attributes": {
+		"sectionPaddingTop": {
+			"type": "number",
+			"default": 80
+		},
+		"sectionPaddingBottom": {
+			"type": "number",
+			"default": 80
+		},
+		"containerMaxWidth": {
+			"type": "number",
+			"default": 1200
+		},
+		"containerPadding": {
+			"type": "number",
+			"default": 24
+		},
+		"gridGap": {
+			"type": "number",
+			"default": 30
+		},
+		"minItemWidth": {
+			"type": "number",
+			"default": 240
+		},
+		"sectionAnchor": {
+			"type": "string",
+			"default": "how-it-works"
+		},
+		"backgroundColor": {
+			"type": "string",
+			"default": "#ffffff"
+		},
+		"showSectionTitle": {
+			"type": "boolean",
+			"default": false
+		},
+		"sectionTitle": {
+			"type": "string",
+			"default": "How It Works"
+		},
+		"sectionSubtitle": {
+			"type": "string",
+			"default": ""
+		},
+		"sectionTitleColor": {
+			"type": "string",
+			"default": "#212121"
+		},
+		"sectionSubtitleColor": {
+			"type": "string",
+			"default": "#555555"
+		},
+		"sectionTitleAlignment": {
+			"type": "string",
+			"default": "center"
+		},
+		"sectionTitleFontSize": {
+			"type": "number",
+			"default": 2.5
+		},
+		"sectionSubtitleFontSize": {
+			"type": "number",
+			"default": 1.1
+		},
+		"sectionHeaderMarginBottom": {
+			"type": "number",
+			"default": 50
+		},
+		"useHeaderFadeUp": {
+			"type": "boolean",
+			"default": true
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"align": [ "wide", "full" ]
+	},
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": {
+			"sectionPaddingTop": 80,
+			"sectionPaddingBottom": 80,
+			"containerMaxWidth": 1200,
+			"containerPadding": 24,
+			"gridGap": 30,
+			"minItemWidth": 240,
+			"sectionAnchor": "how-it-works",
+			"backgroundColor": "#ffffff",
+			"showSectionTitle": false,
+			"sectionTitle": "How It Works",
+			"sectionSubtitle": "",
+			"sectionTitleColor": "#212121",
+			"sectionSubtitleColor": "#555555",
+			"sectionTitleAlignment": "center",
+			"sectionTitleFontSize": 2.5,
+			"sectionSubtitleFontSize": 1.1,
+			"sectionHeaderMarginBottom": 50,
+			"useHeaderFadeUp": true
+		},
+		"innerBlocks": [
+			{
+				"name": "twork/tele-process-card",
+				"attributes": {
+					"stepNumber": 1,
+					"iconClass": "fas fa-user-md",
+					"title": "Choose Doctor",
+					"description": "Select a specialist from our list and view their available online schedules."
+				}
+			},
+			{
+				"name": "twork/tele-process-card",
+				"attributes": {
+					"stepNumber": 2,
+					"iconClass": "fas fa-calendar-check",
+					"title": "Book Slot",
+					"description": "Pick a time that works for you and make a secure online payment."
+				}
+			},
+			{
+				"name": "twork/tele-process-card",
+				"attributes": {
+					"stepNumber": 3,
+					"iconClass": "fas fa-link",
+					"title": "Get Link",
+					"description": "Receive a secure encrypted video meeting link via SMS or Email."
+				}
+			},
+			{
+				"name": "twork/tele-process-card",
+				"attributes": {
+					"stepNumber": 4,
+					"iconClass": "fas fa-file-prescription",
+					"title": "Consultation",
+					"description": "See the doctor and get your digital prescription instantly in the app."
+				}
+			}
+		]
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
 }

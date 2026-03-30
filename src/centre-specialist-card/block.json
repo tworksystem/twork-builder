@@ -1,25 +1,73 @@
 {
-  "$schema": "https://schemas.wp.org/trunk/block.json",
-  "apiVersion": 3,
-  "name": "twork/centre-specialist-card",
-  "version": "1.0.0",
-  "title": "Specialist Card (List)",
-  "category": "twork-builder",
-  "parent": ["twork/centre-specialists-section"],
-  "description": "Single specialist row: photo/icon, name, specialization, qualifications, View Profile button.",
-  "attributes": {
-    "photoType": { "type": "string", "default": "image" },
-    "photoImageUrl": { "type": "string", "default": "" },
-    "photoImageId": { "type": "number" },
-    "photoVideoUrl": { "type": "string", "default": "" },
-    "photoVideoId": { "type": "number" },
-    "photoIconClass": { "type": "string", "default": "fas fa-user-md" },
-    "photoDashicon": { "type": "string", "default": "dashicons-admin-users" },
-    "name": { "type": "string", "default": "Dr. Kyaw Swar" },
-    "specialization": { "type": "string", "default": "Interventional Cardiologist" },
-    "qualifications": { "type": "string", "default": "MBBS, M.Med.Sc, MRCP (UK)" },
-    "profileUrl": { "type": "string", "default": "#" },
-    "profileLinkText": { "type": "string", "default": "View Profile" }
-  },
-  "editorScript": "file:./index.js"
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/centre-specialist-card",
+	"version": "1.0.0",
+	"title": "Specialist Card (List)",
+	"category": "twork-builder",
+	"parent": [ "twork/centre-specialists-section" ],
+	"description": "Single specialist row: photo/icon, name, specialization, qualifications, View Profile button.",
+	"attributes": {
+		"photoType": {
+			"type": "string",
+			"default": "image"
+		},
+		"photoImageUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"photoImageId": {
+			"type": "number"
+		},
+		"photoVideoUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"photoVideoId": {
+			"type": "number"
+		},
+		"photoIconClass": {
+			"type": "string",
+			"default": "fas fa-user-md"
+		},
+		"photoDashicon": {
+			"type": "string",
+			"default": "dashicons-admin-users"
+		},
+		"name": {
+			"type": "string",
+			"default": "Dr. Kyaw Swar"
+		},
+		"specialization": {
+			"type": "string",
+			"default": "Interventional Cardiologist"
+		},
+		"qualifications": {
+			"type": "string",
+			"default": "MBBS, M.Med.Sc, MRCP (UK)"
+		},
+		"profileUrl": {
+			"type": "string",
+			"default": "#"
+		},
+		"profileLinkText": {
+			"type": "string",
+			"default": "View Profile"
+		}
+	},
+	"editorScript": "file:./index.js",
+	"example": {
+		"attributes": {
+			"photoType": "image",
+			"photoImageUrl": "",
+			"photoVideoUrl": "",
+			"photoIconClass": "fas fa-user-md",
+			"photoDashicon": "dashicons-admin-users",
+			"name": "Dr. Kyaw Swar",
+			"specialization": "Interventional Cardiologist",
+			"qualifications": "MBBS, M.Med.Sc, MRCP (UK)",
+			"profileUrl": "#",
+			"profileLinkText": "View Profile"
+		}
+	}
 }

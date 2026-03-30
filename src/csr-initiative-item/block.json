@@ -1,85 +1,106 @@
 {
-    "$schema": "https://schemas.wp.org/trunk/block.json",
-    "apiVersion": 3,
-    "name": "twork/csr-initiative-item",
-    "title": "Initiative Item",
-    "category": "twork-builder",
-    "description": "Single initiative card - image, icon, title, description. Use standalone or the CSR Initiatives Section block for dynamic posts.",
-    "keywords": ["csr", "initiative", "card", "charity", "twork"],
-    "attributes": {
-        "image": {
-            "type": "string",
-            "default": ""
-        },
-        "imageId": {
-            "type": "number"
-        },
-        "imageAlt": {
-            "type": "string",
-            "default": ""
-        },
-        "imageHeight": {
-            "type": "number",
-            "default": 220
-        },
-        "imageObjectFit": {
-            "type": "string",
-            "default": "cover"
-        },
-        "imageObjectPosition": {
-            "type": "string",
-            "default": "center"
-        },
-        "iconClass": {
-            "type": "string",
-            "default": "fas fa-ambulance"
-        },
-        "iconColor": {
-            "type": "string",
-            "default": "#f48b2a"
-        },
-        "iconBgColor": {
-            "type": "string",
-            "default": "#fff3e0"
-        },
-        "iconSize": {
-            "type": "number",
-            "default": 1.5
-        },
-        "title": {
-            "type": "string",
-            "default": "Initiative Title"
-        },
-        "titleColor": {
-            "type": "string",
-            "default": "#212121"
-        },
-        "titleFontSize": {
-            "type": "number",
-            "default": 1.3
-        },
-        "titleFontWeight": {
-            "type": "number",
-            "default": 700
-        },
-        "description": {
-            "type": "string",
-            "default": "Initiative description goes here..."
-        },
-        "descriptionColor": {
-            "type": "string",
-            "default": "#666666"
-        },
-        "descriptionFontSize": {
-            "type": "number",
-            "default": 0.95
-        },
-        "contentPadding": {
-            "type": "number",
-            "default": 30
-        }
-    },
-    "textdomain": "twork-builder",
-    "editorScript": "file:./index.js",
-    "style": "file:./style-index.css"
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/csr-initiative-item",
+	"title": "Initiative Item",
+	"category": "twork-builder",
+	"description": "Single initiative card - image, icon, title, description. Use standalone or the CSR Initiatives Section block for dynamic posts.",
+	"keywords": [ "csr", "initiative", "card", "charity", "twork" ],
+	"attributes": {
+		"image": {
+			"type": "string",
+			"default": ""
+		},
+		"imageId": {
+			"type": "number"
+		},
+		"imageAlt": {
+			"type": "string",
+			"default": ""
+		},
+		"imageHeight": {
+			"type": "number",
+			"default": 220
+		},
+		"imageObjectFit": {
+			"type": "string",
+			"default": "cover"
+		},
+		"imageObjectPosition": {
+			"type": "string",
+			"default": "center"
+		},
+		"iconClass": {
+			"type": "string",
+			"default": "fas fa-ambulance"
+		},
+		"iconColor": {
+			"type": "string",
+			"default": "#f48b2a"
+		},
+		"iconBgColor": {
+			"type": "string",
+			"default": "#fff3e0"
+		},
+		"iconSize": {
+			"type": "number",
+			"default": 1.5
+		},
+		"title": {
+			"type": "string",
+			"default": "Initiative Title"
+		},
+		"titleColor": {
+			"type": "string",
+			"default": "#212121"
+		},
+		"titleFontSize": {
+			"type": "number",
+			"default": 1.3
+		},
+		"titleFontWeight": {
+			"type": "number",
+			"default": 700
+		},
+		"description": {
+			"type": "string",
+			"default": "Initiative description goes here..."
+		},
+		"descriptionColor": {
+			"type": "string",
+			"default": "#666666"
+		},
+		"descriptionFontSize": {
+			"type": "number",
+			"default": 0.95
+		},
+		"contentPadding": {
+			"type": "number",
+			"default": 30
+		}
+	},
+	"example": {
+		"attributes": {
+			"image": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?auto=format&fit=crop&w=1200&q=80",
+			"imageAlt": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?auto=format&fit=crop&w=1200&q=80",
+			"imageHeight": 220,
+			"imageObjectFit": "cover",
+			"imageObjectPosition": "center",
+			"iconClass": "fas fa-ambulance",
+			"iconColor": "#f48b2a",
+			"iconBgColor": "#fff3e0",
+			"iconSize": 1.5,
+			"title": "Initiative Title",
+			"titleColor": "#212121",
+			"titleFontSize": 1.3,
+			"titleFontWeight": 700,
+			"description": "Initiative description goes here...",
+			"descriptionColor": "#666666",
+			"descriptionFontSize": 0.95,
+			"contentPadding": 30
+		}
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
 }

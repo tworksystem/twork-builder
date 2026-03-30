@@ -1,39 +1,38 @@
 {
-  "$schema": "https://schemas.wp.org/trunk/block.json",
-  "apiVersion": 3,
-  "name": "twork/em-process-step",
-  "version": "1.0.0",
-  "title": "Process Step",
-  "parent": [
-    "twork/em-process-section"
-  ],
-  "category": "twork-builder",
-  "icon": "controls-repeat",
-  "description": "Single process step (numbered circle, title, description) for the Emergency Process Section.",
-  "keywords": [
-    "step",
-    "process",
-    "emergency",
-    "twork"
-  ],
-  "attributes": {
-    "stepNumber": {
-      "type": "string",
-      "default": "1"
-    },
-    "title": {
-      "type": "string",
-      "default": "Step title"
-    },
-    "description": {
-      "type": "string",
-      "default": ""
-    }
-  },
-  "supports": {
-    "html": false
-  },
-  "textdomain": "twork-builder",
-  "editorScript": "file:./index.js"
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/em-process-step",
+	"version": "1.0.0",
+	"title": "Process Step",
+	"parent": [ "twork/em-process-section" ],
+	"category": "twork-builder",
+	"icon": "controls-repeat",
+	"description": "Single process step (numbered circle, title, description) for the Emergency Process Section.",
+	"keywords": [ "step", "process", "emergency", "twork" ],
+	"attributes": {
+		"stepNumber": {
+			"type": "string",
+			"default": "1"
+		},
+		"title": {
+			"type": "string",
+			"default": "Step title"
+		},
+		"description": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"supports": {
+		"html": false
+	},
+	"example": {
+		"attributes": {
+			"stepNumber": "1",
+			"title": "Step title",
+			"description": ""
+		}
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js"
 }
-

@@ -1,130 +1,296 @@
 {
-    "$schema": "https://schemas.wp.org/trunk/block.json",
-    "apiVersion": 3,
-    "name": "twork/gallery-section",
-    "title": "Gallery Section",
-    "category": "twork-builder",
-    "description": "Filterable gallery section with tabs and grid of gallery items for facilities.",
-    "keywords": ["gallery", "photos", "filter", "facilities", "twork"],
-    "icon": "format-gallery",
-    "attributes": {
-        "backgroundColor": {
-            "type": "string",
-            "default": "#f8f9fa"
-        },
-        "paddingTop": {
-            "type": "number",
-            "default": 80
-        },
-        "paddingBottom": {
-            "type": "number",
-            "default": 80
-        },
-        "paddingTopMobile": {
-            "type": "number",
-            "default": 60
-        },
-        "paddingBottomMobile": {
-            "type": "number",
-            "default": 60
-        },
-        "showSectionTitle": {
-            "type": "boolean",
-            "default": true
-        },
-        "sectionTitle": {
-            "type": "string",
-            "default": "Our Gallery"
-        },
-        "sectionTitleColor": {
-            "type": "string",
-            "default": "#212121"
-        },
-        "sectionTitleFontSize": {
-            "type": "number",
-            "default": 2
-        },
-        "sectionTitleFontSizeMobile": {
-            "type": "number",
-            "default": 1.6
-        },
-        "sectionTitleFontWeight": {
-            "type": "number",
-            "default": 700
-        },
-        "showSectionSubtitle": {
-            "type": "boolean",
-            "default": true
-        },
-        "sectionSubtitle": {
-            "type": "string",
-            "default": "Explore our advanced medical facilities."
-        },
-        "sectionSubtitleColor": {
-            "type": "string",
-            "default": "#666666"
-        },
-        "sectionSubtitleFontSize": {
-            "type": "number",
-            "default": 1.05
-        },
-        "sectionTitleAlignment": {
-            "type": "string",
-            "default": "center"
-        },
-        "sectionHeaderMarginBottom": {
-            "type": "number",
-            "default": 40
-        },
-        "tabsMarginBottom": {
-            "type": "number",
-            "default": 40
-        },
-        "tabs": {
-            "type": "array",
-            "default": [
-                { "id": 1, "label": "All Photos", "filter": "all" },
-                { "id": 2, "label": "Patient Rooms", "filter": "rooms" },
-                { "id": 3, "label": "Technology", "filter": "tech" },
-                { "id": 4, "label": "Amenities", "filter": "amenity" }
-            ]
-        },
-        "containerMaxWidth": {
-            "type": "number",
-            "default": 1200
-        },
-        "containerPadding": {
-            "type": "number",
-            "default": 20
-        },
-        "gridColumns": {
-            "type": "number",
-            "default": 4
-        },
-        "gridColumnsTablet": {
-            "type": "number",
-            "default": 2
-        },
-        "gridColumnsMobile": {
-            "type": "number",
-            "default": 1
-        },
-        "gridGap": {
-            "type": "number",
-            "default": 15
-        },
-        "gridAutoRows": {
-            "type": "number",
-            "default": 250
-        }
-    },
-    "supports": {
-        "html": false,
-        "anchor": true,
-        "align": ["wide", "full"]
-    },
-    "textdomain": "twork-builder",
-    "editorScript": "file:./index.js",
-    "viewScript": "file:./view.js",
-    "style": "file:./style-index.css"
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/gallery-section",
+	"title": "Gallery Section",
+	"category": "twork-builder",
+	"description": "Filterable gallery section with tabs and grid of gallery items for facilities.",
+	"keywords": [ "gallery", "photos", "filter", "facilities", "twork" ],
+	"icon": "format-gallery",
+	"attributes": {
+		"backgroundColor": {
+			"type": "string",
+			"default": "#f8f9fa"
+		},
+		"paddingTop": {
+			"type": "number",
+			"default": 80
+		},
+		"paddingBottom": {
+			"type": "number",
+			"default": 80
+		},
+		"paddingTopMobile": {
+			"type": "number",
+			"default": 60
+		},
+		"paddingBottomMobile": {
+			"type": "number",
+			"default": 60
+		},
+		"showSectionTitle": {
+			"type": "boolean",
+			"default": true
+		},
+		"sectionTitle": {
+			"type": "string",
+			"default": "Our Gallery"
+		},
+		"sectionTitleColor": {
+			"type": "string",
+			"default": "#212121"
+		},
+		"sectionTitleFontSize": {
+			"type": "number",
+			"default": 2
+		},
+		"sectionTitleFontSizeMobile": {
+			"type": "number",
+			"default": 1.6
+		},
+		"sectionTitleFontWeight": {
+			"type": "number",
+			"default": 700
+		},
+		"showSectionSubtitle": {
+			"type": "boolean",
+			"default": true
+		},
+		"sectionSubtitle": {
+			"type": "string",
+			"default": "Explore our advanced medical facilities."
+		},
+		"sectionSubtitleColor": {
+			"type": "string",
+			"default": "#666666"
+		},
+		"sectionSubtitleFontSize": {
+			"type": "number",
+			"default": 1.05
+		},
+		"sectionTitleAlignment": {
+			"type": "string",
+			"default": "center"
+		},
+		"sectionHeaderMarginBottom": {
+			"type": "number",
+			"default": 40
+		},
+		"tabsMarginBottom": {
+			"type": "number",
+			"default": 40
+		},
+		"tabs": {
+			"type": "array",
+			"default": [
+				{
+					"id": 1,
+					"label": "All Photos",
+					"filter": "all"
+				},
+				{
+					"id": 2,
+					"label": "Patient Rooms",
+					"filter": "rooms"
+				},
+				{
+					"id": 3,
+					"label": "Technology",
+					"filter": "tech"
+				},
+				{
+					"id": 4,
+					"label": "Amenities",
+					"filter": "amenity"
+				}
+			]
+		},
+		"containerMaxWidth": {
+			"type": "number",
+			"default": 1200
+		},
+		"containerPadding": {
+			"type": "number",
+			"default": 20
+		},
+		"gridColumns": {
+			"type": "number",
+			"default": 4
+		},
+		"gridColumnsTablet": {
+			"type": "number",
+			"default": 2
+		},
+		"gridColumnsMobile": {
+			"type": "number",
+			"default": 1
+		},
+		"gridGap": {
+			"type": "number",
+			"default": 15
+		},
+		"gridAutoRows": {
+			"type": "number",
+			"default": 250
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"align": [ "wide", "full" ]
+	},
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": {
+			"backgroundColor": "#f8f9fa",
+			"paddingTop": 80,
+			"paddingBottom": 80,
+			"paddingTopMobile": 60,
+			"paddingBottomMobile": 60,
+			"showSectionTitle": true,
+			"sectionTitle": "Our Gallery",
+			"sectionTitleColor": "#212121",
+			"sectionTitleFontSize": 2,
+			"sectionTitleFontSizeMobile": 1.6,
+			"sectionTitleFontWeight": 700,
+			"showSectionSubtitle": true,
+			"sectionSubtitle": "Explore our advanced medical facilities.",
+			"sectionSubtitleColor": "#666666",
+			"sectionSubtitleFontSize": 1.05,
+			"sectionTitleAlignment": "center",
+			"sectionHeaderMarginBottom": 40,
+			"tabsMarginBottom": 40,
+			"tabs": [
+				{
+					"id": 1,
+					"label": "All Photos",
+					"filter": "all"
+				},
+				{
+					"id": 2,
+					"label": "Patient Rooms",
+					"filter": "rooms"
+				},
+				{
+					"id": 3,
+					"label": "Technology",
+					"filter": "tech"
+				},
+				{
+					"id": 4,
+					"label": "Amenities",
+					"filter": "amenity"
+				}
+			],
+			"containerMaxWidth": 1200,
+			"containerPadding": 20,
+			"gridColumns": 4,
+			"gridColumnsTablet": 2,
+			"gridColumnsMobile": 1,
+			"gridGap": 15,
+			"gridAutoRows": 250
+		},
+		"innerBlocks": [
+			{
+				"name": "twork/gallery-item",
+				"attributes": {
+					"imageUrl": "https://jivakahospital.com/wp-content/uploads/2025/10/img-box-04.jpg",
+					"imageAlt": "Cath Lab",
+					"category": "tech"
+				}
+			},
+			{
+				"name": "twork/gallery-item",
+				"attributes": {
+					"imageUrl": "https://images.unsplash.com/photo-1512678080530-7760d81faba6?auto=format&fit=crop&q=80&w=800",
+					"imageAlt": "Room",
+					"category": "rooms"
+				}
+			},
+			{
+				"name": "twork/gallery-item",
+				"attributes": {
+					"imageUrl": "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=800",
+					"imageAlt": "Lobby",
+					"category": "amenity"
+				}
+			},
+			{
+				"name": "twork/gallery-item",
+				"attributes": {
+					"imageUrl": "https://jivakahospital.com/wp-content/uploads/2025/10/img-box-02.jpg",
+					"imageAlt": "OT Room",
+					"category": "tech"
+				}
+			},
+			{
+				"name": "twork/gallery-item",
+				"attributes": {
+					"imageUrl": "https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=800",
+					"imageAlt": "Reception",
+					"category": "amenity"
+				}
+			},
+			{
+				"name": "twork/gallery-item",
+				"attributes": {
+					"imageUrl": "https://images.unsplash.com/photo-1538108149393-fbbd81895907?auto=format&fit=crop&q=80&w=800",
+					"imageAlt": "Corridor",
+					"category": "rooms"
+				}
+			},
+			{
+				"name": "twork/gallery-item",
+				"attributes": {
+					"imageUrl": "https://images.unsplash.com/photo-1554743365-a80c1243316e?auto=format&fit=crop&q=80&w=800",
+					"imageAlt": "Cafeteria",
+					"category": "amenity"
+				}
+			},
+			{
+				"name": "twork/gallery-item",
+				"attributes": {
+					"imageUrl": "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=800",
+					"imageAlt": "MRI Scan",
+					"category": "tech"
+				}
+			},
+			{
+				"name": "twork/gallery-item",
+				"attributes": {
+					"imageUrl": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&q=80&w=800",
+					"imageAlt": "VIP Room",
+					"category": "rooms"
+				}
+			},
+			{
+				"name": "twork/gallery-item",
+				"attributes": {
+					"imageUrl": "https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&q=80&w=800",
+					"imageAlt": "Laboratory",
+					"category": "tech"
+				}
+			},
+			{
+				"name": "twork/gallery-item",
+				"attributes": {
+					"imageUrl": "https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&q=80&w=800",
+					"imageAlt": "Exterior",
+					"category": "amenity"
+				}
+			},
+			{
+				"name": "twork/gallery-item",
+				"attributes": {
+					"imageUrl": "https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&q=80&w=800",
+					"imageAlt": "ICU",
+					"category": "rooms"
+				}
+			}
+		]
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"viewScript": "file:./view.js",
+	"style": "file:./style-index.css"
 }

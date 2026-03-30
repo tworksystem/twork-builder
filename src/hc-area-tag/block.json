@@ -1,16 +1,26 @@
 {
-    "$schema": "https://schemas.wp.org/trunk/block.json",
-    "apiVersion": 3,
-    "name": "twork/hc-area-tag",
-    "title": "Area Tag",
-    "parent": ["twork/hc-area-section"],
-    "category": "twork-builder",
-    "description": "Single coverage area tag (e.g. township name) for the Home Care Area section.",
-    "keywords": ["home care", "area", "coverage", "tag", "twork"],
-    "attributes": {
-        "label": { "type": "string", "default": "Chanayethazan" }
-    },
-    "supports": { "html": false },
-    "textdomain": "twork-builder",
-    "editorScript": "file:./index.js"
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/hc-area-tag",
+	"title": "Area Tag",
+	"parent": [ "twork/hc-area-section" ],
+	"category": "twork-builder",
+	"description": "Single coverage area tag (e.g. township name) for the Home Care Area section.",
+	"keywords": [ "home care", "area", "coverage", "tag", "twork" ],
+	"attributes": {
+		"label": {
+			"type": "string",
+			"default": "Chanayethazan"
+		}
+	},
+	"supports": {
+		"html": false
+	},
+	"example": {
+		"attributes": {
+			"label": "Chanayethazan"
+		}
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js"
 }

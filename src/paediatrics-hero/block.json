@@ -1,38 +1,127 @@
 {
-  "$schema": "https://schemas.wp.org/trunk/block.json",
-  "apiVersion": 3,
-  "name": "twork/paediatrics-hero",
-  "version": "1.0.0",
-  "title": "Hero",
-  "category": "twork-builder",
-  "icon": "cover-image",
-  "description": "Paediatrics centre hero section with background image, badge, title, subtitle, two CTAs, and side image. Matches paediatrics-centre.html.",
-  "keywords": ["paediatrics", "hero", "centre", "twork"],
-  "attributes": {
-    "badge": { "type": "string", "default": "Centres of Excellence" },
-    "title": { "type": "string", "default": "Gentle Care for<br>Your Little Ones" },
-    "subtitle": { "type": "string", "default": "Jivaka Paediatrics Centre provides comprehensive healthcare for infants, children, and adolescents. From routine vaccinations to advanced neonatal care, your child's health is our priority." },
-    "primaryButtonText": { "type": "string", "default": "Book Appointment" },
-    "primaryButtonUrl": { "type": "string", "default": "#appointment" },
-    "outlineButtonText": { "type": "string", "default": "View Services" },
-    "outlineButtonUrl": { "type": "string", "default": "#services" },
-    "outlineButtonLight": { "type": "boolean", "default": true },
-    "backgroundImage": { "type": "string", "default": "" },
-    "backgroundImageId": { "type": "number" },
-    "backgroundOverlay": { "type": "boolean", "default": false },
-    "backgroundOverlayColor": { "type": "string", "default": "rgba(0, 0, 0, 0.4)" },
-    "backgroundOverlayOpacity": { "type": "number", "default": 0.4 },
-    "imageUrl": { "type": "string", "default": "" },
-    "imageId": { "type": "number" },
-    "imageAlt": { "type": "string", "default": "" },
-    "paddingTop": { "type": "number", "default": 100 },
-    "paddingBottom": { "type": "number", "default": 100 },
-    "containerMaxWidth": { "type": "number", "default": 1200 },
-    "containerPadding": { "type": "number", "default": 20 },
-    "minHeight": { "type": "number", "default": 600 }
-  },
-  "supports": { "html": false, "anchor": true, "align": ["wide", "full"] },
-  "textdomain": "twork-builder",
-  "editorScript": "file:./index.js",
-  "style": "file:./style-index.css"
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/paediatrics-hero",
+	"version": "1.0.0",
+	"title": "Hero",
+	"category": "twork-builder",
+	"icon": "cover-image",
+	"description": "Paediatrics centre hero section with background image, badge, title, subtitle, two CTAs, and side image. Matches paediatrics-centre.html.",
+	"keywords": [ "paediatrics", "hero", "centre", "twork" ],
+	"attributes": {
+		"badge": {
+			"type": "string",
+			"default": "Centres of Excellence"
+		},
+		"title": {
+			"type": "string",
+			"default": "Gentle Care for<br>Your Little Ones"
+		},
+		"subtitle": {
+			"type": "string",
+			"default": "Jivaka Paediatrics Centre provides comprehensive healthcare for infants, children, and adolescents. From routine vaccinations to advanced neonatal care, your child's health is our priority."
+		},
+		"primaryButtonText": {
+			"type": "string",
+			"default": "Book Appointment"
+		},
+		"primaryButtonUrl": {
+			"type": "string",
+			"default": "#appointment"
+		},
+		"outlineButtonText": {
+			"type": "string",
+			"default": "View Services"
+		},
+		"outlineButtonUrl": {
+			"type": "string",
+			"default": "#services"
+		},
+		"outlineButtonLight": {
+			"type": "boolean",
+			"default": true
+		},
+		"backgroundImage": {
+			"type": "string",
+			"default": ""
+		},
+		"backgroundImageId": {
+			"type": "number"
+		},
+		"backgroundOverlay": {
+			"type": "boolean",
+			"default": false
+		},
+		"backgroundOverlayColor": {
+			"type": "string",
+			"default": "rgba(0, 0, 0, 0.4)"
+		},
+		"backgroundOverlayOpacity": {
+			"type": "number",
+			"default": 0.4
+		},
+		"imageUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"imageId": {
+			"type": "number"
+		},
+		"imageAlt": {
+			"type": "string",
+			"default": ""
+		},
+		"paddingTop": {
+			"type": "number",
+			"default": 100
+		},
+		"paddingBottom": {
+			"type": "number",
+			"default": 100
+		},
+		"containerMaxWidth": {
+			"type": "number",
+			"default": 1200
+		},
+		"containerPadding": {
+			"type": "number",
+			"default": 20
+		},
+		"minHeight": {
+			"type": "number",
+			"default": 600
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"align": [ "wide", "full" ]
+	},
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": {
+			"badge": "Centres of Excellence",
+			"title": "Gentle Care for<br>Your Little Ones",
+			"subtitle": "Jivaka Paediatrics Centre provides comprehensive healthcare for infants, children, and adolescents. From routine vaccinations to advanced neonatal care, your child's health is our priority.",
+			"primaryButtonText": "Book Appointment",
+			"primaryButtonUrl": "#appointment",
+			"outlineButtonText": "View Services",
+			"outlineButtonUrl": "#services",
+			"outlineButtonLight": true,
+			"backgroundImage": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?auto=format&fit=crop&w=1200&q=80",
+			"backgroundOverlay": false,
+			"backgroundOverlayColor": "rgba(0, 0, 0, 0.4)",
+			"backgroundOverlayOpacity": 0.4,
+			"imageUrl": "",
+			"imageAlt": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?auto=format&fit=crop&w=1200&q=80",
+			"paddingTop": 100,
+			"paddingBottom": 100,
+			"containerMaxWidth": 1200,
+			"containerPadding": 20,
+			"minHeight": 600
+		}
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
 }

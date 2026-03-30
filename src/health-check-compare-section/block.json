@@ -1,44 +1,151 @@
 {
-  "$schema": "https://schemas.wp.org/trunk/block.json",
-  "apiVersion": 3,
-  "name": "twork/health-check-compare-section",
-  "version": "1.0.0",
-  "title": "Compare Section",
-  "category": "twork-builder",
-  "icon": "editor-table",
-  "description": "Package comparison table with header and configurable columns/rows. Matches health-check-up.html.",
-  "keywords": ["health", "checkup", "compare", "table", "chk", "twork"],
-  "attributes": {
-    "sectionTitle": { "type": "string", "default": "Package Comparison" },
-    "sectionSubtitle": { "type": "string", "default": "Compare features to find the right fit for you." },
-    "sectionTitleColor": { "type": "string", "default": "#005f73" },
-    "sectionSubtitleColor": { "type": "string", "default": "#666666" },
-    "columnHeaders": {
-      "type": "array",
-      "default": ["Test / Service", "Basic", "Master", "Executive"]
-    },
-    "rows": {
-      "type": "array",
-      "default": [
-        { "feature": "Physical Consultation", "values": [true, true, true] },
-        { "feature": "Complete Blood Count", "values": [true, true, true] },
-        { "feature": "Blood Sugar", "values": [true, true, true] },
-        { "feature": "Liver & Kidney Function", "values": [false, true, true] },
-        { "feature": "ECG / X-Ray", "values": [false, true, true] },
-        { "feature": "Ultrasound (USG)", "values": [false, false, true] }
-      ]
-    },
-    "backgroundColor": { "type": "string", "default": "#f4f8fb" },
-    "paddingTop": { "type": "number", "default": 90 },
-    "paddingBottom": { "type": "number", "default": 90 },
-    "containerMaxWidth": { "type": "number", "default": 1200 },
-    "containerPadding": { "type": "number", "default": 20 },
-    "secondaryColor": { "type": "string", "default": "#005f73" },
-    "checkColor": { "type": "string", "default": "#2ecc71" },
-    "crossColor": { "type": "string", "default": "#e74c3c" }
-  },
-  "supports": { "html": false, "anchor": true, "align": ["wide", "full"] },
-  "textdomain": "twork-builder",
-  "editorScript": "file:./index.js",
-  "style": "file:./style-index.css"
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/health-check-compare-section",
+	"version": "1.0.0",
+	"title": "Compare Section",
+	"category": "twork-builder",
+	"icon": "editor-table",
+	"description": "Package comparison table with header and configurable columns/rows. Matches health-check-up.html.",
+	"keywords": [ "health", "checkup", "compare", "table", "chk", "twork" ],
+	"attributes": {
+		"sectionTitle": {
+			"type": "string",
+			"default": "Package Comparison"
+		},
+		"sectionSubtitle": {
+			"type": "string",
+			"default": "Compare features to find the right fit for you."
+		},
+		"sectionTitleColor": {
+			"type": "string",
+			"default": "#005f73"
+		},
+		"sectionSubtitleColor": {
+			"type": "string",
+			"default": "#666666"
+		},
+		"columnHeaders": {
+			"type": "array",
+			"default": [ "Test / Service", "Basic", "Master", "Executive" ]
+		},
+		"rows": {
+			"type": "array",
+			"default": [
+				{
+					"feature": "Physical Consultation",
+					"values": [ true, true, true ]
+				},
+				{
+					"feature": "Complete Blood Count",
+					"values": [ true, true, true ]
+				},
+				{
+					"feature": "Blood Sugar",
+					"values": [ true, true, true ]
+				},
+				{
+					"feature": "Liver & Kidney Function",
+					"values": [ false, true, true ]
+				},
+				{
+					"feature": "ECG / X-Ray",
+					"values": [ false, true, true ]
+				},
+				{
+					"feature": "Ultrasound (USG)",
+					"values": [ false, false, true ]
+				}
+			]
+		},
+		"backgroundColor": {
+			"type": "string",
+			"default": "#f4f8fb"
+		},
+		"paddingTop": {
+			"type": "number",
+			"default": 90
+		},
+		"paddingBottom": {
+			"type": "number",
+			"default": 90
+		},
+		"containerMaxWidth": {
+			"type": "number",
+			"default": 1200
+		},
+		"containerPadding": {
+			"type": "number",
+			"default": 20
+		},
+		"secondaryColor": {
+			"type": "string",
+			"default": "#005f73"
+		},
+		"checkColor": {
+			"type": "string",
+			"default": "#2ecc71"
+		},
+		"crossColor": {
+			"type": "string",
+			"default": "#e74c3c"
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"align": [ "wide", "full" ]
+	},
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": {
+			"sectionTitle": "Package Comparison",
+			"sectionSubtitle": "Compare features to find the right fit for you.",
+			"sectionTitleColor": "#005f73",
+			"sectionSubtitleColor": "#666666",
+			"columnHeaders": [
+				"Test / Service",
+				"Basic",
+				"Master",
+				"Executive"
+			],
+			"rows": [
+				{
+					"feature": "Physical Consultation",
+					"values": [ true, true, true ]
+				},
+				{
+					"feature": "Complete Blood Count",
+					"values": [ true, true, true ]
+				},
+				{
+					"feature": "Blood Sugar",
+					"values": [ true, true, true ]
+				},
+				{
+					"feature": "Liver & Kidney Function",
+					"values": [ false, true, true ]
+				},
+				{
+					"feature": "ECG / X-Ray",
+					"values": [ false, true, true ]
+				},
+				{
+					"feature": "Ultrasound (USG)",
+					"values": [ false, false, true ]
+				}
+			],
+			"backgroundColor": "#f4f8fb",
+			"paddingTop": 90,
+			"paddingBottom": 90,
+			"containerMaxWidth": 1200,
+			"containerPadding": 20,
+			"secondaryColor": "#005f73",
+			"checkColor": "#2ecc71",
+			"crossColor": "#e74c3c"
+		}
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
 }

@@ -1,26 +1,32 @@
 {
-  "$schema": "https://schemas.wp.org/trunk/block.json",
-  "apiVersion": 3,
-  "name": "twork/rad-why-item",
-  "title": "Why Choose Item",
-  "parent": ["twork/rad-why-section"],
-  "description": "Single icon card for the Radiology Why Choose grid.",
-  "attributes": {
-    "iconClass": {
-      "type": "string",
-      "default": "fas fa-certificate"
-    },
-    "title": {
-      "type": "string",
-      "default": "Benefit title"
-    },
-    "description": {
-      "type": "string",
-      "default": "Short supporting description for this benefit."
-    }
-  },
-  "textdomain": "twork-builder",
-  "editorScript": "file:./index.js",
-  "style": "file:./style-index.css"
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/rad-why-item",
+	"title": "Why Choose Item",
+	"parent": [ "twork/rad-why-section" ],
+	"description": "Single icon card for the Radiology Why Choose grid.",
+	"attributes": {
+		"iconClass": {
+			"type": "string",
+			"default": "fas fa-certificate"
+		},
+		"title": {
+			"type": "string",
+			"default": "Benefit title"
+		},
+		"description": {
+			"type": "string",
+			"default": "Short supporting description for this benefit."
+		}
+	},
+	"example": {
+		"attributes": {
+			"iconClass": "fas fa-certificate",
+			"title": "Benefit title",
+			"description": "Short supporting description for this benefit."
+		}
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
 }
-

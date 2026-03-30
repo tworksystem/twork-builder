@@ -1,14 +1,28 @@
 {
-    "$schema": "https://schemas.wp.org/trunk/block.json",
-    "apiVersion": 3,
-    "name": "twork/dept-tech-item",
-    "title": "Tech Item",
-    "category": "twork-builder",
-    "parent": ["twork/dept-technology-section"],
-    "attributes": {
-        "imageUrl": { "type": "string", "default": "" },
-        "imageId": { "type": "number" },
-        "caption": { "type": "string", "default": "Cath Lab" }
-    },
-    "editorScript": "file:./index.js"
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/dept-tech-item",
+	"title": "Tech Item",
+	"category": "twork-builder",
+	"parent": [ "twork/dept-technology-section" ],
+	"attributes": {
+		"imageUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"imageId": {
+			"type": "number"
+		},
+		"caption": {
+			"type": "string",
+			"default": "Cath Lab"
+		}
+	},
+	"editorScript": "file:./index.js",
+	"example": {
+		"attributes": {
+			"imageUrl": "",
+			"caption": "Cath Lab"
+		}
+	}
 }

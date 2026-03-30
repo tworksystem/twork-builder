@@ -66,8 +66,13 @@ function twork_post_csr_icon_callback($post)
 
 function twork_post_save_csr_icon_meta($post_id)
 {
-    if (!isset($_POST['twork_csr_icon_nonce']) ||
-        !wp_verify_nonce($_POST['twork_csr_icon_nonce'], 'twork_csr_icon_nonce')) {
+    if (
+        !isset($_POST['twork_csr_icon_nonce']) ||
+        !wp_verify_nonce(
+            sanitize_text_field(wp_unslash($_POST['twork_csr_icon_nonce'])),
+            'twork_csr_icon_nonce'
+        )
+    ) {
         return;
     }
     if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
@@ -77,7 +82,7 @@ function twork_post_save_csr_icon_meta($post_id)
         return;
     }
     if (isset($_POST['csr_icon_class'])) {
-        $val = sanitize_text_field($_POST['csr_icon_class']);
+        $val = sanitize_text_field(wp_unslash($_POST['csr_icon_class']));
         update_post_meta($post_id, 'csr_icon_class', $val ?: 'fas fa-heart');
     }
 }

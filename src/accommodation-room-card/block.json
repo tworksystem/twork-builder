@@ -1,134 +1,203 @@
 {
-    "$schema": "https://schemas.wp.org/trunk/block.json",
-    "apiVersion": 3,
-    "name": "twork/accommodation-room-card",
-    "title": "Accommodation Room Card",
-    "parent": ["twork/accommodation-options-section"],
-    "description": "Single room card with image, price, amenities and CTA button.",
-    "keywords": ["accommodation", "room", "facilities", "card", "twork"],
-    "attributes": {
-        "title": {
-            "type": "string",
-            "default": "Standard Ward"
-        },
-        "titleColor": {
-            "type": "string",
-            "default": ""
-        },
-        "titleFontSize": {
-            "type": "number",
-            "default": 1.4
-        },
-        "titleFontWeight": {
-            "type": "number",
-            "default": 700
-        },
-        "imageUrl": {
-            "type": "string",
-            "default": ""
-        },
-        "imageId": {
-            "type": "number"
-        },
-        "imageAlt": {
-            "type": "string",
-            "default": "Room"
-        },
-        "imageHeight": {
-            "type": "number",
-            "default": 220
-        },
-        "imageObjectFit": {
-            "type": "string",
-            "default": "cover"
-        },
-        "priceText": {
-            "type": "string",
-            "default": "30,000 MMK / Night"
-        },
-        "priceBgColor": {
-            "type": "string",
-            "default": "#f48b2a"
-        },
-        "priceTextColor": {
-            "type": "string",
-            "default": "#ffffff"
-        },
-        "priceFontSize": {
-            "type": "number",
-            "default": 0.9
-        },
-        "amenities": {
-            "type": "array",
-            "default": [
-                { "id": 1, "icon": "fas fa-bed", "text": "Adjustable Patient Bed" },
-                { "id": 2, "icon": "fas fa-wifi", "text": "Free Wi-Fi" },
-                { "id": 3, "icon": "fas fa-fan", "text": "Air Conditioning" },
-                { "id": 4, "icon": "fas fa-users", "text": "Shared Bathroom" }
-            ]
-        },
-        "amenityIconColor": {
-            "type": "string",
-            "default": ""
-        },
-        "amenityTextColor": {
-            "type": "string",
-            "default": ""
-        },
-        "amenityFontSize": {
-            "type": "number",
-            "default": 0.9
-        },
-        "showButton": {
-            "type": "boolean",
-            "default": true
-        },
-        "buttonText": {
-            "type": "string",
-            "default": "Check Availability"
-        },
-        "buttonUrl": {
-            "type": "string",
-            "default": "#"
-        },
-        "buttonTarget": {
-            "type": "boolean",
-            "default": false
-        },
-        "buttonRel": {
-            "type": "string",
-            "default": "noopener noreferrer"
-        },
-        "buttonBgColor": {
-            "type": "string",
-            "default": ""
-        },
-        "buttonTextColor": {
-            "type": "string",
-            "default": ""
-        },
-        "buttonBorderColor": {
-            "type": "string",
-            "default": ""
-        },
-        "buttonFontSize": {
-            "type": "number",
-            "default": 0.85
-        },
-        "buttonFontWeight": {
-            "type": "number",
-            "default": 700
-        },
-        "detailsPadding": {
-            "type": "number",
-            "default": 25
-        },
-        "detailsPaddingMobile": {
-            "type": "number",
-            "default": 20
-        }
-    },
-    "textdomain": "twork-builder",
-    "editorScript": "file:./index.js",
-    "style": "file:./style-index.css"
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/accommodation-room-card",
+	"title": "Accommodation Room Card",
+	"parent": [ "twork/accommodation-options-section" ],
+	"description": "Single room card with image, price, amenities and CTA button.",
+	"keywords": [ "accommodation", "room", "facilities", "card", "twork" ],
+	"attributes": {
+		"title": {
+			"type": "string",
+			"default": "Standard Ward"
+		},
+		"titleColor": {
+			"type": "string",
+			"default": ""
+		},
+		"titleFontSize": {
+			"type": "number",
+			"default": 1.4
+		},
+		"titleFontWeight": {
+			"type": "number",
+			"default": 700
+		},
+		"imageUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"imageId": {
+			"type": "number"
+		},
+		"imageAlt": {
+			"type": "string",
+			"default": "Room"
+		},
+		"imageHeight": {
+			"type": "number",
+			"default": 220
+		},
+		"imageObjectFit": {
+			"type": "string",
+			"default": "cover"
+		},
+		"priceText": {
+			"type": "string",
+			"default": "30,000 MMK / Night"
+		},
+		"priceBgColor": {
+			"type": "string",
+			"default": "#f48b2a"
+		},
+		"priceTextColor": {
+			"type": "string",
+			"default": "#ffffff"
+		},
+		"priceFontSize": {
+			"type": "number",
+			"default": 0.9
+		},
+		"amenities": {
+			"type": "array",
+			"default": [
+				{
+					"id": 1,
+					"icon": "fas fa-bed",
+					"text": "Adjustable Patient Bed"
+				},
+				{
+					"id": 2,
+					"icon": "fas fa-wifi",
+					"text": "Free Wi-Fi"
+				},
+				{
+					"id": 3,
+					"icon": "fas fa-fan",
+					"text": "Air Conditioning"
+				},
+				{
+					"id": 4,
+					"icon": "fas fa-users",
+					"text": "Shared Bathroom"
+				}
+			]
+		},
+		"amenityIconColor": {
+			"type": "string",
+			"default": ""
+		},
+		"amenityTextColor": {
+			"type": "string",
+			"default": ""
+		},
+		"amenityFontSize": {
+			"type": "number",
+			"default": 0.9
+		},
+		"showButton": {
+			"type": "boolean",
+			"default": true
+		},
+		"buttonText": {
+			"type": "string",
+			"default": "Check Availability"
+		},
+		"buttonUrl": {
+			"type": "string",
+			"default": "#"
+		},
+		"buttonTarget": {
+			"type": "boolean",
+			"default": false
+		},
+		"buttonRel": {
+			"type": "string",
+			"default": "noopener noreferrer"
+		},
+		"buttonBgColor": {
+			"type": "string",
+			"default": ""
+		},
+		"buttonTextColor": {
+			"type": "string",
+			"default": ""
+		},
+		"buttonBorderColor": {
+			"type": "string",
+			"default": ""
+		},
+		"buttonFontSize": {
+			"type": "number",
+			"default": 0.85
+		},
+		"buttonFontWeight": {
+			"type": "number",
+			"default": 700
+		},
+		"detailsPadding": {
+			"type": "number",
+			"default": 25
+		},
+		"detailsPaddingMobile": {
+			"type": "number",
+			"default": 20
+		}
+	},
+	"example": {
+		"attributes": {
+			"title": "Standard Ward",
+			"titleColor": "",
+			"titleFontSize": 1.4,
+			"titleFontWeight": 700,
+			"imageUrl": "",
+			"imageAlt": "Room",
+			"imageHeight": 220,
+			"imageObjectFit": "cover",
+			"priceText": "30,000 MMK / Night",
+			"priceBgColor": "#f48b2a",
+			"priceTextColor": "#ffffff",
+			"priceFontSize": 0.9,
+			"amenities": [
+				{
+					"id": 1,
+					"icon": "fas fa-bed",
+					"text": "Adjustable Patient Bed"
+				},
+				{
+					"id": 2,
+					"icon": "fas fa-wifi",
+					"text": "Free Wi-Fi"
+				},
+				{
+					"id": 3,
+					"icon": "fas fa-fan",
+					"text": "Air Conditioning"
+				},
+				{
+					"id": 4,
+					"icon": "fas fa-users",
+					"text": "Shared Bathroom"
+				}
+			],
+			"amenityIconColor": "",
+			"amenityTextColor": "",
+			"amenityFontSize": 0.9,
+			"showButton": true,
+			"buttonText": "Check Availability",
+			"buttonUrl": "#",
+			"buttonTarget": false,
+			"buttonRel": "noopener noreferrer",
+			"buttonBgColor": "",
+			"buttonTextColor": "",
+			"buttonBorderColor": "",
+			"buttonFontSize": 0.85,
+			"buttonFontWeight": 700,
+			"detailsPadding": 25,
+			"detailsPaddingMobile": 20
+		}
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
 }

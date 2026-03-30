@@ -1,120 +1,147 @@
 {
-  "$schema": "https://schemas.wp.org/trunk/block.json",
-  "apiVersion": 3,
-  "name": "twork/phy-cta-section",
-  "version": "1.0.0",
-  "title": "CTA Section",
-  "category": "twork-builder",
-  "icon": "megaphone",
-  "description": "Full-width physio call-to-action card (Start Your Recovery Journey Today) with flexible background: color, image, video or GIF.",
-  "keywords": ["physio", "cta", "call to action", "button", "twork"],
-  "attributes": {
-    "backgroundMode": {
-      "type": "string",
-      "default": "color"
-    },
-    "backgroundColor": {
-      "type": "string",
-      "default": "var(--phy-secondary)"
-    },
-    "backgroundImageUrl": {
-      "type": "string",
-      "default": ""
-    },
-    "backgroundImageId": {
-      "type": "number"
-    },
-    "backgroundVideoUrl": {
-      "type": "string",
-      "default": ""
-    },
-    "backgroundVideoPoster": {
-      "type": "string",
-      "default": ""
-    },
-    "backgroundVideoId": {
-      "type": "number"
-    },
-    "backgroundOverlayColor": {
-      "type": "string",
-      "default": "rgba(0, 0, 0, 0.4)"
-    },
-    "backgroundOverlayOpacity": {
-      "type": "number",
-      "default": 0.4
-    },
-    "padding": {
-      "type": "number",
-      "default": 60
-    },
-    "borderRadius": {
-      "type": "number",
-      "default": 30
-    },
-    "textColor": {
-      "type": "string",
-      "default": "#ffffff"
-    },
-    "marginBottom": {
-      "type": "number",
-      "default": 80
-    },
-    "containerMaxWidth": {
-      "type": "number",
-      "default": 1280
-    },
-    "containerPadding": {
-      "type": "number",
-      "default": 24
-    },
-    "title": {
-      "type": "string",
-      "default": "Start Your Recovery Journey Today"
-    },
-    "subtitle": {
-      "type": "string",
-      "default": "Don't let pain hold you back."
-    },
-    "showSubtitle": {
-      "type": "boolean",
-      "default": true
-    },
-    "buttonText": {
-      "type": "string",
-      "default": "Book Appointment Now"
-    },
-    "buttonUrl": {
-      "type": "string",
-      "default": "tel:0912345678"
-    },
-    "buttonAriaLabel": {
-      "type": "string",
-      "default": "Book a physiotherapy appointment"
-    },
-    "centerAlign": {
-      "type": "boolean",
-      "default": true
-    },
-    "animationOnScroll": {
-      "type": "boolean",
-      "default": true
-    },
-    "animationType": {
-      "type": "string",
-      "default": "fade-up"
-    },
-    "animationDelay": {
-      "type": "number",
-      "default": 100
-    }
-  },
-  "supports": {
-    "html": false,
-    "anchor": true,
-    "align": ["wide", "full"]
-  },
-  "textdomain": "twork-builder",
-  "editorScript": "file:./index.js",
-  "style": "file:./style-index.css"
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/phy-cta-section",
+	"version": "1.0.0",
+	"title": "CTA Section",
+	"category": "twork-builder",
+	"icon": "megaphone",
+	"description": "Full-width physio call-to-action card (Start Your Recovery Journey Today) with flexible background: color, image, video or GIF.",
+	"keywords": [ "physio", "cta", "call to action", "button", "twork" ],
+	"attributes": {
+		"backgroundMode": {
+			"type": "string",
+			"default": "color"
+		},
+		"backgroundColor": {
+			"type": "string",
+			"default": "var(--phy-secondary)"
+		},
+		"backgroundImageUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"backgroundImageId": {
+			"type": "number"
+		},
+		"backgroundVideoUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"backgroundVideoPoster": {
+			"type": "string",
+			"default": ""
+		},
+		"backgroundVideoId": {
+			"type": "number"
+		},
+		"backgroundOverlayColor": {
+			"type": "string",
+			"default": "rgba(0, 0, 0, 0.4)"
+		},
+		"backgroundOverlayOpacity": {
+			"type": "number",
+			"default": 0.4
+		},
+		"padding": {
+			"type": "number",
+			"default": 60
+		},
+		"borderRadius": {
+			"type": "number",
+			"default": 30
+		},
+		"textColor": {
+			"type": "string",
+			"default": "#ffffff"
+		},
+		"marginBottom": {
+			"type": "number",
+			"default": 80
+		},
+		"containerMaxWidth": {
+			"type": "number",
+			"default": 1280
+		},
+		"containerPadding": {
+			"type": "number",
+			"default": 24
+		},
+		"title": {
+			"type": "string",
+			"default": "Start Your Recovery Journey Today"
+		},
+		"subtitle": {
+			"type": "string",
+			"default": "Don't let pain hold you back."
+		},
+		"showSubtitle": {
+			"type": "boolean",
+			"default": true
+		},
+		"buttonText": {
+			"type": "string",
+			"default": "Book Appointment Now"
+		},
+		"buttonUrl": {
+			"type": "string",
+			"default": "tel:0912345678"
+		},
+		"buttonAriaLabel": {
+			"type": "string",
+			"default": "Book a physiotherapy appointment"
+		},
+		"centerAlign": {
+			"type": "boolean",
+			"default": true
+		},
+		"animationOnScroll": {
+			"type": "boolean",
+			"default": true
+		},
+		"animationType": {
+			"type": "string",
+			"default": "fade-up"
+		},
+		"animationDelay": {
+			"type": "number",
+			"default": 100
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"align": [ "wide", "full" ]
+	},
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": {
+			"backgroundMode": "color",
+			"backgroundColor": "var(--phy-secondary)",
+			"backgroundImageUrl": "",
+			"backgroundVideoUrl": "",
+			"backgroundVideoPoster": "",
+			"backgroundOverlayColor": "rgba(0, 0, 0, 0.4)",
+			"backgroundOverlayOpacity": 0.4,
+			"padding": 60,
+			"borderRadius": 30,
+			"textColor": "#ffffff",
+			"marginBottom": 80,
+			"containerMaxWidth": 1280,
+			"containerPadding": 24,
+			"title": "Start Your Recovery Journey Today",
+			"subtitle": "Don't let pain hold you back.",
+			"showSubtitle": true,
+			"buttonText": "Book Appointment Now",
+			"buttonUrl": "tel:0912345678",
+			"buttonAriaLabel": "Book a physiotherapy appointment",
+			"centerAlign": true,
+			"animationOnScroll": true,
+			"animationType": "fade-up",
+			"animationDelay": 100
+		}
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
 }
-

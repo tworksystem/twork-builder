@@ -1,16 +1,77 @@
 {
-  "$schema": "https://schemas.wp.org/trunk/block.json",
-  "apiVersion": 3,
-  "name": "twork/centre-conditions-section",
-  "version": "1.0.0",
-  "title": "Conditions Section",
-  "category": "twork-builder",
-  "parent": ["twork/centre-layout-section"],
-  "description": "Conditions we treat grid with icon + title cards. Toggle section visibility on/off.",
-  "attributes": {
-    "sectionId": { "type": "string", "default": "conditions" },
-    "title": { "type": "string", "default": "Conditions We Treat" },
-    "showSection": { "type": "boolean", "default": true }
-  },
-  "editorScript": "file:./index.js"
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/centre-conditions-section",
+	"version": "1.0.0",
+	"title": "Conditions Section",
+	"category": "twork-builder",
+	"parent": [ "twork/centre-layout-section" ],
+	"description": "Conditions we treat grid with icon + title cards. Toggle section visibility on/off.",
+	"attributes": {
+		"sectionId": {
+			"type": "string",
+			"default": "conditions"
+		},
+		"title": {
+			"type": "string",
+			"default": "Conditions We Treat"
+		},
+		"showSection": {
+			"type": "boolean",
+			"default": true
+		}
+	},
+	"editorScript": "file:./index.js",
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": {
+			"sectionId": "conditions",
+			"title": "Conditions We Treat",
+			"showSection": true
+		},
+		"innerBlocks": [
+			{
+				"name": "twork/centre-condition-card",
+				"attributes": {
+					"iconClass": "fas fa-heart-broken",
+					"title": "Coronary Artery Disease"
+				}
+			},
+			{
+				"name": "twork/centre-condition-card",
+				"attributes": {
+					"iconClass": "fas fa-bolt",
+					"title": "Arrhythmia"
+				}
+			},
+			{
+				"name": "twork/centre-condition-card",
+				"attributes": {
+					"iconClass": "fas fa-heartbeat",
+					"title": "Heart Failure"
+				}
+			},
+			{
+				"name": "twork/centre-condition-card",
+				"attributes": {
+					"iconClass": "fas fa-child",
+					"title": "Congenital Defects"
+				}
+			},
+			{
+				"name": "twork/centre-condition-card",
+				"attributes": {
+					"iconClass": "fas fa-procedures",
+					"title": "Valvular Disease"
+				}
+			},
+			{
+				"name": "twork/centre-condition-card",
+				"attributes": {
+					"iconClass": "fas fa-user-md",
+					"title": "Hypertension"
+				}
+			}
+		]
+	}
 }

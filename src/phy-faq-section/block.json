@@ -1,36 +1,109 @@
 {
-  "$schema": "https://schemas.wp.org/trunk/block.json",
-  "apiVersion": 3,
-  "name": "twork/phy-faq-section",
-  "version": "1.0.0",
-  "title": "FAQ Section",
-  "category": "twork-builder",
-  "icon": "editor-help",
-  "description": "Common Questions section with accordion items, matching physiotherapy-rehab.html.",
-  "keywords": ["physio", "faq", "questions", "accordion", "twork"],
-  "attributes": {
-    "backgroundColor": { "type": "string", "default": "transparent" },
-    "paddingTop":      { "type": "number", "default": 60 },
-    "paddingBottom":   { "type": "number", "default": 80 },
-    "containerMaxWidth": { "type": "number", "default": 1280 },
-    "containerPadding":  { "type": "number", "default": 24 },
-
-    "showSectionTitle": { "type": "boolean", "default": true },
-    "sectionTitle":     { "type": "string",  "default": "Common Questions" },
-    "headerAlign":      { "type": "string",  "default": "center" },
-
-    "contentMaxWidth":  { "type": "number", "default": 800 },
-    "animationOnScroll": { "type": "boolean", "default": true },
-    "animationType":    { "type": "string",  "default": "fade-up" },
-    "animationDelay":   { "type": "number",  "default": 100 }
-  },
-  "supports": {
-    "html": false,
-    "anchor": true,
-    "align": ["wide", "full"]
-  },
-  "textdomain": "twork-builder",
-  "editorScript": "file:./index.js",
-  "style": "file:./style-index.css"
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/phy-faq-section",
+	"version": "1.0.0",
+	"title": "FAQ Section",
+	"category": "twork-builder",
+	"icon": "editor-help",
+	"description": "Common Questions section with accordion items, matching physiotherapy-rehab.html.",
+	"keywords": [ "physio", "faq", "questions", "accordion", "twork" ],
+	"attributes": {
+		"backgroundColor": {
+			"type": "string",
+			"default": "transparent"
+		},
+		"paddingTop": {
+			"type": "number",
+			"default": 60
+		},
+		"paddingBottom": {
+			"type": "number",
+			"default": 80
+		},
+		"containerMaxWidth": {
+			"type": "number",
+			"default": 1280
+		},
+		"containerPadding": {
+			"type": "number",
+			"default": 24
+		},
+		"showSectionTitle": {
+			"type": "boolean",
+			"default": true
+		},
+		"sectionTitle": {
+			"type": "string",
+			"default": "Common Questions"
+		},
+		"headerAlign": {
+			"type": "string",
+			"default": "center"
+		},
+		"contentMaxWidth": {
+			"type": "number",
+			"default": 800
+		},
+		"animationOnScroll": {
+			"type": "boolean",
+			"default": true
+		},
+		"animationType": {
+			"type": "string",
+			"default": "fade-up"
+		},
+		"animationDelay": {
+			"type": "number",
+			"default": 100
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"align": [ "wide", "full" ]
+	},
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": {
+			"backgroundColor": "transparent",
+			"paddingTop": 60,
+			"paddingBottom": 80,
+			"containerMaxWidth": 1280,
+			"containerPadding": 24,
+			"showSectionTitle": true,
+			"sectionTitle": "Common Questions",
+			"headerAlign": "center",
+			"contentMaxWidth": 800,
+			"animationOnScroll": true,
+			"animationType": "fade-up",
+			"animationDelay": 100
+		},
+		"innerBlocks": [
+			{
+				"name": "twork/phy-faq-item",
+				"attributes": {
+					"question": "Do I need a doctor's referral?",
+					"answer": "While a referral is helpful, you can also book a direct consultation with our physiotherapists for assessment."
+				}
+			},
+			{
+				"name": "twork/phy-faq-item",
+				"attributes": {
+					"question": "How long is a session?",
+					"answer": "A typical session lasts between 45 to 60 minutes, depending on the treatment plan."
+				}
+			},
+			{
+				"name": "twork/phy-faq-item",
+				"attributes": {
+					"question": "What should I wear?",
+					"answer": "Please wear loose, comfortable clothing that allows easy movement and access to the injured area."
+				}
+			}
+		]
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
 }
-

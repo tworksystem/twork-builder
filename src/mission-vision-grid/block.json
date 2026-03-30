@@ -1,93 +1,141 @@
 {
-  "$schema": "https://schemas.wp.org/trunk/block.json",
-  "apiVersion": 3,
-  "name": "twork/mission-vision-grid",
-  "version": "1.0.0",
-  "title": "Mission & Vision Grid",
-  "category": "twork-builder",
-  "icon": "screenoptions",
-  "description": "Mission, vision, and values grid aligned with Jivaka design.",
-  "supports": {
-    "html": false,
-    "align": ["full", "wide"]
-  },
-  "attributes": {
-    "backgroundColor": {
-      "type": "string",
-      "default": "#f9f9f9"
-    },
-    "paddingTop": {
-      "type": "number",
-      "default": 100
-    },
-    "paddingBottom": {
-      "type": "number",
-      "default": 100
-    },
-    "columns": {
-      "type": "number",
-      "default": 3
-    },
-    "columnsTablet": {
-      "type": "number",
-      "default": 3
-    },
-    "columnsMobile": {
-      "type": "number",
-      "default": 1
-    },
-    "gap": {
-      "type": "number",
-      "default": 30
-    },
-    "containerMaxWidth": {
-      "type": "number",
-      "default": 1200
-    },
-    "containerPadding": {
-      "type": "number",
-      "default": 30
-    },
-    "showSectionTitle": {
-      "type": "boolean",
-      "default": true
-    },
-    "sectionTitle": {
-      "type": "string",
-      "default": "Driven by Purpose"
-    },
-    "sectionTitleColor": {
-      "type": "string",
-      "default": "#212121"
-    },
-    "sectionTitleFontSize": {
-      "type": "number",
-      "default": 2.5
-    },
-    "sectionTitleFontWeight": {
-      "type": "number",
-      "default": 700
-    },
-    "showSectionSubtitle": {
-      "type": "boolean",
-      "default": true
-    },
-    "sectionSubtitle": {
-      "type": "string",
-      "default": "Our core values guide every decision we make and every life we touch."
-    },
-    "sectionSubtitleColor": {
-      "type": "string",
-      "default": "#666666"
-    },
-    "sectionSubtitleFontSize": {
-      "type": "number",
-      "default": 1.1
-    }
-  },
-  "textdomain": "twork-builder",
-  "editorScript": "file:./index.js",
-  "style": "file:./style-index.css",
-  "editorStyle": "file:./style-index.css"
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/mission-vision-grid",
+	"version": "1.0.0",
+	"title": "Mission & Vision Grid",
+	"category": "twork-builder",
+	"icon": "screenoptions",
+	"description": "Mission, vision, and values grid aligned with Jivaka design.",
+	"supports": {
+		"html": false,
+		"align": [ "full", "wide" ]
+	},
+	"attributes": {
+		"backgroundColor": {
+			"type": "string",
+			"default": "#f9f9f9"
+		},
+		"paddingTop": {
+			"type": "number",
+			"default": 100
+		},
+		"paddingBottom": {
+			"type": "number",
+			"default": 100
+		},
+		"columns": {
+			"type": "number",
+			"default": 3
+		},
+		"columnsTablet": {
+			"type": "number",
+			"default": 3
+		},
+		"columnsMobile": {
+			"type": "number",
+			"default": 1
+		},
+		"gap": {
+			"type": "number",
+			"default": 30
+		},
+		"containerMaxWidth": {
+			"type": "number",
+			"default": 1200
+		},
+		"containerPadding": {
+			"type": "number",
+			"default": 30
+		},
+		"showSectionTitle": {
+			"type": "boolean",
+			"default": true
+		},
+		"sectionTitle": {
+			"type": "string",
+			"default": "Driven by Purpose"
+		},
+		"sectionTitleColor": {
+			"type": "string",
+			"default": "#212121"
+		},
+		"sectionTitleFontSize": {
+			"type": "number",
+			"default": 2.5
+		},
+		"sectionTitleFontWeight": {
+			"type": "number",
+			"default": 700
+		},
+		"showSectionSubtitle": {
+			"type": "boolean",
+			"default": true
+		},
+		"sectionSubtitle": {
+			"type": "string",
+			"default": "Our core values guide every decision we make and every life we touch."
+		},
+		"sectionSubtitleColor": {
+			"type": "string",
+			"default": "#666666"
+		},
+		"sectionSubtitleFontSize": {
+			"type": "number",
+			"default": 1.1
+		}
+	},
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": {
+			"backgroundColor": "#f9f9f9",
+			"paddingTop": 100,
+			"paddingBottom": 100,
+			"columns": 3,
+			"columnsTablet": 3,
+			"columnsMobile": 1,
+			"gap": 30,
+			"containerMaxWidth": 1200,
+			"containerPadding": 30,
+			"showSectionTitle": true,
+			"sectionTitle": "Driven by Purpose",
+			"sectionTitleColor": "#212121",
+			"sectionTitleFontSize": 2.5,
+			"sectionTitleFontWeight": 700,
+			"showSectionSubtitle": true,
+			"sectionSubtitle": "Our core values guide every decision we make and every life we touch.",
+			"sectionSubtitleColor": "#666666",
+			"sectionSubtitleFontSize": 1.1
+		},
+		"innerBlocks": [
+			{
+				"name": "twork/mission-vision-item",
+				"attributes": {
+					"iconType": "dashicon",
+					"iconValue": "dashicons-bullseye",
+					"title": "Our Mission"
+				}
+			},
+			{
+				"name": "twork/mission-vision-item",
+				"attributes": {
+					"iconType": "dashicon",
+					"iconValue": "dashicons-visibility",
+					"title": "Our Vision"
+				}
+			},
+			{
+				"name": "twork/mission-vision-item",
+				"attributes": {
+					"iconType": "dashicon",
+					"iconValue": "dashicons-heart",
+					"title": "Our Values"
+				}
+			}
+		]
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css",
+	"editorStyle": "file:./style-index.css"
 }
-

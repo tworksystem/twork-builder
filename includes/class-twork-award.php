@@ -66,8 +66,13 @@ function twork_post_award_year_callback($post)
 
 function twork_post_save_award_meta($post_id)
 {
-    if (!isset($_POST['twork_award_year_nonce']) ||
-        !wp_verify_nonce($_POST['twork_award_year_nonce'], 'twork_award_year_nonce')) {
+    if (
+        !isset($_POST['twork_award_year_nonce']) ||
+        !wp_verify_nonce(
+            sanitize_text_field(wp_unslash($_POST['twork_award_year_nonce'])),
+            'twork_award_year_nonce'
+        )
+    ) {
         return;
     }
     if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
@@ -77,7 +82,11 @@ function twork_post_save_award_meta($post_id)
         return;
     }
     if (isset($_POST['award_year'])) {
-        update_post_meta($post_id, 'award_year', sanitize_text_field($_POST['award_year']));
+        update_post_meta(
+            $post_id,
+            'award_year',
+            sanitize_text_field(wp_unslash($_POST['award_year']))
+        );
     }
 }
 add_action('save_post_post', 'twork_post_save_award_meta');

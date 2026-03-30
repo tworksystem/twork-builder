@@ -1,122 +1,161 @@
 {
-    "$schema": "https://schemas.wp.org/trunk/block.json",
-    "apiVersion": 3,
-    "name": "twork/lab-tech-section",
-    "version": "1.0.0",
-    "title": "Technology Section",
-    "category": "twork-builder",
-    "icon": "flask",
-    "description": "Highlight cutting-edge lab or surgical technology with rich text and feature rows.",
-    "keywords": ["lab", "technology", "equipment", "section", "twork"],
-    "supports": {
-        "html": false,
-        "anchor": true,
-        "align": ["wide", "full"]
-    },
-    "attributes": {
-        "backgroundColor": {
-            "type": "string",
-            "default": "#ffffff"
-        },
-        "paddingTop": {
-            "type": "number",
-            "default": 80
-        },
-        "paddingBottom": {
-            "type": "number",
-            "default": 80
-        },
-        "containerMaxWidth": {
-            "type": "number",
-            "default": 1200
-        },
-        "containerPadding": {
-            "type": "number",
-            "default": 20
-        },
-        "showSectionTitle": {
-            "type": "boolean",
-            "default": true
-        },
-        "sectionTitle": {
-            "type": "string",
-            "default": "Cutting-Edge Technology"
-        },
-        "sectionTitleColor": {
-            "type": "string",
-            "default": "#111827"
-        },
-        "sectionTitleFontSize": {
-            "type": "number",
-            "default": 2.2
-        },
-        "sectionTitleFontWeight": {
-            "type": "number",
-            "default": 800
-        },
-        "sectionTitleAlignment": {
-            "type": "string",
-            "default": "center"
-        },
-        "showSectionSubtitle": {
-            "type": "boolean",
-            "default": true
-        },
-        "sectionSubtitle": {
-            "type": "string",
-            "default": "We invest in the best machines to minimize human error."
-        },
-        "sectionSubtitleColor": {
-            "type": "string",
-            "default": "#6b7280"
-        },
-        "sectionSubtitleFontSize": {
-            "type": "number",
-            "default": 1.05
-        },
-        "animationOnScroll": {
-            "type": "boolean",
-            "default": true
-        },
-        "animationType": {
-            "type": "string",
-            "default": "fadeInUp"
-        },
-        "animationDelay": {
-            "type": "number",
-            "default": 100
-        },
-        "primaryColor": {
-            "type": "string",
-            "default": "#f48b2a"
-        },
-        "itemTagBgColor": {
-            "type": "string",
-            "default": "#f0f4f8"
-        },
-        "itemTagColor": {
-            "type": "string",
-            "default": "#f48b2a"
-        },
-        "itemTitleColor": {
-            "type": "string",
-            "default": "#000000"
-        },
-        "itemDescriptionColor": {
-            "type": "string",
-            "default": "#666666"
-        },
-        "itemBulletColor": {
-            "type": "string",
-            "default": "#444444"
-        },
-        "itemBulletIconColor": {
-            "type": "string",
-            "default": "#f48b2a"
-        }
-    },
-    "editorScript": "file:./index.js",
-    "style": "file:./style-index.css",
-    "textdomain": "twork-builder"
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/lab-tech-section",
+	"version": "1.0.0",
+	"title": "Technology Section",
+	"category": "twork-builder",
+	"icon": "flask",
+	"description": "Highlight cutting-edge lab or surgical technology with rich text and feature rows.",
+	"keywords": [ "lab", "technology", "equipment", "section", "twork" ],
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"align": [ "wide", "full" ]
+	},
+	"attributes": {
+		"backgroundColor": {
+			"type": "string",
+			"default": "#ffffff"
+		},
+		"paddingTop": {
+			"type": "number",
+			"default": 80
+		},
+		"paddingBottom": {
+			"type": "number",
+			"default": 80
+		},
+		"containerMaxWidth": {
+			"type": "number",
+			"default": 1200
+		},
+		"containerPadding": {
+			"type": "number",
+			"default": 20
+		},
+		"showSectionTitle": {
+			"type": "boolean",
+			"default": true
+		},
+		"sectionTitle": {
+			"type": "string",
+			"default": "Cutting-Edge Technology"
+		},
+		"sectionTitleColor": {
+			"type": "string",
+			"default": "#111827"
+		},
+		"sectionTitleFontSize": {
+			"type": "number",
+			"default": 2.2
+		},
+		"sectionTitleFontWeight": {
+			"type": "number",
+			"default": 800
+		},
+		"sectionTitleAlignment": {
+			"type": "string",
+			"default": "center"
+		},
+		"showSectionSubtitle": {
+			"type": "boolean",
+			"default": true
+		},
+		"sectionSubtitle": {
+			"type": "string",
+			"default": "We invest in the best machines to minimize human error."
+		},
+		"sectionSubtitleColor": {
+			"type": "string",
+			"default": "#6b7280"
+		},
+		"sectionSubtitleFontSize": {
+			"type": "number",
+			"default": 1.05
+		},
+		"animationOnScroll": {
+			"type": "boolean",
+			"default": true
+		},
+		"animationType": {
+			"type": "string",
+			"default": "fadeInUp"
+		},
+		"animationDelay": {
+			"type": "number",
+			"default": 100
+		},
+		"primaryColor": {
+			"type": "string",
+			"default": "#f48b2a"
+		},
+		"itemTagBgColor": {
+			"type": "string",
+			"default": "#f0f4f8"
+		},
+		"itemTagColor": {
+			"type": "string",
+			"default": "#f48b2a"
+		},
+		"itemTitleColor": {
+			"type": "string",
+			"default": "#000000"
+		},
+		"itemDescriptionColor": {
+			"type": "string",
+			"default": "#666666"
+		},
+		"itemBulletColor": {
+			"type": "string",
+			"default": "#444444"
+		},
+		"itemBulletIconColor": {
+			"type": "string",
+			"default": "#f48b2a"
+		}
+	},
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css",
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": {
+			"backgroundColor": "#ffffff",
+			"paddingTop": 80,
+			"paddingBottom": 80,
+			"containerMaxWidth": 1200,
+			"containerPadding": 20,
+			"showSectionTitle": true,
+			"sectionTitle": "Cutting-Edge Technology",
+			"sectionTitleColor": "#111827",
+			"sectionTitleFontSize": 2.2,
+			"sectionTitleFontWeight": 800,
+			"sectionTitleAlignment": "center",
+			"showSectionSubtitle": true,
+			"sectionSubtitle": "We invest in the best machines to minimize human error.",
+			"sectionSubtitleColor": "#6b7280",
+			"sectionSubtitleFontSize": 1.05,
+			"animationOnScroll": true,
+			"animationType": "fadeInUp",
+			"animationDelay": 100,
+			"primaryColor": "#f48b2a",
+			"itemTagBgColor": "#f0f4f8",
+			"itemTagColor": "#f48b2a",
+			"itemTitleColor": "#000000",
+			"itemDescriptionColor": "#666666",
+			"itemBulletColor": "#444444",
+			"itemBulletIconColor": "#f48b2a"
+		},
+		"innerBlocks": [
+			{
+				"name": "twork/lab-tech-item",
+				"attributes": {}
+			},
+			{
+				"name": "twork/lab-tech-item",
+				"attributes": {}
+			}
+		]
+	},
+	"textdomain": "twork-builder"
 }
-

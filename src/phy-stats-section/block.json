@@ -1,77 +1,126 @@
 {
-  "$schema": "https://schemas.wp.org/trunk/block.json",
-  "apiVersion": 3,
-  "name": "twork/phy-stats-section",
-  "version": "1.0.0",
-  "title": "Stats Section",
-  "category": "twork-builder",
-  "icon": "chart-bar",
-  "description": "Stats grid with number + label cards (e.g. Happy Patients, Expert Therapists). Matches physiotherapy-rehab.html phy-stats-grid.",
-  "keywords": ["physio", "stats", "grid", "numbers", "twork"],
-  "attributes": {
-    "backgroundColor": {
-      "type": "string",
-      "default": "transparent"
-    },
-    "paddingTop": {
-      "type": "number",
-      "default": 0
-    },
-    "paddingBottom": {
-      "type": "number",
-      "default": 60
-    },
-    "marginTop": {
-      "type": "number",
-      "default": -50
-    },
-    "containerMaxWidth": {
-      "type": "number",
-      "default": 1280
-    },
-    "containerPadding": {
-      "type": "number",
-      "default": 24
-    },
-    "columns": {
-      "type": "number",
-      "default": 4
-    },
-    "gap": {
-      "type": "number",
-      "default": 30
-    },
-    "cardPadding": {
-      "type": "number",
-      "default": 30
-    },
-    "cardBorderRadius": {
-      "type": "number",
-      "default": 20
-    },
-    "cardBorderBottomWidth": {
-      "type": "number",
-      "default": 5
-    },
-    "primaryColor": {
-      "type": "string",
-      "default": "#f48b2a"
-    },
-    "animationOnScroll": {
-      "type": "boolean",
-      "default": true
-    },
-    "staggerClass": {
-      "type": "string",
-      "default": "stagger-up"
-    }
-  },
-  "supports": {
-    "html": false,
-    "anchor": true,
-    "align": ["wide", "full"]
-  },
-  "textdomain": "twork-builder",
-  "editorScript": "file:./index.js",
-  "style": "file:./style-index.css"
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/phy-stats-section",
+	"version": "1.0.0",
+	"title": "Stats Section",
+	"category": "twork-builder",
+	"icon": "chart-bar",
+	"description": "Stats grid with number + label cards (e.g. Happy Patients, Expert Therapists). Matches physiotherapy-rehab.html phy-stats-grid.",
+	"keywords": [ "physio", "stats", "grid", "numbers", "twork" ],
+	"attributes": {
+		"backgroundColor": {
+			"type": "string",
+			"default": "transparent"
+		},
+		"paddingTop": {
+			"type": "number",
+			"default": 0
+		},
+		"paddingBottom": {
+			"type": "number",
+			"default": 60
+		},
+		"marginTop": {
+			"type": "number",
+			"default": -50
+		},
+		"containerMaxWidth": {
+			"type": "number",
+			"default": 1280
+		},
+		"containerPadding": {
+			"type": "number",
+			"default": 24
+		},
+		"columns": {
+			"type": "number",
+			"default": 4
+		},
+		"gap": {
+			"type": "number",
+			"default": 30
+		},
+		"cardPadding": {
+			"type": "number",
+			"default": 30
+		},
+		"cardBorderRadius": {
+			"type": "number",
+			"default": 20
+		},
+		"cardBorderBottomWidth": {
+			"type": "number",
+			"default": 5
+		},
+		"primaryColor": {
+			"type": "string",
+			"default": "#f48b2a"
+		},
+		"animationOnScroll": {
+			"type": "boolean",
+			"default": true
+		},
+		"staggerClass": {
+			"type": "string",
+			"default": "stagger-up"
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"align": [ "wide", "full" ]
+	},
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": {
+			"backgroundColor": "transparent",
+			"paddingTop": 0,
+			"paddingBottom": 60,
+			"marginTop": -50,
+			"containerMaxWidth": 1280,
+			"containerPadding": 24,
+			"columns": 4,
+			"gap": 30,
+			"cardPadding": 30,
+			"cardBorderRadius": 20,
+			"cardBorderBottomWidth": 5,
+			"primaryColor": "#f48b2a",
+			"animationOnScroll": true,
+			"staggerClass": "stagger-up"
+		},
+		"innerBlocks": [
+			{
+				"name": "twork/phy-stat-card",
+				"attributes": {
+					"statNumber": "5k+",
+					"label": "Happy Patients"
+				}
+			},
+			{
+				"name": "twork/phy-stat-card",
+				"attributes": {
+					"statNumber": "10+",
+					"label": "Expert Therapists"
+				}
+			},
+			{
+				"name": "twork/phy-stat-card",
+				"attributes": {
+					"statNumber": "98%",
+					"label": "Recovery Rate"
+				}
+			},
+			{
+				"name": "twork/phy-stat-card",
+				"attributes": {
+					"statNumber": "15",
+					"label": "Years Experience"
+				}
+			}
+		]
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
 }

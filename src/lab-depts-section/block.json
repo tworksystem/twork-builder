@@ -1,94 +1,160 @@
 {
-  "$schema": "https://schemas.wp.org/trunk/block.json",
-  "apiVersion": 3,
-  "name": "twork/lab-depts-section",
-  "version": "1.0.0",
-  "title": "Departments Section",
-  "category": "twork-builder",
-  "icon": "grid-view",
-  "description": "Laboratory departments grid with hex icons (Biochemistry, Hematology, Molecular Bio, etc.), matching laboratory-services.html.",
-  "keywords": ["lab", "departments", "hex", "grid", "twork"],
-  "attributes": {
-    "backgroundColor": {
-      "type": "string",
-      "default": "#ffffff"
-    },
-    "paddingTop": {
-      "type": "number",
-      "default": 100
-    },
-    "paddingBottom": {
-      "type": "number",
-      "default": 100
-    },
-    "containerMaxWidth": {
-      "type": "number",
-      "default": 1200
-    },
-    "containerPadding": {
-      "type": "number",
-      "default": 20
-    },
-    "showSectionHeader": {
-      "type": "boolean",
-      "default": true
-    },
-    "sectionTitle": {
-      "type": "string",
-      "default": "Our Departments"
-    },
-    "sectionSubtitle": {
-      "type": "string",
-      "default": "We cover the full spectrum of diagnostic pathology."
-    },
-    "headerAlign": {
-      "type": "string",
-      "default": "center"
-    },
-    "headerMaxWidth": {
-      "type": "number",
-      "default": 700
-    },
-    "gap": {
-      "type": "number",
-      "default": 30
-    },
-    "minColumnWidth": {
-      "type": "number",
-      "default": 300
-    },
-    "animationOnScroll": {
-      "type": "boolean",
-      "default": true
-    },
-    "primaryColor": {
-      "type": "string",
-      "default": "#f48b2a"
-    },
-    "headingColor": {
-      "type": "string",
-      "default": "#000000"
-    },
-    "subtitleColor": {
-      "type": "string",
-      "default": "#666666"
-    },
-    "cardBackgroundColor": {
-      "type": "string",
-      "default": "#ffffff"
-    },
-    "hexIconBgColor": {
-      "type": "string",
-      "default": "#f2f2f2"
-    }
-  },
-  "supports": {
-    "html": false,
-    "anchor": true,
-    "align": ["wide", "full"]
-  },
-  "textdomain": "twork-builder",
-  "editorScript": "file:./index.js",
-  "style": "file:./style-index.css"
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/lab-depts-section",
+	"version": "1.0.0",
+	"title": "Departments Section",
+	"category": "twork-builder",
+	"icon": "grid-view",
+	"description": "Laboratory departments grid with hex icons (Biochemistry, Hematology, Molecular Bio, etc.), matching laboratory-services.html.",
+	"keywords": [ "lab", "departments", "hex", "grid", "twork" ],
+	"attributes": {
+		"backgroundColor": {
+			"type": "string",
+			"default": "#ffffff"
+		},
+		"paddingTop": {
+			"type": "number",
+			"default": 100
+		},
+		"paddingBottom": {
+			"type": "number",
+			"default": 100
+		},
+		"containerMaxWidth": {
+			"type": "number",
+			"default": 1200
+		},
+		"containerPadding": {
+			"type": "number",
+			"default": 20
+		},
+		"showSectionHeader": {
+			"type": "boolean",
+			"default": true
+		},
+		"sectionTitle": {
+			"type": "string",
+			"default": "Our Departments"
+		},
+		"sectionSubtitle": {
+			"type": "string",
+			"default": "We cover the full spectrum of diagnostic pathology."
+		},
+		"headerAlign": {
+			"type": "string",
+			"default": "center"
+		},
+		"headerMaxWidth": {
+			"type": "number",
+			"default": 700
+		},
+		"gap": {
+			"type": "number",
+			"default": 30
+		},
+		"minColumnWidth": {
+			"type": "number",
+			"default": 300
+		},
+		"animationOnScroll": {
+			"type": "boolean",
+			"default": true
+		},
+		"primaryColor": {
+			"type": "string",
+			"default": "#f48b2a"
+		},
+		"headingColor": {
+			"type": "string",
+			"default": "#000000"
+		},
+		"subtitleColor": {
+			"type": "string",
+			"default": "#666666"
+		},
+		"cardBackgroundColor": {
+			"type": "string",
+			"default": "#ffffff"
+		},
+		"hexIconBgColor": {
+			"type": "string",
+			"default": "#f2f2f2"
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"align": [ "wide", "full" ]
+	},
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": {
+			"backgroundColor": "#ffffff",
+			"paddingTop": 100,
+			"paddingBottom": 100,
+			"containerMaxWidth": 1200,
+			"containerPadding": 20,
+			"showSectionHeader": true,
+			"sectionTitle": "Our Departments",
+			"sectionSubtitle": "We cover the full spectrum of diagnostic pathology.",
+			"headerAlign": "center",
+			"headerMaxWidth": 700,
+			"gap": 30,
+			"minColumnWidth": 300,
+			"animationOnScroll": true,
+			"primaryColor": "#f48b2a",
+			"headingColor": "#000000",
+			"subtitleColor": "#666666",
+			"cardBackgroundColor": "#ffffff",
+			"hexIconBgColor": "#f2f2f2"
+		},
+		"innerBlocks": [
+			{
+				"name": "twork/lab-dept-card",
+				"attributes": {
+					"iconClass": "fas fa-flask",
+					"title": "Biochemistry"
+				}
+			},
+			{
+				"name": "twork/lab-dept-card",
+				"attributes": {
+					"iconClass": "fas fa-tint",
+					"title": "Hematology"
+				}
+			},
+			{
+				"name": "twork/lab-dept-card",
+				"attributes": {
+					"iconClass": "fas fa-dna",
+					"title": "Molecular Bio"
+				}
+			},
+			{
+				"name": "twork/lab-dept-card",
+				"attributes": {
+					"iconClass": "fas fa-bacterium",
+					"title": "Microbiology"
+				}
+			},
+			{
+				"name": "twork/lab-dept-card",
+				"attributes": {
+					"iconClass": "fas fa-microscope",
+					"title": "Histopathology"
+				}
+			},
+			{
+				"name": "twork/lab-dept-card",
+				"attributes": {
+					"iconClass": "fas fa-vial",
+					"title": "Clinical Path"
+				}
+			}
+		]
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
 }
-

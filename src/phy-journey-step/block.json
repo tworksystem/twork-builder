@@ -1,28 +1,33 @@
 {
-  "$schema": "https://schemas.wp.org/trunk/block.json",
-  "apiVersion": 3,
-  "name": "twork/phy-journey-step",
-  "version": "1.0.0",
-  "title": "Journey Step",
-  "category": "twork-builder",
-  "parent": ["twork/phy-journey-section"],
-  "icon": "excerpt-view",
-  "description": "Single journey item (step) for the Physio Journey section.",
-  "keywords": ["physio", "journey", "step", "timeline", "twork"],
-  "attributes": {
-    "title": {
-      "type": "string",
-      "default": "1. Initial Assessment"
-    },
-    "description": {
-      "type": "string",
-      "default": "Comprehensive evaluation of your posture, movement, and pain points by our senior physiotherapists."
-    }
-  },
-  "supports": {
-    "html": false
-  },
-  "textdomain": "twork-builder",
-  "editorScript": "file:./index.js"
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/phy-journey-step",
+	"version": "1.0.0",
+	"title": "Journey Step",
+	"category": "twork-builder",
+	"parent": [ "twork/phy-journey-section" ],
+	"icon": "excerpt-view",
+	"description": "Single journey item (step) for the Physio Journey section.",
+	"keywords": [ "physio", "journey", "step", "timeline", "twork" ],
+	"attributes": {
+		"title": {
+			"type": "string",
+			"default": "1. Initial Assessment"
+		},
+		"description": {
+			"type": "string",
+			"default": "Comprehensive evaluation of your posture, movement, and pain points by our senior physiotherapists."
+		}
+	},
+	"supports": {
+		"html": false
+	},
+	"example": {
+		"attributes": {
+			"title": "1. Initial Assessment",
+			"description": "Comprehensive evaluation of your posture, movement, and pain points by our senior physiotherapists."
+		}
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js"
 }
-

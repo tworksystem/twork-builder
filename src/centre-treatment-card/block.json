@@ -1,21 +1,57 @@
 {
-  "$schema": "https://schemas.wp.org/trunk/block.json",
-  "apiVersion": 3,
-  "name": "twork/centre-treatment-card",
-  "version": "1.0.0",
-  "title": "Treatment Card",
-  "category": "twork-builder",
-  "parent": ["twork/centre-treatments-section"],
-  "attributes": {
-    "iconClass": { "type": "string", "default": "fas fa-brain" },
-    "iconType": { "type": "string", "default": "fontawesome" },
-    "iconDashicon": { "type": "string", "default": "dashicons-heart" },
-    "iconImageUrl": { "type": "string", "default": "" },
-    "iconImageId": { "type": "number" },
-    "iconVideoUrl": { "type": "string", "default": "" },
-    "iconVideoId": { "type": "number" },
-    "title": { "type": "string", "default": "Stroke Management" },
-    "description": { "type": "string", "default": "Rapid response treatment for ischemic and hemorrhagic strokes." }
-  },
-  "editorScript": "file:./index.js"
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/centre-treatment-card",
+	"version": "1.0.0",
+	"title": "Treatment Card",
+	"category": "twork-builder",
+	"parent": [ "twork/centre-treatments-section" ],
+	"attributes": {
+		"iconClass": {
+			"type": "string",
+			"default": "fas fa-brain"
+		},
+		"iconType": {
+			"type": "string",
+			"default": "fontawesome"
+		},
+		"iconDashicon": {
+			"type": "string",
+			"default": "dashicons-heart"
+		},
+		"iconImageUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"iconImageId": {
+			"type": "number"
+		},
+		"iconVideoUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"iconVideoId": {
+			"type": "number"
+		},
+		"title": {
+			"type": "string",
+			"default": "Stroke Management"
+		},
+		"description": {
+			"type": "string",
+			"default": "Rapid response treatment for ischemic and hemorrhagic strokes."
+		}
+	},
+	"editorScript": "file:./index.js",
+	"example": {
+		"attributes": {
+			"iconClass": "fas fa-brain",
+			"iconType": "fontawesome",
+			"iconDashicon": "dashicons-heart",
+			"iconImageUrl": "",
+			"iconVideoUrl": "",
+			"title": "Stroke Management",
+			"description": "Rapid response treatment for ischemic and hemorrhagic strokes."
+		}
+	}
 }

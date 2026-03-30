@@ -1,31 +1,98 @@
 {
-    "$schema": "https://schemas.wp.org/trunk/block.json",
-    "apiVersion": 3,
-    "name": "twork/emergency-hero",
-    "title": "Hero",
-    "category": "twork-builder",
-    "icon": "emergency",
-    "description": "24/7 Emergency hero section with background image, badge, title, description and two CTA buttons (toggle on/off).",
-    "keywords": ["emergency", "hero", "24/7", "twork"],
-    "attributes": {
-        "backgroundImage": { "type": "string", "default": "https://images.unsplash.com/photo-1516574187841-693083f6e17b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" },
-        "backgroundImageId": { "type": "number" },
-        "badgeText": { "type": "string", "default": "24/7 Emergency Response" },
-        "title": { "type": "string", "default": "Every Second Counts" },
-        "description": { "type": "string", "default": "Jivaka Emergency Centre is equipped with advanced technology and expert specialists to handle critical situations at any hour." },
-        "showButton1": { "type": "boolean", "default": true },
-        "button1Text": { "type": "string", "default": "Call Ambulance: 199" },
-        "button1Url": { "type": "string", "default": "tel:199" },
-        "button1Pulse": { "type": "boolean", "default": true },
-        "showButton2": { "type": "boolean", "default": true },
-        "button2Text": { "type": "string", "default": "When to Visit?" },
-        "button2Url": { "type": "string", "default": "#triage" },
-        "containerMaxWidth": { "type": "number", "default": 1280 },
-        "containerPadding": { "type": "number", "default": 20 },
-        "heroHeight": { "type": "number", "default": 600 }
-    },
-    "supports": { "html": false, "anchor": true, "align": ["full", "wide"] },
-    "textdomain": "twork-builder",
-    "editorScript": "file:./index.js",
-    "style": "file:./style-index.css"
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/emergency-hero",
+	"title": "Hero",
+	"category": "twork-builder",
+	"icon": "emergency",
+	"description": "24/7 Emergency hero section with background image, badge, title, description and two CTA buttons (toggle on/off).",
+	"keywords": [ "emergency", "hero", "24/7", "twork" ],
+	"attributes": {
+		"backgroundImage": {
+			"type": "string",
+			"default": "https://images.unsplash.com/photo-1516574187841-693083f6e17b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
+		},
+		"backgroundImageId": {
+			"type": "number"
+		},
+		"badgeText": {
+			"type": "string",
+			"default": "24/7 Emergency Response"
+		},
+		"title": {
+			"type": "string",
+			"default": "Every Second Counts"
+		},
+		"description": {
+			"type": "string",
+			"default": "Jivaka Emergency Centre is equipped with advanced technology and expert specialists to handle critical situations at any hour."
+		},
+		"showButton1": {
+			"type": "boolean",
+			"default": true
+		},
+		"button1Text": {
+			"type": "string",
+			"default": "Call Ambulance: 199"
+		},
+		"button1Url": {
+			"type": "string",
+			"default": "tel:199"
+		},
+		"button1Pulse": {
+			"type": "boolean",
+			"default": true
+		},
+		"showButton2": {
+			"type": "boolean",
+			"default": true
+		},
+		"button2Text": {
+			"type": "string",
+			"default": "When to Visit?"
+		},
+		"button2Url": {
+			"type": "string",
+			"default": "#triage"
+		},
+		"containerMaxWidth": {
+			"type": "number",
+			"default": 1280
+		},
+		"containerPadding": {
+			"type": "number",
+			"default": 20
+		},
+		"heroHeight": {
+			"type": "number",
+			"default": 600
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"align": [ "full", "wide" ]
+	},
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": {
+			"backgroundImage": "https://images.unsplash.com/photo-1516574187841-693083f6e17b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80",
+			"badgeText": "24/7 Emergency Response",
+			"title": "Every Second Counts",
+			"description": "Jivaka Emergency Centre is equipped with advanced technology and expert specialists to handle critical situations at any hour.",
+			"showButton1": true,
+			"button1Text": "Call Ambulance: 199",
+			"button1Url": "tel:199",
+			"button1Pulse": true,
+			"showButton2": true,
+			"button2Text": "When to Visit?",
+			"button2Url": "#triage",
+			"containerMaxWidth": 1280,
+			"containerPadding": 20,
+			"heroHeight": 600
+		}
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
 }

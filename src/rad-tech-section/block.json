@@ -1,106 +1,153 @@
 {
-  "$schema": "https://schemas.wp.org/trunk/block.json",
-  "apiVersion": 3,
-  "name": "twork/rad-tech-section",
-  "version": "1.0.0",
-  "title": "Tech Section",
-  "category": "twork-builder",
-  "icon": "screenoptions",
-  "description": "Radiology \"Powered by World-Class Technology\" section with left content and right image.",
-  "keywords": [
-    "radiology",
-    "technology",
-    "tech",
-    "imaging",
-    "twork"
-  ],
-  "attributes": {
-    "backgroundColor": {
-      "type": "string",
-      "default": "#212121"
-    },
-    "paddingTop": {
-      "type": "number",
-      "default": 80
-    },
-    "paddingBottom": {
-      "type": "number",
-      "default": 80
-    },
-    "containerMaxWidth": {
-      "type": "number",
-      "default": 1200
-    },
-    "containerPadding": {
-      "type": "number",
-      "default": 20
-    },
-    "showSectionTitle": {
-      "type": "boolean",
-      "default": true
-    },
-    "sectionTitle": {
-      "type": "string",
-      "default": "Powered by World-Class Technology"
-    },
-    "sectionTitleColor": {
-      "type": "string",
-      "default": "#ffffff"
-    },
-    "sectionTitleFontSize": {
-      "type": "number",
-      "default": 2.5
-    },
-    "showSectionSubtitle": {
-      "type": "boolean",
-      "default": true
-    },
-    "sectionSubtitle": {
-      "type": "string",
-      "default": "At Jivaka, we invest in the latest machines from GE and Siemens to ensure that your diagnosis is not just fast, but precise."
-    },
-    "sectionSubtitleColor": {
-      "type": "string",
-      "default": "rgba(255, 255, 255, 0.8)"
-    },
-    "sectionSubtitleFontSize": {
-      "type": "number",
-      "default": 1.05
-    },
-    "imageUrl": {
-      "type": "string",
-      "default": "https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=600&q=80"
-    },
-    "imageId": {
-      "type": "number"
-    },
-    "imageAlt": {
-      "type": "string",
-      "default": "Scanner"
-    },
-    "animationOnScroll": {
-      "type": "boolean",
-      "default": true
-    },
-    "animationType": {
-      "type": "string",
-      "default": "fade-up"
-    },
-    "animationDelay": {
-      "type": "number",
-      "default": 0
-    }
-  },
-  "supports": {
-    "html": false,
-    "anchor": true,
-    "align": [
-      "wide",
-      "full"
-    ]
-  },
-  "textdomain": "twork-builder",
-  "editorScript": "file:./index.js",
-  "style": "file:./style-index.css"
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/rad-tech-section",
+	"version": "1.0.0",
+	"title": "Tech Section",
+	"category": "twork-builder",
+	"icon": "screenoptions",
+	"description": "Radiology \"Powered by World-Class Technology\" section with left content and right image.",
+	"keywords": [ "radiology", "technology", "tech", "imaging", "twork" ],
+	"attributes": {
+		"backgroundColor": {
+			"type": "string",
+			"default": "#212121"
+		},
+		"paddingTop": {
+			"type": "number",
+			"default": 80
+		},
+		"paddingBottom": {
+			"type": "number",
+			"default": 80
+		},
+		"containerMaxWidth": {
+			"type": "number",
+			"default": 1200
+		},
+		"containerPadding": {
+			"type": "number",
+			"default": 20
+		},
+		"showSectionTitle": {
+			"type": "boolean",
+			"default": true
+		},
+		"sectionTitle": {
+			"type": "string",
+			"default": "Powered by World-Class Technology"
+		},
+		"sectionTitleColor": {
+			"type": "string",
+			"default": "#ffffff"
+		},
+		"sectionTitleFontSize": {
+			"type": "number",
+			"default": 2.5
+		},
+		"showSectionSubtitle": {
+			"type": "boolean",
+			"default": true
+		},
+		"sectionSubtitle": {
+			"type": "string",
+			"default": "At Jivaka, we invest in the latest machines from GE and Siemens to ensure that your diagnosis is not just fast, but precise."
+		},
+		"sectionSubtitleColor": {
+			"type": "string",
+			"default": "rgba(255, 255, 255, 0.8)"
+		},
+		"sectionSubtitleFontSize": {
+			"type": "number",
+			"default": 1.05
+		},
+		"imageUrl": {
+			"type": "string",
+			"default": "https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=600&q=80"
+		},
+		"imageId": {
+			"type": "number"
+		},
+		"imageAlt": {
+			"type": "string",
+			"default": "Scanner"
+		},
+		"animationOnScroll": {
+			"type": "boolean",
+			"default": true
+		},
+		"animationType": {
+			"type": "string",
+			"default": "fade-up"
+		},
+		"animationDelay": {
+			"type": "number",
+			"default": 0
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"align": [ "wide", "full" ]
+	},
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": {
+			"backgroundColor": "#212121",
+			"paddingTop": 80,
+			"paddingBottom": 80,
+			"containerMaxWidth": 1200,
+			"containerPadding": 20,
+			"showSectionTitle": true,
+			"sectionTitle": "Powered by World-Class Technology",
+			"sectionTitleColor": "#ffffff",
+			"sectionTitleFontSize": 2.5,
+			"showSectionSubtitle": true,
+			"sectionSubtitle": "At Jivaka, we invest in the latest machines from GE and Siemens to ensure that your diagnosis is not just fast, but precise.",
+			"sectionSubtitleColor": "rgba(255, 255, 255, 0.8)",
+			"sectionSubtitleFontSize": 1.05,
+			"imageUrl": "https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=600&q=80",
+			"imageAlt": "Scanner",
+			"animationOnScroll": true,
+			"animationType": "fade-up",
+			"animationDelay": 0
+		},
+		"innerBlocks": [
+			{
+				"name": "twork/rad-tech-item",
+				"attributes": {
+					"iconClass": "fas fa-bolt",
+					"title": "Low Dose",
+					"description": "Protocols to minimize radiation exposure."
+				}
+			},
+			{
+				"name": "twork/rad-tech-item",
+				"attributes": {
+					"iconClass": "fas fa-tachometer-alt",
+					"title": "Rapid Scan",
+					"description": "Whole body scan in under 10 minutes."
+				}
+			},
+			{
+				"name": "twork/rad-tech-item",
+				"attributes": {
+					"iconClass": "fas fa-wifi",
+					"title": "Tele-Rad",
+					"description": "Reports reviewed by remote experts."
+				}
+			},
+			{
+				"name": "twork/rad-tech-item",
+				"attributes": {
+					"iconClass": "fas fa-desktop",
+					"title": "AI Assist",
+					"description": "AI software to help detect anomalies."
+				}
+			}
+		]
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
 }
-

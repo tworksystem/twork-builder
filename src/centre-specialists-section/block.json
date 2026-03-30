@@ -1,16 +1,67 @@
 {
-  "$schema": "https://schemas.wp.org/trunk/block.json",
-  "apiVersion": 3,
-  "name": "twork/centre-specialists-section",
-  "version": "1.0.0",
-  "title": "Specialists Section (List)",
-  "category": "twork-builder",
-  "parent": ["twork/centre-layout-section"],
-  "description": "Our Specialists list with doc-cards (photo, name, specialization, qualifications, View Profile). Toggle section visibility.",
-  "attributes": {
-    "sectionId": { "type": "string", "default": "specialists" },
-    "title": { "type": "string", "default": "Our Specialists" },
-    "showSection": { "type": "boolean", "default": true }
-  },
-  "editorScript": "file:./index.js"
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/centre-specialists-section",
+	"version": "1.0.0",
+	"title": "Specialists Section (List)",
+	"category": "twork-builder",
+	"parent": [ "twork/centre-layout-section" ],
+	"description": "Our Specialists list with doc-cards (photo, name, specialization, qualifications, View Profile). Toggle section visibility.",
+	"attributes": {
+		"sectionId": {
+			"type": "string",
+			"default": "specialists"
+		},
+		"title": {
+			"type": "string",
+			"default": "Our Specialists"
+		},
+		"showSection": {
+			"type": "boolean",
+			"default": true
+		}
+	},
+	"editorScript": "file:./index.js",
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": {
+			"sectionId": "specialists",
+			"title": "Our Specialists",
+			"showSection": true
+		},
+		"innerBlocks": [
+			{
+				"name": "twork/centre-specialist-card",
+				"attributes": {
+					"name": "Dr. Kyaw Swar",
+					"specialization": "Interventional Cardiologist",
+					"qualifications": "MBBS, M.Med.Sc, MRCP (UK)"
+				}
+			},
+			{
+				"name": "twork/centre-specialist-card",
+				"attributes": {
+					"name": "Dr. Susan May",
+					"specialization": "Cardiothoracic Surgeon",
+					"qualifications": "MBBS, Dr.Med.Sc (Surgery)"
+				}
+			},
+			{
+				"name": "twork/centre-specialist-card",
+				"attributes": {
+					"name": "Dr. Hlaing Min",
+					"specialization": "Senior Cardiologist",
+					"qualifications": "MBBS, M.Med.Sc (Internal Med), Dip.Cardio"
+				}
+			},
+			{
+				"name": "twork/centre-specialist-card",
+				"attributes": {
+					"name": "Dr. Thida Win",
+					"specialization": "Electrophysiologist",
+					"qualifications": "MBBS, Ph.D. (Cardiology)"
+				}
+			}
+		]
+	}
 }

@@ -1,94 +1,153 @@
 {
-  "$schema": "https://schemas.wp.org/trunk/block.json",
-  "apiVersion": 3,
-  "name": "twork/amb-fleet-card-item",
-  "title": "Ambulance Fleet Card",
-  "parent": ["twork/amb-fleet-section"],
-  "category": "twork-builder",
-  "description": "Single fleet card with badge, image, title, description and feature list.",
-  "keywords": ["ambulance", "fleet", "card", "ALS", "BLS", "twork"],
-  "attributes": {
-    "badgeText": {
-      "type": "string",
-      "default": "Critical Care"
-    },
-    "badgeStyle": {
-      "type": "string",
-      "default": "dark"
-    },
-    "badgeBgColor": {
-      "type": "string",
-      "default": ""
-    },
-    "image": {
-      "type": "string",
-      "default": ""
-    },
-    "imageId": {
-      "type": "number"
-    },
-    "imageAlt": {
-      "type": "string",
-      "default": ""
-    },
-    "imageHeight": {
-      "type": "number",
-      "default": 300
-    },
-    "imageObjectFit": {
-      "type": "string",
-      "default": "cover"
-    },
-    "title": {
-      "type": "string",
-      "default": "ALS (Advanced Life Support)"
-    },
-    "titleColor": {
-      "type": "string",
-      "default": "#0f172a"
-    },
-    "titleFontSize": {
-      "type": "number",
-      "default": 1.5
-    },
-    "titleFontWeight": {
-      "type": "number",
-      "default": 700
-    },
-    "description": {
-      "type": "string",
-      "default": "Designed for critical patients requiring intensive monitoring during transport."
-    },
-    "descriptionColor": {
-      "type": "string",
-      "default": "#666666"
-    },
-    "descriptionFontSize": {
-      "type": "number",
-      "default": 1
-    },
-    "descriptionMarginBottom": {
-      "type": "number",
-      "default": 20
-    },
-    "listItems": {
-      "type": "array",
-      "default": [
-        { "id": 1, "text": "Ventilator & Defibrillator", "icon": "fa-check-circle" },
-        { "id": 2, "text": "Cardiac Monitor", "icon": "fa-check-circle" },
-        { "id": 3, "text": "Infusion Pumps", "icon": "fa-check-circle" },
-        { "id": 4, "text": "Doctor & Paramedic on board", "icon": "fa-user-nurse" }
-      ]
-    },
-    "listIconColor": {
-      "type": "string",
-      "default": "#f48b2a"
-    },
-    "infoPadding": {
-      "type": "number",
-      "default": 40
-    }
-  },
-  "textdomain": "twork-builder",
-  "editorScript": "file:./index.js"
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/amb-fleet-card-item",
+	"title": "Ambulance Fleet Card",
+	"parent": [ "twork/amb-fleet-section" ],
+	"category": "twork-builder",
+	"description": "Single fleet card with badge, image, title, description and feature list.",
+	"keywords": [ "ambulance", "fleet", "card", "ALS", "BLS", "twork" ],
+	"attributes": {
+		"badgeText": {
+			"type": "string",
+			"default": "Critical Care"
+		},
+		"badgeStyle": {
+			"type": "string",
+			"default": "dark"
+		},
+		"badgeBgColor": {
+			"type": "string",
+			"default": ""
+		},
+		"image": {
+			"type": "string",
+			"default": ""
+		},
+		"imageId": {
+			"type": "number"
+		},
+		"imageAlt": {
+			"type": "string",
+			"default": ""
+		},
+		"imageHeight": {
+			"type": "number",
+			"default": 300
+		},
+		"imageObjectFit": {
+			"type": "string",
+			"default": "cover"
+		},
+		"title": {
+			"type": "string",
+			"default": "ALS (Advanced Life Support)"
+		},
+		"titleColor": {
+			"type": "string",
+			"default": "#0f172a"
+		},
+		"titleFontSize": {
+			"type": "number",
+			"default": 1.5
+		},
+		"titleFontWeight": {
+			"type": "number",
+			"default": 700
+		},
+		"description": {
+			"type": "string",
+			"default": "Designed for critical patients requiring intensive monitoring during transport."
+		},
+		"descriptionColor": {
+			"type": "string",
+			"default": "#666666"
+		},
+		"descriptionFontSize": {
+			"type": "number",
+			"default": 1
+		},
+		"descriptionMarginBottom": {
+			"type": "number",
+			"default": 20
+		},
+		"listItems": {
+			"type": "array",
+			"default": [
+				{
+					"id": 1,
+					"text": "Ventilator & Defibrillator",
+					"icon": "fa-check-circle"
+				},
+				{
+					"id": 2,
+					"text": "Cardiac Monitor",
+					"icon": "fa-check-circle"
+				},
+				{
+					"id": 3,
+					"text": "Infusion Pumps",
+					"icon": "fa-check-circle"
+				},
+				{
+					"id": 4,
+					"text": "Doctor & Paramedic on board",
+					"icon": "fa-user-nurse"
+				}
+			]
+		},
+		"listIconColor": {
+			"type": "string",
+			"default": "#f48b2a"
+		},
+		"infoPadding": {
+			"type": "number",
+			"default": 40
+		}
+	},
+	"example": {
+		"attributes": {
+			"badgeText": "Critical Care",
+			"badgeStyle": "dark",
+			"badgeBgColor": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?auto=format&fit=crop&w=1200&q=80",
+			"image": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?auto=format&fit=crop&w=1200&q=80",
+			"imageAlt": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?auto=format&fit=crop&w=1200&q=80",
+			"imageHeight": 300,
+			"imageObjectFit": "cover",
+			"title": "ALS (Advanced Life Support)",
+			"titleColor": "#0f172a",
+			"titleFontSize": 1.5,
+			"titleFontWeight": 700,
+			"description": "Designed for critical patients requiring intensive monitoring during transport.",
+			"descriptionColor": "#666666",
+			"descriptionFontSize": 1,
+			"descriptionMarginBottom": 20,
+			"listItems": [
+				{
+					"id": 1,
+					"text": "Ventilator & Defibrillator",
+					"icon": "fa-check-circle"
+				},
+				{
+					"id": 2,
+					"text": "Cardiac Monitor",
+					"icon": "fa-check-circle"
+				},
+				{
+					"id": 3,
+					"text": "Infusion Pumps",
+					"icon": "fa-check-circle"
+				},
+				{
+					"id": 4,
+					"text": "Doctor & Paramedic on board",
+					"icon": "fa-user-nurse"
+				}
+			],
+			"listIconColor": "#f48b2a",
+			"infoPadding": 40
+		}
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js"
 }

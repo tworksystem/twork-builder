@@ -1,97 +1,223 @@
 {
-    "$schema": "https://schemas.wp.org/trunk/block.json",
-    "apiVersion": 3,
-    "name": "twork/em-triage-section",
-    "version": "1.0.0",
-    "title": "Triage Section",
-    "category": "twork-builder",
-    "icon": "list-view",
-    "description": "When to Visit Emergency? triage section with header and triage cards (icon, title, list).",
-    "keywords": ["emergency", "triage", "when to visit", "grid", "twork"],
-    "attributes": {
-        "backgroundColor": {
-            "type": "string",
-            "default": "#ffffff"
-        },
-        "paddingTop": {
-            "type": "number",
-            "default": 80
-        },
-        "paddingBottom": {
-            "type": "number",
-            "default": 80
-        },
-        "containerMaxWidth": {
-            "type": "number",
-            "default": 1280
-        },
-        "containerPadding": {
-            "type": "number",
-            "default": 20
-        },
-        "gap": {
-            "type": "number",
-            "default": 25
-        },
-        "minColumnWidth": {
-            "type": "number",
-            "default": 260
-        },
-        "showSectionHeader": {
-            "type": "boolean",
-            "default": true
-        },
-        "sectionTitle": {
-            "type": "string",
-            "default": "When to Visit Emergency?"
-        },
-        "sectionTitleColor": {
-            "type": "string",
-            "default": "#212121"
-        },
-        "sectionTitleFontSize": {
-            "type": "number",
-            "default": 2.5
-        },
-        "sectionTitleFontWeight": {
-            "type": "number",
-            "default": 700
-        },
-        "sectionSubtitle": {
-            "type": "string",
-            "default": "Recognizing the signs of a medical emergency can save lives. Seek immediate help if you observe:"
-        },
-        "sectionSubtitleColor": {
-            "type": "string",
-            "default": "#333333"
-        },
-        "sectionSubtitleFontSize": {
-            "type": "number",
-            "default": 1
-        },
-        "headerMaxWidth": {
-            "type": "number",
-            "default": 700
-        },
-        "headerMarginBottom": {
-            "type": "number",
-            "default": 50
-        },
-        "animationOnScroll": {
-            "type": "boolean",
-            "default": true
-        },
-        "animationType": {
-            "type": "string",
-            "default": "fade-up"
-        }
-    },
-    "supports": {
-        "html": false,
-        "anchor": true,
-        "align": ["wide", "full"]
-    },
-    "textdomain": "twork-builder",
-    "editorScript": "file:./index.js",
-    "style": "file:./style-index.css"
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/em-triage-section",
+	"version": "1.0.0",
+	"title": "Triage Section",
+	"category": "twork-builder",
+	"icon": "list-view",
+	"description": "When to Visit Emergency? triage section with header and triage cards (icon, title, list).",
+	"keywords": [ "emergency", "triage", "when to visit", "grid", "twork" ],
+	"attributes": {
+		"backgroundColor": {
+			"type": "string",
+			"default": "#ffffff"
+		},
+		"paddingTop": {
+			"type": "number",
+			"default": 80
+		},
+		"paddingBottom": {
+			"type": "number",
+			"default": 80
+		},
+		"containerMaxWidth": {
+			"type": "number",
+			"default": 1280
+		},
+		"containerPadding": {
+			"type": "number",
+			"default": 20
+		},
+		"gap": {
+			"type": "number",
+			"default": 25
+		},
+		"minColumnWidth": {
+			"type": "number",
+			"default": 260
+		},
+		"showSectionHeader": {
+			"type": "boolean",
+			"default": true
+		},
+		"sectionTitle": {
+			"type": "string",
+			"default": "When to Visit Emergency?"
+		},
+		"sectionTitleColor": {
+			"type": "string",
+			"default": "#212121"
+		},
+		"sectionTitleFontSize": {
+			"type": "number",
+			"default": 2.5
+		},
+		"sectionTitleFontWeight": {
+			"type": "number",
+			"default": 700
+		},
+		"sectionSubtitle": {
+			"type": "string",
+			"default": "Recognizing the signs of a medical emergency can save lives. Seek immediate help if you observe:"
+		},
+		"sectionSubtitleColor": {
+			"type": "string",
+			"default": "#333333"
+		},
+		"sectionSubtitleFontSize": {
+			"type": "number",
+			"default": 1
+		},
+		"headerMaxWidth": {
+			"type": "number",
+			"default": 700
+		},
+		"headerMarginBottom": {
+			"type": "number",
+			"default": 50
+		},
+		"animationOnScroll": {
+			"type": "boolean",
+			"default": true
+		},
+		"animationType": {
+			"type": "string",
+			"default": "fade-up"
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"align": [ "wide", "full" ]
+	},
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": {
+			"backgroundColor": "#ffffff",
+			"paddingTop": 80,
+			"paddingBottom": 80,
+			"containerMaxWidth": 1280,
+			"containerPadding": 20,
+			"gap": 25,
+			"minColumnWidth": 260,
+			"showSectionHeader": true,
+			"sectionTitle": "When to Visit Emergency?",
+			"sectionTitleColor": "#212121",
+			"sectionTitleFontSize": 2.5,
+			"sectionTitleFontWeight": 700,
+			"sectionSubtitle": "Recognizing the signs of a medical emergency can save lives. Seek immediate help if you observe:",
+			"sectionSubtitleColor": "#333333",
+			"sectionSubtitleFontSize": 1,
+			"headerMaxWidth": 700,
+			"headerMarginBottom": 50,
+			"animationOnScroll": true,
+			"animationType": "fade-up"
+		},
+		"innerBlocks": [
+			{
+				"name": "twork/em-triage-card",
+				"attributes": {
+					"iconClass": "fas fa-heartbeat",
+					"cardTitle": "Heart Attack Signs",
+					"listItems": [
+						{
+							"id": 1,
+							"text": "Squeezing chest pain or pressure"
+						},
+						{
+							"id": 2,
+							"text": "Pain radiating to jaw, neck, or left arm"
+						},
+						{
+							"id": 3,
+							"text": "Shortness of breath & cold sweats"
+						},
+						{
+							"id": 4,
+							"text": "Nausea or lightheadedness"
+						}
+					]
+				}
+			},
+			{
+				"name": "twork/em-triage-card",
+				"attributes": {
+					"iconClass": "fas fa-lungs",
+					"cardTitle": "Breathing Issues",
+					"listItems": [
+						{
+							"id": 1,
+							"text": "Severe asthma unresponsive to inhalers"
+						},
+						{
+							"id": 2,
+							"text": "Choking or gasping for air"
+						},
+						{
+							"id": 3,
+							"text": "Bluish lips or face (Cyanosis)"
+						},
+						{
+							"id": 4,
+							"text": "Inability to speak in full sentences"
+						}
+					]
+				}
+			},
+			{
+				"name": "twork/em-triage-card",
+				"attributes": {
+					"iconClass": "fas fa-brain",
+					"cardTitle": "Stroke (F.A.S.T)",
+					"listItems": [
+						{
+							"id": 1,
+							"text": "Face drooping on one side"
+						},
+						{
+							"id": 2,
+							"text": "Arm weakness or numbness"
+						},
+						{
+							"id": 3,
+							"text": "Speech difficulty (slurred)"
+						},
+						{
+							"id": 4,
+							"text": "Sudden severe headache & confusion"
+						}
+					]
+				}
+			},
+			{
+				"name": "twork/em-triage-card",
+				"attributes": {
+					"iconClass": "fas fa-car-crash",
+					"cardTitle": "Severe Trauma",
+					"listItems": [
+						{
+							"id": 1,
+							"text": "Heavy, uncontrollable bleeding"
+						},
+						{
+							"id": 2,
+							"text": "Deep wounds or gunshot/knife wounds"
+						},
+						{
+							"id": 3,
+							"text": "Compound fractures (bone visible)"
+						},
+						{
+							"id": 4,
+							"text": "Head injury with loss of consciousness"
+						}
+					]
+				}
+			}
+		]
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
 }

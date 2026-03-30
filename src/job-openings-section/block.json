@@ -1,109 +1,206 @@
 {
-    "$schema": "https://schemas.wp.org/trunk/block.json",
-    "apiVersion": 3,
-    "name": "twork/job-openings-section",
-    "version": "1.0.0",
-    "title": "Job Openings Section",
-    "category": "twork-builder",
-    "icon": "portfolio",
-    "description": "Current openings section with job categories and listings for career page.",
-    "keywords": ["job", "openings", "career", " listings", "apply", "twork"],
-    "attributes": {
-        "backgroundColor": {
-            "type": "string",
-            "default": "#ffffff"
-        },
-        "paddingTop": {
-            "type": "number",
-            "default": 80
-        },
-        "paddingBottom": {
-            "type": "number",
-            "default": 80
-        },
-        "paddingTopMobile": {
-            "type": "number",
-            "default": 60
-        },
-        "paddingBottomMobile": {
-            "type": "number",
-            "default": 60
-        },
-        "showSectionHeader": {
-            "type": "boolean",
-            "default": true
-        },
-        "sectionTitle": {
-            "type": "string",
-            "default": "Current Openings"
-        },
-        "sectionTitleColor": {
-            "type": "string",
-            "default": "#212121"
-        },
-        "sectionTitleFontSize": {
-            "type": "number",
-            "default": 2.2
-        },
-        "sectionTitleFontSizeMobile": {
-            "type": "number",
-            "default": 1.8
-        },
-        "sectionSubtitle": {
-            "type": "string",
-            "default": "Explore exciting opportunities to join our medical and administrative teams."
-        },
-        "sectionSubtitleColor": {
-            "type": "string",
-            "default": "#666666"
-        },
-        "sectionSubtitleFontSize": {
-            "type": "number",
-            "default": 1
-        },
-        "sectionSubtitleMaxWidth": {
-            "type": "number",
-            "default": 600
-        },
-        "showHeaderLine": {
-            "type": "boolean",
-            "default": true
-        },
-        "headerLineColor": {
-            "type": "string",
-            "default": "#f48b2a"
-        },
-        "headerMarginBottom": {
-            "type": "number",
-            "default": 50
-        },
-        "containerMaxWidth": {
-            "type": "number",
-            "default": 1200
-        },
-        "containerPadding": {
-            "type": "number",
-            "default": 20
-        },
-        "containerPaddingMobile": {
-            "type": "number",
-            "default": 20
-        },
-        "animationOnScroll": {
-            "type": "boolean",
-            "default": true
-        },
-        "animationDelay": {
-            "type": "number",
-            "default": 80
-        }
-    },
-    "supports": {
-        "html": false,
-        "anchor": true,
-        "align": ["wide", "full"]
-    },
-    "textdomain": "twork-builder",
-    "editorScript": "file:./index.js",
-    "style": "file:./style-index.css"
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/job-openings-section",
+	"version": "1.0.0",
+	"title": "Job Openings Section",
+	"category": "twork-builder",
+	"icon": "portfolio",
+	"description": "Current openings section with job categories and listings for career page.",
+	"keywords": [ "job", "openings", "career", " listings", "apply", "twork" ],
+	"attributes": {
+		"backgroundColor": {
+			"type": "string",
+			"default": "#ffffff"
+		},
+		"paddingTop": {
+			"type": "number",
+			"default": 80
+		},
+		"paddingBottom": {
+			"type": "number",
+			"default": 80
+		},
+		"paddingTopMobile": {
+			"type": "number",
+			"default": 60
+		},
+		"paddingBottomMobile": {
+			"type": "number",
+			"default": 60
+		},
+		"showSectionHeader": {
+			"type": "boolean",
+			"default": true
+		},
+		"sectionTitle": {
+			"type": "string",
+			"default": "Current Openings"
+		},
+		"sectionTitleColor": {
+			"type": "string",
+			"default": "#212121"
+		},
+		"sectionTitleFontSize": {
+			"type": "number",
+			"default": 2.2
+		},
+		"sectionTitleFontSizeMobile": {
+			"type": "number",
+			"default": 1.8
+		},
+		"sectionSubtitle": {
+			"type": "string",
+			"default": "Explore exciting opportunities to join our medical and administrative teams."
+		},
+		"sectionSubtitleColor": {
+			"type": "string",
+			"default": "#666666"
+		},
+		"sectionSubtitleFontSize": {
+			"type": "number",
+			"default": 1
+		},
+		"sectionSubtitleMaxWidth": {
+			"type": "number",
+			"default": 600
+		},
+		"showHeaderLine": {
+			"type": "boolean",
+			"default": true
+		},
+		"headerLineColor": {
+			"type": "string",
+			"default": "#f48b2a"
+		},
+		"headerMarginBottom": {
+			"type": "number",
+			"default": 50
+		},
+		"containerMaxWidth": {
+			"type": "number",
+			"default": 1200
+		},
+		"containerPadding": {
+			"type": "number",
+			"default": 20
+		},
+		"containerPaddingMobile": {
+			"type": "number",
+			"default": 20
+		},
+		"animationOnScroll": {
+			"type": "boolean",
+			"default": true
+		},
+		"animationDelay": {
+			"type": "number",
+			"default": 80
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"align": [ "wide", "full" ]
+	},
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": {
+			"backgroundColor": "#ffffff",
+			"paddingTop": 80,
+			"paddingBottom": 80,
+			"paddingTopMobile": 60,
+			"paddingBottomMobile": 60,
+			"showSectionHeader": true,
+			"sectionTitle": "Current Openings",
+			"sectionTitleColor": "#212121",
+			"sectionTitleFontSize": 2.2,
+			"sectionTitleFontSizeMobile": 1.8,
+			"sectionSubtitle": "Explore exciting opportunities to join our medical and administrative teams.",
+			"sectionSubtitleColor": "#666666",
+			"sectionSubtitleFontSize": 1,
+			"sectionSubtitleMaxWidth": 600,
+			"showHeaderLine": true,
+			"headerLineColor": "#f48b2a",
+			"headerMarginBottom": 50,
+			"containerMaxWidth": 1200,
+			"containerPadding": 20,
+			"containerPaddingMobile": 20,
+			"animationOnScroll": true,
+			"animationDelay": 80
+		},
+		"innerBlocks": [
+			{
+				"name": "twork/job-category-item",
+				"attributes": {
+					"categoryTitle": "Medical & Nursing",
+					"categoryTitleColor": "#212121"
+				},
+				"innerBlocks": [
+					{
+						"name": "twork/job-card-item",
+						"attributes": {
+							"jobTitle": "Senior Staff Nurse (ICU)",
+							"location": "Mandalay",
+							"employmentType": "Full Time",
+							"departmentIcon": "fas fa-stethoscope",
+							"department": "Nursing Dept"
+						}
+					},
+					{
+						"name": "twork/job-card-item",
+						"attributes": {
+							"jobTitle": "Resident Medical Officer (RMO)",
+							"location": "Mandalay",
+							"employmentType": "Rotational Shift",
+							"departmentIcon": "fas fa-user-md",
+							"department": "Emergency Dept"
+						}
+					},
+					{
+						"name": "twork/job-card-item",
+						"attributes": {
+							"jobTitle": "Radiology Technician",
+							"location": "Mandalay",
+							"employmentType": "Full Time",
+							"departmentIcon": "fas fa-x-ray",
+							"department": "Imaging Dept"
+						}
+					}
+				]
+			},
+			{
+				"name": "twork/job-category-item",
+				"attributes": {
+					"categoryTitle": "Administration & Support",
+					"categoryTitleColor": "#212121"
+				},
+				"innerBlocks": [
+					{
+						"name": "twork/job-card-item",
+						"attributes": {
+							"jobTitle": "Human Resources Manager",
+							"location": "Mandalay",
+							"employmentType": "Full Time",
+							"departmentIcon": "fas fa-briefcase",
+							"department": "HR Dept"
+						}
+					},
+					{
+						"name": "twork/job-card-item",
+						"attributes": {
+							"jobTitle": "Customer Service Executive",
+							"location": "Mandalay",
+							"employmentType": "Full Time",
+							"departmentIcon": "fas fa-headset",
+							"department": "Front Office"
+						}
+					}
+				]
+			}
+		]
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
 }

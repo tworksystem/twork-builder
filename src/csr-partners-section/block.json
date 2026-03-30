@@ -1,114 +1,181 @@
 {
-    "$schema": "https://schemas.wp.org/trunk/block.json",
-    "apiVersion": 3,
-    "name": "twork/csr-partners-section",
-    "version": "1.0.0",
-    "title": "Partners Section",
-    "category": "twork-builder",
-    "icon": "groups",
-    "description": "In Collaboration With - Partner logos grid for CSR pages. Grayscale logos with color on hover.",
-    "keywords": ["csr", "partners", "collaboration", "logos", "grid", "twork"],
-    "attributes": {
-        "backgroundColor": {
-            "type": "string",
-            "default": "#f8f9fa"
-        },
-        "paddingTop": {
-            "type": "number",
-            "default": 80
-        },
-        "paddingBottom": {
-            "type": "number",
-            "default": 80
-        },
-        "showSectionTitle": {
-            "type": "boolean",
-            "default": true
-        },
-        "sectionTitle": {
-            "type": "string",
-            "default": "In Collaboration With"
-        },
-        "sectionTitleColor": {
-            "type": "string",
-            "default": "#666666"
-        },
-        "sectionTitleFontSize": {
-            "type": "number",
-            "default": 1
-        },
-        "sectionTitleFontWeight": {
-            "type": "number",
-            "default": 400
-        },
-        "sectionTitleTextTransform": {
-            "type": "string",
-            "default": "uppercase"
-        },
-        "sectionTitleLetterSpacing": {
-            "type": "number",
-            "default": 1
-        },
-        "sectionTitleAlignment": {
-            "type": "string",
-            "default": "center"
-        },
-        "titleMarginBottom": {
-            "type": "number",
-            "default": 40
-        },
-        "containerMaxWidth": {
-            "type": "number",
-            "default": 1200
-        },
-        "containerPadding": {
-            "type": "number",
-            "default": 30
-        },
-        "gridMinWidth": {
-            "type": "number",
-            "default": 120
-        },
-        "gap": {
-            "type": "number",
-            "default": 40
-        },
-        "logoMaxWidth": {
-            "type": "number",
-            "default": 120
-        },
-        "logoOpacity": {
-            "type": "number",
-            "default": 0.6
-        },
-        "logoGrayscale": {
-            "type": "boolean",
-            "default": true
-        },
-        "logoHoverOpacity": {
-            "type": "number",
-            "default": 1
-        },
-        "logoHoverScale": {
-            "type": "number",
-            "default": 1.05
-        },
-        "animationOnScroll": {
-            "type": "boolean",
-            "default": true
-        },
-        "animationType": {
-            "type": "string",
-            "default": "fadeInUp"
-        }
-    },
-    "supports": {
-        "html": false,
-        "anchor": true,
-        "align": ["wide", "full"]
-    },
-    "textdomain": "twork-builder",
-    "editorScript": "file:./index.js",
-    "style": "file:./style-index.css",
-    "viewScript": "file:./view.js"
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/csr-partners-section",
+	"version": "1.0.0",
+	"title": "Partners Section",
+	"category": "twork-builder",
+	"icon": "groups",
+	"description": "In Collaboration With - Partner logos grid for CSR pages. Grayscale logos with color on hover.",
+	"keywords": [
+		"csr",
+		"partners",
+		"collaboration",
+		"logos",
+		"grid",
+		"twork"
+	],
+	"attributes": {
+		"backgroundColor": {
+			"type": "string",
+			"default": "#f8f9fa"
+		},
+		"paddingTop": {
+			"type": "number",
+			"default": 80
+		},
+		"paddingBottom": {
+			"type": "number",
+			"default": 80
+		},
+		"showSectionTitle": {
+			"type": "boolean",
+			"default": true
+		},
+		"sectionTitle": {
+			"type": "string",
+			"default": "In Collaboration With"
+		},
+		"sectionTitleColor": {
+			"type": "string",
+			"default": "#666666"
+		},
+		"sectionTitleFontSize": {
+			"type": "number",
+			"default": 1
+		},
+		"sectionTitleFontWeight": {
+			"type": "number",
+			"default": 400
+		},
+		"sectionTitleTextTransform": {
+			"type": "string",
+			"default": "uppercase"
+		},
+		"sectionTitleLetterSpacing": {
+			"type": "number",
+			"default": 1
+		},
+		"sectionTitleAlignment": {
+			"type": "string",
+			"default": "center"
+		},
+		"titleMarginBottom": {
+			"type": "number",
+			"default": 40
+		},
+		"containerMaxWidth": {
+			"type": "number",
+			"default": 1200
+		},
+		"containerPadding": {
+			"type": "number",
+			"default": 30
+		},
+		"gridMinWidth": {
+			"type": "number",
+			"default": 120
+		},
+		"gap": {
+			"type": "number",
+			"default": 40
+		},
+		"logoMaxWidth": {
+			"type": "number",
+			"default": 120
+		},
+		"logoOpacity": {
+			"type": "number",
+			"default": 0.6
+		},
+		"logoGrayscale": {
+			"type": "boolean",
+			"default": true
+		},
+		"logoHoverOpacity": {
+			"type": "number",
+			"default": 1
+		},
+		"logoHoverScale": {
+			"type": "number",
+			"default": 1.05
+		},
+		"animationOnScroll": {
+			"type": "boolean",
+			"default": true
+		},
+		"animationType": {
+			"type": "string",
+			"default": "fadeInUp"
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"align": [ "wide", "full" ]
+	},
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": {
+			"backgroundColor": "#f8f9fa",
+			"paddingTop": 80,
+			"paddingBottom": 80,
+			"showSectionTitle": true,
+			"sectionTitle": "In Collaboration With",
+			"sectionTitleColor": "#666666",
+			"sectionTitleFontSize": 1,
+			"sectionTitleFontWeight": 400,
+			"sectionTitleTextTransform": "uppercase",
+			"sectionTitleLetterSpacing": 1,
+			"sectionTitleAlignment": "center",
+			"titleMarginBottom": 40,
+			"containerMaxWidth": 1200,
+			"containerPadding": 30,
+			"gridMinWidth": 120,
+			"gap": 40,
+			"logoMaxWidth": 120,
+			"logoOpacity": 0.6,
+			"logoGrayscale": true,
+			"logoHoverOpacity": 1,
+			"logoHoverScale": 1.05,
+			"animationOnScroll": true,
+			"animationType": "fadeInUp"
+		},
+		"innerBlocks": [
+			{
+				"name": "twork/csr-partner-logo-item",
+				"attributes": {
+					"placeholderColor": "#f48b2a"
+				}
+			},
+			{
+				"name": "twork/csr-partner-logo-item",
+				"attributes": {
+					"placeholderColor": "#e3f2fd"
+				}
+			},
+			{
+				"name": "twork/csr-partner-logo-item",
+				"attributes": {
+					"placeholderColor": "#f3e5f5"
+				}
+			},
+			{
+				"name": "twork/csr-partner-logo-item",
+				"attributes": {
+					"placeholderColor": "#e8f5e9"
+				}
+			},
+			{
+				"name": "twork/csr-partner-logo-item",
+				"attributes": {
+					"placeholderColor": "#fff3e0"
+				}
+			}
+		]
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./view.js"
 }

@@ -1,70 +1,105 @@
 {
-    "$schema": "https://schemas.wp.org/trunk/block.json",
-    "apiVersion": 3,
-    "name": "twork/timeline",
-    "version": "1.0.0",
-    "title": "Timeline",
-    "category": "twork-builder",
-    "icon": "networking",
-    "description": "Professional timeline section with accordion functionality for displaying milestones and events.",
-    "keywords": ["timeline", "accordion", "milestones", "history", "twork"],
-    "supports": {
-        "html": false,
-        "anchor": true,
-        "align": ["full", "wide"]
-    },
-    "attributes": {
-        "sectionCategory": {
-            "type": "string",
-            "default": "Milestones"
-        },
-        "sectionTitle": {
-            "type": "string",
-            "default": "SETSCO Across the Years"
-        },
-        "timelineItems": {
-            "type": "array",
-            "default": [
-                { 
-                    "year": "1990", 
-                    "heading": "heading", 
-                    "description": "description", 
-                    "imgUrl": "https://placehold.co/600x400",
-                    "address": "address", 
-                    "years": "years...."
-                }, 
-                { 
-                    "year": "1991", 
-                    "heading": "heading", 
-                    "description": "description", 
-                    "imgUrl": "https://placehold.co/600x400",
-                    "address": "address", 
-                    "years": "years...."
-                },
-                { 
-                    "year": "1992", 
-                    "heading": "heading", 
-                    "description": "description", 
-                    "imgUrl": "https://placehold.co/600x400",
-                    "address": "address", 
-                    "years": "years...."
-                }
-            ]
-        },
-        "timelineBg": {
-            "type": "string",
-            "default": ""
-        },
-        "timelineBgId": {
-            "type": "number"
-        },
-        "activeIndex": {
-            "type": "number",
-            "default": 0
-        }
-    },
-    "textdomain": "twork-builder",
-    "editorScript": "file:./index.js",
-    "style": "file:./style-index.css",
-    "viewScript": "file:./view.js"
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/timeline",
+	"version": "1.0.0",
+	"title": "Timeline",
+	"category": "twork-builder",
+	"icon": "networking",
+	"description": "Professional timeline section with accordion functionality for displaying milestones and events.",
+	"keywords": [ "timeline", "accordion", "milestones", "history", "twork" ],
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"align": [ "full", "wide" ]
+	},
+	"attributes": {
+		"sectionCategory": {
+			"type": "string",
+			"default": "Milestones"
+		},
+		"sectionTitle": {
+			"type": "string",
+			"default": "SETSCO Across the Years"
+		},
+		"timelineItems": {
+			"type": "array",
+			"default": [
+				{
+					"year": "1990",
+					"heading": "heading",
+					"description": "description",
+					"imgUrl": "https://placehold.co/600x400",
+					"address": "address",
+					"years": "years...."
+				},
+				{
+					"year": "1991",
+					"heading": "heading",
+					"description": "description",
+					"imgUrl": "https://placehold.co/600x400",
+					"address": "address",
+					"years": "years...."
+				},
+				{
+					"year": "1992",
+					"heading": "heading",
+					"description": "description",
+					"imgUrl": "https://placehold.co/600x400",
+					"address": "address",
+					"years": "years...."
+				}
+			]
+		},
+		"timelineBg": {
+			"type": "string",
+			"default": ""
+		},
+		"timelineBgId": {
+			"type": "number"
+		},
+		"activeIndex": {
+			"type": "number",
+			"default": 0
+		}
+	},
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": {
+			"sectionCategory": "Milestones",
+			"sectionTitle": "SETSCO Across the Years",
+			"timelineItems": [
+				{
+					"year": "1990",
+					"heading": "heading",
+					"description": "description",
+					"imgUrl": "https://placehold.co/600x400",
+					"address": "address",
+					"years": "years...."
+				},
+				{
+					"year": "1991",
+					"heading": "heading",
+					"description": "description",
+					"imgUrl": "https://placehold.co/600x400",
+					"address": "address",
+					"years": "years...."
+				},
+				{
+					"year": "1992",
+					"heading": "heading",
+					"description": "description",
+					"imgUrl": "https://placehold.co/600x400",
+					"address": "address",
+					"years": "years...."
+				}
+			],
+			"timelineBg": "",
+			"activeIndex": 0
+		}
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./view.js"
 }

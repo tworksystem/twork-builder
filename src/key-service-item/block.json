@@ -1,288 +1,359 @@
 {
-    "$schema": "https://schemas.wp.org/trunk/block.json",
-    "apiVersion": 3,
-    "name": "twork/key-service-item",
-    "title": "Key Service Item",
-    "parent": ["twork/key-services-section"],
-    "attributes": {
-        "displayType": {
-            "type": "string",
-            "default": "icon"
-        },
-        "icon": {
-            "type": "string",
-            "default": "fas fa-heart-pulse"
-        },
-        "iconColor": {
-            "type": "string",
-            "default": "#f48b2a"
-        },
-        "iconColorHover": {
-            "type": "string",
-            "default": "#e67a22"
-        },
-        "iconSize": {
-            "type": "number",
-            "default": 4
-        },
-        "iconSizeMobile": {
-            "type": "number",
-            "default": 3
-        },
-        "iconMarginBottom": {
-            "type": "number",
-            "default": 20
-        },
-        "iconMarginBottomMobile": {
-            "type": "number",
-            "default": 15
-        },
-        "image": {
-            "type": "string",
-            "default": ""
-        },
-        "imageId": {
-            "type": "number"
-        },
-        "imageSize": {
-            "type": "string",
-            "default": "full"
-        },
-        "imageWidth": {
-            "type": "number",
-            "default": 80
-        },
-        "imageWidthMobile": {
-            "type": "number",
-            "default": 60
-        },
-        "imageHeight": {
-            "type": "number",
-            "default": 80
-        },
-        "imageHeightMobile": {
-            "type": "number",
-            "default": 60
-        },
-        "imageObjectFit": {
-            "type": "string",
-            "default": "contain"
-        },
-        "imageObjectPosition": {
-            "type": "string",
-            "default": "center"
-        },
-        "imageBorderRadius": {
-            "type": "number",
-            "default": 0
-        },
-        "imageMarginBottom": {
-            "type": "number",
-            "default": 20
-        },
-        "imageMarginBottomMobile": {
-            "type": "number",
-            "default": 15
-        },
-        "title": {
-            "type": "string",
-            "default": "Service Title"
-        },
-        "titleColor": {
-            "type": "string",
-            "default": "#212121"
-        },
-        "titleColorHover": {
-            "type": "string",
-            "default": "#f48b2a"
-        },
-        "titleFontSize": {
-            "type": "number",
-            "default": 1.5
-        },
-        "titleFontSizeMobile": {
-            "type": "number",
-            "default": 1.3
-        },
-        "titleFontWeight": {
-            "type": "number",
-            "default": 700
-        },
-        "titleMarginBottom": {
-            "type": "number",
-            "default": 25
-        },
-        "titleMarginBottomMobile": {
-            "type": "number",
-            "default": 20
-        },
-        "showTitleUnderline": {
-            "type": "boolean",
-            "default": true
-        },
-        "titleUnderlineColor": {
-            "type": "string",
-            "default": "#f48b2a"
-        },
-        "titleUnderlineWidth": {
-            "type": "number",
-            "default": 30
-        },
-        "titleUnderlineHeight": {
-            "type": "number",
-            "default": 2
-        },
-        "description": {
-            "type": "string",
-            "default": "Service description goes here..."
-        },
-        "descriptionColor": {
-            "type": "string",
-            "default": "#666666"
-        },
-        "descriptionFontSize": {
-            "type": "number",
-            "default": 0.95
-        },
-        "descriptionFontSizeMobile": {
-            "type": "number",
-            "default": 0.9
-        },
-        "descriptionLineHeight": {
-            "type": "number",
-            "default": 1.6
-        },
-        "itemPadding": {
-            "type": "number",
-            "default": 30
-        },
-        "itemPaddingMobile": {
-            "type": "number",
-            "default": 20
-        },
-        "itemAlignment": {
-            "type": "string",
-            "default": "center"
-        },
-        "itemBackgroundColor": {
-            "type": "string",
-            "default": "transparent"
-        },
-        "itemBackgroundColorHover": {
-            "type": "string",
-            "default": ""
-        },
-        "itemBorderRadius": {
-            "type": "number",
-            "default": 0
-        },
-        "itemBorderWidth": {
-            "type": "number",
-            "default": 0
-        },
-        "itemBorderWidthTop": {
-            "type": "number",
-            "default": 0
-        },
-        "itemBorderWidthRight": {
-            "type": "number",
-            "default": 0
-        },
-        "itemBorderWidthBottom": {
-            "type": "number",
-            "default": 0
-        },
-        "itemBorderWidthLeft": {
-            "type": "number",
-            "default": 0
-        },
-        "itemBorderWidthMobile": {
-            "type": "number",
-            "default": 0
-        },
-        "itemBorderColor": {
-            "type": "string",
-            "default": "#e0e0e0"
-        },
-        "itemBorderColorHover": {
-            "type": "string",
-            "default": ""
-        },
-        "itemBorderStyle": {
-            "type": "string",
-            "default": "solid"
-        },
-        "itemBorderOpacity": {
-            "type": "number",
-            "default": 1
-        },
-        "enableItemBorder": {
-            "type": "boolean",
-            "default": false
-        },
-        "showButton": {
-            "type": "boolean",
-            "default": false
-        },
-        "buttonText": {
-            "type": "string",
-            "default": "Learn More"
-        },
-        "buttonUrl": {
-            "type": "string",
-            "default": "#"
-        },
-        "buttonTarget": {
-            "type": "boolean",
-            "default": false
-        },
-        "buttonRel": {
-            "type": "string",
-            "default": "noopener noreferrer"
-        },
-        "buttonBgColor": {
-            "type": "string",
-            "default": "#f48b2a"
-        },
-        "buttonTextColor": {
-            "type": "string",
-            "default": "#ffffff"
-        },
-        "buttonBorderRadius": {
-            "type": "number",
-            "default": 4
-        },
-        "buttonPaddingVertical": {
-            "type": "number",
-            "default": 10
-        },
-        "buttonPaddingHorizontal": {
-            "type": "number",
-            "default": 25
-        },
-        "buttonFontSize": {
-            "type": "number",
-            "default": 0.9
-        },
-        "buttonFontWeight": {
-            "type": "number",
-            "default": 600
-        },
-        "buttonTextTransform": {
-            "type": "string",
-            "default": "uppercase"
-        },
-        "buttonIcon": {
-            "type": "string",
-            "default": ""
-        },
-        "buttonIconPosition": {
-            "type": "string",
-            "default": "right"
-        }
-    },
-    "textdomain": "twork-builder",
-    "editorScript": "file:./index.js",
-    "style": "file:./style-index.css"
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/key-service-item",
+	"title": "Key Service Item",
+	"parent": [ "twork/key-services-section" ],
+	"attributes": {
+		"displayType": {
+			"type": "string",
+			"default": "icon"
+		},
+		"icon": {
+			"type": "string",
+			"default": "fas fa-heart-pulse"
+		},
+		"iconColor": {
+			"type": "string",
+			"default": "#f48b2a"
+		},
+		"iconColorHover": {
+			"type": "string",
+			"default": "#e67a22"
+		},
+		"iconSize": {
+			"type": "number",
+			"default": 4
+		},
+		"iconSizeMobile": {
+			"type": "number",
+			"default": 3
+		},
+		"iconMarginBottom": {
+			"type": "number",
+			"default": 20
+		},
+		"iconMarginBottomMobile": {
+			"type": "number",
+			"default": 15
+		},
+		"image": {
+			"type": "string",
+			"default": ""
+		},
+		"imageId": {
+			"type": "number"
+		},
+		"imageSize": {
+			"type": "string",
+			"default": "full"
+		},
+		"imageWidth": {
+			"type": "number",
+			"default": 80
+		},
+		"imageWidthMobile": {
+			"type": "number",
+			"default": 60
+		},
+		"imageHeight": {
+			"type": "number",
+			"default": 80
+		},
+		"imageHeightMobile": {
+			"type": "number",
+			"default": 60
+		},
+		"imageObjectFit": {
+			"type": "string",
+			"default": "contain"
+		},
+		"imageObjectPosition": {
+			"type": "string",
+			"default": "center"
+		},
+		"imageBorderRadius": {
+			"type": "number",
+			"default": 0
+		},
+		"imageMarginBottom": {
+			"type": "number",
+			"default": 20
+		},
+		"imageMarginBottomMobile": {
+			"type": "number",
+			"default": 15
+		},
+		"title": {
+			"type": "string",
+			"default": "Service Title"
+		},
+		"titleColor": {
+			"type": "string",
+			"default": "#212121"
+		},
+		"titleColorHover": {
+			"type": "string",
+			"default": "#f48b2a"
+		},
+		"titleFontSize": {
+			"type": "number",
+			"default": 1.5
+		},
+		"titleFontSizeMobile": {
+			"type": "number",
+			"default": 1.3
+		},
+		"titleFontWeight": {
+			"type": "number",
+			"default": 700
+		},
+		"titleMarginBottom": {
+			"type": "number",
+			"default": 25
+		},
+		"titleMarginBottomMobile": {
+			"type": "number",
+			"default": 20
+		},
+		"showTitleUnderline": {
+			"type": "boolean",
+			"default": true
+		},
+		"titleUnderlineColor": {
+			"type": "string",
+			"default": "#f48b2a"
+		},
+		"titleUnderlineWidth": {
+			"type": "number",
+			"default": 30
+		},
+		"titleUnderlineHeight": {
+			"type": "number",
+			"default": 2
+		},
+		"description": {
+			"type": "string",
+			"default": "Service description goes here..."
+		},
+		"descriptionColor": {
+			"type": "string",
+			"default": "#666666"
+		},
+		"descriptionFontSize": {
+			"type": "number",
+			"default": 0.95
+		},
+		"descriptionFontSizeMobile": {
+			"type": "number",
+			"default": 0.9
+		},
+		"descriptionLineHeight": {
+			"type": "number",
+			"default": 1.6
+		},
+		"itemPadding": {
+			"type": "number",
+			"default": 30
+		},
+		"itemPaddingMobile": {
+			"type": "number",
+			"default": 20
+		},
+		"itemAlignment": {
+			"type": "string",
+			"default": "center"
+		},
+		"itemBackgroundColor": {
+			"type": "string",
+			"default": "transparent"
+		},
+		"itemBackgroundColorHover": {
+			"type": "string",
+			"default": ""
+		},
+		"itemBorderRadius": {
+			"type": "number",
+			"default": 0
+		},
+		"itemBorderWidth": {
+			"type": "number",
+			"default": 0
+		},
+		"itemBorderWidthTop": {
+			"type": "number",
+			"default": 0
+		},
+		"itemBorderWidthRight": {
+			"type": "number",
+			"default": 0
+		},
+		"itemBorderWidthBottom": {
+			"type": "number",
+			"default": 0
+		},
+		"itemBorderWidthLeft": {
+			"type": "number",
+			"default": 0
+		},
+		"itemBorderWidthMobile": {
+			"type": "number",
+			"default": 0
+		},
+		"itemBorderColor": {
+			"type": "string",
+			"default": "#e0e0e0"
+		},
+		"itemBorderColorHover": {
+			"type": "string",
+			"default": ""
+		},
+		"itemBorderStyle": {
+			"type": "string",
+			"default": "solid"
+		},
+		"itemBorderOpacity": {
+			"type": "number",
+			"default": 1
+		},
+		"enableItemBorder": {
+			"type": "boolean",
+			"default": false
+		},
+		"showButton": {
+			"type": "boolean",
+			"default": false
+		},
+		"buttonText": {
+			"type": "string",
+			"default": "Learn More"
+		},
+		"buttonUrl": {
+			"type": "string",
+			"default": "#"
+		},
+		"buttonTarget": {
+			"type": "boolean",
+			"default": false
+		},
+		"buttonRel": {
+			"type": "string",
+			"default": "noopener noreferrer"
+		},
+		"buttonBgColor": {
+			"type": "string",
+			"default": "#f48b2a"
+		},
+		"buttonTextColor": {
+			"type": "string",
+			"default": "#ffffff"
+		},
+		"buttonBorderRadius": {
+			"type": "number",
+			"default": 4
+		},
+		"buttonPaddingVertical": {
+			"type": "number",
+			"default": 10
+		},
+		"buttonPaddingHorizontal": {
+			"type": "number",
+			"default": 25
+		},
+		"buttonFontSize": {
+			"type": "number",
+			"default": 0.9
+		},
+		"buttonFontWeight": {
+			"type": "number",
+			"default": 600
+		},
+		"buttonTextTransform": {
+			"type": "string",
+			"default": "uppercase"
+		},
+		"buttonIcon": {
+			"type": "string",
+			"default": ""
+		},
+		"buttonIconPosition": {
+			"type": "string",
+			"default": "right"
+		}
+	},
+	"example": {
+		"attributes": {
+			"displayType": "icon",
+			"icon": "fas fa-heart-pulse",
+			"iconColor": "#f48b2a",
+			"iconColorHover": "#e67a22",
+			"iconSize": 4,
+			"iconSizeMobile": 3,
+			"iconMarginBottom": 20,
+			"iconMarginBottomMobile": 15,
+			"image": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?auto=format&fit=crop&w=1200&q=80",
+			"imageSize": "full",
+			"imageWidth": 80,
+			"imageWidthMobile": 60,
+			"imageHeight": 80,
+			"imageHeightMobile": 60,
+			"imageObjectFit": "contain",
+			"imageObjectPosition": "center",
+			"imageBorderRadius": 0,
+			"imageMarginBottom": 20,
+			"imageMarginBottomMobile": 15,
+			"title": "Service Title",
+			"titleColor": "#212121",
+			"titleColorHover": "#f48b2a",
+			"titleFontSize": 1.5,
+			"titleFontSizeMobile": 1.3,
+			"titleFontWeight": 700,
+			"titleMarginBottom": 25,
+			"titleMarginBottomMobile": 20,
+			"showTitleUnderline": true,
+			"titleUnderlineColor": "#f48b2a",
+			"titleUnderlineWidth": 30,
+			"titleUnderlineHeight": 2,
+			"description": "Service description goes here...",
+			"descriptionColor": "#666666",
+			"descriptionFontSize": 0.95,
+			"descriptionFontSizeMobile": 0.9,
+			"descriptionLineHeight": 1.6,
+			"itemPadding": 30,
+			"itemPaddingMobile": 20,
+			"itemAlignment": "center",
+			"itemBackgroundColor": "transparent",
+			"itemBackgroundColorHover": "",
+			"itemBorderRadius": 0,
+			"itemBorderWidth": 0,
+			"itemBorderWidthTop": 0,
+			"itemBorderWidthRight": 0,
+			"itemBorderWidthBottom": 0,
+			"itemBorderWidthLeft": 0,
+			"itemBorderWidthMobile": 0,
+			"itemBorderColor": "#e0e0e0",
+			"itemBorderColorHover": "",
+			"itemBorderStyle": "solid",
+			"itemBorderOpacity": 1,
+			"enableItemBorder": false,
+			"showButton": false,
+			"buttonText": "Learn More",
+			"buttonUrl": "#",
+			"buttonTarget": false,
+			"buttonRel": "noopener noreferrer",
+			"buttonBgColor": "#f48b2a",
+			"buttonTextColor": "#ffffff",
+			"buttonBorderRadius": 4,
+			"buttonPaddingVertical": 10,
+			"buttonPaddingHorizontal": 25,
+			"buttonFontSize": 0.9,
+			"buttonFontWeight": 600,
+			"buttonTextTransform": "uppercase",
+			"buttonIcon": "",
+			"buttonIconPosition": "right"
+		}
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
 }
-

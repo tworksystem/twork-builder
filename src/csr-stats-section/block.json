@@ -1,109 +1,166 @@
 {
-    "$schema": "https://schemas.wp.org/trunk/block.json",
-    "apiVersion": 3,
-    "name": "twork/csr-stats-section",
-    "version": "1.0.0",
-    "title": "Stats Section",
-    "category": "twork-builder",
-    "icon": "chart-bar",
-    "description": "CSR impact stats section with configurable stat items (number + label grid).",
-    "keywords": ["csr", "stats", "impact", "grid", "twork"],
-    "attributes": {
-        "backgroundColor": {
-            "type": "string",
-            "default": "#f8f9fa"
-        },
-        "paddingTop": {
-            "type": "number",
-            "default": 40
-        },
-        "paddingBottom": {
-            "type": "number",
-            "default": 40
-        },
-        "paddingHorizontal": {
-            "type": "number",
-            "default": 40
-        },
-        "columns": {
-            "type": "number",
-            "default": 4
-        },
-        "columnsTablet": {
-            "type": "number",
-            "default": 2
-        },
-        "columnsMobile": {
-            "type": "number",
-            "default": 1
-        },
-        "gap": {
-            "type": "number",
-            "default": 30
-        },
-        "borderRadius": {
-            "type": "number",
-            "default": 12
-        },
-        "boxShadow": {
-            "type": "boolean",
-            "default": true
-        },
-        "boxShadowColor": {
-            "type": "string",
-            "default": "rgba(0, 0, 0, 0.08)"
-        },
-        "boxShadowBlur": {
-            "type": "number",
-            "default": 30
-        },
-        "boxShadowSpread": {
-            "type": "number",
-            "default": 0
-        },
-        "boxShadowOffsetX": {
-            "type": "number",
-            "default": 0
-        },
-        "boxShadowOffsetY": {
-            "type": "number",
-            "default": 10
-        },
-        "sectionMaxWidth": {
-            "type": "number",
-            "default": 1100
-        },
-        "marginTop": {
-            "type": "number",
-            "default": -60
-        },
-        "containerMaxWidth": {
-            "type": "number",
-            "default": 1200
-        },
-        "containerPadding": {
-            "type": "number",
-            "default": 20
-        },
-        "animationOnScroll": {
-            "type": "boolean",
-            "default": true
-        },
-        "animationType": {
-            "type": "string",
-            "default": "fadeInUp"
-        },
-        "animationDelay": {
-            "type": "number",
-            "default": 100
-        }
-    },
-    "supports": {
-        "html": false,
-        "anchor": true,
-        "align": ["wide", "full"]
-    },
-    "textdomain": "twork-builder",
-    "editorScript": "file:./index.js",
-    "style": "file:./style-index.css"
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/csr-stats-section",
+	"version": "1.0.0",
+	"title": "Stats Section",
+	"category": "twork-builder",
+	"icon": "chart-bar",
+	"description": "CSR impact stats section with configurable stat items (number + label grid).",
+	"keywords": [ "csr", "stats", "impact", "grid", "twork" ],
+	"attributes": {
+		"backgroundColor": {
+			"type": "string",
+			"default": "#f8f9fa"
+		},
+		"paddingTop": {
+			"type": "number",
+			"default": 40
+		},
+		"paddingBottom": {
+			"type": "number",
+			"default": 40
+		},
+		"paddingHorizontal": {
+			"type": "number",
+			"default": 40
+		},
+		"columns": {
+			"type": "number",
+			"default": 4
+		},
+		"columnsTablet": {
+			"type": "number",
+			"default": 2
+		},
+		"columnsMobile": {
+			"type": "number",
+			"default": 1
+		},
+		"gap": {
+			"type": "number",
+			"default": 30
+		},
+		"borderRadius": {
+			"type": "number",
+			"default": 12
+		},
+		"boxShadow": {
+			"type": "boolean",
+			"default": true
+		},
+		"boxShadowColor": {
+			"type": "string",
+			"default": "rgba(0, 0, 0, 0.08)"
+		},
+		"boxShadowBlur": {
+			"type": "number",
+			"default": 30
+		},
+		"boxShadowSpread": {
+			"type": "number",
+			"default": 0
+		},
+		"boxShadowOffsetX": {
+			"type": "number",
+			"default": 0
+		},
+		"boxShadowOffsetY": {
+			"type": "number",
+			"default": 10
+		},
+		"sectionMaxWidth": {
+			"type": "number",
+			"default": 1100
+		},
+		"marginTop": {
+			"type": "number",
+			"default": -60
+		},
+		"containerMaxWidth": {
+			"type": "number",
+			"default": 1200
+		},
+		"containerPadding": {
+			"type": "number",
+			"default": 20
+		},
+		"animationOnScroll": {
+			"type": "boolean",
+			"default": true
+		},
+		"animationType": {
+			"type": "string",
+			"default": "fadeInUp"
+		},
+		"animationDelay": {
+			"type": "number",
+			"default": 100
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"align": [ "wide", "full" ]
+	},
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": {
+			"backgroundColor": "#f8f9fa",
+			"paddingTop": 40,
+			"paddingBottom": 40,
+			"paddingHorizontal": 40,
+			"columns": 4,
+			"columnsTablet": 2,
+			"columnsMobile": 1,
+			"gap": 30,
+			"borderRadius": 12,
+			"boxShadow": true,
+			"boxShadowColor": "rgba(0, 0, 0, 0.08)",
+			"boxShadowBlur": 30,
+			"boxShadowSpread": 0,
+			"boxShadowOffsetX": 0,
+			"boxShadowOffsetY": 10,
+			"sectionMaxWidth": 1100,
+			"marginTop": -60,
+			"containerMaxWidth": 1200,
+			"containerPadding": 20,
+			"animationOnScroll": true,
+			"animationType": "fadeInUp",
+			"animationDelay": 100
+		},
+		"innerBlocks": [
+			{
+				"name": "twork/stat-item",
+				"attributes": {
+					"statNumber": "50+",
+					"statLabel": "Rural Medical Camps"
+				}
+			},
+			{
+				"name": "twork/stat-item",
+				"attributes": {
+					"statNumber": "10k+",
+					"statLabel": "Patients Screened"
+				}
+			},
+			{
+				"name": "twork/stat-item",
+				"attributes": {
+					"statNumber": "200+",
+					"statLabel": "Free Surgeries"
+				}
+			},
+			{
+				"name": "twork/stat-item",
+				"attributes": {
+					"statNumber": "1.5k",
+					"statLabel": "Units of Blood Donated"
+				}
+			}
+		]
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
 }

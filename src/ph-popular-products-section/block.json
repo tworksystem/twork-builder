@@ -1,91 +1,101 @@
 {
-  "$schema": "https://schemas.wp.org/trunk/block.json",
-  "apiVersion": 3,
-  "name": "twork/ph-popular-products-section",
-  "version": "1.0.0",
-  "title": "Popular Products",
-  "category": "twork-builder",
-  "icon": "products",
-  "description": "Popular products slider/grid for the pharmacy page, powered by WooCommerce products.",
-  "keywords": [
-    "pharmacy",
-    "products",
-    "woocommerce",
-    "popular",
-    "twork"
-  ],
-  "attributes": {
-    "source": {
-      "type": "string",
-      "default": "featured"
-    },
-    "productCategoryId": {
-      "type": "number",
-      "default": 0
-    },
-    "numberOfItems": {
-      "type": "number",
-      "default": 5
-    },
-    "backgroundColor": {
-      "type": "string",
-      "default": "#ffffff"
-    },
-    "paddingTop": {
-      "type": "number",
-      "default": 80
-    },
-    "paddingBottom": {
-      "type": "number",
-      "default": 80
-    },
-    "showSectionHeader": {
-      "type": "boolean",
-      "default": true
-    },
-    "sectionTitle": {
-      "type": "string",
-      "default": "Popular Products"
-    },
-    "sectionSubtitle": {
-      "type": "string",
-      "default": "Trusted by our patients for daily wellness."
-    },
-    "containerMaxWidth": {
-      "type": "number",
-      "default": 1200
-    },
-    "containerPadding": {
-      "type": "number",
-      "default": 20
-    },
-    "showAddToCart": {
-      "type": "boolean",
-      "default": true
-    },
-    "addToCartLabel": {
-      "type": "string",
-      "default": "Add to Cart"
-    },
-    "animationOnScroll": {
-      "type": "boolean",
-      "default": true
-    },
-    "animationType": {
-      "type": "string",
-      "default": "stagger-up"
-    }
-  },
-  "supports": {
-    "html": false,
-    "anchor": true,
-    "align": [
-      "wide",
-      "full"
-    ]
-  },
-  "textdomain": "twork-builder",
-  "editorScript": "file:./index.js",
-  "style": "file:./style-index.css"
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/ph-popular-products-section",
+	"version": "1.0.0",
+	"title": "Popular Products",
+	"category": "twork-builder",
+	"icon": "products",
+	"description": "Popular products slider/grid for the pharmacy page, powered by WooCommerce products.",
+	"keywords": [ "pharmacy", "products", "woocommerce", "popular", "twork" ],
+	"attributes": {
+		"source": {
+			"type": "string",
+			"default": "featured"
+		},
+		"productCategoryId": {
+			"type": "number",
+			"default": 0
+		},
+		"numberOfItems": {
+			"type": "number",
+			"default": 5
+		},
+		"backgroundColor": {
+			"type": "string",
+			"default": "#ffffff"
+		},
+		"paddingTop": {
+			"type": "number",
+			"default": 80
+		},
+		"paddingBottom": {
+			"type": "number",
+			"default": 80
+		},
+		"showSectionHeader": {
+			"type": "boolean",
+			"default": true
+		},
+		"sectionTitle": {
+			"type": "string",
+			"default": "Popular Products"
+		},
+		"sectionSubtitle": {
+			"type": "string",
+			"default": "Trusted by our patients for daily wellness."
+		},
+		"containerMaxWidth": {
+			"type": "number",
+			"default": 1200
+		},
+		"containerPadding": {
+			"type": "number",
+			"default": 20
+		},
+		"showAddToCart": {
+			"type": "boolean",
+			"default": true
+		},
+		"addToCartLabel": {
+			"type": "string",
+			"default": "Add to Cart"
+		},
+		"animationOnScroll": {
+			"type": "boolean",
+			"default": true
+		},
+		"animationType": {
+			"type": "string",
+			"default": "stagger-up"
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"align": [ "wide", "full" ]
+	},
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": {
+			"source": "featured",
+			"productCategoryId": 0,
+			"numberOfItems": 5,
+			"backgroundColor": "#ffffff",
+			"paddingTop": 80,
+			"paddingBottom": 80,
+			"showSectionHeader": true,
+			"sectionTitle": "Popular Products",
+			"sectionSubtitle": "Trusted by our patients for daily wellness.",
+			"containerMaxWidth": 1200,
+			"containerPadding": 20,
+			"showAddToCart": true,
+			"addToCartLabel": "Add to Cart",
+			"animationOnScroll": true,
+			"animationType": "stagger-up"
+		}
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
 }
-

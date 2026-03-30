@@ -1,42 +1,52 @@
 {
-    "$schema": "https://schemas.wp.org/trunk/block.json",
-    "apiVersion": 3,
-    "name": "twork/csr-partner-logo-item",
-    "title": "Partner Logo",
-    "parent": ["twork/csr-partners-section"],
-    "category": "twork-builder",
-    "description": "Single partner logo for In Collaboration With section.",
-    "keywords": ["csr", "partner", "logo", "collaboration", "twork"],
-    "attributes": {
-        "logoUrl": {
-            "type": "string",
-            "default": ""
-        },
-        "logoId": {
-            "type": "number"
-        },
-        "logoAlt": {
-            "type": "string",
-            "default": ""
-        },
-        "placeholderColor": {
-            "type": "string",
-            "default": "#f48b2a"
-        },
-        "linkUrl": {
-            "type": "string",
-            "default": ""
-        },
-        "linkTarget": {
-            "type": "string",
-            "default": "_blank"
-        },
-        "linkRel": {
-            "type": "string",
-            "default": "noopener noreferrer"
-        }
-    },
-    "textdomain": "twork-builder",
-    "editorScript": "file:./index.js",
-    "style": "file:./style-index.css"
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/csr-partner-logo-item",
+	"title": "Partner Logo",
+	"parent": [ "twork/csr-partners-section" ],
+	"category": "twork-builder",
+	"description": "Single partner logo for In Collaboration With section.",
+	"keywords": [ "csr", "partner", "logo", "collaboration", "twork" ],
+	"attributes": {
+		"logoUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"logoId": {
+			"type": "number"
+		},
+		"logoAlt": {
+			"type": "string",
+			"default": ""
+		},
+		"placeholderColor": {
+			"type": "string",
+			"default": "#f48b2a"
+		},
+		"linkUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"linkTarget": {
+			"type": "string",
+			"default": "_blank"
+		},
+		"linkRel": {
+			"type": "string",
+			"default": "noopener noreferrer"
+		}
+	},
+	"example": {
+		"attributes": {
+			"logoUrl": "",
+			"logoAlt": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?auto=format&fit=crop&w=1200&q=80",
+			"placeholderColor": "#f48b2a",
+			"linkUrl": "",
+			"linkTarget": "_blank",
+			"linkRel": "noopener noreferrer"
+		}
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
 }

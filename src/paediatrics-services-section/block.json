@@ -1,32 +1,181 @@
 {
-  "$schema": "https://schemas.wp.org/trunk/block.json",
-  "apiVersion": 3,
-  "name": "twork/paediatrics-services-section",
-  "version": "1.0.0",
-  "title": "Our Services Section",
-  "category": "twork-builder",
-  "icon": "grid-view",
-  "description": "Our Services section with header and grid of service cards. Matches paediatrics-centre.html.",
-  "keywords": ["paediatrics", "services", "grid", "twork"],
-  "attributes": {
-    "backgroundColor": { "type": "string", "default": "#f8f9fa" },
-    "paddingTop": { "type": "number", "default": 80 },
-    "paddingBottom": { "type": "number", "default": 80 },
-    "containerMaxWidth": { "type": "number", "default": 1200 },
-    "containerPadding": { "type": "number", "default": 20 },
-    "showSectionHeader": { "type": "boolean", "default": true },
-    "sectionTitle": { "type": "string", "default": "Our Services" },
-    "sectionSubtitle": { "type": "string", "default": "We offer specialized services tailored to the unique needs of growing children." },
-    "sectionTitleColor": { "type": "string", "default": "#212121" },
-    "sectionSubtitleColor": { "type": "string", "default": "#666666" },
-    "sectionTitleFontSize": { "type": "number", "default": 2.2 },
-    "sectionSubtitleFontSize": { "type": "number", "default": 1.05 },
-    "minColumnWidth": { "type": "number", "default": 320 },
-    "gap": { "type": "number", "default": 30 },
-    "animationOnScroll": { "type": "boolean", "default": true }
-  },
-  "supports": { "html": false, "anchor": true, "align": ["wide", "full"] },
-  "textdomain": "twork-builder",
-  "editorScript": "file:./index.js",
-  "style": "file:./style-index.css"
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/paediatrics-services-section",
+	"version": "1.0.0",
+	"title": "Our Services Section",
+	"category": "twork-builder",
+	"icon": "grid-view",
+	"description": "Our Services section with header and grid of service cards. Matches paediatrics-centre.html.",
+	"keywords": [ "paediatrics", "services", "grid", "twork" ],
+	"attributes": {
+		"backgroundColor": {
+			"type": "string",
+			"default": "#f8f9fa"
+		},
+		"paddingTop": {
+			"type": "number",
+			"default": 80
+		},
+		"paddingBottom": {
+			"type": "number",
+			"default": 80
+		},
+		"containerMaxWidth": {
+			"type": "number",
+			"default": 1200
+		},
+		"containerPadding": {
+			"type": "number",
+			"default": 20
+		},
+		"showSectionHeader": {
+			"type": "boolean",
+			"default": true
+		},
+		"sectionTitle": {
+			"type": "string",
+			"default": "Our Services"
+		},
+		"sectionSubtitle": {
+			"type": "string",
+			"default": "We offer specialized services tailored to the unique needs of growing children."
+		},
+		"sectionTitleColor": {
+			"type": "string",
+			"default": "#212121"
+		},
+		"sectionSubtitleColor": {
+			"type": "string",
+			"default": "#666666"
+		},
+		"sectionTitleFontSize": {
+			"type": "number",
+			"default": 2.2
+		},
+		"sectionSubtitleFontSize": {
+			"type": "number",
+			"default": 1.05
+		},
+		"minColumnWidth": {
+			"type": "number",
+			"default": 320
+		},
+		"gap": {
+			"type": "number",
+			"default": 30
+		},
+		"animationOnScroll": {
+			"type": "boolean",
+			"default": true
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"align": [ "wide", "full" ]
+	},
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": {
+			"backgroundColor": "#f8f9fa",
+			"paddingTop": 80,
+			"paddingBottom": 80,
+			"containerMaxWidth": 1200,
+			"containerPadding": 20,
+			"showSectionHeader": true,
+			"sectionTitle": "Our Services",
+			"sectionSubtitle": "We offer specialized services tailored to the unique needs of growing children.",
+			"sectionTitleColor": "#212121",
+			"sectionSubtitleColor": "#666666",
+			"sectionTitleFontSize": 2.2,
+			"sectionSubtitleFontSize": 1.05,
+			"minColumnWidth": 320,
+			"gap": 30,
+			"animationOnScroll": true
+		},
+		"innerBlocks": [
+			{
+				"name": "twork/paediatrics-service-card",
+				"attributes": {
+					"iconClass": "fas fa-baby-carriage",
+					"title": "Neonatal ICU (NICU)",
+					"description": "State-of-the-art intensive care for premature and critically ill newborns, staffed by expert neonatologists.",
+					"listItems": [
+						"Ventilator Support",
+						"Phototherapy",
+						"24/7 Monitoring"
+					]
+				}
+			},
+			{
+				"name": "twork/paediatrics-service-card",
+				"attributes": {
+					"iconClass": "fas fa-syringe",
+					"title": "Vaccination Clinic",
+					"description": "Comprehensive immunization programs following WHO and national guidelines to protect your child.",
+					"listItems": [
+						"Routine Immunizations",
+						"Travel Vaccines",
+						"Growth Monitoring"
+					]
+				}
+			},
+			{
+				"name": "twork/paediatrics-service-card",
+				"attributes": {
+					"iconClass": "fas fa-heartbeat",
+					"title": "Paediatric Surgery",
+					"description": "Advanced surgical care for congenital defects and acute conditions, with minimally invasive options.",
+					"listItems": [
+						"Hernia Repair",
+						"Appendicitis",
+						"Urological Surgeries"
+					]
+				}
+			},
+			{
+				"name": "twork/paediatrics-service-card",
+				"attributes": {
+					"iconClass": "fas fa-brain",
+					"title": "Child Development",
+					"description": "Assessment and therapy for developmental delays, behavioral issues, and learning difficulties.",
+					"listItems": [
+						"Autism Screening",
+						"Speech Therapy",
+						"Behavioral Counseling"
+					]
+				}
+			},
+			{
+				"name": "twork/paediatrics-service-card",
+				"attributes": {
+					"iconClass": "fas fa-stethoscope",
+					"title": "General Paediatrics",
+					"description": "Diagnosis and treatment of common childhood illnesses, infections, and chronic conditions.",
+					"listItems": [
+						"Check-ups",
+						"Infection Control",
+						"Wellness Advice"
+					]
+				}
+			},
+			{
+				"name": "twork/paediatrics-service-card",
+				"attributes": {
+					"iconClass": "fas fa-tooth",
+					"title": "Paediatric Dentistry",
+					"description": "Specialized dental care focused on children's oral health, from first teeth to adolescence.",
+					"listItems": [
+						"Preventive Checkups",
+						"Cavity Treatment",
+						"Braces Assessment"
+					]
+				}
+			}
+		]
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
 }

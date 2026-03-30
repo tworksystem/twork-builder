@@ -1,213 +1,279 @@
 {
-    "$schema": "https://schemas.wp.org/trunk/block.json",
-    "apiVersion": 3,
-    "name": "twork/story-item",
-    "title": "Story Item",
-    "parent": ["twork/story-grid"],
-    "attributes": {
-        "layout": {
-            "type": "string",
-            "default": "content-left"
-        },
-        "showLabel": {
-            "type": "boolean",
-            "default": true
-        },
-        "label": {
-            "type": "string",
-            "default": "Our Story"
-        },
-        "labelColor": {
-            "type": "string",
-            "default": "#f48b2a"
-        },
-        "labelFontSize": {
-            "type": "number",
-            "default": 0.85
-        },
-        "labelFontWeight": {
-            "type": "number",
-            "default": 700
-        },
-        "labelTextTransform": {
-            "type": "string",
-            "default": "uppercase"
-        },
-        "heading": {
-            "type": "string",
-            "default": "Pioneering Healthcare in Upper Myanmar"
-        },
-        "headingColor": {
-            "type": "string",
-            "default": "#212121"
-        },
-        "headingFontSize": {
-            "type": "number",
-            "default": 2.5
-        },
-        "headingFontWeight": {
-            "type": "number",
-            "default": 700
-        },
-        "headingLineHeight": {
-            "type": "number",
-            "default": 1.2
-        },
-        "showDescription": {
-            "type": "boolean",
-            "default": true
-        },
-        "description": {
-            "type": "string",
-            "default": "Jivaka Hospital was established with a singular vision: to provide world-class medical care with deep compassion."
-        },
-        "descriptionColor": {
-            "type": "string",
-            "default": "#666666"
-        },
-        "descriptionFontSize": {
-            "type": "number",
-            "default": 1.05
-        },
-        "descriptionLineHeight": {
-            "type": "number",
-            "default": 1.6
-        },
-        "showStats": {
-            "type": "boolean",
-            "default": true
-        },
-        "stats": {
-            "type": "array",
-            "default": [
-                {
-                    "value": "10",
-                    "suffix": "+",
-                    "label": "Years Experience"
-                },
-                {
-                    "value": "50",
-                    "suffix": "+",
-                    "label": "Specialist Doctors"
-                },
-                {
-                    "value": "20000",
-                    "suffix": "+",
-                    "label": "Happy Patients"
-                }
-            ]
-        },
-        "statsBarGap": {
-            "type": "number",
-            "default": 30
-        },
-        "statsBarMarginTop": {
-            "type": "number",
-            "default": 40
-        },
-        "statsBarPaddingTop": {
-            "type": "number",
-            "default": 30
-        },
-        "statsBarBorderColor": {
-            "type": "string",
-            "default": "#eee"
-        },
-        "statValueColor": {
-            "type": "string",
-            "default": "#f48b2a"
-        },
-        "statValueFontSize": {
-            "type": "number",
-            "default": 2.5
-        },
-        "statValueFontWeight": {
-            "type": "number",
-            "default": 900
-        },
-        "statLabelColor": {
-            "type": "string",
-            "default": "#212121"
-        },
-        "statLabelFontSize": {
-            "type": "number",
-            "default": 0.85
-        },
-        "statLabelFontWeight": {
-            "type": "number",
-            "default": 700
-        },
-        "statLabelTextTransform": {
-            "type": "string",
-            "default": "uppercase"
-        },
-        "image": {
-            "type": "string",
-            "default": ""
-        },
-        "imageId": {
-            "type": "number"
-        },
-        "imageHeight": {
-            "type": "number",
-            "default": 400
-        },
-        "imageObjectFit": {
-            "type": "string",
-            "default": "cover"
-        },
-        "imageObjectPosition": {
-            "type": "string",
-            "default": "center"
-        },
-        "imageBorderRadius": {
-            "type": "number",
-            "default": 10
-        },
-        "imageBoxShadow": {
-            "type": "boolean",
-            "default": true
-        },
-        "imageBoxShadowColor": {
-            "type": "string",
-            "default": "rgba(0, 0, 0, 0.15)"
-        },
-        "imageBoxShadowBlur": {
-            "type": "number",
-            "default": 20
-        },
-        "imageBoxShadowSpread": {
-            "type": "number",
-            "default": 0
-        },
-        "imageBoxShadowOffsetX": {
-            "type": "number",
-            "default": 0
-        },
-        "imageBoxShadowOffsetY": {
-            "type": "number",
-            "default": 8
-        },
-        "showImageOverlay": {
-            "type": "boolean",
-            "default": false
-        },
-        "imageOverlayColor": {
-            "type": "string",
-            "default": "rgba(0, 0, 0, 0.3)"
-        },
-        "imageOverlayOpacity": {
-            "type": "number",
-            "default": 0.3
-        },
-        "imageHoverEffect": {
-            "type": "boolean",
-            "default": true
-        },
-        "imageHoverScale": {
-            "type": "number",
-            "default": 1.05
-        }
-    },
-    "editorScript": "file:./index.js"
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/story-item",
+	"title": "Story Item",
+	"parent": [ "twork/story-grid" ],
+	"attributes": {
+		"layout": {
+			"type": "string",
+			"default": "content-left"
+		},
+		"showLabel": {
+			"type": "boolean",
+			"default": true
+		},
+		"label": {
+			"type": "string",
+			"default": "Our Story"
+		},
+		"labelColor": {
+			"type": "string",
+			"default": "#f48b2a"
+		},
+		"labelFontSize": {
+			"type": "number",
+			"default": 0.85
+		},
+		"labelFontWeight": {
+			"type": "number",
+			"default": 700
+		},
+		"labelTextTransform": {
+			"type": "string",
+			"default": "uppercase"
+		},
+		"heading": {
+			"type": "string",
+			"default": "Pioneering Healthcare in Upper Myanmar"
+		},
+		"headingColor": {
+			"type": "string",
+			"default": "#212121"
+		},
+		"headingFontSize": {
+			"type": "number",
+			"default": 2.5
+		},
+		"headingFontWeight": {
+			"type": "number",
+			"default": 700
+		},
+		"headingLineHeight": {
+			"type": "number",
+			"default": 1.2
+		},
+		"showDescription": {
+			"type": "boolean",
+			"default": true
+		},
+		"description": {
+			"type": "string",
+			"default": "Jivaka Hospital was established with a singular vision: to provide world-class medical care with deep compassion."
+		},
+		"descriptionColor": {
+			"type": "string",
+			"default": "#666666"
+		},
+		"descriptionFontSize": {
+			"type": "number",
+			"default": 1.05
+		},
+		"descriptionLineHeight": {
+			"type": "number",
+			"default": 1.6
+		},
+		"showStats": {
+			"type": "boolean",
+			"default": true
+		},
+		"stats": {
+			"type": "array",
+			"default": [
+				{
+					"value": "10",
+					"suffix": "+",
+					"label": "Years Experience"
+				},
+				{
+					"value": "50",
+					"suffix": "+",
+					"label": "Specialist Doctors"
+				},
+				{
+					"value": "20000",
+					"suffix": "+",
+					"label": "Happy Patients"
+				}
+			]
+		},
+		"statsBarGap": {
+			"type": "number",
+			"default": 30
+		},
+		"statsBarMarginTop": {
+			"type": "number",
+			"default": 40
+		},
+		"statsBarPaddingTop": {
+			"type": "number",
+			"default": 30
+		},
+		"statsBarBorderColor": {
+			"type": "string",
+			"default": "#eee"
+		},
+		"statValueColor": {
+			"type": "string",
+			"default": "#f48b2a"
+		},
+		"statValueFontSize": {
+			"type": "number",
+			"default": 2.5
+		},
+		"statValueFontWeight": {
+			"type": "number",
+			"default": 900
+		},
+		"statLabelColor": {
+			"type": "string",
+			"default": "#212121"
+		},
+		"statLabelFontSize": {
+			"type": "number",
+			"default": 0.85
+		},
+		"statLabelFontWeight": {
+			"type": "number",
+			"default": 700
+		},
+		"statLabelTextTransform": {
+			"type": "string",
+			"default": "uppercase"
+		},
+		"image": {
+			"type": "string",
+			"default": ""
+		},
+		"imageId": {
+			"type": "number"
+		},
+		"imageHeight": {
+			"type": "number",
+			"default": 400
+		},
+		"imageObjectFit": {
+			"type": "string",
+			"default": "cover"
+		},
+		"imageObjectPosition": {
+			"type": "string",
+			"default": "center"
+		},
+		"imageBorderRadius": {
+			"type": "number",
+			"default": 10
+		},
+		"imageBoxShadow": {
+			"type": "boolean",
+			"default": true
+		},
+		"imageBoxShadowColor": {
+			"type": "string",
+			"default": "rgba(0, 0, 0, 0.15)"
+		},
+		"imageBoxShadowBlur": {
+			"type": "number",
+			"default": 20
+		},
+		"imageBoxShadowSpread": {
+			"type": "number",
+			"default": 0
+		},
+		"imageBoxShadowOffsetX": {
+			"type": "number",
+			"default": 0
+		},
+		"imageBoxShadowOffsetY": {
+			"type": "number",
+			"default": 8
+		},
+		"showImageOverlay": {
+			"type": "boolean",
+			"default": false
+		},
+		"imageOverlayColor": {
+			"type": "string",
+			"default": "rgba(0, 0, 0, 0.3)"
+		},
+		"imageOverlayOpacity": {
+			"type": "number",
+			"default": 0.3
+		},
+		"imageHoverEffect": {
+			"type": "boolean",
+			"default": true
+		},
+		"imageHoverScale": {
+			"type": "number",
+			"default": 1.05
+		}
+	},
+	"editorScript": "file:./index.js",
+	"example": {
+		"attributes": {
+			"layout": "content-left",
+			"showLabel": true,
+			"label": "Our Story",
+			"labelColor": "#f48b2a",
+			"labelFontSize": 0.85,
+			"labelFontWeight": 700,
+			"labelTextTransform": "uppercase",
+			"heading": "Pioneering Healthcare in Upper Myanmar",
+			"headingColor": "#212121",
+			"headingFontSize": 2.5,
+			"headingFontWeight": 700,
+			"headingLineHeight": 1.2,
+			"showDescription": true,
+			"description": "Jivaka Hospital was established with a singular vision: to provide world-class medical care with deep compassion.",
+			"descriptionColor": "#666666",
+			"descriptionFontSize": 1.05,
+			"descriptionLineHeight": 1.6,
+			"showStats": true,
+			"stats": [
+				{
+					"value": "10",
+					"suffix": "+",
+					"label": "Years Experience"
+				},
+				{
+					"value": "50",
+					"suffix": "+",
+					"label": "Specialist Doctors"
+				},
+				{
+					"value": "20000",
+					"suffix": "+",
+					"label": "Happy Patients"
+				}
+			],
+			"statsBarGap": 30,
+			"statsBarMarginTop": 40,
+			"statsBarPaddingTop": 30,
+			"statsBarBorderColor": "#eee",
+			"statValueColor": "#f48b2a",
+			"statValueFontSize": 2.5,
+			"statValueFontWeight": 900,
+			"statLabelColor": "#212121",
+			"statLabelFontSize": 0.85,
+			"statLabelFontWeight": 700,
+			"statLabelTextTransform": "uppercase",
+			"image": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?auto=format&fit=crop&w=1200&q=80",
+			"imageHeight": 400,
+			"imageObjectFit": "cover",
+			"imageObjectPosition": "center",
+			"imageBorderRadius": 10,
+			"imageBoxShadow": true,
+			"imageBoxShadowColor": "rgba(0, 0, 0, 0.15)",
+			"imageBoxShadowBlur": 20,
+			"imageBoxShadowSpread": 0,
+			"imageBoxShadowOffsetX": 0,
+			"imageBoxShadowOffsetY": 8,
+			"showImageOverlay": false,
+			"imageOverlayColor": "rgba(0, 0, 0, 0.3)",
+			"imageOverlayOpacity": 0.3,
+			"imageHoverEffect": true,
+			"imageHoverScale": 1.05
+		}
+	}
 }

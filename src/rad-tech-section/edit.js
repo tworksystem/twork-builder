@@ -1,415 +1,522 @@
 import { __ } from '@wordpress/i18n';
+import { useStableBlockProps } from '@twork-builder/editor-utils';
 import {
-  useBlockProps,
-  InnerBlocks,
-  InspectorControls,
-  PanelColorSettings,
-  RichText,
-  MediaPlaceholder,
+	InnerBlocks,
+	InspectorControls,
+	PanelColorSettings,
+	RichText,
+	MediaPlaceholder,
 } from '@wordpress/block-editor';
 import {
-  PanelBody,
-  RangeControl,
-  ToggleControl,
-  TextControl,
-  __experimentalDivider as Divider,
+	PanelBody,
+	RangeControl,
+	ToggleControl,
+	TextControl,
+	__experimentalDivider as Divider,
 } from '@wordpress/components';
 
-const ALLOWED_BLOCKS = ['twork/rad-tech-item'];
+const ALLOWED_BLOCKS = [ 'twork/rad-tech-item' ];
 
 const TEMPLATE = [
-  [
-    'twork/rad-tech-item',
-    {
-      iconClass: 'fas fa-bolt',
-      title: 'Low Dose',
-      description: 'Protocols to minimize radiation exposure.',
-    },
-  ],
-  [
-    'twork/rad-tech-item',
-    {
-      iconClass: 'fas fa-tachometer-alt',
-      title: 'Rapid Scan',
-      description: 'Whole body scan in under 10 minutes.',
-    },
-  ],
-  [
-    'twork/rad-tech-item',
-    {
-      iconClass: 'fas fa-wifi',
-      title: 'Tele-Rad',
-      description: 'Reports reviewed by remote experts.',
-    },
-  ],
-  [
-    'twork/rad-tech-item',
-    {
-      iconClass: 'fas fa-desktop',
-      title: 'AI Assist',
-      description: 'AI software to help detect anomalies.',
-    },
-  ],
+	[
+		'twork/rad-tech-item',
+		{
+			iconClass: 'fas fa-bolt',
+			title: 'Low Dose',
+			description: 'Protocols to minimize radiation exposure.',
+		},
+	],
+
+	[
+		'twork/rad-tech-item',
+		{
+			iconClass: 'fas fa-tachometer-alt',
+			title: 'Rapid Scan',
+			description: 'Whole body scan in under 10 minutes.',
+		},
+	],
+
+	[
+		'twork/rad-tech-item',
+		{
+			iconClass: 'fas fa-wifi',
+			title: 'Tele-Rad',
+			description: 'Reports reviewed by remote experts.',
+		},
+	],
+
+	[
+		'twork/rad-tech-item',
+		{
+			iconClass: 'fas fa-desktop',
+			title: 'AI Assist',
+			description: 'AI software to help detect anomalies.',
+		},
+	],
 ];
 
-export default function Edit({ attributes, setAttributes }) {
-  const {
-    backgroundColor,
-    paddingTop,
-    paddingBottom,
-    containerMaxWidth,
-    containerPadding,
-    showSectionTitle,
-    sectionTitle,
-    sectionTitleColor,
-    sectionTitleFontSize,
-    showSectionSubtitle,
-    sectionSubtitle,
-    sectionSubtitleColor,
-    sectionSubtitleFontSize,
-    imageUrl,
-    imageId,
-    imageAlt,
-    animationOnScroll,
-    animationType,
-    animationDelay,
-  } = attributes;
+export default function Edit( { attributes, setAttributes, isSelected } ) {
+	const {
+		backgroundColor,
+		paddingTop,
+		paddingBottom,
+		containerMaxWidth,
+		containerPadding,
+		showSectionTitle,
+		sectionTitle,
+		sectionTitleColor,
+		sectionTitleFontSize,
+		showSectionSubtitle,
+		sectionSubtitle,
+		sectionSubtitleColor,
+		sectionSubtitleFontSize,
+		imageUrl,
+		imageId,
+		imageAlt,
+		animationOnScroll,
+		animationType,
+		animationDelay,
+	} = attributes;
 
-  const blockProps = useBlockProps({
-    className: 'twork-rad-tech-section-editor rad-section',
-    style: {
-      backgroundColor,
-      paddingTop: `${paddingTop}px`,
-      paddingBottom: `${paddingBottom}px`,
-      color: '#ffffff',
-    },
-  });
+	const blockProps = useStableBlockProps(
+		() => ( {
+			className: 'twork-rad-tech-section-editor rad-section',
+			style: {
+				backgroundColor,
+				paddingTop: `${ paddingTop }px`,
+				paddingBottom: `${ paddingBottom }px`,
+				color: '#ffffff',
+			},
+		} ),
+		[ backgroundColor, paddingBottom, paddingTop ]
+	);
 
-  const containerStyle = {
-    maxWidth: `${containerMaxWidth}px`,
-    margin: '0 auto',
-    padding: `0 ${containerPadding}px`,
-  };
+	const containerStyle = {
+		maxWidth: `${ containerMaxWidth }px`,
+		margin: '0 auto',
+		padding: `0 ${ containerPadding }px`,
+	};
 
-  const gridStyle = {
-    display: 'grid',
-    gridTemplateColumns: '1fr 1fr',
-    gap: '60px',
-    alignItems: 'center',
-  };
+	const gridStyle = {
+		display: 'grid',
+		gridTemplateColumns: '1fr 1fr',
+		gap: '60px',
+		alignItems: 'center',
+	};
 
-  const techListStyle = {
-    display: 'grid',
-    gridTemplateColumns: '1fr 1fr',
-    gap: '30px',
-    marginTop: '40px',
-  };
+	const techListStyle = {
+		display: 'grid',
+		gridTemplateColumns: '1fr 1fr',
+		gap: '30px',
+		marginTop: '40px',
+	};
 
-  return (
-    <>
-      <InspectorControls>
-        <PanelBody
-          title={__('Section Background', 'twork-builder')}
-          initialOpen={true}
-        >
-          <PanelColorSettings
-            title={__('Background Color', 'twork-builder')}
-            colorSettings={[
-              {
-                value: backgroundColor,
-                onChange: (val) => setAttributes({ backgroundColor: val }),
-                label: __('Background Color', 'twork-builder'),
-              },
-            ]}
-          />
+	return (
+		<>
+			{ isSelected && (
+				<InspectorControls>
+					<PanelBody
+						title={ __( 'Section Background', 'twork-builder' ) }
+						initialOpen={ true }
+					>
+						<PanelColorSettings
+							title={ __( 'Background Color', 'twork-builder' ) }
+							colorSettings={ [
+								{
+									value: backgroundColor,
+									onChange: ( val ) =>
+										setAttributes( {
+											backgroundColor: val,
+										} ),
+									label: __(
+										'Background Color',
+										'twork-builder'
+									),
+								},
+							] }
+						/>
 
-          <Divider />
+						<Divider />
 
-          <RangeControl
-            label={__('Padding Top (px)', 'twork-builder')}
-            value={paddingTop}
-            onChange={(val) => setAttributes({ paddingTop: val })}
-            min={40}
-            max={160}
-            step={5}
-          />
+						<RangeControl
+							label={ __( 'Padding Top (px)', 'twork-builder' ) }
+							value={ paddingTop }
+							onChange={ ( val ) =>
+								setAttributes( { paddingTop: val } )
+							}
+							min={ 40 }
+							max={ 160 }
+							step={ 5 }
+						/>
 
-          <RangeControl
-            label={__('Padding Bottom (px)', 'twork-builder')}
-            value={paddingBottom}
-            onChange={(val) => setAttributes({ paddingBottom: val })}
-            min={40}
-            max={160}
-            step={5}
-          />
-        </PanelBody>
+						<RangeControl
+							label={ __(
+								'Padding Bottom (px)',
+								'twork-builder'
+							) }
+							value={ paddingBottom }
+							onChange={ ( val ) =>
+								setAttributes( { paddingBottom: val } )
+							}
+							min={ 40 }
+							max={ 160 }
+							step={ 5 }
+						/>
+					</PanelBody>
 
-        <PanelBody
-          title={__('Section Content', 'twork-builder')}
-          initialOpen={false}
-        >
-          <ToggleControl
-            label={__('Show Section Title', 'twork-builder')}
-            checked={showSectionTitle}
-            onChange={(val) => setAttributes({ showSectionTitle: val })}
-          />
+					<PanelBody
+						title={ __( 'Section Content', 'twork-builder' ) }
+						initialOpen={ false }
+					>
+						<ToggleControl
+							label={ __(
+								'Show Section Title',
+								'twork-builder'
+							) }
+							checked={ showSectionTitle }
+							onChange={ ( val ) =>
+								setAttributes( { showSectionTitle: val } )
+							}
+						/>
 
-          {showSectionTitle && (
-            <>
-              <TextControl
-                label={__('Title', 'twork-builder')}
-                value={sectionTitle}
-                onChange={(val) => setAttributes({ sectionTitle: val })}
-              />
+						{ showSectionTitle && (
+							<>
+								<TextControl
+									label={ __( 'Title', 'twork-builder' ) }
+									value={ sectionTitle }
+									onChange={ ( val ) =>
+										setAttributes( { sectionTitle: val } )
+									}
+								/>
 
-              <PanelColorSettings
-                title={__('Title Color', 'twork-builder')}
-                colorSettings={[
-                  {
-                    value: sectionTitleColor,
-                    onChange: (val) =>
-                      setAttributes({ sectionTitleColor: val }),
-                    label: __('Title Color', 'twork-builder'),
-                  },
-                ]}
-              />
+								<PanelColorSettings
+									title={ __(
+										'Title Color',
+										'twork-builder'
+									) }
+									colorSettings={ [
+										{
+											value: sectionTitleColor,
+											onChange: ( val ) =>
+												setAttributes( {
+													sectionTitleColor: val,
+												} ),
+											label: __(
+												'Title Color',
+												'twork-builder'
+											),
+										},
+									] }
+								/>
 
-              <RangeControl
-                label={__('Title Font Size (rem)', 'twork-builder')}
-                value={sectionTitleFontSize}
-                onChange={(val) =>
-                  setAttributes({ sectionTitleFontSize: val })
-                }
-                min={1.8}
-                max={3.5}
-                step={0.1}
-              />
-            </>
-          )}
+								<RangeControl
+									label={ __(
+										'Title Font Size (rem)',
+										'twork-builder'
+									) }
+									value={ sectionTitleFontSize }
+									onChange={ ( val ) =>
+										setAttributes( {
+											sectionTitleFontSize: val,
+										} )
+									}
+									min={ 1.8 }
+									max={ 3.5 }
+									step={ 0.1 }
+								/>
+							</>
+						) }
 
-          <Divider />
+						<Divider />
 
-          <ToggleControl
-            label={__('Show Subtitle', 'twork-builder')}
-            checked={showSectionSubtitle}
-            onChange={(val) => setAttributes({ showSectionSubtitle: val })}
-          />
+						<ToggleControl
+							label={ __( 'Show Subtitle', 'twork-builder' ) }
+							checked={ showSectionSubtitle }
+							onChange={ ( val ) =>
+								setAttributes( { showSectionSubtitle: val } )
+							}
+						/>
 
-          {showSectionSubtitle && (
-            <>
-              <TextControl
-                label={__('Subtitle', 'twork-builder')}
-                value={sectionSubtitle}
-                onChange={(val) => setAttributes({ sectionSubtitle: val })}
-              />
+						{ showSectionSubtitle && (
+							<>
+								<TextControl
+									label={ __( 'Subtitle', 'twork-builder' ) }
+									value={ sectionSubtitle }
+									onChange={ ( val ) =>
+										setAttributes( {
+											sectionSubtitle: val,
+										} )
+									}
+								/>
 
-              <PanelColorSettings
-                title={__('Subtitle Color', 'twork-builder')}
-                colorSettings={[
-                  {
-                    value: sectionSubtitleColor,
-                    onChange: (val) =>
-                      setAttributes({ sectionSubtitleColor: val }),
-                    label: __('Subtitle Color', 'twork-builder'),
-                  },
-                ]}
-              />
+								<PanelColorSettings
+									title={ __(
+										'Subtitle Color',
+										'twork-builder'
+									) }
+									colorSettings={ [
+										{
+											value: sectionSubtitleColor,
+											onChange: ( val ) =>
+												setAttributes( {
+													sectionSubtitleColor: val,
+												} ),
+											label: __(
+												'Subtitle Color',
+												'twork-builder'
+											),
+										},
+									] }
+								/>
 
-              <RangeControl
-                label={__('Subtitle Font Size (rem)', 'twork-builder')}
-                value={sectionSubtitleFontSize}
-                onChange={(val) =>
-                  setAttributes({ sectionSubtitleFontSize: val })
-                }
-                min={0.9}
-                max={1.4}
-                step={0.05}
-              />
-            </>
-          )}
-        </PanelBody>
+								<RangeControl
+									label={ __(
+										'Subtitle Font Size (rem)',
+										'twork-builder'
+									) }
+									value={ sectionSubtitleFontSize }
+									onChange={ ( val ) =>
+										setAttributes( {
+											sectionSubtitleFontSize: val,
+										} )
+									}
+									min={ 0.9 }
+									max={ 1.4 }
+									step={ 0.05 }
+								/>
+							</>
+						) }
+					</PanelBody>
 
-        <PanelBody
-          title={__('Image', 'twork-builder')}
-          initialOpen={false}
-        >
-          {imageUrl ? (
-            <>
-              <img
-                src={imageUrl}
-                alt={imageAlt}
-                style={{ width: '100%', height: 'auto', marginBottom: '10px' }}
-              />
-              <TextControl
-                label={__('Alt Text', 'twork-builder')}
-                value={imageAlt}
-                onChange={(val) => setAttributes({ imageAlt: val })}
-              />
-              <button
-                type="button"
-                className="components-button is-secondary is-small"
-                onClick={() =>
-                  setAttributes({
-                    imageUrl: '',
-                    imageId: undefined,
-                    imageAlt: '',
-                  })
-                }
-              >
-                {__('Remove Image', 'twork-builder')}
-              </button>
-            </>
-          ) : (
-            <MediaPlaceholder
-              onSelect={(media) => {
-                if (!media) return;
-                setAttributes({
-                  imageUrl: media.url || '',
-                  imageId: media.id || 0,
-                  imageAlt: media.alt || media.title || '',
-                });
-              }}
-              onSelectURL={(url) =>
-                setAttributes({
-                  imageUrl: url || '',
-                  imageId: 0,
-                })
-              }
-              accept="image/*"
-              allowedTypes={['image']}
-              labels={{
-                title: __('Tech Section Image', 'twork-builder'),
-              }}
-            />
-          )}
-        </PanelBody>
+					<PanelBody
+						title={ __( 'Image', 'twork-builder' ) }
+						initialOpen={ false }
+					>
+						{ imageUrl ? (
+							<>
+								<img
+									src={ imageUrl }
+									alt={ imageAlt }
+									style={ {
+										width: '100%',
+										height: 'auto',
+										marginBottom: '10px',
+									} }
+								/>
 
-        <PanelBody
-          title={__('Container', 'twork-builder')}
-          initialOpen={false}
-        >
-          <RangeControl
-            label={__('Max Width (px)', 'twork-builder')}
-            value={containerMaxWidth}
-            onChange={(val) => setAttributes({ containerMaxWidth: val })}
-            min={800}
-            max={1920}
-            step={10}
-          />
+								<TextControl
+									label={ __( 'Alt Text', 'twork-builder' ) }
+									value={ imageAlt }
+									onChange={ ( val ) =>
+										setAttributes( { imageAlt: val } )
+									}
+								/>
 
-          <RangeControl
-            label={__('Horizontal Padding (px)', 'twork-builder')}
-            value={containerPadding}
-            onChange={(val) => setAttributes({ containerPadding: val })}
-            min={0}
-            max={80}
-            step={5}
-          />
-        </PanelBody>
+								<button
+									type="button"
+									className="components-button is-secondary is-small"
+									onClick={ () =>
+										setAttributes( {
+											imageUrl: '',
+											imageId: undefined,
+											imageAlt: '',
+										} )
+									}
+								>
+									{ __( 'Remove Image', 'twork-builder' ) }
+								</button>
+							</>
+						) : (
+							<MediaPlaceholder
+								onSelect={ ( media ) => {
+									if ( ! media ) return;
+									setAttributes( {
+										imageUrl: media.url || '',
+										imageId: media.id || 0,
+										imageAlt:
+											media.alt || media.title || '',
+									} );
+								} }
+								onSelectURL={ ( url ) =>
+									setAttributes( {
+										imageUrl: url || '',
+										imageId: 0,
+									} )
+								}
+								accept="image/*"
+								allowedTypes={ [ 'image' ] }
+								labels={ {
+									title: __(
+										'Tech Section Image',
+										'twork-builder'
+									),
+								} }
+							/>
+						) }
+					</PanelBody>
 
-        <PanelBody
-          title={__('Animation', 'twork-builder')}
-          initialOpen={false}
-        >
-          <ToggleControl
-            label={__('Enable Scroll Animation', 'twork-builder')}
-            checked={animationOnScroll}
-            onChange={(val) => setAttributes({ animationOnScroll: val })}
-          />
+					<PanelBody
+						title={ __( 'Container', 'twork-builder' ) }
+						initialOpen={ false }
+					>
+						<RangeControl
+							label={ __( 'Max Width (px)', 'twork-builder' ) }
+							value={ containerMaxWidth }
+							onChange={ ( val ) =>
+								setAttributes( { containerMaxWidth: val } )
+							}
+							min={ 800 }
+							max={ 1920 }
+							step={ 10 }
+						/>
 
-          {animationOnScroll && (
-            <>
-              <TextControl
-                label={__('Animation Type CSS Class', 'twork-builder')}
-                help={__('e.g. fade-up, fadeIn, slideInLeft', 'twork-builder')}
-                value={animationType}
-                onChange={(val) => setAttributes({ animationType: val })}
-              />
+						<RangeControl
+							label={ __(
+								'Horizontal Padding (px)',
+								'twork-builder'
+							) }
+							value={ containerPadding }
+							onChange={ ( val ) =>
+								setAttributes( { containerPadding: val } )
+							}
+							min={ 0 }
+							max={ 80 }
+							step={ 5 }
+						/>
+					</PanelBody>
 
-              <RangeControl
-                label={__('Animation Delay (ms)', 'twork-builder')}
-                value={animationDelay}
-                onChange={(val) => setAttributes({ animationDelay: val })}
-                min={0}
-                max={400}
-                step={50}
-              />
-            </>
-          )}
-        </PanelBody>
-      </InspectorControls>
+					<PanelBody
+						title={ __( 'Animation', 'twork-builder' ) }
+						initialOpen={ false }
+					>
+						<ToggleControl
+							label={ __(
+								'Enable Scroll Animation',
+								'twork-builder'
+							) }
+							checked={ animationOnScroll }
+							onChange={ ( val ) =>
+								setAttributes( { animationOnScroll: val } )
+							}
+						/>
 
-      <section {...blockProps}>
-        <div className="rad-container" style={containerStyle}>
-          <div className="rad-tech-grid" style={gridStyle}>
-            <div className="rad-tech-content fade-up">
-              {(showSectionTitle || showSectionSubtitle) && (
-                <>
-                  {showSectionTitle && (
-                    <RichText
-                      tagName="h2"
-                      value={sectionTitle}
-                      onChange={(val) => setAttributes({ sectionTitle: val })}
-                      placeholder={__(
-                        'Powered by World-Class Technology',
-                        'twork-builder'
-                      )}
-                      style={{
-                        fontSize: `${sectionTitleFontSize}rem`,
-                        marginBottom: '20px',
-                        color: sectionTitleColor,
-                      }}
-                    />
-                  )}
-                  {showSectionSubtitle && (
-                    <RichText
-                      tagName="p"
-                      value={sectionSubtitle}
-                      onChange={(val) =>
-                        setAttributes({ sectionSubtitle: val })
-                      }
-                      placeholder={__(
-                        'At Jivaka, we invest in the latest machines from GE and Siemens…',
-                        'twork-builder'
-                      )}
-                      style={{
-                        opacity: 0.8,
-                        fontSize: `${sectionSubtitleFontSize}rem`,
-                        color: sectionSubtitleColor,
-                        maxWidth: '600px',
-                      }}
-                    />
-                  )}
-                </>
-              )}
+						{ animationOnScroll && (
+							<>
+								<TextControl
+									label={ __(
+										'Animation Type CSS Class',
+										'twork-builder'
+									) }
+									help={ __(
+										'e.g. fade-up, fadeIn, slideInLeft',
+										'twork-builder'
+									) }
+									value={ animationType }
+									onChange={ ( val ) =>
+										setAttributes( { animationType: val } )
+									}
+								/>
 
-              <div className="rad-tech-list" style={techListStyle}>
-                <InnerBlocks
-                  allowedBlocks={ALLOWED_BLOCKS}
-                  template={TEMPLATE}
-                  renderAppender={InnerBlocks.ButtonBlockAppender}
-                />
-              </div>
-            </div>
+								<RangeControl
+									label={ __(
+										'Animation Delay (ms)',
+										'twork-builder'
+									) }
+									value={ animationDelay }
+									onChange={ ( val ) =>
+										setAttributes( { animationDelay: val } )
+									}
+									min={ 0 }
+									max={ 400 }
+									step={ 50 }
+								/>
+							</>
+						) }
+					</PanelBody>
+				</InspectorControls>
+			) }
 
-            <div className="rad-tech-image fade-up">
-              {imageUrl && (
-                <img
-                  src={imageUrl}
-                  alt={imageAlt}
-                  style={{
-                    borderRadius: 'var(--rad-radius)',
-                    opacity: 0.8,
-                    width: '100%',
-                    height: 'auto',
-                  }}
-                />
-              )}
-            </div>
-          </div>
-        </div>
-      </section>
-    </>
-  );
+			<section { ...blockProps }>
+				<div className="rad-container" style={ containerStyle }>
+					<div className="rad-tech-grid" style={ gridStyle }>
+						<div className="rad-tech-content fade-up">
+							{ ( showSectionTitle || showSectionSubtitle ) && (
+								<>
+									{ showSectionTitle && (
+										<RichText
+											tagName="h2"
+											value={ sectionTitle }
+											onChange={ ( val ) =>
+												setAttributes( {
+													sectionTitle: val,
+												} )
+											}
+											placeholder={ __(
+												'Powered by World-Class Technology',
+												'twork-builder'
+											) }
+											style={ {
+												fontSize: `${ sectionTitleFontSize }rem`,
+												marginBottom: '20px',
+												color: sectionTitleColor,
+											} }
+										/>
+									) }
+									{ showSectionSubtitle && (
+										<RichText
+											tagName="p"
+											value={ sectionSubtitle }
+											onChange={ ( val ) =>
+												setAttributes( {
+													sectionSubtitle: val,
+												} )
+											}
+											placeholder={ __(
+												'At Jivaka, we invest in the latest machines from GE and Siemens…',
+												'twork-builder'
+											) }
+											style={ {
+												opacity: 0.8,
+												fontSize: `${ sectionSubtitleFontSize }rem`,
+												color: sectionSubtitleColor,
+												maxWidth: '600px',
+											} }
+										/>
+									) }
+								</>
+							) }
+
+							<div
+								className="rad-tech-list"
+								style={ techListStyle }
+							>
+								<InnerBlocks
+									allowedBlocks={ ALLOWED_BLOCKS }
+									template={ TEMPLATE }
+									renderAppender={
+										InnerBlocks.ButtonBlockAppender
+									}
+								/>
+							</div>
+						</div>
+
+						<div className="rad-tech-image fade-up">
+							{ imageUrl && (
+								<img
+									src={ imageUrl }
+									alt={ imageAlt }
+									style={ {
+										borderRadius: 'var(--rad-radius)',
+										opacity: 0.8,
+										width: '100%',
+										height: 'auto',
+									} }
+								/>
+							) }
+						</div>
+					</div>
+				</div>
+			</section>
+		</>
+	);
 }
-

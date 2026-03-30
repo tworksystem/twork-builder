@@ -1,107 +1,155 @@
 {
-  "$schema": "https://schemas.wp.org/trunk/block.json",
-  "apiVersion": 3,
-  "name": "twork/rad-why-section",
-  "version": "1.0.0",
-  "title": "Why Choose Section",
-  "category": "twork-builder",
-  "icon": "awards",
-  "description": "Radiology & Imaging \u201cWhy Choose Jivaka Imaging?\u201d section with icon grid cards.",
-  "keywords": [
-    "radiology",
-    "imaging",
-    "why choose",
-    "icons",
-    "twork"
-  ],
-  "attributes": {
-    "backgroundColor": {
-      "type": "string",
-      "default": "#ffffff"
-    },
-    "paddingTop": {
-      "type": "number",
-      "default": 80
-    },
-    "paddingBottom": {
-      "type": "number",
-      "default": 80
-    },
-    "containerMaxWidth": {
-      "type": "number",
-      "default": 1200
-    },
-    "containerPadding": {
-      "type": "number",
-      "default": 20
-    },
-    "columns": {
-      "type": "number",
-      "default": 4
-    },
-    "columnsTablet": {
-      "type": "number",
-      "default": 2
-    },
-    "columnsMobile": {
-      "type": "number",
-      "default": 1
-    },
-    "gap": {
-      "type": "number",
-      "default": 30
-    },
-    "showSectionTitle": {
-      "type": "boolean",
-      "default": true
-    },
-    "sectionTitle": {
-      "type": "string",
-      "default": "Why Choose Jivaka Imaging?"
-    },
-    "sectionTitleColor": {
-      "type": "string",
-      "default": "#212121"
-    },
-    "sectionTitleFontSize": {
-      "type": "number",
-      "default": 2.5
-    },
-    "sectionTitleFontWeight": {
-      "type": "number",
-      "default": 700
-    },
-    "sectionTitleAlignment": {
-      "type": "string",
-      "default": "center"
-    },
-    "showSectionSubtitle": {
-      "type": "boolean",
-      "default": true
-    },
-    "sectionSubtitle": {
-      "type": "string",
-      "default": "We combine technology with expertise to deliver results you can trust."
-    },
-    "sectionSubtitleColor": {
-      "type": "string",
-      "default": "#666666"
-    },
-    "sectionSubtitleFontSize": {
-      "type": "number",
-      "default": 1.1
-    }
-  },
-  "supports": {
-    "html": false,
-    "anchor": true,
-    "align": [
-      "wide",
-      "full"
-    ]
-  },
-  "textdomain": "twork-builder",
-  "editorScript": "file:./index.js",
-  "style": "file:./style-index.css"
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/rad-why-section",
+	"version": "1.0.0",
+	"title": "Why Choose Section",
+	"category": "twork-builder",
+	"icon": "awards",
+	"description": "Radiology & Imaging “Why Choose Jivaka Imaging?” section with icon grid cards.",
+	"keywords": [ "radiology", "imaging", "why choose", "icons", "twork" ],
+	"attributes": {
+		"backgroundColor": {
+			"type": "string",
+			"default": "#ffffff"
+		},
+		"paddingTop": {
+			"type": "number",
+			"default": 80
+		},
+		"paddingBottom": {
+			"type": "number",
+			"default": 80
+		},
+		"containerMaxWidth": {
+			"type": "number",
+			"default": 1200
+		},
+		"containerPadding": {
+			"type": "number",
+			"default": 20
+		},
+		"columns": {
+			"type": "number",
+			"default": 4
+		},
+		"columnsTablet": {
+			"type": "number",
+			"default": 2
+		},
+		"columnsMobile": {
+			"type": "number",
+			"default": 1
+		},
+		"gap": {
+			"type": "number",
+			"default": 30
+		},
+		"showSectionTitle": {
+			"type": "boolean",
+			"default": true
+		},
+		"sectionTitle": {
+			"type": "string",
+			"default": "Why Choose Jivaka Imaging?"
+		},
+		"sectionTitleColor": {
+			"type": "string",
+			"default": "#212121"
+		},
+		"sectionTitleFontSize": {
+			"type": "number",
+			"default": 2.5
+		},
+		"sectionTitleFontWeight": {
+			"type": "number",
+			"default": 700
+		},
+		"sectionTitleAlignment": {
+			"type": "string",
+			"default": "center"
+		},
+		"showSectionSubtitle": {
+			"type": "boolean",
+			"default": true
+		},
+		"sectionSubtitle": {
+			"type": "string",
+			"default": "We combine technology with expertise to deliver results you can trust."
+		},
+		"sectionSubtitleColor": {
+			"type": "string",
+			"default": "#666666"
+		},
+		"sectionSubtitleFontSize": {
+			"type": "number",
+			"default": 1.1
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"align": [ "wide", "full" ]
+	},
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": {
+			"backgroundColor": "#ffffff",
+			"paddingTop": 80,
+			"paddingBottom": 80,
+			"containerMaxWidth": 1200,
+			"containerPadding": 20,
+			"columns": 4,
+			"columnsTablet": 2,
+			"columnsMobile": 1,
+			"gap": 30,
+			"showSectionTitle": true,
+			"sectionTitle": "Why Choose Jivaka Imaging?",
+			"sectionTitleColor": "#212121",
+			"sectionTitleFontSize": 2.5,
+			"sectionTitleFontWeight": 700,
+			"sectionTitleAlignment": "center",
+			"showSectionSubtitle": true,
+			"sectionSubtitle": "We combine technology with expertise to deliver results you can trust.",
+			"sectionSubtitleColor": "#666666",
+			"sectionSubtitleFontSize": 1.1
+		},
+		"innerBlocks": [
+			{
+				"name": "twork/rad-why-item",
+				"attributes": {
+					"iconClass": "fas fa-certificate",
+					"title": "ISO Certified",
+					"description": "Internationally recognized quality standards."
+				}
+			},
+			{
+				"name": "twork/rad-why-item",
+				"attributes": {
+					"iconClass": "fas fa-bolt",
+					"title": "Fast Turnaround",
+					"description": "Emergency reports within 1 hour."
+				}
+			},
+			{
+				"name": "twork/rad-why-item",
+				"attributes": {
+					"iconClass": "fas fa-user-md",
+					"title": "Sub-Specialists",
+					"description": "Neuro, Cardiac, and MSK Radiology experts."
+				}
+			},
+			{
+				"name": "twork/rad-why-item",
+				"attributes": {
+					"iconClass": "fas fa-money-bill-wave",
+					"title": "Affordable",
+					"description": "Transparent pricing with no hidden costs."
+				}
+			}
+		]
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
 }
-

@@ -1,29 +1,130 @@
 {
-    "$schema": "https://schemas.wp.org/trunk/block.json",
-    "apiVersion": 3,
-    "name": "twork/hc-area-section",
-    "version": "1.0.0",
-    "title": "Area Section",
-    "category": "twork-builder",
-    "icon": "location-alt",
-    "description": "Service Coverage Areas: dark section with title, subtitle and flex grid of area tags. Matches home-care.html.",
-    "keywords": ["home care", "coverage", "area", "townships", "twork"],
-    "attributes": {
-        "backgroundColor": { "type": "string", "default": "#212121" },
-        "paddingTop": { "type": "number", "default": 60 },
-        "paddingBottom": { "type": "number", "default": 60 },
-        "containerMaxWidth": { "type": "number", "default": 1200 },
-        "containerPadding": { "type": "number", "default": 20 },
-        "sectionTitle": { "type": "string", "default": "Service Coverage Areas" },
-        "sectionSubtitle": { "type": "string", "default": "We currently provide home care services in the following townships:" },
-        "titleColor": { "type": "string", "default": "#ffffff" },
-        "subtitleColor": { "type": "string", "default": "rgba(255,255,255,0.8)" },
-        "gap": { "type": "number", "default": 15 },
-        "animationOnScroll": { "type": "boolean", "default": true },
-        "animationType": { "type": "string", "default": "fade-up" }
-    },
-    "supports": { "html": false, "anchor": true, "align": ["wide", "full"] },
-    "textdomain": "twork-builder",
-    "editorScript": "file:./index.js",
-    "style": "file:./style-index.css"
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/hc-area-section",
+	"version": "1.0.0",
+	"title": "Area Section",
+	"category": "twork-builder",
+	"icon": "location-alt",
+	"description": "Service Coverage Areas: dark section with title, subtitle and flex grid of area tags. Matches home-care.html.",
+	"keywords": [ "home care", "coverage", "area", "townships", "twork" ],
+	"attributes": {
+		"backgroundColor": {
+			"type": "string",
+			"default": "#212121"
+		},
+		"paddingTop": {
+			"type": "number",
+			"default": 60
+		},
+		"paddingBottom": {
+			"type": "number",
+			"default": 60
+		},
+		"containerMaxWidth": {
+			"type": "number",
+			"default": 1200
+		},
+		"containerPadding": {
+			"type": "number",
+			"default": 20
+		},
+		"sectionTitle": {
+			"type": "string",
+			"default": "Service Coverage Areas"
+		},
+		"sectionSubtitle": {
+			"type": "string",
+			"default": "We currently provide home care services in the following townships:"
+		},
+		"titleColor": {
+			"type": "string",
+			"default": "#ffffff"
+		},
+		"subtitleColor": {
+			"type": "string",
+			"default": "rgba(255,255,255,0.8)"
+		},
+		"gap": {
+			"type": "number",
+			"default": 15
+		},
+		"animationOnScroll": {
+			"type": "boolean",
+			"default": true
+		},
+		"animationType": {
+			"type": "string",
+			"default": "fade-up"
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"align": [ "wide", "full" ]
+	},
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": {
+			"backgroundColor": "#212121",
+			"paddingTop": 60,
+			"paddingBottom": 60,
+			"containerMaxWidth": 1200,
+			"containerPadding": 20,
+			"sectionTitle": "Service Coverage Areas",
+			"sectionSubtitle": "We currently provide home care services in the following townships:",
+			"titleColor": "#ffffff",
+			"subtitleColor": "rgba(255,255,255,0.8)",
+			"gap": 15,
+			"animationOnScroll": true,
+			"animationType": "fade-up"
+		},
+		"innerBlocks": [
+			{
+				"name": "twork/hc-area-tag",
+				"attributes": {
+					"label": "Chanayethazan"
+				}
+			},
+			{
+				"name": "twork/hc-area-tag",
+				"attributes": {
+					"label": "Chanmyathazi"
+				}
+			},
+			{
+				"name": "twork/hc-area-tag",
+				"attributes": {
+					"label": "Maha Aungmye"
+				}
+			},
+			{
+				"name": "twork/hc-area-tag",
+				"attributes": {
+					"label": "Aungmyethazan"
+				}
+			},
+			{
+				"name": "twork/hc-area-tag",
+				"attributes": {
+					"label": "Pyigyidagun"
+				}
+			},
+			{
+				"name": "twork/hc-area-tag",
+				"attributes": {
+					"label": "Amarapura"
+				}
+			},
+			{
+				"name": "twork/hc-area-tag",
+				"attributes": {
+					"label": "Patheingyi"
+				}
+			}
+		]
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
 }

@@ -1,157 +1,233 @@
 {
-    "$schema": "https://schemas.wp.org/trunk/block.json",
-    "apiVersion": 3,
-    "name": "twork/accreditation-section",
-    "version": "1.0.0",
-    "title": "Accreditation Section",
-    "category": "twork-builder",
-    "icon": "awards",
-    "description": "Professional accreditations and certifications grid with intro text, cert cards, and scroll animations.",
-    "keywords": ["accreditation", "certification", "awards", "quality", "ISO", "JCI", "hospital", "twork"],
-    "attributes": {
-        "backgroundColor": {
-            "type": "string",
-            "default": "#ffffff"
-        },
-        "backgroundImage": {
-            "type": "string",
-            "default": ""
-        },
-        "backgroundImageId": {
-            "type": "number"
-        },
-        "backgroundOverlay": {
-            "type": "boolean",
-            "default": false
-        },
-        "backgroundOverlayColor": {
-            "type": "string",
-            "default": "rgba(0, 0, 0, 0.5)"
-        },
-        "backgroundOverlayOpacity": {
-            "type": "number",
-            "default": 0.5
-        },
-        "paddingTop": {
-            "type": "number",
-            "default": 80
-        },
-        "paddingBottom": {
-            "type": "number",
-            "default": 80
-        },
-        "columns": {
-            "type": "number",
-            "default": 3
-        },
-        "columnsTablet": {
-            "type": "number",
-            "default": 2
-        },
-        "columnsMobile": {
-            "type": "number",
-            "default": 1
-        },
-        "gap": {
-            "type": "number",
-            "default": 30
-        },
-        "gridMarginTop": {
-            "type": "number",
-            "default": 60
-        },
-        "showIntroTitle": {
-            "type": "boolean",
-            "default": true
-        },
-        "introTitle": {
-            "type": "string",
-            "default": "Our Commitment to Quality"
-        },
-        "introTitleColor": {
-            "type": "string",
-            "default": "#212121"
-        },
-        "introTitleFontSize": {
-            "type": "number",
-            "default": 2.2
-        },
-        "introTitleFontWeight": {
-            "type": "number",
-            "default": 700
-        },
-        "introTitleAlignment": {
-            "type": "string",
-            "default": "center"
-        },
-        "showIntroContent": {
-            "type": "boolean",
-            "default": true
-        },
-        "introContent": {
-            "type": "string",
-            "default": "At Jivaka Hospital, we believe that quality healthcare is a fundamental right. Our relentless pursuit of excellence has been recognized by national and international bodies, ensuring that our patients receive world-class care in a safe environment."
-        },
-        "introContentColor": {
-            "type": "string",
-            "default": "#666666"
-        },
-        "introContentFontSize": {
-            "type": "number",
-            "default": 1.1
-        },
-        "introContentAlignment": {
-            "type": "string",
-            "default": "center"
-        },
-        "introMaxWidth": {
-            "type": "number",
-            "default": 800
-        },
-        "introMarginBottom": {
-            "type": "number",
-            "default": 60
-        },
-        "containerMaxWidth": {
-            "type": "number",
-            "default": 1200
-        },
-        "containerPadding": {
-            "type": "number",
-            "default": 30
-        },
-        "hoverEffect": {
-            "type": "boolean",
-            "default": true
-        },
-        "hoverTranslateY": {
-            "type": "number",
-            "default": -10
-        },
-        "hoverShadowIntensity": {
-            "type": "number",
-            "default": 1
-        },
-        "animationOnScroll": {
-            "type": "boolean",
-            "default": true
-        },
-        "animationType": {
-            "type": "string",
-            "default": "fadeInUp"
-        },
-        "animationDelay": {
-            "type": "number",
-            "default": 150
-        }
-    },
-    "supports": {
-        "html": false,
-        "anchor": true,
-        "align": ["wide", "full"]
-    },
-    "textdomain": "twork-builder",
-    "editorScript": "file:./index.js",
-    "viewScript": "file:./view.js",
-    "style": "file:./style-index.css"
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/accreditation-section",
+	"version": "1.0.0",
+	"title": "Accreditation Section",
+	"category": "twork-builder",
+	"icon": "awards",
+	"description": "Professional accreditations and certifications grid with intro text, cert cards, and scroll animations.",
+	"keywords": [
+		"accreditation",
+		"certification",
+		"awards",
+		"quality",
+		"ISO",
+		"JCI",
+		"hospital",
+		"twork"
+	],
+	"attributes": {
+		"backgroundColor": {
+			"type": "string",
+			"default": "#ffffff"
+		},
+		"backgroundImage": {
+			"type": "string",
+			"default": ""
+		},
+		"backgroundImageId": {
+			"type": "number"
+		},
+		"backgroundOverlay": {
+			"type": "boolean",
+			"default": false
+		},
+		"backgroundOverlayColor": {
+			"type": "string",
+			"default": "rgba(0, 0, 0, 0.5)"
+		},
+		"backgroundOverlayOpacity": {
+			"type": "number",
+			"default": 0.5
+		},
+		"paddingTop": {
+			"type": "number",
+			"default": 80
+		},
+		"paddingBottom": {
+			"type": "number",
+			"default": 80
+		},
+		"columns": {
+			"type": "number",
+			"default": 3
+		},
+		"columnsTablet": {
+			"type": "number",
+			"default": 2
+		},
+		"columnsMobile": {
+			"type": "number",
+			"default": 1
+		},
+		"gap": {
+			"type": "number",
+			"default": 30
+		},
+		"gridMarginTop": {
+			"type": "number",
+			"default": 60
+		},
+		"showIntroTitle": {
+			"type": "boolean",
+			"default": true
+		},
+		"introTitle": {
+			"type": "string",
+			"default": "Our Commitment to Quality"
+		},
+		"introTitleColor": {
+			"type": "string",
+			"default": "#212121"
+		},
+		"introTitleFontSize": {
+			"type": "number",
+			"default": 2.2
+		},
+		"introTitleFontWeight": {
+			"type": "number",
+			"default": 700
+		},
+		"introTitleAlignment": {
+			"type": "string",
+			"default": "center"
+		},
+		"showIntroContent": {
+			"type": "boolean",
+			"default": true
+		},
+		"introContent": {
+			"type": "string",
+			"default": "At Jivaka Hospital, we believe that quality healthcare is a fundamental right. Our relentless pursuit of excellence has been recognized by national and international bodies, ensuring that our patients receive world-class care in a safe environment."
+		},
+		"introContentColor": {
+			"type": "string",
+			"default": "#666666"
+		},
+		"introContentFontSize": {
+			"type": "number",
+			"default": 1.1
+		},
+		"introContentAlignment": {
+			"type": "string",
+			"default": "center"
+		},
+		"introMaxWidth": {
+			"type": "number",
+			"default": 800
+		},
+		"introMarginBottom": {
+			"type": "number",
+			"default": 60
+		},
+		"containerMaxWidth": {
+			"type": "number",
+			"default": 1200
+		},
+		"containerPadding": {
+			"type": "number",
+			"default": 30
+		},
+		"hoverEffect": {
+			"type": "boolean",
+			"default": true
+		},
+		"hoverTranslateY": {
+			"type": "number",
+			"default": -10
+		},
+		"hoverShadowIntensity": {
+			"type": "number",
+			"default": 1
+		},
+		"animationOnScroll": {
+			"type": "boolean",
+			"default": true
+		},
+		"animationType": {
+			"type": "string",
+			"default": "fadeInUp"
+		},
+		"animationDelay": {
+			"type": "number",
+			"default": 150
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"align": [ "wide", "full" ]
+	},
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": {
+			"backgroundColor": "#ffffff",
+			"backgroundImage": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?auto=format&fit=crop&w=1200&q=80",
+			"backgroundOverlay": false,
+			"backgroundOverlayColor": "rgba(0, 0, 0, 0.5)",
+			"backgroundOverlayOpacity": 0.5,
+			"paddingTop": 80,
+			"paddingBottom": 80,
+			"columns": 3,
+			"columnsTablet": 2,
+			"columnsMobile": 1,
+			"gap": 30,
+			"gridMarginTop": 60,
+			"showIntroTitle": true,
+			"introTitle": "Our Commitment to Quality",
+			"introTitleColor": "#212121",
+			"introTitleFontSize": 2.2,
+			"introTitleFontWeight": 700,
+			"introTitleAlignment": "center",
+			"showIntroContent": true,
+			"introContent": "At Jivaka Hospital, we believe that quality healthcare is a fundamental right. Our relentless pursuit of excellence has been recognized by national and international bodies, ensuring that our patients receive world-class care in a safe environment.",
+			"introContentColor": "#666666",
+			"introContentFontSize": 1.1,
+			"introContentAlignment": "center",
+			"introMaxWidth": 800,
+			"introMarginBottom": 60,
+			"containerMaxWidth": 1200,
+			"containerPadding": 30,
+			"hoverEffect": true,
+			"hoverTranslateY": -10,
+			"hoverShadowIntensity": 1,
+			"animationOnScroll": true,
+			"animationType": "fadeInUp",
+			"animationDelay": 150
+		},
+		"innerBlocks": [
+			{
+				"name": "twork/accreditation-cert-card",
+				"attributes": {
+					"iconClass": "fas fa-certificate",
+					"certTitle": "ISO 9001:2015",
+					"certBadge": "Certified Since 2018",
+					"certDescription": "Recognized for our Quality Management System ensuring consistent and excellent healthcare services."
+				}
+			},
+			{
+				"name": "twork/accreditation-cert-card",
+				"attributes": {
+					"iconClass": "fas fa-globe",
+					"certTitle": "JCI Accreditation",
+					"certBadge": "Gold Seal of Approval",
+					"certDescription": "The highest international standard for healthcare safety and quality protocols."
+				}
+			},
+			{
+				"name": "twork/accreditation-cert-card",
+				"attributes": {
+					"iconClass": "fas fa-shield-alt",
+					"certTitle": "Safety Excellence",
+					"certBadge": "National Safety Council",
+					"certDescription": "Awarded for maintaining zero-accident records and advanced fire safety protocols."
+				}
+			}
+		]
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"viewScript": "file:./view.js",
+	"style": "file:./style-index.css"
 }

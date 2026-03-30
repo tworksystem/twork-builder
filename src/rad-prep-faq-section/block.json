@@ -1,106 +1,149 @@
 {
-  "$schema": "https://schemas.wp.org/trunk/block.json",
-  "apiVersion": 3,
-  "name": "twork/rad-prep-faq-section",
-  "version": "1.0.0",
-  "title": "Preparation FAQ Section",
-  "category": "twork-builder",
-  "icon": "editor-help",
-  "description": "Radiology patient preparation guide with image and FAQ accordion.",
-  "keywords": [
-    "radiology",
-    "preparation",
-    "faq",
-    "guide",
-    "twork"
-  ],
-  "attributes": {
-    "backgroundColor": {
-      "type": "string",
-      "default": "#fafafa"
-    },
-    "paddingTop": {
-      "type": "number",
-      "default": 80
-    },
-    "paddingBottom": {
-      "type": "number",
-      "default": 80
-    },
-    "containerMaxWidth": {
-      "type": "number",
-      "default": 1200
-    },
-    "containerPadding": {
-      "type": "number",
-      "default": 20
-    },
-    "showSectionTitle": {
-      "type": "boolean",
-      "default": true
-    },
-    "sectionTitle": {
-      "type": "string",
-      "default": "Patient Preparation Guide"
-    },
-    "sectionTitleColor": {
-      "type": "string",
-      "default": "#212121"
-    },
-    "sectionTitleFontSize": {
-      "type": "number",
-      "default": 2.2
-    },
-    "showSectionSubtitle": {
-      "type": "boolean",
-      "default": true
-    },
-    "sectionSubtitle": {
-      "type": "string",
-      "default": "Proper preparation ensures the best image quality. Here are some common guidelines."
-    },
-    "sectionSubtitleColor": {
-      "type": "string",
-      "default": "#666666"
-    },
-    "sectionSubtitleFontSize": {
-      "type": "number",
-      "default": 1
-    },
-    "imageUrl": {
-      "type": "string",
-      "default": "https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=600&q=80"
-    },
-    "imageId": {
-      "type": "number"
-    },
-    "imageAlt": {
-      "type": "string",
-      "default": "Preparation"
-    },
-    "animationOnScroll": {
-      "type": "boolean",
-      "default": true
-    },
-    "animationType": {
-      "type": "string",
-      "default": "fade-up"
-    },
-    "animationDelay": {
-      "type": "number",
-      "default": 0
-    }
-  },
-  "supports": {
-    "html": false,
-    "anchor": true,
-    "align": [
-      "wide",
-      "full"
-    ]
-  },
-  "textdomain": "twork-builder",
-  "editorScript": "file:./index.js",
-  "style": "file:./style-index.css"
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/rad-prep-faq-section",
+	"version": "1.0.0",
+	"title": "Preparation FAQ Section",
+	"category": "twork-builder",
+	"icon": "editor-help",
+	"description": "Radiology patient preparation guide with image and FAQ accordion.",
+	"keywords": [ "radiology", "preparation", "faq", "guide", "twork" ],
+	"attributes": {
+		"backgroundColor": {
+			"type": "string",
+			"default": "#fafafa"
+		},
+		"paddingTop": {
+			"type": "number",
+			"default": 80
+		},
+		"paddingBottom": {
+			"type": "number",
+			"default": 80
+		},
+		"containerMaxWidth": {
+			"type": "number",
+			"default": 1200
+		},
+		"containerPadding": {
+			"type": "number",
+			"default": 20
+		},
+		"showSectionTitle": {
+			"type": "boolean",
+			"default": true
+		},
+		"sectionTitle": {
+			"type": "string",
+			"default": "Patient Preparation Guide"
+		},
+		"sectionTitleColor": {
+			"type": "string",
+			"default": "#212121"
+		},
+		"sectionTitleFontSize": {
+			"type": "number",
+			"default": 2.2
+		},
+		"showSectionSubtitle": {
+			"type": "boolean",
+			"default": true
+		},
+		"sectionSubtitle": {
+			"type": "string",
+			"default": "Proper preparation ensures the best image quality. Here are some common guidelines."
+		},
+		"sectionSubtitleColor": {
+			"type": "string",
+			"default": "#666666"
+		},
+		"sectionSubtitleFontSize": {
+			"type": "number",
+			"default": 1
+		},
+		"imageUrl": {
+			"type": "string",
+			"default": "https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=600&q=80"
+		},
+		"imageId": {
+			"type": "number"
+		},
+		"imageAlt": {
+			"type": "string",
+			"default": "Preparation"
+		},
+		"animationOnScroll": {
+			"type": "boolean",
+			"default": true
+		},
+		"animationType": {
+			"type": "string",
+			"default": "fade-up"
+		},
+		"animationDelay": {
+			"type": "number",
+			"default": 0
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"align": [ "wide", "full" ]
+	},
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": {
+			"backgroundColor": "#fafafa",
+			"paddingTop": 80,
+			"paddingBottom": 80,
+			"containerMaxWidth": 1200,
+			"containerPadding": 20,
+			"showSectionTitle": true,
+			"sectionTitle": "Patient Preparation Guide",
+			"sectionTitleColor": "#212121",
+			"sectionTitleFontSize": 2.2,
+			"showSectionSubtitle": true,
+			"sectionSubtitle": "Proper preparation ensures the best image quality. Here are some common guidelines.",
+			"sectionSubtitleColor": "#666666",
+			"sectionSubtitleFontSize": 1,
+			"imageUrl": "https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=600&q=80",
+			"imageAlt": "Preparation",
+			"animationOnScroll": true,
+			"animationType": "fade-up",
+			"animationDelay": 0
+		},
+		"innerBlocks": [
+			{
+				"name": "twork/rad-faq-item",
+				"attributes": {
+					"question": "Do I need to fast before a CT Scan?",
+					"answer": "Yes, usually 4-6 hours of fasting is required for abdominal CT scans, especially if contrast dye is used."
+				}
+			},
+			{
+				"name": "twork/rad-faq-item",
+				"attributes": {
+					"question": "Is MRI safe for everyone?",
+					"answer": "MRI uses magnets, not radiation. However, it is NOT safe if you have metal implants, pacemakers, or older surgical clips."
+				}
+			},
+			{
+				"name": "twork/rad-faq-item",
+				"attributes": {
+					"question": "How long does a report take?",
+					"answer": "Emergency X-rays are reported instantly. CT/MRI reports are typically ready within 2-4 hours."
+				}
+			},
+			{
+				"name": "twork/rad-faq-item",
+				"attributes": {
+					"question": "What should I wear?",
+					"answer": "Wear loose, comfortable clothing without zippers or metal buttons. We will provide a hospital gown if needed."
+				}
+			}
+		]
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
 }
-

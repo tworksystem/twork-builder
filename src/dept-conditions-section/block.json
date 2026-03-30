@@ -1,13 +1,70 @@
 {
-    "$schema": "https://schemas.wp.org/trunk/block.json",
-    "apiVersion": 3,
-    "name": "twork/dept-conditions-section",
-    "title": "Conditions Section",
-    "category": "twork-builder",
-    "parent": ["twork/dept-layout-section"],
-    "attributes": {
-        "sectionId": { "type": "string", "default": "conditions" },
-        "title": { "type": "string", "default": "Conditions We Treat" }
-    },
-    "editorScript": "file:./index.js"
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/dept-conditions-section",
+	"title": "Conditions Section",
+	"category": "twork-builder",
+	"parent": [ "twork/dept-layout-section" ],
+	"attributes": {
+		"sectionId": {
+			"type": "string",
+			"default": "conditions"
+		},
+		"title": {
+			"type": "string",
+			"default": "Conditions We Treat"
+		}
+	},
+	"editorScript": "file:./index.js",
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": {
+			"sectionId": "conditions",
+			"title": "Conditions We Treat"
+		},
+		"innerBlocks": [
+			{
+				"name": "twork/dept-condition-item",
+				"attributes": {
+					"icon": "fa-heart-broken",
+					"title": "Coronary Artery Disease"
+				}
+			},
+			{
+				"name": "twork/dept-condition-item",
+				"attributes": {
+					"icon": "fa-bolt",
+					"title": "Arrhythmia"
+				}
+			},
+			{
+				"name": "twork/dept-condition-item",
+				"attributes": {
+					"icon": "fa-heartbeat",
+					"title": "Heart Failure"
+				}
+			},
+			{
+				"name": "twork/dept-condition-item",
+				"attributes": {
+					"icon": "fa-child",
+					"title": "Congenital Defects"
+				}
+			},
+			{
+				"name": "twork/dept-condition-item",
+				"attributes": {
+					"icon": "fa-procedures",
+					"title": "Valvular Disease"
+				}
+			},
+			{
+				"name": "twork/dept-condition-item",
+				"attributes": {
+					"icon": "fa-user-md",
+					"title": "Hypertension"
+				}
+			}
+		]
+	}
 }

@@ -1,44 +1,159 @@
 {
-  "$schema": "https://schemas.wp.org/trunk/block.json",
-  "apiVersion": 3,
-  "name": "twork/health-check-hero",
-  "version": "1.0.0",
-  "title": "Hero",
-  "category": "twork-builder",
-  "icon": "cover-image",
-  "description": "Two-column hero for Health Check-up page: badge, headline with gradient text, description, CTA, image and floating badge.",
-  "keywords": ["health", "checkup", "hero", "chk", "twork"],
-  "attributes": {
-    "badgeText": { "type": "string", "default": "PREVENTIVE CARE" },
-    "badgeColor": { "type": "string", "default": "#f48b2a" },
-    "title": { "type": "string", "default": "Prioritize Your<br>Health Today." },
-    "titleGradientStart": { "type": "string", "default": "#005f73" },
-    "titleGradientEnd": { "type": "string", "default": "#f48b2a" },
-    "description": { "type": "string", "default": "Early detection saves lives. Choose from our comprehensive wellness packages tailored for every age and lifestyle." },
-    "descriptionColor": { "type": "string", "default": "#666666" },
-    "buttonText": { "type": "string", "default": "Choose a Package" },
-    "buttonUrl": { "type": "string", "default": "#packages" },
-    "buttonOpenInNewTab": { "type": "boolean", "default": false },
-    "imageUrl": { "type": "string", "default": "" },
-    "imageId": { "type": "number" },
-    "imageAlt": { "type": "string", "default": "Checkup" },
-    "badgeIcon": { "type": "string", "default": "fas fa-heartbeat" },
-    "badgeValue": { "type": "string", "default": "100%" },
-    "badgeLabel": { "type": "string", "default": "Comprehensive" },
-    "badgeLabelColor": { "type": "string", "default": "#666666" },
-    "badgeValueColor": { "type": "string", "default": "#005f73" },
-    "primaryColor": { "type": "string", "default": "#f48b2a" },
-    "secondaryColor": { "type": "string", "default": "#005f73" },
-    "showOverlayShape": { "type": "boolean", "default": true },
-    "overlayGradientStart": { "type": "string", "default": "#005f73" },
-    "overlayGradientEnd": { "type": "string", "default": "#0a9396" },
-    "containerMaxWidth": { "type": "number", "default": 1200 },
-    "containerPadding": { "type": "number", "default": 20 },
-    "minHeight": { "type": "number", "default": 750 },
-    "animationOnScroll": { "type": "boolean", "default": true }
-  },
-  "supports": { "html": false, "anchor": true, "align": ["wide", "full"] },
-  "textdomain": "twork-builder",
-  "editorScript": "file:./index.js",
-  "style": "file:./style-index.css"
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/health-check-hero",
+	"version": "1.0.0",
+	"title": "Hero",
+	"category": "twork-builder",
+	"icon": "cover-image",
+	"description": "Two-column hero for Health Check-up page: badge, headline with gradient text, description, CTA, image and floating badge.",
+	"keywords": [ "health", "checkup", "hero", "chk", "twork" ],
+	"attributes": {
+		"badgeText": {
+			"type": "string",
+			"default": "PREVENTIVE CARE"
+		},
+		"badgeColor": {
+			"type": "string",
+			"default": "#f48b2a"
+		},
+		"title": {
+			"type": "string",
+			"default": "Prioritize Your<br>Health Today."
+		},
+		"titleGradientStart": {
+			"type": "string",
+			"default": "#005f73"
+		},
+		"titleGradientEnd": {
+			"type": "string",
+			"default": "#f48b2a"
+		},
+		"description": {
+			"type": "string",
+			"default": "Early detection saves lives. Choose from our comprehensive wellness packages tailored for every age and lifestyle."
+		},
+		"descriptionColor": {
+			"type": "string",
+			"default": "#666666"
+		},
+		"buttonText": {
+			"type": "string",
+			"default": "Choose a Package"
+		},
+		"buttonUrl": {
+			"type": "string",
+			"default": "#packages"
+		},
+		"buttonOpenInNewTab": {
+			"type": "boolean",
+			"default": false
+		},
+		"imageUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"imageId": {
+			"type": "number"
+		},
+		"imageAlt": {
+			"type": "string",
+			"default": "Checkup"
+		},
+		"badgeIcon": {
+			"type": "string",
+			"default": "fas fa-heartbeat"
+		},
+		"badgeValue": {
+			"type": "string",
+			"default": "100%"
+		},
+		"badgeLabel": {
+			"type": "string",
+			"default": "Comprehensive"
+		},
+		"badgeLabelColor": {
+			"type": "string",
+			"default": "#666666"
+		},
+		"badgeValueColor": {
+			"type": "string",
+			"default": "#005f73"
+		},
+		"primaryColor": {
+			"type": "string",
+			"default": "#f48b2a"
+		},
+		"secondaryColor": {
+			"type": "string",
+			"default": "#005f73"
+		},
+		"showOverlayShape": {
+			"type": "boolean",
+			"default": true
+		},
+		"overlayGradientStart": {
+			"type": "string",
+			"default": "#005f73"
+		},
+		"overlayGradientEnd": {
+			"type": "string",
+			"default": "#0a9396"
+		},
+		"containerMaxWidth": {
+			"type": "number",
+			"default": 1200
+		},
+		"containerPadding": {
+			"type": "number",
+			"default": 20
+		},
+		"minHeight": {
+			"type": "number",
+			"default": 750
+		},
+		"animationOnScroll": {
+			"type": "boolean",
+			"default": true
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"align": [ "wide", "full" ]
+	},
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": {
+			"badgeText": "PREVENTIVE CARE",
+			"badgeColor": "#f48b2a",
+			"title": "Prioritize Your<br>Health Today.",
+			"titleGradientStart": "#005f73",
+			"titleGradientEnd": "#f48b2a",
+			"description": "Early detection saves lives. Choose from our comprehensive wellness packages tailored for every age and lifestyle.",
+			"descriptionColor": "#666666",
+			"buttonText": "Choose a Package",
+			"buttonUrl": "#packages",
+			"buttonOpenInNewTab": false,
+			"imageUrl": "",
+			"imageAlt": "Checkup",
+			"badgeIcon": "fas fa-heartbeat",
+			"badgeValue": "100%",
+			"badgeLabel": "Comprehensive",
+			"badgeLabelColor": "#666666",
+			"badgeValueColor": "#005f73",
+			"primaryColor": "#f48b2a",
+			"secondaryColor": "#005f73",
+			"showOverlayShape": true,
+			"overlayGradientStart": "#005f73",
+			"overlayGradientEnd": "#0a9396",
+			"containerMaxWidth": 1200,
+			"containerPadding": 20,
+			"minHeight": 750,
+			"animationOnScroll": true
+		}
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
 }

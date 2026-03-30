@@ -1,26 +1,64 @@
 {
-  "$schema": "https://schemas.wp.org/trunk/block.json",
-  "apiVersion": 3,
-  "name": "twork/health-check-package-card",
-  "version": "1.0.0",
-  "title": "Package Card",
-  "category": "twork-builder",
-  "icon": "list-view",
-  "description": "Single package card (title, price, list, CTA) for Health Check Packages section. Use category to assign to a tab.",
-  "keywords": ["health", "checkup", "package", "card", "chk", "twork"],
-  "parent": ["twork/health-check-packages-section"],
-  "attributes": {
-    "category": { "type": "string", "default": "basic" },
-    "title": { "type": "string", "default": "Package Name" },
-    "price": { "type": "string", "default": "45,000" },
-    "currency": { "type": "string", "default": "MMK" },
-    "listItems": { "type": "array", "default": [] },
-    "buttonText": { "type": "string", "default": "Book Now" },
-    "buttonUrl": { "type": "string", "default": "#" },
-    "isPopular": { "type": "boolean", "default": false }
-  },
-  "supports": { "html": false },
-  "textdomain": "twork-builder",
-  "editorScript": "file:./index.js",
-  "style": "file:./style-index.css"
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/health-check-package-card",
+	"version": "1.0.0",
+	"title": "Package Card",
+	"category": "twork-builder",
+	"icon": "list-view",
+	"description": "Single package card (title, price, list, CTA) for Health Check Packages section. Use category to assign to a tab.",
+	"keywords": [ "health", "checkup", "package", "card", "chk", "twork" ],
+	"parent": [ "twork/health-check-packages-section" ],
+	"attributes": {
+		"category": {
+			"type": "string",
+			"default": "basic"
+		},
+		"title": {
+			"type": "string",
+			"default": "Package Name"
+		},
+		"price": {
+			"type": "string",
+			"default": "45,000"
+		},
+		"currency": {
+			"type": "string",
+			"default": "MMK"
+		},
+		"listItems": {
+			"type": "array",
+			"default": []
+		},
+		"buttonText": {
+			"type": "string",
+			"default": "Book Now"
+		},
+		"buttonUrl": {
+			"type": "string",
+			"default": "#"
+		},
+		"isPopular": {
+			"type": "boolean",
+			"default": false
+		}
+	},
+	"supports": {
+		"html": false
+	},
+	"example": {
+		"attributes": {
+			"category": "basic",
+			"title": "Package Name",
+			"price": "45,000",
+			"currency": "MMK",
+			"listItems": [],
+			"buttonText": "Book Now",
+			"buttonUrl": "#",
+			"isPopular": false
+		}
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
 }

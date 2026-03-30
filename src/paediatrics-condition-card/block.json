@@ -1,21 +1,39 @@
 {
-  "$schema": "https://schemas.wp.org/trunk/block.json",
-  "apiVersion": 3,
-  "name": "twork/paediatrics-condition-card",
-  "version": "1.0.0",
-  "title": "Condition Card",
-  "category": "twork-builder",
-  "parent": ["twork/paediatrics-conditions-section"],
-  "icon": "heart",
-  "description": "Single condition card (icon, title, subtitle) for Paediatrics Conditions section.",
-  "keywords": ["paediatrics", "condition", "card", "twork"],
-  "attributes": {
-    "iconClass": { "type": "string", "default": "fas fa-lungs" },
-    "title": { "type": "string", "default": "Respiratory Issues" },
-    "subtitle": { "type": "string", "default": "Asthma, Pneumonia" }
-  },
-  "supports": { "html": false },
-  "textdomain": "twork-builder",
-  "editorScript": "file:./index.js",
-  "style": "file:./style-index.css"
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/paediatrics-condition-card",
+	"version": "1.0.0",
+	"title": "Condition Card",
+	"category": "twork-builder",
+	"parent": [ "twork/paediatrics-conditions-section" ],
+	"icon": "heart",
+	"description": "Single condition card (icon, title, subtitle) for Paediatrics Conditions section.",
+	"keywords": [ "paediatrics", "condition", "card", "twork" ],
+	"attributes": {
+		"iconClass": {
+			"type": "string",
+			"default": "fas fa-lungs"
+		},
+		"title": {
+			"type": "string",
+			"default": "Respiratory Issues"
+		},
+		"subtitle": {
+			"type": "string",
+			"default": "Asthma, Pneumonia"
+		}
+	},
+	"supports": {
+		"html": false
+	},
+	"example": {
+		"attributes": {
+			"iconClass": "fas fa-lungs",
+			"title": "Respiratory Issues",
+			"subtitle": "Asthma, Pneumonia"
+		}
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
 }

@@ -1,17 +1,52 @@
 {
-  "$schema": "https://schemas.wp.org/trunk/block.json",
-  "apiVersion": 3,
-  "name": "twork/centre-technology-section",
-  "version": "1.0.0",
-  "title": "Technology & Facilities Section",
-  "category": "twork-builder",
-  "parent": ["twork/centre-layout-section"],
-  "description": "Technology & Facilities grid with intro text and media cards. Toggle section visibility.",
-  "attributes": {
-    "sectionId": { "type": "string", "default": "technology" },
-    "title": { "type": "string", "default": "Technology & Facilities" },
-    "introText": { "type": "string", "default": "We utilize the latest medical technology to ensure accurate diagnosis and effective treatment." },
-    "showSection": { "type": "boolean", "default": true }
-  },
-  "editorScript": "file:./index.js"
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/centre-technology-section",
+	"version": "1.0.0",
+	"title": "Technology & Facilities Section",
+	"category": "twork-builder",
+	"parent": [ "twork/centre-layout-section" ],
+	"description": "Technology & Facilities grid with intro text and media cards. Toggle section visibility.",
+	"attributes": {
+		"sectionId": {
+			"type": "string",
+			"default": "technology"
+		},
+		"title": {
+			"type": "string",
+			"default": "Technology & Facilities"
+		},
+		"introText": {
+			"type": "string",
+			"default": "We utilize the latest medical technology to ensure accurate diagnosis and effective treatment."
+		},
+		"showSection": {
+			"type": "boolean",
+			"default": true
+		}
+	},
+	"editorScript": "file:./index.js",
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": {
+			"sectionId": "technology",
+			"title": "Technology & Facilities",
+			"introText": "We utilize the latest medical technology to ensure accurate diagnosis and effective treatment.",
+			"showSection": true
+		},
+		"innerBlocks": [
+			{
+				"name": "twork/centre-technology-item",
+				"attributes": {
+					"caption": "Philips Azurion Cath Lab"
+				}
+			},
+			{
+				"name": "twork/centre-technology-item",
+				"attributes": {
+					"caption": "Modular Cardiac OT"
+				}
+			}
+		]
+	}
 }

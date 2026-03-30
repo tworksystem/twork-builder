@@ -1,125 +1,206 @@
 {
-    "$schema": "https://schemas.wp.org/trunk/block.json",
-    "apiVersion": 3,
-    "name": "twork/benefits-section",
-    "version": "1.0.0",
-    "title": "Benefits Section",
-    "category": "twork-builder",
-    "icon": "awards",
-    "description": "Why Choose section with benefit cards (icon, title, description) for career/benefits.",
-    "keywords": ["benefits", "career", "why choose", "icon", "card", "twork"],
-    "attributes": {
-        "backgroundColor": {
-            "type": "string",
-            "default": "#f8f9fa"
-        },
-        "paddingTop": {
-            "type": "number",
-            "default": 80
-        },
-        "paddingBottom": {
-            "type": "number",
-            "default": 80
-        },
-        "paddingTopMobile": {
-            "type": "number",
-            "default": 60
-        },
-        "paddingBottomMobile": {
-            "type": "number",
-            "default": 60
-        },
-        "minColumnWidth": {
-            "type": "number",
-            "default": 280
-        },
-        "gap": {
-            "type": "number",
-            "default": 30
-        },
-        "gapMobile": {
-            "type": "number",
-            "default": 24
-        },
-        "showSectionHeader": {
-            "type": "boolean",
-            "default": true
-        },
-        "sectionTitle": {
-            "type": "string",
-            "default": "Why Choose Jivaka?"
-        },
-        "sectionTitleColor": {
-            "type": "string",
-            "default": "#212121"
-        },
-        "sectionTitleFontSize": {
-            "type": "number",
-            "default": 2.2
-        },
-        "sectionTitleFontSizeMobile": {
-            "type": "number",
-            "default": 1.8
-        },
-        "sectionSubtitle": {
-            "type": "string",
-            "default": "We provide an environment where you can grow professionally while making a real difference."
-        },
-        "sectionSubtitleColor": {
-            "type": "string",
-            "default": "#666666"
-        },
-        "sectionSubtitleFontSize": {
-            "type": "number",
-            "default": 1
-        },
-        "sectionSubtitleMaxWidth": {
-            "type": "number",
-            "default": 600
-        },
-        "showHeaderLine": {
-            "type": "boolean",
-            "default": true
-        },
-        "headerLineColor": {
-            "type": "string",
-            "default": "#f48b2a"
-        },
-        "headerMarginBottom": {
-            "type": "number",
-            "default": 50
-        },
-        "containerMaxWidth": {
-            "type": "number",
-            "default": 1200
-        },
-        "containerPadding": {
-            "type": "number",
-            "default": 20
-        },
-        "containerPaddingMobile": {
-            "type": "number",
-            "default": 20
-        },
-        "animationOnScroll": {
-            "type": "boolean",
-            "default": true
-        },
-        "animationDelay": {
-            "type": "number",
-            "default": 100
-        },
-        "animationType": {
-            "type": "string",
-            "default": "fadeInUp"
-        }
-    },
-    "supports": {
-        "html": false,
-        "anchor": true,
-        "align": ["wide", "full"]
-    },
-    "textdomain": "twork-builder",
-    "editorScript": "file:./index.js",
-    "style": "file:./style-index.css"
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/benefits-section",
+	"version": "1.0.0",
+	"title": "Benefits Section",
+	"category": "twork-builder",
+	"icon": "awards",
+	"description": "Why Choose section with benefit cards (icon, title, description) for career/benefits.",
+	"keywords": [ "benefits", "career", "why choose", "icon", "card", "twork" ],
+	"attributes": {
+		"backgroundColor": {
+			"type": "string",
+			"default": "#f8f9fa"
+		},
+		"paddingTop": {
+			"type": "number",
+			"default": 80
+		},
+		"paddingBottom": {
+			"type": "number",
+			"default": 80
+		},
+		"paddingTopMobile": {
+			"type": "number",
+			"default": 60
+		},
+		"paddingBottomMobile": {
+			"type": "number",
+			"default": 60
+		},
+		"minColumnWidth": {
+			"type": "number",
+			"default": 280
+		},
+		"gap": {
+			"type": "number",
+			"default": 30
+		},
+		"gapMobile": {
+			"type": "number",
+			"default": 24
+		},
+		"showSectionHeader": {
+			"type": "boolean",
+			"default": true
+		},
+		"sectionTitle": {
+			"type": "string",
+			"default": "Why Choose Jivaka?"
+		},
+		"sectionTitleColor": {
+			"type": "string",
+			"default": "#212121"
+		},
+		"sectionTitleFontSize": {
+			"type": "number",
+			"default": 2.2
+		},
+		"sectionTitleFontSizeMobile": {
+			"type": "number",
+			"default": 1.8
+		},
+		"sectionSubtitle": {
+			"type": "string",
+			"default": "We provide an environment where you can grow professionally while making a real difference."
+		},
+		"sectionSubtitleColor": {
+			"type": "string",
+			"default": "#666666"
+		},
+		"sectionSubtitleFontSize": {
+			"type": "number",
+			"default": 1
+		},
+		"sectionSubtitleMaxWidth": {
+			"type": "number",
+			"default": 600
+		},
+		"showHeaderLine": {
+			"type": "boolean",
+			"default": true
+		},
+		"headerLineColor": {
+			"type": "string",
+			"default": "#f48b2a"
+		},
+		"headerMarginBottom": {
+			"type": "number",
+			"default": 50
+		},
+		"containerMaxWidth": {
+			"type": "number",
+			"default": 1200
+		},
+		"containerPadding": {
+			"type": "number",
+			"default": 20
+		},
+		"containerPaddingMobile": {
+			"type": "number",
+			"default": 20
+		},
+		"animationOnScroll": {
+			"type": "boolean",
+			"default": true
+		},
+		"animationDelay": {
+			"type": "number",
+			"default": 100
+		},
+		"animationType": {
+			"type": "string",
+			"default": "fadeInUp"
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"align": [ "wide", "full" ]
+	},
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": {
+			"backgroundColor": "#f8f9fa",
+			"paddingTop": 80,
+			"paddingBottom": 80,
+			"paddingTopMobile": 60,
+			"paddingBottomMobile": 60,
+			"minColumnWidth": 280,
+			"gap": 30,
+			"gapMobile": 24,
+			"showSectionHeader": true,
+			"sectionTitle": "Why Choose Jivaka?",
+			"sectionTitleColor": "#212121",
+			"sectionTitleFontSize": 2.2,
+			"sectionTitleFontSizeMobile": 1.8,
+			"sectionSubtitle": "We provide an environment where you can grow professionally while making a real difference.",
+			"sectionSubtitleColor": "#666666",
+			"sectionSubtitleFontSize": 1,
+			"sectionSubtitleMaxWidth": 600,
+			"showHeaderLine": true,
+			"headerLineColor": "#f48b2a",
+			"headerMarginBottom": 50,
+			"containerMaxWidth": 1200,
+			"containerPadding": 20,
+			"containerPaddingMobile": 20,
+			"animationOnScroll": true,
+			"animationDelay": 100,
+			"animationType": "fadeInUp"
+		},
+		"innerBlocks": [
+			{
+				"name": "twork/benefit-item",
+				"attributes": {
+					"icon": "fas fa-user-md",
+					"title": "Professional Growth",
+					"description": "Continuous learning opportunities, workshops, and international training programs."
+				}
+			},
+			{
+				"name": "twork/benefit-item",
+				"attributes": {
+					"icon": "fas fa-heartbeat",
+					"title": "Work-Life Balance",
+					"description": "Flexible shift schedules and leave policies to help you maintain a healthy lifestyle."
+				}
+			},
+			{
+				"name": "twork/benefit-item",
+				"attributes": {
+					"icon": "fas fa-users",
+					"title": "Inclusive Culture",
+					"description": "A collaborative environment where every voice is heard and teamwork is celebrated."
+				}
+			},
+			{
+				"name": "twork/benefit-item",
+				"attributes": {
+					"icon": "fas fa-briefcase-medical",
+					"title": "Modern Facilities",
+					"description": "Work with state-of-the-art medical technology and advanced infrastructure."
+				}
+			},
+			{
+				"name": "twork/benefit-item",
+				"attributes": {
+					"icon": "fas fa-hand-holding-usd",
+					"title": "Competitive Benefits",
+					"description": "Attractive salary packages, health insurance, and performance-based bonuses."
+				}
+			},
+			{
+				"name": "twork/benefit-item",
+				"attributes": {
+					"icon": "fas fa-globe-asia",
+					"title": "Community Impact",
+					"description": "Participate in CSR initiatives and medical outreach programs across Myanmar."
+				}
+			}
+		]
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
 }

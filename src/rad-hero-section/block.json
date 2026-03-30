@@ -1,62 +1,64 @@
 {
-  "$schema": "https://schemas.wp.org/trunk/block.json",
-  "apiVersion": 3,
-  "name": "twork/rad-hero-section",
-  "version": "1.0.0",
-  "title": "Hero Section",
-  "category": "twork-builder",
-  "icon": "format-image",
-  "description": "Radiology & Imaging hero section with slanted background, background image, headline, description, and CTA button.",
-  "keywords": [
-    "radiology",
-    "imaging",
-    "hero",
-    "header",
-    "twork"
-  ],
-  "attributes": {
-    "backgroundImage": {
-      "type": "string",
-      "default": "https://images.unsplash.com/photo-1516549655169-df83a0774514?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
-    },
-    "backgroundImageId": {
-      "type": "number"
-    },
-    "badgeText": {
-      "type": "string",
-      "default": "Advanced Diagnostics"
-    },
-    "title": {
-      "type": "string",
-      "default": "Precision Imaging,\nAccurate Results."
-    },
-    "description": {
-      "type": "string",
-      "default": "State-of-the-art Radiology centre equipped with 1.5T MRI and 64-Slice CT Scanners for crystal clear diagnosis."
-    },
-    "buttonText": {
-      "type": "string",
-      "default": "Book an Appointment"
-    },
-    "buttonUrl": {
-      "type": "string",
-      "default": "#book"
-    },
-    "minHeight": {
-      "type": "number",
-      "default": 600
-    }
-  },
-  "supports": {
-    "html": false,
-    "anchor": true,
-    "align": [
-      "wide",
-      "full"
-    ]
-  },
-  "textdomain": "twork-builder",
-  "editorScript": "file:./index.js",
-  "style": "file:./style-index.css"
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/rad-hero-section",
+	"version": "1.0.0",
+	"title": "Hero Section",
+	"category": "twork-builder",
+	"icon": "format-image",
+	"description": "Radiology & Imaging hero section with slanted background, background image, headline, description, and CTA button.",
+	"keywords": [ "radiology", "imaging", "hero", "header", "twork" ],
+	"attributes": {
+		"backgroundImage": {
+			"type": "string",
+			"default": "https://images.unsplash.com/photo-1516549655169-df83a0774514?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
+		},
+		"backgroundImageId": {
+			"type": "number"
+		},
+		"badgeText": {
+			"type": "string",
+			"default": "Advanced Diagnostics"
+		},
+		"title": {
+			"type": "string",
+			"default": "Precision Imaging,\nAccurate Results."
+		},
+		"description": {
+			"type": "string",
+			"default": "State-of-the-art Radiology centre equipped with 1.5T MRI and 64-Slice CT Scanners for crystal clear diagnosis."
+		},
+		"buttonText": {
+			"type": "string",
+			"default": "Book an Appointment"
+		},
+		"buttonUrl": {
+			"type": "string",
+			"default": "#book"
+		},
+		"minHeight": {
+			"type": "number",
+			"default": 600
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"align": [ "wide", "full" ]
+	},
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": {
+			"backgroundImage": "https://images.unsplash.com/photo-1516549655169-df83a0774514?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80",
+			"badgeText": "Advanced Diagnostics",
+			"title": "Precision Imaging,\nAccurate Results.",
+			"description": "State-of-the-art Radiology centre equipped with 1.5T MRI and 64-Slice CT Scanners for crystal clear diagnosis.",
+			"buttonText": "Book an Appointment",
+			"buttonUrl": "#book",
+			"minHeight": 600
+		}
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
 }
-

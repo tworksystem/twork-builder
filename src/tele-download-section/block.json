@@ -1,109 +1,163 @@
 {
-    "$schema": "https://schemas.wp.org/trunk/block.json",
-    "apiVersion": 3,
-    "name": "twork/tele-download-section",
-    "version": "1.0.0",
-    "title": "Telemedicine Download Section",
-    "category": "twork-builder",
-    "icon": "download",
-    "description": "Download Jivaka Health App CTA section with title, description, and app store buttons.",
-    "keywords": ["telemedicine", "download", "app", "jivaka", "store", "twork"],
-    "attributes": {
-        "sectionPaddingTop": {
-            "type": "number",
-            "default": 100
-        },
-        "sectionPaddingBottom": {
-            "type": "number",
-            "default": 100
-        },
-        "containerMaxWidth": {
-            "type": "number",
-            "default": 1200
-        },
-        "containerPadding": {
-            "type": "number",
-            "default": 24
-        },
-        "title": {
-            "type": "string",
-            "default": "Download Jivaka Health App"
-        },
-        "description": {
-            "type": "string",
-            "default": "Manage appointments, view lab reports, and consult doctors on the go. Available for iOS and Android."
-        },
-        "ctaPaddingTop": {
-            "type": "number",
-            "default": 80
-        },
-        "ctaPaddingBottom": {
-            "type": "number",
-            "default": 80
-        },
-        "ctaPaddingHorizontal": {
-            "type": "number",
-            "default": 40
-        },
-        "ctaBorderRadius": {
-            "type": "number",
-            "default": 20
-        },
-        "gradientStart": {
-            "type": "string",
-            "default": "#f48b2a"
-        },
-        "gradientEnd": {
-            "type": "string",
-            "default": "#d35400"
-        },
-        "gradientAngle": {
-            "type": "number",
-            "default": 135
-        },
-        "titleColor": {
-            "type": "string",
-            "default": "#ffffff"
-        },
-        "titleFontSize": {
-            "type": "number",
-            "default": 2.5
-        },
-        "titleFontWeight": {
-            "type": "number",
-            "default": 700
-        },
-        "descriptionColor": {
-            "type": "string",
-            "default": "rgba(255, 255, 255, 0.9)"
-        },
-        "descriptionFontSize": {
-            "type": "number",
-            "default": 1.1
-        },
-        "descriptionMarginBottom": {
-            "type": "number",
-            "default": 40
-        },
-        "storeBtnsGap": {
-            "type": "number",
-            "default": 20
-        },
-        "useFadeUp": {
-            "type": "boolean",
-            "default": true
-        },
-        "sectionAnchor": {
-            "type": "string",
-            "default": "download"
-        }
-    },
-    "supports": {
-        "html": false,
-        "anchor": true,
-        "align": ["wide", "full"]
-    },
-    "textdomain": "twork-builder",
-    "editorScript": "file:./index.js",
-    "style": "file:./style-index.css"
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/tele-download-section",
+	"version": "1.0.0",
+	"title": "Telemedicine Download Section",
+	"category": "twork-builder",
+	"icon": "download",
+	"description": "Download Jivaka Health App CTA section with title, description, and app store buttons.",
+	"keywords": [
+		"telemedicine",
+		"download",
+		"app",
+		"jivaka",
+		"store",
+		"twork"
+	],
+	"attributes": {
+		"sectionPaddingTop": {
+			"type": "number",
+			"default": 100
+		},
+		"sectionPaddingBottom": {
+			"type": "number",
+			"default": 100
+		},
+		"containerMaxWidth": {
+			"type": "number",
+			"default": 1200
+		},
+		"containerPadding": {
+			"type": "number",
+			"default": 24
+		},
+		"title": {
+			"type": "string",
+			"default": "Download Jivaka Health App"
+		},
+		"description": {
+			"type": "string",
+			"default": "Manage appointments, view lab reports, and consult doctors on the go. Available for iOS and Android."
+		},
+		"ctaPaddingTop": {
+			"type": "number",
+			"default": 80
+		},
+		"ctaPaddingBottom": {
+			"type": "number",
+			"default": 80
+		},
+		"ctaPaddingHorizontal": {
+			"type": "number",
+			"default": 40
+		},
+		"ctaBorderRadius": {
+			"type": "number",
+			"default": 20
+		},
+		"gradientStart": {
+			"type": "string",
+			"default": "#f48b2a"
+		},
+		"gradientEnd": {
+			"type": "string",
+			"default": "#d35400"
+		},
+		"gradientAngle": {
+			"type": "number",
+			"default": 135
+		},
+		"titleColor": {
+			"type": "string",
+			"default": "#ffffff"
+		},
+		"titleFontSize": {
+			"type": "number",
+			"default": 2.5
+		},
+		"titleFontWeight": {
+			"type": "number",
+			"default": 700
+		},
+		"descriptionColor": {
+			"type": "string",
+			"default": "rgba(255, 255, 255, 0.9)"
+		},
+		"descriptionFontSize": {
+			"type": "number",
+			"default": 1.1
+		},
+		"descriptionMarginBottom": {
+			"type": "number",
+			"default": 40
+		},
+		"storeBtnsGap": {
+			"type": "number",
+			"default": 20
+		},
+		"useFadeUp": {
+			"type": "boolean",
+			"default": true
+		},
+		"sectionAnchor": {
+			"type": "string",
+			"default": "download"
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"align": [ "wide", "full" ]
+	},
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": {
+			"sectionPaddingTop": 100,
+			"sectionPaddingBottom": 100,
+			"containerMaxWidth": 1200,
+			"containerPadding": 24,
+			"title": "Download Jivaka Health App",
+			"description": "Manage appointments, view lab reports, and consult doctors on the go. Available for iOS and Android.",
+			"ctaPaddingTop": 80,
+			"ctaPaddingBottom": 80,
+			"ctaPaddingHorizontal": 40,
+			"ctaBorderRadius": 20,
+			"gradientStart": "#f48b2a",
+			"gradientEnd": "#d35400",
+			"gradientAngle": 135,
+			"titleColor": "#ffffff",
+			"titleFontSize": 2.5,
+			"titleFontWeight": 700,
+			"descriptionColor": "rgba(255, 255, 255, 0.9)",
+			"descriptionFontSize": 1.1,
+			"descriptionMarginBottom": 40,
+			"storeBtnsGap": 20,
+			"useFadeUp": true,
+			"sectionAnchor": "download"
+		},
+		"innerBlocks": [
+			{
+				"name": "twork/tele-store-btn",
+				"attributes": {
+					"url": "https://jivakahospital.com/download-detail/"
+				}
+			},
+			{
+				"name": "twork/tele-store-btn",
+				"attributes": {
+					"url": "https://play.google.com/store/apps/details?id=com.jivaka.user"
+				}
+			},
+			{
+				"name": "twork/tele-store-btn",
+				"attributes": {
+					"url": "https://jivaka.advent-soft.com/download/jivaka-care.apk"
+				}
+			}
+		]
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
 }

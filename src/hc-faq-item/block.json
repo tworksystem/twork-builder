@@ -1,17 +1,31 @@
 {
-    "$schema": "https://schemas.wp.org/trunk/block.json",
-    "apiVersion": 3,
-    "name": "twork/hc-faq-item",
-    "title": "FAQ Item",
-    "parent": ["twork/hc-faq-section"],
-    "category": "twork-builder",
-    "description": "Single FAQ: question and answer for the Home Care FAQ section.",
-    "keywords": ["home care", "faq", "accordion", "question", "twork"],
-    "attributes": {
-        "question": { "type": "string", "default": "Is the service available 24/7?" },
-        "answer": { "type": "string", "default": "Yes, our nursing and doctor visit services can be arranged for any time of the day, depending on availability." }
-    },
-    "supports": { "html": false },
-    "textdomain": "twork-builder",
-    "editorScript": "file:./index.js"
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/hc-faq-item",
+	"title": "FAQ Item",
+	"parent": [ "twork/hc-faq-section" ],
+	"category": "twork-builder",
+	"description": "Single FAQ: question and answer for the Home Care FAQ section.",
+	"keywords": [ "home care", "faq", "accordion", "question", "twork" ],
+	"attributes": {
+		"question": {
+			"type": "string",
+			"default": "Is the service available 24/7?"
+		},
+		"answer": {
+			"type": "string",
+			"default": "Yes, our nursing and doctor visit services can be arranged for any time of the day, depending on availability."
+		}
+	},
+	"supports": {
+		"html": false
+	},
+	"example": {
+		"attributes": {
+			"question": "Is the service available 24/7?",
+			"answer": "Yes, our nursing and doctor visit services can be arranged for any time of the day, depending on availability."
+		}
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js"
 }

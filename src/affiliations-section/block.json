@@ -1,151 +1,207 @@
 {
-    "$schema": "https://schemas.wp.org/trunk/block.json",
-    "apiVersion": 3,
-    "name": "twork/affiliations-section",
-    "title": "Logo Grid / Slider Section",
-    "category": "twork-builder",
-    "description": "Display partner/affiliation logos in a clean grid with customizable title and styling.",
-    "keywords": ["affiliations", "partners", "logos", "grid", "twork"],
-    "attributes": {
-        "backgroundColor": {
-            "type": "string",
-            "default": "#ffffff"
-        },
-        "paddingTop": {
-            "type": "number",
-            "default": 80
-        },
-        "paddingBottom": {
-            "type": "number",
-            "default": 80
-        },
-        "showSectionTitle": {
-            "type": "boolean",
-            "default": true
-        },
-        "sectionTitle": {
-            "type": "string",
-            "default": "Our Affiliations"
-        },
-        "sectionTitleColor": {
-            "type": "string",
-            "default": "#666666"
-        },
-        "sectionTitleFontSize": {
-            "type": "number",
-            "default": 1
-        },
-        "sectionTitleFontWeight": {
-            "type": "number",
-            "default": 400
-        },
-        "sectionTitleTextTransform": {
-            "type": "string",
-            "default": "uppercase"
-        },
-        "sectionTitleLetterSpacing": {
-            "type": "number",
-            "default": 2
-        },
-        "sectionTitleAlignment": {
-            "type": "string",
-            "default": "center"
-        },
-        "titleMarginBottom": {
-            "type": "number",
-            "default": 50
-        },
-        "containerMaxWidth": {
-            "type": "number",
-            "default": 1200
-        },
-        "containerPadding": {
-            "type": "number",
-            "default": 30
-        },
-        "gridMinWidth": {
-            "type": "number",
-            "default": 150
-        },
-        "gap": {
-            "type": "number",
-            "default": 40
-        },
-        "logoMaxWidth": {
-            "type": "number",
-            "default": 150
-        },
-        "logoMaxHeight": {
-            "type": "number",
-            "default": 80
-        },
-        "logoOpacity": {
-            "type": "number",
-            "default": 1
-        },
-        "logoGrayscale": {
-            "type": "boolean",
-            "default": false
-        },
-        "logoHoverOpacity": {
-            "type": "number",
-            "default": 1
-        },
-        "logoHoverScale": {
-            "type": "number",
-            "default": 1.05
-        },
-        "animationOnScroll": {
-            "type": "boolean",
-            "default": false
-        },
-        "animationType": {
-            "type": "string",
-            "default": "fadeInUp"
-        },
-        "layoutMode": {
-            "type": "string",
-            "default": "grid"
-        },
-        "sliderAutoplay": {
-            "type": "boolean",
-            "default": true
-        },
-        "sliderSpeed": {
-            "type": "number",
-            "default": 4000
-        },
-        "sliderShowArrows": {
-            "type": "boolean",
-            "default": true
-        },
-        "sliderShowDots": {
-            "type": "boolean",
-            "default": true
-        },
-        "sliderSlidesToShow": {
-            "type": "number",
-            "default": 4
-        },
-        "sliderSlidesToShowTablet": {
-            "type": "number",
-            "default": 3
-        },
-        "sliderSlidesToShowMobile": {
-            "type": "number",
-            "default": 2
-        },
-        "sliderGap": {
-            "type": "number",
-            "default": 24
-        }
-    },
-    "supports": {
-        "html": false,
-        "anchor": true,
-        "align": ["wide", "full"]
-    },
-    "editorScript": "file:./index.js",
-    "style": "file:./style-index.css",
-    "viewScript": "file:./view.js"
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/affiliations-section",
+	"title": "Logo Grid / Slider Section",
+	"category": "twork-builder",
+	"description": "Display partner/affiliation logos in a clean grid with customizable title and styling.",
+	"keywords": [ "affiliations", "partners", "logos", "grid", "twork" ],
+	"attributes": {
+		"backgroundColor": {
+			"type": "string",
+			"default": "#ffffff"
+		},
+		"paddingTop": {
+			"type": "number",
+			"default": 80
+		},
+		"paddingBottom": {
+			"type": "number",
+			"default": 80
+		},
+		"showSectionTitle": {
+			"type": "boolean",
+			"default": true
+		},
+		"sectionTitle": {
+			"type": "string",
+			"default": "Our Affiliations"
+		},
+		"sectionTitleColor": {
+			"type": "string",
+			"default": "#666666"
+		},
+		"sectionTitleFontSize": {
+			"type": "number",
+			"default": 1
+		},
+		"sectionTitleFontWeight": {
+			"type": "number",
+			"default": 400
+		},
+		"sectionTitleTextTransform": {
+			"type": "string",
+			"default": "uppercase"
+		},
+		"sectionTitleLetterSpacing": {
+			"type": "number",
+			"default": 2
+		},
+		"sectionTitleAlignment": {
+			"type": "string",
+			"default": "center"
+		},
+		"titleMarginBottom": {
+			"type": "number",
+			"default": 50
+		},
+		"containerMaxWidth": {
+			"type": "number",
+			"default": 1200
+		},
+		"containerPadding": {
+			"type": "number",
+			"default": 30
+		},
+		"gridMinWidth": {
+			"type": "number",
+			"default": 150
+		},
+		"gap": {
+			"type": "number",
+			"default": 40
+		},
+		"logoMaxWidth": {
+			"type": "number",
+			"default": 150
+		},
+		"logoMaxHeight": {
+			"type": "number",
+			"default": 80
+		},
+		"logoOpacity": {
+			"type": "number",
+			"default": 1
+		},
+		"logoGrayscale": {
+			"type": "boolean",
+			"default": false
+		},
+		"logoHoverOpacity": {
+			"type": "number",
+			"default": 1
+		},
+		"logoHoverScale": {
+			"type": "number",
+			"default": 1.05
+		},
+		"animationOnScroll": {
+			"type": "boolean",
+			"default": false
+		},
+		"animationType": {
+			"type": "string",
+			"default": "fadeInUp"
+		},
+		"layoutMode": {
+			"type": "string",
+			"default": "grid"
+		},
+		"sliderAutoplay": {
+			"type": "boolean",
+			"default": true
+		},
+		"sliderSpeed": {
+			"type": "number",
+			"default": 4000
+		},
+		"sliderShowArrows": {
+			"type": "boolean",
+			"default": true
+		},
+		"sliderShowDots": {
+			"type": "boolean",
+			"default": true
+		},
+		"sliderSlidesToShow": {
+			"type": "number",
+			"default": 4
+		},
+		"sliderSlidesToShowTablet": {
+			"type": "number",
+			"default": 3
+		},
+		"sliderSlidesToShowMobile": {
+			"type": "number",
+			"default": 2
+		},
+		"sliderGap": {
+			"type": "number",
+			"default": 24
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"align": [ "wide", "full" ]
+	},
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./view.js",
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": {
+			"backgroundColor": "#ffffff",
+			"paddingTop": 80,
+			"paddingBottom": 80,
+			"showSectionTitle": true,
+			"sectionTitle": "Our Affiliations",
+			"sectionTitleColor": "#666666",
+			"sectionTitleFontSize": 1,
+			"sectionTitleFontWeight": 400,
+			"sectionTitleTextTransform": "uppercase",
+			"sectionTitleLetterSpacing": 2,
+			"sectionTitleAlignment": "center",
+			"titleMarginBottom": 50,
+			"containerMaxWidth": 1200,
+			"containerPadding": 30,
+			"gridMinWidth": 150,
+			"gap": 40,
+			"logoMaxWidth": 150,
+			"logoMaxHeight": 80,
+			"logoOpacity": 1,
+			"logoGrayscale": false,
+			"logoHoverOpacity": 1,
+			"logoHoverScale": 1.05,
+			"animationOnScroll": false,
+			"animationType": "fadeInUp",
+			"layoutMode": "grid",
+			"sliderAutoplay": true,
+			"sliderSpeed": 4000,
+			"sliderShowArrows": true,
+			"sliderShowDots": true,
+			"sliderSlidesToShow": 4,
+			"sliderSlidesToShowTablet": 3,
+			"sliderSlidesToShowMobile": 2,
+			"sliderGap": 24
+		},
+		"innerBlocks": [
+			{
+				"name": "twork/affiliation-logo-item",
+				"attributes": {}
+			},
+			{
+				"name": "twork/affiliation-logo-item",
+				"attributes": {}
+			},
+			{
+				"name": "twork/affiliation-logo-item",
+				"attributes": {}
+			},
+			{
+				"name": "twork/affiliation-logo-item",
+				"attributes": {}
+			}
+		]
+	}
 }

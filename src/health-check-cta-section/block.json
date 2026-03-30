@@ -1,100 +1,133 @@
 {
-    "$schema": "https://schemas.wp.org/trunk/block.json",
-    "apiVersion": 3,
-    "name": "twork/health-check-cta-section",
-    "version": "1.0.0",
-    "title": "CTA Section",
-    "category": "twork-builder",
-    "icon": "calendar-alt",
-    "description": "Book Your Slot Today CTA: title, subtitle and button inside a styled box. Matches health-check-up.html.",
-    "keywords": ["health", "check", "cta", "book", "slot", "appointment", "chk", "twork"],
-    "supports": {
-        "html": false,
-        "anchor": true,
-        "align": ["wide", "full"]
-    },
-    "attributes": {
-        "title": {
-            "type": "string",
-            "default": "Book Your Slot Today"
-        },
-        "subtitle": {
-            "type": "string",
-            "default": "Health is wealth. Don't delay your check-up."
-        },
-        "buttonText": {
-            "type": "string",
-            "default": "Book Now"
-        },
-        "buttonUrl": {
-            "type": "string",
-            "default": "appointment.html"
-        },
-        "openInNewTab": {
-            "type": "boolean",
-            "default": false
-        },
-        "backgroundColor": {
-            "type": "string",
-            "default": "#005f73"
-        },
-        "backgroundImage": {
-            "type": "string",
-            "default": "https://www.transparenttextures.com/patterns/cubes.png"
-        },
-        "backgroundImageId": {
-            "type": "number"
-        },
-        "padding": {
-            "type": "number",
-            "default": 60
-        },
-        "borderRadius": {
-            "type": "number",
-            "default": 30
-        },
-        "textAlign": {
-            "type": "string",
-            "default": "center"
-        },
-        "titleColor": {
-            "type": "string",
-            "default": "#ffffff"
-        },
-        "subtitleColor": {
-            "type": "string",
-            "default": "#ffffff"
-        },
-        "subtitleOpacity": {
-            "type": "number",
-            "default": 0.8
-        },
-        "buttonBackgroundColor": {
-            "type": "string",
-            "default": "#ffffff"
-        },
-        "buttonTextColor": {
-            "type": "string",
-            "default": "#005f73"
-        },
-        "marginBottom": {
-            "type": "number",
-            "default": 80
-        },
-        "containerMaxWidth": {
-            "type": "number",
-            "default": 1200
-        },
-        "containerPadding": {
-            "type": "number",
-            "default": 20
-        },
-        "animationOnScroll": {
-            "type": "boolean",
-            "default": true
-        }
-    },
-    "textdomain": "twork-builder",
-    "editorScript": "file:./index.js",
-    "style": "file:./style-index.css"
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/health-check-cta-section",
+	"version": "1.0.0",
+	"title": "CTA Section",
+	"category": "twork-builder",
+	"icon": "calendar-alt",
+	"description": "Book Your Slot Today CTA: title, subtitle and button inside a styled box. Matches health-check-up.html.",
+	"keywords": [
+		"health",
+		"check",
+		"cta",
+		"book",
+		"slot",
+		"appointment",
+		"chk",
+		"twork"
+	],
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"align": [ "wide", "full" ]
+	},
+	"attributes": {
+		"title": {
+			"type": "string",
+			"default": "Book Your Slot Today"
+		},
+		"subtitle": {
+			"type": "string",
+			"default": "Health is wealth. Don't delay your check-up."
+		},
+		"buttonText": {
+			"type": "string",
+			"default": "Book Now"
+		},
+		"buttonUrl": {
+			"type": "string",
+			"default": "appointment.html"
+		},
+		"openInNewTab": {
+			"type": "boolean",
+			"default": false
+		},
+		"backgroundColor": {
+			"type": "string",
+			"default": "#005f73"
+		},
+		"backgroundImage": {
+			"type": "string",
+			"default": "https://www.transparenttextures.com/patterns/cubes.png"
+		},
+		"backgroundImageId": {
+			"type": "number"
+		},
+		"padding": {
+			"type": "number",
+			"default": 60
+		},
+		"borderRadius": {
+			"type": "number",
+			"default": 30
+		},
+		"textAlign": {
+			"type": "string",
+			"default": "center"
+		},
+		"titleColor": {
+			"type": "string",
+			"default": "#ffffff"
+		},
+		"subtitleColor": {
+			"type": "string",
+			"default": "#ffffff"
+		},
+		"subtitleOpacity": {
+			"type": "number",
+			"default": 0.8
+		},
+		"buttonBackgroundColor": {
+			"type": "string",
+			"default": "#ffffff"
+		},
+		"buttonTextColor": {
+			"type": "string",
+			"default": "#005f73"
+		},
+		"marginBottom": {
+			"type": "number",
+			"default": 80
+		},
+		"containerMaxWidth": {
+			"type": "number",
+			"default": 1200
+		},
+		"containerPadding": {
+			"type": "number",
+			"default": 20
+		},
+		"animationOnScroll": {
+			"type": "boolean",
+			"default": true
+		}
+	},
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": {
+			"title": "Book Your Slot Today",
+			"subtitle": "Health is wealth. Don't delay your check-up.",
+			"buttonText": "Book Now",
+			"buttonUrl": "appointment.html",
+			"openInNewTab": false,
+			"backgroundColor": "#005f73",
+			"backgroundImage": "https://www.transparenttextures.com/patterns/cubes.png",
+			"padding": 60,
+			"borderRadius": 30,
+			"textAlign": "center",
+			"titleColor": "#ffffff",
+			"subtitleColor": "#ffffff",
+			"subtitleOpacity": 0.8,
+			"buttonBackgroundColor": "#ffffff",
+			"buttonTextColor": "#005f73",
+			"marginBottom": 80,
+			"containerMaxWidth": 1200,
+			"containerPadding": 20,
+			"animationOnScroll": true
+		}
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
 }

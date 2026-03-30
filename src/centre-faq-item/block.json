@@ -1,21 +1,57 @@
 {
-  "$schema": "https://schemas.wp.org/trunk/block.json",
-  "apiVersion": 3,
-  "name": "twork/centre-faq-item",
-  "version": "1.0.0",
-  "title": "FAQ Item",
-  "category": "twork-builder",
-  "parent": ["twork/centre-faq-section"],
-  "attributes": {
-    "question": { "type": "string", "default": "What are the signs of a Stroke (FAST)?" },
-    "answer": { "type": "string", "default": "Face drooping, Arm weakness, Speech difficulty, Time to call emergency immediately." },
-    "accordionIconType": { "type": "string", "default": "fontawesome" },
-    "accordionIcon": { "type": "string", "default": "fas fa-chevron-down" },
-    "accordionDashicon": { "type": "string", "default": "dashicons-arrow-down-alt2" },
-    "accordionIconImageUrl": { "type": "string", "default": "" },
-    "accordionIconImageId": { "type": "number" },
-    "accordionIconVideoUrl": { "type": "string", "default": "" },
-    "accordionIconVideoId": { "type": "number" }
-  },
-  "editorScript": "file:./index.js"
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/centre-faq-item",
+	"version": "1.0.0",
+	"title": "FAQ Item",
+	"category": "twork-builder",
+	"parent": [ "twork/centre-faq-section" ],
+	"attributes": {
+		"question": {
+			"type": "string",
+			"default": "What are the signs of a Stroke (FAST)?"
+		},
+		"answer": {
+			"type": "string",
+			"default": "Face drooping, Arm weakness, Speech difficulty, Time to call emergency immediately."
+		},
+		"accordionIconType": {
+			"type": "string",
+			"default": "fontawesome"
+		},
+		"accordionIcon": {
+			"type": "string",
+			"default": "fas fa-chevron-down"
+		},
+		"accordionDashicon": {
+			"type": "string",
+			"default": "dashicons-arrow-down-alt2"
+		},
+		"accordionIconImageUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"accordionIconImageId": {
+			"type": "number"
+		},
+		"accordionIconVideoUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"accordionIconVideoId": {
+			"type": "number"
+		}
+	},
+	"editorScript": "file:./index.js",
+	"example": {
+		"attributes": {
+			"question": "What are the signs of a Stroke (FAST)?",
+			"answer": "Face drooping, Arm weakness, Speech difficulty, Time to call emergency immediately.",
+			"accordionIconType": "fontawesome",
+			"accordionIcon": "fas fa-chevron-down",
+			"accordionDashicon": "dashicons-arrow-down-alt2",
+			"accordionIconImageUrl": "",
+			"accordionIconVideoUrl": ""
+		}
+	}
 }

@@ -1,22 +1,58 @@
 {
-  "$schema": "https://schemas.wp.org/trunk/block.json",
-  "apiVersion": 3,
-  "name": "twork/centre-technology-item",
-  "version": "1.0.0",
-  "title": "Technology Item",
-  "category": "twork-builder",
-  "parent": ["twork/centre-technology-section"],
-  "description": "Single technology/facility card: image, video, or icon with caption.",
-  "attributes": {
-    "mediaType": { "type": "string", "default": "image" },
-    "imageUrl": { "type": "string", "default": "" },
-    "imageId": { "type": "number" },
-    "imageAlt": { "type": "string", "default": "" },
-    "videoUrl": { "type": "string", "default": "" },
-    "videoId": { "type": "number" },
-    "iconClass": { "type": "string", "default": "fas fa-microscope" },
-    "dashicon": { "type": "string", "default": "dashicons-admin-generic" },
-    "caption": { "type": "string", "default": "Philips Azurion Cath Lab" }
-  },
-  "editorScript": "file:./index.js"
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/centre-technology-item",
+	"version": "1.0.0",
+	"title": "Technology Item",
+	"category": "twork-builder",
+	"parent": [ "twork/centre-technology-section" ],
+	"description": "Single technology/facility card: image, video, or icon with caption.",
+	"attributes": {
+		"mediaType": {
+			"type": "string",
+			"default": "image"
+		},
+		"imageUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"imageId": {
+			"type": "number"
+		},
+		"imageAlt": {
+			"type": "string",
+			"default": ""
+		},
+		"videoUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"videoId": {
+			"type": "number"
+		},
+		"iconClass": {
+			"type": "string",
+			"default": "fas fa-microscope"
+		},
+		"dashicon": {
+			"type": "string",
+			"default": "dashicons-admin-generic"
+		},
+		"caption": {
+			"type": "string",
+			"default": "Philips Azurion Cath Lab"
+		}
+	},
+	"editorScript": "file:./index.js",
+	"example": {
+		"attributes": {
+			"mediaType": "image",
+			"imageUrl": "",
+			"imageAlt": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?auto=format&fit=crop&w=1200&q=80",
+			"videoUrl": "",
+			"iconClass": "fas fa-microscope",
+			"dashicon": "dashicons-admin-generic",
+			"caption": "Philips Azurion Cath Lab"
+		}
+	}
 }

@@ -1,13 +1,44 @@
 {
-    "$schema": "https://schemas.wp.org/trunk/block.json",
-    "apiVersion": 3,
-    "name": "twork/dept-specialists-section",
-    "title": "Specialists Section",
-    "category": "twork-builder",
-    "parent": ["twork/dept-layout-section"],
-    "attributes": {
-        "sectionId": { "type": "string", "default": "specialists" },
-        "title": { "type": "string", "default": "Our Specialists" }
-    },
-    "editorScript": "file:./index.js"
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/dept-specialists-section",
+	"title": "Specialists Section",
+	"category": "twork-builder",
+	"parent": [ "twork/dept-layout-section" ],
+	"attributes": {
+		"sectionId": {
+			"type": "string",
+			"default": "specialists"
+		},
+		"title": {
+			"type": "string",
+			"default": "Our Specialists"
+		}
+	},
+	"editorScript": "file:./index.js",
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": {
+			"sectionId": "specialists",
+			"title": "Our Specialists"
+		},
+		"innerBlocks": [
+			{
+				"name": "twork/dept-doc-card-item",
+				"attributes": {
+					"name": "Dr. Kyaw Swar",
+					"specialization": "Interventional Cardiologist",
+					"qualifications": "MBBS, M.Med.Sc, MRCP (UK)"
+				}
+			},
+			{
+				"name": "twork/dept-doc-card-item",
+				"attributes": {
+					"name": "Dr. Susan May",
+					"specialization": "Cardiothoracic Surgeon",
+					"qualifications": "MBBS, Dr.Med.Sc (Surgery)"
+				}
+			}
+		]
+	}
 }

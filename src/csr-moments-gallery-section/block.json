@@ -1,117 +1,184 @@
 {
-    "$schema": "https://schemas.wp.org/trunk/block.json",
-    "apiVersion": 3,
-    "name": "twork/csr-moments-gallery-section",
-    "version": "1.0.0",
-    "title": "Moments Gallery",
-    "category": "twork-builder",
-    "icon": "format-gallery",
-    "description": "Moments of Care gallery section for CSR pages - title with View All link and image grid.",
-    "keywords": ["gallery", "moments", "photos", "csr", "care", "twork"],
-    "attributes": {
-        "backgroundColor": {
-            "type": "string",
-            "default": "#ffffff"
-        },
-        "paddingTop": {
-            "type": "number",
-            "default": 80
-        },
-        "paddingBottom": {
-            "type": "number",
-            "default": 80
-        },
-        "showSectionTitle": {
-            "type": "boolean",
-            "default": true
-        },
-        "sectionTitle": {
-            "type": "string",
-            "default": "Moments of Care"
-        },
-        "sectionTitleColor": {
-            "type": "string",
-            "default": "#212121"
-        },
-        "sectionTitleFontSize": {
-            "type": "number",
-            "default": 2
-        },
-        "sectionTitleFontWeight": {
-            "type": "number",
-            "default": 700
-        },
-        "showViewAllLink": {
-            "type": "boolean",
-            "default": true
-        },
-        "viewAllText": {
-            "type": "string",
-            "default": "View All Photos"
-        },
-        "viewAllUrl": {
-            "type": "string",
-            "default": "#"
-        },
-        "viewAllOpensInNewTab": {
-            "type": "boolean",
-            "default": false
-        },
-        "viewAllLinkColor": {
-            "type": "string",
-            "default": "#f48b2a"
-        },
-        "viewAllLinkFontWeight": {
-            "type": "number",
-            "default": 700
-        },
-        "headerMarginBottom": {
-            "type": "number",
-            "default": 20
-        },
-        "gridColumns": {
-            "type": "number",
-            "default": 4
-        },
-        "gridColumnsTablet": {
-            "type": "number",
-            "default": 2
-        },
-        "gridColumnsMobile": {
-            "type": "number",
-            "default": 1
-        },
-        "gridGap": {
-            "type": "number",
-            "default": 15
-        },
-        "itemHeight": {
-            "type": "number",
-            "default": 250
-        },
-        "containerMaxWidth": {
-            "type": "number",
-            "default": 1200
-        },
-        "containerPadding": {
-            "type": "number",
-            "default": 30
-        },
-        "animationOnScroll": {
-            "type": "boolean",
-            "default": true
-        },
-        "animationDelay": {
-            "type": "number",
-            "default": 80
-        }
-    },
-    "supports": {
-        "html": false,
-        "anchor": true,
-        "align": ["wide", "full"]
-    },
-    "textdomain": "twork-builder",
-    "editorScript": "file:./index.js",
-    "style": "file:./style-index.css"
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/csr-moments-gallery-section",
+	"version": "1.0.0",
+	"title": "Moments Gallery",
+	"category": "twork-builder",
+	"icon": "format-gallery",
+	"description": "Moments of Care gallery section for CSR pages - title with View All link and image grid.",
+	"keywords": [ "gallery", "moments", "photos", "csr", "care", "twork" ],
+	"attributes": {
+		"backgroundColor": {
+			"type": "string",
+			"default": "#ffffff"
+		},
+		"paddingTop": {
+			"type": "number",
+			"default": 80
+		},
+		"paddingBottom": {
+			"type": "number",
+			"default": 80
+		},
+		"showSectionTitle": {
+			"type": "boolean",
+			"default": true
+		},
+		"sectionTitle": {
+			"type": "string",
+			"default": "Moments of Care"
+		},
+		"sectionTitleColor": {
+			"type": "string",
+			"default": "#212121"
+		},
+		"sectionTitleFontSize": {
+			"type": "number",
+			"default": 2
+		},
+		"sectionTitleFontWeight": {
+			"type": "number",
+			"default": 700
+		},
+		"showViewAllLink": {
+			"type": "boolean",
+			"default": true
+		},
+		"viewAllText": {
+			"type": "string",
+			"default": "View All Photos"
+		},
+		"viewAllUrl": {
+			"type": "string",
+			"default": "#"
+		},
+		"viewAllOpensInNewTab": {
+			"type": "boolean",
+			"default": false
+		},
+		"viewAllLinkColor": {
+			"type": "string",
+			"default": "#f48b2a"
+		},
+		"viewAllLinkFontWeight": {
+			"type": "number",
+			"default": 700
+		},
+		"headerMarginBottom": {
+			"type": "number",
+			"default": 20
+		},
+		"gridColumns": {
+			"type": "number",
+			"default": 4
+		},
+		"gridColumnsTablet": {
+			"type": "number",
+			"default": 2
+		},
+		"gridColumnsMobile": {
+			"type": "number",
+			"default": 1
+		},
+		"gridGap": {
+			"type": "number",
+			"default": 15
+		},
+		"itemHeight": {
+			"type": "number",
+			"default": 250
+		},
+		"containerMaxWidth": {
+			"type": "number",
+			"default": 1200
+		},
+		"containerPadding": {
+			"type": "number",
+			"default": 30
+		},
+		"animationOnScroll": {
+			"type": "boolean",
+			"default": true
+		},
+		"animationDelay": {
+			"type": "number",
+			"default": 80
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"align": [ "wide", "full" ]
+	},
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": {
+			"backgroundColor": "#ffffff",
+			"paddingTop": 80,
+			"paddingBottom": 80,
+			"showSectionTitle": true,
+			"sectionTitle": "Moments of Care",
+			"sectionTitleColor": "#212121",
+			"sectionTitleFontSize": 2,
+			"sectionTitleFontWeight": 700,
+			"showViewAllLink": true,
+			"viewAllText": "View All Photos",
+			"viewAllUrl": "#",
+			"viewAllOpensInNewTab": false,
+			"viewAllLinkColor": "#f48b2a",
+			"viewAllLinkFontWeight": 700,
+			"headerMarginBottom": 20,
+			"gridColumns": 4,
+			"gridColumnsTablet": 2,
+			"gridColumnsMobile": 1,
+			"gridGap": 15,
+			"itemHeight": 250,
+			"containerMaxWidth": 1200,
+			"containerPadding": 30,
+			"animationOnScroll": true,
+			"animationDelay": 80
+		},
+		"innerBlocks": [
+			{
+				"name": "twork/csr-moments-gallery-item",
+				"attributes": {
+					"imageUrl": "https://images.unsplash.com/photo-1544027993-37dbfe43562a?auto=format&fit=crop&w=800&q=80",
+					"imageAlt": "Community 1",
+					"spanTwoColumns": true
+				}
+			},
+			{
+				"name": "twork/csr-moments-gallery-item",
+				"attributes": {
+					"imageUrl": "https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=500&q=80",
+					"imageAlt": "Community 2"
+				}
+			},
+			{
+				"name": "twork/csr-moments-gallery-item",
+				"attributes": {
+					"imageUrl": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=500&q=80",
+					"imageAlt": "Community 3"
+				}
+			},
+			{
+				"name": "twork/csr-moments-gallery-item",
+				"attributes": {
+					"imageUrl": "https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=500&q=80",
+					"imageAlt": "Community 4"
+				}
+			},
+			{
+				"name": "twork/csr-moments-gallery-item",
+				"attributes": {
+					"imageUrl": "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=500&q=80",
+					"imageAlt": "Community 5"
+				}
+			}
+		]
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
 }

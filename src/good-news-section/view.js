@@ -7,58 +7,68 @@
  * @author Twork Builder
  */
 
-(function () {
-    'use strict';
+( function () {
+	'use strict';
 
-    /**
-     * Initialize Good News Section scroll animations.
-     * Adds is-visible to section when in viewport; CSS handles transitions.
-     */
-    function initGoodNewsSection() {
-        if (!('IntersectionObserver' in window)) {
-            const sections = document.querySelectorAll('.good-news-section[data-animation="true"], .twork-good-news-section[data-animation="true"]');
-            sections.forEach((el) => {
-                el.classList.add('is-visible');
-            });
-            return;
-        }
+	/**
+	 * Initialize Good News Section scroll animations.
+	 * Adds is-visible to section when in viewport; CSS handles transitions.
+	 */
+	function initGoodNewsSection() {
+		if ( ! ( 'IntersectionObserver' in window ) ) {
+			const sections = document.querySelectorAll(
+				'.good-news-section[data-animation="true"], .twork-good-news-section[data-animation="true"]'
+			);
+			sections.forEach( ( el ) => {
+				el.classList.add( 'is-visible' );
+			} );
+			return;
+		}
 
-        const sections = document.querySelectorAll('.good-news-section[data-animation="true"], .twork-good-news-section[data-animation="true"]');
-        if (!sections.length) return;
+		const sections = document.querySelectorAll(
+			'.good-news-section[data-animation="true"], .twork-good-news-section[data-animation="true"]'
+		);
+		if ( ! sections.length ) return;
 
-        const observerOptions = {
-            threshold: 0.15,
-            rootMargin: '0px 0px -10% 0px',
-        };
+		const observerOptions = {
+			threshold: 0.15,
+			rootMargin: '0px 0px -10% 0px',
+		};
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting && !entry.target.classList.contains('is-visible')) {
-                    entry.target.classList.add('is-visible');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
+		const observer = new IntersectionObserver( ( entries ) => {
+			entries.forEach( ( entry ) => {
+				if (
+					entry.isIntersecting &&
+					! entry.target.classList.contains( 'is-visible' )
+				) {
+					entry.target.classList.add( 'is-visible' );
+					observer.unobserve( entry.target );
+				}
+			} );
+		}, observerOptions );
 
-        sections.forEach((section) => observer.observe(section));
-    }
+		sections.forEach( ( section ) => observer.observe( section ) );
+	}
 
-    function debounce(fn, wait) {
-        let t;
-        return function (...args) {
-            clearTimeout(t);
-            t = setTimeout(() => fn.apply(this, args), wait);
-        };
-    }
+	function debounce( fn, wait ) {
+		let t;
+		return function ( ...args ) {
+			clearTimeout( t );
+			t = setTimeout( () => fn.apply( this, args ), wait );
+		};
+	}
 
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initGoodNewsSection);
-    } else {
-        initGoodNewsSection();
-    }
+	if ( document.readyState === 'loading' ) {
+		document.addEventListener( 'DOMContentLoaded', initGoodNewsSection );
+	} else {
+		initGoodNewsSection();
+	}
 
-    window.addEventListener('load', initGoodNewsSection);
-    window.addEventListener('resize', debounce(initGoodNewsSection, 250));
+	window.addEventListener( 'load', initGoodNewsSection );
+	window.addEventListener( 'resize', debounce( initGoodNewsSection, 250 ) );
 
-    window.TworkGoodNewsSection = { init: initGoodNewsSection, version: '1.0.0' };
-})();
+	window.TworkGoodNewsSection = {
+		init: initGoodNewsSection,
+		version: '1.0.0',
+	};
+} )();

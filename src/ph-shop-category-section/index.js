@@ -4,9 +4,8 @@ import metadata from './block.json';
 
 import './style.scss';
 
-registerBlockType(metadata.name, {
-  ...metadata,
-  edit: Edit,
-  save: () => null,
-});
-
+registerBlockType( metadata.name, {
+	...metadata,
+	edit: Edit,
+	save: () => null,
+} );

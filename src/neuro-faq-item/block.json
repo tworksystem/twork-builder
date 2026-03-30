@@ -1,21 +1,27 @@
 {
-    "$schema": "https://schemas.wp.org/trunk/block.json",
-    "apiVersion": 3,
-    "name": "twork/neuro-faq-item",
-    "title": "FAQ Item",
-    "category": "twork-builder",
-    "parent": ["twork/neuro-centre-section"],
-    "description": "Single FAQ item (question + answer) for the Neuro Centre Common Questions section. Add, remove, or reorder via the block list.",
-    "attributes": {
-        "question": {
-            "type": "string",
-            "default": "What are the signs of a Stroke (FAST)?"
-        },
-        "answer": {
-            "type": "string",
-            "default": "<strong>F</strong>ace drooping, <strong>A</strong>rm weakness, <strong>S</strong>peech difficulty, <strong>T</strong>ime to call 09-789 101 101 immediately. Immediate treatment is crucial."
-        }
-    },
-    "textdomain": "twork-builder",
-    "editorScript": "file:./index.js"
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/neuro-faq-item",
+	"title": "FAQ Item",
+	"category": "twork-builder",
+	"parent": [ "twork/neuro-centre-section" ],
+	"description": "Single FAQ item (question + answer) for the Neuro Centre Common Questions section. Add, remove, or reorder via the block list.",
+	"attributes": {
+		"question": {
+			"type": "string",
+			"default": "What are the signs of a Stroke (FAST)?"
+		},
+		"answer": {
+			"type": "string",
+			"default": "<strong>F</strong>ace drooping, <strong>A</strong>rm weakness, <strong>S</strong>peech difficulty, <strong>T</strong>ime to call 09-789 101 101 immediately. Immediate treatment is crucial."
+		}
+	},
+	"example": {
+		"attributes": {
+			"question": "What are the signs of a Stroke (FAST)?",
+			"answer": "<strong>F</strong>ace drooping, <strong>A</strong>rm weakness, <strong>S</strong>peech difficulty, <strong>T</strong>ime to call 09-789 101 101 immediately. Immediate treatment is crucial."
+		}
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js"
 }

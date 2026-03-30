@@ -1,75 +1,150 @@
 {
-    "$schema": "https://schemas.wp.org/trunk/block.json",
-    "apiVersion": 3,
-    "name": "twork/dept-layout-section",
-    "version": "1.0.0",
-    "title": "Layout Section",
-    "category": "twork-builder",
-    "icon": "layout",
-    "description": "Department page layout with sidebar nav, widget CTA, and content area (Overview, Conditions, Specialists, Technology, FAQ).",
-    "keywords": ["department", "layout", "sidebar", "nav", "twork"],
-    "attributes": {
-        "navItems": {
-            "type": "array",
-            "default": [
-                { "label": "Overview", "href": "#overview" },
-                { "label": "Conditions", "href": "#conditions" },
-                { "label": "Specialists", "href": "#specialists" },
-                { "label": "Technology", "href": "#technology" },
-                { "label": "FAQ", "href": "#faq" }
-            ]
-        },
-        "sidebarTitle": {
-            "type": "string",
-            "default": "Need Help?"
-        },
-        "sidebarDesc": {
-            "type": "string",
-            "default": "Our heart specialists are available for consultation."
-        },
-        "sidebarButtonText": {
-            "type": "string",
-            "default": "Contact Us"
-        },
-        "sidebarButtonUrl": {
-            "type": "string",
-            "default": "#"
-        },
-        "sidebarPhone": {
-            "type": "string",
-            "default": "09-789 101 101"
-        },
-        "containerMaxWidth": {
-            "type": "number",
-            "default": 1200
-        },
-        "containerPadding": {
-            "type": "number",
-            "default": 20
-        },
-        "paddingTop": {
-            "type": "number",
-            "default": 80
-        },
-        "paddingBottom": {
-            "type": "number",
-            "default": 80
-        },
-        "sidebarWidth": {
-            "type": "number",
-            "default": 280
-        },
-        "gap": {
-            "type": "number",
-            "default": 60
-        }
-    },
-    "supports": {
-        "html": false,
-        "anchor": true,
-        "align": ["wide", "full"]
-    },
-    "textdomain": "twork-builder",
-    "editorScript": "file:./index.js",
-    "style": "file:./style-index.css"
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/dept-layout-section",
+	"version": "1.0.0",
+	"title": "Layout Section",
+	"category": "twork-builder",
+	"icon": "layout",
+	"description": "Department page layout with sidebar nav, widget CTA, and content area (Overview, Conditions, Specialists, Technology, FAQ).",
+	"keywords": [ "department", "layout", "sidebar", "nav", "twork" ],
+	"attributes": {
+		"navItems": {
+			"type": "array",
+			"default": [
+				{
+					"label": "Overview",
+					"href": "#overview"
+				},
+				{
+					"label": "Conditions",
+					"href": "#conditions"
+				},
+				{
+					"label": "Specialists",
+					"href": "#specialists"
+				},
+				{
+					"label": "Technology",
+					"href": "#technology"
+				},
+				{
+					"label": "FAQ",
+					"href": "#faq"
+				}
+			]
+		},
+		"sidebarTitle": {
+			"type": "string",
+			"default": "Need Help?"
+		},
+		"sidebarDesc": {
+			"type": "string",
+			"default": "Our heart specialists are available for consultation."
+		},
+		"sidebarButtonText": {
+			"type": "string",
+			"default": "Contact Us"
+		},
+		"sidebarButtonUrl": {
+			"type": "string",
+			"default": "#"
+		},
+		"sidebarPhone": {
+			"type": "string",
+			"default": "09-789 101 101"
+		},
+		"containerMaxWidth": {
+			"type": "number",
+			"default": 1200
+		},
+		"containerPadding": {
+			"type": "number",
+			"default": 20
+		},
+		"paddingTop": {
+			"type": "number",
+			"default": 80
+		},
+		"paddingBottom": {
+			"type": "number",
+			"default": 80
+		},
+		"sidebarWidth": {
+			"type": "number",
+			"default": 280
+		},
+		"gap": {
+			"type": "number",
+			"default": 60
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"align": [ "wide", "full" ]
+	},
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": {
+			"navItems": [
+				{
+					"label": "Overview",
+					"href": "#overview"
+				},
+				{
+					"label": "Conditions",
+					"href": "#conditions"
+				},
+				{
+					"label": "Specialists",
+					"href": "#specialists"
+				},
+				{
+					"label": "Technology",
+					"href": "#technology"
+				},
+				{
+					"label": "FAQ",
+					"href": "#faq"
+				}
+			],
+			"sidebarTitle": "Need Help?",
+			"sidebarDesc": "Our heart specialists are available for consultation.",
+			"sidebarButtonText": "Contact Us",
+			"sidebarButtonUrl": "#",
+			"sidebarPhone": "09-789 101 101",
+			"containerMaxWidth": 1200,
+			"containerPadding": 20,
+			"paddingTop": 80,
+			"paddingBottom": 80,
+			"sidebarWidth": 280,
+			"gap": 60
+		},
+		"innerBlocks": [
+			{
+				"name": "twork/dept-overview-section",
+				"attributes": {}
+			},
+			{
+				"name": "twork/dept-conditions-section",
+				"attributes": {}
+			},
+			{
+				"name": "twork/dept-specialists-section",
+				"attributes": {}
+			},
+			{
+				"name": "twork/dept-technology-section",
+				"attributes": {}
+			},
+			{
+				"name": "twork/dept-faq-section",
+				"attributes": {}
+			}
+		]
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
 }

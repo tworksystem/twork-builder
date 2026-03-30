@@ -1,152 +1,196 @@
 {
-    "$schema": "https://schemas.wp.org/trunk/block.json",
-    "apiVersion": 3,
-    "name": "twork/twork-container",
-    "version": "1.0.0",
-    "title": "Container",
-    "category": "twork-builder",
-    "icon": "align-center",
-    "description": "A flexible container block with comprehensive styling options for wrapping content sections.",
-    "keywords": ["container", "wrapper", "section", "twork"],
-    "attributes": {
-        "backgroundColor": {
-            "type": "string",
-            "default": "#ffffff"
-        },
-        "backgroundImage": {
-            "type": "string",
-            "default": ""
-        },
-        "backgroundImageId": {
-            "type": "number"
-        },
-        "backgroundOverlay": {
-            "type": "boolean",
-            "default": false
-        },
-        "backgroundOverlayColor": {
-            "type": "string",
-            "default": "rgba(0, 0, 0, 0.5)"
-        },
-        "backgroundOverlayOpacity": {
-            "type": "number",
-            "default": 0.5
-        },
-        "backgroundSize": {
-            "type": "string",
-            "default": "cover"
-        },
-        "backgroundPosition": {
-            "type": "string",
-            "default": "center"
-        },
-        "backgroundRepeat": {
-            "type": "string",
-            "default": "no-repeat"
-        },
-        "paddingTop": {
-            "type": "number",
-            "default": 80
-        },
-        "paddingBottom": {
-            "type": "number",
-            "default": 80
-        },
-        "paddingLeft": {
-            "type": "number",
-            "default": 0
-        },
-        "paddingRight": {
-            "type": "number",
-            "default": 0
-        },
-        "containerMaxWidth": {
-            "type": "number",
-            "default": 1200
-        },
-        "containerPadding": {
-            "type": "number",
-            "default": 30
-        },
-        "marginTop": {
-            "type": "number",
-            "default": 0
-        },
-        "marginBottom": {
-            "type": "number",
-            "default": 0
-        },
-        "borderRadius": {
-            "type": "number",
-            "default": 0
-        },
-        "borderWidth": {
-            "type": "number",
-            "default": 0
-        },
-        "borderColor": {
-            "type": "string",
-            "default": "#e0e0e0"
-        },
-        "borderStyle": {
-            "type": "string",
-            "default": "solid"
-        },
-        "boxShadow": {
-            "type": "boolean",
-            "default": false
-        },
-        "boxShadowColor": {
-            "type": "string",
-            "default": "rgba(0, 0, 0, 0.1)"
-        },
-        "boxShadowBlur": {
-            "type": "number",
-            "default": 20
-        },
-        "boxShadowSpread": {
-            "type": "number",
-            "default": 0
-        },
-        "boxShadowOffsetX": {
-            "type": "number",
-            "default": 0
-        },
-        "boxShadowOffsetY": {
-            "type": "number",
-            "default": 4
-        },
-        "overflow": {
-            "type": "string",
-            "default": "visible"
-        },
-        "zIndex": {
-            "type": "number",
-            "default": 1
-        },
-        "animationOnScroll": {
-            "type": "boolean",
-            "default": false
-        },
-        "animationType": {
-            "type": "string",
-            "default": "fadeInUp"
-        },
-        "animationDelay": {
-            "type": "number",
-            "default": 0
-        }
-    },
-    "supports": {
-        "html": false,
-        "anchor": true,
-        "align": ["wide", "full"],
-        "spacing": {
-            "margin": true,
-            "padding": true
-        }
-    },
-    "textdomain": "twork-builder",
-    "editorScript": "file:./index.js",
-    "style": "file:./style-index.css"
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/twork-container",
+	"version": "1.0.0",
+	"title": "Container",
+	"category": "twork-builder",
+	"icon": "align-center",
+	"description": "A flexible container block with comprehensive styling options for wrapping content sections.",
+	"keywords": [ "container", "wrapper", "section", "twork" ],
+	"attributes": {
+		"backgroundColor": {
+			"type": "string",
+			"default": "#ffffff"
+		},
+		"backgroundImage": {
+			"type": "string",
+			"default": ""
+		},
+		"backgroundImageId": {
+			"type": "number"
+		},
+		"backgroundOverlay": {
+			"type": "boolean",
+			"default": false
+		},
+		"backgroundOverlayColor": {
+			"type": "string",
+			"default": "rgba(0, 0, 0, 0.5)"
+		},
+		"backgroundOverlayOpacity": {
+			"type": "number",
+			"default": 0.5
+		},
+		"backgroundSize": {
+			"type": "string",
+			"default": "cover"
+		},
+		"backgroundPosition": {
+			"type": "string",
+			"default": "center"
+		},
+		"backgroundRepeat": {
+			"type": "string",
+			"default": "no-repeat"
+		},
+		"paddingTop": {
+			"type": "number",
+			"default": 80
+		},
+		"paddingBottom": {
+			"type": "number",
+			"default": 80
+		},
+		"paddingLeft": {
+			"type": "number",
+			"default": 0
+		},
+		"paddingRight": {
+			"type": "number",
+			"default": 0
+		},
+		"containerMaxWidth": {
+			"type": "number",
+			"default": 1200
+		},
+		"containerPadding": {
+			"type": "number",
+			"default": 30
+		},
+		"marginTop": {
+			"type": "number",
+			"default": 0
+		},
+		"marginBottom": {
+			"type": "number",
+			"default": 0
+		},
+		"borderRadius": {
+			"type": "number",
+			"default": 0
+		},
+		"borderWidth": {
+			"type": "number",
+			"default": 0
+		},
+		"borderColor": {
+			"type": "string",
+			"default": "#e0e0e0"
+		},
+		"borderStyle": {
+			"type": "string",
+			"default": "solid"
+		},
+		"boxShadow": {
+			"type": "boolean",
+			"default": false
+		},
+		"boxShadowColor": {
+			"type": "string",
+			"default": "rgba(0, 0, 0, 0.1)"
+		},
+		"boxShadowBlur": {
+			"type": "number",
+			"default": 20
+		},
+		"boxShadowSpread": {
+			"type": "number",
+			"default": 0
+		},
+		"boxShadowOffsetX": {
+			"type": "number",
+			"default": 0
+		},
+		"boxShadowOffsetY": {
+			"type": "number",
+			"default": 4
+		},
+		"overflow": {
+			"type": "string",
+			"default": "visible"
+		},
+		"zIndex": {
+			"type": "number",
+			"default": 1
+		},
+		"animationOnScroll": {
+			"type": "boolean",
+			"default": false
+		},
+		"animationType": {
+			"type": "string",
+			"default": "fadeInUp"
+		},
+		"animationDelay": {
+			"type": "number",
+			"default": 0
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"align": [ "wide", "full" ],
+		"spacing": {
+			"margin": true,
+			"padding": true
+		}
+	},
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": {
+			"backgroundColor": "#ffffff",
+			"backgroundImage": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?auto=format&fit=crop&w=1200&q=80",
+			"backgroundOverlay": false,
+			"backgroundOverlayColor": "rgba(0, 0, 0, 0.5)",
+			"backgroundOverlayOpacity": 0.5,
+			"backgroundSize": "cover",
+			"backgroundPosition": "center",
+			"backgroundRepeat": "no-repeat",
+			"paddingTop": 80,
+			"paddingBottom": 80,
+			"paddingLeft": 0,
+			"paddingRight": 0,
+			"containerMaxWidth": 1200,
+			"containerPadding": 30,
+			"marginTop": 0,
+			"marginBottom": 0,
+			"borderRadius": 0,
+			"borderWidth": 0,
+			"borderColor": "#e0e0e0",
+			"borderStyle": "solid",
+			"boxShadow": false,
+			"boxShadowColor": "rgba(0, 0, 0, 0.1)",
+			"boxShadowBlur": 20,
+			"boxShadowSpread": 0,
+			"boxShadowOffsetX": 0,
+			"boxShadowOffsetY": 4,
+			"overflow": "visible",
+			"zIndex": 1,
+			"animationOnScroll": false,
+			"animationType": "fadeInUp",
+			"animationDelay": 0
+		},
+		"innerBlocks": [
+			{
+				"name": "core/paragraph",
+				"attributes": {
+					"placeholder": "Add content here..."
+				}
+			}
+		]
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
 }

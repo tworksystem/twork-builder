@@ -1,32 +1,167 @@
 {
-  "$schema": "https://schemas.wp.org/trunk/block.json",
-  "apiVersion": 3,
-  "name": "twork/paediatrics-conditions-section",
-  "version": "1.0.0",
-  "title": "Conditions Section",
-  "category": "twork-builder",
-  "icon": "grid-view",
-  "description": "Conditions We Treat section with header and grid of condition cards. Matches paediatrics-centre.html.",
-  "keywords": ["paediatrics", "conditions", "grid", "twork"],
-  "attributes": {
-    "backgroundColor": { "type": "string", "default": "#ffffff" },
-    "paddingTop": { "type": "number", "default": 80 },
-    "paddingBottom": { "type": "number", "default": 80 },
-    "containerMaxWidth": { "type": "number", "default": 1200 },
-    "containerPadding": { "type": "number", "default": 20 },
-    "showSectionHeader": { "type": "boolean", "default": true },
-    "sectionTitle": { "type": "string", "default": "Conditions We Treat" },
-    "sectionSubtitle": { "type": "string", "default": "Expert care for a wide range of common and complex childhood conditions." },
-    "sectionTitleColor": { "type": "string", "default": "#212121" },
-    "sectionSubtitleColor": { "type": "string", "default": "#666666" },
-    "sectionTitleFontSize": { "type": "number", "default": 2.2 },
-    "sectionSubtitleFontSize": { "type": "number", "default": 1.05 },
-    "minColumnWidth": { "type": "number", "default": 220 },
-    "gap": { "type": "number", "default": 20 },
-    "animationOnScroll": { "type": "boolean", "default": true }
-  },
-  "supports": { "html": false, "anchor": true, "align": ["wide", "full"] },
-  "textdomain": "twork-builder",
-  "editorScript": "file:./index.js",
-  "style": "file:./style-index.css"
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/paediatrics-conditions-section",
+	"version": "1.0.0",
+	"title": "Conditions Section",
+	"category": "twork-builder",
+	"icon": "grid-view",
+	"description": "Conditions We Treat section with header and grid of condition cards. Matches paediatrics-centre.html.",
+	"keywords": [ "paediatrics", "conditions", "grid", "twork" ],
+	"attributes": {
+		"backgroundColor": {
+			"type": "string",
+			"default": "#ffffff"
+		},
+		"paddingTop": {
+			"type": "number",
+			"default": 80
+		},
+		"paddingBottom": {
+			"type": "number",
+			"default": 80
+		},
+		"containerMaxWidth": {
+			"type": "number",
+			"default": 1200
+		},
+		"containerPadding": {
+			"type": "number",
+			"default": 20
+		},
+		"showSectionHeader": {
+			"type": "boolean",
+			"default": true
+		},
+		"sectionTitle": {
+			"type": "string",
+			"default": "Conditions We Treat"
+		},
+		"sectionSubtitle": {
+			"type": "string",
+			"default": "Expert care for a wide range of common and complex childhood conditions."
+		},
+		"sectionTitleColor": {
+			"type": "string",
+			"default": "#212121"
+		},
+		"sectionSubtitleColor": {
+			"type": "string",
+			"default": "#666666"
+		},
+		"sectionTitleFontSize": {
+			"type": "number",
+			"default": 2.2
+		},
+		"sectionSubtitleFontSize": {
+			"type": "number",
+			"default": 1.05
+		},
+		"minColumnWidth": {
+			"type": "number",
+			"default": 220
+		},
+		"gap": {
+			"type": "number",
+			"default": 20
+		},
+		"animationOnScroll": {
+			"type": "boolean",
+			"default": true
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"align": [ "wide", "full" ]
+	},
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": {
+			"backgroundColor": "#ffffff",
+			"paddingTop": 80,
+			"paddingBottom": 80,
+			"containerMaxWidth": 1200,
+			"containerPadding": 20,
+			"showSectionHeader": true,
+			"sectionTitle": "Conditions We Treat",
+			"sectionSubtitle": "Expert care for a wide range of common and complex childhood conditions.",
+			"sectionTitleColor": "#212121",
+			"sectionSubtitleColor": "#666666",
+			"sectionTitleFontSize": 2.2,
+			"sectionSubtitleFontSize": 1.05,
+			"minColumnWidth": 220,
+			"gap": 20,
+			"animationOnScroll": true
+		},
+		"innerBlocks": [
+			{
+				"name": "twork/paediatrics-condition-card",
+				"attributes": {
+					"iconClass": "fas fa-lungs",
+					"title": "Respiratory Issues",
+					"subtitle": "Asthma, Pneumonia"
+				}
+			},
+			{
+				"name": "twork/paediatrics-condition-card",
+				"attributes": {
+					"iconClass": "fas fa-temperature-high",
+					"title": "Infectious Diseases",
+					"subtitle": "Dengue, Typhoid"
+				}
+			},
+			{
+				"name": "twork/paediatrics-condition-card",
+				"attributes": {
+					"iconClass": "fas fa-allergies",
+					"title": "Allergies & Skin",
+					"subtitle": "Eczema, Rashes"
+				}
+			},
+			{
+				"name": "twork/paediatrics-condition-card",
+				"attributes": {
+					"iconClass": "fas fa-utensils",
+					"title": "Nutritional Health",
+					"subtitle": "Malnutrition, Obesity"
+				}
+			},
+			{
+				"name": "twork/paediatrics-condition-card",
+				"attributes": {
+					"iconClass": "fas fa-brain",
+					"title": "Development",
+					"subtitle": "Autism, Speech Delay"
+				}
+			},
+			{
+				"name": "twork/paediatrics-condition-card",
+				"attributes": {
+					"iconClass": "fas fa-baby",
+					"title": "Neonatal Care",
+					"subtitle": "Jaundice, Preterm"
+				}
+			},
+			{
+				"name": "twork/paediatrics-condition-card",
+				"attributes": {
+					"iconClass": "fas fa-heartbeat",
+					"title": "Congenital Heart",
+					"subtitle": "Defects, Murmurs"
+				}
+			},
+			{
+				"name": "twork/paediatrics-condition-card",
+				"attributes": {
+					"iconClass": "fas fa-bone",
+					"title": "Orthopaedics",
+					"subtitle": "Fractures, Clubfoot"
+				}
+			}
+		]
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
 }

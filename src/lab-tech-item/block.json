@@ -1,50 +1,56 @@
 {
-    "$schema": "https://schemas.wp.org/trunk/block.json",
-    "apiVersion": 3,
-    "name": "twork/lab-tech-item",
-    "version": "1.0.0",
-    "title": "Technology Item",
-    "category": "twork-builder",
-    "parent": ["twork/lab-tech-section"],
-    "description": "Single technology feature row with image, tag, title, description and bullet list.",
-    "keywords": ["lab", "technology", "equipment", "feature", "twork"],
-    "attributes": {
-        "imageUrl": {
-            "type": "string",
-            "default": ""
-        },
-        "imageId": {
-            "type": "number"
-        },
-        "imageAlt": {
-            "type": "string",
-            "default": ""
-        },
-        "tag": {
-            "type": "string",
-            "default": "Immunology"
-        },
-        "title": {
-            "type": "string",
-            "default": "Roche Cobas 6000"
-        },
-        "description": {
-            "type": "string",
-            "default": "The industry standard for immunochemistry. High-throughput capability allows us to process hundreds of tests per hour with extreme precision."
-        },
-        "bullets": {
-            "type": "array",
-            "default": [
-                "99.9% Accuracy Rate",
-                "Rapid Turnaround Time"
-            ]
-        }
-    },
-    "supports": {
-        "html": false
-    },
-    "textdomain": "twork-builder",
-    "editorScript": "file:./index.js",
-    "style": "file:./style-index.css"
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/lab-tech-item",
+	"version": "1.0.0",
+	"title": "Technology Item",
+	"category": "twork-builder",
+	"parent": [ "twork/lab-tech-section" ],
+	"description": "Single technology feature row with image, tag, title, description and bullet list.",
+	"keywords": [ "lab", "technology", "equipment", "feature", "twork" ],
+	"attributes": {
+		"imageUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"imageId": {
+			"type": "number"
+		},
+		"imageAlt": {
+			"type": "string",
+			"default": ""
+		},
+		"tag": {
+			"type": "string",
+			"default": "Immunology"
+		},
+		"title": {
+			"type": "string",
+			"default": "Roche Cobas 6000"
+		},
+		"description": {
+			"type": "string",
+			"default": "The industry standard for immunochemistry. High-throughput capability allows us to process hundreds of tests per hour with extreme precision."
+		},
+		"bullets": {
+			"type": "array",
+			"default": [ "99.9% Accuracy Rate", "Rapid Turnaround Time" ]
+		}
+	},
+	"supports": {
+		"html": false
+	},
+	"example": {
+		"attributes": {
+			"imageUrl": "",
+			"imageAlt": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?auto=format&fit=crop&w=1200&q=80",
+			"tag": "Immunology",
+			"title": "Roche Cobas 6000",
+			"description": "The industry standard for immunochemistry. High-throughput capability allows us to process hundreds of tests per hour with extreme precision.",
+			"bullets": [ "99.9% Accuracy Rate", "Rapid Turnaround Time" ]
+		}
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
 }
-

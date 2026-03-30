@@ -1,101 +1,159 @@
 {
-  "$schema": "https://schemas.wp.org/trunk/block.json",
-  "apiVersion": 3,
-  "name": "twork/info-cards-section",
-  "title": "Info Cards Section",
-  "category": "twork-builder",
-  "icon": "phone",
-  "description": "Responsive contact/info cards grid with accent icons and CTAs, matching contact.html design.",
-  "keywords": ["contact", "info", "card", "cta", "twork"],
-  "attributes": {
-    "showSectionHeader": {
-      "type": "boolean",
-      "default": true
-    },
-    "sectionTitle": {
-      "type": "string",
-      "default": "Contact & Information"
-    },
-    "showSectionDescription": {
-      "type": "boolean",
-      "default": true
-    },
-    "sectionDescription": {
-      "type": "string",
-      "default": "Get in touch or find what you need."
-    },
-    "headerAlign": {
-      "type": "string",
-      "default": "center"
-    },
-    "backgroundColor": {
-      "type": "string",
-      "default": "#ffffff"
-    },
-    "paddingTop": {
-      "type": "number",
-      "default": 60
-    },
-    "paddingBottom": {
-      "type": "number",
-      "default": 60
-    },
-    "containerMaxWidth": {
-      "type": "number",
-      "default": 1100
-    },
-    "containerPadding": {
-      "type": "number",
-      "default": 20
-    },
-    "columns": {
-      "type": "number",
-      "default": 3
-    },
-    "columnsTablet": {
-      "type": "number",
-      "default": 2
-    },
-    "columnsMobile": {
-      "type": "number",
-      "default": 1
-    },
-    "gap": {
-      "type": "number",
-      "default": 24
-    },
-    "accentColor": {
-      "type": "string",
-      "default": "#dc3545"
-    },
-    "iconColor": {
-      "type": "string",
-      "default": "#dc3545"
-    },
-    "iconBackground": {
-      "type": "string",
-      "default": "#fff2e8"
-    },
-    "animationOnScroll": {
-      "type": "boolean",
-      "default": true
-    },
-    "animationDelay": {
-      "type": "number",
-      "default": 120
-    },
-    "animationType": {
-      "type": "string",
-      "default": "fadeInUp"
-    }
-  },
-  "supports": {
-    "html": false,
-    "anchor": true,
-    "align": ["wide", "full"]
-  },
-  "textdomain": "twork-builder",
-  "editorScript": "file:./index.js",
-  "style": "file:./style-index.css",
-  "editorStyle": "file:./style-index.css"
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/info-cards-section",
+	"title": "Info Cards Section",
+	"category": "twork-builder",
+	"icon": "phone",
+	"description": "Responsive contact/info cards grid with accent icons and CTAs, matching contact.html design.",
+	"keywords": [ "contact", "info", "card", "cta", "twork" ],
+	"attributes": {
+		"showSectionHeader": {
+			"type": "boolean",
+			"default": true
+		},
+		"sectionTitle": {
+			"type": "string",
+			"default": "Contact & Information"
+		},
+		"showSectionDescription": {
+			"type": "boolean",
+			"default": true
+		},
+		"sectionDescription": {
+			"type": "string",
+			"default": "Get in touch or find what you need."
+		},
+		"headerAlign": {
+			"type": "string",
+			"default": "center"
+		},
+		"backgroundColor": {
+			"type": "string",
+			"default": "#ffffff"
+		},
+		"paddingTop": {
+			"type": "number",
+			"default": 60
+		},
+		"paddingBottom": {
+			"type": "number",
+			"default": 60
+		},
+		"containerMaxWidth": {
+			"type": "number",
+			"default": 1100
+		},
+		"containerPadding": {
+			"type": "number",
+			"default": 20
+		},
+		"columns": {
+			"type": "number",
+			"default": 3
+		},
+		"columnsTablet": {
+			"type": "number",
+			"default": 2
+		},
+		"columnsMobile": {
+			"type": "number",
+			"default": 1
+		},
+		"gap": {
+			"type": "number",
+			"default": 24
+		},
+		"accentColor": {
+			"type": "string",
+			"default": "#dc3545"
+		},
+		"iconColor": {
+			"type": "string",
+			"default": "#dc3545"
+		},
+		"iconBackground": {
+			"type": "string",
+			"default": "#fff2e8"
+		},
+		"animationOnScroll": {
+			"type": "boolean",
+			"default": true
+		},
+		"animationDelay": {
+			"type": "number",
+			"default": 120
+		},
+		"animationType": {
+			"type": "string",
+			"default": "fadeInUp"
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"align": [ "wide", "full" ]
+	},
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": {
+			"showSectionHeader": true,
+			"sectionTitle": "Contact & Information",
+			"showSectionDescription": true,
+			"sectionDescription": "Get in touch or find what you need.",
+			"headerAlign": "center",
+			"backgroundColor": "#ffffff",
+			"paddingTop": 60,
+			"paddingBottom": 60,
+			"containerMaxWidth": 1100,
+			"containerPadding": 20,
+			"columns": 3,
+			"columnsTablet": 2,
+			"columnsMobile": 1,
+			"gap": 24,
+			"accentColor": "#dc3545",
+			"iconColor": "#dc3545",
+			"iconBackground": "#fff2e8",
+			"animationOnScroll": true,
+			"animationDelay": 120,
+			"animationType": "fadeInUp"
+		},
+		"innerBlocks": [
+			{
+				"name": "twork/info-card-item",
+				"attributes": {
+					"iconClass": "fas fa-phone-volume",
+					"title": "Emergency Cases",
+					"subtitle": "24/7 Immediate Support",
+					"ctaText": "09-789 101 101",
+					"ctaUrl": "tel:09789101101",
+					"ctaColor": "#dc3545"
+				}
+			},
+			{
+				"name": "twork/info-card-item",
+				"attributes": {
+					"iconClass": "fas fa-envelope-open-text",
+					"title": "General Enquiry",
+					"subtitle": "For appointments & info",
+					"ctaText": "info@jivakahospital.com",
+					"ctaUrl": "mailto:info@jivakahospital.com"
+				}
+			},
+			{
+				"name": "twork/info-card-item",
+				"attributes": {
+					"iconClass": "fas fa-map-marked-alt",
+					"title": "Visit Us",
+					"subtitle": "Corner of 101st Street & 57th St,",
+					"secondaryText": "Mandalay, Myanmar",
+					"showCTA": false
+				}
+			}
+		]
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css",
+	"editorStyle": "file:./style-index.css"
 }

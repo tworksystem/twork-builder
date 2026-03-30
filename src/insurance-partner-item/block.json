@@ -1,82 +1,110 @@
 {
-    "$schema": "https://schemas.wp.org/trunk/block.json",
-    "apiVersion": 3,
-    "name": "twork/insurance-partner-item",
-    "title": "Insurance Partner Item",
-    "parent": ["twork/insurance-partners-section"],
-    "description": "Single insurance partner card (icon + name) for the insurance partners section.",
-    "keywords": ["insurance", "partner", "card", "hospital", "patient", "twork"],
-    "attributes": {
-        "partnerName": {
-            "type": "string",
-            "default": "AIA Myanmar"
-        },
-        "iconClass": {
-            "type": "string",
-            "default": "fas fa-shield-alt"
-        },
-        "partnerNameColor": {
-            "type": "string",
-            "default": "#E8813C"
-        },
-        "partnerNameFontSize": {
-            "type": "number",
-            "default": 1.1
-        },
-        "partnerNameFontWeight": {
-            "type": "number",
-            "default": 700
-        },
-        "partnerNameTextTransform": {
-            "type": "string",
-            "default": "uppercase"
-        },
-        "iconColor": {
-            "type": "string",
-            "default": "#E8813C"
-        },
-        "iconSize": {
-            "type": "number",
-            "default": 2.5
-        },
-        "cardBgColor": {
-            "type": "string",
-            "default": "#ffffff"
-        },
-        "cardBorderColor": {
-            "type": "string",
-            "default": "#E8813C"
-        },
-        "cardBorderWidth": {
-            "type": "number",
-            "default": 2
-        },
-        "cardBorderRadius": {
-            "type": "number",
-            "default": 12
-        },
-        "cardPadding": {
-            "type": "number",
-            "default": 20
-        },
-        "cardMinHeight": {
-            "type": "number",
-            "default": 140
-        },
-        "hoverBorderColor": {
-            "type": "string",
-            "default": "#d96f2d"
-        },
-        "hoverTextColor": {
-            "type": "string",
-            "default": "#d96f2d"
-        },
-        "hoverIconColor": {
-            "type": "string",
-            "default": "#d96f2d"
-        }
-    },
-    "textdomain": "twork-builder",
-    "editorScript": "file:./index.js",
-    "style": "file:./style-index.css"
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/insurance-partner-item",
+	"title": "Insurance Partner Item",
+	"parent": [ "twork/insurance-partners-section" ],
+	"description": "Single insurance partner card (icon + name) for the insurance partners section.",
+	"keywords": [
+		"insurance",
+		"partner",
+		"card",
+		"hospital",
+		"patient",
+		"twork"
+	],
+	"attributes": {
+		"partnerName": {
+			"type": "string",
+			"default": "AIA Myanmar"
+		},
+		"iconClass": {
+			"type": "string",
+			"default": "fas fa-shield-alt"
+		},
+		"partnerNameColor": {
+			"type": "string",
+			"default": "#E8813C"
+		},
+		"partnerNameFontSize": {
+			"type": "number",
+			"default": 1.1
+		},
+		"partnerNameFontWeight": {
+			"type": "number",
+			"default": 700
+		},
+		"partnerNameTextTransform": {
+			"type": "string",
+			"default": "uppercase"
+		},
+		"iconColor": {
+			"type": "string",
+			"default": "#E8813C"
+		},
+		"iconSize": {
+			"type": "number",
+			"default": 2.5
+		},
+		"cardBgColor": {
+			"type": "string",
+			"default": "#ffffff"
+		},
+		"cardBorderColor": {
+			"type": "string",
+			"default": "#E8813C"
+		},
+		"cardBorderWidth": {
+			"type": "number",
+			"default": 2
+		},
+		"cardBorderRadius": {
+			"type": "number",
+			"default": 12
+		},
+		"cardPadding": {
+			"type": "number",
+			"default": 20
+		},
+		"cardMinHeight": {
+			"type": "number",
+			"default": 140
+		},
+		"hoverBorderColor": {
+			"type": "string",
+			"default": "#d96f2d"
+		},
+		"hoverTextColor": {
+			"type": "string",
+			"default": "#d96f2d"
+		},
+		"hoverIconColor": {
+			"type": "string",
+			"default": "#d96f2d"
+		}
+	},
+	"example": {
+		"attributes": {
+			"partnerName": "AIA Myanmar",
+			"iconClass": "fas fa-shield-alt",
+			"partnerNameColor": "#E8813C",
+			"partnerNameFontSize": 1.1,
+			"partnerNameFontWeight": 700,
+			"partnerNameTextTransform": "uppercase",
+			"iconColor": "#E8813C",
+			"iconSize": 2.5,
+			"cardBgColor": "#ffffff",
+			"cardBorderColor": "#E8813C",
+			"cardBorderWidth": 2,
+			"cardBorderRadius": 12,
+			"cardPadding": 20,
+			"cardMinHeight": 140,
+			"hoverBorderColor": "#d96f2d",
+			"hoverTextColor": "#d96f2d",
+			"hoverIconColor": "#d96f2d"
+		}
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
 }

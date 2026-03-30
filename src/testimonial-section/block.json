@@ -1,232 +1,334 @@
 {
-    "$schema": "https://schemas.wp.org/trunk/block.json",
-    "apiVersion": 3,
-    "name": "twork/testimonial-section",
-    "version": "1.0.0",
-    "title": "Testimonial Section",
-    "category": "twork-builder",
-    "icon": "format-quote",
-    "description": "Patient testimonials with meta-title, highlight heading, avatar, quote and procedure. Matches home.html design.",
-    "keywords": ["testimonial", "patient", "stories", "quote", "review", "twork"],
-    "attributes": {
-        "backgroundColor": {
-            "type": "string",
-            "default": "#f48b2a"
-        },
-        "backgroundImage": {
-            "type": "string",
-            "default": ""
-        },
-        "backgroundImageId": {
-            "type": "number"
-        },
-        "backgroundOverlay": {
-            "type": "boolean",
-            "default": false
-        },
-        "backgroundOverlayColor": {
-            "type": "string",
-            "default": "rgba(244, 139, 42, 0.9)"
-        },
-        "backgroundOverlayOpacity": {
-            "type": "number",
-            "default": 0.9
-        },
-        "paddingTop": {
-            "type": "number",
-            "default": 80
-        },
-        "paddingBottom": {
-            "type": "number",
-            "default": 80
-        },
-        "paddingTopMobile": {
-            "type": "number",
-            "default": 60
-        },
-        "paddingBottomMobile": {
-            "type": "number",
-            "default": 60
-        },
-        "showSectionTopLink": {
-            "type": "boolean",
-            "default": true
-        },
-        "sectionTopLinkText": {
-            "type": "string",
-            "default": "View All Services"
-        },
-        "sectionTopLinkUrl": {
-            "type": "string",
-            "default": "#"
-        },
-        "showMetaTitle": {
-            "type": "boolean",
-            "default": true
-        },
-        "metaTitle": {
-            "type": "string",
-            "default": "A good word means a lot"
-        },
-        "metaTitleColor": {
-            "type": "string",
-            "default": "#ffffff"
-        },
-        "metaTitleFontSize": {
-            "type": "number",
-            "default": 0.9
-        },
-        "metaTitleFontSizeTablet": {
-            "type": "number",
-            "default": 0.85
-        },
-        "metaTitleFontSizeMobile": {
-            "type": "number",
-            "default": 0.8
-        },
-        "showSectionTitle": {
-            "type": "boolean",
-            "default": true
-        },
-        "sectionTitle": {
-            "type": "string",
-            "default": "Patient "
-        },
-        "highlightText": {
-            "type": "string",
-            "default": "testimonials"
-        },
-        "showSubtitle": {
-            "type": "boolean",
-            "default": true
-        },
-        "subtitle": {
-            "type": "string",
-            "default": "It's always the word of mouth that's the best advice. Here are some of our..."
-        },
-        "subtitleColor": {
-            "type": "string",
-            "default": "rgba(255, 255, 255, 0.9)"
-        },
-        "subtitleFontSize": {
-            "type": "number",
-            "default": 1.1
-        },
-        "subtitleFontSizeTablet": {
-            "type": "number",
-            "default": 1.05
-        },
-        "subtitleFontSizeMobile": {
-            "type": "number",
-            "default": 1
-        },
-        "highlightColor": {
-            "type": "string",
-            "default": "#212121"
-        },
-        "columns": {
-            "type": "number",
-            "default": 4
-        },
-        "columnsTablet": {
-            "type": "number",
-            "default": 3
-        },
-        "columnsMobile": {
-            "type": "number",
-            "default": 1
-        },
-        "gap": {
-            "type": "number",
-            "default": 20
-        },
-        "gapMobile": {
-            "type": "number",
-            "default": 40
-        },
-        "minColumnWidth": {
-            "type": "number",
-            "default": 250
-        },
-        "sectionTitleColor": {
-            "type": "string",
-            "default": "#ffffff"
-        },
-        "sectionTitleFontSize": {
-            "type": "number",
-            "default": 2.5
-        },
-        "sectionTitleFontSizeTablet": {
-            "type": "number",
-            "default": 2.2
-        },
-        "sectionTitleFontSizeMobile": {
-            "type": "number",
-            "default": 1.8
-        },
-        "sectionTitleAlignmentTablet": {
-            "type": "string",
-            "default": "center"
-        },
-        "sectionTitleAlignmentMobile": {
-            "type": "string",
-            "default": "center"
-        },
-        "sectionTitleFontWeight": {
-            "type": "number",
-            "default": 300
-        },
-        "sectionTitleAlignment": {
-            "type": "string",
-            "default": "center"
-        },
-        "sectionTitleMarginBottom": {
-            "type": "number",
-            "default": 10
-        },
-        "containerMaxWidth": {
-            "type": "number",
-            "default": 1200
-        },
-        "containerPadding": {
-            "type": "number",
-            "default": 20
-        },
-        "containerPaddingMobile": {
-            "type": "number",
-            "default": 20
-        },
-        "cardBorderRadius": {
-            "type": "number",
-            "default": 12
-        },
-        "cardBorderColor": {
-            "type": "string",
-            "default": "#eeeeee"
-        },
-        "cardBoxShadow": {
-            "type": "boolean",
-            "default": true
-        },
-        "animationOnScroll": {
-            "type": "boolean",
-            "default": true
-        },
-        "animationDelay": {
-            "type": "number",
-            "default": 100
-        },
-        "animationType": {
-            "type": "string",
-            "default": "fadeInUp"
-        }
-    },
-    "supports": {
-        "html": false,
-        "anchor": true,
-        "align": ["wide", "full"]
-    },
-    "textdomain": "twork-builder",
-    "editorScript": "file:./index.js",
-    "style": "file:./style-index.css"
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/testimonial-section",
+	"version": "1.0.0",
+	"title": "Testimonial Section",
+	"category": "twork-builder",
+	"icon": "format-quote",
+	"description": "Patient testimonials with meta-title, highlight heading, avatar, quote and procedure. Matches home.html design.",
+	"keywords": [
+		"testimonial",
+		"patient",
+		"stories",
+		"quote",
+		"review",
+		"twork"
+	],
+	"attributes": {
+		"backgroundColor": {
+			"type": "string",
+			"default": "#f48b2a"
+		},
+		"backgroundImage": {
+			"type": "string",
+			"default": ""
+		},
+		"backgroundImageId": {
+			"type": "number"
+		},
+		"backgroundOverlay": {
+			"type": "boolean",
+			"default": false
+		},
+		"backgroundOverlayColor": {
+			"type": "string",
+			"default": "rgba(244, 139, 42, 0.9)"
+		},
+		"backgroundOverlayOpacity": {
+			"type": "number",
+			"default": 0.9
+		},
+		"paddingTop": {
+			"type": "number",
+			"default": 80
+		},
+		"paddingBottom": {
+			"type": "number",
+			"default": 80
+		},
+		"paddingTopMobile": {
+			"type": "number",
+			"default": 60
+		},
+		"paddingBottomMobile": {
+			"type": "number",
+			"default": 60
+		},
+		"showSectionTopLink": {
+			"type": "boolean",
+			"default": true
+		},
+		"sectionTopLinkText": {
+			"type": "string",
+			"default": "View All Services"
+		},
+		"sectionTopLinkUrl": {
+			"type": "string",
+			"default": "#"
+		},
+		"showMetaTitle": {
+			"type": "boolean",
+			"default": true
+		},
+		"metaTitle": {
+			"type": "string",
+			"default": "A good word means a lot"
+		},
+		"metaTitleColor": {
+			"type": "string",
+			"default": "#ffffff"
+		},
+		"metaTitleFontSize": {
+			"type": "number",
+			"default": 0.9
+		},
+		"metaTitleFontSizeTablet": {
+			"type": "number",
+			"default": 0.85
+		},
+		"metaTitleFontSizeMobile": {
+			"type": "number",
+			"default": 0.8
+		},
+		"showSectionTitle": {
+			"type": "boolean",
+			"default": true
+		},
+		"sectionTitle": {
+			"type": "string",
+			"default": "Patient "
+		},
+		"highlightText": {
+			"type": "string",
+			"default": "testimonials"
+		},
+		"showSubtitle": {
+			"type": "boolean",
+			"default": true
+		},
+		"subtitle": {
+			"type": "string",
+			"default": "It's always the word of mouth that's the best advice. Here are some of our..."
+		},
+		"subtitleColor": {
+			"type": "string",
+			"default": "rgba(255, 255, 255, 0.9)"
+		},
+		"subtitleFontSize": {
+			"type": "number",
+			"default": 1.1
+		},
+		"subtitleFontSizeTablet": {
+			"type": "number",
+			"default": 1.05
+		},
+		"subtitleFontSizeMobile": {
+			"type": "number",
+			"default": 1
+		},
+		"highlightColor": {
+			"type": "string",
+			"default": "#212121"
+		},
+		"columns": {
+			"type": "number",
+			"default": 4
+		},
+		"columnsTablet": {
+			"type": "number",
+			"default": 3
+		},
+		"columnsMobile": {
+			"type": "number",
+			"default": 1
+		},
+		"gap": {
+			"type": "number",
+			"default": 20
+		},
+		"gapMobile": {
+			"type": "number",
+			"default": 40
+		},
+		"minColumnWidth": {
+			"type": "number",
+			"default": 250
+		},
+		"sectionTitleColor": {
+			"type": "string",
+			"default": "#ffffff"
+		},
+		"sectionTitleFontSize": {
+			"type": "number",
+			"default": 2.5
+		},
+		"sectionTitleFontSizeTablet": {
+			"type": "number",
+			"default": 2.2
+		},
+		"sectionTitleFontSizeMobile": {
+			"type": "number",
+			"default": 1.8
+		},
+		"sectionTitleAlignmentTablet": {
+			"type": "string",
+			"default": "center"
+		},
+		"sectionTitleAlignmentMobile": {
+			"type": "string",
+			"default": "center"
+		},
+		"sectionTitleFontWeight": {
+			"type": "number",
+			"default": 300
+		},
+		"sectionTitleAlignment": {
+			"type": "string",
+			"default": "center"
+		},
+		"sectionTitleMarginBottom": {
+			"type": "number",
+			"default": 10
+		},
+		"containerMaxWidth": {
+			"type": "number",
+			"default": 1200
+		},
+		"containerPadding": {
+			"type": "number",
+			"default": 20
+		},
+		"containerPaddingMobile": {
+			"type": "number",
+			"default": 20
+		},
+		"cardBorderRadius": {
+			"type": "number",
+			"default": 12
+		},
+		"cardBorderColor": {
+			"type": "string",
+			"default": "#eeeeee"
+		},
+		"cardBoxShadow": {
+			"type": "boolean",
+			"default": true
+		},
+		"animationOnScroll": {
+			"type": "boolean",
+			"default": true
+		},
+		"animationDelay": {
+			"type": "number",
+			"default": 100
+		},
+		"animationType": {
+			"type": "string",
+			"default": "fadeInUp"
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"align": [ "wide", "full" ]
+	},
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": {
+			"backgroundColor": "#f48b2a",
+			"backgroundImage": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?auto=format&fit=crop&w=1200&q=80",
+			"backgroundOverlay": false,
+			"backgroundOverlayColor": "rgba(244, 139, 42, 0.9)",
+			"backgroundOverlayOpacity": 0.9,
+			"paddingTop": 80,
+			"paddingBottom": 80,
+			"paddingTopMobile": 60,
+			"paddingBottomMobile": 60,
+			"showSectionTopLink": true,
+			"sectionTopLinkText": "View All Services",
+			"sectionTopLinkUrl": "#",
+			"showMetaTitle": true,
+			"metaTitle": "A good word means a lot",
+			"metaTitleColor": "#ffffff",
+			"metaTitleFontSize": 0.9,
+			"metaTitleFontSizeTablet": 0.85,
+			"metaTitleFontSizeMobile": 0.8,
+			"showSectionTitle": true,
+			"sectionTitle": "Patient ",
+			"highlightText": "testimonials",
+			"showSubtitle": true,
+			"subtitle": "It's always the word of mouth that's the best advice. Here are some of our...",
+			"subtitleColor": "rgba(255, 255, 255, 0.9)",
+			"subtitleFontSize": 1.1,
+			"subtitleFontSizeTablet": 1.05,
+			"subtitleFontSizeMobile": 1,
+			"highlightColor": "#212121",
+			"columns": 4,
+			"columnsTablet": 3,
+			"columnsMobile": 1,
+			"gap": 20,
+			"gapMobile": 40,
+			"minColumnWidth": 250,
+			"sectionTitleColor": "#ffffff",
+			"sectionTitleFontSize": 2.5,
+			"sectionTitleFontSizeTablet": 2.2,
+			"sectionTitleFontSizeMobile": 1.8,
+			"sectionTitleAlignmentTablet": "center",
+			"sectionTitleAlignmentMobile": "center",
+			"sectionTitleFontWeight": 300,
+			"sectionTitleAlignment": "center",
+			"sectionTitleMarginBottom": 10,
+			"containerMaxWidth": 1200,
+			"containerPadding": 20,
+			"containerPaddingMobile": 20,
+			"cardBorderRadius": 12,
+			"cardBorderColor": "#eeeeee",
+			"cardBoxShadow": true,
+			"animationOnScroll": true,
+			"animationDelay": 100,
+			"animationType": "fadeInUp"
+		},
+		"innerBlocks": [
+			{
+				"name": "twork/testimonial-item",
+				"attributes": {
+					"image": "https://i.pravatar.cc/150?img=25",
+					"name": "Laraine Flemming",
+					"procedure": "CBR",
+					"quote": "Professionals in their work, the surgery went well and I was able to go on with my life within just a few weeks. Recommended!"
+				}
+			},
+			{
+				"name": "twork/testimonial-item",
+				"attributes": {
+					"image": "https://i.pravatar.cc/150?img=60",
+					"name": "Herbie Hannes",
+					"procedure": "Valve Prolapse Repair",
+					"quote": "I am deeply grateful to Dr. Chase for his expertise and care. He practices both the science and the art of cardiac surgery."
+				}
+			},
+			{
+				"name": "twork/testimonial-item",
+				"attributes": {
+					"image": "https://i.pravatar.cc/150?img=56",
+					"name": "William Smith",
+					"procedure": "TMR",
+					"quote": "I felt like 102 before, now I feel like 52, thanks to Dr. Chase and his team. Their expertise is second to none!"
+				}
+			},
+			{
+				"name": "twork/testimonial-item",
+				"attributes": {
+					"image": "https://i.pravatar.cc/150?img=47",
+					"name": "Ellen Norton",
+					"procedure": "Pacemaker Implementation",
+					"quote": "They gave me much more than health - they gave me my life back. One that I can still enjoy with my family and grandchildren."
+				}
+			}
+		]
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
 }

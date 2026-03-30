@@ -1,43 +1,52 @@
 {
-    "$schema": "https://schemas.wp.org/trunk/block.json",
-    "apiVersion": 3,
-    "name": "twork/jivaka-badge-item",
-    "title": "Badge Item",
-    "parent": ["twork/jivaka-hero-section"],
-    "category": "twork-builder",
-    "icon": "download",
-    "description": "Single app store badge (image + link) for Jivaka Hero section.",
-    "keywords": ["jivaka", "badge", "app", "store", "twork"],
-    "attributes": {
-        "image": {
-            "type": "string",
-            "default": ""
-        },
-        "imageId": {
-            "type": "number"
-        },
-        "linkUrl": {
-            "type": "string",
-            "default": "#"
-        },
-        "linkTarget": {
-            "type": "string",
-            "default": "_blank"
-        },
-        "linkRel": {
-            "type": "string",
-            "default": "noopener noreferrer"
-        },
-        "alt": {
-            "type": "string",
-            "default": ""
-        }
-    },
-    "supports": {
-        "html": false,
-        "reusable": false
-    },
-    "textdomain": "twork-builder",
-    "editorScript": "file:./index.js",
-    "style": "file:./style-index.css"
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/jivaka-badge-item",
+	"title": "Badge Item",
+	"parent": [ "twork/jivaka-hero-section" ],
+	"category": "twork-builder",
+	"icon": "download",
+	"description": "Single app store badge (image + link) for Jivaka Hero section.",
+	"keywords": [ "jivaka", "badge", "app", "store", "twork" ],
+	"attributes": {
+		"image": {
+			"type": "string",
+			"default": ""
+		},
+		"imageId": {
+			"type": "number"
+		},
+		"linkUrl": {
+			"type": "string",
+			"default": "#"
+		},
+		"linkTarget": {
+			"type": "string",
+			"default": "_blank"
+		},
+		"linkRel": {
+			"type": "string",
+			"default": "noopener noreferrer"
+		},
+		"alt": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"supports": {
+		"html": false,
+		"reusable": false
+	},
+	"example": {
+		"attributes": {
+			"image": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?auto=format&fit=crop&w=1200&q=80",
+			"linkUrl": "#",
+			"linkTarget": "_blank",
+			"linkRel": "noopener noreferrer",
+			"alt": ""
+		}
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
 }

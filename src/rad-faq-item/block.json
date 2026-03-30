@@ -1,34 +1,33 @@
 {
-  "$schema": "https://schemas.wp.org/trunk/block.json",
-  "apiVersion": 3,
-  "name": "twork/rad-faq-item",
-  "version": "1.0.0",
-  "title": "FAQ Item",
-  "parent": ["twork/rad-prep-faq-section"],
-  "category": "twork-builder",
-  "description": "Single FAQ item (question + answer) for the Radiology Preparation FAQ section.",
-  "keywords": [
-    "radiology",
-    "faq",
-    "question",
-    "answer",
-    "twork"
-  ],
-  "attributes": {
-    "question": {
-      "type": "string",
-      "default": "Do I need to fast before a CT Scan?"
-    },
-    "answer": {
-      "type": "string",
-      "default": "Yes, usually 4-6 hours of fasting is required for abdominal CT scans, especially if contrast dye is used."
-    }
-  },
-  "supports": {
-    "html": false
-  },
-  "textdomain": "twork-builder",
-  "editorScript": "file:./index.js",
-  "style": "file:./style-index.css"
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/rad-faq-item",
+	"version": "1.0.0",
+	"title": "FAQ Item",
+	"parent": [ "twork/rad-prep-faq-section" ],
+	"category": "twork-builder",
+	"description": "Single FAQ item (question + answer) for the Radiology Preparation FAQ section.",
+	"keywords": [ "radiology", "faq", "question", "answer", "twork" ],
+	"attributes": {
+		"question": {
+			"type": "string",
+			"default": "Do I need to fast before a CT Scan?"
+		},
+		"answer": {
+			"type": "string",
+			"default": "Yes, usually 4-6 hours of fasting is required for abdominal CT scans, especially if contrast dye is used."
+		}
+	},
+	"supports": {
+		"html": false
+	},
+	"example": {
+		"attributes": {
+			"question": "Do I need to fast before a CT Scan?",
+			"answer": "Yes, usually 4-6 hours of fasting is required for abdominal CT scans, especially if contrast dye is used."
+		}
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
 }
-

@@ -1,193 +1,240 @@
 {
-    "$schema": "https://schemas.wp.org/trunk/block.json",
-    "apiVersion": 3,
-    "name": "twork/awards-section",
-    "version": "1.0.0",
-    "title": "Awards Section",
-    "category": "twork-builder",
-    "icon": "star-filled",
-    "description": "Awards & Recognition grid - displays posts from WordPress. Select by category or pick specific posts.",
-    "keywords": ["awards", "recognition", "gallery", "hospital", "twork"],
-    "attributes": {
-        "backgroundColor": {
-            "type": "string",
-            "default": "#f8f9fa"
-        },
-        "backgroundImage": {
-            "type": "string",
-            "default": ""
-        },
-        "backgroundImageId": {
-            "type": "number"
-        },
-        "backgroundOverlay": {
-            "type": "boolean",
-            "default": false
-        },
-        "backgroundOverlayColor": {
-            "type": "string",
-            "default": "rgba(0, 0, 0, 0.5)"
-        },
-        "backgroundOverlayOpacity": {
-            "type": "number",
-            "default": 0.5
-        },
-        "paddingTop": {
-            "type": "number",
-            "default": 80
-        },
-        "paddingBottom": {
-            "type": "number",
-            "default": 80
-        },
-        "columns": {
-            "type": "number",
-            "default": 4
-        },
-        "columnsTablet": {
-            "type": "number",
-            "default": 2
-        },
-        "columnsMobile": {
-            "type": "number",
-            "default": 1
-        },
-        "gap": {
-            "type": "number",
-            "default": 30
-        },
-        "gridMinWidth": {
-            "type": "number",
-            "default": 280
-        },
-        "gridMarginTop": {
-            "type": "number",
-            "default": 50
-        },
-        "showIntroTitle": {
-            "type": "boolean",
-            "default": true
-        },
-        "introTitle": {
-            "type": "string",
-            "default": "Awards & Recognition"
-        },
-        "introTitleColor": {
-            "type": "string",
-            "default": "#212121"
-        },
-        "introTitleFontSize": {
-            "type": "number",
-            "default": 2.2
-        },
-        "introTitleFontWeight": {
-            "type": "number",
-            "default": 700
-        },
-        "introTitleAlignment": {
-            "type": "string",
-            "default": "center"
-        },
-        "introMarginBottom": {
-            "type": "number",
-            "default": 40
-        },
-        "containerMaxWidth": {
-            "type": "number",
-            "default": 1200
-        },
-        "containerPadding": {
-            "type": "number",
-            "default": 30
-        },
-        "hoverEffect": {
-            "type": "boolean",
-            "default": true
-        },
-        "hoverTranslateY": {
-            "type": "number",
-            "default": -5
-        },
-        "imageZoomOnHover": {
-            "type": "boolean",
-            "default": true
-        },
-        "animationOnScroll": {
-            "type": "boolean",
-            "default": true
-        },
-        "animationType": {
-            "type": "string",
-            "default": "fadeInUp"
-        },
-        "animationDelay": {
-            "type": "number",
-            "default": 100
-        },
-        "source": {
-            "type": "string",
-            "default": "category"
-        },
-        "categoryId": {
-            "type": "number",
-            "default": 0
-        },
-        "numberOfItems": {
-            "type": "number",
-            "default": 6
-        },
-        "orderBy": {
-            "type": "string",
-            "default": "date"
-        },
-        "order": {
-            "type": "string",
-            "default": "DESC"
-        },
-        "postIds": {
-            "type": "array",
-            "default": []
-        },
-        "imageHeight": {
-            "type": "number",
-            "default": 200
-        },
-        "yearColor": {
-            "type": "string",
-            "default": "#f48b2a"
-        },
-        "yearFontSize": {
-            "type": "number",
-            "default": 0.9
-        },
-        "titleFontSize": {
-            "type": "number",
-            "default": 1.2
-        },
-        "descFontSize": {
-            "type": "number",
-            "default": 0.9
-        },
-        "contentPadding": {
-            "type": "number",
-            "default": 25
-        },
-        "showReadMoreButton": {
-            "type": "boolean",
-            "default": true
-        },
-        "readMoreLabel": {
-            "type": "string",
-            "default": "View Detail"
-        }
-    },
-    "supports": {
-        "html": false,
-        "anchor": true,
-        "align": ["wide", "full"]
-    },
-    "textdomain": "twork-builder",
-    "editorScript": "file:./index.js",
-    "viewScript": "file:./view.js",
-    "style": "file:./style-index.css"
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/awards-section",
+	"version": "1.0.0",
+	"title": "Awards Section",
+	"category": "twork-builder",
+	"icon": "star-filled",
+	"description": "Awards & Recognition grid - displays posts from WordPress. Select by category or pick specific posts.",
+	"keywords": [ "awards", "recognition", "gallery", "hospital", "twork" ],
+	"attributes": {
+		"backgroundColor": {
+			"type": "string",
+			"default": "#f8f9fa"
+		},
+		"backgroundImage": {
+			"type": "string",
+			"default": ""
+		},
+		"backgroundImageId": {
+			"type": "number"
+		},
+		"backgroundOverlay": {
+			"type": "boolean",
+			"default": false
+		},
+		"backgroundOverlayColor": {
+			"type": "string",
+			"default": "rgba(0, 0, 0, 0.5)"
+		},
+		"backgroundOverlayOpacity": {
+			"type": "number",
+			"default": 0.5
+		},
+		"paddingTop": {
+			"type": "number",
+			"default": 80
+		},
+		"paddingBottom": {
+			"type": "number",
+			"default": 80
+		},
+		"columns": {
+			"type": "number",
+			"default": 4
+		},
+		"columnsTablet": {
+			"type": "number",
+			"default": 2
+		},
+		"columnsMobile": {
+			"type": "number",
+			"default": 1
+		},
+		"gap": {
+			"type": "number",
+			"default": 30
+		},
+		"gridMinWidth": {
+			"type": "number",
+			"default": 280
+		},
+		"gridMarginTop": {
+			"type": "number",
+			"default": 50
+		},
+		"showIntroTitle": {
+			"type": "boolean",
+			"default": true
+		},
+		"introTitle": {
+			"type": "string",
+			"default": "Awards & Recognition"
+		},
+		"introTitleColor": {
+			"type": "string",
+			"default": "#212121"
+		},
+		"introTitleFontSize": {
+			"type": "number",
+			"default": 2.2
+		},
+		"introTitleFontWeight": {
+			"type": "number",
+			"default": 700
+		},
+		"introTitleAlignment": {
+			"type": "string",
+			"default": "center"
+		},
+		"introMarginBottom": {
+			"type": "number",
+			"default": 40
+		},
+		"containerMaxWidth": {
+			"type": "number",
+			"default": 1200
+		},
+		"containerPadding": {
+			"type": "number",
+			"default": 30
+		},
+		"hoverEffect": {
+			"type": "boolean",
+			"default": true
+		},
+		"hoverTranslateY": {
+			"type": "number",
+			"default": -5
+		},
+		"imageZoomOnHover": {
+			"type": "boolean",
+			"default": true
+		},
+		"animationOnScroll": {
+			"type": "boolean",
+			"default": true
+		},
+		"animationType": {
+			"type": "string",
+			"default": "fadeInUp"
+		},
+		"animationDelay": {
+			"type": "number",
+			"default": 100
+		},
+		"source": {
+			"type": "string",
+			"default": "category"
+		},
+		"categoryId": {
+			"type": "number",
+			"default": 0
+		},
+		"numberOfItems": {
+			"type": "number",
+			"default": 6
+		},
+		"orderBy": {
+			"type": "string",
+			"default": "date"
+		},
+		"order": {
+			"type": "string",
+			"default": "DESC"
+		},
+		"postIds": {
+			"type": "array",
+			"default": []
+		},
+		"imageHeight": {
+			"type": "number",
+			"default": 200
+		},
+		"yearColor": {
+			"type": "string",
+			"default": "#f48b2a"
+		},
+		"yearFontSize": {
+			"type": "number",
+			"default": 0.9
+		},
+		"titleFontSize": {
+			"type": "number",
+			"default": 1.2
+		},
+		"descFontSize": {
+			"type": "number",
+			"default": 0.9
+		},
+		"contentPadding": {
+			"type": "number",
+			"default": 25
+		},
+		"showReadMoreButton": {
+			"type": "boolean",
+			"default": true
+		},
+		"readMoreLabel": {
+			"type": "string",
+			"default": "View Detail"
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"align": [ "wide", "full" ]
+	},
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": {
+			"backgroundColor": "#f8f9fa",
+			"backgroundImage": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?auto=format&fit=crop&w=1200&q=80",
+			"backgroundOverlay": false,
+			"backgroundOverlayColor": "rgba(0, 0, 0, 0.5)",
+			"backgroundOverlayOpacity": 0.5,
+			"paddingTop": 80,
+			"paddingBottom": 80,
+			"columns": 4,
+			"columnsTablet": 2,
+			"columnsMobile": 1,
+			"gap": 30,
+			"gridMinWidth": 280,
+			"gridMarginTop": 50,
+			"showIntroTitle": true,
+			"introTitle": "Awards & Recognition",
+			"introTitleColor": "#212121",
+			"introTitleFontSize": 2.2,
+			"introTitleFontWeight": 700,
+			"introTitleAlignment": "center",
+			"introMarginBottom": 40,
+			"containerMaxWidth": 1200,
+			"containerPadding": 30,
+			"hoverEffect": true,
+			"hoverTranslateY": -5,
+			"imageZoomOnHover": true,
+			"animationOnScroll": true,
+			"animationType": "fadeInUp",
+			"animationDelay": 100,
+			"source": "category",
+			"categoryId": 0,
+			"numberOfItems": 6,
+			"orderBy": "date",
+			"order": "DESC",
+			"postIds": [],
+			"imageHeight": 200,
+			"yearColor": "#f48b2a",
+			"yearFontSize": 0.9,
+			"titleFontSize": 1.2,
+			"descFontSize": 0.9,
+			"contentPadding": 25,
+			"showReadMoreButton": true,
+			"readMoreLabel": "View Detail"
+		}
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"viewScript": "file:./view.js",
+	"style": "file:./style-index.css"
 }

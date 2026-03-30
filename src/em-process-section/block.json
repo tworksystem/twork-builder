@@ -1,111 +1,160 @@
 {
-  "$schema": "https://schemas.wp.org/trunk/block.json",
-  "apiVersion": 3,
-  "name": "twork/em-process-section",
-  "version": "1.0.0",
-  "title": "Process Section",
-  "category": "twork-builder",
-  "icon": "randomize",
-  "description": "Our Emergency Process – header plus a process steps grid with numbered circles.",
-  "keywords": [
-    "emergency",
-    "process",
-    "steps",
-    "timeline",
-    "twork"
-  ],
-  "attributes": {
-    "backgroundColor": {
-      "type": "string",
-      "default": "var(--em-light, #fffbf7)"
-    },
-    "paddingTop": {
-      "type": "number",
-      "default": 80
-    },
-    "paddingBottom": {
-      "type": "number",
-      "default": 80
-    },
-    "containerMaxWidth": {
-      "type": "number",
-      "default": 1280
-    },
-    "containerPadding": {
-      "type": "number",
-      "default": 20
-    },
-    "gap": {
-      "type": "number",
-      "default": 30
-    },
-    "columns": {
-      "type": "number",
-      "default": 4
-    },
-    "showSectionHeader": {
-      "type": "boolean",
-      "default": true
-    },
-    "sectionTitle": {
-      "type": "string",
-      "default": "Our Emergency Process"
-    },
-    "sectionTitleColor": {
-      "type": "string",
-      "default": "#212121"
-    },
-    "sectionTitleFontSize": {
-      "type": "number",
-      "default": 2.5
-    },
-    "sectionTitleFontWeight": {
-      "type": "number",
-      "default": 700
-    },
-    "sectionSubtitle": {
-      "type": "string",
-      "default": "We prioritize speed and precision."
-    },
-    "sectionSubtitleColor": {
-      "type": "string",
-      "default": "#666666"
-    },
-    "sectionSubtitleFontSize": {
-      "type": "number",
-      "default": 1
-    },
-    "headerMaxWidth": {
-      "type": "number",
-      "default": 700
-    },
-    "headerMarginBottom": {
-      "type": "number",
-      "default": 40
-    },
-    "animationOnScroll": {
-      "type": "boolean",
-      "default": true
-    },
-    "animationType": {
-      "type": "string",
-      "default": "fade-up"
-    },
-    "animationDelay": {
-      "type": "number",
-      "default": 100
-    }
-  },
-  "supports": {
-    "html": false,
-    "anchor": true,
-    "align": [
-      "wide",
-      "full"
-    ]
-  },
-  "textdomain": "twork-builder",
-  "editorScript": "file:./index.js",
-  "style": "file:./style-index.css"
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/em-process-section",
+	"version": "1.0.0",
+	"title": "Process Section",
+	"category": "twork-builder",
+	"icon": "randomize",
+	"description": "Our Emergency Process – header plus a process steps grid with numbered circles.",
+	"keywords": [ "emergency", "process", "steps", "timeline", "twork" ],
+	"attributes": {
+		"backgroundColor": {
+			"type": "string",
+			"default": "var(--em-light, #fffbf7)"
+		},
+		"paddingTop": {
+			"type": "number",
+			"default": 80
+		},
+		"paddingBottom": {
+			"type": "number",
+			"default": 80
+		},
+		"containerMaxWidth": {
+			"type": "number",
+			"default": 1280
+		},
+		"containerPadding": {
+			"type": "number",
+			"default": 20
+		},
+		"gap": {
+			"type": "number",
+			"default": 30
+		},
+		"columns": {
+			"type": "number",
+			"default": 4
+		},
+		"showSectionHeader": {
+			"type": "boolean",
+			"default": true
+		},
+		"sectionTitle": {
+			"type": "string",
+			"default": "Our Emergency Process"
+		},
+		"sectionTitleColor": {
+			"type": "string",
+			"default": "#212121"
+		},
+		"sectionTitleFontSize": {
+			"type": "number",
+			"default": 2.5
+		},
+		"sectionTitleFontWeight": {
+			"type": "number",
+			"default": 700
+		},
+		"sectionSubtitle": {
+			"type": "string",
+			"default": "We prioritize speed and precision."
+		},
+		"sectionSubtitleColor": {
+			"type": "string",
+			"default": "#666666"
+		},
+		"sectionSubtitleFontSize": {
+			"type": "number",
+			"default": 1
+		},
+		"headerMaxWidth": {
+			"type": "number",
+			"default": 700
+		},
+		"headerMarginBottom": {
+			"type": "number",
+			"default": 40
+		},
+		"animationOnScroll": {
+			"type": "boolean",
+			"default": true
+		},
+		"animationType": {
+			"type": "string",
+			"default": "fade-up"
+		},
+		"animationDelay": {
+			"type": "number",
+			"default": 100
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"align": [ "wide", "full" ]
+	},
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": {
+			"backgroundColor": "var(--em-light, #fffbf7)",
+			"paddingTop": 80,
+			"paddingBottom": 80,
+			"containerMaxWidth": 1280,
+			"containerPadding": 20,
+			"gap": 30,
+			"columns": 4,
+			"showSectionHeader": true,
+			"sectionTitle": "Our Emergency Process",
+			"sectionTitleColor": "#212121",
+			"sectionTitleFontSize": 2.5,
+			"sectionTitleFontWeight": 700,
+			"sectionSubtitle": "We prioritize speed and precision.",
+			"sectionSubtitleColor": "#666666",
+			"sectionSubtitleFontSize": 1,
+			"headerMaxWidth": 700,
+			"headerMarginBottom": 40,
+			"animationOnScroll": true,
+			"animationType": "fade-up",
+			"animationDelay": 100
+		},
+		"innerBlocks": [
+			{
+				"name": "twork/em-process-step",
+				"attributes": {
+					"stepNumber": "1",
+					"title": "Arrival",
+					"description": "Ambulance or walk-in."
+				}
+			},
+			{
+				"name": "twork/em-process-step",
+				"attributes": {
+					"stepNumber": "2",
+					"title": "Triage",
+					"description": "Quick severity assessment."
+				}
+			},
+			{
+				"name": "twork/em-process-step",
+				"attributes": {
+					"stepNumber": "3",
+					"title": "Diagnosis",
+					"description": "Rapid labs and imaging."
+				}
+			},
+			{
+				"name": "twork/em-process-step",
+				"attributes": {
+					"stepNumber": "4",
+					"title": "Treatment",
+					"description": "Surgery or ICU admission."
+				}
+			}
+		]
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
 }
-

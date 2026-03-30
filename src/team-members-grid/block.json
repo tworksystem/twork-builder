@@ -1,170 +1,229 @@
 {
-    "$schema": "https://schemas.wp.org/trunk/block.json",
-    "apiVersion": 3,
-    "name": "twork/team-members-grid",
-    "title": "Team Members Grid",
-    "category": "twork-builder",
-    "description": "Professional team members grid with comprehensive customization options",
-    "keywords": ["team", "members", "staff", "doctors", "grid", "twork"],
-    "attributes": {
-        "backgroundColor": {
-            "type": "string",
-            "default": "#ffffff"
-        },
-        "backgroundImage": {
-            "type": "string",
-            "default": ""
-        },
-        "backgroundImageId": {
-            "type": "number"
-        },
-        "backgroundOverlay": {
-            "type": "boolean",
-            "default": false
-        },
-        "backgroundOverlayColor": {
-            "type": "string",
-            "default": "rgba(0, 0, 0, 0.5)"
-        },
-        "backgroundOverlayOpacity": {
-            "type": "number",
-            "default": 0.5
-        },
-        "paddingTop": {
-            "type": "number",
-            "default": 80
-        },
-        "paddingBottom": {
-            "type": "number",
-            "default": 80
-        },
-        "columns": {
-            "type": "number",
-            "default": 4
-        },
-        "columnsTablet": {
-            "type": "number",
-            "default": 2
-        },
-        "columnsMobile": {
-            "type": "number",
-            "default": 1
-        },
-        "gap": {
-            "type": "number",
-            "default": 30
-        },
-        "showSectionTitle": {
-            "type": "boolean",
-            "default": true
-        },
-        "sectionTitle": {
-            "type": "string",
-            "default": "Meet Our Team"
-        },
-        "sectionTitleColor": {
-            "type": "string",
-            "default": "#212121"
-        },
-        "sectionTitleFontSize": {
-            "type": "number",
-            "default": 2.5
-        },
-        "sectionTitleFontWeight": {
-            "type": "number",
-            "default": 700
-        },
-        "sectionTitleAlignment": {
-            "type": "string",
-            "default": "center"
-        },
-        "showSectionSubtitle": {
-            "type": "boolean",
-            "default": true
-        },
-        "sectionSubtitle": {
-            "type": "string",
-            "default": "Our Expert Professionals"
-        },
-        "sectionSubtitleColor": {
-            "type": "string",
-            "default": "#666666"
-        },
-        "sectionSubtitleFontSize": {
-            "type": "number",
-            "default": 1.1
-        },
-        "containerMaxWidth": {
-            "type": "number",
-            "default": 1200
-        },
-        "containerPadding": {
-            "type": "number",
-            "default": 30
-        },
-        "cardBorderRadius": {
-            "type": "number",
-            "default": 8
-        },
-        "cardBoxShadow": {
-            "type": "boolean",
-            "default": true
-        },
-        "cardBoxShadowColor": {
-            "type": "string",
-            "default": "rgba(0, 0, 0, 0.1)"
-        },
-        "cardBoxShadowBlur": {
-            "type": "number",
-            "default": 20
-        },
-        "cardBoxShadowSpread": {
-            "type": "number",
-            "default": 0
-        },
-        "cardBoxShadowOffsetX": {
-            "type": "number",
-            "default": 0
-        },
-        "cardBoxShadowOffsetY": {
-            "type": "number",
-            "default": 4
-        },
-        "hoverEffect": {
-            "type": "boolean",
-            "default": true
-        },
-        "hoverTranslateY": {
-            "type": "number",
-            "default": -8
-        },
-        "hoverScale": {
-            "type": "number",
-            "default": 1.02
-        },
-        "hoverShadowIntensity": {
-            "type": "number",
-            "default": 1.5
-        },
-        "animationOnScroll": {
-            "type": "boolean",
-            "default": true
-        },
-        "animationDelay": {
-            "type": "number",
-            "default": 100
-        },
-        "animationType": {
-            "type": "string",
-            "default": "fadeInUp"
-        }
-    },
-    "supports": {
-        "html": false,
-        "anchor": true,
-        "align": ["wide", "full"]
-    },
-    "editorScript": "file:./index.js",
-    "style": "file:./style-index.css"
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/team-members-grid",
+	"title": "Team Members Grid",
+	"category": "twork-builder",
+	"description": "Professional team members grid with comprehensive customization options",
+	"keywords": [ "team", "members", "staff", "doctors", "grid", "twork" ],
+	"attributes": {
+		"backgroundColor": {
+			"type": "string",
+			"default": "#ffffff"
+		},
+		"backgroundImage": {
+			"type": "string",
+			"default": ""
+		},
+		"backgroundImageId": {
+			"type": "number"
+		},
+		"backgroundOverlay": {
+			"type": "boolean",
+			"default": false
+		},
+		"backgroundOverlayColor": {
+			"type": "string",
+			"default": "rgba(0, 0, 0, 0.5)"
+		},
+		"backgroundOverlayOpacity": {
+			"type": "number",
+			"default": 0.5
+		},
+		"paddingTop": {
+			"type": "number",
+			"default": 80
+		},
+		"paddingBottom": {
+			"type": "number",
+			"default": 80
+		},
+		"columns": {
+			"type": "number",
+			"default": 4
+		},
+		"columnsTablet": {
+			"type": "number",
+			"default": 2
+		},
+		"columnsMobile": {
+			"type": "number",
+			"default": 1
+		},
+		"gap": {
+			"type": "number",
+			"default": 30
+		},
+		"showSectionTitle": {
+			"type": "boolean",
+			"default": true
+		},
+		"sectionTitle": {
+			"type": "string",
+			"default": "Meet Our Team"
+		},
+		"sectionTitleColor": {
+			"type": "string",
+			"default": "#212121"
+		},
+		"sectionTitleFontSize": {
+			"type": "number",
+			"default": 2.5
+		},
+		"sectionTitleFontWeight": {
+			"type": "number",
+			"default": 700
+		},
+		"sectionTitleAlignment": {
+			"type": "string",
+			"default": "center"
+		},
+		"showSectionSubtitle": {
+			"type": "boolean",
+			"default": true
+		},
+		"sectionSubtitle": {
+			"type": "string",
+			"default": "Our Expert Professionals"
+		},
+		"sectionSubtitleColor": {
+			"type": "string",
+			"default": "#666666"
+		},
+		"sectionSubtitleFontSize": {
+			"type": "number",
+			"default": 1.1
+		},
+		"containerMaxWidth": {
+			"type": "number",
+			"default": 1200
+		},
+		"containerPadding": {
+			"type": "number",
+			"default": 30
+		},
+		"cardBorderRadius": {
+			"type": "number",
+			"default": 8
+		},
+		"cardBoxShadow": {
+			"type": "boolean",
+			"default": true
+		},
+		"cardBoxShadowColor": {
+			"type": "string",
+			"default": "rgba(0, 0, 0, 0.1)"
+		},
+		"cardBoxShadowBlur": {
+			"type": "number",
+			"default": 20
+		},
+		"cardBoxShadowSpread": {
+			"type": "number",
+			"default": 0
+		},
+		"cardBoxShadowOffsetX": {
+			"type": "number",
+			"default": 0
+		},
+		"cardBoxShadowOffsetY": {
+			"type": "number",
+			"default": 4
+		},
+		"hoverEffect": {
+			"type": "boolean",
+			"default": true
+		},
+		"hoverTranslateY": {
+			"type": "number",
+			"default": -8
+		},
+		"hoverScale": {
+			"type": "number",
+			"default": 1.02
+		},
+		"hoverShadowIntensity": {
+			"type": "number",
+			"default": 1.5
+		},
+		"animationOnScroll": {
+			"type": "boolean",
+			"default": true
+		},
+		"animationDelay": {
+			"type": "number",
+			"default": 100
+		},
+		"animationType": {
+			"type": "string",
+			"default": "fadeInUp"
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"align": [ "wide", "full" ]
+	},
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css",
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": {
+			"backgroundColor": "#ffffff",
+			"backgroundImage": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?auto=format&fit=crop&w=1200&q=80",
+			"backgroundOverlay": false,
+			"backgroundOverlayColor": "rgba(0, 0, 0, 0.5)",
+			"backgroundOverlayOpacity": 0.5,
+			"paddingTop": 80,
+			"paddingBottom": 80,
+			"columns": 4,
+			"columnsTablet": 2,
+			"columnsMobile": 1,
+			"gap": 30,
+			"showSectionTitle": true,
+			"sectionTitle": "Meet Our Team",
+			"sectionTitleColor": "#212121",
+			"sectionTitleFontSize": 2.5,
+			"sectionTitleFontWeight": 700,
+			"sectionTitleAlignment": "center",
+			"showSectionSubtitle": true,
+			"sectionSubtitle": "Our Expert Professionals",
+			"sectionSubtitleColor": "#666666",
+			"sectionSubtitleFontSize": 1.1,
+			"containerMaxWidth": 1200,
+			"containerPadding": 30,
+			"cardBorderRadius": 8,
+			"cardBoxShadow": true,
+			"cardBoxShadowColor": "rgba(0, 0, 0, 0.1)",
+			"cardBoxShadowBlur": 20,
+			"cardBoxShadowSpread": 0,
+			"cardBoxShadowOffsetX": 0,
+			"cardBoxShadowOffsetY": 4,
+			"hoverEffect": true,
+			"hoverTranslateY": -8,
+			"hoverScale": 1.02,
+			"hoverShadowIntensity": 1.5,
+			"animationOnScroll": true,
+			"animationDelay": 100,
+			"animationType": "fadeInUp"
+		},
+		"innerBlocks": [
+			{
+				"name": "twork/team-member-item",
+				"attributes": {}
+			},
+			{
+				"name": "twork/team-member-item",
+				"attributes": {}
+			},
+			{
+				"name": "twork/team-member-item",
+				"attributes": {}
+			},
+			{
+				"name": "twork/team-member-item",
+				"attributes": {}
+			}
+		]
+	}
 }
-

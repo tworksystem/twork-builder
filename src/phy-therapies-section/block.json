@@ -1,38 +1,130 @@
 {
-  "$schema": "https://schemas.wp.org/trunk/block.json",
-  "apiVersion": 3,
-  "name": "twork/phy-therapies-section",
-  "version": "1.0.0",
-  "title": "Therapies Section",
-  "category": "twork-builder",
-  "icon": "grid-view",
-  "description": "Our Therapies section: header + expandable therapy cards, matching physiotherapy-rehab.html.",
-  "keywords": ["physio", "therapies", "services", "cards", "twork"],
-  "attributes": {
-    "backgroundColor": { "type": "string", "default": "transparent" },
-    "paddingTop":      { "type": "number", "default": 60 },
-    "paddingBottom":   { "type": "number", "default": 80 },
-    "containerMaxWidth": { "type": "number", "default": 1280 },
-    "containerPadding":  { "type": "number", "default": 24 },
-
-    "showSectionTitle":    { "type": "boolean", "default": true },
-    "sectionTitle":        { "type": "string",  "default": "Our Therapies" },
-    "showSectionSubtitle": { "type": "boolean", "default": true },
-    "sectionSubtitle":     { "type": "string",  "default": "A multimodal approach to faster recovery." },
-    "headerAlign":         { "type": "string",  "default": "center" },
-
-    "gap":                { "type": "number", "default": 20 },
-    "animationOnScroll":  { "type": "boolean", "default": true },
-    "animationType":      { "type": "string",  "default": "fade-up" },
-    "animationDelay":     { "type": "number",  "default": 100 }
-  },
-  "supports": {
-    "html": false,
-    "anchor": true,
-    "align": ["wide", "full"]
-  },
-  "textdomain": "twork-builder",
-  "editorScript": "file:./index.js",
-  "style": "file:./style-index.css"
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/phy-therapies-section",
+	"version": "1.0.0",
+	"title": "Therapies Section",
+	"category": "twork-builder",
+	"icon": "grid-view",
+	"description": "Our Therapies section: header + expandable therapy cards, matching physiotherapy-rehab.html.",
+	"keywords": [ "physio", "therapies", "services", "cards", "twork" ],
+	"attributes": {
+		"backgroundColor": {
+			"type": "string",
+			"default": "transparent"
+		},
+		"paddingTop": {
+			"type": "number",
+			"default": 60
+		},
+		"paddingBottom": {
+			"type": "number",
+			"default": 80
+		},
+		"containerMaxWidth": {
+			"type": "number",
+			"default": 1280
+		},
+		"containerPadding": {
+			"type": "number",
+			"default": 24
+		},
+		"showSectionTitle": {
+			"type": "boolean",
+			"default": true
+		},
+		"sectionTitle": {
+			"type": "string",
+			"default": "Our Therapies"
+		},
+		"showSectionSubtitle": {
+			"type": "boolean",
+			"default": true
+		},
+		"sectionSubtitle": {
+			"type": "string",
+			"default": "A multimodal approach to faster recovery."
+		},
+		"headerAlign": {
+			"type": "string",
+			"default": "center"
+		},
+		"gap": {
+			"type": "number",
+			"default": 20
+		},
+		"animationOnScroll": {
+			"type": "boolean",
+			"default": true
+		},
+		"animationType": {
+			"type": "string",
+			"default": "fade-up"
+		},
+		"animationDelay": {
+			"type": "number",
+			"default": 100
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"align": [ "wide", "full" ]
+	},
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": {
+			"backgroundColor": "transparent",
+			"paddingTop": 60,
+			"paddingBottom": 80,
+			"containerMaxWidth": 1280,
+			"containerPadding": 24,
+			"showSectionTitle": true,
+			"sectionTitle": "Our Therapies",
+			"showSectionSubtitle": true,
+			"sectionSubtitle": "A multimodal approach to faster recovery.",
+			"headerAlign": "center",
+			"gap": 20,
+			"animationOnScroll": true,
+			"animationType": "fade-up",
+			"animationDelay": 100
+		},
+		"innerBlocks": [
+			{
+				"name": "twork/phy-therapy-card",
+				"attributes": {
+					"imageUrl": "https://images.unsplash.com/photo-1576091160550-217358c7e618?auto=format&fit=crop&w=600&q=80",
+					"title": "Manual Therapy",
+					"description": "Hands-on techniques to mobilize joints and soft tissues, reducing pain and increasing range of motion."
+				}
+			},
+			{
+				"name": "twork/phy-therapy-card",
+				"attributes": {
+					"imageUrl": "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=600&q=80",
+					"title": "Electrotherapy",
+					"description": "Using advanced modalities like Ultrasound, TENS, and IFT to manage pain and stimulate muscle healing."
+				}
+			},
+			{
+				"name": "twork/phy-therapy-card",
+				"attributes": {
+					"imageUrl": "https://images.unsplash.com/photo-1599058945522-28d584b6f0ff?auto=format&fit=crop&w=600&q=80",
+					"title": "Exercise Therapy",
+					"description": "Customized exercise plans to strengthen muscles, improve balance, and prevent re-injury."
+				}
+			},
+			{
+				"name": "twork/phy-therapy-card",
+				"attributes": {
+					"imageUrl": "https://plus.unsplash.com/premium_photo-1661281397737-9b5d75902230?auto=format&fit=crop&w=600&q=80",
+					"title": "Post-Op Rehab",
+					"description": "Specialized care after surgeries like knee replacement or hip replacement to get you back on your feet."
+				}
+			}
+		]
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
 }
-

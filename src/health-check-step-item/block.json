@@ -1,30 +1,39 @@
 {
-    "$schema": "https://schemas.wp.org/trunk/block.json",
-    "apiVersion": 3,
-    "name": "twork/health-check-step-item",
-    "version": "1.0.0",
-    "title": "Step Item",
-    "parent": ["twork/health-check-steps-section"],
-    "category": "twork-builder",
-    "icon": "minus",
-    "description": "Single step (icon, title, description) for Health Check How to Prepare section.",
-    "keywords": ["health", "check", "step", "prepare", "chk", "twork"],
-    "attributes": {
-        "icon": {
-            "type": "string",
-            "default": "fas fa-ban"
-        },
-        "title": {
-            "type": "string",
-            "default": "Fasting"
-        },
-        "description": {
-            "type": "string",
-            "default": "Do not eat for 8-10 hours before the test. Water is allowed."
-        }
-    },
-    "supports": { "html": false },
-    "textdomain": "twork-builder",
-    "editorScript": "file:./index.js",
-    "style": "file:./style-index.css"
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/health-check-step-item",
+	"version": "1.0.0",
+	"title": "Step Item",
+	"parent": [ "twork/health-check-steps-section" ],
+	"category": "twork-builder",
+	"icon": "minus",
+	"description": "Single step (icon, title, description) for Health Check How to Prepare section.",
+	"keywords": [ "health", "check", "step", "prepare", "chk", "twork" ],
+	"attributes": {
+		"icon": {
+			"type": "string",
+			"default": "fas fa-ban"
+		},
+		"title": {
+			"type": "string",
+			"default": "Fasting"
+		},
+		"description": {
+			"type": "string",
+			"default": "Do not eat for 8-10 hours before the test. Water is allowed."
+		}
+	},
+	"supports": {
+		"html": false
+	},
+	"example": {
+		"attributes": {
+			"icon": "fas fa-ban",
+			"title": "Fasting",
+			"description": "Do not eat for 8-10 hours before the test. Water is allowed."
+		}
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
 }

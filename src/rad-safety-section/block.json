@@ -1,105 +1,145 @@
 {
-  "$schema": "https://schemas.wp.org/trunk/block.json",
-  "apiVersion": 3,
-  "name": "twork/rad-safety-section",
-  "version": "1.0.0",
-  "title": "Safety Section",
-  "category": "twork-builder",
-  "icon": "shield",
-  "description": "Radiology safety section with left image and right safety cards.",
-  "keywords": [
-    "radiology",
-    "safety",
-    "alara",
-    "twork"
-  ],
-  "attributes": {
-    "backgroundColor": {
-      "type": "string",
-      "default": "#ffffff"
-    },
-    "paddingTop": {
-      "type": "number",
-      "default": 80
-    },
-    "paddingBottom": {
-      "type": "number",
-      "default": 80
-    },
-    "containerMaxWidth": {
-      "type": "number",
-      "default": 1200
-    },
-    "containerPadding": {
-      "type": "number",
-      "default": 20
-    },
-    "showSectionTitle": {
-      "type": "boolean",
-      "default": true
-    },
-    "sectionTitle": {
-      "type": "string",
-      "default": "Safety First Approach"
-    },
-    "sectionTitleColor": {
-      "type": "string",
-      "default": "#212121"
-    },
-    "sectionTitleFontSize": {
-      "type": "number",
-      "default": 2.2
-    },
-    "showSectionSubtitle": {
-      "type": "boolean",
-      "default": true
-    },
-    "sectionSubtitle": {
-      "type": "string",
-      "default": "We adhere to ALARA (As Low As Reasonably Achievable) principles to ensure patient safety during radiation procedures."
-    },
-    "sectionSubtitleColor": {
-      "type": "string",
-      "default": "#666666"
-    },
-    "sectionSubtitleFontSize": {
-      "type": "number",
-      "default": 1
-    },
-    "imageUrl": {
-      "type": "string",
-      "default": "https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?auto=format&fit=crop&w=600&q=80"
-    },
-    "imageId": {
-      "type": "number"
-    },
-    "imageAlt": {
-      "type": "string",
-      "default": "Safety"
-    },
-    "animationOnScroll": {
-      "type": "boolean",
-      "default": true
-    },
-    "animationType": {
-      "type": "string",
-      "default": "fade-up"
-    },
-    "animationDelay": {
-      "type": "number",
-      "default": 0
-    }
-  },
-  "supports": {
-    "html": false,
-    "anchor": true,
-    "align": [
-      "wide",
-      "full"
-    ]
-  },
-  "textdomain": "twork-builder",
-  "editorScript": "file:./index.js",
-  "style": "file:./style-index.css"
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/rad-safety-section",
+	"version": "1.0.0",
+	"title": "Safety Section",
+	"category": "twork-builder",
+	"icon": "shield",
+	"description": "Radiology safety section with left image and right safety cards.",
+	"keywords": [ "radiology", "safety", "alara", "twork" ],
+	"attributes": {
+		"backgroundColor": {
+			"type": "string",
+			"default": "#ffffff"
+		},
+		"paddingTop": {
+			"type": "number",
+			"default": 80
+		},
+		"paddingBottom": {
+			"type": "number",
+			"default": 80
+		},
+		"containerMaxWidth": {
+			"type": "number",
+			"default": 1200
+		},
+		"containerPadding": {
+			"type": "number",
+			"default": 20
+		},
+		"showSectionTitle": {
+			"type": "boolean",
+			"default": true
+		},
+		"sectionTitle": {
+			"type": "string",
+			"default": "Safety First Approach"
+		},
+		"sectionTitleColor": {
+			"type": "string",
+			"default": "#212121"
+		},
+		"sectionTitleFontSize": {
+			"type": "number",
+			"default": 2.2
+		},
+		"showSectionSubtitle": {
+			"type": "boolean",
+			"default": true
+		},
+		"sectionSubtitle": {
+			"type": "string",
+			"default": "We adhere to ALARA (As Low As Reasonably Achievable) principles to ensure patient safety during radiation procedures."
+		},
+		"sectionSubtitleColor": {
+			"type": "string",
+			"default": "#666666"
+		},
+		"sectionSubtitleFontSize": {
+			"type": "number",
+			"default": 1
+		},
+		"imageUrl": {
+			"type": "string",
+			"default": "https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?auto=format&fit=crop&w=600&q=80"
+		},
+		"imageId": {
+			"type": "number"
+		},
+		"imageAlt": {
+			"type": "string",
+			"default": "Safety"
+		},
+		"animationOnScroll": {
+			"type": "boolean",
+			"default": true
+		},
+		"animationType": {
+			"type": "string",
+			"default": "fade-up"
+		},
+		"animationDelay": {
+			"type": "number",
+			"default": 0
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"align": [ "wide", "full" ]
+	},
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": {
+			"backgroundColor": "#ffffff",
+			"paddingTop": 80,
+			"paddingBottom": 80,
+			"containerMaxWidth": 1200,
+			"containerPadding": 20,
+			"showSectionTitle": true,
+			"sectionTitle": "Safety First Approach",
+			"sectionTitleColor": "#212121",
+			"sectionTitleFontSize": 2.2,
+			"showSectionSubtitle": true,
+			"sectionSubtitle": "We adhere to ALARA (As Low As Reasonably Achievable) principles to ensure patient safety during radiation procedures.",
+			"sectionSubtitleColor": "#666666",
+			"sectionSubtitleFontSize": 1,
+			"imageUrl": "https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?auto=format&fit=crop&w=600&q=80",
+			"imageAlt": "Safety",
+			"animationOnScroll": true,
+			"animationType": "fade-up",
+			"animationDelay": 0
+		},
+		"innerBlocks": [
+			{
+				"name": "twork/rad-safety-card",
+				"attributes": {
+					"iconClass": "fas fa-shield-alt",
+					"title": "Dose Management",
+					"description": "Automated dose tracking for every patient to prevent overexposure."
+				}
+			},
+			{
+				"name": "twork/rad-safety-card",
+				"attributes": {
+					"iconClass": "fas fa-child",
+					"title": "Pediatric Protocols",
+					"description": "Specialized low-dose settings specifically for children."
+				}
+			},
+			{
+				"name": "twork/rad-safety-card",
+				"attributes": {
+					"iconClass": "fas fa-pump-medical",
+					"title": "Contrast Safety",
+					"description": "Strict kidney function checks before administering contrast media."
+				}
+			}
+		]
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
 }
-
