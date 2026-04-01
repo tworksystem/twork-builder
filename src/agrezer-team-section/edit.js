@@ -14,10 +14,10 @@ import {
 	Button,
 } from '@wordpress/components';
 
-const ALLOWED_BLOCKS = [ 'twork/agrezer-team-card' ];
+const ALLOWED_BLOCKS = [ 'twork/team-member' ];
 const TEMPLATE = [
 	[
-		'twork/agrezer-team-card',
+		'twork/team-member',
 		{
 			name: 'Harry Black',
 			role: 'Chief Executive Officer',
@@ -25,7 +25,7 @@ const TEMPLATE = [
 	],
 
 	[
-		'twork/agrezer-team-card',
+		'twork/team-member',
 		{
 			name: 'Marry Olson',
 			role: 'Shop Keeper',
@@ -33,7 +33,7 @@ const TEMPLATE = [
 	],
 
 	[
-		'twork/agrezer-team-card',
+		'twork/team-member',
 		{
 			name: 'Arun Patel',
 			role: 'Chief Agronomist',
@@ -59,18 +59,18 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'agrezer-team-section twork-agrezer-team-section-editor',
+			className: 'twork-team-section twork-team-section-editor',
 			style: {
 				backgroundColor,
 				paddingTop: `${ paddingTop }px`,
 				paddingBottom: `${ paddingBottom }px`,
-				'--agrezer-team-max': `${ containerMaxWidth }px`,
-				'--agrezer-team-width-pct': `${ containerWidthPct }%`,
-				'--agrezer-team-gap': `${ gridGap }px`,
-				'--agrezer-team-cols': String(
+				'--twork-team-max': `${ containerMaxWidth }px`,
+				'--twork-team-width-pct': `${ containerWidthPct }%`,
+				'--twork-team-gap': `${ gridGap }px`,
+				'--twork-team-cols': String(
 					Math.min( 4, Math.max( 1, columns || 3 ) )
 				),
-				'--agrezer-team-header-mb': `${ headerMarginBottom }px`,
+				'--twork-team-header-mb': `${ headerMarginBottom }px`,
 			},
 		} ),
 		[
@@ -124,7 +124,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 								<img
 									src={ tagIcon }
 									alt=""
-									className="agrezer-team-section__tag-icon"
+									className="twork-team-section__tag-icon"
 								/>
 
 								<Button
@@ -259,14 +259,14 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 			) }
 
 			<section { ...blockProps }>
-				<div className="agrezer-team-section__container">
-					<div className="agrezer-team-section__header">
-						<div className="agrezer-team-section__tagline">
+				<div className="twork-team-section__container">
+					<div className="twork-team-section__header">
+						<div className="twork-team-section__tagline">
 							{ tagIcon && (
 								<img
 									src={ tagIcon }
 									alt=""
-									className="agrezer-team-section__tag-icon"
+									className="twork-team-section__tag-icon"
 								/>
 							) }
 							<RichText
@@ -284,7 +284,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 						</div>
 						<RichText
 							tagName="h2"
-							className="agrezer-team-section__title"
+							className="twork-team-section__title"
 							value={ title }
 							onChange={ ( val ) =>
 								setAttributes( { title: val } )
@@ -302,7 +302,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 						/>
 					</div>
 
-					<div className="agrezer-team-section__grid agrezer-team-section__grid--editor">
+					<div className="twork-team-section__grid twork-team-section__grid--editor">
 						<InnerBlocks
 							allowedBlocks={ ALLOWED_BLOCKS }
 							template={ TEMPLATE }

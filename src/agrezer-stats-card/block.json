@@ -1,13 +1,15 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "twork/agrezer-stats-card",
+	"name": "twork/stat-card",
 	"version": "1.0.0",
-	"title": "Agrezer Stats Card",
+	"title": "Stat Card",
 	"category": "twork-builder",
-	"parent": [ "twork/agrezer-stats-column" ],
+	"parent": [
+		"twork/stats-column"
+	],
 	"icon": "analytics",
-	"description": "Image card with stat value and label overlay.",
+	"description": "Statistic image card.",
 	"supports": {
 		"html": false,
 		"reusable": false

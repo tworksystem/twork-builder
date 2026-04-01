@@ -12,7 +12,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'agrezer-partners__item',
+			className: 'twork-partners__item',
 		} ),
 		[]
 	);
@@ -54,10 +54,10 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 						} }
 					/>
 				) : (
-					<div className="agrezer-partners__item-media">
+					<div className="twork-partners__item-media">
 						<img
 							src={ image }
-							className="agrezer-partners__icon"
+							className="twork-partners__icon"
 							alt=""
 						/>
 
@@ -74,7 +74,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 				) }
 				<RichText
 					tagName="span"
-					className="agrezer-partners__name"
+					className="twork-partners__name"
 					value={ name }
 					onChange={ ( val ) => setAttributes( { name: val } ) }
 					placeholder={ __( 'Partner name', 'twork-builder' ) }

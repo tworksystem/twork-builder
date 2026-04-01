@@ -17,13 +17,13 @@ import {
 } from '@wordpress/components';
 
 const ALLOWED_BLOCKS = [
-	'twork/agrezer-process-step',
-	'twork/agrezer-process-center',
+	'twork/process-step',
+	'twork/process-center',
 ];
 
 const TEMPLATE = [
 	[
-		'twork/agrezer-process-step',
+		'twork/process-step',
 		{
 			position: 'left',
 			badgeNum: '01',
@@ -37,14 +37,14 @@ const TEMPLATE = [
 	],
 
 	[
-		'twork/agrezer-process-center',
+		'twork/process-center',
 		{
 			alt: 'Process Wheel',
 		},
 	],
 
 	[
-		'twork/agrezer-process-step',
+		'twork/process-step',
 		{
 			position: 'right',
 			badgeNum: '02',
@@ -83,7 +83,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: `agrezer-process twork-agrezer-process-section-editor ${
+			className: `twork-process twork-process-section-editor ${
 				wreathDecorationUrl ? 'has-process-wreath' : ''
 			}`,
 
@@ -91,9 +91,9 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 				backgroundColor,
 				paddingTop: `${ paddingTop }px`,
 				paddingBottom: `${ paddingBottom }px`,
-				'--agrezer-process-grid-gap': `${ gridGap }px`,
+				'--twork-process-grid-gap': `${ gridGap }px`,
 				...( wreathVar
-					? { '--agrezer-process-wreath': wreathVar }
+					? { '--twork-process-wreath': wreathVar }
 					: {} ),
 			},
 		} ),
@@ -332,14 +332,14 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 				</InspectorControls>
 			) }
 
-			<section { ...blockProps } aria-labelledby="agrezer-process-title">
-				<div className="agrezer-process__header">
+			<section { ...blockProps } aria-labelledby="twork-process-title">
+				<div className="twork-process__header">
 					<p
-						className="agrezer-process__tagline"
+						className="twork-process__tagline"
 						style={ { color: taglineColor } }
 					>
 						<span
-							className="agrezer-process__tagline-icon"
+							className="twork-process__tagline-icon"
 							style={ { color: taglineIconColor } }
 							aria-hidden="true"
 						>
@@ -360,8 +360,8 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 					</p>
 					<RichText
 						tagName="h2"
-						id="agrezer-process-title"
-						className="agrezer-process__title"
+						id="twork-process-title"
+						className="twork-process__title"
 						value={ sectionTitle }
 						onChange={ ( val ) =>
 							setAttributes( { sectionTitle: val } )
@@ -376,7 +376,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 				</div>
 
 				<div
-					className="agrezer-process__container twork-agrezer-process__container-editor"
+					className="twork-process__container twork-process__container-editor"
 					style={ containerStyle }
 				>
 					<InnerBlocks

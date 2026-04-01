@@ -1,16 +1,24 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "twork/agrezer-stats-section",
+	"name": "twork/stats-section",
 	"version": "1.0.0",
-	"title": "Agrezer Stats Section",
+	"title": "Stats Section",
 	"category": "twork-builder",
 	"icon": "chart-line",
-	"description": "Stats showcase with image cards and optional CTA column (Agrezer layout).",
-	"keywords": [ "stats", "metrics", "agriculture", "agrezer", "twork" ],
+	"description": "Stats section with columns.",
+	"keywords": [
+		"stats",
+		"metrics",
+		"agriculture",
+		"twork"
+	],
 	"supports": {
 		"html": false,
-		"align": [ "wide", "full" ]
+		"align": [
+			"wide",
+			"full"
+		]
 	},
 	"attributes": {
 		"backgroundColor": {
@@ -110,10 +118,10 @@
 		},
 		"innerBlocks": [
 			{
-				"name": "twork/agrezer-stats-column",
+				"name": "twork/stats-column",
 				"innerBlocks": [
 					{
-						"name": "twork/agrezer-stats-card",
+						"name": "twork/stat-card",
 						"attributes": {
 							"image": "https://images.unsplash.com/photo-1631368647931-4f3ec6d1df92?auto=format&fit=crop&w=1000&q=80",
 							"alt": "Golden corn harvest",
@@ -124,17 +132,17 @@
 				]
 			},
 			{
-				"name": "twork/agrezer-stats-column",
+				"name": "twork/stats-column",
 				"innerBlocks": [
 					{
-						"name": "twork/agrezer-stats-cta",
+						"name": "twork/cta-block",
 						"attributes": {
 							"buttonText": "Get In Touch",
 							"buttonUrl": "#"
 						}
 					},
 					{
-						"name": "twork/agrezer-stats-card",
+						"name": "twork/stat-card",
 						"attributes": {
 							"image": "https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=1000&q=80",
 							"alt": "Corn kernels",
@@ -145,10 +153,10 @@
 				]
 			},
 			{
-				"name": "twork/agrezer-stats-column",
+				"name": "twork/stats-column",
 				"innerBlocks": [
 					{
-						"name": "twork/agrezer-stats-card",
+						"name": "twork/stat-card",
 						"attributes": {
 							"image": "https://images.unsplash.com/photo-1471193945509-9ad0617afabf?auto=format&fit=crop&w=1000&q=80",
 							"alt": "Corn stalks in sunlight",

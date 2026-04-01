@@ -16,10 +16,10 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 		iconWrapBgColor,
 	} = attributes;
 
-	const ALLOWED_BLOCKS = [ 'twork/agrezer-contact-card-item' ];
+	const ALLOWED_BLOCKS = [ 'twork/contact-card' ];
 	const TEMPLATE = [
 		[
-			'twork/agrezer-contact-card-item',
+			'twork/contact-card',
 			{
 				title: __( 'Mobile', 'twork-builder' ),
 				subtitle: __( 'Free Dial Number', 'twork-builder' ),
@@ -31,7 +31,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 		],
 
 		[
-			'twork/agrezer-contact-card-item',
+			'twork/contact-card',
 			{
 				title: __( 'Email', 'twork-builder' ),
 				subtitle: __( 'Feel Free to Mail', 'twork-builder' ),
@@ -43,7 +43,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 		],
 
 		[
-			'twork/agrezer-contact-card-item',
+			'twork/contact-card',
 			{
 				title: __( 'Address', 'twork-builder' ),
 				subtitle: __( 'Our form Address', 'twork-builder' ),
@@ -59,7 +59,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'twork-agrezer-contact-cards-editor',
+			className: 'twork-contact-cards-editor',
 			style: {
 				backgroundColor,
 				paddingTop: `${ paddingTop }px`,
@@ -70,10 +70,10 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 	);
 
 	const gridStyle = {
-		'--agrezer-contact-cols': columns,
-		'--agrezer-contact-cols-md': columnsTablet,
-		'--agrezer-contact-gap': `${ gap }px`,
-		'--agrezer-icon-wrap-bg': iconWrapBgColor,
+		'--twork-contact-cols': columns,
+		'--twork-contact-cols-md': columnsTablet,
+		'--twork-contact-gap': `${ gap }px`,
+		'--twork-icon-wrap-bg': iconWrapBgColor,
 		maxWidth: `${ containerMaxWidth }px`,
 		margin: '0 auto',
 		padding: `0 ${ containerPadding }px`,
@@ -209,7 +209,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 			<section { ...blockProps }>
 				<div
-					className="agrezer-contact-cards__container"
+					className="twork-contact-cards__container"
 					style={ gridStyle }
 				>
 					<InnerBlocks

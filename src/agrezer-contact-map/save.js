@@ -45,16 +45,16 @@ export default function save( { attributes } ) {
 	const iframeSrc = safeIframeSrc( mapEmbedUrl );
 
 	const blockProps = useBlockProps.save( {
-		className: 'agrezer-contact-map',
+		className: 'twork-contact-map',
 		style: {
 			backgroundColor: sectionBackgroundColor,
 			paddingTop: `${ paddingTop }px`,
 			paddingBottom: `${ paddingBottom }px`,
-			'--agrezer-contact-map-container-bg': containerBackgroundColor,
-			'--agrezer-contact-map-radius': `${ containerBorderRadius }px`,
-			'--agrezer-map-min-h': `${ mapMinHeightDesktop }px`,
-			'--agrezer-map-min-h-md': `${ mapMinHeightTablet }px`,
-			'--agrezer-map-min-h-sm': `${ mapMinHeightMobile }px`,
+			'--twork-contact-map-container-bg': containerBackgroundColor,
+			'--twork-contact-map-radius': `${ containerBorderRadius }px`,
+			'--twork-map-min-h': `${ mapMinHeightDesktop }px`,
+			'--twork-map-min-h-md': `${ mapMinHeightTablet }px`,
+			'--twork-map-min-h-sm': `${ mapMinHeightMobile }px`,
 		},
 	} );
 
@@ -64,19 +64,19 @@ export default function save( { attributes } ) {
 	return (
 		<section { ...blockProps }>
 			<div
-				className="agrezer-contact-map__container"
+				className="twork-contact-map__container"
 				style={ {
 					maxWidth: `${ containerMaxWidth }px`,
 				} }
 			>
-				<div className="agrezer-contact-map__form-wrap">
+				<div className="twork-contact-map__form-wrap">
 					<RichText.Content
 						tagName="h2"
-						className="agrezer-contact-map__title"
+						className="twork-contact-map__title"
 						value={ sectionTitle }
 					/>
 					<form
-						className="agrezer-contact-map__form"
+						className="twork-contact-map__form"
 						action={ formActionAttr }
 						method={ formMethod === 'get' ? 'get' : 'post' }
 					>
@@ -84,7 +84,7 @@ export default function save( { attributes } ) {
 							type="text"
 							name="name"
 							placeholder={ namePlaceholder }
-							className="agrezer-contact-map__input"
+							className="twork-contact-map__input"
 							required
 							autoComplete="name"
 							aria-label={ namePlaceholder }
@@ -93,7 +93,7 @@ export default function save( { attributes } ) {
 							type="tel"
 							name="phone"
 							placeholder={ phonePlaceholder }
-							className="agrezer-contact-map__input"
+							className="twork-contact-map__input"
 							autoComplete="tel"
 							aria-label={ phonePlaceholder }
 						/>
@@ -101,7 +101,7 @@ export default function save( { attributes } ) {
 							type="email"
 							name="email"
 							placeholder={ emailPlaceholder }
-							className="agrezer-contact-map__input"
+							className="twork-contact-map__input"
 							required
 							autoComplete="email"
 							aria-label={ emailPlaceholder }
@@ -110,29 +110,29 @@ export default function save( { attributes } ) {
 							type="text"
 							name="subject"
 							placeholder={ subjectPlaceholder }
-							className="agrezer-contact-map__input"
+							className="twork-contact-map__input"
 							required
 							aria-label={ subjectPlaceholder }
 						/>
 						<textarea
 							name="message"
 							placeholder={ messagePlaceholder }
-							className="agrezer-contact-map__textarea"
+							className="twork-contact-map__textarea"
 							rows={ 5 }
 							aria-label={ messagePlaceholder }
 						/>
 						<button
 							type="submit"
-							className="agrezer-contact-map__button"
+							className="twork-contact-map__button"
 						>
 							{ submitButtonText }
 						</button>
 					</form>
 				</div>
-				<div className="agrezer-contact-map__map-wrap">
+				<div className="twork-contact-map__map-wrap">
 					{ iframeSrc ? (
 						<iframe
-							className="agrezer-contact-map__iframe"
+							className="twork-contact-map__iframe"
 							title={
 								mapIframeTitle ||
 								__( 'Map location', 'twork-builder' )
@@ -144,7 +144,7 @@ export default function save( { attributes } ) {
 						/>
 					) : (
 						<div
-							className="agrezer-contact-map__map-placeholder"
+							className="twork-contact-map__map-placeholder"
 							role="img"
 							aria-hidden="true"
 						/>

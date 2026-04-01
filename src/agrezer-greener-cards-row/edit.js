@@ -1,10 +1,10 @@
 import { useStableBlockProps } from '@twork-builder/editor-utils';
 import { InnerBlocks } from '@wordpress/block-editor';
 
-const ALLOWED_BLOCKS = [ 'twork/agrezer-greener-card-item' ];
+const ALLOWED_BLOCKS = [ 'twork/image-link-card' ];
 const TEMPLATE = [
 	[
-		'twork/agrezer-greener-card-item',
+		'twork/image-link-card',
 		{
 			title: 'Organic Farm Solutions',
 			linkText: 'Read More',
@@ -15,7 +15,7 @@ const TEMPLATE = [
 	],
 
 	[
-		'twork/agrezer-greener-card-item',
+		'twork/image-link-card',
 		{
 			title: 'The Eco-Friendly Farming',
 			linkText: 'Read More',
@@ -26,7 +26,7 @@ const TEMPLATE = [
 	],
 
 	[
-		'twork/agrezer-greener-card-item',
+		'twork/image-link-card',
 		{
 			title: 'Organic Produce Supply',
 			linkText: 'Read More',
@@ -41,7 +41,7 @@ export default function Edit() {
 	const blockProps = useStableBlockProps(
 		() => ( {
 			className:
-				'agrezer-greener__cards twork-agrezer-greener-cards-row-editor',
+				'twork-greener__cards twork-greener-cards-row-editor',
 		} ),
 		[]
 	);

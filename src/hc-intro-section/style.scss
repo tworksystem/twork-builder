@@ -1,3 +1,5 @@
+@import "../scss/typography";
+
 // Home Care Intro Section – "Why Jivaka Home Care?" two-column layout
 // Matches home-care.html: .hc-section, .hc-container, .hc-intro-grid, .hc-intro-img, .hc-check-list
 
@@ -70,7 +72,7 @@
 
 // === FRONTEND STYLES ===
 .twork-hc-intro-section {
-    font-family: "Roboto", sans-serif;
+    font-family: $font-primary;
 
     .hc-container {
         max-width: 1200px;

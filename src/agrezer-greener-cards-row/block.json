@@ -1,13 +1,15 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "twork/agrezer-greener-cards-row",
+	"name": "twork/cards-row",
 	"version": "1.0.0",
-	"title": "Agrezer Greener — Cards Row",
+	"title": "Cards Row",
 	"category": "twork-builder",
-	"parent": [ "twork/agrezer-greener-section" ],
+	"parent": [
+		"twork/highlights-section"
+	],
 	"icon": "screenoptions",
-	"description": "Three service cards for Greener section.",
+	"description": "Row/grid container for card items.",
 	"supports": {
 		"html": false,
 		"reusable": false
@@ -15,7 +17,7 @@
 	"example": {
 		"innerBlocks": [
 			{
-				"name": "twork/agrezer-greener-card-item",
+				"name": "twork/image-link-card",
 				"attributes": {
 					"title": "Organic Farm Solutions",
 					"linkText": "Read More",
@@ -25,7 +27,7 @@
 				}
 			},
 			{
-				"name": "twork/agrezer-greener-card-item",
+				"name": "twork/image-link-card",
 				"attributes": {
 					"title": "Eco-Friendly Farming",
 					"linkText": "Read More",
@@ -35,7 +37,7 @@
 				}
 			},
 			{
-				"name": "twork/agrezer-greener-card-item",
+				"name": "twork/image-link-card",
 				"attributes": {
 					"title": "Organic Produce Supply",
 					"linkText": "Read More",

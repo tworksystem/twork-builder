@@ -16,17 +16,17 @@ import {
 } from '@wordpress/components';
 
 const ALLOWED_BLOCKS = [
-	'twork/agrezer-greener-stats-row',
-	'twork/agrezer-greener-cards-row',
+	'twork/stats-row',
+	'twork/cards-row',
 ];
 
 const TEMPLATE = [
 	[
-		'twork/agrezer-greener-stats-row',
+		'twork/stats-row',
 		{},
 		[
 			[
-				'twork/agrezer-greener-stat-item',
+				'twork/stat-item',
 				{
 					iconVariant: 'growth',
 					title: '80% Pure Growth',
@@ -36,7 +36,7 @@ const TEMPLATE = [
 			],
 
 			[
-				'twork/agrezer-greener-stat-item',
+				'twork/stat-item',
 				{
 					iconVariant: 'organic',
 					title: '95% Organic Roots',
@@ -48,11 +48,11 @@ const TEMPLATE = [
 	],
 
 	[
-		'twork/agrezer-greener-cards-row',
+		'twork/cards-row',
 		{},
 		[
 			[
-				'twork/agrezer-greener-card-item',
+				'twork/image-link-card',
 				{
 					title: 'Organic Farm Solutions',
 					linkText: 'Read More',
@@ -63,7 +63,7 @@ const TEMPLATE = [
 			],
 
 			[
-				'twork/agrezer-greener-card-item',
+				'twork/image-link-card',
 				{
 					title: 'The Eco-Friendly Farming',
 					linkText: 'Read More',
@@ -74,7 +74,7 @@ const TEMPLATE = [
 			],
 
 			[
-				'twork/agrezer-greener-card-item',
+				'twork/image-link-card',
 				{
 					title: 'Organic Produce Supply',
 					linkText: 'Read More',
@@ -109,12 +109,12 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'agrezer-greener twork-agrezer-greener-section-editor',
+			className: 'twork-greener twork-greener-section-editor',
 			style: {
 				backgroundColor,
 				paddingTop: `${ paddingTop }px`,
 				paddingBottom: `${ paddingBottom }px`,
-				'--agrezer-greener-gap': `${ mainColumnGap }px`,
+				'--twork-greener-gap': `${ mainColumnGap }px`,
 			},
 		} ),
 		[ backgroundColor, mainColumnGap, paddingBottom, paddingTop ]
@@ -295,12 +295,12 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 				</InspectorControls>
 			) }
 
-			<section { ...blockProps } aria-labelledby="agrezer-greener-title">
+			<section { ...blockProps } aria-labelledby="twork-greener-title">
 				<div
-					className="agrezer-greener__container"
+					className="twork-greener__container"
 					style={ containerStyle }
 				>
-					<div className="agrezer-greener__left">
+					<div className="twork-greener__left">
 						{ ! mainImage ? (
 							<MediaPlaceholder
 								onSelect={ ( media ) =>
@@ -319,10 +319,10 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 								} }
 							/>
 						) : (
-							<div className="agrezer-greener__left-inner">
+							<div className="twork-greener__left-inner">
 								<img
 									src={ mainImage }
-									className="agrezer-greener__main-img"
+									className="twork-greener__main-img"
 									alt=""
 								/>
 
@@ -342,14 +342,14 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 						) }
 					</div>
 
-					<div className="agrezer-greener__right">
-						<header className="agrezer-greener__header">
+					<div className="twork-greener__right">
+						<header className="twork-greener__header">
 							<p
-								className="agrezer-greener__tagline"
+								className="twork-greener__tagline"
 								style={ { color: taglineColor } }
 							>
 								<span
-									className="agrezer-greener__tagline-icon"
+									className="twork-greener__tagline-icon"
 									style={ { color: taglineIconColor } }
 									aria-hidden="true"
 								>
@@ -370,8 +370,8 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 							</p>
 							<RichText
 								tagName="h2"
-								id="agrezer-greener-title"
-								className="agrezer-greener__title"
+								id="twork-greener-title"
+								className="twork-greener__title"
 								value={ sectionTitle }
 								onChange={ ( val ) =>
 									setAttributes( { sectionTitle: val } )

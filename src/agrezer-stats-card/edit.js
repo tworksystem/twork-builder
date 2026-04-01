@@ -12,7 +12,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'agrezer-stats-card',
+			className: 'twork-stats-card',
 		} ),
 		[]
 	);
@@ -55,12 +55,12 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 				) : (
 					<>
 						<img
-							className="agrezer-stats-card__image"
+							className="twork-stats-card__image"
 							src={ image }
 							alt=""
 						/>
 
-						<div className="agrezer-stats-card__editor-bar">
+						<div className="twork-stats-card__editor-bar">
 							<Button
 								isSecondary
 								isSmall
@@ -76,10 +76,10 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 						</div>
 					</>
 				) }
-				<div className="agrezer-stats-card__meta">
+				<div className="twork-stats-card__meta">
 					<RichText
 						tagName="p"
-						className="agrezer-stats-card__value"
+						className="twork-stats-card__value"
 						value={ statValue }
 						onChange={ ( val ) =>
 							setAttributes( { statValue: val } )
@@ -89,7 +89,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 					<RichText
 						tagName="p"
-						className="agrezer-stats-card__label"
+						className="twork-stats-card__label"
 						value={ statLabel }
 						onChange={ ( val ) =>
 							setAttributes( { statLabel: val } )

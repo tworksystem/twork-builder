@@ -15,10 +15,10 @@ import {
 	Button,
 } from '@wordpress/components';
 
-const ALLOWED_BLOCKS = [ 'twork/agrezer-third-section-card' ];
+const ALLOWED_BLOCKS = [ 'twork/cta-cards-section-card' ];
 const TEMPLATE = [
 	[
-		'twork/agrezer-third-section-card',
+		'twork/cta-cards-section-card',
 		{
 			cardAlign: 'left',
 			stat: '80%',
@@ -27,7 +27,7 @@ const TEMPLATE = [
 	],
 
 	[
-		'twork/agrezer-third-section-card',
+		'twork/cta-cards-section-card',
 		{
 			cardAlign: 'center',
 			stat: '98%',
@@ -36,7 +36,7 @@ const TEMPLATE = [
 	],
 
 	[
-		'twork/agrezer-third-section-card',
+		'twork/cta-cards-section-card',
 		{
 			cardAlign: 'right',
 			stat: '50%',
@@ -70,17 +70,17 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 	const blockProps = useStableBlockProps(
 		() => ( {
 			className:
-				'agrezer-third-section twork-agrezer-third-section-editor',
+				'twork-third-section twork-third-section-editor',
 			style: {
 				backgroundColor,
 				paddingTop: `${ paddingTop }px`,
 				paddingBottom: `${ paddingBottom }px`,
-				'--agrezer-third-max': `${ containerMaxWidth }px`,
-				'--agrezer-third-width-pct': `${ containerWidthPct }%`,
-				'--agrezer-third-top-gap': `${ topGridGap }px`,
-				'--agrezer-third-top-mb': `${ topMarginBottom }px`,
-				'--agrezer-third-cards-gap': `${ cardsGap }px`,
-				'--agrezer-third-cards-mt': `${ cardsMarginTop }px`,
+				'--twork-third-max': `${ containerMaxWidth }px`,
+				'--twork-third-width-pct': `${ containerWidthPct }%`,
+				'--twork-third-top-gap': `${ topGridGap }px`,
+				'--twork-third-top-mb': `${ topMarginBottom }px`,
+				'--twork-third-cards-gap': `${ cardsGap }px`,
+				'--twork-third-cards-mt': `${ cardsMarginTop }px`,
 			},
 		} ),
 		[
@@ -192,7 +192,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 								<img
 									src={ tagIcon }
 									alt=""
-									className="agrezer-third-section__tag-icon"
+									className="twork-third-section__tag-icon"
 								/>
 
 								<Button
@@ -332,15 +332,15 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 			) }
 
 			<section { ...blockProps }>
-				<div className="agrezer-third-section__container">
-					<div className="agrezer-third-section__top">
-						<div className="agrezer-third-section__intro">
-							<div className="agrezer-third-section__tagline">
+				<div className="twork-third-section__container">
+					<div className="twork-third-section__top">
+						<div className="twork-third-section__intro">
+							<div className="twork-third-section__tagline">
 								{ tagIcon && (
 									<img
 										src={ tagIcon }
 										alt=""
-										className="agrezer-third-section__tag-icon"
+										className="twork-third-section__tag-icon"
 									/>
 								) }
 								<RichText
@@ -361,7 +361,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 							</div>
 							<RichText
 								tagName="h2"
-								className="agrezer-third-section__title"
+								className="twork-third-section__title"
 								value={ title }
 								onChange={ ( val ) =>
 									setAttributes( { title: val } )
@@ -376,10 +376,10 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 							/>
 						</div>
 
-						<div className="agrezer-third-section__side">
+						<div className="twork-third-section__side">
 							<RichText
 								tagName="p"
-								className="agrezer-third-section__desc"
+								className="twork-third-section__desc"
 								value={ description }
 								onChange={ ( val ) =>
 									setAttributes( { description: val } )
@@ -395,7 +395,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 									{ isRealLink ? (
 										<a
 											href={ urlTrim }
-											className="agrezer-third-section__cta"
+											className="twork-third-section__cta"
 											onClick={ ( e ) =>
 												e.preventDefault()
 											}
@@ -404,7 +404,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 											<span aria-hidden="true">↗</span>
 										</a>
 									) : (
-										<span className="agrezer-third-section__cta agrezer-third-section__cta--static">
+										<span className="twork-third-section__cta twork-third-section__cta--static">
 											<span>{ ctaText }</span>
 											<span aria-hidden="true">↗</span>
 										</span>
@@ -414,7 +414,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 						</div>
 					</div>
 
-					<div className="agrezer-third-section__cards agrezer-third-section__cards--editor">
+					<div className="twork-third-section__cards twork-third-section__cards--editor">
 						<InnerBlocks
 							allowedBlocks={ ALLOWED_BLOCKS }
 							template={ TEMPLATE }

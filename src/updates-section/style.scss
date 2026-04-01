@@ -1,9 +1,10 @@
+@import "../scss/typography";
+
 /**
  * Twork Updates Section – Hospital News & Updates
  * Follows services-grid and jivaka-section standards.
  * Pure CSS – no external libraries.
  */
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;600;700;900&display=swap");
 
 :root {
     --primary-orange: #f48b2a;
@@ -23,7 +24,7 @@
 [data-type="twork/updates-section"] {
     .twork-updates-section-editor,
     .updates-section {
-        font-family: "Roboto", sans-serif;
+        font-family: $font-primary;
         position: relative;
         min-height: 300px;
     }
@@ -90,7 +91,7 @@
 .updates-section,
 .twork-updates-section,
 .wp-block-twork-updates-section {
-    font-family: "Roboto", sans-serif !important;
+    font-family: $font-primary !important;
     position: relative !important;
     overflow: hidden !important;
     box-sizing: border-box !important;

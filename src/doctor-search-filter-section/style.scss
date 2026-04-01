@@ -1,5 +1,6 @@
+@import "../scss/typography";
+
 // Doctor Search Filter Section – follows team-members-grid / services-grid standards
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;600;700;900&display=swap");
 
 :root {
     --primary-orange: #f48b2a;
@@ -28,7 +29,7 @@
 // even when theme adds block spacing. !important overrides theme margin-block-start.
 .wp-block-twork-doctor-search-filter-section,
 .twork-doctor-search-filter-section {
-    font-family: "Roboto", sans-serif;
+    font-family: $font-primary;
     position: relative;
     z-index: 10;
     margin-top: var(--twork-search-section-margin-top, -80px) !important;

@@ -23,7 +23,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: `agrezer-third-section__card agrezer-third-section__card--${ cardAlign }`,
+			className: `twork-third-section__card twork-third-section__card--${ cardAlign }`,
 		} ),
 		[ cardAlign ]
 	);
@@ -103,13 +103,13 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 					<img
 						src={ image }
 						alt=""
-						className="agrezer-third-section__card-img"
+						className="twork-third-section__card-img"
 					/>
 				) }
-				<div className="agrezer-third-section__card-content">
+				<div className="twork-third-section__card-content">
 					<RichText
 						tagName="h3"
-						className="agrezer-third-section__stat"
+						className="twork-third-section__stat"
 						value={ stat }
 						onChange={ ( val ) => setAttributes( { stat: val } ) }
 						placeholder={ __( '80%', 'twork-builder' ) }
@@ -118,7 +118,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 					<RichText
 						tagName="p"
-						className="agrezer-third-section__label"
+						className="twork-third-section__label"
 						value={ label }
 						onChange={ ( val ) => setAttributes( { label: val } ) }
 						placeholder={ __( 'Label', 'twork-builder' ) }

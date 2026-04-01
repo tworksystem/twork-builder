@@ -1,16 +1,24 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "twork/agrezer-team-section",
+	"name": "twork/team-section",
 	"version": "1.0.0",
-	"title": "Agrezer Team Section",
+	"title": "Team Section",
 	"category": "twork-builder",
 	"icon": "groups",
-	"description": "Centered heading with a grid of team member cards (Agrezer layout).",
-	"keywords": [ "team", "staff", "people", "agrezer", "twork" ],
+	"description": "Team section with team member blocks.",
+	"keywords": [
+		"team",
+		"staff",
+		"people",
+		"twork"
+	],
 	"supports": {
 		"html": false,
-		"align": [ "wide", "full" ],
+		"align": [
+			"wide",
+			"full"
+		],
 		"anchor": true
 	},
 	"attributes": {
@@ -82,8 +90,9 @@
 		},
 		"innerBlocks": [
 			{
-				"name": "twork/agrezer-team-card",
+				"name": "twork/team-member",
 				"attributes": {
+					"accentColor": "#f48b2a",
 					"image": "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=600&q=80",
 					"imageAlt": "Portrait of Harry Black",
 					"name": "Harry Black",
@@ -94,8 +103,9 @@
 				}
 			},
 			{
-				"name": "twork/agrezer-team-card",
+				"name": "twork/team-member",
 				"attributes": {
+					"accentColor": "#f48b2a",
 					"image": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80",
 					"imageAlt": "Portrait of Marry Olson",
 					"name": "Marry Olson",
@@ -106,8 +116,9 @@
 				}
 			},
 			{
-				"name": "twork/agrezer-team-card",
+				"name": "twork/team-member",
 				"attributes": {
+					"accentColor": "#f48b2a",
 					"image": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=600&q=80",
 					"imageAlt": "Portrait of Arun Patel",
 					"name": "Arun Patel",

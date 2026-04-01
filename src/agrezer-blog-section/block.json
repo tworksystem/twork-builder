@@ -1,13 +1,19 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "twork/agrezer-blog-section",
+	"name": "twork/posts-grid",
 	"version": "1.0.0",
-	"title": "Agrezer Blog (Posts)",
+	"title": "Posts Grid",
 	"category": "twork-builder",
 	"icon": "admin-post",
-	"description": "Latest posts grid with Agrezer styling. Pulls published posts from WordPress.",
-	"keywords": [ "blog", "posts", "news", "agrezer", "grid", "twork" ],
+	"description": "Dynamic posts grid (server-rendered).",
+	"keywords": [
+		"blog",
+		"posts",
+		"news",
+		"grid",
+		"twork"
+	],
 	"attributes": {
 		"sectionTitle": {
 			"type": "string",
@@ -61,12 +67,12 @@
 			"default": "DESC"
 		},
 		"categoryIds": {
-			"type": "string",
-			"default": ""
+			"type": "array",
+			"default": []
 		},
 		"excludeIds": {
-			"type": "string",
-			"default": ""
+			"type": "array",
+			"default": []
 		},
 		"offset": {
 			"type": "number",
@@ -126,8 +132,8 @@
 			"columns": 3,
 			"orderBy": "date",
 			"order": "DESC",
-			"categoryIds": "",
-			"excludeIds": "",
+			"categoryIds": [],
+			"excludeIds": [],
 			"offset": 0,
 			"imageSize": "large",
 			"backgroundColor": "#FAFAFA",
@@ -141,9 +147,13 @@
 			"commentPrefix": "💬 "
 		}
 	},
+	"render": "file:./render.php",
 	"supports": {
 		"html": false,
-		"align": [ "wide", "full" ],
+		"align": [
+			"wide",
+			"full"
+		],
 		"anchor": true
 	},
 	"textdomain": "twork-builder",

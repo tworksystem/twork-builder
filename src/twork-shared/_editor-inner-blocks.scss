@@ -1,0 +1,44 @@
+/**
+ * Shared helpers for structural twork blocks: InnerBlocks layout in Gutenberg.
+ *
+ * These mixins are used by editor-only styles to target
+ * `.block-editor-inner-blocks > .block-editor-block-list__layout`.
+ */
+
+@mixin twork-editor-inner-grid($template-columns, $gap: 2rem, $align: start) {
+	.block-editor-inner-blocks {
+		width: 100%;
+		min-width: 0;
+	}
+
+	.block-editor-inner-blocks > .block-editor-block-list__layout {
+		display: grid !important;
+		grid-template-columns: $template-columns;
+		gap: $gap;
+		align-items: $align;
+	}
+
+	.block-editor-inner-blocks .block-editor-block-list__block {
+		margin-left: 0 !important;
+		margin-right: 0 !important;
+	}
+}
+
+@mixin twork-editor-inner-flex-column($gap: 1.5rem) {
+	.block-editor-inner-blocks > .block-editor-block-list__layout {
+		display: flex !important;
+		flex-direction: column;
+		gap: $gap;
+	}
+}
+
+@mixin twork-editor-inner-flex-row($gap: 2rem) {
+	.block-editor-inner-blocks > .block-editor-block-list__layout {
+		display: flex !important;
+		flex-direction: row;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: $gap;
+	}
+}
+

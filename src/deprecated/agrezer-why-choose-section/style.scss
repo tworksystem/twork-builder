@@ -1,0 +1,261 @@
+@import "../../scss/typography";
+
+
+.twork-agrezer-why-choose-section,
+.twork-agrezer-why-choose-section-editor {
+    font-family: $font-secondary;
+}
+
+.agrezer-why-choose {
+    position: relative;
+    overflow: hidden;
+    box-sizing: border-box;
+    background: radial-gradient(circle at 18% 22%, rgba(186, 214, 120, 0.3) 0%, rgba(186, 214, 120, 0) 42%), radial-gradient(circle at 83% 20%, rgba(172, 204, 98, 0.24) 0%, rgba(172, 204, 98, 0) 36%), linear-gradient(180deg, #f5f8ee 0%, #cedea7 36%, #7f9538 70%, #3a4d1e 100%);
+
+    &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(circle at 30% 58%, rgba(17, 33, 13, 0.45) 0%, rgba(17, 33, 13, 0) 34%), linear-gradient(180deg, rgba(255, 255, 255, 0) 36%, rgba(16, 34, 13, 0.3) 76%, rgba(16, 34, 13, 0.55) 100%);
+        pointer-events: none;
+        z-index: 0;
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 124px;
+        background-image: var(--agrezer-why-choose-shape, none);
+        background-repeat: repeat-x;
+        background-size: auto 100%;
+        background-position: bottom center;
+        pointer-events: none;
+        z-index: 1;
+    }
+
+    &:not(.has-wave-decoration)::after {
+        display: none;
+    }
+
+    .agrezer-why-choose__container {
+        position: relative;
+        z-index: 2;
+        box-sizing: border-box;
+    }
+
+    .agrezer-why-choose__header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 0.85rem;
+    }
+
+    .agrezer-why-choose__tagline {
+        margin: 0;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.45rem;
+        font-size: 1rem;
+        font-weight: 600;
+    }
+
+    .agrezer-why-choose__tagline-icon {
+        font-size: 1.1rem;
+        line-height: 1;
+    }
+
+    .agrezer-why-choose__title {
+        margin: 0;
+        max-width: 760px;
+        line-height: 1.1;
+        letter-spacing: -0.02em;
+    }
+
+    .agrezer-why-choose__stage {
+        position: relative;
+        margin-top: 2.2rem;
+    }
+
+    .agrezer-why-choose__tractor-wrapper {
+        position: absolute;
+        bottom: 30px;
+        left: 0;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        z-index: 2;
+        pointer-events: none;
+    }
+
+    .agrezer-why-choose__tractor {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        pointer-events: auto;
+    }
+
+    .agrezer-why-choose__point {
+        position: absolute;
+        z-index: 10;
+        width: 180px;
+        text-align: center;
+        transform: translateX(-50%);
+    }
+
+    .agrezer-why-choose__point-icon {
+        position: relative;
+        width: 56px;
+        height: 56px;
+        margin: 0 auto 0.8rem;
+        border-radius: 50%;
+        background: linear-gradient(180deg, #e7f268 0%, #d7e650 100%);
+        color: #4f6117;
+        font-size: 1rem;
+        font-weight: 800;
+        display: grid;
+        place-items: center;
+    }
+
+    .agrezer-why-choose__point-icon::before {
+        content: "";
+        position: absolute;
+        inset: -12px;
+        border-radius: 50%;
+        border: 1.5px dashed rgba(216, 231, 110, 0.7);
+        opacity: 0.8;
+    }
+
+    .agrezer-why-choose__point-icon::after {
+        content: "";
+        position: absolute;
+        inset: -22px;
+        border-radius: 50%;
+        background: repeating-conic-gradient(from 0deg, rgba(214, 229, 98, 0.5) 0deg 4deg, rgba(214, 229, 98, 0) 4deg 16deg);
+        -webkit-mask: radial-gradient(circle, transparent 0 63%, #000 63% 100%);
+        mask: radial-gradient(circle, transparent 0 63%, #000 63% 100%);
+        opacity: 0.66;
+    }
+
+    .agrezer-why-choose__point-text {
+        margin: 0;
+        color: #fff;
+        font-size: 1.65rem;
+        line-height: 1.2;
+        font-weight: 500;
+        text-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    }
+
+    .agrezer-why-choose__point--1 {
+        left: 15%;
+        top: 55%;
+    }
+
+    .agrezer-why-choose__point--2 {
+        left: 30%;
+        top: 25%;
+    }
+
+    .agrezer-why-choose__point--3 {
+        left: 50%;
+        top: 10%;
+    }
+
+    .agrezer-why-choose__point--4 {
+        left: 70%;
+        top: 25%;
+    }
+
+    .agrezer-why-choose__point--5 {
+        left: 85%;
+        top: 55%;
+    }
+}
+
+@media (max-width: 1100px) {
+    .agrezer-why-choose {
+        .agrezer-why-choose__tractor-wrapper {
+            bottom: 42px;
+        }
+
+        .agrezer-why-choose__tractor {
+            max-width: min(74%, 640px);
+        }
+
+        .agrezer-why-choose__point {
+            width: 170px;
+        }
+
+        .agrezer-why-choose__point-text {
+            font-size: 1.2rem;
+        }
+
+        .agrezer-why-choose__point--1 {
+            left: 5%;
+            top: 50%;
+        }
+
+        .agrezer-why-choose__point--2 {
+            left: 20%;
+            top: 32%;
+        }
+
+        .agrezer-why-choose__point--4 {
+            left: 63%;
+            top: 32%;
+        }
+
+        .agrezer-why-choose__point--5 {
+            left: 79%;
+            top: 50%;
+        }
+    }
+}
+
+@media (max-width: 860px) {
+    .agrezer-why-choose {
+        padding-top: 4.2rem;
+
+        .agrezer-why-choose__stage {
+            min-height: auto !important;
+            margin-top: 2.8rem;
+            padding-bottom: 108px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.4rem;
+        }
+
+        .agrezer-why-choose__point {
+            position: static;
+            width: min(100%, 240px);
+            transform: none;
+        }
+
+        .agrezer-why-choose__point--3 {
+            order: -1;
+        }
+
+        .agrezer-why-choose__tractor-wrapper {
+            position: relative;
+            bottom: auto;
+            left: auto;
+            width: auto;
+            justify-content: center;
+            margin-top: 0.8rem;
+            pointer-events: auto;
+        }
+
+        .agrezer-why-choose__tractor {
+            max-width: min(100%, 520px);
+        }
+
+        &::after {
+            height: 86px;
+            background-size: 100% auto;
+        }
+    }
+}

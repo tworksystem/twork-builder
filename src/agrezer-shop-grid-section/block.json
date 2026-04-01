@@ -1,13 +1,18 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "twork/agrezer-shop-grid-section",
+	"name": "twork/products-grid",
 	"version": "1.0.0",
-	"title": "Agrezer Shop Grid",
+	"title": "Products Grid",
 	"category": "twork-builder",
 	"icon": "cart",
-	"description": "WooCommerce shop layout: category list, mini products, and a paginated product grid (Agrezer UI).",
-	"keywords": [ "woocommerce", "shop", "products", "agrezer", "twork" ],
+	"description": "Dynamic products grid (server-rendered).",
+	"keywords": [
+		"woocommerce",
+		"shop",
+		"products",
+		"twork"
+	],
 	"attributes": {
 		"categoryTitle": {
 			"type": "string",
@@ -153,7 +158,10 @@
 	"supports": {
 		"html": false,
 		"anchor": true,
-		"align": [ "wide", "full" ]
+		"align": [
+			"wide",
+			"full"
+		]
 	},
 	"textdomain": "twork-builder",
 	"editorScript": "file:./index.js",

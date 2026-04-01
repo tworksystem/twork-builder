@@ -1,23 +1,25 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "twork/agrezer-page-header-section",
+	"name": "twork/page-header",
 	"version": "1.0.0",
-	"title": "Agrezer Page Header",
+	"title": "Page Header",
 	"category": "twork-builder",
 	"icon": "heading",
-	"description": "Inner page hero with background, title, breadcrumb trail, and optional graphic.",
+	"description": "Page header with title, background, and breadcrumb.",
 	"keywords": [
 		"breadcrumb",
 		"header",
 		"banner",
-		"agrezer",
 		"title",
 		"twork"
 	],
 	"supports": {
 		"html": false,
-		"align": [ "full", "wide" ],
+		"align": [
+			"full",
+			"wide"
+		],
 		"anchor": true
 	},
 	"attributes": {
@@ -58,8 +60,14 @@
 		"breadcrumbs": {
 			"type": "array",
 			"default": [
-				{ "label": "Home", "url": "/" },
-				{ "label": "About Us", "url": "" }
+				{
+					"label": "Home",
+					"url": "/"
+				},
+				{
+					"label": "About Us",
+					"url": ""
+				}
 			]
 		},
 		"separatorChar": {
@@ -106,9 +114,18 @@
 			"graphicAlt": "Tractor illustration",
 			"graphicMaxWidth": 380,
 			"breadcrumbs": [
-				{ "label": "Home", "url": "/" },
-				{ "label": "About", "url": "/about/" },
-				{ "label": "Our Farm", "url": "" }
+				{
+					"label": "Home",
+					"url": "/"
+				},
+				{
+					"label": "About",
+					"url": "/about/"
+				},
+				{
+					"label": "Our Farm",
+					"url": ""
+				}
 			],
 			"separatorChar": "•",
 			"containerMaxWidth": 1200,

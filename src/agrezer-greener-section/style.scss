@@ -1,26 +1,27 @@
-@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap");
+@import "../scss/typography";
 
-.twork-agrezer-greener-section,
-.twork-agrezer-greener-section-editor {
-    font-family: "Manrope", sans-serif;
+
+.twork-greener-section,
+.twork-greener-section-editor {
+    font-family: $font-secondary;
 }
 
-.agrezer-greener {
+.twork-greener {
     box-sizing: border-box;
 
-    .agrezer-greener__container {
+    .twork-greener__container {
         display: grid;
         grid-template-columns: 4fr 7fr;
         align-items: stretch;
-        gap: var(--agrezer-greener-gap, 4rem);
+        gap: var(--twork-greener-gap, 4rem);
         box-sizing: border-box;
     }
 
-    .agrezer-greener__left {
+    .twork-greener__left {
         min-height: 100%;
     }
 
-    .agrezer-greener__main-img {
+    .twork-greener__main-img {
         width: 100%;
         height: 100%;
         min-height: 620px;
@@ -29,13 +30,13 @@
         display: block;
     }
 
-    .agrezer-greener__right {
+    .twork-greener__right {
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
     }
 
-    .agrezer-greener__tagline {
+    .twork-greener__tagline {
         margin: 0;
         display: inline-flex;
         align-items: center;
@@ -44,24 +45,24 @@
         font-weight: 600;
     }
 
-    .agrezer-greener__tagline-icon {
+    .twork-greener__tagline-icon {
         line-height: 1;
     }
 
-    .agrezer-greener__title {
+    .twork-greener__title {
         margin: 0.65rem 0 0;
         line-height: 1.1;
         letter-spacing: -0.02em;
     }
 
-    .agrezer-greener__stats {
+    .twork-greener__stats {
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 2rem;
         margin: 3rem 0;
     }
 
-    .agrezer-greener-stat__icon {
+    .twork-greener-stat__icon {
         width: 42px;
         height: 42px;
         margin-bottom: 0.85rem;
@@ -76,7 +77,7 @@
         }
     }
 
-    .agrezer-greener-stat__title {
+    .twork-greener-stat__title {
         margin: 0;
         color: #171a1d;
         font-size: 2.25rem;
@@ -84,7 +85,7 @@
         font-weight: 600;
     }
 
-    .agrezer-greener-stat__text {
+    .twork-greener-stat__text {
         margin: 0.8rem 0 0;
         max-width: 350px;
         color: #63686c;
@@ -92,13 +93,13 @@
         line-height: 1.65;
     }
 
-    .agrezer-greener__cards {
+    .twork-greener__cards {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 1.5rem;
     }
 
-    .agrezer-greener-card {
+    .twork-greener-card {
         background: #fff;
         border: 1px solid rgba(0, 0, 0, 0.08);
         border-radius: 16px;
@@ -106,7 +107,7 @@
         position: relative;
     }
 
-    .agrezer-greener-card__img {
+    .twork-greener-card__img {
         width: 100%;
         aspect-ratio: 4 / 3;
         object-fit: cover;
@@ -115,7 +116,7 @@
         display: block;
     }
 
-    .agrezer-greener-card__title {
+    .twork-greener-card__title {
         margin: 0;
         color: #1b1f23;
         font-size: 1.95rem;
@@ -124,7 +125,7 @@
         letter-spacing: -0.01em;
     }
 
-    .agrezer-greener-card__link {
+    .twork-greener-card__link {
         margin-top: 0.95rem;
         display: inline-flex;
         align-items: center;
@@ -142,51 +143,51 @@
 }
 
 @media (max-width: 1180px) {
-    .agrezer-greener {
-        .agrezer-greener__title {
+    .twork-greener {
+        .twork-greener__title {
             font-size: clamp(1.9rem, 4.6vw, 3rem);
         }
 
-        .agrezer-greener-stat__title {
+        .twork-greener-stat__title {
             font-size: 1.9rem;
         }
 
-        .agrezer-greener-card__title {
+        .twork-greener-card__title {
             font-size: 1.55rem;
         }
     }
 }
 
 @media (max-width: 980px) {
-    .agrezer-greener {
-        .agrezer-greener__container {
+    .twork-greener {
+        .twork-greener__container {
             grid-template-columns: 1fr;
         }
 
-        .agrezer-greener__main-img {
+        .twork-greener__main-img {
             min-height: 460px;
         }
     }
 }
 
 @media (max-width: 760px) {
-    .agrezer-greener {
-        .agrezer-greener__stats {
+    .twork-greener {
+        .twork-greener__stats {
             grid-template-columns: 1fr;
             margin: 2rem 0;
         }
 
-        .agrezer-greener__cards {
+        .twork-greener__cards {
             grid-template-columns: 1fr;
         }
 
-        .agrezer-greener-card__title {
+        .twork-greener-card__title {
             font-size: 1.45rem;
         }
     }
 }
 
-.agrezer-greener-card__link:focus-visible {
+.twork-greener-card__link:focus-visible {
     outline: 2px solid #b8d438;
     outline-offset: 2px;
 }

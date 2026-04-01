@@ -2,26 +2,26 @@
  * Agrezer Contact Map — from my-avocado _contact-map.scss (scoped).
  */
 
-.wp-block-twork-agrezer-contact-map.agrezer-contact-map {
+.wp-block-twork-contact-map.twork-contact-map {
     background: #f6f6f6;
     padding: 0 0 100px;
 }
 
-.wp-block-twork-agrezer-contact-map .agrezer-contact-map__container {
+.wp-block-twork-contact-map .twork-contact-map__container {
     width: min(1200px, 90%);
     margin: 0 auto;
-    background: var(--agrezer-contact-map-container-bg, #efebe8);
-    border-radius: var(--agrezer-contact-map-radius, 14px);
+    background: var(--twork-contact-map-container-bg, #efebe8);
+    border-radius: var(--twork-contact-map-radius, 14px);
     overflow: hidden;
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
 
-.wp-block-twork-agrezer-contact-map .agrezer-contact-map__form-wrap {
+.wp-block-twork-contact-map .twork-contact-map__form-wrap {
     padding: 44px 36px 38px;
 }
 
-.wp-block-twork-agrezer-contact-map .agrezer-contact-map__title {
+.wp-block-twork-contact-map .twork-contact-map__title {
     margin: 0 0 26px;
     color: #151515;
     font-size: clamp(2.2rem, 3.3vw, 3.9rem);
@@ -30,14 +30,14 @@
     max-width: 12ch;
 }
 
-.wp-block-twork-agrezer-contact-map .agrezer-contact-map__form {
+.wp-block-twork-contact-map .twork-contact-map__form {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 14px;
 }
 
-.wp-block-twork-agrezer-contact-map .agrezer-contact-map__input,
-.wp-block-twork-agrezer-contact-map .agrezer-contact-map__textarea {
+.wp-block-twork-contact-map .twork-contact-map__input,
+.wp-block-twork-contact-map .twork-contact-map__textarea {
     border: 1px solid #a7aa8a;
     background: #f4f3f1;
     border-radius: 7px;
@@ -49,18 +49,18 @@
     box-sizing: border-box;
 }
 
-.wp-block-twork-agrezer-contact-map .agrezer-contact-map__input:focus,
-.wp-block-twork-agrezer-contact-map .agrezer-contact-map__textarea:focus {
+.wp-block-twork-contact-map .twork-contact-map__input:focus,
+.wp-block-twork-contact-map .twork-contact-map__textarea:focus {
     border-color: #8bcf33;
 }
 
-.wp-block-twork-agrezer-contact-map .agrezer-contact-map__textarea {
+.wp-block-twork-contact-map .twork-contact-map__textarea {
     grid-column: 1 / -1;
     min-height: 122px;
     resize: vertical;
 }
 
-.wp-block-twork-agrezer-contact-map .agrezer-contact-map__button {
+.wp-block-twork-contact-map .twork-contact-map__button {
     justify-self: start;
     border: 0;
     border-radius: 8px;
@@ -73,29 +73,29 @@
     transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
-.wp-block-twork-agrezer-contact-map .agrezer-contact-map__button:hover {
+.wp-block-twork-contact-map .twork-contact-map__button:hover {
     background: #cfe23d;
     transform: translateY(-1px);
 }
 
-.wp-block-twork-agrezer-contact-map .agrezer-contact-map__map-wrap {
-    min-height: var(--agrezer-map-min-h, 520px);
+.wp-block-twork-contact-map .twork-contact-map__map-wrap {
+    min-height: var(--twork-map-min-h, 520px);
     background: #d9ddd6;
     position: relative;
 }
 
-.wp-block-twork-agrezer-contact-map .agrezer-contact-map__iframe {
+.wp-block-twork-contact-map .twork-contact-map__iframe {
     width: 100%;
     height: 100%;
-    min-height: var(--agrezer-map-min-h, 520px);
+    min-height: var(--twork-map-min-h, 520px);
     border: 0;
     display: block;
 }
 
-.wp-block-twork-agrezer-contact-map .agrezer-contact-map__map-placeholder {
+.wp-block-twork-contact-map .twork-contact-map__map-placeholder {
     width: 100%;
     height: 100%;
-    min-height: var(--agrezer-map-min-h, 520px);
+    min-height: var(--twork-map-min-h, 520px);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -108,40 +108,40 @@
     box-sizing: border-box;
 }
 
-.twork-agrezer-contact-map-editor .agrezer-contact-map__input[readonly],
-.twork-agrezer-contact-map-editor .agrezer-contact-map__textarea[readonly] {
+.twork-contact-map-editor .twork-contact-map__input[readonly],
+.twork-contact-map-editor .twork-contact-map__textarea[readonly] {
     cursor: default;
     opacity: 0.92;
 }
 
 @media (max-width: 992px) {
-    .wp-block-twork-agrezer-contact-map .agrezer-contact-map__container {
+    .wp-block-twork-contact-map .twork-contact-map__container {
         grid-template-columns: 1fr;
     }
 
-    .wp-block-twork-agrezer-contact-map .agrezer-contact-map__map-wrap,
-    .wp-block-twork-agrezer-contact-map .agrezer-contact-map__iframe,
-    .wp-block-twork-agrezer-contact-map .agrezer-contact-map__map-placeholder {
-        min-height: var(--agrezer-map-min-h-md, 420px);
+    .wp-block-twork-contact-map .twork-contact-map__map-wrap,
+    .wp-block-twork-contact-map .twork-contact-map__iframe,
+    .wp-block-twork-contact-map .twork-contact-map__map-placeholder {
+        min-height: var(--twork-map-min-h-md, 420px);
     }
 }
 
 @media (max-width: 640px) {
-    .wp-block-twork-agrezer-contact-map.agrezer-contact-map {
+    .wp-block-twork-contact-map.twork-contact-map {
         padding-bottom: 80px;
     }
 
-    .wp-block-twork-agrezer-contact-map .agrezer-contact-map__form-wrap {
+    .wp-block-twork-contact-map .twork-contact-map__form-wrap {
         padding: 28px 18px 26px;
     }
 
-    .wp-block-twork-agrezer-contact-map .agrezer-contact-map__form {
+    .wp-block-twork-contact-map .twork-contact-map__form {
         grid-template-columns: 1fr;
     }
 
-    .wp-block-twork-agrezer-contact-map .agrezer-contact-map__map-wrap,
-    .wp-block-twork-agrezer-contact-map .agrezer-contact-map__iframe,
-    .wp-block-twork-agrezer-contact-map .agrezer-contact-map__map-placeholder {
-        min-height: var(--agrezer-map-min-h-sm, 340px);
+    .wp-block-twork-contact-map .twork-contact-map__map-wrap,
+    .wp-block-twork-contact-map .twork-contact-map__iframe,
+    .wp-block-twork-contact-map .twork-contact-map__map-placeholder {
+        min-height: var(--twork-map-min-h-sm, 340px);
     }
 }

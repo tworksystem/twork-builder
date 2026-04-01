@@ -4,7 +4,7 @@ export default function save( { attributes } ) {
 	const { image, imageAlt, name } = attributes;
 
 	const blockProps = useBlockProps.save( {
-		className: 'agrezer-partners__item',
+		className: 'twork-partners__item',
 	} );
 
 	return (
@@ -12,13 +12,13 @@ export default function save( { attributes } ) {
 			{ image && (
 				<img
 					src={ image }
-					className="agrezer-partners__icon"
+					className="twork-partners__icon"
 					alt={ imageAlt || '' }
 				/>
 			) }
 			<RichText.Content
 				tagName="span"
-				className="agrezer-partners__name"
+				className="twork-partners__name"
 				value={ name }
 			/>
 		</div>

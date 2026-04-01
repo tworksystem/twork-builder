@@ -1,13 +1,15 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "twork/agrezer-partners-item",
+	"name": "twork/partner-item",
 	"version": "1.0.0",
-	"title": "Agrezer Partner Logo",
+	"title": "Partner Item",
 	"category": "twork-builder",
-	"parent": [ "twork/agrezer-partners-section" ],
+	"parent": [
+		"twork/partners"
+	],
 	"icon": "admin-users",
-	"description": "Single partner logo and name in the marquee.",
+	"description": "Single partner/logo item.",
 	"supports": {
 		"html": false,
 		"reusable": false

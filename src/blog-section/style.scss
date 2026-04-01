@@ -1,3 +1,5 @@
+@import "../scss/typography";
+
 // =============================================================================
 // Twork Blog Section – Editor, Front-end & Responsive
 // Matches blog.html (.jivaka-blog-module) structure and design.
@@ -18,7 +20,7 @@
     --twork-blog-shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.1);
     --twork-blog-radius: 12px;
 
-    font-family: "Roboto", sans-serif;
+    font-family: $font-primary;
     color: var(--twork-blog-dark);
     line-height: 1.6;
     overflow-x: hidden;

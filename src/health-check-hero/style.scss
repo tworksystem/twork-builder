@@ -1,3 +1,5 @@
+@import "../scss/typography";
+
 // Health Check Hero – matches health-check-up.html
 .twork-health-check-hero.chk-hero,
 .chk-hero.twork-health-check-hero {
@@ -5,7 +7,7 @@
     --chk-secondary: #005f73;
     --chk-light: #f4f8fb;
     --chk-shadow: 0 15px 40px rgba(0, 95, 115, 0.1);
-    font-family: "Roboto", sans-serif;
+    font-family: $font-primary;
     display: flex;
     align-items: center;
     background: #fff;

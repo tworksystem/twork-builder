@@ -1,13 +1,15 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "twork/agrezer-about-image-card",
+	"name": "twork/image-card",
 	"version": "1.0.0",
-	"title": "Agrezer About Image Card",
+	"title": "Image Card",
 	"category": "twork-builder",
-	"parent": [ "twork/agrezer-about-images-grid" ],
+	"parent": [
+		"twork/images-grid"
+	],
 	"icon": "format-image",
-	"description": "Image card — plain or with overlay CTA.",
+	"description": "Image card with overlay text and optional button.",
 	"supports": {
 		"html": false,
 		"reusable": false

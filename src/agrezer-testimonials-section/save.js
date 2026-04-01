@@ -28,14 +28,14 @@ export default function save( { attributes } ) {
 	);
 
 	const blockProps = useBlockProps.save( {
-		className: 'agrezer-testimonials twork-agrezer-testimonials-section',
+		className: 'twork-testimonials twork-testimonials-section',
 		style: {
 			backgroundColor,
 			paddingTop: `${ paddingTop }px`,
 			paddingBottom: `${ paddingBottom }px`,
-			'--agrezer-testimonials-max': `${ containerMaxWidth }px`,
-			'--agrezer-testimonials-width-pct': `${ widthPercent }%`,
-			'--agrezer-testimonials-gap': `${ columnGap }px`,
+			'--twork-testimonials-max': `${ containerMaxWidth }px`,
+			'--twork-testimonials-width-pct': `${ widthPercent }%`,
+			'--twork-testimonials-gap': `${ columnGap }px`,
 		},
 		'data-carousel-loop': loopCarousel ? 'true' : 'false',
 		tabIndex: 0,
@@ -45,29 +45,29 @@ export default function save( { attributes } ) {
 
 	return (
 		<section { ...blockProps }>
-			<div className="agrezer-testimonials__container">
-				<div className="agrezer-testimonials__left">
-					<div className="agrezer-testimonials__img-box">
+			<div className="twork-testimonials__container">
+				<div className="twork-testimonials__left">
+					<div className="twork-testimonials__img-box">
 						{ mainImage && (
 							<img
 								src={ mainImage }
-								className="agrezer-testimonials__img"
+								className="twork-testimonials__img"
 								alt={ mainImageAlt || '' }
 								loading="lazy"
 								decoding="async"
 							/>
 						) }
 						{ showBadge && (
-							<div className="agrezer-testimonials__badge">
+							<div className="twork-testimonials__badge">
 								{ badgeNum && (
-									<span className="agrezer-testimonials__badge-num">
+									<span className="twork-testimonials__badge-num">
 										{ badgeNum }
 									</span>
 								) }
 								{ badgeText && (
 									<RichText.Content
 										tagName="span"
-										className="agrezer-testimonials__badge-text"
+										className="twork-testimonials__badge-text"
 										value={ badgeText }
 									/>
 								) }
@@ -76,13 +76,13 @@ export default function save( { attributes } ) {
 					</div>
 				</div>
 
-				<div className="agrezer-testimonials__right">
-					<div className="agrezer-testimonials__tagline">
+				<div className="twork-testimonials__right">
+					<div className="twork-testimonials__tagline">
 						{ tagIcon && (
 							<img
 								src={ tagIcon }
 								alt={ tagIconAlt || '' }
-								className="agrezer-testimonials__tag-icon"
+								className="twork-testimonials__tag-icon"
 								width="20"
 								height="20"
 								loading="lazy"
@@ -100,33 +100,33 @@ export default function save( { attributes } ) {
 					{ title && (
 						<RichText.Content
 							tagName="h2"
-							className="agrezer-testimonials__title"
+							className="twork-testimonials__title"
 							value={ title }
 						/>
 					) }
 
-					<div className="agrezer-testimonials__quote-region">
-						<div className="agrezer-testimonials__slides">
+					<div className="twork-testimonials__quote-region">
+						<div className="twork-testimonials__slides">
 							<InnerBlocks.Content />
 						</div>
 					</div>
 
-					<div className="agrezer-testimonials__bottom">
+					<div className="twork-testimonials__bottom">
 						<div
-							className="agrezer-testimonials__author-mount"
+							className="twork-testimonials__author-mount"
 							aria-live="polite"
 						/>
-						<div className="agrezer-testimonials__controls">
+						<div className="twork-testimonials__controls">
 							<button
 								type="button"
-								className="agrezer-testimonials__control-btn agrezer-testimonials__control-btn--prev"
+								className="twork-testimonials__control-btn twork-testimonials__control-btn--prev"
 								aria-label={ prevLabel || 'Previous' }
 							>
 								←
 							</button>
 							<button
 								type="button"
-								className="agrezer-testimonials__control-btn agrezer-testimonials__control-btn--next"
+								className="twork-testimonials__control-btn twork-testimonials__control-btn--next"
 								aria-label={ nextLabel || 'Next' }
 							>
 								→

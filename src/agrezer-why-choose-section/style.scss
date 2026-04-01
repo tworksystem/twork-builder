@@ -1,11 +1,12 @@
-@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap");
+@import "../scss/typography";
 
-.twork-agrezer-why-choose-section,
-.twork-agrezer-why-choose-section-editor {
-    font-family: "Manrope", sans-serif;
+
+.twork-why-choose-section,
+.twork-why-choose-section-editor {
+    font-family: $font-secondary;
 }
 
-.agrezer-why-choose {
+.twork-why-choose {
     position: relative;
     overflow: hidden;
     box-sizing: border-box;
@@ -27,7 +28,7 @@
         left: 0;
         width: 100%;
         height: 124px;
-        background-image: var(--agrezer-why-choose-shape, none);
+        background-image: var(--twork-why-choose-shape, none);
         background-repeat: repeat-x;
         background-size: auto 100%;
         background-position: bottom center;
@@ -39,13 +40,13 @@
         display: none;
     }
 
-    .agrezer-why-choose__container {
+    .twork-why-choose__container {
         position: relative;
         z-index: 2;
         box-sizing: border-box;
     }
 
-    .agrezer-why-choose__header {
+    .twork-why-choose__header {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -53,7 +54,7 @@
         gap: 0.85rem;
     }
 
-    .agrezer-why-choose__tagline {
+    .twork-why-choose__tagline {
         margin: 0;
         display: inline-flex;
         align-items: center;
@@ -62,24 +63,24 @@
         font-weight: 600;
     }
 
-    .agrezer-why-choose__tagline-icon {
+    .twork-why-choose__tagline-icon {
         font-size: 1.1rem;
         line-height: 1;
     }
 
-    .agrezer-why-choose__title {
+    .twork-why-choose__title {
         margin: 0;
         max-width: 760px;
         line-height: 1.1;
         letter-spacing: -0.02em;
     }
 
-    .agrezer-why-choose__stage {
+    .twork-why-choose__stage {
         position: relative;
         margin-top: 2.2rem;
     }
 
-    .agrezer-why-choose__tractor-wrapper {
+    .twork-why-choose__tractor-wrapper {
         position: absolute;
         bottom: 30px;
         left: 0;
@@ -90,14 +91,14 @@
         pointer-events: none;
     }
 
-    .agrezer-why-choose__tractor {
+    .twork-why-choose__tractor {
         width: 100%;
         height: auto;
         object-fit: contain;
         pointer-events: auto;
     }
 
-    .agrezer-why-choose__point {
+    .twork-why-choose__point {
         position: absolute;
         z-index: 10;
         width: 180px;
@@ -105,7 +106,7 @@
         transform: translateX(-50%);
     }
 
-    .agrezer-why-choose__point-icon {
+    .twork-why-choose__point-icon {
         position: relative;
         width: 56px;
         height: 56px;
@@ -119,7 +120,7 @@
         place-items: center;
     }
 
-    .agrezer-why-choose__point-icon::before {
+    .twork-why-choose__point-icon::before {
         content: "";
         position: absolute;
         inset: -12px;
@@ -128,7 +129,7 @@
         opacity: 0.8;
     }
 
-    .agrezer-why-choose__point-icon::after {
+    .twork-why-choose__point-icon::after {
         content: "";
         position: absolute;
         inset: -22px;
@@ -139,7 +140,7 @@
         opacity: 0.66;
     }
 
-    .agrezer-why-choose__point-text {
+    .twork-why-choose__point-text {
         margin: 0;
         color: #fff;
         font-size: 1.65rem;
@@ -148,66 +149,66 @@
         text-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
     }
 
-    .agrezer-why-choose__point--1 {
+    .twork-why-choose__point--1 {
         left: 15%;
         top: 55%;
     }
 
-    .agrezer-why-choose__point--2 {
+    .twork-why-choose__point--2 {
         left: 30%;
         top: 25%;
     }
 
-    .agrezer-why-choose__point--3 {
+    .twork-why-choose__point--3 {
         left: 50%;
         top: 10%;
     }
 
-    .agrezer-why-choose__point--4 {
+    .twork-why-choose__point--4 {
         left: 70%;
         top: 25%;
     }
 
-    .agrezer-why-choose__point--5 {
+    .twork-why-choose__point--5 {
         left: 85%;
         top: 55%;
     }
 }
 
 @media (max-width: 1100px) {
-    .agrezer-why-choose {
-        .agrezer-why-choose__tractor-wrapper {
+    .twork-why-choose {
+        .twork-why-choose__tractor-wrapper {
             bottom: 42px;
         }
 
-        .agrezer-why-choose__tractor {
+        .twork-why-choose__tractor {
             max-width: min(74%, 640px);
         }
 
-        .agrezer-why-choose__point {
+        .twork-why-choose__point {
             width: 170px;
         }
 
-        .agrezer-why-choose__point-text {
+        .twork-why-choose__point-text {
             font-size: 1.2rem;
         }
 
-        .agrezer-why-choose__point--1 {
+        .twork-why-choose__point--1 {
             left: 5%;
             top: 50%;
         }
 
-        .agrezer-why-choose__point--2 {
+        .twork-why-choose__point--2 {
             left: 20%;
             top: 32%;
         }
 
-        .agrezer-why-choose__point--4 {
+        .twork-why-choose__point--4 {
             left: 63%;
             top: 32%;
         }
 
-        .agrezer-why-choose__point--5 {
+        .twork-why-choose__point--5 {
             left: 79%;
             top: 50%;
         }
@@ -215,10 +216,10 @@
 }
 
 @media (max-width: 860px) {
-    .agrezer-why-choose {
+    .twork-why-choose {
         padding-top: 4.2rem;
 
-        .agrezer-why-choose__stage {
+        .twork-why-choose__stage {
             min-height: auto !important;
             margin-top: 2.8rem;
             padding-bottom: 108px;
@@ -228,17 +229,17 @@
             gap: 1.4rem;
         }
 
-        .agrezer-why-choose__point {
+        .twork-why-choose__point {
             position: static;
             width: min(100%, 240px);
             transform: none;
         }
 
-        .agrezer-why-choose__point--3 {
+        .twork-why-choose__point--3 {
             order: -1;
         }
 
-        .agrezer-why-choose__tractor-wrapper {
+        .twork-why-choose__tractor-wrapper {
             position: relative;
             bottom: auto;
             left: auto;
@@ -248,7 +249,7 @@
             pointer-events: auto;
         }
 
-        .agrezer-why-choose__tractor {
+        .twork-why-choose__tractor {
             max-width: min(100%, 520px);
         }
 

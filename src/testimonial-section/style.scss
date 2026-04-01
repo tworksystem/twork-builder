@@ -1,9 +1,10 @@
+@import "../scss/typography";
+
 /**
  * Twork Testimonial Section – Patient Testimonials
  * Matches home.html: testimonials-section, section-top-link, jivaka-section-title, testimonials-grid.
  * Responsive: CSS custom properties + media queries (no inline overrides).
  */
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;600;700;900&display=swap");
 
 :root {
     --primary-orange: #f48b2a;
@@ -17,7 +18,7 @@
 .block-editor-block-list__layout,
 .wp-block-twork-testimonial-section {
     .twork-testimonial-section-editor {
-        font-family: "Roboto", sans-serif;
+        font-family: $font-primary;
         position: relative;
         min-height: 200px;
 
@@ -87,7 +88,7 @@
 .testimonials-section,
 .twork-testimonial-section,
 .wp-block-twork-testimonial-section {
-    font-family: "Roboto", sans-serif !important;
+    font-family: $font-primary !important;
     color: var(--white-color) !important;
     position: relative !important;
     overflow: hidden !important;
@@ -216,7 +217,7 @@
         font-size: 1.2rem;
         font-weight: 900;
         line-height: 1;
-        font-family: serif;
+        font-family: $font-serif;
         padding-bottom: 5px;
     }
 

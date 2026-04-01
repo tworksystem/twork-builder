@@ -1,13 +1,15 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "twork/agrezer-hero-feature-item",
+	"name": "twork/hero-feature",
 	"version": "1.0.0",
-	"title": "Agrezer Hero Feature Item",
+	"title": "Hero Feature",
 	"category": "twork-builder",
-	"parent": [ "twork/agrezer-hero-section" ],
+	"parent": [
+		"twork/hero-section"
+	],
 	"icon": "star-filled",
-	"description": "Single feature item for Agrezer hero section.",
+	"description": "Hero feature item.",
 	"supports": {
 		"html": false,
 		"reusable": false

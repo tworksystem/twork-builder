@@ -2,59 +2,59 @@
  * Agrezer Contact Cards — from my-avocado _contact-cards.scss (scoped).
  */
 
-.wp-block-twork-agrezer-contact-cards.agrezer-contact-cards {
+.wp-block-twork-contact-cards.twork-contact-cards {
     background: #f6f6f6;
     padding: 78px 0 88px;
 }
 
-.wp-block-twork-agrezer-contact-cards .agrezer-contact-cards__container {
+.wp-block-twork-contact-cards .twork-contact-cards__container {
     width: min(1200px, 90%);
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(var(--agrezer-contact-cols, 3), 1fr);
-    gap: var(--agrezer-contact-gap, 24px);
+    grid-template-columns: repeat(var(--twork-contact-cols, 3), 1fr);
+    gap: var(--twork-contact-gap, 24px);
 }
 
-.wp-block-twork-agrezer-contact-cards .agrezer-contact-card__icon-wrap {
+.wp-block-twork-contact-cards .twork-contact-card__icon-wrap {
     width: 56px;
     height: 56px;
     border-radius: 50%;
-    background: var(--agrezer-icon-wrap-bg, #8bcf33);
+    background: var(--twork-icon-wrap-bg, #8bcf33);
     display: inline-flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 16px;
 }
 
-.wp-block-twork-agrezer-contact-cards .agrezer-contact-card__icon {
+.wp-block-twork-contact-cards .twork-contact-card__icon {
     width: 24px;
     height: 24px;
     object-fit: contain;
     filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(102%) contrast(102%);
 }
 
-.wp-block-twork-agrezer-contact-cards .agrezer-contact-card {
+.wp-block-twork-contact-cards .twork-contact-card {
     background: #eeebe8;
     border-radius: 16px;
     text-align: center;
     padding: 22px 24px 24px;
 }
 
-.wp-block-twork-agrezer-contact-cards .agrezer-contact-card__title {
+.wp-block-twork-contact-cards .twork-contact-card__title {
     margin: 0;
     color: #1a1a1a;
     font-size: 1.9rem;
     line-height: 1.2;
 }
 
-.wp-block-twork-agrezer-contact-cards .agrezer-contact-card__subtitle {
+.wp-block-twork-contact-cards .twork-contact-card__subtitle {
     margin: 10px 0 6px;
     color: #5f5f5f;
     font-size: 1.08rem;
 }
 
-.wp-block-twork-agrezer-contact-cards .agrezer-contact-card__link,
-.wp-block-twork-agrezer-contact-cards .agrezer-contact-card__text {
+.wp-block-twork-contact-cards .twork-contact-card__link,
+.wp-block-twork-contact-cards .twork-contact-card__text {
     margin: 0;
     color: #8d8d8d;
     text-decoration: none;
@@ -63,15 +63,15 @@
     display: block;
 }
 
-.wp-block-twork-agrezer-contact-cards .agrezer-contact-card__link:hover,
-.wp-block-twork-agrezer-contact-cards .agrezer-contact-card__link:focus {
+.wp-block-twork-contact-cards .twork-contact-card__link:hover,
+.wp-block-twork-contact-cards .twork-contact-card__link:focus {
     text-decoration: underline;
     color: #6a6a6a;
 }
 
 @media (max-width: 992px) {
-    .wp-block-twork-agrezer-contact-cards .agrezer-contact-cards__container {
-        grid-template-columns: repeat(var(--agrezer-contact-cols-md, 1), 1fr);
+    .wp-block-twork-contact-cards .twork-contact-cards__container {
+        grid-template-columns: repeat(var(--twork-contact-cols-md, 1), 1fr);
         max-width: 620px;
     }
 }

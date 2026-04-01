@@ -14,16 +14,16 @@ export default function save( { attributes } ) {
 	const r = Math.min( 5, Math.max( 1, Math.round( Number( rating ) || 5 ) ) );
 
 	const blockProps = useBlockProps.save( {
-		className: 'agrezer-testimonials__slide',
+		className: 'twork-testimonials__slide',
 		'data-rating': String( r ),
 	} );
 
 	return (
 		<div { ...blockProps }>
-			<div className="agrezer-testimonials__quote-block">
-				<div className="agrezer-testimonials__content">
+			<div className="twork-testimonials__quote-block">
+				<div className="twork-testimonials__content">
 					<div
-						className="agrezer-testimonials__quote-icon"
+						className="twork-testimonials__quote-icon"
 						aria-hidden="true"
 					>
 						&ldquo;
@@ -31,30 +31,30 @@ export default function save( { attributes } ) {
 					{ quote && (
 						<RichText.Content
 							tagName="p"
-							className="agrezer-testimonials__text"
+							className="twork-testimonials__text"
 							value={ quote }
 						/>
 					) }
 				</div>
 			</div>
-			<template className="agrezer-testimonials__author-template">
-				<div className="agrezer-testimonials__author-box">
+			<template className="twork-testimonials__author-template">
+				<div className="twork-testimonials__author-box">
 					{ authorName && (
 						<RichText.Content
 							tagName="h4"
-							className="agrezer-testimonials__author-name"
+							className="twork-testimonials__author-name"
 							value={ authorName }
 						/>
 					) }
 					{ authorRole && (
 						<RichText.Content
 							tagName="span"
-							className="agrezer-testimonials__author-role"
+							className="twork-testimonials__author-role"
 							value={ authorRole }
 						/>
 					) }
 					<div
-						className="agrezer-testimonials__stars"
+						className="twork-testimonials__stars"
 						aria-label={ `${ r } out of 5 stars` }
 					>
 						{ renderStars( r ) }

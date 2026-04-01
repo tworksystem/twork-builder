@@ -29,7 +29,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'twork-agrezer-contact-card-item-editor',
+			className: 'twork-contact-card-item-editor',
 			style: {
 				backgroundColor: cardBgColor,
 			},
@@ -146,12 +146,12 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 			) }
 
 			<article { ...blockProps }>
-				<div className="agrezer-contact-card__icon-wrap">
+				<div className="twork-contact-card__icon-wrap">
 					{ iconUrl ? (
 						<img
 							src={ iconUrl }
 							alt={ iconAlt || '' }
-							className="agrezer-contact-card__icon"
+							className="twork-contact-card__icon"
 							width={ 24 }
 							height={ 24 }
 						/>
@@ -175,7 +175,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 				</div>
 				<RichText
 					tagName="h3"
-					className="agrezer-contact-card__title"
+					className="twork-contact-card__title"
 					value={ title }
 					onChange={ ( v ) => setAttributes( { title: v } ) }
 					placeholder={ __( 'Title', 'twork-builder' ) }
@@ -184,7 +184,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 				<RichText
 					tagName="p"
-					className="agrezer-contact-card__subtitle"
+					className="twork-contact-card__subtitle"
 					value={ subtitle }
 					onChange={ ( v ) => setAttributes( { subtitle: v } ) }
 					placeholder={ __( 'Subtitle', 'twork-builder' ) }
@@ -192,8 +192,8 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 				/>
 
 				{ contentType === 'link' ? (
-					<p className="agrezer-contact-card__link-wrap">
-						<span className="agrezer-contact-card__link agrezer-contact-card__link--preview">
+					<p className="twork-contact-card__link-wrap">
+						<span className="twork-contact-card__link twork-contact-card__link--preview">
 							{ linkText ||
 								linkUrl ||
 								__( 'Link', 'twork-builder' ) }
@@ -202,7 +202,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 				) : (
 					<RichText
 						tagName="p"
-						className="agrezer-contact-card__text"
+						className="twork-contact-card__text"
 						value={ plainText }
 						onChange={ ( v ) => setAttributes( { plainText: v } ) }
 						placeholder={ __( 'Plain text', 'twork-builder' ) }

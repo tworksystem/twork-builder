@@ -1,5 +1,6 @@
+@import "../scss/typography";
+
 // Emergency Hero (24/7) – same design as page-hero Emergency style
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
 
 .wp-block-twork-emergency-hero.em-hero,
 .em-hero.page-hero-emergency {
@@ -7,7 +8,7 @@
     --em-hover: #d6701b;
     --em-alert: #dc3545;
 
-    font-family: "Roboto", sans-serif;
+    font-family: $font-primary;
     position: relative;
     height: 600px;
     display: flex;

@@ -2,15 +2,15 @@
  * Agrezer inner page header — from my-avocado _page-header.scss
  */
 
-.agrezer-page-header.twork-agrezer-page-header-section,
-.wp-block-twork-agrezer-page-header-section.agrezer-page-header {
+.twork-page-header.twork-page-header-section,
+.wp-block-twork-page-header-section.twork-page-header {
 	position: relative;
 	color: #fff;
 	z-index: 1;
 	overflow: hidden;
 }
 
-.agrezer-page-header__bg {
+.twork-page-header__bg {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -29,30 +29,30 @@
 		left: 0;
 		width: 100%;
 		height: 100%;
-		background: var(--agrezer-page-header-overlay, rgba(12, 38, 20, 0.85));
+		background: var(--twork-page-header-overlay, rgba(12, 38, 20, 0.85));
 		z-index: 1;
 		pointer-events: none;
 	}
 }
 
-.agrezer-page-header__container {
-	max-width: var(--agrezer-page-header-max, 1200px);
-	width: min(var(--agrezer-page-header-width-pct, 90%), var(--agrezer-page-header-max, 1200px));
+.twork-page-header__container {
+	max-width: var(--twork-page-header-max, 1200px);
+	width: min(var(--twork-page-header-width-pct, 90%), var(--twork-page-header-max, 1200px));
 	margin: 0 auto;
 	position: relative;
 	z-index: 2;
 	display: flex;
 	justify-content: flex-end;
 	align-items: center;
-	min-height: var(--agrezer-page-header-min-h, 180px);
+	min-height: var(--twork-page-header-min-h, 180px);
 }
 
-.agrezer-page-header__content {
+.twork-page-header__content {
 	max-width: 50%;
 	text-align: right;
 }
 
-.agrezer-page-header__title {
+.twork-page-header__title {
 	font-size: 4.5rem;
 	font-weight: 700;
 	color: #fff;
@@ -60,12 +60,12 @@
 	line-height: 1.1;
 }
 
-.agrezer-page-header__breadcrumb-nav {
+.twork-page-header__breadcrumb-nav {
 	display: inline-block;
 	max-width: 100%;
 }
 
-.agrezer-page-header__breadcrumb {
+.twork-page-header__breadcrumb {
 	list-style: none;
 	padding: 0;
 	margin: 0;
@@ -78,7 +78,7 @@
 	flex-wrap: wrap;
 }
 
-.agrezer-page-header__breadcrumb li {
+.twork-page-header__breadcrumb li {
 	display: inline-flex;
 	align-items: center;
 
@@ -101,7 +101,7 @@
 	}
 }
 
-.agrezer-page-header__graphic {
+.twork-page-header__graphic {
 	position: absolute;
 	left: 0;
 	bottom: -40px;
@@ -109,29 +109,29 @@
 	pointer-events: none;
 }
 
-.agrezer-page-header__img {
+.twork-page-header__img {
 	max-width: 420px;
 	width: 100%;
 	height: auto;
 	display: block;
-	animation: agrezer-slide-tractor 1.2s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+	animation: twork-slide-tractor 1.2s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
 }
 
-.agrezer-page-header[data-tractor-anim="false"] .agrezer-page-header__img {
+.twork-page-header[data-tractor-anim="false"] .twork-page-header__img {
 	animation: none;
 	opacity: 1;
 	transform: none;
 }
 
 @media (prefers-reduced-motion: reduce) {
-	.agrezer-page-header__img {
+	.twork-page-header__img {
 		animation: none !important;
 		opacity: 1 !important;
 		transform: none !important;
 	}
 }
 
-@keyframes agrezer-slide-tractor {
+@keyframes twork-slide-tractor {
 	0% {
 		transform: translateX(-200px);
 		opacity: 0;
@@ -144,24 +144,24 @@
 }
 
 @media (max-width: 992px) {
-	.agrezer-page-header__container {
+	.twork-page-header__container {
 		justify-content: center;
 	}
 
-	.agrezer-page-header__content {
+	.twork-page-header__content {
 		max-width: 100%;
 		text-align: center;
 	}
 
-	.agrezer-page-header__breadcrumb {
+	.twork-page-header__breadcrumb {
 		justify-content: center;
 	}
 
-	.agrezer-page-header__graphic {
+	.twork-page-header__graphic {
 		display: none;
 	}
 
-	.twork-agrezer-page-header-section-editor .agrezer-page-header__graphic {
+	.twork-page-header-section-editor .twork-page-header__graphic {
 		display: block;
 		position: relative;
 		bottom: auto;
@@ -172,27 +172,27 @@
 }
 
 @media (max-width: 768px) {
-	.agrezer-page-header__title {
+	.twork-page-header__title {
 		font-size: 3rem;
 	}
 }
 
 /* Editor */
-.twork-agrezer-page-header-section-editor {
+.twork-page-header-section-editor {
 	min-height: 200px;
 }
 
-.twork-agrezer-page-header-section-editor .agrezer-page-header__content {
+.twork-page-header-section-editor .twork-page-header__content {
 	position: relative;
 	z-index: 3;
 }
 
-.twork-agrezer-page-header-section-editor .agrezer-page-header__title {
+.twork-page-header-section-editor .twork-page-header__title {
 	cursor: text;
 	min-height: 1em;
 }
 
-.twork-agrezer-page-header-section-editor .agrezer-page-header__graphic--placeholder {
+.twork-page-header-section-editor .twork-page-header__graphic--placeholder {
 	position: relative;
 	bottom: auto;
 	left: auto;
@@ -201,6 +201,6 @@
 	pointer-events: auto;
 }
 
-.twork-agrezer-page-header-section-editor .agrezer-page-header__graphic--placeholder .components-placeholder {
+.twork-page-header-section-editor .twork-page-header__graphic--placeholder .components-placeholder {
 	min-height: 120px;
 }

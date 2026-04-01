@@ -3,12 +3,12 @@
  * Based on my-avocado _shop-grid.scss.
  */
 
-.wp-block-twork-agrezer-shop-grid-section.agrezer-shop-grid {
+.wp-block-twork-shop-grid-section.twork-shop-grid {
     background: #f6f6f6;
     padding: 80px 0 100px;
 }
 
-.wp-block-twork-agrezer-shop-grid-section .agrezer-shop-grid__container {
+.wp-block-twork-shop-grid-section .twork-shop-grid__container {
     width: min(1240px, 92%);
     margin: 0 auto;
     display: grid;
@@ -16,20 +16,20 @@
     gap: 24px;
 }
 
-.wp-block-twork-agrezer-shop-grid-section .agrezer-shop-grid__sidebar {
+.wp-block-twork-shop-grid-section .twork-shop-grid__sidebar {
     display: grid;
     gap: 20px;
     align-self: start;
 }
 
-.wp-block-twork-agrezer-shop-grid-section .agrezer-shop-widget {
+.wp-block-twork-shop-grid-section .twork-shop-widget {
     background: #9b9c70;
     border-radius: 16px;
     padding: 20px 18px;
     color: #ffffff;
 }
 
-.wp-block-twork-agrezer-shop-grid-section .agrezer-shop-widget__title {
+.wp-block-twork-shop-grid-section .twork-shop-widget__title {
     margin: 0 0 14px;
     font-size: 1.9rem;
     line-height: 1.15;
@@ -38,7 +38,7 @@
     gap: 10px;
 }
 
-.wp-block-twork-agrezer-shop-grid-section .agrezer-shop-widget__dot {
+.wp-block-twork-shop-grid-section .twork-shop-widget__dot {
     width: 12px;
     height: 12px;
     border-radius: 50%;
@@ -46,8 +46,8 @@
     flex-shrink: 0;
 }
 
-.wp-block-twork-agrezer-shop-grid-section .agrezer-shop-widget__category-list,
-.wp-block-twork-agrezer-shop-grid-section .agrezer-shop-widget__contact-list {
+.wp-block-twork-shop-grid-section .twork-shop-widget__category-list,
+.wp-block-twork-shop-grid-section .twork-shop-widget__contact-list {
     list-style: none;
     margin: 0;
     padding: 0;
@@ -56,17 +56,17 @@
     font-size: 1.08rem;
 }
 
-.wp-block-twork-agrezer-shop-grid-section .agrezer-shop-widget__category-list a {
+.wp-block-twork-shop-grid-section .twork-shop-widget__category-list a {
     color: inherit;
     text-decoration: none;
 }
 
-.wp-block-twork-agrezer-shop-grid-section .agrezer-shop-widget__category-list a:hover,
-.wp-block-twork-agrezer-shop-grid-section .agrezer-shop-widget__category-list a:focus {
+.wp-block-twork-shop-grid-section .twork-shop-widget__category-list a:hover,
+.wp-block-twork-shop-grid-section .twork-shop-widget__category-list a:focus {
     text-decoration: underline;
 }
 
-.wp-block-twork-agrezer-shop-grid-section .agrezer-shop-widget__mini-products {
+.wp-block-twork-shop-grid-section .twork-shop-widget__mini-products {
     list-style: none;
     margin: 0;
     padding: 0;
@@ -74,73 +74,73 @@
     gap: 10px;
 }
 
-.wp-block-twork-agrezer-shop-grid-section .agrezer-shop-widget__mini-products li {
+.wp-block-twork-shop-grid-section .twork-shop-widget__mini-products li {
     display: grid;
     grid-template-columns: 1fr 56px;
     gap: 10px;
     align-items: center;
 }
 
-.wp-block-twork-agrezer-shop-grid-section .agrezer-shop-widget__mini-products h4 {
+.wp-block-twork-shop-grid-section .twork-shop-widget__mini-products h4 {
     margin: 0;
     font-size: 1.08rem;
 }
 
-.wp-block-twork-agrezer-shop-grid-section .agrezer-shop-widget__mini-products h4 a {
+.wp-block-twork-shop-grid-section .twork-shop-widget__mini-products h4 a {
     color: inherit;
     text-decoration: none;
 }
 
-.wp-block-twork-agrezer-shop-grid-section .agrezer-shop-widget__mini-products h4 a:hover {
+.wp-block-twork-shop-grid-section .twork-shop-widget__mini-products h4 a:hover {
     text-decoration: underline;
 }
 
-.wp-block-twork-agrezer-shop-grid-section .agrezer-shop-widget__stars {
+.wp-block-twork-shop-grid-section .twork-shop-widget__stars {
     color: #ececb3;
     font-size: 0.9rem;
     letter-spacing: 1px;
 }
 
-.wp-block-twork-agrezer-shop-grid-section .agrezer-shop-widget__mini-products p {
+.wp-block-twork-shop-grid-section .twork-shop-widget__mini-products p {
     margin: 2px 0 0;
     font-size: 1rem;
 }
 
-.wp-block-twork-agrezer-shop-grid-section .agrezer-shop-widget__mini-products del {
+.wp-block-twork-shop-grid-section .twork-shop-widget__mini-products del {
     opacity: 0.7;
     margin-right: 4px;
 }
 
-.wp-block-twork-agrezer-shop-grid-section .agrezer-shop-widget__mini-products .amount,
-.wp-block-twork-agrezer-shop-grid-section .agrezer-shop-widget__mini-products ins {
+.wp-block-twork-shop-grid-section .twork-shop-widget__mini-products .amount,
+.wp-block-twork-shop-grid-section .twork-shop-widget__mini-products ins {
     color: #ebf590;
     font-weight: 700;
     text-decoration: none;
 }
 
-.wp-block-twork-agrezer-shop-grid-section .agrezer-shop-widget__mini-products img {
+.wp-block-twork-shop-grid-section .twork-shop-widget__mini-products img {
     width: 56px;
     height: 56px;
     object-fit: cover;
     border: 1px solid rgba(255, 255, 255, 0.5);
 }
 
-.wp-block-twork-agrezer-shop-grid-section .agrezer-shop-widget__thumb-link {
+.wp-block-twork-shop-grid-section .twork-shop-widget__thumb-link {
     display: block;
     line-height: 0;
 }
 
-.wp-block-twork-agrezer-shop-grid-section .agrezer-shop-widget__contact-list a {
+.wp-block-twork-shop-grid-section .twork-shop-widget__contact-list a {
     color: inherit;
 }
 
-.wp-block-twork-agrezer-shop-grid-section .agrezer-shop-widget__empty {
+.wp-block-twork-shop-grid-section .twork-shop-widget__empty {
     margin: 0;
     font-size: 0.95rem;
     opacity: 0.9;
 }
 
-.wp-block-twork-agrezer-shop-grid-section .agrezer-shop-grid__toolbar {
+.wp-block-twork-shop-grid-section .twork-shop-grid__toolbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -149,13 +149,13 @@
     gap: 12px;
 }
 
-.wp-block-twork-agrezer-shop-grid-section .agrezer-shop-grid__toolbar p {
+.wp-block-twork-shop-grid-section .twork-shop-grid__toolbar p {
     margin: 0;
     color: #5b5b5b;
     font-size: 1.04rem;
 }
 
-.wp-block-twork-agrezer-shop-grid-section .agrezer-shop-grid__toolbar select {
+.wp-block-twork-shop-grid-section .twork-shop-grid__toolbar select {
     height: 44px;
     border-radius: 4px;
     border: 1px solid #c7c7c7;
@@ -165,13 +165,13 @@
     background: #fdfdfd;
 }
 
-.wp-block-twork-agrezer-shop-grid-section .agrezer-shop-products {
+.wp-block-twork-shop-grid-section .twork-shop-products {
     display: grid;
-    grid-template-columns: repeat(var(--agrezer-shop-cols, 3), 1fr);
+    grid-template-columns: repeat(var(--twork-shop-cols, 3), 1fr);
     gap: 22px;
 }
 
-.wp-block-twork-agrezer-shop-grid-section .agrezer-product-card {
+.wp-block-twork-shop-grid-section .twork-product-card {
     background: #ffffff;
     border: 1px solid #b8b8b8;
     border-radius: 8px;
@@ -180,7 +180,7 @@
     position: relative;
 }
 
-.wp-block-twork-agrezer-shop-grid-section .agrezer-product-card__badge {
+.wp-block-twork-shop-grid-section .twork-product-card__badge {
     position: absolute;
     top: 10px;
     left: 10px;
@@ -191,12 +191,12 @@
     padding: 2px 7px;
 }
 
-.wp-block-twork-agrezer-shop-grid-section .agrezer-product-card__image-link {
+.wp-block-twork-shop-grid-section .twork-product-card__image-link {
     display: block;
     text-decoration: none;
 }
 
-.wp-block-twork-agrezer-shop-grid-section .agrezer-product-card__image-link img {
+.wp-block-twork-shop-grid-section .twork-product-card__image-link img {
     width: min(180px, 90%);
     height: 170px;
     object-fit: contain;
@@ -204,47 +204,47 @@
     display: block;
 }
 
-.wp-block-twork-agrezer-shop-grid-section .agrezer-product-card__title {
+.wp-block-twork-shop-grid-section .twork-product-card__title {
     margin: 0;
     color: #2a2a2a;
     font-size: 1.95rem;
     line-height: 1.15;
 }
 
-.wp-block-twork-agrezer-shop-grid-section .agrezer-product-card__title a {
+.wp-block-twork-shop-grid-section .twork-product-card__title a {
     color: inherit;
     text-decoration: none;
 }
 
-.wp-block-twork-agrezer-shop-grid-section .agrezer-product-card__title a:hover {
+.wp-block-twork-shop-grid-section .twork-product-card__title a:hover {
     text-decoration: underline;
 }
 
-.wp-block-twork-agrezer-shop-grid-section .agrezer-product-card__stars {
+.wp-block-twork-shop-grid-section .twork-product-card__stars {
     margin-top: 6px;
     color: #7e7e7e;
     font-size: 0.9rem;
     letter-spacing: 1px;
 }
 
-.wp-block-twork-agrezer-shop-grid-section .agrezer-product-card__price {
+.wp-block-twork-shop-grid-section .twork-product-card__price {
     margin: 6px 0 0;
     font-size: 1.08rem;
 }
 
-.wp-block-twork-agrezer-shop-grid-section .agrezer-product-card del {
+.wp-block-twork-shop-grid-section .twork-product-card del {
     color: #c5ca97;
     margin-right: 5px;
 }
 
-.wp-block-twork-agrezer-shop-grid-section .agrezer-product-card .amount,
-.wp-block-twork-agrezer-shop-grid-section .agrezer-product-card ins {
+.wp-block-twork-shop-grid-section .twork-product-card .amount,
+.wp-block-twork-shop-grid-section .twork-product-card ins {
     color: #d5e373;
     font-weight: 700;
     text-decoration: none;
 }
 
-.wp-block-twork-agrezer-shop-grid-section .agrezer-shop-grid__empty {
+.wp-block-twork-shop-grid-section .twork-shop-grid__empty {
     grid-column: 1 / -1;
     text-align: center;
     color: #5b5b5b;
@@ -252,7 +252,7 @@
     padding: 24px;
 }
 
-.wp-block-twork-agrezer-shop-grid-section .agrezer-shop-grid__pagination {
+.wp-block-twork-shop-grid-section .twork-shop-grid__pagination {
     margin-top: 24px;
     display: flex;
     justify-content: center;
@@ -261,8 +261,8 @@
     gap: 8px;
 }
 
-.wp-block-twork-agrezer-shop-grid-section .agrezer-shop-grid__pagination a,
-.wp-block-twork-agrezer-shop-grid-section .agrezer-shop-grid__pagination span.page-numbers {
+.wp-block-twork-shop-grid-section .twork-shop-grid__pagination a,
+.wp-block-twork-shop-grid-section .twork-shop-grid__pagination span.page-numbers {
     min-width: 40px;
     height: 40px;
     border: 1px solid #c8cf9f;
@@ -277,54 +277,54 @@
     padding: 0 8px;
 }
 
-.wp-block-twork-agrezer-shop-grid-section .agrezer-shop-grid__pagination a:hover {
+.wp-block-twork-shop-grid-section .twork-shop-grid__pagination a:hover {
     border-color: #184838;
     color: #184838;
 }
 
-.wp-block-twork-agrezer-shop-grid-section .agrezer-shop-grid__pagination span.page-numbers.current,
-.wp-block-twork-agrezer-shop-grid-section .agrezer-shop-grid__pagination a.page-numbers.current {
+.wp-block-twork-shop-grid-section .twork-shop-grid__pagination span.page-numbers.current,
+.wp-block-twork-shop-grid-section .twork-shop-grid__pagination a.page-numbers.current {
     background: #184838;
     color: #ffffff;
     border-color: #184838;
 }
 
-.wp-block-twork-agrezer-shop-grid-section .agrezer-shop-grid__pagination span.page-numbers.dots {
+.wp-block-twork-shop-grid-section .twork-shop-grid__pagination span.page-numbers.dots {
     border: none;
     min-width: auto;
 }
 
 @media (max-width: 1100px) {
-    .wp-block-twork-agrezer-shop-grid-section .agrezer-shop-grid__container {
+    .wp-block-twork-shop-grid-section .twork-shop-grid__container {
         grid-template-columns: 1fr;
     }
 
-    .wp-block-twork-agrezer-shop-grid-section .agrezer-shop-grid__sidebar {
+    .wp-block-twork-shop-grid-section .twork-shop-grid__sidebar {
         grid-template-columns: 1fr 1fr;
     }
 }
 
 @media (max-width: 992px) {
-    .wp-block-twork-agrezer-shop-grid-section .agrezer-shop-products {
-        grid-template-columns: repeat(var(--agrezer-shop-cols-md, 2), 1fr);
+    .wp-block-twork-shop-grid-section .twork-shop-products {
+        grid-template-columns: repeat(var(--twork-shop-cols-md, 2), 1fr);
     }
 }
 
 @media (max-width: 640px) {
-    .wp-block-twork-agrezer-shop-grid-section.agrezer-shop-grid {
+    .wp-block-twork-shop-grid-section.twork-shop-grid {
         padding: 60px 0 80px;
     }
 
-    .wp-block-twork-agrezer-shop-grid-section .agrezer-shop-grid__sidebar {
+    .wp-block-twork-shop-grid-section .twork-shop-grid__sidebar {
         grid-template-columns: 1fr;
     }
 
-    .wp-block-twork-agrezer-shop-grid-section .agrezer-shop-grid__toolbar {
+    .wp-block-twork-shop-grid-section .twork-shop-grid__toolbar {
         flex-direction: column;
         align-items: flex-start;
     }
 
-    .wp-block-twork-agrezer-shop-grid-section .agrezer-shop-products {
-        grid-template-columns: repeat(var(--agrezer-shop-cols-sm, 1), 1fr);
+    .wp-block-twork-shop-grid-section .twork-shop-products {
+        grid-template-columns: repeat(var(--twork-shop-cols-sm, 1), 1fr);
     }
 }

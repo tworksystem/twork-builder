@@ -1,16 +1,24 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "twork/agrezer-process-section",
+	"name": "twork/process",
 	"version": "1.0.0",
-	"title": "Agrezer Process Section",
+	"title": "Process",
 	"category": "twork-builder",
 	"icon": "randomize",
-	"description": "Three-column process layout: step, center image, step (Agrezer).",
-	"keywords": [ "process", "steps", "agriculture", "agrezer", "twork" ],
+	"description": "Process section with steps and center element.",
+	"keywords": [
+		"process",
+		"steps",
+		"agriculture",
+		"twork"
+	],
 	"supports": {
 		"html": false,
-		"align": [ "wide", "full" ]
+		"align": [
+			"wide",
+			"full"
+		]
 	},
 	"attributes": {
 		"backgroundColor": {
@@ -97,7 +105,7 @@
 		},
 		"innerBlocks": [
 			{
-				"name": "twork/agrezer-process-step",
+				"name": "twork/process-step",
 				"attributes": {
 					"position": "left",
 					"badgeNum": "01",
@@ -109,7 +117,7 @@
 				}
 			},
 			{
-				"name": "twork/agrezer-process-center",
+				"name": "twork/process-center",
 				"attributes": {
 					"image": "https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&w=900&q=80",
 					"alt": "Circular farming process diagram placeholder",
@@ -117,7 +125,7 @@
 				}
 			},
 			{
-				"name": "twork/agrezer-process-step",
+				"name": "twork/process-step",
 				"attributes": {
 					"position": "right",
 					"badgeNum": "02",

@@ -1,0 +1,11 @@
+@import "../agrezer-shared/editor-inner-blocks";
+
+.twork-agrezer-greener-stats-row-editor {
+	@include agrezer-editor-inner-grid(repeat(2, minmax(0, 1fr)), 2rem);
+}
+
+@media (max-width: 760px) {
+	.twork-agrezer-greener-stats-row-editor .block-editor-inner-blocks > .block-editor-block-list__layout {
+		grid-template-columns: minmax(0, 1fr) !important;
+	}
+}

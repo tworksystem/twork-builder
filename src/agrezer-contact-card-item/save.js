@@ -37,7 +37,7 @@ export default function save( { attributes } ) {
 	} = attributes;
 
 	const blockProps = useBlockProps.save( {
-		className: 'agrezer-contact-card',
+		className: 'twork-contact-card',
 		style: {
 			backgroundColor: cardBgColor,
 		},
@@ -48,11 +48,11 @@ export default function save( { attributes } ) {
 	return (
 		<article { ...blockProps }>
 			{ iconUrl && (
-				<div className="agrezer-contact-card__icon-wrap">
+				<div className="twork-contact-card__icon-wrap">
 					<img
 						src={ iconUrl }
 						alt={ iconAlt || '' }
-						className="agrezer-contact-card__icon"
+						className="twork-contact-card__icon"
 						width={ 24 }
 						height={ 24 }
 						loading="lazy"
@@ -62,28 +62,28 @@ export default function save( { attributes } ) {
 			) }
 			<RichText.Content
 				tagName="h3"
-				className="agrezer-contact-card__title"
+				className="twork-contact-card__title"
 				value={ title }
 			/>
 			<RichText.Content
 				tagName="p"
-				className="agrezer-contact-card__subtitle"
+				className="twork-contact-card__subtitle"
 				value={ subtitle }
 			/>
 			{ contentType === 'link' && href && (
-				<a href={ href } className="agrezer-contact-card__link">
+				<a href={ href } className="twork-contact-card__link">
 					{ linkText || linkUrl }
 				</a>
 			) }
 			{ contentType === 'link' && ! href && ( linkText || linkUrl ) && (
-				<p className="agrezer-contact-card__text">
+				<p className="twork-contact-card__text">
 					{ linkText || linkUrl }
 				</p>
 			) }
 			{ contentType === 'text' && (
 				<RichText.Content
 					tagName="p"
-					className="agrezer-contact-card__text"
+					className="twork-contact-card__text"
 					value={ plainText }
 				/>
 			) }

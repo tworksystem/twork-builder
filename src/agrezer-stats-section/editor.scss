@@ -1,17 +1,17 @@
-.twork-agrezer-stats-section-editor {
-	.agrezer-stats__tagline span[contenteditable="true"],
-	.agrezer-stats__title[contenteditable="true"],
-	.agrezer-stats__desc[contenteditable="true"] {
+.twork-stats-section-editor {
+	.twork-stats__tagline span[contenteditable="true"],
+	.twork-stats__title[contenteditable="true"],
+	.twork-stats__desc[contenteditable="true"] {
 		&:focus {
 			outline: 1px dashed #2271b1;
 			outline-offset: 2px;
 		}
 	}
 
-	.twork-agrezer-stats__grid-editor {
+	.twork-stats__grid-editor {
 		display: grid !important;
 		grid-template-columns: repeat(3, 1fr) !important;
-		gap: var(--agrezer-stats-grid-gap, 2rem) !important;
+		gap: var(--twork-stats-grid-gap, 2rem) !important;
 		width: 100% !important;
 
 		> .block-editor-inner-blocks {
@@ -21,14 +21,14 @@
 				display: contents !important;
 
 				> .wp-block,
-				> [data-type="twork/agrezer-stats-column"] {
+				> [data-type="twork/stats-column"] {
 					display: block !important;
 				}
 			}
 		}
 	}
 
-	.twork-agrezer-stats-column-editor {
+	.twork-stats-column-editor {
 		display: flex;
 		flex-direction: column;
 		gap: 2rem;
@@ -50,7 +50,7 @@
 		}
 	}
 
-	.agrezer-stats__col:nth-child(2).twork-agrezer-stats-column-editor {
+	.twork-stats__col:nth-child(2).twork-stats-column-editor {
 		align-items: center;
 
 		> .block-editor-inner-blocks > .block-editor-block-list__layout {
@@ -58,22 +58,22 @@
 		}
 	}
 
-	.agrezer-stats-card__editor-bar {
+	.twork-stats-card__editor-bar {
 		position: absolute;
 		top: 8px;
 		right: 8px;
 		z-index: 2;
 	}
 
-	.agrezer-stats__btn--editor {
+	.twork-stats__btn--editor {
 		pointer-events: none;
 		user-select: none;
 		cursor: default;
 	}
 
-	.agrezer-stats-card {
-		.agrezer-stats-card__value[contenteditable="true"],
-		.agrezer-stats-card__label[contenteditable="true"] {
+	.twork-stats-card {
+		.twork-stats-card__value[contenteditable="true"],
+		.twork-stats-card__label[contenteditable="true"] {
 			&:focus {
 				outline: 1px dashed #2271b1;
 				outline-offset: 2px;
@@ -83,7 +83,7 @@
 }
 
 @media (max-width: 1080px) {
-	.twork-agrezer-stats-section-editor .twork-agrezer-stats__grid-editor {
+	.twork-stats-section-editor .twork-stats__grid-editor {
 		grid-template-columns: 1fr !important;
 	}
 }

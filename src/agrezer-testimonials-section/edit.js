@@ -15,10 +15,10 @@ import {
 	Button,
 } from '@wordpress/components';
 
-const ALLOWED_BLOCKS = [ 'twork/agrezer-testimonial-slide' ];
+const ALLOWED_BLOCKS = [ 'twork/testimonial' ];
 const TEMPLATE = [
 	[
-		'twork/agrezer-testimonial-slide',
+		'twork/testimonial',
 		{
 			quote: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
 			authorName: 'Alex Robin',
@@ -28,7 +28,7 @@ const TEMPLATE = [
 	],
 
 	[
-		'twork/agrezer-testimonial-slide',
+		'twork/testimonial',
 		{
 			quote: 'We saw measurable growth after switching to their organic program — clear communication and real results.',
 			authorName: 'Jordan Lee',
@@ -38,7 +38,7 @@ const TEMPLATE = [
 	],
 
 	[
-		'twork/agrezer-testimonial-slide',
+		'twork/testimonial',
 		{
 			quote: 'Reliable partners who understand both sustainability and scale. Highly recommended for any agri business.',
 			authorName: 'Sam Rivera',
@@ -80,14 +80,14 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 	const blockProps = useStableBlockProps(
 		() => ( {
 			className:
-				'agrezer-testimonials twork-agrezer-testimonials-section-editor',
+				'twork-testimonials twork-testimonials-section-editor',
 			style: {
 				backgroundColor,
 				paddingTop: `${ paddingTop }px`,
 				paddingBottom: `${ paddingBottom }px`,
-				'--agrezer-testimonials-max': `${ containerMaxWidth }px`,
-				'--agrezer-testimonials-width-pct': `${ widthPercent }%`,
-				'--agrezer-testimonials-gap': `${ columnGap }px`,
+				'--twork-testimonials-max': `${ containerMaxWidth }px`,
+				'--twork-testimonials-width-pct': `${ widthPercent }%`,
+				'--twork-testimonials-gap': `${ columnGap }px`,
 			},
 		} ),
 		[
@@ -368,13 +368,13 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 			) }
 
 			<section { ...blockProps }>
-				<div className="agrezer-testimonials__container">
-					<div className="agrezer-testimonials__left">
-						<div className="agrezer-testimonials__img-box">
+				<div className="twork-testimonials__container">
+					<div className="twork-testimonials__left">
+						<div className="twork-testimonials__img-box">
 							{ mainImage ? (
 								<img
 									src={ mainImage }
-									className="agrezer-testimonials__img"
+									className="twork-testimonials__img"
 									alt=""
 								/>
 							) : (
@@ -399,13 +399,13 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 								/>
 							) }
 							{ showBadge && (
-								<div className="agrezer-testimonials__badge">
-									<span className="agrezer-testimonials__badge-num">
+								<div className="twork-testimonials__badge">
+									<span className="twork-testimonials__badge-num">
 										{ badgeNum }
 									</span>
 									<RichText
 										tagName="span"
-										className="agrezer-testimonials__badge-text"
+										className="twork-testimonials__badge-text"
 										value={ badgeText }
 										onChange={ ( val ) =>
 											setAttributes( { badgeText: val } )
@@ -426,13 +426,13 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 						</div>
 					</div>
 
-					<div className="agrezer-testimonials__right">
-						<div className="agrezer-testimonials__tagline">
+					<div className="twork-testimonials__right">
+						<div className="twork-testimonials__tagline">
 							{ tagIcon && (
 								<img
 									src={ tagIcon }
 									alt=""
-									className="agrezer-testimonials__tag-icon"
+									className="twork-testimonials__tag-icon"
 								/>
 							) }
 							<RichText
@@ -448,7 +448,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 						<RichText
 							tagName="h2"
-							className="agrezer-testimonials__title"
+							className="twork-testimonials__title"
 							value={ title }
 							onChange={ ( val ) =>
 								setAttributes( { title: val } )
@@ -459,8 +459,8 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 							) }
 						/>
 
-						<div className="agrezer-testimonials__quote-region agrezer-testimonials__quote-region--editor">
-							<div className="agrezer-testimonials__slides agrezer-testimonials__slides--editor">
+						<div className="twork-testimonials__quote-region twork-testimonials__quote-region--editor">
+							<div className="twork-testimonials__slides twork-testimonials__slides--editor">
 								<InnerBlocks
 									allowedBlocks={ ALLOWED_BLOCKS }
 									template={ TEMPLATE }
@@ -472,24 +472,24 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 							</div>
 						</div>
 
-						<div className="agrezer-testimonials__bottom agrezer-testimonials__bottom--editor">
-							<p className="agrezer-testimonials__editor-hint">
+						<div className="twork-testimonials__bottom twork-testimonials__bottom--editor">
+							<p className="twork-testimonials__editor-hint">
 								{ __(
 									'Author for each slide appears here on the site when visitors change slides.',
 									'twork-builder'
 								) }
 							</p>
-							<div className="agrezer-testimonials__controls">
+							<div className="twork-testimonials__controls">
 								<button
 									type="button"
-									className="agrezer-testimonials__control-btn"
+									className="twork-testimonials__control-btn"
 									disabled
 								>
 									←
 								</button>
 								<button
 									type="button"
-									className="agrezer-testimonials__control-btn"
+									className="twork-testimonials__control-btn"
 									disabled
 								>
 									→

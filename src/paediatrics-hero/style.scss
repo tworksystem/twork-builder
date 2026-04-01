@@ -1,3 +1,5 @@
+@import "../scss/typography";
+
 /**
  * Paediatrics Hero – matches paediatrics-centre.html hero section
  * Background image, badge, title, subtitle, two CTAs, side image.
@@ -20,7 +22,7 @@
     color: #fff;
     overflow: hidden;
     box-sizing: border-box;
-    font-family: "Roboto", sans-serif;
+    font-family: $font-primary;
 
     .paed-hero-bg {
         position: absolute;

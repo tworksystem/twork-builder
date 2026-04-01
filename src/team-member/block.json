@@ -38,6 +38,7 @@
 	"style": "file:./style-index.css",
 	"example": {
 		"attributes": {
+			"name": "Harry Black",
 			"role": "Team Member",
 			"accentColor": "#f48b2a"
 		}

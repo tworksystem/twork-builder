@@ -1,10 +1,12 @@
+@import "../scss/typography";
+
 // Health Check Packages Section – matches health-check-up.html
 .twork-health-check-packages-section.chk-section {
     --chk-primary: #f48b2a;
     --chk-secondary: #005f73;
     --chk-radius: 20px;
     --chk-shadow: 0 15px 40px rgba(0, 95, 115, 0.1);
-    font-family: "Roboto", sans-serif;
+    font-family: $font-primary;
 
     .chk-header {
         text-align: center;

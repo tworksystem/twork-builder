@@ -18,18 +18,18 @@ import {
 	__experimentalDivider as Divider,
 } from '@wordpress/components';
 
-const ALLOWED_BLOCKS = [ 'twork/agrezer-hero-feature-item' ];
+const ALLOWED_BLOCKS = [ 'twork/hero-feature' ];
 const TEMPLATE = [
 	[
-		'twork/agrezer-hero-feature-item',
+		'twork/hero-feature',
 		{ title: 'Healthy Soil<br />Solutions', iconVariant: 'leaf' },
 	],
 	[
-		'twork/agrezer-hero-feature-item',
+		'twork/hero-feature',
 		{ title: 'Pure Organic<br />Growth', iconVariant: 'drop' },
 	],
 	[
-		'twork/agrezer-hero-feature-item',
+		'twork/hero-feature',
 		{ title: 'Nature-Driven<br />Innovation', iconVariant: 'sprout' },
 	],
 ];
@@ -37,7 +37,7 @@ const TEMPLATE = [
 const TaglineIcon = memo( function TaglineIcon() {
 	return (
 		<svg
-			className="agrezer-hero__tagline-icon"
+			className="twork-hero__tagline-icon"
 			viewBox="0 0 24 24"
 			aria-hidden="true"
 		>
@@ -74,9 +74,9 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 			backgroundPosition: 'center',
 			paddingTop: `${ paddingTop }px`,
 			paddingBottom: `${ paddingBottom }px`,
-			'--agrezer-container-max-width': `${ containerMaxWidth }px`,
-			'--agrezer-container-padding': `${ containerPadding }px`,
-			'--agrezer-features-gap': `${ featuresGap }px`,
+			'--twork-container-max-width': `${ containerMaxWidth }px`,
+			'--twork-container-padding': `${ containerPadding }px`,
+			'--twork-features-gap': `${ featuresGap }px`,
 		} ),
 		[
 			backgroundImage,
@@ -91,7 +91,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 	const blockProps = useStableBlockProps(
 		() => ( {
 			className:
-				'agrezer-hero agrezer-hero--bg twork-agrezer-hero-section-editor',
+				'twork-hero twork-hero--bg twork-hero-section-editor',
 			style: sectionStyle,
 		} ),
 		[ sectionStyle ]
@@ -317,19 +317,19 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 				</InspectorControls>
 			) }
 
-			<section { ...blockProps } aria-labelledby="agrezer-hero-title">
+			<section { ...blockProps } aria-labelledby="twork-hero-title">
 				<div
-					className="agrezer-hero__overlay"
+					className="twork-hero__overlay"
 					style={ { backgroundColor: overlayColor } }
 				/>
 
-				<div className="agrezer-hero__container">
-					<div className="agrezer-hero__content">
-						<div className="agrezer-hero__tagline">
+				<div className="twork-hero__container">
+					<div className="twork-hero__content">
+						<div className="twork-hero__tagline">
 							<TaglineIcon />
 							<RichText
 								tagName="span"
-								className="agrezer-hero__tagline-text"
+								className="twork-hero__tagline-text"
 								value={ taglineText }
 								onChange={ onTagline }
 								placeholder={ __(
@@ -340,8 +340,8 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 						</div>
 						<RichText
 							tagName="h1"
-							id="agrezer-hero-title"
-							className="agrezer-hero__title"
+							id="twork-hero-title"
+							className="twork-hero__title"
 							value={ title }
 							onChange={ onTitle }
 							placeholder={ __(
@@ -352,7 +352,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 						<RichText
 							tagName="p"
-							className="agrezer-hero__desc"
+							className="twork-hero__desc"
 							value={ description }
 							onChange={ onDescription }
 							placeholder={ __(
@@ -363,7 +363,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 						<a
 							href={ href }
-							className="agrezer-hero__btn"
+							className="twork-hero__btn"
 							target={ buttonLinkTarget ? '_blank' : undefined }
 							rel={
 								buttonLinkTarget
@@ -385,7 +385,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 						</a>
 					</div>
 
-					<div className="agrezer-hero__features-wrapper">
+					<div className="twork-hero__features-wrapper">
 						<InnerBlocks
 							allowedBlocks={ ALLOWED_BLOCKS }
 							template={ TEMPLATE }

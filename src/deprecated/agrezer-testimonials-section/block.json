@@ -1,0 +1,149 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/agrezer-testimonials-section",
+	"version": "1.0.0",
+	"title": "Agrezer Testimonials",
+	"category": "twork-builder",
+	"icon": "format-quote",
+	"description": "Two-column testimonials with image, badge, and carousel slides.",
+	"keywords": [ "testimonial", "review", "carousel", "agrezer", "twork" ],
+	"supports": {
+		"html": false,
+		"align": [ "wide", "full" ]
+	},
+	"attributes": {
+		"backgroundColor": {
+			"type": "string",
+			"default": "#FAFAFA"
+		},
+		"paddingTop": {
+			"type": "number",
+			"default": 100
+		},
+		"paddingBottom": {
+			"type": "number",
+			"default": 100
+		},
+		"containerMaxWidth": {
+			"type": "number",
+			"default": 1200
+		},
+		"containerGutter": {
+			"type": "number",
+			"default": 5
+		},
+		"columnGap": {
+			"type": "number",
+			"default": 60
+		},
+		"mainImage": {
+			"type": "string",
+			"default": ""
+		},
+		"mainImageId": {
+			"type": "number"
+		},
+		"mainImageAlt": {
+			"type": "string",
+			"default": "Client Feedback"
+		},
+		"showBadge": {
+			"type": "boolean",
+			"default": true
+		},
+		"badgeNum": {
+			"type": "string",
+			"default": "15+"
+		},
+		"badgeText": {
+			"type": "string",
+			"default": "Years Of<br>Experience"
+		},
+		"tagIcon": {
+			"type": "string",
+			"default": ""
+		},
+		"tagIconId": {
+			"type": "number"
+		},
+		"tagIconAlt": {
+			"type": "string",
+			"default": ""
+		},
+		"tagline": {
+			"type": "string",
+			"default": "Client Testimonial"
+		},
+		"title": {
+			"type": "string",
+			"default": "The Harvest of Happy Client Feedback"
+		},
+		"loopCarousel": {
+			"type": "boolean",
+			"default": true
+		},
+		"prevLabel": {
+			"type": "string",
+			"default": "Previous testimonial"
+		},
+		"nextLabel": {
+			"type": "string",
+			"default": "Next testimonial"
+		}
+	},
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": {
+			"backgroundColor": "#FAFAFA",
+			"paddingTop": 100,
+			"paddingBottom": 100,
+			"containerMaxWidth": 1200,
+			"containerGutter": 5,
+			"columnGap": 60,
+			"mainImage": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=900&q=80",
+			"mainImageAlt": "Team collaborating in a bright office",
+			"showBadge": true,
+			"badgeNum": "15+",
+			"badgeText": "Years Of<br>Trusted Partnerships",
+			"tagline": "Client Testimonial",
+			"title": "The Harvest of Happy Client Feedback",
+			"loopCarousel": true,
+			"prevLabel": "Previous testimonial",
+			"nextLabel": "Next testimonial"
+		},
+		"innerBlocks": [
+			{
+				"name": "twork/agrezer-testimonial-slide",
+				"attributes": {
+					"quote": "Agrezer helped us cut input waste while improving tonnage—clear reporting and a team that actually picks up the phone.",
+					"authorName": "Alex Robin",
+					"authorRole": "Co-Founder",
+					"rating": 5
+				}
+			},
+			{
+				"name": "twork/agrezer-testimonial-slide",
+				"attributes": {
+					"quote": "We saw measurable growth after switching to their organic program—great communication and real field results.",
+					"authorName": "Jordan Lee",
+					"authorRole": "Operations Director",
+					"rating": 5
+				}
+			},
+			{
+				"name": "twork/agrezer-testimonial-slide",
+				"attributes": {
+					"quote": "Reliable partners who understand both sustainability and scale. Recommended for any grower network.",
+					"authorName": "Sam Rivera",
+					"authorRole": "Farm Manager",
+					"rating": 4
+				}
+			}
+		]
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./view.js"
+}

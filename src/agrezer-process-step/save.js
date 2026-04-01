@@ -14,30 +14,30 @@ export default function save( { attributes } ) {
 	const side = position === 'right' ? 'right' : 'left';
 
 	const blockProps = useBlockProps.save( {
-		className: `agrezer-process__step agrezer-process__step--${ side }`,
+		className: `twork-process__step twork-process__step--${ side }`,
 	} );
 
 	return (
 		<div { ...blockProps }>
-			<div className="agrezer-process__badge-wrapper">
-				<div className="agrezer-process__badge">
-					<span className="agrezer-process__badge-num">
+			<div className="twork-process__badge-wrapper">
+				<div className="twork-process__badge">
+					<span className="twork-process__badge-num">
 						{ badgeNum }
 					</span>
 				</div>
 			</div>
 			<RichText.Content
 				tagName="h3"
-				className="agrezer-process__step-title"
+				className="twork-process__step-title"
 				value={ stepTitle }
 			/>
 			<RichText.Content
 				tagName="p"
-				className="agrezer-process__step-text"
+				className="twork-process__step-text"
 				value={ stepText }
 			/>
 			{ showCta && (
-				<a href={ ctaUrl || '#' } className="agrezer-process__btn">
+				<a href={ ctaUrl || '#' } className="twork-process__btn">
 					<RichText.Content tagName="span" value={ ctaText } />
 					<span aria-hidden="true">↗</span>
 				</a>

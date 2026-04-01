@@ -12,7 +12,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'agrezer-about-intro__feature',
+			className: 'twork-about-intro__feature',
 		} ),
 		[]
 	);
@@ -58,7 +58,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 						<img
 							src={ image }
 							alt=""
-							className="agrezer-about-intro__feature-icon"
+							className="twork-about-intro__feature-icon"
 						/>
 
 						<Button

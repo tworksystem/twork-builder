@@ -1,5 +1,6 @@
+@import "../scss/typography";
+
 // Accreditation Section - Variables
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
 
 :root {
     --primary-orange: #f48b2a;
@@ -67,7 +68,7 @@
 
 // === FRONTEND STYLES ===
 .twork-accreditation-section {
-    font-family: "Roboto", sans-serif;
+    font-family: $font-primary;
     position: relative;
     overflow: hidden;
 

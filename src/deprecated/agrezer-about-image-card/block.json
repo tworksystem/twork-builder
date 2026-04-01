@@ -1,0 +1,56 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/agrezer-about-image-card",
+	"version": "1.0.0",
+	"title": "Agrezer About Image Card",
+	"category": "twork-builder",
+	"parent": [ "twork/agrezer-about-images-grid" ],
+	"icon": "format-image",
+	"description": "Image card — plain or with overlay CTA.",
+	"supports": {
+		"html": false,
+		"reusable": false
+	},
+	"attributes": {
+		"variant": {
+			"type": "string",
+			"default": "simple"
+		},
+		"image": {
+			"type": "string",
+			"default": ""
+		},
+		"imageId": {
+			"type": "number"
+		},
+		"alt": {
+			"type": "string",
+			"default": ""
+		},
+		"overlayText": {
+			"type": "string",
+			"default": "Agriculture nurtures life through organic growth, sustainable farming."
+		},
+		"overlayButtonText": {
+			"type": "string",
+			"default": "About Us"
+		},
+		"overlayButtonUrl": {
+			"type": "string",
+			"default": "#"
+		}
+	},
+	"example": {
+		"attributes": {
+			"variant": "overlay",
+			"image": "https://images.unsplash.com/photo-1472653431158-6364773b2a56?auto=format&fit=crop&w=1400&q=80",
+			"alt": "Farmer inspecting healthy crops",
+			"overlayText": "Agriculture nurtures life through organic growth, sustainable farming, and careful stewardship of the land.",
+			"overlayButtonText": "About Us",
+			"overlayButtonUrl": "#"
+		}
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js"
+}

@@ -1,0 +1,34 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/agrezer-hero-feature-item",
+	"version": "1.0.0",
+	"title": "Agrezer Hero Feature Item",
+	"category": "twork-builder",
+	"parent": [ "twork/agrezer-hero-section" ],
+	"icon": "star-filled",
+	"description": "Single feature item for Agrezer hero section.",
+	"supports": {
+		"html": false,
+		"reusable": false
+	},
+	"attributes": {
+		"title": {
+			"type": "string",
+			"default": "Healthy Soil<br>Solutions"
+		},
+		"iconVariant": {
+			"type": "string",
+			"default": "leaf"
+		}
+	},
+	"example": {
+		"attributes": {
+			"title": "Healthy Soil<br>Solutions",
+			"iconVariant": "leaf"
+		}
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
+}

@@ -1,3 +1,5 @@
+@import "../scss/typography";
+
 // Ambulance Fleet Section – variables aligned with ambulance-service.html
 :root {
     --amb-primary: #f48b2a;
@@ -82,7 +84,7 @@
 
 // === FRONTEND STYLES ===
 .twork-amb-fleet-section.amb-fleet-section {
-    font-family: "Roboto", sans-serif;
+    font-family: $font-primary;
     position: relative;
     overflow: hidden;
 

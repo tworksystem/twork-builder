@@ -8,7 +8,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: `agrezer-why-choose__point agrezer-why-choose__point--${ slot }`,
+			className: `twork-why-choose__point twork-why-choose__point--${ slot }`,
 		} ),
 		[ slot ]
 	);
@@ -86,12 +86,12 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 			) }
 
 			<div { ...blockProps }>
-				<div className="agrezer-why-choose__point-icon">
+				<div className="twork-why-choose__point-icon">
 					{ badgeText }
 				</div>
 				<RichText
 					tagName="p"
-					className="agrezer-why-choose__point-text"
+					className="twork-why-choose__point-text"
 					value={ pointText }
 					onChange={ ( val ) => setAttributes( { pointText: val } ) }
 					placeholder={ __( 'Point text…', 'twork-builder' ) }

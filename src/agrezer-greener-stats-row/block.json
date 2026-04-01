@@ -1,13 +1,15 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "twork/agrezer-greener-stats-row",
+	"name": "twork/stats-row",
 	"version": "1.0.0",
-	"title": "Agrezer Greener — Stats Row",
+	"title": "Stats Row",
 	"category": "twork-builder",
-	"parent": [ "twork/agrezer-greener-section" ],
+	"parent": [
+		"twork/highlights-section"
+	],
 	"icon": "chart-bar",
-	"description": "Two-column stats row for Greener section.",
+	"description": "Row/grid container for stat items.",
 	"supports": {
 		"html": false,
 		"reusable": false
@@ -15,19 +17,31 @@
 	"example": {
 		"innerBlocks": [
 			{
-				"name": "twork/agrezer-greener-stat-item",
+				"name": "twork/stat-item",
 				"attributes": {
 					"iconVariant": "growth",
 					"title": "80% Pure Growth",
-					"description": "Measured gains in plant vigor and stand uniformity across pilot fields."
+					"description": "Measured gains in plant vigor and stand uniformity across pilot fields.",
+
+					"statNumber": "80%",
+					"statLabel": "Pure Growth",
+					"numberColor": "#f48b2a",
+					"labelColor": "#212121",
+					"labelTextTransform": "uppercase"
 				}
 			},
 			{
-				"name": "twork/agrezer-greener-stat-item",
+				"name": "twork/stat-item",
 				"attributes": {
 					"iconVariant": "organic",
 					"title": "95% Organic Roots",
-					"description": "Partners certified for organic handling and cold-chain integrity."
+					"description": "Partners certified for organic handling and cold-chain integrity.",
+
+					"statNumber": "95%",
+					"statLabel": "Organic Roots",
+					"numberColor": "#f48b2a",
+					"labelColor": "#212121",
+					"labelTextTransform": "uppercase"
 				}
 			}
 		]

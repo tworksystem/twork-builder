@@ -1,13 +1,15 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "twork/agrezer-team-card",
+	"name": "twork/team-member",
 	"version": "1.0.0",
-	"title": "Agrezer Team Card",
+	"title": "Team Member",
 	"category": "twork-builder",
-	"parent": [ "twork/agrezer-team-section" ],
+	"parent": [
+		"twork/team-section"
+	],
 	"icon": "admin-users",
-	"description": "Team member photo, name, role, and profile link.",
+	"description": "Team member card.",
 	"supports": {
 		"html": false,
 		"reusable": false

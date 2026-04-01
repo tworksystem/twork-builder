@@ -1,13 +1,15 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "twork/agrezer-about-intro-feature",
+	"name": "twork/intro-feature",
 	"version": "1.0.0",
-	"title": "Agrezer About Intro Feature",
+	"title": "Intro Feature",
 	"category": "twork-builder",
-	"parent": [ "twork/agrezer-about-intro-section" ],
+	"parent": [
+		"twork/intro-section"
+	],
 	"icon": "star-filled",
-	"description": "Icon and label for the about intro feature grid.",
+	"description": "Small feature label (intro list item).",
 	"supports": {
 		"html": false,
 		"reusable": false

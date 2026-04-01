@@ -19,17 +19,17 @@
 			return;
 		}
 		if ( shouldReduceMotion() ) {
-			section.classList.add( 'agrezer-partners--reduced-motion' );
+			section.classList.add( 'twork-partners--reduced-motion' );
 			return;
 		}
 
-		var track = section.querySelector( '.agrezer-partners__track' );
+		var track = section.querySelector( '.twork-partners__track' );
 		if ( ! track || track.getAttribute( 'data-partners-cloned' ) === '1' ) {
 			return;
 		}
 
 		var items = track.querySelectorAll(
-			':scope > .wp-block-twork-agrezer-partners-item, :scope > .agrezer-partners__item'
+			':scope > .wp-block-twork-partners-item, :scope > .twork-partners__item'
 		);
 		if ( ! items.length ) {
 			return;
@@ -44,7 +44,7 @@
 	function init() {
 		document
 			.querySelectorAll(
-				'.twork-agrezer-partners-section.agrezer-partners'
+				'.twork-partners-section.twork-partners'
 			)
 			.forEach( cloneTrackItems );
 	}

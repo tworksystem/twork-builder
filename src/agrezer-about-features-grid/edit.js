@@ -1,10 +1,10 @@
 import { useStableBlockProps } from '@twork-builder/editor-utils';
 import { InnerBlocks } from '@wordpress/block-editor';
 
-const ALLOWED_BLOCKS = [ 'twork/agrezer-about-feature-item' ];
+const ALLOWED_BLOCKS = [ 'twork/feature-item' ];
 const TEMPLATE = [
 	[
-		'twork/agrezer-about-feature-item',
+		'twork/feature-item',
 		{
 			title: 'Farm Development',
 			description:
@@ -14,7 +14,7 @@ const TEMPLATE = [
 	],
 
 	[
-		'twork/agrezer-about-feature-item',
+		'twork/feature-item',
 		{
 			title: 'Crop Management',
 			description:
@@ -24,7 +24,7 @@ const TEMPLATE = [
 	],
 
 	[
-		'twork/agrezer-about-feature-item',
+		'twork/feature-item',
 		{
 			title: 'Soil Restoration',
 			description:
@@ -34,7 +34,7 @@ const TEMPLATE = [
 	],
 
 	[
-		'twork/agrezer-about-feature-item',
+		'twork/feature-item',
 		{
 			title: 'Organic Cultivation',
 			description:
@@ -48,7 +48,7 @@ export default function Edit() {
 	const blockProps = useStableBlockProps(
 		() => ( {
 			className:
-				'agrezer-about__features-grid twork-agrezer-about-features-grid-editor',
+				'twork-about__features-grid twork-about-features-grid-editor',
 		} ),
 		[]
 	);

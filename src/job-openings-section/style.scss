@@ -1,3 +1,5 @@
+@import "../scss/typography";
+
 // Job Openings Section
 // career.html "Current Openings" – section-header, job-category, job-card
 
@@ -66,7 +68,7 @@
 
 // === FRONTEND STYLES ===
 .twork-job-openings-section {
-    font-family: "Roboto", sans-serif;
+    font-family: $font-primary;
     position: relative;
 
     .section-header {

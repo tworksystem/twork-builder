@@ -8,7 +8,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'agrezer-stats__btn-wrap',
+			className: 'twork-stats__btn-wrap',
 		} ),
 		[]
 	);
@@ -33,7 +33,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 			) }
 
 			<div { ...blockProps }>
-				<span className="agrezer-stats__btn agrezer-stats__btn--editor">
+				<span className="twork-stats__btn twork-stats__btn--editor">
 					<RichText
 						tagName="span"
 						value={ buttonText }

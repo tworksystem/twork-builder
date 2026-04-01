@@ -5,15 +5,15 @@ export default function save( { attributes } ) {
 	const safeSlot = Math.min( 5, Math.max( 1, slot || 1 ) );
 
 	const blockProps = useBlockProps.save( {
-		className: `agrezer-why-choose__point agrezer-why-choose__point--${ safeSlot }`,
+		className: `twork-why-choose__point twork-why-choose__point--${ safeSlot }`,
 	} );
 
 	return (
 		<div { ...blockProps }>
-			<div className="agrezer-why-choose__point-icon">{ badgeText }</div>
+			<div className="twork-why-choose__point-icon">{ badgeText }</div>
 			<RichText.Content
 				tagName="p"
-				className="agrezer-why-choose__point-text"
+				className="twork-why-choose__point-text"
 				value={ pointText }
 			/>
 		</div>

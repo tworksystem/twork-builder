@@ -26,8 +26,8 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 		() => ( {
 			className:
 				variant === 'overlay'
-					? 'agrezer-about-card agrezer-about-card--overlay'
-					: 'agrezer-about-card',
+					? 'twork-about-card twork-about-card--overlay'
+					: 'twork-about-card',
 		} ),
 		[ variant ]
 	);
@@ -97,12 +97,12 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 						labels={ {
 							title: __( 'Card image', 'twork-builder' ),
 						} }
-						className="agrezer-about-card__placeholder"
+						className="twork-about-card__placeholder"
 					/>
 				) : (
 					<>
 						<img src={ image } alt="" />
-						<div className="agrezer-about-card__editor-tools">
+						<div className="twork-about-card__editor-tools">
 							<Button
 								isSecondary
 								isSmall
@@ -117,10 +117,10 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 							</Button>
 						</div>
 						{ variant === 'overlay' && (
-							<div className="agrezer-about-card__overlay">
+							<div className="twork-about-card__overlay">
 								<RichText
 									tagName="p"
-									className="agrezer-about-card__overlay-text"
+									className="twork-about-card__overlay-text"
 									value={ overlayText }
 									onChange={ ( val ) =>
 										setAttributes( { overlayText: val } )
@@ -131,7 +131,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 									) }
 								/>
 
-								<div className="agrezer-about-card__overlay-btn">
+								<div className="twork-about-card__overlay-btn">
 									<RichText
 										tagName="span"
 										value={ overlayButtonText }

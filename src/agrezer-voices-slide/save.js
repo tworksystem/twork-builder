@@ -11,7 +11,7 @@ export default function save( { attributes } ) {
 	} = attributes;
 
 	const blockProps = useBlockProps.save( {
-		className: 'agrezer-voices-section__slide',
+		className: 'twork-voices-section__slide',
 	} );
 
 	return (
@@ -19,17 +19,17 @@ export default function save( { attributes } ) {
 			{ quote && (
 				<RichText.Content
 					tagName="p"
-					className="agrezer-voices-section__quote"
+					className="twork-voices-section__quote"
 					value={ quote }
 				/>
 			) }
-			<div className="agrezer-voices-section__author-row">
-				<div className="agrezer-voices-section__author">
+			<div className="twork-voices-section__author-row">
+				<div className="twork-voices-section__author">
 					{ authorImage && (
 						<img
 							src={ authorImage }
 							alt={ authorImageAlt || '' }
-							className="agrezer-voices-section__author-img"
+							className="twork-voices-section__author-img"
 							loading="lazy"
 							decoding="async"
 						/>
@@ -38,21 +38,21 @@ export default function save( { attributes } ) {
 						{ authorName && (
 							<RichText.Content
 								tagName="h4"
-								className="agrezer-voices-section__author-name"
+								className="twork-voices-section__author-name"
 								value={ authorName }
 							/>
 						) }
 						{ authorRole && (
 							<RichText.Content
 								tagName="p"
-								className="agrezer-voices-section__author-role"
+								className="twork-voices-section__author-role"
 								value={ authorRole }
 							/>
 						) }
 					</div>
 				</div>
 				<span
-					className="agrezer-voices-section__quote-mark"
+					className="twork-voices-section__quote-mark"
 					aria-hidden="true"
 				>
 					{ quoteMark || '❝' }

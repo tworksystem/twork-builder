@@ -1,0 +1,218 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/agrezer-about-intro-section",
+	"version": "1.0.0",
+	"title": "Agrezer About Intro",
+	"category": "twork-builder",
+	"icon": "welcome-learn-more",
+	"description": "Two-column about intro: stacked images, copy, feature grid, and author row.",
+	"keywords": [ "about", "intro", "agriculture", "agrezer", "twork" ],
+	"supports": {
+		"html": false,
+		"align": [ "wide", "full" ],
+		"anchor": true
+	},
+	"attributes": {
+		"backgroundColor": {
+			"type": "string",
+			"default": "#FFFFFF"
+		},
+		"paddingTop": {
+			"type": "number",
+			"default": 120
+		},
+		"paddingBottom": {
+			"type": "number",
+			"default": 120
+		},
+		"containerMaxWidth": {
+			"type": "number",
+			"default": 1200
+		},
+		"containerWidthPct": {
+			"type": "number",
+			"default": 90
+		},
+		"columnGap": {
+			"type": "number",
+			"default": 80
+		},
+		"mainImage": {
+			"type": "string",
+			"default": ""
+		},
+		"mainImageId": {
+			"type": "number"
+		},
+		"mainImageAlt": {
+			"type": "string",
+			"default": ""
+		},
+		"subImage": {
+			"type": "string",
+			"default": ""
+		},
+		"subImageId": {
+			"type": "number"
+		},
+		"subImageAlt": {
+			"type": "string",
+			"default": ""
+		},
+		"badgeImage": {
+			"type": "string",
+			"default": ""
+		},
+		"badgeImageId": {
+			"type": "number"
+		},
+		"badgeImageAlt": {
+			"type": "string",
+			"default": ""
+		},
+		"showShape": {
+			"type": "boolean",
+			"default": true
+		},
+		"shapeColor": {
+			"type": "string",
+			"default": "#DCE55D"
+		},
+		"showBadge": {
+			"type": "boolean",
+			"default": true
+		},
+		"enableBadgeSpin": {
+			"type": "boolean",
+			"default": true
+		},
+		"tagIcon": {
+			"type": "string",
+			"default": ""
+		},
+		"tagIconId": {
+			"type": "number"
+		},
+		"tagIconAlt": {
+			"type": "string",
+			"default": ""
+		},
+		"tagline": {
+			"type": "string",
+			"default": "Get To Know Us"
+		},
+		"title": {
+			"type": "string",
+			"default": "We Care About Your Business &amp; Agriculture"
+		},
+		"description": {
+			"type": "string",
+			"default": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+		},
+		"authorImage": {
+			"type": "string",
+			"default": ""
+		},
+		"authorImageId": {
+			"type": "number"
+		},
+		"authorImageAlt": {
+			"type": "string",
+			"default": ""
+		},
+		"authorName": {
+			"type": "string",
+			"default": "Sanoat"
+		},
+		"authorRole": {
+			"type": "string",
+			"default": "CEO &amp; Founder"
+		},
+		"signatureText": {
+			"type": "string",
+			"default": "Sanoat"
+		},
+		"signatureColor": {
+			"type": "string",
+			"default": "#8BC34A"
+		},
+		"signatureFontSize": {
+			"type": "number",
+			"default": 2
+		},
+		"signatureFontFamily": {
+			"type": "string",
+			"default": "'Brush Script MT', cursive"
+		}
+	},
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": {
+			"backgroundColor": "#FFFFFF",
+			"paddingTop": 96,
+			"paddingBottom": 96,
+			"containerMaxWidth": 1200,
+			"containerWidthPct": 90,
+			"columnGap": 72,
+			"mainImage": "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=900&q=80",
+			"mainImageAlt": "Farmer walking through a green field",
+			"subImage": "https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&w=600&q=80",
+			"subImageAlt": "Hands holding fresh produce",
+			"badgeImage": "https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=320&q=80",
+			"badgeImageAlt": "Organic certification seal style graphic",
+			"showShape": true,
+			"shapeColor": "#DCE55D",
+			"showBadge": true,
+			"enableBadgeSpin": true,
+			"tagline": "Get To Know Us",
+			"title": "We Care About Your Business &amp; Agriculture",
+			"description": "From soil testing to harvest logistics, our agronomists partner with growers to improve yield, quality, and long-term land health—season after season.",
+			"authorImage": "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=200&q=80",
+			"authorImageAlt": "Portrait of company founder",
+			"authorName": "Jordan Ellis",
+			"authorRole": "CEO &amp; Founder",
+			"signatureText": "Jordan Ellis",
+			"signatureColor": "#8BC34A",
+			"signatureFontSize": 2,
+			"signatureFontFamily": "'Brush Script MT', cursive"
+		},
+		"innerBlocks": [
+			{
+				"name": "twork/agrezer-about-intro-feature",
+				"attributes": {
+					"image": "https://images.unsplash.com/photo-1619566636858-adf3ef46400b?auto=format&fit=crop&w=128&q=80",
+					"imageAlt": "Leaf icon",
+					"label": "World Class Services"
+				}
+			},
+			{
+				"name": "twork/agrezer-about-intro-feature",
+				"attributes": {
+					"image": "https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=128&q=80",
+					"imageAlt": "Vegetables icon",
+					"label": "Fresh Organic Foods"
+				}
+			},
+			{
+				"name": "twork/agrezer-about-intro-feature",
+				"attributes": {
+					"image": "https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=128&q=80",
+					"imageAlt": "Grains icon",
+					"label": "100% Quality Foods"
+				}
+			},
+			{
+				"name": "twork/agrezer-about-intro-feature",
+				"attributes": {
+					"image": "https://images.unsplash.com/photo-1500595046743-cd271d694d30?auto=format&fit=crop&w=128&q=80",
+					"imageAlt": "Farm icon",
+					"label": "Professional Farmers"
+				}
+			}
+		]
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
+}

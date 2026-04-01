@@ -1,4 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
+@import "../scss/typography";
+
 
 // Variables (match contact.html)
 :root {
@@ -59,7 +60,7 @@
 
 // === FRONTEND ===
 .twork-contact-layout-section {
-    font-family: "Roboto", sans-serif;
+    font-family: $font-primary;
     position: relative;
 
     .contact-details h2 {

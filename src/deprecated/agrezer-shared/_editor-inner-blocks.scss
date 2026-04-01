@@ -1,0 +1,41 @@
+/**
+ * Shared helpers for Agrezer blocks: InnerBlocks list layout in Gutenberg.
+ * Import from block editor.scss: @import "../agrezer-shared/editor-inner-blocks";
+ */
+
+@mixin agrezer-editor-inner-grid($template-columns, $gap: 2rem, $align: start) {
+	.block-editor-inner-blocks {
+		width: 100%;
+		min-width: 0;
+	}
+
+	.block-editor-inner-blocks > .block-editor-block-list__layout {
+		display: grid !important;
+		grid-template-columns: $template-columns;
+		gap: $gap;
+		align-items: $align;
+	}
+
+	.block-editor-inner-blocks .block-editor-block-list__block {
+		margin-left: 0 !important;
+		margin-right: 0 !important;
+	}
+}
+
+@mixin agrezer-editor-inner-flex-column($gap: 1.5rem) {
+	.block-editor-inner-blocks > .block-editor-block-list__layout {
+		display: flex !important;
+		flex-direction: column;
+		gap: $gap;
+	}
+}
+
+@mixin agrezer-editor-inner-flex-row($gap: 2rem) {
+	.block-editor-inner-blocks > .block-editor-block-list__layout {
+		display: flex !important;
+		flex-direction: row;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: $gap;
+	}
+}

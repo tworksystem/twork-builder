@@ -1,3 +1,5 @@
+@import "../scss/typography";
+
 // Ambulance Tech Section (ICU on Wheels) – matches ambulance-service.html
 :root {
     --amb-primary: #f48b2a;
@@ -69,7 +71,7 @@
 
 // === FRONTEND STYLES ===
 .twork-amb-tech-section.amb-tech-section {
-    font-family: "Roboto", sans-serif;
+    font-family: $font-primary;
     position: relative;
     overflow: hidden;
 

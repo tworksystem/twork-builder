@@ -1,3 +1,5 @@
+@import "../scss/typography";
+
 // Exclusive Services Section
 // international-patients.html "Exclusive Services" section – svc-grid, svc-card layout
 
@@ -49,7 +51,7 @@
 
 // === FRONTEND STYLES ===
 .twork-exclusive-services-section {
-    font-family: "Roboto", sans-serif;
+    font-family: $font-primary;
     position: relative;
     overflow: hidden;
     background: var(--light-grey-bg);

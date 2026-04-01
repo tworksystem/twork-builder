@@ -1,11 +1,17 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "twork/agrezer-contact-card-item",
+	"name": "twork/contact-card",
 	"title": "Contact Card",
-	"parent": [ "twork/agrezer-contact-cards" ],
-	"description": "Single contact card: icon, title, subtitle, and a link or plain address line.",
-	"keywords": [ "contact", "card", "agrezer", "twork" ],
+	"parent": [
+		"twork/contact-cards"
+	],
+	"description": "Single contact card item.",
+	"keywords": [
+		"contact",
+		"card",
+		"twork"
+	],
 	"attributes": {
 		"iconUrl": {
 			"type": "string",
@@ -52,8 +58,8 @@
 			"title": "Email",
 			"subtitle": "Feel Free to Mail",
 			"contentType": "link",
-			"linkUrl": "mailto:hello@agrezer.farm",
-			"linkText": "✉ hello@agrezer.farm",
+			"linkUrl": "mailto:hello@example.com",
+			"linkText": "✉ hello@example.com",
 			"plainText": "",
 			"cardBgColor": "#eeebe8"
 		}

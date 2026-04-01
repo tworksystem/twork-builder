@@ -90,17 +90,17 @@ function FeatureIcon( { variant = 'leaf' } ) {
 export default function save( { attributes } ) {
 	const { title, iconVariant } = attributes;
 	const blockProps = useBlockProps.save( {
-		className: 'agrezer-hero-feature',
+		className: 'twork-hero-feature',
 	} );
 
 	return (
 		<article { ...blockProps }>
-			<div className="agrezer-hero-feature__badge" aria-hidden="true">
+			<div className="twork-hero-feature__badge" aria-hidden="true">
 				<FeatureIcon variant={ iconVariant } />
 			</div>
 			<RichText.Content
 				tagName="h3"
-				className="agrezer-hero-feature__title"
+				className="twork-hero-feature__title"
 				value={ title }
 			/>
 		</article>

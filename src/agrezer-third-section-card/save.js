@@ -7,7 +7,7 @@ export default function save( { attributes } ) {
 	const align = ALLOWED_ALIGN.includes( cardAlign ) ? cardAlign : 'left';
 
 	const blockProps = useBlockProps.save( {
-		className: `agrezer-third-section__card agrezer-third-section__card--${ align }`,
+		className: `twork-third-section__card twork-third-section__card--${ align }`,
 	} );
 
 	return (
@@ -16,23 +16,23 @@ export default function save( { attributes } ) {
 				<img
 					src={ image }
 					alt={ imageAlt || '' }
-					className="agrezer-third-section__card-img"
+					className="twork-third-section__card-img"
 					loading="lazy"
 					decoding="async"
 				/>
 			) }
-			<div className="agrezer-third-section__card-content">
+			<div className="twork-third-section__card-content">
 				{ stat && (
 					<RichText.Content
 						tagName="h3"
-						className="agrezer-third-section__stat"
+						className="twork-third-section__stat"
 						value={ stat }
 					/>
 				) }
 				{ label && (
 					<RichText.Content
 						tagName="p"
-						className="agrezer-third-section__label"
+						className="twork-third-section__label"
 						value={ label }
 					/>
 				) }

@@ -1,13 +1,15 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "twork/agrezer-stats-column",
+	"name": "twork/stats-column",
 	"version": "1.0.0",
-	"title": "Agrezer Stats — Column",
+	"title": "Stats Column",
 	"category": "twork-builder",
-	"parent": [ "twork/agrezer-stats-section" ],
+	"parent": [
+		"twork/stats-section"
+	],
 	"icon": "columns",
-	"description": "One grid column: optional CTA plus stat card(s).",
+	"description": "Column container for stats cards/CTA.",
 	"supports": {
 		"html": false,
 		"reusable": false
@@ -15,14 +17,14 @@
 	"example": {
 		"innerBlocks": [
 			{
-				"name": "twork/agrezer-stats-cta",
+				"name": "twork/cta-block",
 				"attributes": {
 					"buttonText": "Get In Touch",
 					"buttonUrl": "#"
 				}
 			},
 			{
-				"name": "twork/agrezer-stats-card",
+				"name": "twork/stat-card",
 				"attributes": {
 					"image": "https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=1000&q=80",
 					"alt": "Harvest detail",

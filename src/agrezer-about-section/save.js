@@ -18,13 +18,13 @@ export default function save( { attributes } ) {
 	} = attributes;
 
 	const blockProps = useBlockProps.save( {
-		className: 'agrezer-about twork-agrezer-about-section',
+		className: 'twork-about twork-about-section',
 		style: {
 			backgroundColor,
 			paddingTop: `${ paddingTop }px`,
 			paddingBottom: `${ paddingBottom }px`,
-			'--agrezer-about-max-width': `${ containerMaxWidth }px`,
-			'--agrezer-about-gutter': `${ containerGutter }px`,
+			'--twork-about-max-width': `${ containerMaxWidth }px`,
+			'--twork-about-gutter': `${ containerGutter }px`,
 		},
 	} );
 
@@ -36,16 +36,16 @@ export default function save( { attributes } ) {
 	};
 
 	return (
-		<section { ...blockProps } aria-labelledby="agrezer-about-title">
-			<div className="agrezer-about__container" style={ containerStyle }>
-				<div className="agrezer-about__header">
-					<div className="agrezer-about__heading">
+		<section { ...blockProps } aria-labelledby="twork-about-title">
+			<div className="twork-about__container" style={ containerStyle }>
+				<div className="twork-about__header">
+					<div className="twork-about__heading">
 						<p
-							className="agrezer-about__label"
+							className="twork-about__label"
 							style={ { color: labelColor } }
 						>
 							<span
-								className="agrezer-about__label-icon"
+								className="twork-about__label-icon"
 								style={ { color: labelIconColor } }
 								aria-hidden="true"
 							>
@@ -58,8 +58,8 @@ export default function save( { attributes } ) {
 						</p>
 						<RichText.Content
 							tagName="h2"
-							id="agrezer-about-title"
-							className="agrezer-about__title"
+							id="twork-about-title"
+							className="twork-about__title"
 							value={ sectionTitle }
 							style={ {
 								color: titleColor,

@@ -26,15 +26,15 @@ export default function save( { attributes } ) {
 		Array.isArray( breadcrumbs ) && breadcrumbs.length ? breadcrumbs : [];
 
 	const blockProps = useBlockProps.save( {
-		className: 'agrezer-page-header twork-agrezer-page-header-section',
+		className: 'twork-page-header twork-page-header-section',
 		style: {
 			backgroundColor: fallbackBgColor,
 			paddingTop: `${ paddingTop }px`,
 			paddingBottom: `${ paddingBottom }px`,
-			'--agrezer-page-header-overlay': overlayColor,
-			'--agrezer-page-header-max': `${ containerMaxWidth }px`,
-			'--agrezer-page-header-width-pct': `${ containerWidthPct }%`,
-			'--agrezer-page-header-min-h': `${ containerMinHeight }px`,
+			'--twork-page-header-overlay': overlayColor,
+			'--twork-page-header-max': `${ containerMaxWidth }px`,
+			'--twork-page-header-width-pct': `${ containerWidthPct }%`,
+			'--twork-page-header-min-h': `${ containerMinHeight }px`,
 		},
 		'data-tractor-anim': enableTractorAnimation ? 'true' : 'false',
 	} );
@@ -44,7 +44,7 @@ export default function save( { attributes } ) {
 	return (
 		<section { ...blockProps } aria-labelledby={ titleId || undefined }>
 			<div
-				className="agrezer-page-header__bg"
+				className="twork-page-header__bg"
 				style={
 					backgroundImage
 						? {
@@ -56,21 +56,21 @@ export default function save( { attributes } ) {
 				aria-hidden="true"
 			/>
 
-			<div className="agrezer-page-header__container">
-				<div className="agrezer-page-header__content">
+			<div className="twork-page-header__container">
+				<div className="twork-page-header__content">
 					<RichText.Content
 						tagName="h1"
 						id={ titleId }
-						className="agrezer-page-header__title"
+						className="twork-page-header__title"
 						value={ title }
 					/>
 
 					{ crumbs.length > 0 && (
 						<nav
-							className="agrezer-page-header__breadcrumb-nav"
+							className="twork-page-header__breadcrumb-nav"
 							aria-label="Breadcrumb"
 						>
-							<ul className="agrezer-page-header__breadcrumb">
+							<ul className="twork-page-header__breadcrumb">
 								{ crumbs.map( ( crumb, index ) => {
 									const label = crumb?.label ?? '';
 									const url = crumb?.url ?? '';
@@ -115,13 +115,13 @@ export default function save( { attributes } ) {
 
 				{ graphicImage && (
 					<div
-						className="agrezer-page-header__graphic"
+						className="twork-page-header__graphic"
 						aria-hidden="true"
 					>
 						<img
 							src={ graphicImage }
 							alt={ graphicAlt || '' }
-							className="agrezer-page-header__img"
+							className="twork-page-header__img"
 							style={ { maxWidth: `${ graphicMaxWidth }px` } }
 							loading="lazy"
 							decoding="async"

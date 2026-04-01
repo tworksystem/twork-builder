@@ -1,13 +1,15 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "twork/agrezer-process-center",
+	"name": "twork/process-center",
 	"version": "1.0.0",
-	"title": "Agrezer Process — Center Image",
+	"title": "Process Center",
 	"category": "twork-builder",
-	"parent": [ "twork/agrezer-process-section" ],
+	"parent": [
+		"twork/process"
+	],
 	"icon": "format-image",
-	"description": "Center column image for the process section.",
+	"description": "Center element in a process timeline/steps layout.",
 	"supports": {
 		"html": false,
 		"reusable": false

@@ -14,13 +14,13 @@ import {
 } from '@wordpress/components';
 
 const ALLOWED_BLOCKS = [
-	'twork/agrezer-about-features-grid',
-	'twork/agrezer-about-images-grid',
+	'twork/features-grid',
+	'twork/images-grid',
 ];
 
 const TEMPLATE = [
-	[ 'twork/agrezer-about-features-grid', {} ],
-	[ 'twork/agrezer-about-images-grid', {} ],
+	[ 'twork/features-grid', {} ],
+	[ 'twork/images-grid', {} ],
 ];
 
 export default function Edit( { attributes, setAttributes, isSelected } ) {
@@ -42,13 +42,13 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'agrezer-about twork-agrezer-about-section-editor',
+			className: 'twork-about twork-about-section-editor',
 			style: {
 				backgroundColor,
 				paddingTop: `${ paddingTop }px`,
 				paddingBottom: `${ paddingBottom }px`,
-				'--agrezer-about-max-width': `${ containerMaxWidth }px`,
-				'--agrezer-about-gutter': `${ containerGutter }px`,
+				'--twork-about-max-width': `${ containerMaxWidth }px`,
+				'--twork-about-gutter': `${ containerGutter }px`,
 			},
 		} ),
 		[
@@ -240,19 +240,19 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 				</InspectorControls>
 			) }
 
-			<section { ...blockProps } aria-labelledby="agrezer-about-title">
+			<section { ...blockProps } aria-labelledby="twork-about-title">
 				<div
-					className="agrezer-about__container"
+					className="twork-about__container"
 					style={ containerStyle }
 				>
-					<div className="agrezer-about__header">
-						<div className="agrezer-about__heading">
+					<div className="twork-about__header">
+						<div className="twork-about__heading">
 							<p
-								className="agrezer-about__label"
+								className="twork-about__label"
 								style={ { color: labelColor } }
 							>
 								<span
-									className="agrezer-about__label-icon"
+									className="twork-about__label-icon"
 									style={ { color: labelIconColor } }
 									aria-hidden="true"
 								>
@@ -273,8 +273,8 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 							</p>
 							<RichText
 								tagName="h2"
-								id="agrezer-about-title"
-								className="agrezer-about__title"
+								id="twork-about-title"
+								className="twork-about__title"
 								value={ sectionTitle }
 								onChange={ ( val ) =>
 									setAttributes( { sectionTitle: val } )

@@ -13,15 +13,15 @@ import {
 	__experimentalDivider as Divider,
 } from '@wordpress/components';
 
-const ALLOWED_BLOCKS = [ 'twork/agrezer-stats-column' ];
+const ALLOWED_BLOCKS = [ 'twork/stats-column' ];
 
 const TEMPLATE = [
 	[
-		'twork/agrezer-stats-column',
+		'twork/stats-column',
 		{},
 		[
 			[
-				'twork/agrezer-stats-card',
+				'twork/stat-card',
 				{
 					image: 'https://images.unsplash.com/photo-1631368647931-4f3ec6d1df92?auto=format&fit=crop&w=1000&q=80',
 					alt: 'Corn cobs and leaves',
@@ -33,11 +33,11 @@ const TEMPLATE = [
 	],
 
 	[
-		'twork/agrezer-stats-column',
+		'twork/stats-column',
 		{},
 		[
 			[
-				'twork/agrezer-stats-cta',
+				'twork/cta-block',
 				{
 					buttonText: 'Get In Touch',
 					buttonUrl: '#',
@@ -45,7 +45,7 @@ const TEMPLATE = [
 			],
 
 			[
-				'twork/agrezer-stats-card',
+				'twork/stat-card',
 				{
 					image: 'https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=1000&q=80',
 					alt: 'Scattered corn grains',
@@ -57,11 +57,11 @@ const TEMPLATE = [
 	],
 
 	[
-		'twork/agrezer-stats-column',
+		'twork/stats-column',
 		{},
 		[
 			[
-				'twork/agrezer-stats-card',
+				'twork/stat-card',
 				{
 					image: 'https://images.unsplash.com/photo-1471193945509-9ad0617afabf?auto=format&fit=crop&w=1000&q=80',
 					alt: 'Corn stalk growth',
@@ -97,12 +97,12 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'agrezer-stats twork-agrezer-stats-section-editor',
+			className: 'twork-stats twork-stats-section-editor',
 			style: {
 				backgroundColor,
 				paddingTop: `${ paddingTop }px`,
 				paddingBottom: `${ paddingBottom }px`,
-				'--agrezer-stats-grid-gap': `${ gridGap }px`,
+				'--twork-stats-grid-gap': `${ gridGap }px`,
 			},
 		} ),
 		[ backgroundColor, gridGap, paddingBottom, paddingTop ]
@@ -329,22 +329,22 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 				</InspectorControls>
 			) }
 
-			<section { ...blockProps } aria-labelledby="agrezer-stats-title">
+			<section { ...blockProps } aria-labelledby="twork-stats-title">
 				<div
-					className="agrezer-stats__container"
+					className="twork-stats__container"
 					style={ containerStyle }
 				>
 					<div
-						className="agrezer-stats__header"
+						className="twork-stats__header"
 						style={ headerStyle }
 					>
-						<div className="agrezer-stats__header-left">
+						<div className="twork-stats__header-left">
 							<p
-								className="agrezer-stats__tagline"
+								className="twork-stats__tagline"
 								style={ { color: taglineColor } }
 							>
 								<span
-									className="agrezer-stats__tagline-icon"
+									className="twork-stats__tagline-icon"
 									style={ { color: taglineIconColor } }
 									aria-hidden="true"
 								>
@@ -365,8 +365,8 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 							</p>
 							<RichText
 								tagName="h2"
-								id="agrezer-stats-title"
-								className="agrezer-stats__title"
+								id="twork-stats-title"
+								className="twork-stats__title"
 								value={ sectionTitle }
 								onChange={ ( val ) =>
 									setAttributes( { sectionTitle: val } )
@@ -384,7 +384,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 						</div>
 						<RichText
 							tagName="p"
-							className="agrezer-stats__desc"
+							className="twork-stats__desc"
 							value={ description }
 							onChange={ ( val ) =>
 								setAttributes( { description: val } )
@@ -401,7 +401,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 					</div>
 
 					<div
-						className="agrezer-stats__grid twork-agrezer-stats__grid-editor"
+						className="twork-stats__grid twork-stats__grid-editor"
 						style={ { gap: `${ gridGap }px` } }
 					>
 						<InnerBlocks

@@ -2,17 +2,17 @@
  * Agrezer team section — from my-avocado _team-section.scss
  */
 
-.agrezer-team-section__container {
-	width: min(var(--agrezer-team-max, 1200px), var(--agrezer-team-width-pct, 90%));
+.twork-team-section__container {
+	width: min(var(--twork-team-max, 1200px), var(--twork-team-width-pct, 90%));
 	margin: 0 auto;
 }
 
-.agrezer-team-section__header {
+.twork-team-section__header {
 	text-align: center;
-	margin-bottom: var(--agrezer-team-header-mb, 34px);
+	margin-bottom: var(--twork-team-header-mb, 34px);
 }
 
-.agrezer-team-section__tagline {
+.twork-team-section__tagline {
 	display: inline-flex;
 	align-items: center;
 	gap: 10px;
@@ -22,7 +22,7 @@
 	margin-bottom: 14px;
 }
 
-.agrezer-team-section__tag-icon {
+.twork-team-section__tag-icon {
 	width: 20px;
 	height: 20px;
 	object-fit: contain;
@@ -30,7 +30,7 @@
 	flex-shrink: 0;
 }
 
-.agrezer-team-section__title {
+.twork-team-section__title {
 	margin: 0;
 	color: #131313;
 	font-size: clamp(2.2rem, 4vw, 3.8rem);
@@ -38,13 +38,13 @@
 	letter-spacing: -0.02em;
 }
 
-.agrezer-team-section__grid {
+.twork-team-section__grid {
 	display: grid;
-	grid-template-columns: repeat(var(--agrezer-team-cols, 3), 1fr);
-	gap: var(--agrezer-team-gap, 22px);
+	grid-template-columns: repeat(var(--twork-team-cols, 3), 1fr);
+	gap: var(--twork-team-gap, 22px);
 }
 
-.agrezer-team-card {
+.twork-team-card {
 	position: relative;
 	overflow: hidden;
 	border-radius: 16px;
@@ -53,7 +53,7 @@
 	background: #1b1b1b;
 }
 
-.agrezer-team-card::after {
+.twork-team-card::after {
 	content: "";
 	position: absolute;
 	inset: 0;
@@ -62,7 +62,7 @@
 	pointer-events: none;
 }
 
-.agrezer-team-card__img {
+.twork-team-card__img {
 	width: 100%;
 	height: 100%;
 	min-height: 380px;
@@ -70,7 +70,7 @@
 	display: block;
 }
 
-.agrezer-team-card__action {
+.twork-team-card__action {
 	position: absolute;
 	top: 18px;
 	left: 18px;
@@ -88,28 +88,28 @@
 	transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
-.agrezer-team-card__action:hover {
+.twork-team-card__action:hover {
 	transform: translateY(-1px);
 	background: #8ac22f;
 }
 
-.agrezer-team-card__action--static {
+.twork-team-card__action--static {
 	cursor: default;
 	pointer-events: none;
 }
 
-.agrezer-team-card__action--static:hover {
+.twork-team-card__action--static:hover {
 	transform: none;
 	background: #94cf37;
 }
 
 @media (prefers-reduced-motion: reduce) {
-	.agrezer-team-card__action:hover {
+	.twork-team-card__action:hover {
 		transform: none;
 	}
 }
 
-.agrezer-team-card__content {
+.twork-team-card__content {
 	position: absolute;
 	left: 20px;
 	right: 20px;
@@ -117,7 +117,7 @@
 	z-index: 3;
 }
 
-.agrezer-team-card__name {
+.twork-team-card__name {
 	margin: 0;
 	color: #fff;
 	font-size: clamp(1.75rem, 2.4vw, 2.2rem);
@@ -126,7 +126,7 @@
 	font-weight: 700;
 }
 
-.agrezer-team-card__role {
+.twork-team-card__role {
 	margin: 8px 0 0;
 	color: rgba(255, 255, 255, 0.92);
 	font-size: 1.15rem;
@@ -134,22 +134,22 @@
 }
 
 @media (max-width: 992px) {
-	.agrezer-team-section__grid {
+	.twork-team-section__grid {
 		grid-template-columns: repeat(2, 1fr);
 	}
 }
 
 @media (max-width: 640px) {
-	.agrezer-team-section__title {
+	.twork-team-section__title {
 		font-size: clamp(1.9rem, 8vw, 2.6rem);
 	}
 
-	.agrezer-team-section__grid {
+	.twork-team-section__grid {
 		grid-template-columns: 1fr;
 	}
 
-	.agrezer-team-card,
-	.agrezer-team-card__img {
+	.twork-team-card,
+	.twork-team-card__img {
 		min-height: 340px;
 	}
 }

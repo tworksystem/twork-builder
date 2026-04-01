@@ -1,16 +1,24 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "twork/agrezer-greener-section",
+	"name": "twork/highlights-section",
 	"version": "1.0.0",
-	"title": "Agrezer Greener Section",
+	"title": "Highlights Section",
 	"category": "twork-builder",
 	"icon": "palmtree",
-	"description": "Two-column greener farming block: hero image, stats, and service cards.",
-	"keywords": [ "greener", "farming", "organic", "agrezer", "twork" ],
+	"description": "Highlights section with stats row and cards row.",
+	"keywords": [
+		"greener",
+		"farming",
+		"organic",
+		"twork"
+	],
 	"supports": {
 		"html": false,
-		"align": [ "wide", "full" ]
+		"align": [
+			"wide",
+			"full"
+		]
 	},
 	"attributes": {
 		"backgroundColor": {
@@ -103,31 +111,43 @@
 		},
 		"innerBlocks": [
 			{
-				"name": "twork/agrezer-greener-stats-row",
+				"name": "twork/stats-row",
 				"innerBlocks": [
 					{
-						"name": "twork/agrezer-greener-stat-item",
+						"name": "twork/stat-item",
 						"attributes": {
 							"iconVariant": "growth",
 							"title": "80% Pure Growth",
-							"description": "Measured gains in plant vigor and stand uniformity across pilot fields."
+							"description": "Measured gains in plant vigor and stand uniformity across pilot fields.",
+
+							"statNumber": "80%",
+							"statLabel": "Pure Growth",
+							"numberColor": "#f48b2a",
+							"labelColor": "#212121",
+							"labelTextTransform": "uppercase"
 						}
 					},
 					{
-						"name": "twork/agrezer-greener-stat-item",
+						"name": "twork/stat-item",
 						"attributes": {
 							"iconVariant": "organic",
 							"title": "95% Organic Roots",
-							"description": "Supply chain partners certified for organic handling and cold-chain integrity."
+							"description": "Supply chain partners certified for organic handling and cold-chain integrity.",
+
+							"statNumber": "95%",
+							"statLabel": "Organic Roots",
+							"numberColor": "#f48b2a",
+							"labelColor": "#212121",
+							"labelTextTransform": "uppercase"
 						}
 					}
 				]
 			},
 			{
-				"name": "twork/agrezer-greener-cards-row",
+				"name": "twork/cards-row",
 				"innerBlocks": [
 					{
-						"name": "twork/agrezer-greener-card-item",
+						"name": "twork/image-link-card",
 						"attributes": {
 							"title": "Organic Farm Solutions",
 							"linkText": "Read More",
@@ -137,7 +157,7 @@
 						}
 					},
 					{
-						"name": "twork/agrezer-greener-card-item",
+						"name": "twork/image-link-card",
 						"attributes": {
 							"title": "Eco-Friendly Farming",
 							"linkText": "Read More",
@@ -147,7 +167,7 @@
 						}
 					},
 					{
-						"name": "twork/agrezer-greener-card-item",
+						"name": "twork/image-link-card",
 						"attributes": {
 							"title": "Organic Produce Supply",
 							"linkText": "Read More",

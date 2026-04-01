@@ -1,0 +1,12 @@
+/**
+ * Editor-only: keep hero layout predictable in the block canvas.
+ * (Fonts load via style.scss in the same bundle.)
+ */
+
+.block-editor-block-list__block .twork-agrezer-hero-section-editor.agrezer-hero {
+	/* Prevent accidental navigation while editing */
+	.agrezer-hero__btn {
+		cursor: default;
+		pointer-events: none;
+	}
+}

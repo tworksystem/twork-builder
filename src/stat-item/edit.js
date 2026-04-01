@@ -23,7 +23,25 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 		labelFontSize,
 		labelFontWeight,
 		labelTextTransform,
+		// Fallback for alternate stat-item schema (icon-based variants)
+		iconVariant,
+		title: iconTitle,
+		description: iconDescription,
 	} = attributes;
+
+	// If this instance is coming from an example/template that uses the icon-based schema,
+	// derive CSR fields so hover previews don't render empty.
+	const derivedStatNumber =
+		statNumber ?? ( typeof iconTitle === 'string' ? iconTitle.split('%')[0] + '%' : undefined );
+	const derivedStatLabel =
+		statLabel ?? iconTitle ?? iconDescription ?? '';
+	const derivedNumberColor = numberColor ?? '#f48b2a';
+	const derivedLabelColor = labelColor ?? '#212121';
+	const derivedNumberFontSize = numberFontSize ?? 2.5;
+	const derivedNumberFontWeight = numberFontWeight ?? 900;
+	const derivedLabelFontSize = labelFontSize ?? 0.95;
+	const derivedLabelFontWeight = labelFontWeight ?? 700;
+	const derivedLabelTextTransform = labelTextTransform ?? 'uppercase';
 
 	const blockProps = useStableBlockProps(
 		() => ( {
@@ -155,13 +173,13 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 			<div { ...blockProps }>
 				<RichText
 					tagName="h3"
-					value={ statNumber }
+					value={ derivedStatNumber }
 					onChange={ ( val ) => setAttributes( { statNumber: val } ) }
 					placeholder={ __( '50+', 'twork-builder' ) }
 					style={ {
-						fontSize: `${ numberFontSize }rem`,
-						fontWeight: numberFontWeight,
-						color: numberColor,
+						fontSize: `${ derivedNumberFontSize }rem`,
+						fontWeight: derivedNumberFontWeight,
+						color: derivedNumberColor,
 						margin: 0,
 						lineHeight: 1.2,
 					} }
@@ -170,14 +188,14 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 				<RichText
 					tagName="p"
-					value={ statLabel }
+					value={ derivedStatLabel }
 					onChange={ ( val ) => setAttributes( { statLabel: val } ) }
 					placeholder={ __( 'Rural Medical Camps', 'twork-builder' ) }
 					style={ {
-						fontSize: `${ labelFontSize }rem`,
-						fontWeight: labelFontWeight,
-						color: labelColor,
-						textTransform: labelTextTransform,
+						fontSize: `${ derivedLabelFontSize }rem`,
+						fontWeight: derivedLabelFontWeight,
+						color: derivedLabelColor,
+						textTransform: derivedLabelTextTransform,
 						margin: '5px 0 0 0',
 						lineHeight: 1.3,
 					} }

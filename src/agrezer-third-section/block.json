@@ -1,16 +1,25 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "twork/agrezer-third-section",
+	"name": "twork/cta-cards-section",
 	"version": "1.0.0",
-	"title": "Agrezer Third Section",
+	"title": "CTA + Cards Section",
 	"category": "twork-builder",
 	"icon": "layout",
-	"description": "Intro row with CTA plus three stat image cards (Agrezer layout).",
-	"keywords": [ "stats", "cards", "cta", "agrezer", "farm", "twork" ],
+	"description": "Intro row with optional CTA and stat-image cards.",
+	"keywords": [
+		"stats",
+		"cards",
+		"cta",
+		"farm",
+		"twork"
+	],
 	"supports": {
 		"html": false,
-		"align": [ "wide", "full" ],
+		"align": [
+			"wide",
+			"full"
+		],
 		"anchor": true
 	},
 	"attributes": {
@@ -112,7 +121,7 @@
 		},
 		"innerBlocks": [
 			{
-				"name": "twork/agrezer-third-section-card",
+				"name": "twork/stat-image-card",
 				"attributes": {
 					"cardAlign": "left",
 					"image": "https://images.unsplash.com/photo-1631368647931-4f3ec6d1df92?auto=format&fit=crop&w=1000&q=80",
@@ -122,7 +131,7 @@
 				}
 			},
 			{
-				"name": "twork/agrezer-third-section-card",
+				"name": "twork/stat-image-card",
 				"attributes": {
 					"cardAlign": "center",
 					"image": "https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=1000&q=80",
@@ -132,7 +141,7 @@
 				}
 			},
 			{
-				"name": "twork/agrezer-third-section-card",
+				"name": "twork/stat-image-card",
 				"attributes": {
 					"cardAlign": "right",
 					"image": "https://images.unsplash.com/photo-1471193945509-9ad0617afabf?auto=format&fit=crop&w=1000&q=80",

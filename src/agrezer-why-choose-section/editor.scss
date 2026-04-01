@@ -1,13 +1,13 @@
-.twork-agrezer-why-choose-section-editor {
-	.agrezer-why-choose__tagline span[contenteditable="true"],
-	.agrezer-why-choose__title[contenteditable="true"] {
+.twork-why-choose-section-editor {
+	.twork-why-choose__tagline span[contenteditable="true"],
+	.twork-why-choose__title[contenteditable="true"] {
 		&:focus {
 			outline: 1px dashed #2271b1;
 			outline-offset: 2px;
 		}
 	}
 
-	.twork-agrezer-why-choose__stage-editor {
+	.twork-why-choose__stage-editor {
 		> .block-editor-inner-blocks {
 			display: contents;
 
@@ -15,15 +15,15 @@
 				display: contents;
 
 				> .wp-block,
-				> [data-type="twork/agrezer-why-choose-point-item"] {
+				> [data-type="twork/benefit-point"] {
 					display: block;
 				}
 			}
 		}
 	}
 
-	.agrezer-why-choose__point {
-		.agrezer-why-choose__point-text[contenteditable="true"] {
+	.twork-why-choose__point {
+		.twork-why-choose__point-text[contenteditable="true"] {
 			&:focus {
 				outline: 1px dashed #2271b1;
 				outline-offset: 2px;

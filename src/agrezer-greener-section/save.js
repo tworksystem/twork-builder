@@ -21,12 +21,12 @@ export default function save( { attributes } ) {
 	} = attributes;
 
 	const blockProps = useBlockProps.save( {
-		className: 'agrezer-greener twork-agrezer-greener-section',
+		className: 'twork-greener twork-greener-section',
 		style: {
 			backgroundColor,
 			paddingTop: `${ paddingTop }px`,
 			paddingBottom: `${ paddingBottom }px`,
-			'--agrezer-greener-gap': `${ mainColumnGap }px`,
+			'--twork-greener-gap': `${ mainColumnGap }px`,
 		},
 	} );
 
@@ -39,29 +39,29 @@ export default function save( { attributes } ) {
 	};
 
 	return (
-		<section { ...blockProps } aria-labelledby="agrezer-greener-title">
+		<section { ...blockProps } aria-labelledby="twork-greener-title">
 			<div
-				className="agrezer-greener__container"
+				className="twork-greener__container"
 				style={ containerStyle }
 			>
-				<div className="agrezer-greener__left">
+				<div className="twork-greener__left">
 					{ mainImage && (
 						<img
 							src={ mainImage }
-							className="agrezer-greener__main-img"
+							className="twork-greener__main-img"
 							alt={ mainImageAlt || '' }
 						/>
 					) }
 				</div>
 
-				<div className="agrezer-greener__right">
-					<header className="agrezer-greener__header">
+				<div className="twork-greener__right">
+					<header className="twork-greener__header">
 						<p
-							className="agrezer-greener__tagline"
+							className="twork-greener__tagline"
 							style={ { color: taglineColor } }
 						>
 							<span
-								className="agrezer-greener__tagline-icon"
+								className="twork-greener__tagline-icon"
 								style={ { color: taglineIconColor } }
 								aria-hidden="true"
 							>
@@ -74,8 +74,8 @@ export default function save( { attributes } ) {
 						</p>
 						<RichText.Content
 							tagName="h2"
-							id="agrezer-greener-title"
-							className="agrezer-greener__title"
+							id="twork-greener-title"
+							className="twork-greener__title"
 							value={ sectionTitle }
 							style={ {
 								color: titleColor,

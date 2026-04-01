@@ -12,13 +12,13 @@ import {
 	ToggleControl,
 } from '@wordpress/components';
 
-const ALLOWED_BLOCKS = [ 'twork/agrezer-partners-item' ];
+const ALLOWED_BLOCKS = [ 'twork/partner-item' ];
 const TEMPLATE = [
-	[ 'twork/agrezer-partners-item', { name: 'NatureNest' } ],
-	[ 'twork/agrezer-partners-item', { name: 'Farming Co' } ],
-	[ 'twork/agrezer-partners-item', { name: 'GreenLeaf' } ],
-	[ 'twork/agrezer-partners-item', { name: 'PureHarvest' } ],
-	[ 'twork/agrezer-partners-item', { name: 'AgroNova' } ],
+	[ 'twork/partner-item', { name: 'NatureNest' } ],
+	[ 'twork/partner-item', { name: 'Farming Co' } ],
+	[ 'twork/partner-item', { name: 'GreenLeaf' } ],
+	[ 'twork/partner-item', { name: 'PureHarvest' } ],
+	[ 'twork/partner-item', { name: 'AgroNova' } ],
 ];
 
 export default function Edit( { attributes, setAttributes, isSelected } ) {
@@ -35,13 +35,13 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'agrezer-partners twork-agrezer-partners-section-editor',
+			className: 'twork-partners twork-partners-section-editor',
 			style: {
 				backgroundColor,
-				'--agrezer-partners-py': `${ marqueePaddingY }px`,
-				'--agrezer-partners-border': borderColor,
-				'--agrezer-partners-gap': `${ trackGap }px`,
-				'--agrezer-partners-duration': `${ animationDuration }s`,
+				'--twork-partners-py': `${ marqueePaddingY }px`,
+				'--twork-partners-border': borderColor,
+				'--twork-partners-gap': `${ trackGap }px`,
+				'--twork-partners-duration': `${ animationDuration }s`,
 			},
 			'data-marquee': enableMarquee ? 'true' : 'false',
 			'data-pause-hover': pauseOnHover ? 'true' : 'false',
@@ -191,9 +191,9 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 			) }
 
 			<section { ...blockProps }>
-				<div className="agrezer-partners__marquee">
+				<div className="twork-partners__marquee">
 					<div
-						className="agrezer-partners__track twork-agrezer-partners__track-editor"
+						className="twork-partners__track twork-partners__track-editor"
 						style={ {
 							gap: `${ trackGap }px`,
 						} }

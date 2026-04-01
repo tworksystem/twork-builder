@@ -1,5 +1,6 @@
+@import "../scss/typography";
+
 // Google Fonts
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
 
 // Variables
 :root {
@@ -234,7 +235,7 @@
 
 // === FRONTEND STYLES ===
 .page-hero:not(.page-hero-emergency) {
-    font-family: "Roboto", sans-serif;
+    font-family: $font-primary;
     position: relative;
     height: 450px;
     display: flex;

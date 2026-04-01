@@ -1,13 +1,15 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "twork/agrezer-greener-card-item",
+	"name": "twork/image-link-card",
 	"version": "1.0.0",
-	"title": "Agrezer Greener Card",
+	"title": "Image Link Card",
 	"category": "twork-builder",
-	"parent": [ "twork/agrezer-greener-cards-row" ],
+	"parent": [
+		"twork/cards-row"
+	],
 	"icon": "index-card",
-	"description": "Image card with title and read-more link.",
+	"description": "Image card with title and link.",
 	"supports": {
 		"html": false,
 		"reusable": false

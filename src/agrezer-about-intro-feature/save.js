@@ -4,7 +4,7 @@ export default function save( { attributes } ) {
 	const { image, imageAlt, label } = attributes;
 
 	const blockProps = useBlockProps.save( {
-		className: 'agrezer-about-intro__feature',
+		className: 'twork-about-intro__feature',
 	} );
 
 	return (
@@ -13,7 +13,7 @@ export default function save( { attributes } ) {
 				<img
 					src={ image }
 					alt={ imageAlt || '' }
-					className="agrezer-about-intro__feature-icon"
+					className="twork-about-intro__feature-icon"
 					loading="lazy"
 					decoding="async"
 				/>

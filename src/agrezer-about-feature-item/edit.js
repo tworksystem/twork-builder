@@ -7,7 +7,7 @@ import { AboutFeatureIcon } from './icons';
 export default function Edit( { attributes, setAttributes, isSelected } ) {
 	const { title, description, iconVariant } = attributes;
 	const blockProps = useStableBlockProps(
-		() => ( { className: 'agrezer-about-feature' } ),
+		() => ( { className: 'twork-about-feature' } ),
 		[]
 	);
 
@@ -61,7 +61,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 				<AboutFeatureIcon variant={ iconVariant } />
 				<RichText
 					tagName="h3"
-					className="agrezer-about-feature__title"
+					className="twork-about-feature__title"
 					value={ title }
 					onChange={ ( val ) => setAttributes( { title: val } ) }
 					placeholder={ __( 'Title', 'twork-builder' ) }
@@ -69,7 +69,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 				<RichText
 					tagName="p"
-					className="agrezer-about-feature__desc"
+					className="twork-about-feature__desc"
 					value={ description }
 					onChange={ ( val ) =>
 						setAttributes( { description: val } )

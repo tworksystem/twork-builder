@@ -1,13 +1,15 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "twork/agrezer-stats-cta",
+	"name": "twork/cta-block",
 	"version": "1.0.0",
-	"title": "Agrezer Stats CTA",
+	"title": "CTA Block",
 	"category": "twork-builder",
-	"parent": [ "twork/agrezer-stats-column" ],
+	"parent": [
+		"twork/stats-column"
+	],
 	"icon": "external",
-	"description": "Call-to-action button for the stats section column.",
+	"description": "Call-to-action block.",
 	"supports": {
 		"html": false,
 		"reusable": false

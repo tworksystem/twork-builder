@@ -1,0 +1,53 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/agrezer-about-features-grid",
+	"version": "1.0.0",
+	"title": "Agrezer About — Features Grid",
+	"category": "twork-builder",
+	"parent": [ "twork/agrezer-about-section" ],
+	"icon": "grid-view",
+	"description": "Feature cards row for Agrezer About section.",
+	"supports": {
+		"html": false,
+		"reusable": false
+	},
+	"example": {
+		"innerBlocks": [
+			{
+				"name": "twork/agrezer-about-feature-item",
+				"attributes": {
+					"title": "Farm Development",
+					"description": "End-to-end planning for irrigation, drainage, and resilient field layouts.",
+					"iconVariant": "growth"
+				}
+			},
+			{
+				"name": "twork/agrezer-about-feature-item",
+				"attributes": {
+					"title": "Crop Management",
+					"description": "Scouting, IPM, and input programs tuned to each growth stage.",
+					"iconVariant": "barn"
+				}
+			},
+			{
+				"name": "twork/agrezer-about-feature-item",
+				"attributes": {
+					"title": "Soil Restoration",
+					"description": "Cover crops and organic amendments that rebuild soil structure.",
+					"iconVariant": "soil"
+				}
+			},
+			{
+				"name": "twork/agrezer-about-feature-item",
+				"attributes": {
+					"title": "Organic Cultivation",
+					"description": "Certification-ready processes from planting through harvest.",
+					"iconVariant": "organic"
+				}
+			}
+		]
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js"
+}

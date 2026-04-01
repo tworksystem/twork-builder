@@ -1,16 +1,24 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "twork/agrezer-voices-section",
+	"name": "twork/voices",
 	"version": "1.0.0",
-	"title": "Agrezer Voices Section",
+	"title": "Voices",
 	"category": "twork-builder",
 	"icon": "format-quote",
-	"description": "Voices from the fields: intro, stat cards, and autoplay testimonial slides.",
-	"keywords": [ "testimonial", "voices", "reviews", "agrezer", "twork" ],
+	"description": "Voices/testimonials section.",
+	"keywords": [
+		"testimonial",
+		"voices",
+		"reviews",
+		"twork"
+	],
 	"supports": {
 		"html": false,
-		"align": [ "wide", "full" ],
+		"align": [
+			"wide",
+			"full"
+		],
 		"anchor": true
 	},
 	"attributes": {
@@ -131,7 +139,7 @@
 		},
 		"innerBlocks": [
 			{
-				"name": "twork/agrezer-voices-slide",
+				"name": "twork/voice",
 				"attributes": {
 					"quote": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
 					"authorImage": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80",
@@ -142,7 +150,7 @@
 				}
 			},
 			{
-				"name": "twork/agrezer-voices-slide",
+				"name": "twork/voice",
 				"attributes": {
 					"quote": "Working with Agrezer improved our seasonal planning and crop quality. Clear communication and dependable support.",
 					"authorImage": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80",
@@ -153,7 +161,7 @@
 				}
 			},
 			{
-				"name": "twork/agrezer-voices-slide",
+				"name": "twork/voice",
 				"attributes": {
 					"quote": "Excellent product consistency and fast responses from the service team. A long-term partner for our operation.",
 					"authorImage": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80",

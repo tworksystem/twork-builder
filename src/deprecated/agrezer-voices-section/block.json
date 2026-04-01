@@ -1,0 +1,172 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/agrezer-voices-section",
+	"version": "1.0.0",
+	"title": "Agrezer Voices Section",
+	"category": "twork-builder",
+	"icon": "format-quote",
+	"description": "Voices from the fields: intro, stat cards, and autoplay testimonial slides.",
+	"keywords": [ "testimonial", "voices", "reviews", "agrezer", "twork" ],
+	"supports": {
+		"html": false,
+		"align": [ "wide", "full" ],
+		"anchor": true
+	},
+	"attributes": {
+		"backgroundColor": {
+			"type": "string",
+			"default": "#f3f4f4"
+		},
+		"paddingTop": {
+			"type": "number",
+			"default": 90
+		},
+		"paddingBottom": {
+			"type": "number",
+			"default": 110
+		},
+		"containerMaxWidth": {
+			"type": "number",
+			"default": 1200
+		},
+		"containerWidthPct": {
+			"type": "number",
+			"default": 90
+		},
+		"gridColumnGap": {
+			"type": "number",
+			"default": 34
+		},
+		"tagIcon": {
+			"type": "string",
+			"default": ""
+		},
+		"tagIconId": {
+			"type": "number"
+		},
+		"tagIconAlt": {
+			"type": "string",
+			"default": ""
+		},
+		"tagline": {
+			"type": "string",
+			"default": "Voices From The Fields"
+		},
+		"title": {
+			"type": "string",
+			"default": "Seeds of Customer Satisfaction"
+		},
+		"wheatImage": {
+			"type": "string",
+			"default": ""
+		},
+		"wheatImageId": {
+			"type": "number"
+		},
+		"wheatImageAlt": {
+			"type": "string",
+			"default": ""
+		},
+		"ratingHeading": {
+			"type": "string",
+			"default": "4.9 Basic Rating"
+		},
+		"ratingDesc": {
+			"type": "string",
+			"default": "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+		},
+		"supportHeading": {
+			"type": "string",
+			"default": "Farmers Support"
+		},
+		"supportIcon": {
+			"type": "string",
+			"default": ""
+		},
+		"supportIconId": {
+			"type": "number"
+		},
+		"supportIconAlt": {
+			"type": "string",
+			"default": ""
+		},
+		"supportBadgeValue": {
+			"type": "string",
+			"default": "100%"
+		},
+		"supportBadgeLabel": {
+			"type": "string",
+			"default": "Natural"
+		},
+		"autoplayInterval": {
+			"type": "number",
+			"default": 4500
+		},
+		"enableAutoplay": {
+			"type": "boolean",
+			"default": true
+		}
+	},
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": {
+			"backgroundColor": "#f3f4f4",
+			"paddingTop": 90,
+			"paddingBottom": 110,
+			"containerMaxWidth": 1200,
+			"containerWidthPct": 90,
+			"gridColumnGap": 34,
+			"tagline": "Voices From The Fields",
+			"title": "Seeds of Customer Satisfaction",
+			"wheatImage": "https://images.unsplash.com/photo-1501430658263-39b2a6a2367d?auto=format&fit=crop&w=800&q=80",
+			"wheatImageAlt": "Golden wheat in sunlight",
+			"ratingHeading": "4.9 Average Rating",
+			"ratingDesc": "Growers and buyers rate our support, consistency, and on-time delivery across every season.",
+			"supportHeading": "Farmers Support",
+			"supportBadgeValue": "100%",
+			"supportBadgeLabel": "Natural",
+			"autoplayInterval": 4500,
+			"enableAutoplay": true
+		},
+		"innerBlocks": [
+			{
+				"name": "twork/agrezer-voices-slide",
+				"attributes": {
+					"quote": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
+					"authorImage": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80",
+					"authorImageAlt": "Jesonal Jelins",
+					"authorName": "Jesonal Jelins",
+					"authorRole": "Customer",
+					"quoteMark": "❝"
+				}
+			},
+			{
+				"name": "twork/agrezer-voices-slide",
+				"attributes": {
+					"quote": "Working with Agrezer improved our seasonal planning and crop quality. Clear communication and dependable support.",
+					"authorImage": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80",
+					"authorImageAlt": "Marry Olson",
+					"authorName": "Marry Olson",
+					"authorRole": "Shop Keeper",
+					"quoteMark": "❝"
+				}
+			},
+			{
+				"name": "twork/agrezer-voices-slide",
+				"attributes": {
+					"quote": "Excellent product consistency and fast responses from the service team. A long-term partner for our operation.",
+					"authorImage": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80",
+					"authorImageAlt": "Arun Patel",
+					"authorName": "Arun Patel",
+					"authorRole": "Chief Agronomist",
+					"quoteMark": "❝"
+				}
+			}
+		]
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./view.js"
+}

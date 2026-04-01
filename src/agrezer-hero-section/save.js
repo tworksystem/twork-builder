@@ -3,7 +3,7 @@ import { useBlockProps, InnerBlocks, RichText } from '@wordpress/block-editor';
 function TaglineIcon() {
 	return (
 		<svg
-			className="agrezer-hero__tagline-icon"
+			className="twork-hero__tagline-icon"
 			viewBox="0 0 24 24"
 			aria-hidden="true"
 		>
@@ -36,7 +36,7 @@ export default function save( { attributes } ) {
 			: '#';
 
 	const blockProps = useBlockProps.save( {
-		className: 'agrezer-hero agrezer-hero--bg twork-agrezer-hero-section',
+		className: 'twork-hero twork-hero--bg twork-hero-section',
 		style: {
 			backgroundImage: backgroundImage
 				? `url(${ backgroundImage })`
@@ -45,42 +45,42 @@ export default function save( { attributes } ) {
 			backgroundPosition: 'center',
 			paddingTop: `${ paddingTop }px`,
 			paddingBottom: `${ paddingBottom }px`,
-			'--agrezer-container-max-width': `${ containerMaxWidth }px`,
-			'--agrezer-container-padding': `${ containerPadding }px`,
-			'--agrezer-features-gap': `${ featuresGap }px`,
+			'--twork-container-max-width': `${ containerMaxWidth }px`,
+			'--twork-container-padding': `${ containerPadding }px`,
+			'--twork-features-gap': `${ featuresGap }px`,
 		},
 	} );
 
 	return (
-		<section { ...blockProps } aria-labelledby="agrezer-hero-title">
+		<section { ...blockProps } aria-labelledby="twork-hero-title">
 			<div
-				className="agrezer-hero__overlay"
+				className="twork-hero__overlay"
 				style={ { backgroundColor: overlayColor } }
 			/>
-			<div className="agrezer-hero__container">
-				<div className="agrezer-hero__content">
-					<div className="agrezer-hero__tagline">
+			<div className="twork-hero__container">
+				<div className="twork-hero__content">
+					<div className="twork-hero__tagline">
 						<TaglineIcon />
 						<RichText.Content
 							tagName="span"
-							className="agrezer-hero__tagline-text"
+							className="twork-hero__tagline-text"
 							value={ taglineText }
 						/>
 					</div>
 					<RichText.Content
 						tagName="h1"
-						id="agrezer-hero-title"
-						className="agrezer-hero__title"
+						id="twork-hero-title"
+						className="twork-hero__title"
 						value={ title }
 					/>
 					<RichText.Content
 						tagName="p"
-						className="agrezer-hero__desc"
+						className="twork-hero__desc"
 						value={ description }
 					/>
 					<a
 						href={ href }
-						className="agrezer-hero__btn"
+						className="twork-hero__btn"
 						target={ buttonLinkTarget ? '_blank' : undefined }
 						rel={
 							buttonLinkTarget
@@ -93,7 +93,7 @@ export default function save( { attributes } ) {
 					</a>
 				</div>
 
-				<div className="agrezer-hero__features-wrapper">
+				<div className="twork-hero__features-wrapper">
 					<InnerBlocks.Content />
 				</div>
 			</div>

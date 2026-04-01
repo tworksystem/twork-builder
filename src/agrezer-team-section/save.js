@@ -19,30 +19,30 @@ export default function save( { attributes } ) {
 	const cols = Math.min( 4, Math.max( 1, parseInt( columns, 10 ) || 3 ) );
 
 	const blockProps = useBlockProps.save( {
-		className: 'agrezer-team-section twork-agrezer-team-section',
+		className: 'twork-team-section twork-team-section',
 		style: {
 			backgroundColor,
 			paddingTop: `${ paddingTop }px`,
 			paddingBottom: `${ paddingBottom }px`,
-			'--agrezer-team-max': `${ containerMaxWidth }px`,
-			'--agrezer-team-width-pct': `${ containerWidthPct }%`,
-			'--agrezer-team-gap': `${ gridGap }px`,
-			'--agrezer-team-cols': String( cols ),
-			'--agrezer-team-header-mb': `${ headerMarginBottom }px`,
+			'--twork-team-max': `${ containerMaxWidth }px`,
+			'--twork-team-width-pct': `${ containerWidthPct }%`,
+			'--twork-team-gap': `${ gridGap }px`,
+			'--twork-team-cols': String( cols ),
+			'--twork-team-header-mb': `${ headerMarginBottom }px`,
 		},
 	} );
 
 	return (
 		<section { ...blockProps }>
-			<div className="agrezer-team-section__container">
-				<div className="agrezer-team-section__header">
+			<div className="twork-team-section__container">
+				<div className="twork-team-section__header">
 					{ ( tagline || tagIcon ) && (
-						<div className="agrezer-team-section__tagline">
+						<div className="twork-team-section__tagline">
 							{ tagIcon && (
 								<img
 									src={ tagIcon }
 									alt={ tagIconAlt || '' }
-									className="agrezer-team-section__tag-icon"
+									className="twork-team-section__tag-icon"
 									width="20"
 									height="20"
 									loading="lazy"
@@ -60,13 +60,13 @@ export default function save( { attributes } ) {
 					{ title && (
 						<RichText.Content
 							tagName="h2"
-							className="agrezer-team-section__title"
+							className="twork-team-section__title"
 							value={ title }
 						/>
 					) }
 				</div>
 
-				<div className="agrezer-team-section__grid">
+				<div className="twork-team-section__grid">
 					<InnerBlocks.Content />
 				</div>
 			</div>
