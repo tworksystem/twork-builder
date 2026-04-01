@@ -37,9 +37,6 @@ require_once TWORK_BUILDER_PATH . 'includes/class-twork-updates-section.php';
 /** Load Blog Section (Blog layout: featured, grid, sidebar, pagination) render callback */
 require_once TWORK_BUILDER_PATH . 'includes/class-twork-blog-section.php';
 
-/** Load Agrezer Blog Section (post grid, Agrezer UI) render callback */
-require_once TWORK_BUILDER_PATH . 'includes/class-twork-agrezer-blog-section.php';
-
 /** Load Emergency Units Section (Specialized Units from Posts) render callback + post meta */
 require_once TWORK_BUILDER_PATH . 'includes/class-twork-em-units-section.php';
 
@@ -249,6 +246,23 @@ function twork_builder_enqueue_editor_assets()
 
 add_action('enqueue_block_editor_assets', 'twork_builder_enqueue_editor_assets');
 
+/**
+ * 2c. Enqueue shared Google Fonts once for blocks.
+ * Loads on both front-end and block editor via enqueue_block_assets.
+ */
+function twork_builder_enqueue_global_block_fonts()
+{
+    if (!wp_style_is('twork-builder-google-fonts', 'enqueued')) {
+        wp_enqueue_style(
+            'twork-builder-google-fonts',
+            'https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Manrope:wght@400;500;600;700;800&family=Marcellus&family=Roboto:wght@300;400;500;600;700;900&display=swap',
+            array(),
+            null
+        );
+    }
+}
+add_action('enqueue_block_assets', 'twork_builder_enqueue_global_block_fonts');
+
 
 /**
  * 3. Initialize Blocks.
@@ -367,9 +381,6 @@ function twork_builder_init_blocks()
             }
             if (isset($block_data['name']) && $block_data['name'] === 'twork/blog-section') {
                 $block_args['render_callback'] = 'twork_render_blog_section';
-            }
-            if (isset($block_data['name']) && $block_data['name'] === 'twork/agrezer-blog-section') {
-                $block_args['render_callback'] = 'twork_render_agrezer_blog_section';
             }
             if (isset($block_data['name']) && $block_data['name'] === 'twork/em-units-section') {
                 $block_args['render_callback'] = 'twork_render_em_units_section';

@@ -1,13 +1,15 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "twork/agrezer-testimonial-slide",
+	"name": "twork/testimonial",
 	"version": "1.0.0",
-	"title": "Agrezer Testimonial Slide",
+	"title": "Testimonial",
 	"category": "twork-builder",
-	"parent": [ "twork/agrezer-testimonials-section" ],
+	"parent": [
+		"twork/testimonials"
+	],
 	"icon": "format-quote",
-	"description": "One testimonial quote, author, and star rating for the carousel.",
+	"description": "Single testimonial slide/card.",
 	"supports": {
 		"html": false,
 		"reusable": false

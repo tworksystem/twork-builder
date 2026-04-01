@@ -9,7 +9,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 	const blockProps = useStableBlockProps(
 		() => ( {
 			className:
-				'agrezer-testimonials__slide agrezer-testimonials__slide--editor',
+				'twork-testimonials__slide twork-testimonials__slide--editor',
 		} ),
 		[]
 	);
@@ -42,16 +42,16 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 			) }
 
 			<div { ...blockProps }>
-				<div className="agrezer-testimonials__content">
+				<div className="twork-testimonials__content">
 					<div
-						className="agrezer-testimonials__quote-icon"
+						className="twork-testimonials__quote-icon"
 						aria-hidden="true"
 					>
 						&ldquo;
 					</div>
 					<RichText
 						tagName="p"
-						className="agrezer-testimonials__text"
+						className="twork-testimonials__text"
 						value={ quote }
 						onChange={ ( val ) => setAttributes( { quote: val } ) }
 						placeholder={ __(
@@ -60,10 +60,10 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 						) }
 					/>
 				</div>
-				<div className="agrezer-testimonials__author-box">
+				<div className="twork-testimonials__author-box">
 					<RichText
 						tagName="h4"
-						className="agrezer-testimonials__author-name"
+						className="twork-testimonials__author-name"
 						value={ authorName }
 						onChange={ ( val ) =>
 							setAttributes( { authorName: val } )
@@ -74,7 +74,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 					<RichText
 						tagName="span"
-						className="agrezer-testimonials__author-role"
+						className="twork-testimonials__author-role"
 						value={ authorRole }
 						onChange={ ( val ) =>
 							setAttributes( { authorRole: val } )
@@ -84,7 +84,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 					/>
 
 					<div
-						className="agrezer-testimonials__stars"
+						className="twork-testimonials__stars"
 						aria-label={ __(
 							'Star rating preview',
 							'twork-builder'

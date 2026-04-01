@@ -4,12 +4,12 @@ export default function save( { attributes } ) {
 	const { buttonText, buttonUrl } = attributes;
 
 	const blockProps = useBlockProps.save( {
-		className: 'agrezer-stats__btn-wrap',
+		className: 'twork-stats__btn-wrap',
 	} );
 
 	return (
 		<div { ...blockProps }>
-			<a href={ buttonUrl || '#' } className="agrezer-stats__btn">
+			<a href={ buttonUrl || '#' } className="twork-stats__btn">
 				<RichText.Content tagName="span" value={ buttonText } />
 				<span aria-hidden="true">↗</span>
 			</a>

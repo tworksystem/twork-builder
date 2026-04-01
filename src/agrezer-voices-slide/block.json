@@ -1,13 +1,15 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "twork/agrezer-voices-slide",
+	"name": "twork/voice",
 	"version": "1.0.0",
-	"title": "Agrezer Voices Slide",
+	"title": "Voice",
 	"category": "twork-builder",
-	"parent": [ "twork/agrezer-voices-section" ],
+	"parent": [
+		"twork/voices"
+	],
 	"icon": "format-quote",
-	"description": "One testimonial quote with author for the voices slider.",
+	"description": "Single voice/testimonial slide.",
 	"supports": {
 		"html": false,
 		"reusable": false

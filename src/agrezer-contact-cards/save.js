@@ -14,7 +14,7 @@ export default function save( { attributes } ) {
 	} = attributes;
 
 	const blockProps = useBlockProps.save( {
-		className: 'agrezer-contact-cards',
+		className: 'twork-contact-cards',
 		style: {
 			backgroundColor,
 			paddingTop: `${ paddingTop }px`,
@@ -23,10 +23,10 @@ export default function save( { attributes } ) {
 	} );
 
 	const containerStyle = {
-		'--agrezer-contact-cols': columns,
-		'--agrezer-contact-cols-md': columnsTablet,
-		'--agrezer-contact-gap': `${ gap }px`,
-		'--agrezer-icon-wrap-bg': iconWrapBgColor,
+		'--twork-contact-cols': columns,
+		'--twork-contact-cols-md': columnsTablet,
+		'--twork-contact-gap': `${ gap }px`,
+		'--twork-icon-wrap-bg': iconWrapBgColor,
 		maxWidth: `${ containerMaxWidth }px`,
 		margin: '0 auto',
 		padding: `0 ${ containerPadding }px`,
@@ -35,7 +35,7 @@ export default function save( { attributes } ) {
 	return (
 		<section { ...blockProps }>
 			<div
-				className="agrezer-contact-cards__container"
+				className="twork-contact-cards__container"
 				style={ containerStyle }
 			>
 				<InnerBlocks.Content />

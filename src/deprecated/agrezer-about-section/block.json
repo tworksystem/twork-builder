@@ -1,0 +1,153 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/agrezer-about-section",
+	"version": "1.0.0",
+	"title": "Agrezer About Section",
+	"category": "twork-builder",
+	"icon": "info-outline",
+	"description": "About section with feature grid and image cards (Agrezer layout).",
+	"keywords": [ "about", "agriculture", "features", "agrezer", "twork" ],
+	"supports": {
+		"html": false,
+		"align": [ "wide", "full" ]
+	},
+	"attributes": {
+		"backgroundColor": {
+			"type": "string",
+			"default": "#f4f4f4"
+		},
+		"paddingTop": {
+			"type": "number",
+			"default": 84
+		},
+		"paddingBottom": {
+			"type": "number",
+			"default": 92
+		},
+		"containerMaxWidth": {
+			"type": "number",
+			"default": 1240
+		},
+		"containerGutter": {
+			"type": "number",
+			"default": 24
+		},
+		"labelText": {
+			"type": "string",
+			"default": "About Us"
+		},
+		"labelIcon": {
+			"type": "string",
+			"default": "🌱"
+		},
+		"sectionTitle": {
+			"type": "string",
+			"default": "Innovating Agriculture,<br>Sustaining Our Future"
+		},
+		"labelColor": {
+			"type": "string",
+			"default": "#121212"
+		},
+		"labelIconColor": {
+			"type": "string",
+			"default": "#8fbd45"
+		},
+		"titleColor": {
+			"type": "string",
+			"default": "#111317"
+		},
+		"titleFontSize": {
+			"type": "number",
+			"default": 2.6
+		},
+		"titleFontWeight": {
+			"type": "number",
+			"default": 700
+		}
+	},
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": {
+			"backgroundColor": "#f4f4f4",
+			"paddingTop": 84,
+			"paddingBottom": 92,
+			"containerMaxWidth": 1240,
+			"containerGutter": 24,
+			"labelText": "About Agrezer",
+			"labelIcon": "🌱",
+			"sectionTitle": "Innovating Agriculture,<br>Sustaining Our Future",
+			"labelColor": "#121212",
+			"labelIconColor": "#8fbd45",
+			"titleColor": "#111317",
+			"titleFontSize": 2.6,
+			"titleFontWeight": 700
+		},
+		"innerBlocks": [
+			{
+				"name": "twork/agrezer-about-features-grid",
+				"innerBlocks": [
+					{
+						"name": "twork/agrezer-about-feature-item",
+						"attributes": {
+							"title": "Farm Development",
+							"description": "End-to-end planning for irrigation, drainage, and field layout tailored to your soil profile.",
+							"iconVariant": "growth"
+						}
+					},
+					{
+						"name": "twork/agrezer-about-feature-item",
+						"attributes": {
+							"title": "Crop Management",
+							"description": "Seasonal scouting, integrated pest management, and data-backed input recommendations.",
+							"iconVariant": "barn"
+						}
+					},
+					{
+						"name": "twork/agrezer-about-feature-item",
+						"attributes": {
+							"title": "Soil Restoration",
+							"description": "Cover crops, compost programs, and carbon-smart practices that rebuild organic matter.",
+							"iconVariant": "soil"
+						}
+					},
+					{
+						"name": "twork/agrezer-about-feature-item",
+						"attributes": {
+							"title": "Organic Cultivation",
+							"description": "Certification-ready workflows from seed selection through harvest and cold storage.",
+							"iconVariant": "organic"
+						}
+					}
+				]
+			},
+			{
+				"name": "twork/agrezer-about-images-grid",
+				"innerBlocks": [
+					{
+						"name": "twork/agrezer-about-image-card",
+						"attributes": {
+							"variant": "simple",
+							"image": "https://images.unsplash.com/photo-1592982537447-7440770cbfc9?auto=format&fit=crop&w=1400&q=80",
+							"alt": "Tractor crossing a green field at sunrise"
+						}
+					},
+					{
+						"name": "twork/agrezer-about-image-card",
+						"attributes": {
+							"variant": "overlay",
+							"image": "https://images.unsplash.com/photo-1472653431158-6364773b2a56?auto=format&fit=crop&w=1400&q=80",
+							"alt": "Farmer inspecting crops",
+							"overlayText": "Agriculture nurtures life through organic growth, sustainable farming, and community stewardship.",
+							"overlayButtonText": "About Us",
+							"overlayButtonUrl": "#"
+						}
+					}
+				]
+			}
+		]
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
+}

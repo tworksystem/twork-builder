@@ -1,0 +1,166 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/agrezer-stats-section",
+	"version": "1.0.0",
+	"title": "Agrezer Stats Section",
+	"category": "twork-builder",
+	"icon": "chart-line",
+	"description": "Stats showcase with image cards and optional CTA column (Agrezer layout).",
+	"keywords": [ "stats", "metrics", "agriculture", "agrezer", "twork" ],
+	"supports": {
+		"html": false,
+		"align": [ "wide", "full" ]
+	},
+	"attributes": {
+		"backgroundColor": {
+			"type": "string",
+			"default": "#fbf9f6"
+		},
+		"paddingTop": {
+			"type": "number",
+			"default": 96
+		},
+		"paddingBottom": {
+			"type": "number",
+			"default": 96
+		},
+		"containerMaxWidth": {
+			"type": "number",
+			"default": 1240
+		},
+		"containerGutter": {
+			"type": "number",
+			"default": 24
+		},
+		"taglineIcon": {
+			"type": "string",
+			"default": "🌱"
+		},
+		"taglineText": {
+			"type": "string",
+			"default": "Sustainable Farming"
+		},
+		"sectionTitle": {
+			"type": "string",
+			"default": "Cultivating Excellence in<br>Every Green Field"
+		},
+		"description": {
+			"type": "string",
+			"default": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled."
+		},
+		"taglineColor": {
+			"type": "string",
+			"default": "#202320"
+		},
+		"taglineIconColor": {
+			"type": "string",
+			"default": "#8fbd45"
+		},
+		"titleColor": {
+			"type": "string",
+			"default": "#121518"
+		},
+		"titleFontSize": {
+			"type": "number",
+			"default": 2.45
+		},
+		"titleFontWeight": {
+			"type": "number",
+			"default": 700
+		},
+		"descColor": {
+			"type": "string",
+			"default": "#636669"
+		},
+		"descFontSize": {
+			"type": "number",
+			"default": 1.02
+		},
+		"headerBorderColor": {
+			"type": "string",
+			"default": "rgba(23, 42, 23, 0.08)"
+		},
+		"gridGap": {
+			"type": "number",
+			"default": 32
+		}
+	},
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": {
+			"backgroundColor": "#fbf9f6",
+			"paddingTop": 96,
+			"paddingBottom": 96,
+			"containerMaxWidth": 1240,
+			"containerGutter": 24,
+			"taglineIcon": "🌱",
+			"taglineText": "Sustainable Farming",
+			"sectionTitle": "Cultivating Excellence in<br>Every Green Field",
+			"description": "Our metrics reflect real outcomes in the field: healthier soil, stronger yields, and partners who trust us year after year.",
+			"taglineColor": "#202320",
+			"taglineIconColor": "#8fbd45",
+			"titleColor": "#121518",
+			"titleFontSize": 2.45,
+			"titleFontWeight": 700,
+			"descColor": "#636669",
+			"descFontSize": 1.02,
+			"headerBorderColor": "rgba(23, 42, 23, 0.08)",
+			"gridGap": 32
+		},
+		"innerBlocks": [
+			{
+				"name": "twork/agrezer-stats-column",
+				"innerBlocks": [
+					{
+						"name": "twork/agrezer-stats-card",
+						"attributes": {
+							"image": "https://images.unsplash.com/photo-1631368647931-4f3ec6d1df92?auto=format&fit=crop&w=1000&q=80",
+							"alt": "Golden corn harvest",
+							"statValue": "80%",
+							"statLabel": "Efficiency"
+						}
+					}
+				]
+			},
+			{
+				"name": "twork/agrezer-stats-column",
+				"innerBlocks": [
+					{
+						"name": "twork/agrezer-stats-cta",
+						"attributes": {
+							"buttonText": "Get In Touch",
+							"buttonUrl": "#"
+						}
+					},
+					{
+						"name": "twork/agrezer-stats-card",
+						"attributes": {
+							"image": "https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=1000&q=80",
+							"alt": "Corn kernels",
+							"statValue": "98%",
+							"statLabel": "Increase in Yields"
+						}
+					}
+				]
+			},
+			{
+				"name": "twork/agrezer-stats-column",
+				"innerBlocks": [
+					{
+						"name": "twork/agrezer-stats-card",
+						"attributes": {
+							"image": "https://images.unsplash.com/photo-1471193945509-9ad0617afabf?auto=format&fit=crop&w=1000&q=80",
+							"alt": "Corn stalks in sunlight",
+							"statValue": "50%",
+							"statLabel": "Farm Growth"
+						}
+					}
+				]
+			}
+		]
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
+}

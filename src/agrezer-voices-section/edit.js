@@ -15,10 +15,10 @@ import {
 	Button,
 } from '@wordpress/components';
 
-const ALLOWED_BLOCKS = [ 'twork/agrezer-voices-slide' ];
+const ALLOWED_BLOCKS = [ 'twork/voice' ];
 const TEMPLATE = [
 	[
-		'twork/agrezer-voices-slide',
+		'twork/voice',
 		{
 			quote: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown..",
 			authorName: 'Jesonal Jelins',
@@ -27,7 +27,7 @@ const TEMPLATE = [
 	],
 
 	[
-		'twork/agrezer-voices-slide',
+		'twork/voice',
 		{
 			quote: 'Working with Agrezer has improved our seasonal planning and crop quality. Their team communicates clearly and always delivers dependable support.',
 			authorName: 'Marry Olson',
@@ -36,7 +36,7 @@ const TEMPLATE = [
 	],
 
 	[
-		'twork/agrezer-voices-slide',
+		'twork/voice',
 		{
 			quote: 'The product consistency is excellent, and the service team responds quickly. We trust them as a long-term partner for our farming business.',
 			authorName: 'Arun Patel',
@@ -73,14 +73,14 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 	const blockProps = useStableBlockProps(
 		() => ( {
 			className:
-				'agrezer-voices-section twork-agrezer-voices-section-editor',
+				'twork-voices-section twork-voices-section-editor',
 			style: {
 				backgroundColor,
 				paddingTop: `${ paddingTop }px`,
 				paddingBottom: `${ paddingBottom }px`,
-				'--agrezer-voices-max': `${ containerMaxWidth }px`,
-				'--agrezer-voices-width-pct': `${ containerWidthPct }%`,
-				'--agrezer-voices-col-gap': `${ gridColumnGap }px`,
+				'--twork-voices-max': `${ containerMaxWidth }px`,
+				'--twork-voices-width-pct': `${ containerWidthPct }%`,
+				'--twork-voices-col-gap': `${ gridColumnGap }px`,
 			},
 		} ),
 		[
@@ -171,7 +171,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 								<img
 									src={ wheatImage }
 									alt=""
-									className="agrezer-voices-section__wheat"
+									className="twork-voices-section__wheat"
 									style={ { maxWidth: 280 } }
 								/>
 
@@ -226,7 +226,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 								<img
 									src={ tagIcon }
 									alt=""
-									className="agrezer-voices-section__tag-icon"
+									className="twork-voices-section__tag-icon"
 								/>
 
 								<Button
@@ -281,7 +281,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 								<img
 									src={ supportIcon }
 									alt=""
-									className="agrezer-voices-card__support-icon"
+									className="twork-voices-card__support-icon"
 								/>
 
 								<Button
@@ -412,14 +412,14 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 			) }
 
 			<section { ...blockProps }>
-				<div className="agrezer-voices-section__container">
-					<div className="agrezer-voices-section__left">
-						<div className="agrezer-voices-section__tagline">
+				<div className="twork-voices-section__container">
+					<div className="twork-voices-section__left">
+						<div className="twork-voices-section__tagline">
 							{ tagIcon && (
 								<img
 									src={ tagIcon }
 									alt=""
-									className="agrezer-voices-section__tag-icon"
+									className="twork-voices-section__tag-icon"
 								/>
 							) }
 							<RichText
@@ -437,7 +437,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 						</div>
 						<RichText
 							tagName="h2"
-							className="agrezer-voices-section__title"
+							className="twork-voices-section__title"
 							value={ title }
 							onChange={ ( val ) =>
 								setAttributes( { title: val } )
@@ -451,17 +451,17 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 							<img
 								src={ wheatImage }
 								alt=""
-								className="agrezer-voices-section__wheat"
+								className="twork-voices-section__wheat"
 							/>
 						) : null }
 					</div>
 
-					<div className="agrezer-voices-section__right">
-						<div className="agrezer-voices-section__top-cards">
-							<article className="agrezer-voices-card agrezer-voices-card--rating">
+					<div className="twork-voices-section__right">
+						<div className="twork-voices-section__top-cards">
+							<article className="twork-voices-card twork-voices-card--rating">
 								<RichText
 									tagName="h3"
-									className="agrezer-voices-card__heading"
+									className="twork-voices-card__heading"
 									value={ ratingHeading }
 									onChange={ ( val ) =>
 										setAttributes( { ratingHeading: val } )
@@ -474,7 +474,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 								<RichText
 									tagName="p"
-									className="agrezer-voices-card__desc"
+									className="twork-voices-card__desc"
 									value={ ratingDesc }
 									onChange={ ( val ) =>
 										setAttributes( { ratingDesc: val } )
@@ -486,10 +486,10 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 								/>
 							</article>
 
-							<article className="agrezer-voices-card agrezer-voices-card--support">
+							<article className="twork-voices-card twork-voices-card--support">
 								<RichText
 									tagName="h3"
-									className="agrezer-voices-card__heading"
+									className="twork-voices-card__heading"
 									value={ supportHeading }
 									onChange={ ( val ) =>
 										setAttributes( { supportHeading: val } )
@@ -504,10 +504,10 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 									<img
 										src={ supportIcon }
 										alt=""
-										className="agrezer-voices-card__support-icon"
+										className="twork-voices-card__support-icon"
 									/>
 								) }
-								<div className="agrezer-voices-card__support-badge">
+								<div className="twork-voices-card__support-badge">
 									{ supportBadgeValue }
 									{ supportBadgeLabel && (
 										<span>{ supportBadgeLabel }</span>
@@ -517,7 +517,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 						</div>
 
 						<div
-							className="agrezer-voices-section__testimonial"
+							className="twork-voices-section__testimonial"
 							data-voices-slider=""
 						>
 							<p
@@ -529,7 +529,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 									'twork-builder'
 								) }
 							</p>
-							<div className="agrezer-voices-section__slides">
+							<div className="twork-voices-section__slides">
 								<InnerBlocks
 									allowedBlocks={ ALLOWED_BLOCKS }
 									template={ TEMPLATE }

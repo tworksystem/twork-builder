@@ -1,16 +1,25 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "twork/agrezer-why-choose-section",
+	"name": "twork/benefits-section",
 	"version": "1.0.0",
-	"title": "Agrezer Why Choose Section",
+	"title": "Benefits Section",
 	"category": "twork-builder",
 	"icon": "awards",
-	"description": "Why choose us stage with tractor hero and positioned benefit points.",
-	"keywords": [ "why", "choose", "farm", "tractor", "agrezer", "twork" ],
+	"description": "Hero stage with positioned benefit points.",
+	"keywords": [
+		"why",
+		"choose",
+		"farm",
+		"tractor",
+		"twork"
+	],
 	"supports": {
 		"html": false,
-		"align": [ "wide", "full" ]
+		"align": [
+			"wide",
+			"full"
+		]
 	},
 	"attributes": {
 		"paddingTop": {
@@ -110,7 +119,7 @@
 		},
 		"innerBlocks": [
 			{
-				"name": "twork/agrezer-why-choose-point-item",
+				"name": "twork/benefit-point",
 				"attributes": {
 					"slot": 1,
 					"badgeText": "01",
@@ -118,7 +127,7 @@
 				}
 			},
 			{
-				"name": "twork/agrezer-why-choose-point-item",
+				"name": "twork/benefit-point",
 				"attributes": {
 					"slot": 2,
 					"badgeText": "02",
@@ -126,7 +135,7 @@
 				}
 			},
 			{
-				"name": "twork/agrezer-why-choose-point-item",
+				"name": "twork/benefit-point",
 				"attributes": {
 					"slot": 3,
 					"badgeText": "03",
@@ -134,7 +143,7 @@
 				}
 			},
 			{
-				"name": "twork/agrezer-why-choose-point-item",
+				"name": "twork/benefit-point",
 				"attributes": {
 					"slot": 4,
 					"badgeText": "04",
@@ -142,7 +151,7 @@
 				}
 			},
 			{
-				"name": "twork/agrezer-why-choose-point-item",
+				"name": "twork/benefit-point",
 				"attributes": {
 					"slot": 5,
 					"badgeText": "05",

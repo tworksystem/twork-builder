@@ -1,13 +1,15 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "twork/agrezer-third-section-card",
+	"name": "twork/stat-image-card",
 	"version": "1.0.0",
-	"title": "Agrezer Third Section Card",
+	"title": "Stat Image Card",
 	"category": "twork-builder",
-	"parent": [ "twork/agrezer-third-section" ],
+	"parent": [
+		"twork/cta-cards-section"
+	],
 	"icon": "chart-bar",
-	"description": "Image card with large stat and label overlay.",
+	"description": "Image card with stat and label overlay.",
 	"supports": {
 		"html": false,
 		"reusable": false

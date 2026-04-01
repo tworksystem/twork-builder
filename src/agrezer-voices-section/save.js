@@ -26,14 +26,14 @@ export default function save( { attributes } ) {
 	} = attributes;
 
 	const blockProps = useBlockProps.save( {
-		className: 'agrezer-voices-section twork-agrezer-voices-section',
+		className: 'twork-voices-section twork-voices-section',
 		style: {
 			backgroundColor,
 			paddingTop: `${ paddingTop }px`,
 			paddingBottom: `${ paddingBottom }px`,
-			'--agrezer-voices-max': `${ containerMaxWidth }px`,
-			'--agrezer-voices-width-pct': `${ containerWidthPct }%`,
-			'--agrezer-voices-col-gap': `${ gridColumnGap }px`,
+			'--twork-voices-max': `${ containerMaxWidth }px`,
+			'--twork-voices-width-pct': `${ containerWidthPct }%`,
+			'--twork-voices-col-gap': `${ gridColumnGap }px`,
 		},
 		'data-autoplay': enableAutoplay ? 'true' : 'false',
 		'data-autoplay-ms': String( autoplayInterval || 4500 ),
@@ -41,15 +41,15 @@ export default function save( { attributes } ) {
 
 	return (
 		<section { ...blockProps }>
-			<div className="agrezer-voices-section__container">
-				<div className="agrezer-voices-section__left">
+			<div className="twork-voices-section__container">
+				<div className="twork-voices-section__left">
 					{ ( tagline || tagIcon ) && (
-						<div className="agrezer-voices-section__tagline">
+						<div className="twork-voices-section__tagline">
 							{ tagIcon && (
 								<img
 									src={ tagIcon }
 									alt={ tagIconAlt || '' }
-									className="agrezer-voices-section__tag-icon"
+									className="twork-voices-section__tag-icon"
 									width="20"
 									height="20"
 									loading="lazy"
@@ -67,7 +67,7 @@ export default function save( { attributes } ) {
 					{ title && (
 						<RichText.Content
 							tagName="h2"
-							className="agrezer-voices-section__title"
+							className="twork-voices-section__title"
 							value={ title }
 						/>
 					) }
@@ -75,37 +75,37 @@ export default function save( { attributes } ) {
 						<img
 							src={ wheatImage }
 							alt={ wheatImageAlt || '' }
-							className="agrezer-voices-section__wheat"
+							className="twork-voices-section__wheat"
 							loading="lazy"
 							decoding="async"
 						/>
 					) }
 				</div>
 
-				<div className="agrezer-voices-section__right">
-					<div className="agrezer-voices-section__top-cards">
-						<article className="agrezer-voices-card agrezer-voices-card--rating">
+				<div className="twork-voices-section__right">
+					<div className="twork-voices-section__top-cards">
+						<article className="twork-voices-card twork-voices-card--rating">
 							{ ratingHeading && (
 								<RichText.Content
 									tagName="h3"
-									className="agrezer-voices-card__heading"
+									className="twork-voices-card__heading"
 									value={ ratingHeading }
 								/>
 							) }
 							{ ratingDesc && (
 								<RichText.Content
 									tagName="p"
-									className="agrezer-voices-card__desc"
+									className="twork-voices-card__desc"
 									value={ ratingDesc }
 								/>
 							) }
 						</article>
 
-						<article className="agrezer-voices-card agrezer-voices-card--support">
+						<article className="twork-voices-card twork-voices-card--support">
 							{ supportHeading && (
 								<RichText.Content
 									tagName="h3"
-									className="agrezer-voices-card__heading"
+									className="twork-voices-card__heading"
 									value={ supportHeading }
 								/>
 							) }
@@ -113,13 +113,13 @@ export default function save( { attributes } ) {
 								<img
 									src={ supportIcon }
 									alt={ supportIconAlt || '' }
-									className="agrezer-voices-card__support-icon"
+									className="twork-voices-card__support-icon"
 									loading="lazy"
 									decoding="async"
 								/>
 							) }
 							{ ( supportBadgeValue || supportBadgeLabel ) && (
-								<div className="agrezer-voices-card__support-badge">
+								<div className="twork-voices-card__support-badge">
 									{ supportBadgeValue }
 									{ supportBadgeLabel && (
 										<span>{ supportBadgeLabel }</span>
@@ -130,14 +130,14 @@ export default function save( { attributes } ) {
 					</div>
 
 					<div
-						className="agrezer-voices-section__testimonial"
+						className="twork-voices-section__testimonial"
 						data-voices-slider=""
 						role="region"
 						aria-roledescription="carousel"
 						aria-label="Customer voices"
 						tabIndex={ 0 }
 					>
-						<div className="agrezer-voices-section__slides">
+						<div className="twork-voices-section__slides">
 							<InnerBlocks.Content />
 						</div>
 					</div>

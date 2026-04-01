@@ -1,5 +1,6 @@
+@import "../scss/typography";
+
 // Google Fonts (optional - theme may already load)
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
 
 // Variables
 :root {
@@ -53,7 +54,7 @@
 
 // === FRONTEND STYLES ===
 .twork-tour-section {
-    font-family: "Roboto", sans-serif;
+    font-family: $font-primary;
     position: relative;
     overflow: hidden;
 

@@ -75,15 +75,15 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 	const blockProps = useStableBlockProps(
 		() => ( {
 			className:
-				'agrezer-page-header twork-agrezer-page-header-section-editor',
+				'twork-page-header twork-page-header-section-editor',
 			style: {
 				backgroundColor: fallbackBgColor,
 				paddingTop: `${ paddingTop }px`,
 				paddingBottom: `${ paddingBottom }px`,
-				'--agrezer-page-header-overlay': overlayColor,
-				'--agrezer-page-header-max': `${ containerMaxWidth }px`,
-				'--agrezer-page-header-width-pct': `${ containerWidthPct }%`,
-				'--agrezer-page-header-min-h': `${ containerMinHeight }px`,
+				'--twork-page-header-overlay': overlayColor,
+				'--twork-page-header-max': `${ containerMaxWidth }px`,
+				'--twork-page-header-width-pct': `${ containerWidthPct }%`,
+				'--twork-page-header-min-h': `${ containerMinHeight }px`,
 			},
 			'data-tractor-anim': enableTractorAnimation ? 'true' : 'false',
 		} ),
@@ -114,7 +114,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 								setAttributes( { title: val } )
 							}
 							help={ __(
-								'Shown as the main heading (agrezer-page-header__title). You can also click the title in the preview.',
+								'Shown as the main heading (twork-page-header__title). You can also click the title in the preview.',
 								'twork-builder'
 							) }
 						/>
@@ -464,7 +464,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 			<section { ...blockProps }>
 				<div
-					className="agrezer-page-header__bg"
+					className="twork-page-header__bg"
 					style={
 						backgroundImage
 							? {
@@ -475,11 +475,11 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 					}
 				/>
 
-				<div className="agrezer-page-header__container">
-					<div className="agrezer-page-header__content">
+				<div className="twork-page-header__container">
+					<div className="twork-page-header__content">
 						<RichText
 							tagName="h1"
-							className="agrezer-page-header__title"
+							className="twork-page-header__title"
 							value={ title }
 							onChange={ ( val ) =>
 								setAttributes( { title: val } )
@@ -488,7 +488,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 							allowedFormats={ [ 'core/bold', 'core/italic' ] }
 						/>
 
-						<ul className="agrezer-page-header__breadcrumb">
+						<ul className="twork-page-header__breadcrumb">
 							{ crumbs.map( ( crumb, index ) => {
 								const isCurrent =
 									String( crumb.url || '' ).trim() === '';
@@ -527,16 +527,16 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 					</div>
 
 					{ graphicImage ? (
-						<div className="agrezer-page-header__graphic">
+						<div className="twork-page-header__graphic">
 							<img
 								src={ graphicImage }
 								alt=""
-								className="agrezer-page-header__img"
+								className="twork-page-header__img"
 								style={ { maxWidth: `${ graphicMaxWidth }px` } }
 							/>
 						</div>
 					) : (
-						<div className="agrezer-page-header__graphic agrezer-page-header__graphic--placeholder">
+						<div className="twork-page-header__graphic twork-page-header__graphic--placeholder">
 							<MediaPlaceholder
 								icon="format-image"
 								onSelect={ ( media ) =>

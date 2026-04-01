@@ -1,7 +1,8 @@
+@import "../scss/typography";
+
 // Jivaka Hero Section – follows team-members-grid / services-grid standards
 // Hero section for Jivaka Care app: title, subtitle, app badges, phone mockup
 
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
 
 :root {
     --jivaka-hero-gradient-start: #f6892e;
@@ -67,7 +68,7 @@
 // === FRONTEND STYLES ===
 .jivaka-hero-section,
 .twork-jivaka-hero-section {
-    font-family: "Inter", sans-serif;
+    font-family: $font-ui;
     margin-left: calc(50% - 50vw);
     width: 100vw;
     box-sizing: border-box;

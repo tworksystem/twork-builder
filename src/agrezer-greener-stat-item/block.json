@@ -1,13 +1,15 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "twork/agrezer-greener-stat-item",
+	"name": "twork/stat-item",
 	"version": "1.0.0",
-	"title": "Agrezer Greener Stat",
+	"title": "Stat Item",
 	"category": "twork-builder",
-	"parent": [ "twork/agrezer-greener-stats-row" ],
+	"parent": [
+		"twork/stats-row"
+	],
 	"icon": "yes",
-	"description": "Stat column with icon, title, and text.",
+	"description": "Single stat item with icon, title and description.",
 	"supports": {
 		"html": false,
 		"reusable": false

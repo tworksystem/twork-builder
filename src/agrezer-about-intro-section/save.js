@@ -34,26 +34,26 @@ export default function save( { attributes } ) {
 	} = attributes;
 
 	const blockProps = useBlockProps.save( {
-		className: 'agrezer-about-intro twork-agrezer-about-intro-section',
+		className: 'twork-about-intro twork-about-intro-section',
 		style: {
 			backgroundColor,
 			paddingTop: `${ paddingTop }px`,
 			paddingBottom: `${ paddingBottom }px`,
-			'--agrezer-about-intro-max': `${ containerMaxWidth }px`,
-			'--agrezer-about-intro-width-pct': `${ containerWidthPct }%`,
-			'--agrezer-about-intro-gap': `${ columnGap }px`,
+			'--twork-about-intro-max': `${ containerMaxWidth }px`,
+			'--twork-about-intro-width-pct': `${ containerWidthPct }%`,
+			'--twork-about-intro-gap': `${ columnGap }px`,
 		},
 		'data-badge-spin': enableBadgeSpin ? 'true' : 'false',
 	} );
 
 	return (
 		<section { ...blockProps }>
-			<div className="agrezer-about-intro__container">
-				<div className="agrezer-about-intro__left">
-					<div className="agrezer-about-intro__images-wrapper">
+			<div className="twork-about-intro__container">
+				<div className="twork-about-intro__left">
+					<div className="twork-about-intro__images-wrapper">
 						{ showShape && (
 							<div
-								className="agrezer-about-intro__shape"
+								className="twork-about-intro__shape"
 								style={ { backgroundColor: shapeColor } }
 								aria-hidden="true"
 							/>
@@ -62,7 +62,7 @@ export default function save( { attributes } ) {
 							<img
 								src={ mainImage }
 								alt={ mainImageAlt || '' }
-								className="agrezer-about-intro__img-main"
+								className="twork-about-intro__img-main"
 								loading="lazy"
 								decoding="async"
 							/>
@@ -71,17 +71,17 @@ export default function save( { attributes } ) {
 							<img
 								src={ subImage }
 								alt={ subImageAlt || '' }
-								className="agrezer-about-intro__img-sub"
+								className="twork-about-intro__img-sub"
 								loading="lazy"
 								decoding="async"
 							/>
 						) }
 						{ showBadge && badgeImage && (
-							<div className="agrezer-about-intro__badge">
+							<div className="twork-about-intro__badge">
 								<img
 									src={ badgeImage }
 									alt={ badgeImageAlt || '' }
-									className="agrezer-about-intro__badge-img"
+									className="twork-about-intro__badge-img"
 									loading="lazy"
 									decoding="async"
 								/>
@@ -90,14 +90,14 @@ export default function save( { attributes } ) {
 					</div>
 				</div>
 
-				<div className="agrezer-about-intro__right">
+				<div className="twork-about-intro__right">
 					{ ( tagline || tagIcon ) && (
-						<div className="agrezer-about-intro__tagline">
+						<div className="twork-about-intro__tagline">
 							{ tagIcon && (
 								<img
 									src={ tagIcon }
 									alt={ tagIconAlt || '' }
-									className="agrezer-about-intro__tag-icon"
+									className="twork-about-intro__tag-icon"
 									width="20"
 									height="20"
 									loading="lazy"
@@ -116,45 +116,45 @@ export default function save( { attributes } ) {
 					{ title && (
 						<RichText.Content
 							tagName="h2"
-							className="agrezer-about-intro__title"
+							className="twork-about-intro__title"
 							value={ title }
 						/>
 					) }
 					{ description && (
 						<RichText.Content
 							tagName="p"
-							className="agrezer-about-intro__desc"
+							className="twork-about-intro__desc"
 							value={ description }
 						/>
 					) }
 
-					<div className="agrezer-about-intro__features">
+					<div className="twork-about-intro__features">
 						<InnerBlocks.Content />
 					</div>
 
-					<div className="agrezer-about-intro__author-row">
-						<div className="agrezer-about-intro__author-info">
+					<div className="twork-about-intro__author-row">
+						<div className="twork-about-intro__author-info">
 							{ authorImage && (
 								<img
 									src={ authorImage }
 									alt={ authorImageAlt || '' }
-									className="agrezer-about-intro__author-img"
+									className="twork-about-intro__author-img"
 									loading="lazy"
 									decoding="async"
 								/>
 							) }
-							<div className="agrezer-about-intro__author-text">
+							<div className="twork-about-intro__author-text">
 								{ authorName && (
 									<RichText.Content
 										tagName="h4"
-										className="agrezer-about-intro__author-name"
+										className="twork-about-intro__author-name"
 										value={ authorName }
 									/>
 								) }
 								{ authorRole && (
 									<RichText.Content
 										tagName="span"
-										className="agrezer-about-intro__author-role"
+										className="twork-about-intro__author-role"
 										value={ authorRole }
 									/>
 								) }
@@ -163,7 +163,7 @@ export default function save( { attributes } ) {
 
 						{ signatureText && (
 							<div
-								className="agrezer-about-intro__signature"
+								className="twork-about-intro__signature"
 								style={ {
 									fontFamily: signatureFontFamily,
 									fontSize: `${ signatureFontSize }rem`,

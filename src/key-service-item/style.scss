@@ -1,3 +1,5 @@
+@import "../scss/typography";
+
 // Key Service Item Styles
 // Individual service item within the Key Services Section
 
@@ -33,7 +35,7 @@
             
             // Support both Font Awesome 5 and 6 class formats
             &[class*="fa-"] {
-                font-family: "Font Awesome 6 Free", "Font Awesome 5 Free", "FontAwesome" !important;
+                font-family: $font-icon-solid !important;
             }
             
             // Support solid icons (fas)
@@ -53,13 +55,13 @@
             
             // Support brands (fab)
             &[class*="fab"] {
-                font-family: "Font Awesome 6 Brands", "Font Awesome 5 Brands" !important;
+                font-family: $font-icon-brands !important;
                 font-weight: 400 !important;
             }
             
             // Support old Font Awesome 4 format (fa fa-*)
             &[class*="fa fa-"] {
-                font-family: "FontAwesome" !important;
+                font-family: $font-icon-solid !important;
                 font-weight: normal !important;
             }
         }
@@ -154,7 +156,7 @@
         
         // Support both Font Awesome 5 and 6 class formats
         &[class*="fa-"] {
-            font-family: "Font Awesome 6 Free", "Font Awesome 5 Free", "FontAwesome" !important;
+            font-family: $font-icon-solid !important;
         }
         
         // Support solid icons (fas)
@@ -174,7 +176,7 @@
         
         // Support brands (fab)
         &[class*="fab"] {
-            font-family: "Font Awesome 6 Brands", "Font Awesome 5 Brands" !important;
+            font-family: $font-icon-brands !important;
             font-weight: 400 !important;
         }
     }

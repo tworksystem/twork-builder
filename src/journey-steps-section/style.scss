@@ -1,3 +1,5 @@
+@import "../scss/typography";
+
 // Journey Steps Section – Variables & shared with item
 :root {
     --primary-orange: #f48b2a;
@@ -60,7 +62,7 @@
 
 // === FRONTEND STYLES ===
 .twork-journey-steps-section {
-    font-family: "Roboto", sans-serif;
+    font-family: $font-primary;
     position: relative;
     overflow: hidden;
 

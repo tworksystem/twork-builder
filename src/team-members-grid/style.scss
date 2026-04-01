@@ -1,5 +1,6 @@
+@import "../scss/typography";
+
 // Google Fonts
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;600;700;900&display=swap");
 
 // Variables
 :root {
@@ -91,7 +92,7 @@
 
 // === FRONTEND STYLES ===
 .twork-team-members-section {
-    font-family: "Roboto", sans-serif;
+    font-family: $font-primary;
     position: relative;
     overflow: hidden;
 

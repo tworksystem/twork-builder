@@ -28,7 +28,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'agrezer-team-card',
+			className: 'twork-team-card',
 		} ),
 		[]
 	);
@@ -123,14 +123,14 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 					<img
 						src={ image }
 						alt=""
-						className="agrezer-team-card__img"
+						className="twork-team-card__img"
 					/>
 				) }
 
 				{ isRealLink ? (
 					<a
 						href={ urlTrim }
-						className="agrezer-team-card__action"
+						className="twork-team-card__action"
 						aria-label={ actionAriaLabel || 'View profile' }
 						onClick={ ( e ) => e.preventDefault() }
 					>
@@ -138,17 +138,17 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 					</a>
 				) : (
 					<span
-						className="agrezer-team-card__action agrezer-team-card__action--static"
+						className="twork-team-card__action twork-team-card__action--static"
 						aria-hidden="true"
 					>
 						<span aria-hidden="true">↗</span>
 					</span>
 				) }
 
-				<div className="agrezer-team-card__content">
+				<div className="twork-team-card__content">
 					<RichText
 						tagName="h3"
-						className="agrezer-team-card__name"
+						className="twork-team-card__name"
 						value={ name }
 						onChange={ ( val ) => setAttributes( { name: val } ) }
 						placeholder={ __( 'Name', 'twork-builder' ) }
@@ -157,7 +157,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 					<RichText
 						tagName="p"
-						className="agrezer-team-card__role"
+						className="twork-team-card__role"
 						value={ role }
 						onChange={ ( val ) => setAttributes( { role: val } ) }
 						placeholder={ __( 'Role', 'twork-builder' ) }

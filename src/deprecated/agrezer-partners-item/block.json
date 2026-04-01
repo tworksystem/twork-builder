@@ -1,0 +1,41 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/agrezer-partners-item",
+	"version": "1.0.0",
+	"title": "Agrezer Partner Logo",
+	"category": "twork-builder",
+	"parent": [ "twork/agrezer-partners-section" ],
+	"icon": "admin-users",
+	"description": "Single partner logo and name in the marquee.",
+	"supports": {
+		"html": false,
+		"reusable": false
+	},
+	"attributes": {
+		"image": {
+			"type": "string",
+			"default": ""
+		},
+		"imageId": {
+			"type": "number"
+		},
+		"imageAlt": {
+			"type": "string",
+			"default": ""
+		},
+		"name": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"example": {
+		"attributes": {
+			"name": "NatureNest",
+			"image": "https://images.unsplash.com/photo-1615478503562-ec2d8aa0e24e?auto=format&fit=crop&w=320&q=80",
+			"imageAlt": "NatureNest partner logo"
+		}
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js"
+}

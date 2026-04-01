@@ -1,3 +1,5 @@
+@import "../scss/typography";
+
 // Radiology Stats Strip
 // Matches radiology&imaging.html: .rad-stats, .rad-stats-box, .rad-stat-num, .rad-stat-label
 
@@ -69,7 +71,7 @@
 
 // === FRONTEND STYLES ===
 .twork-rad-stats-section {
-  font-family: 'Roboto', sans-serif;
+  font-family: $font-primary;
   position: relative;
 
   .rad-container {

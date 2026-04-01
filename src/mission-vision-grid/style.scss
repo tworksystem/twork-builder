@@ -1,13 +1,14 @@
+@import "../scss/typography";
+
 // Mission & Vision grid – aligned with services-grid / team-members-grid and about.html design.
 
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;600;700;900&display=swap");
 
 // Editor styles: make the block look like the frontend inside the editor
 // but let the dynamic block attributes control vertical spacing so we don’t
 // get a huge extra top/bottom gap in the editor, and make sure InnerBlocks
 // render in a proper horizontal grid layout.
 .twork-mv-section-editor {
-	font-family: "Roboto", sans-serif;
+	font-family: $font-primary;
 	box-sizing: border-box;
 	width: 100% !important;
 	max-width: 100% !important;
@@ -159,7 +160,7 @@
 
 .twork-mv-section,
 .twork-mv-section-editor {
-	font-family: "Roboto", sans-serif;
+	font-family: $font-primary;
 	background: var(--light-grey-bg);
 
 	.jivaka-container {

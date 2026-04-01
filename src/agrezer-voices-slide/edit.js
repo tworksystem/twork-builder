@@ -19,7 +19,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'agrezer-voices-section__slide',
+			className: 'twork-voices-section__slide',
 		} ),
 		[]
 	);
@@ -76,14 +76,14 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 			<article { ...blockProps }>
 				<RichText
 					tagName="p"
-					className="agrezer-voices-section__quote"
+					className="twork-voices-section__quote"
 					value={ quote }
 					onChange={ ( val ) => setAttributes( { quote: val } ) }
 					placeholder={ __( 'Quote…', 'twork-builder' ) }
 				/>
 
-				<div className="agrezer-voices-section__author-row">
-					<div className="agrezer-voices-section__author">
+				<div className="twork-voices-section__author-row">
+					<div className="twork-voices-section__author">
 						{ ! authorImage ? (
 							<MediaPlaceholder
 								icon="format-image"
@@ -104,13 +104,13 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 							<img
 								src={ authorImage }
 								alt=""
-								className="agrezer-voices-section__author-img"
+								className="twork-voices-section__author-img"
 							/>
 						) }
 						<div>
 							<RichText
 								tagName="h4"
-								className="agrezer-voices-section__author-name"
+								className="twork-voices-section__author-name"
 								value={ authorName }
 								onChange={ ( val ) =>
 									setAttributes( { authorName: val } )
@@ -121,7 +121,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 							<RichText
 								tagName="p"
-								className="agrezer-voices-section__author-role"
+								className="twork-voices-section__author-role"
 								value={ authorRole }
 								onChange={ ( val ) =>
 									setAttributes( { authorRole: val } )
@@ -132,7 +132,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 						</div>
 					</div>
 					<span
-						className="agrezer-voices-section__quote-mark"
+						className="twork-voices-section__quote-mark"
 						aria-hidden="true"
 					>
 						{ quoteMark || '❝' }

@@ -1,0 +1,126 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/agrezer-page-header-section",
+	"version": "1.0.0",
+	"title": "Agrezer Page Header",
+	"category": "twork-builder",
+	"icon": "heading",
+	"description": "Inner page hero with background, title, breadcrumb trail, and optional graphic.",
+	"keywords": [
+		"breadcrumb",
+		"header",
+		"banner",
+		"agrezer",
+		"title",
+		"twork"
+	],
+	"supports": {
+		"html": false,
+		"align": [ "full", "wide" ],
+		"anchor": true
+	},
+	"attributes": {
+		"title": {
+			"type": "string",
+			"default": "About Us"
+		},
+		"backgroundImage": {
+			"type": "string",
+			"default": ""
+		},
+		"backgroundImageId": {
+			"type": "number"
+		},
+		"backgroundPosition": {
+			"type": "string",
+			"default": "center center"
+		},
+		"overlayColor": {
+			"type": "string",
+			"default": "rgba(12, 38, 20, 0.85)"
+		},
+		"graphicImage": {
+			"type": "string",
+			"default": ""
+		},
+		"graphicImageId": {
+			"type": "number"
+		},
+		"graphicAlt": {
+			"type": "string",
+			"default": ""
+		},
+		"graphicMaxWidth": {
+			"type": "number",
+			"default": 420
+		},
+		"breadcrumbs": {
+			"type": "array",
+			"default": [
+				{ "label": "Home", "url": "/" },
+				{ "label": "About Us", "url": "" }
+			]
+		},
+		"separatorChar": {
+			"type": "string",
+			"default": "•"
+		},
+		"containerMaxWidth": {
+			"type": "number",
+			"default": 1200
+		},
+		"containerWidthPct": {
+			"type": "number",
+			"default": 90
+		},
+		"paddingTop": {
+			"type": "number",
+			"default": 180
+		},
+		"paddingBottom": {
+			"type": "number",
+			"default": 100
+		},
+		"containerMinHeight": {
+			"type": "number",
+			"default": 180
+		},
+		"enableTractorAnimation": {
+			"type": "boolean",
+			"default": true
+		},
+		"fallbackBgColor": {
+			"type": "string",
+			"default": "#0c2614"
+		}
+	},
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": {
+			"title": "About Our Farm",
+			"backgroundImage": "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=2000&q=80",
+			"backgroundPosition": "center center",
+			"overlayColor": "rgba(12, 38, 20, 0.82)",
+			"graphicImage": "https://images.unsplash.com/photo-1592982537447-7440770cbfc9?auto=format&fit=crop&w=800&q=80",
+			"graphicAlt": "Tractor illustration",
+			"graphicMaxWidth": 380,
+			"breadcrumbs": [
+				{ "label": "Home", "url": "/" },
+				{ "label": "About", "url": "/about/" },
+				{ "label": "Our Farm", "url": "" }
+			],
+			"separatorChar": "•",
+			"containerMaxWidth": 1200,
+			"containerWidthPct": 90,
+			"paddingTop": 160,
+			"paddingBottom": 88,
+			"containerMinHeight": 180,
+			"enableTractorAnimation": true,
+			"fallbackBgColor": "#0c2614"
+		}
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
+}

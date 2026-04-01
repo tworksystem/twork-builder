@@ -1,10 +1,10 @@
 /**
  * Hero feature cards — reference layout (my-avocado _hero-feature).
  */
-$agrezer-hero-green-primary: #314d22;
-$agrezer-hero-green-light: #8fbd45;
+$twork-hero-green-primary: #314d22;
+$twork-hero-green-light: #8fbd45;
 
-.agrezer-hero__features-wrapper .agrezer-hero-feature {
+.twork-hero__features-wrapper .twork-hero-feature {
 	flex: 0 0 auto;
 	display: flex;
 	flex-direction: column;
@@ -12,18 +12,18 @@ $agrezer-hero-green-light: #8fbd45;
 	text-align: center;
 }
 
-.agrezer-hero-feature:nth-child(2) {
+.twork-hero-feature:nth-child(2) {
 	transform: translateY(-20px);
 }
 
-.agrezer-hero-feature__badge {
+.twork-hero-feature__badge {
 	width: 72px;
 	height: 72px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	background: $agrezer-hero-green-light;
-	color: $agrezer-hero-green-primary;
+	background: $twork-hero-green-light;
+	color: $twork-hero-green-primary;
 	clip-path: polygon(
 		50% 0%,
 		60% 10%,
@@ -51,13 +51,13 @@ $agrezer-hero-green-light: #8fbd45;
 		0 12px 26px rgba(0, 0, 0, 0.32);
 }
 
-.agrezer-hero-feature__badge svg {
+.twork-hero-feature__badge svg {
 	display: block;
 	width: 32px;
 	height: 32px;
 }
 
-.agrezer-hero-feature__title {
+.twork-hero-feature__title {
 	margin: 14px 0 0;
 	color: #ffffff;
 	font-size: 1.05rem;
@@ -70,16 +70,16 @@ $agrezer-hero-green-light: #8fbd45;
 }
 
 @media (max-width: 1000px) {
-	.agrezer-hero-feature:nth-child(2) {
+	.twork-hero-feature:nth-child(2) {
 		transform: translateY(-10px);
 	}
 
-	.agrezer-hero-feature__badge {
+	.twork-hero-feature__badge {
 		width: 62px;
 		height: 62px;
 	}
 
-	.agrezer-hero-feature__title {
+	.twork-hero-feature__title {
 		font-size: 0.95rem;
 		margin-top: 12px;
 	}

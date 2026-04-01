@@ -1,15 +1,15 @@
-.twork-agrezer-partners-section-editor .agrezer-partners__track {
+.twork-partners-section-editor .twork-partners__track {
 	animation: none;
 }
 
-.twork-agrezer-partners-section-editor .agrezer-partners__track .block-editor-block-list__layout {
+.twork-partners-section-editor .twork-partners__track .block-editor-block-list__layout {
 	display: flex;
 	flex-direction: row;
 	flex-wrap: nowrap;
 	align-items: center;
-	gap: var(--agrezer-partners-gap, 4rem);
+	gap: var(--twork-partners-gap, 4rem);
 }
 
-.twork-agrezer-partners-section-editor .agrezer-partners__track .block-list-appender {
+.twork-partners-section-editor .twork-partners__track .block-list-appender {
 	flex: 0 0 auto;
 }

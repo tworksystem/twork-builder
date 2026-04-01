@@ -1,0 +1,149 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/agrezer-third-section",
+	"version": "1.0.0",
+	"title": "Agrezer Third Section",
+	"category": "twork-builder",
+	"icon": "layout",
+	"description": "Intro row with CTA plus three stat image cards (Agrezer layout).",
+	"keywords": [ "stats", "cards", "cta", "agrezer", "farm", "twork" ],
+	"supports": {
+		"html": false,
+		"align": [ "wide", "full" ],
+		"anchor": true
+	},
+	"attributes": {
+		"backgroundColor": {
+			"type": "string",
+			"default": "#f4f4f0"
+		},
+		"paddingTop": {
+			"type": "number",
+			"default": 110
+		},
+		"paddingBottom": {
+			"type": "number",
+			"default": 120
+		},
+		"containerMaxWidth": {
+			"type": "number",
+			"default": 1200
+		},
+		"containerWidthPct": {
+			"type": "number",
+			"default": 90
+		},
+		"topGridGap": {
+			"type": "number",
+			"default": 48
+		},
+		"topMarginBottom": {
+			"type": "number",
+			"default": 46
+		},
+		"cardsGap": {
+			"type": "number",
+			"default": 22
+		},
+		"cardsMarginTop": {
+			"type": "number",
+			"default": 80
+		},
+		"tagIcon": {
+			"type": "string",
+			"default": ""
+		},
+		"tagIconId": {
+			"type": "number"
+		},
+		"tagIconAlt": {
+			"type": "string",
+			"default": ""
+		},
+		"tagline": {
+			"type": "string",
+			"default": "Farm Solutions"
+		},
+		"title": {
+			"type": "string",
+			"default": "Experience the Best of<br>Nature, Curated for You"
+		},
+		"description": {
+			"type": "string",
+			"default": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled."
+		},
+		"ctaText": {
+			"type": "string",
+			"default": "Get In Touch"
+		},
+		"ctaUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"ctaOpenInNewTab": {
+			"type": "boolean",
+			"default": false
+		},
+		"showCta": {
+			"type": "boolean",
+			"default": true
+		}
+	},
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": {
+			"backgroundColor": "#f4f4f0",
+			"paddingTop": 110,
+			"paddingBottom": 120,
+			"containerMaxWidth": 1200,
+			"containerWidthPct": 90,
+			"topGridGap": 48,
+			"topMarginBottom": 46,
+			"cardsGap": 22,
+			"cardsMarginTop": 80,
+			"tagline": "Farm Solutions",
+			"title": "Experience the Best of<br>Nature, Curated for You",
+			"description": "From soil health programs to harvest logistics, we help growers and buyers move product with confidence.",
+			"ctaText": "Get In Touch",
+			"ctaUrl": "#",
+			"ctaOpenInNewTab": false,
+			"showCta": true
+		},
+		"innerBlocks": [
+			{
+				"name": "twork/agrezer-third-section-card",
+				"attributes": {
+					"cardAlign": "left",
+					"image": "https://images.unsplash.com/photo-1631368647931-4f3ec6d1df92?auto=format&fit=crop&w=1000&q=80",
+					"imageAlt": "Corn harvest",
+					"stat": "80%",
+					"label": "Efficiency"
+				}
+			},
+			{
+				"name": "twork/agrezer-third-section-card",
+				"attributes": {
+					"cardAlign": "center",
+					"image": "https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=1000&q=80",
+					"imageAlt": "Grain texture",
+					"stat": "98%",
+					"label": "Increase in Yields"
+				}
+			},
+			{
+				"name": "twork/agrezer-third-section-card",
+				"attributes": {
+					"cardAlign": "right",
+					"image": "https://images.unsplash.com/photo-1471193945509-9ad0617afabf?auto=format&fit=crop&w=1000&q=80",
+					"imageAlt": "Growing corn",
+					"stat": "50%",
+					"label": "Farm Growth"
+				}
+			}
+		]
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
+}

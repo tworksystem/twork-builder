@@ -1,13 +1,15 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "twork/agrezer-why-choose-point-item",
+	"name": "twork/benefit-point",
 	"version": "1.0.0",
-	"title": "Agrezer Why Choose — Point",
+	"title": "Benefit Point",
 	"category": "twork-builder",
-	"parent": [ "twork/agrezer-why-choose-section" ],
+	"parent": [
+		"twork/benefits-section"
+	],
 	"icon": "marker",
-	"description": "Numbered point on the why-choose stage (position 1–5).",
+	"description": "Numbered point item positioned on a stage.",
 	"supports": {
 		"html": false,
 		"reusable": false

@@ -1,6 +1,6 @@
 export function GreenerStatIcon( { variant = 'growth' } ) {
 	const common = {
-		className: 'agrezer-greener-stat__icon',
+		className: 'twork-greener-stat__icon',
 		viewBox: '0 0 24 24',
 		fill: 'none',
 		xmlns: 'http://www.w3.org/2000/svg',

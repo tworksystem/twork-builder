@@ -1,10 +1,10 @@
 import { useStableBlockProps } from '@twork-builder/editor-utils';
 import { InnerBlocks } from '@wordpress/block-editor';
 
-const ALLOWED_BLOCKS = [ 'twork/agrezer-greener-stat-item' ];
+const ALLOWED_BLOCKS = [ 'twork/stat-item' ];
 const TEMPLATE = [
 	[
-		'twork/agrezer-greener-stat-item',
+		'twork/stat-item',
 		{
 			iconVariant: 'growth',
 			title: '80% Pure Growth',
@@ -14,7 +14,7 @@ const TEMPLATE = [
 	],
 
 	[
-		'twork/agrezer-greener-stat-item',
+		'twork/stat-item',
 		{
 			iconVariant: 'organic',
 			title: '95% Organic Roots',
@@ -28,7 +28,7 @@ export default function Edit() {
 	const blockProps = useStableBlockProps(
 		() => ( {
 			className:
-				'agrezer-greener__stats twork-agrezer-greener-stats-row-editor',
+				'twork-greener__stats twork-greener-stats-row-editor',
 		} ),
 		[]
 	);

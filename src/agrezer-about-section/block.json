@@ -1,16 +1,24 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "twork/agrezer-about-section",
+	"name": "twork/info-section",
 	"version": "1.0.0",
-	"title": "Agrezer About Section",
+	"title": "Info Section",
 	"category": "twork-builder",
 	"icon": "info-outline",
-	"description": "About section with feature grid and image cards (Agrezer layout).",
-	"keywords": [ "about", "agriculture", "features", "agrezer", "twork" ],
+	"description": "Section with heading and nested content blocks.",
+	"keywords": [
+		"about",
+		"agriculture",
+		"features",
+		"twork"
+	],
 	"supports": {
 		"html": false,
-		"align": [ "wide", "full" ]
+		"align": [
+			"wide",
+			"full"
+		]
 	},
 	"attributes": {
 		"backgroundColor": {
@@ -85,10 +93,10 @@
 		},
 		"innerBlocks": [
 			{
-				"name": "twork/agrezer-about-features-grid",
+				"name": "twork/features-grid",
 				"innerBlocks": [
 					{
-						"name": "twork/agrezer-about-feature-item",
+						"name": "twork/feature-item",
 						"attributes": {
 							"title": "Farm Development",
 							"description": "End-to-end planning for irrigation, drainage, and field layout tailored to your soil profile.",
@@ -96,7 +104,7 @@
 						}
 					},
 					{
-						"name": "twork/agrezer-about-feature-item",
+						"name": "twork/feature-item",
 						"attributes": {
 							"title": "Crop Management",
 							"description": "Seasonal scouting, integrated pest management, and data-backed input recommendations.",
@@ -104,7 +112,7 @@
 						}
 					},
 					{
-						"name": "twork/agrezer-about-feature-item",
+						"name": "twork/feature-item",
 						"attributes": {
 							"title": "Soil Restoration",
 							"description": "Cover crops, compost programs, and carbon-smart practices that rebuild organic matter.",
@@ -112,7 +120,7 @@
 						}
 					},
 					{
-						"name": "twork/agrezer-about-feature-item",
+						"name": "twork/feature-item",
 						"attributes": {
 							"title": "Organic Cultivation",
 							"description": "Certification-ready workflows from seed selection through harvest and cold storage.",
@@ -122,10 +130,10 @@
 				]
 			},
 			{
-				"name": "twork/agrezer-about-images-grid",
+				"name": "twork/images-grid",
 				"innerBlocks": [
 					{
-						"name": "twork/agrezer-about-image-card",
+						"name": "twork/image-card",
 						"attributes": {
 							"variant": "simple",
 							"image": "https://images.unsplash.com/photo-1592982537447-7440770cbfc9?auto=format&fit=crop&w=1400&q=80",
@@ -133,7 +141,7 @@
 						}
 					},
 					{
-						"name": "twork/agrezer-about-image-card",
+						"name": "twork/image-card",
 						"attributes": {
 							"variant": "overlay",
 							"image": "https://images.unsplash.com/photo-1472653431158-6364773b2a56?auto=format&fit=crop&w=1400&q=80",

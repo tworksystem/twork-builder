@@ -2,14 +2,14 @@ import { useStableBlockProps } from '@twork-builder/editor-utils';
 import { InnerBlocks } from '@wordpress/block-editor';
 
 const ALLOWED_BLOCKS = [
-	'twork/agrezer-stats-cta',
-	'twork/agrezer-stats-card',
+	'twork/cta-block',
+	'twork/stat-card',
 ];
 
 export default function Edit() {
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'agrezer-stats__col twork-agrezer-stats-column-editor',
+			className: 'twork-stats__col twork-stats-column-editor',
 		} ),
 		[]
 	);

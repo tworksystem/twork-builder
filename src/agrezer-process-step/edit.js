@@ -21,7 +21,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: `agrezer-process__step agrezer-process__step--${ position }`,
+			className: `twork-process__step twork-process__step--${ position }`,
 		} ),
 		[ position ]
 	);
@@ -94,16 +94,16 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 			) }
 
 			<div { ...blockProps }>
-				<div className="agrezer-process__badge-wrapper">
-					<div className="agrezer-process__badge">
-						<span className="agrezer-process__badge-num">
+				<div className="twork-process__badge-wrapper">
+					<div className="twork-process__badge">
+						<span className="twork-process__badge-num">
 							{ badgeNum }
 						</span>
 					</div>
 				</div>
 				<RichText
 					tagName="h3"
-					className="agrezer-process__step-title"
+					className="twork-process__step-title"
 					value={ stepTitle }
 					onChange={ ( val ) => setAttributes( { stepTitle: val } ) }
 					placeholder={ __( 'Step title', 'twork-builder' ) }
@@ -111,14 +111,14 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 				<RichText
 					tagName="p"
-					className="agrezer-process__step-text"
+					className="twork-process__step-text"
 					value={ stepText }
 					onChange={ ( val ) => setAttributes( { stepText: val } ) }
 					placeholder={ __( 'Description…', 'twork-builder' ) }
 				/>
 
 				{ showCta && (
-					<div className="agrezer-process__btn agrezer-process__btn--editor">
+					<div className="twork-process__btn twork-process__btn--editor">
 						<RichText
 							tagName="span"
 							value={ ctaText }

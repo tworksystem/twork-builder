@@ -1,0 +1,38 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/agrezer-why-choose-point-item",
+	"version": "1.0.0",
+	"title": "Agrezer Why Choose — Point",
+	"category": "twork-builder",
+	"parent": [ "twork/agrezer-why-choose-section" ],
+	"icon": "marker",
+	"description": "Numbered point on the why-choose stage (position 1–5).",
+	"supports": {
+		"html": false,
+		"reusable": false
+	},
+	"attributes": {
+		"slot": {
+			"type": "number",
+			"default": 1
+		},
+		"badgeText": {
+			"type": "string",
+			"default": "01"
+		},
+		"pointText": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"example": {
+		"attributes": {
+			"slot": 1,
+			"badgeText": "01",
+			"pointText": "Health From the Earth — nutrient-rich soil and transparent sourcing."
+		}
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js"
+}

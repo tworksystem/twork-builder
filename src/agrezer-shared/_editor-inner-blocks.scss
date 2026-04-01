@@ -1,9 +1,9 @@
 /**
  * Shared helpers for Agrezer blocks: InnerBlocks list layout in Gutenberg.
- * Import from block editor.scss: @import "../agrezer-shared/editor-inner-blocks";
+ * Import from block editor.scss: @import "../twork-shared/editor-inner-blocks";
  */
 
-@mixin agrezer-editor-inner-grid($template-columns, $gap: 2rem, $align: start) {
+@mixin twork-editor-inner-grid($template-columns, $gap: 2rem, $align: start) {
 	.block-editor-inner-blocks {
 		width: 100%;
 		min-width: 0;
@@ -22,7 +22,7 @@
 	}
 }
 
-@mixin agrezer-editor-inner-flex-column($gap: 1.5rem) {
+@mixin twork-editor-inner-flex-column($gap: 1.5rem) {
 	.block-editor-inner-blocks > .block-editor-block-list__layout {
 		display: flex !important;
 		flex-direction: column;
@@ -30,7 +30,7 @@
 	}
 }
 
-@mixin agrezer-editor-inner-flex-row($gap: 2rem) {
+@mixin twork-editor-inner-flex-row($gap: 2rem) {
 	.block-editor-inner-blocks > .block-editor-block-list__layout {
 		display: flex !important;
 		flex-direction: row;

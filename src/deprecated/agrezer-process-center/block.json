@@ -1,0 +1,41 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/agrezer-process-center",
+	"version": "1.0.0",
+	"title": "Agrezer Process — Center Image",
+	"category": "twork-builder",
+	"parent": [ "twork/agrezer-process-section" ],
+	"icon": "format-image",
+	"description": "Center column image for the process section.",
+	"supports": {
+		"html": false,
+		"reusable": false
+	},
+	"attributes": {
+		"image": {
+			"type": "string",
+			"default": ""
+		},
+		"imageId": {
+			"type": "number"
+		},
+		"alt": {
+			"type": "string",
+			"default": "Process Wheel"
+		},
+		"maxWidth": {
+			"type": "number",
+			"default": 560
+		}
+	},
+	"example": {
+		"attributes": {
+			"image": "https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&w=900&q=80",
+			"alt": "Hands holding soil and seedlings",
+			"maxWidth": 520
+		}
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js"
+}

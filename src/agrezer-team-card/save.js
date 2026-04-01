@@ -15,7 +15,7 @@ export default function save( { attributes } ) {
 	const hasLink = url !== '';
 
 	const blockProps = useBlockProps.save( {
-		className: 'agrezer-team-card',
+		className: 'twork-team-card',
 	} );
 
 	const actionInner = <span aria-hidden="true">↗</span>;
@@ -26,7 +26,7 @@ export default function save( { attributes } ) {
 				<img
 					src={ image }
 					alt={ imageAlt || '' }
-					className="agrezer-team-card__img"
+					className="twork-team-card__img"
 					loading="lazy"
 					decoding="async"
 				/>
@@ -34,7 +34,7 @@ export default function save( { attributes } ) {
 			{ hasLink ? (
 				<a
 					href={ url }
-					className="agrezer-team-card__action"
+					className="twork-team-card__action"
 					aria-label={ actionAriaLabel || 'View profile' }
 					{ ...( profileOpenInNewTab
 						? { target: '_blank', rel: 'noopener noreferrer' }
@@ -44,24 +44,24 @@ export default function save( { attributes } ) {
 				</a>
 			) : (
 				<span
-					className="agrezer-team-card__action agrezer-team-card__action--static"
+					className="twork-team-card__action twork-team-card__action--static"
 					aria-hidden="true"
 				>
 					{ actionInner }
 				</span>
 			) }
-			<div className="agrezer-team-card__content">
+			<div className="twork-team-card__content">
 				{ name && (
 					<RichText.Content
 						tagName="h3"
-						className="agrezer-team-card__name"
+						className="twork-team-card__name"
 						value={ name }
 					/>
 				) }
 				{ role && (
 					<RichText.Content
 						tagName="p"
-						className="agrezer-team-card__role"
+						className="twork-team-card__role"
 						value={ role }
 					/>
 				) }

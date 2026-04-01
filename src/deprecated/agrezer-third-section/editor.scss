@@ -1,0 +1,22 @@
+.twork-agrezer-third-section-editor .agrezer-third-section__cards--editor .block-editor-block-list__layout {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: var(--agrezer-third-cards-gap, 22px);
+}
+
+@media (max-width: 992px) {
+	.twork-agrezer-third-section-editor .agrezer-third-section__cards--editor .block-editor-block-list__layout {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media (max-width: 640px) {
+	.twork-agrezer-third-section-editor .agrezer-third-section__cards--editor .block-editor-block-list__layout {
+		grid-template-columns: 1fr;
+	}
+}
+
+.twork-agrezer-third-section-editor .agrezer-third-section__card .components-placeholder {
+	min-height: 280px;
+	margin: 0;
+}

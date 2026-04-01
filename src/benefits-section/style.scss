@@ -1,3 +1,5 @@
+@import "../scss/typography";
+
 // Benefits Section
 // career.html "Why Choose Jivaka?" – section-header, benefits-grid, benefit-card
 
@@ -35,7 +37,7 @@
 
 // === FRONTEND STYLES ===
 .twork-benefits-section {
-    font-family: "Roboto", sans-serif;
+    font-family: $font-primary;
     position: relative;
     background: var(--light-grey-bg);
 

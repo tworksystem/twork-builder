@@ -10,7 +10,7 @@ import { PanelBody, TextControl, Button } from '@wordpress/components';
 export default function Edit( { attributes, setAttributes, isSelected } ) {
 	const { image, alt, title, linkText, linkUrl } = attributes;
 	const blockProps = useStableBlockProps(
-		() => ( { className: 'agrezer-greener-card' } ),
+		() => ( { className: 'twork-greener-card' } ),
 		[]
 	);
 
@@ -60,12 +60,12 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 				) : (
 					<>
 						<img
-							className="agrezer-greener-card__img"
+							className="twork-greener-card__img"
 							src={ image }
 							alt=""
 						/>
 
-						<div className="agrezer-greener-card__editor-tools">
+						<div className="twork-greener-card__editor-tools">
 							<Button
 								isSecondary
 								isSmall
@@ -83,13 +83,13 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 				) }
 				<RichText
 					tagName="h4"
-					className="agrezer-greener-card__title"
+					className="twork-greener-card__title"
 					value={ title }
 					onChange={ ( val ) => setAttributes( { title: val } ) }
 					placeholder={ __( 'Card title', 'twork-builder' ) }
 				/>
 
-				<div className="agrezer-greener-card__link agrezer-greener-card__link--editor">
+				<div className="twork-greener-card__link twork-greener-card__link--editor">
 					<RichText
 						tagName="span"
 						value={ linkText }

@@ -1,0 +1,109 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/agrezer-contact-cards",
+	"version": "1.0.0",
+	"title": "Agrezer Contact Cards",
+	"category": "twork-builder",
+	"icon": "phone",
+	"description": "Three-column contact info cards with icon, title, subtitle, and link or plain text (Agrezer UI).",
+	"keywords": [ "contact", "phone", "email", "address", "agrezer", "twork" ],
+	"attributes": {
+		"backgroundColor": {
+			"type": "string",
+			"default": "#f6f6f6"
+		},
+		"paddingTop": {
+			"type": "number",
+			"default": 78
+		},
+		"paddingBottom": {
+			"type": "number",
+			"default": 88
+		},
+		"containerMaxWidth": {
+			"type": "number",
+			"default": 1200
+		},
+		"containerPadding": {
+			"type": "number",
+			"default": 0
+		},
+		"columns": {
+			"type": "number",
+			"default": 3
+		},
+		"columnsTablet": {
+			"type": "number",
+			"default": 1
+		},
+		"gap": {
+			"type": "number",
+			"default": 24
+		},
+		"iconWrapBgColor": {
+			"type": "string",
+			"default": "#8bcf33"
+		}
+	},
+	"example": {
+		"viewportWidth": 1100,
+		"attributes": {
+			"backgroundColor": "#f6f6f6",
+			"paddingTop": 78,
+			"paddingBottom": 88,
+			"containerMaxWidth": 1200,
+			"containerPadding": 0,
+			"columns": 3,
+			"columnsTablet": 1,
+			"gap": 24,
+			"iconWrapBgColor": "#8bcf33"
+		},
+		"innerBlocks": [
+			{
+				"name": "twork/agrezer-contact-card-item",
+				"attributes": {
+					"title": "Mobile",
+					"subtitle": "Free Dial Number",
+					"contentType": "link",
+					"linkUrl": "tel:+15284567592",
+					"linkText": "✆ + (528) 456-7592",
+					"plainText": "",
+					"cardBgColor": "#eeebe8"
+				}
+			},
+			{
+				"name": "twork/agrezer-contact-card-item",
+				"attributes": {
+					"title": "Email",
+					"subtitle": "Feel Free to Mail",
+					"contentType": "link",
+					"linkUrl": "mailto:info@agrezen.com",
+					"linkText": "✉ info@agrezen.com",
+					"plainText": "",
+					"cardBgColor": "#eeebe8"
+				}
+			},
+			{
+				"name": "twork/agrezer-contact-card-item",
+				"attributes": {
+					"title": "Address",
+					"subtitle": "Our Farm Address",
+					"contentType": "text",
+					"linkUrl": "",
+					"linkText": "",
+					"plainText": "132, Tic St, Kingston, NY, USA",
+					"cardBgColor": "#eeebe8"
+				}
+			}
+		]
+	},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"align": [ "wide", "full" ]
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
+}

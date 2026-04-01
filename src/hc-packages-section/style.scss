@@ -1,3 +1,5 @@
+@import "../scss/typography";
+
 // Home Care Packages Section – "Care Packages" header + grid of cards
 // Matches home-care.html: .hc-section, .hc-container, .hc-header, .hc-pkg-grid, .hc-pkg-card, .hc-pkg-head, .hc-pkg-body, .hc-pkg-list, .hc-price, .hc-btn
 
@@ -185,7 +187,7 @@
 
 // === FRONTEND STYLES ===
 .twork-hc-packages-section {
-    font-family: "Roboto", sans-serif;
+    font-family: $font-primary;
 
     .hc-container {
         max-width: 1200px;

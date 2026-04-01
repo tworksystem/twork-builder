@@ -33,7 +33,7 @@
 		if ( mount ) {
 			clearMount( mount );
 			var tmpl = slides[ i ].querySelector(
-				'template.agrezer-testimonials__author-template'
+				'template.twork-testimonials__author-template'
 			);
 			if ( tmpl && tmpl.content ) {
 				mount.appendChild( tmpl.content.cloneNode( true ) );
@@ -41,10 +41,10 @@
 		}
 
 		var prev = section.querySelector(
-			'.agrezer-testimonials__control-btn--prev'
+			'.twork-testimonials__control-btn--prev'
 		);
 		var next = section.querySelector(
-			'.agrezer-testimonials__control-btn--next'
+			'.twork-testimonials__control-btn--next'
 		);
 		if ( prev && next && ! loop ) {
 			prev.disabled = i === 0;
@@ -59,21 +59,21 @@
 		if ( section.getAttribute( 'data-carousel-init' ) === '1' ) {
 			return;
 		}
-		var track = section.querySelector( '.agrezer-testimonials__slides' );
+		var track = section.querySelector( '.twork-testimonials__slides' );
 		if ( ! track ) {
 			return;
 		}
 
 		var slides = qsa(
 			track,
-			'.wp-block-twork-agrezer-testimonial-slide, .agrezer-testimonials__slide'
+			'.wp-block-twork-testimonial-slide, .twork-testimonials__slide'
 		);
 		if ( slides.length === 0 ) {
 			return;
 		}
 
 		var mount = section.querySelector(
-			'.agrezer-testimonials__author-mount'
+			'.twork-testimonials__author-mount'
 		);
 		var loop = section.getAttribute( 'data-carousel-loop' ) !== 'false';
 		var index = 0;
@@ -84,10 +84,10 @@
 		activate( section, slides, index, mount, loop );
 
 		var prevBtn = section.querySelector(
-			'.agrezer-testimonials__control-btn--prev'
+			'.twork-testimonials__control-btn--prev'
 		);
 		var nextBtn = section.querySelector(
-			'.agrezer-testimonials__control-btn--next'
+			'.twork-testimonials__control-btn--next'
 		);
 
 		function go( delta ) {
@@ -129,7 +129,7 @@
 	function init() {
 		document
 			.querySelectorAll(
-				'.twork-agrezer-testimonials-section.agrezer-testimonials'
+				'.twork-testimonials-section.twork-testimonials'
 			)
 			.forEach( initSection );
 	}

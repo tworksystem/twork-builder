@@ -1,0 +1,58 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/agrezer-process-step",
+	"version": "1.0.0",
+	"title": "Agrezer Process — Step",
+	"category": "twork-builder",
+	"parent": [ "twork/agrezer-process-section" ],
+	"icon": "editor-ol",
+	"description": "Left or right process step with badge, copy, and optional CTA.",
+	"supports": {
+		"html": false,
+		"reusable": false
+	},
+	"attributes": {
+		"position": {
+			"type": "string",
+			"default": "left"
+		},
+		"badgeNum": {
+			"type": "string",
+			"default": "01"
+		},
+		"stepTitle": {
+			"type": "string",
+			"default": ""
+		},
+		"stepText": {
+			"type": "string",
+			"default": ""
+		},
+		"showCta": {
+			"type": "boolean",
+			"default": true
+		},
+		"ctaText": {
+			"type": "string",
+			"default": "More Details"
+		},
+		"ctaUrl": {
+			"type": "string",
+			"default": "#"
+		}
+	},
+	"example": {
+		"attributes": {
+			"position": "left",
+			"badgeNum": "01",
+			"stepTitle": "Data-Driven Agriculture",
+			"stepText": "Soil maps, weather data, and scouting apps align every pass across the field.",
+			"showCta": true,
+			"ctaText": "More Details",
+			"ctaUrl": "#"
+		}
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js"
+}

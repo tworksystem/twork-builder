@@ -15,12 +15,12 @@ import {
 	Button,
 } from '@wordpress/components';
 
-const ALLOWED_BLOCKS = [ 'twork/agrezer-about-intro-feature' ];
+const ALLOWED_BLOCKS = [ 'twork/intro-feature' ];
 const TEMPLATE = [
-	[ 'twork/agrezer-about-intro-feature', { label: 'World Class Services' } ],
-	[ 'twork/agrezer-about-intro-feature', { label: 'Fresh Organic Foods' } ],
-	[ 'twork/agrezer-about-intro-feature', { label: '100% Quality Foods' } ],
-	[ 'twork/agrezer-about-intro-feature', { label: 'Professional Farmers' } ],
+	[ 'twork/intro-feature', { label: 'World Class Services' } ],
+	[ 'twork/intro-feature', { label: 'Fresh Organic Foods' } ],
+	[ 'twork/intro-feature', { label: '100% Quality Foods' } ],
+	[ 'twork/intro-feature', { label: 'Professional Farmers' } ],
 ];
 
 export default function Edit( { attributes, setAttributes, isSelected } ) {
@@ -64,14 +64,14 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 	const blockProps = useStableBlockProps(
 		() => ( {
 			className:
-				'agrezer-about-intro twork-agrezer-about-intro-section-editor',
+				'twork-about-intro twork-about-intro-section-editor',
 			style: {
 				backgroundColor,
 				paddingTop: `${ paddingTop }px`,
 				paddingBottom: `${ paddingBottom }px`,
-				'--agrezer-about-intro-max': `${ containerMaxWidth }px`,
-				'--agrezer-about-intro-width-pct': `${ containerWidthPct }%`,
-				'--agrezer-about-intro-gap': `${ columnGap }px`,
+				'--twork-about-intro-max': `${ containerMaxWidth }px`,
+				'--twork-about-intro-width-pct': `${ containerWidthPct }%`,
+				'--twork-about-intro-gap': `${ columnGap }px`,
 			},
 			'data-badge-spin': enableBadgeSpin ? 'true' : 'false',
 		} ),
@@ -146,7 +146,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 							'mainImageId',
 							'mainImageAlt',
 							__( 'Main photo', 'twork-builder' ),
-							'agrezer-about-intro__img-main'
+							'twork-about-intro__img-main'
 						) }
 						<TextControl
 							label={ __(
@@ -164,7 +164,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 							'subImageId',
 							'subImageAlt',
 							__( 'Overlapping square', 'twork-builder' ),
-							'agrezer-about-intro__img-sub'
+							'twork-about-intro__img-sub'
 						) }
 						<ToggleControl
 							label={ __( 'Show yellow shape', 'twork-builder' ) }
@@ -215,7 +215,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 									'badgeImageId',
 									'badgeImageAlt',
 									__( 'Badge graphic', 'twork-builder' ),
-									'agrezer-about-intro__badge-img'
+									'twork-about-intro__badge-img'
 								) }
 								<ToggleControl
 									label={ __(
@@ -269,7 +269,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 								<img
 									src={ tagIcon }
 									alt=""
-									className="agrezer-about-intro__tag-icon"
+									className="twork-about-intro__tag-icon"
 								/>
 
 								<Button
@@ -305,7 +305,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 							'authorImageId',
 							'authorImageAlt',
 							__( 'Author headshot', 'twork-builder' ),
-							'agrezer-about-intro__author-img'
+							'twork-about-intro__author-img'
 						) }
 					</PanelBody>
 
@@ -430,12 +430,12 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 			) }
 
 			<section { ...blockProps }>
-				<div className="agrezer-about-intro__container">
-					<div className="agrezer-about-intro__left">
-						<div className="agrezer-about-intro__images-wrapper">
+				<div className="twork-about-intro__container">
+					<div className="twork-about-intro__left">
+						<div className="twork-about-intro__images-wrapper">
 							{ showShape && (
 								<div
-									className="agrezer-about-intro__shape"
+									className="twork-about-intro__shape"
 									style={ { backgroundColor: shapeColor } }
 								/>
 							) }
@@ -443,10 +443,10 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 								<img
 									src={ mainImage }
 									alt=""
-									className="agrezer-about-intro__img-main"
+									className="twork-about-intro__img-main"
 								/>
 							) : (
-								<div className="agrezer-about-intro__img-main agrezer-about-intro__media-placeholder">
+								<div className="twork-about-intro__img-main twork-about-intro__media-placeholder">
 									<MediaPlaceholder
 										icon="format-image"
 										onSelect={ ( media ) =>
@@ -471,10 +471,10 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 								<img
 									src={ subImage }
 									alt=""
-									className="agrezer-about-intro__img-sub"
+									className="twork-about-intro__img-sub"
 								/>
 							) : (
-								<div className="agrezer-about-intro__img-sub agrezer-about-intro__sub-placeholder">
+								<div className="twork-about-intro__img-sub twork-about-intro__sub-placeholder">
 									<MediaPlaceholder
 										icon="format-image"
 										onSelect={ ( media ) =>
@@ -497,15 +497,15 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 							) }
 							{ showBadge &&
 								( badgeImage ? (
-									<div className="agrezer-about-intro__badge">
+									<div className="twork-about-intro__badge">
 										<img
 											src={ badgeImage }
 											alt=""
-											className="agrezer-about-intro__badge-img"
+											className="twork-about-intro__badge-img"
 										/>
 									</div>
 								) : (
-									<div className="agrezer-about-intro__badge">
+									<div className="twork-about-intro__badge">
 										<MediaPlaceholder
 											icon="format-image"
 											onSelect={ ( media ) =>
@@ -530,13 +530,13 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 						</div>
 					</div>
 
-					<div className="agrezer-about-intro__right">
-						<div className="agrezer-about-intro__tagline">
+					<div className="twork-about-intro__right">
+						<div className="twork-about-intro__tagline">
 							{ tagIcon && (
 								<img
 									src={ tagIcon }
 									alt=""
-									className="agrezer-about-intro__tag-icon"
+									className="twork-about-intro__tag-icon"
 								/>
 							) }
 							<RichText
@@ -555,7 +555,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 						<RichText
 							tagName="h2"
-							className="agrezer-about-intro__title"
+							className="twork-about-intro__title"
 							value={ title }
 							onChange={ ( val ) =>
 								setAttributes( { title: val } )
@@ -571,7 +571,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 						<RichText
 							tagName="p"
-							className="agrezer-about-intro__desc"
+							className="twork-about-intro__desc"
 							value={ description }
 							onChange={ ( val ) =>
 								setAttributes( { description: val } )
@@ -582,7 +582,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 							) }
 						/>
 
-						<div className="agrezer-about-intro__features agrezer-about-intro__features--editor">
+						<div className="twork-about-intro__features twork-about-intro__features--editor">
 							<InnerBlocks
 								allowedBlocks={ ALLOWED_BLOCKS }
 								template={ TEMPLATE }
@@ -593,13 +593,13 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 							/>
 						</div>
 
-						<div className="agrezer-about-intro__author-row">
-							<div className="agrezer-about-intro__author-info">
+						<div className="twork-about-intro__author-row">
+							<div className="twork-about-intro__author-info">
 								{ authorImage ? (
 									<img
 										src={ authorImage }
 										alt=""
-										className="agrezer-about-intro__author-img"
+										className="twork-about-intro__author-img"
 									/>
 								) : (
 									<MediaPlaceholder
@@ -621,10 +621,10 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 										} }
 									/>
 								) }
-								<div className="agrezer-about-intro__author-text">
+								<div className="twork-about-intro__author-text">
 									<RichText
 										tagName="h4"
-										className="agrezer-about-intro__author-name"
+										className="twork-about-intro__author-name"
 										value={ authorName }
 										onChange={ ( val ) =>
 											setAttributes( { authorName: val } )
@@ -638,7 +638,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 									<RichText
 										tagName="span"
-										className="agrezer-about-intro__author-role"
+										className="twork-about-intro__author-role"
 										value={ authorRole }
 										onChange={ ( val ) =>
 											setAttributes( { authorRole: val } )
@@ -653,7 +653,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 							</div>
 
 							<div
-								className="agrezer-about-intro__signature"
+								className="twork-about-intro__signature"
 								style={ {
 									fontFamily: signatureFontFamily,
 									fontSize: `${ signatureFontSize }rem`,

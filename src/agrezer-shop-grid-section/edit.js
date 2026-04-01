@@ -48,7 +48,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'twork-agrezer-shop-grid-editor',
+			className: 'twork-shop-grid-editor',
 		} ),
 		[]
 	);

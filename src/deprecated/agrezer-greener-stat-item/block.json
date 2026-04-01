@@ -1,0 +1,38 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/agrezer-greener-stat-item",
+	"version": "1.0.0",
+	"title": "Agrezer Greener Stat",
+	"category": "twork-builder",
+	"parent": [ "twork/agrezer-greener-stats-row" ],
+	"icon": "yes",
+	"description": "Stat column with icon, title, and text.",
+	"supports": {
+		"html": false,
+		"reusable": false
+	},
+	"attributes": {
+		"iconVariant": {
+			"type": "string",
+			"default": "growth"
+		},
+		"title": {
+			"type": "string",
+			"default": "80% Pure Growth"
+		},
+		"description": {
+			"type": "string",
+			"default": "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+		}
+	},
+	"example": {
+		"attributes": {
+			"iconVariant": "growth",
+			"title": "80% Pure Growth",
+			"description": "Measured gains in plant vigor and stand uniformity across pilot fields and demonstration plots."
+		}
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js"
+}

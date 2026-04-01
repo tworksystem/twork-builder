@@ -1,0 +1,37 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/agrezer-greener-stats-row",
+	"version": "1.0.0",
+	"title": "Agrezer Greener — Stats Row",
+	"category": "twork-builder",
+	"parent": [ "twork/agrezer-greener-section" ],
+	"icon": "chart-bar",
+	"description": "Two-column stats row for Greener section.",
+	"supports": {
+		"html": false,
+		"reusable": false
+	},
+	"example": {
+		"innerBlocks": [
+			{
+				"name": "twork/agrezer-greener-stat-item",
+				"attributes": {
+					"iconVariant": "growth",
+					"title": "80% Pure Growth",
+					"description": "Measured gains in plant vigor and stand uniformity across pilot fields."
+				}
+			},
+			{
+				"name": "twork/agrezer-greener-stat-item",
+				"attributes": {
+					"iconVariant": "organic",
+					"title": "95% Organic Roots",
+					"description": "Partners certified for organic handling and cold-chain integrity."
+				}
+			}
+		]
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js"
+}

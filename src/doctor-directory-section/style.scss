@@ -1,5 +1,6 @@
+@import "../scss/typography";
+
 // Doctor Directory Section – follows team-members-grid / services-grid standards
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;600;700;900&display=swap");
 
 :root {
     --primary-orange: #f48b2a;
@@ -44,7 +45,7 @@
 
 // === FRONTEND STYLES ===
 .doctor-directory.twork-doctor-directory-section {
-    font-family: "Roboto", sans-serif;
+    font-family: $font-primary;
     position: relative;
     overflow: hidden;
 

@@ -1,13 +1,19 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "twork/agrezer-contact-map",
+	"name": "twork/contact-map",
 	"version": "1.0.0",
-	"title": "Agrezer Contact Map",
+	"title": "Contact Map",
 	"category": "twork-builder",
 	"icon": "location-alt",
-	"description": "Contact form beside an embedded map (Agrezer UI). Set form action to your handler or a form plugin endpoint.",
-	"keywords": [ "contact", "form", "map", "google maps", "agrezer", "twork" ],
+	"description": "Contact map / embed section.",
+	"keywords": [
+		"contact",
+		"form",
+		"map",
+		"google maps",
+		"twork"
+	],
 	"attributes": {
 		"sectionTitle": {
 			"type": "string",
@@ -118,7 +124,10 @@
 	"supports": {
 		"html": false,
 		"anchor": true,
-		"align": [ "wide", "full" ]
+		"align": [
+			"wide",
+			"full"
+		]
 	},
 	"textdomain": "twork-builder",
 	"editorScript": "file:./index.js",

@@ -13,23 +13,23 @@ export default function save( { attributes } ) {
 	const blockProps = useBlockProps.save( {
 		className:
 			variant === 'overlay'
-				? 'agrezer-about-card agrezer-about-card--overlay'
-				: 'agrezer-about-card',
+				? 'twork-about-card twork-about-card--overlay'
+				: 'twork-about-card',
 	} );
 
 	return (
 		<article { ...blockProps }>
 			{ image && <img src={ image } alt={ alt || '' } /> }
 			{ variant === 'overlay' && image && (
-				<div className="agrezer-about-card__overlay">
+				<div className="twork-about-card__overlay">
 					<RichText.Content
 						tagName="p"
-						className="agrezer-about-card__overlay-text"
+						className="twork-about-card__overlay-text"
 						value={ overlayText }
 					/>
 					<a
 						href={ overlayButtonUrl || '#' }
-						className="agrezer-about-card__overlay-btn"
+						className="twork-about-card__overlay-btn"
 					>
 						<RichText.Content
 							tagName="span"

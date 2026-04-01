@@ -16,11 +16,11 @@ import {
 	__experimentalDivider as Divider,
 } from '@wordpress/components';
 
-const ALLOWED_BLOCKS = [ 'twork/agrezer-why-choose-point-item' ];
+const ALLOWED_BLOCKS = [ 'twork/benefit-point' ];
 
 const POINT_TEMPLATE = [
 	[
-		'twork/agrezer-why-choose-point-item',
+		'twork/benefit-point',
 		{
 			slot: 1,
 			badgeText: '01',
@@ -29,7 +29,7 @@ const POINT_TEMPLATE = [
 	],
 
 	[
-		'twork/agrezer-why-choose-point-item',
+		'twork/benefit-point',
 		{
 			slot: 2,
 			badgeText: '02',
@@ -38,7 +38,7 @@ const POINT_TEMPLATE = [
 	],
 
 	[
-		'twork/agrezer-why-choose-point-item',
+		'twork/benefit-point',
 		{
 			slot: 3,
 			badgeText: '03',
@@ -47,7 +47,7 @@ const POINT_TEMPLATE = [
 	],
 
 	[
-		'twork/agrezer-why-choose-point-item',
+		'twork/benefit-point',
 		{
 			slot: 4,
 			badgeText: '04',
@@ -56,7 +56,7 @@ const POINT_TEMPLATE = [
 	],
 
 	[
-		'twork/agrezer-why-choose-point-item',
+		'twork/benefit-point',
 		{
 			slot: 5,
 			badgeText: '05',
@@ -94,7 +94,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: `agrezer-why-choose twork-agrezer-why-choose-section-editor ${
+			className: `twork-why-choose twork-why-choose-section-editor ${
 				waveDecorationUrl ? 'has-wave-decoration' : ''
 			}`,
 
@@ -102,7 +102,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 				paddingTop: `${ paddingTop }px`,
 				paddingBottom: `${ paddingBottom }px`,
 				...( shapeVar
-					? { '--agrezer-why-choose-shape': shapeVar }
+					? { '--twork-why-choose-shape': shapeVar }
 					: {} ),
 			},
 		} ),
@@ -349,19 +349,19 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 			<section
 				{ ...blockProps }
-				aria-labelledby="agrezer-why-choose-title"
+				aria-labelledby="twork-why-choose-title"
 			>
 				<div
-					className="agrezer-why-choose__container"
+					className="twork-why-choose__container"
 					style={ containerStyle }
 				>
-					<div className="agrezer-why-choose__header">
+					<div className="twork-why-choose__header">
 						<p
-							className="agrezer-why-choose__tagline"
+							className="twork-why-choose__tagline"
 							style={ { color: taglineColor } }
 						>
 							<span
-								className="agrezer-why-choose__tagline-icon"
+								className="twork-why-choose__tagline-icon"
 								style={ { color: taglineIconColor } }
 								aria-hidden="true"
 							>
@@ -382,8 +382,8 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 						</p>
 						<RichText
 							tagName="h2"
-							id="agrezer-why-choose-title"
-							className="agrezer-why-choose__title"
+							id="twork-why-choose-title"
+							className="twork-why-choose__title"
 							value={ sectionTitle }
 							onChange={ ( val ) =>
 								setAttributes( { sectionTitle: val } )
@@ -398,10 +398,10 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 					</div>
 
 					<div
-						className="agrezer-why-choose__stage twork-agrezer-why-choose__stage-editor"
+						className="twork-why-choose__stage twork-why-choose__stage-editor"
 						style={ stageStyle }
 					>
-						<div className="agrezer-why-choose__tractor-wrapper">
+						<div className="twork-why-choose__tractor-wrapper">
 							{ ! tractorImage ? (
 								<MediaPlaceholder
 									onSelect={ ( media ) =>
@@ -422,7 +422,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 							) : (
 								<img
 									src={ tractorImage }
-									className="agrezer-why-choose__tractor"
+									className="twork-why-choose__tractor"
 									alt=""
 									style={ {
 										maxWidth: `${ tractorMaxWidth }px`,

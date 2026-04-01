@@ -1,13 +1,15 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "twork/agrezer-process-step",
+	"name": "twork/process-step",
 	"version": "1.0.0",
-	"title": "Agrezer Process — Step",
+	"title": "Process Step",
 	"category": "twork-builder",
-	"parent": [ "twork/agrezer-process-section" ],
+	"parent": [
+		"twork/process"
+	],
 	"icon": "editor-ol",
-	"description": "Left or right process step with badge, copy, and optional CTA.",
+	"description": "Process step item.",
 	"supports": {
 		"html": false,
 		"reusable": false

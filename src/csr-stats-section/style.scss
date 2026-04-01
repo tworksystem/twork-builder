@@ -1,7 +1,8 @@
+@import "../scss/typography";
+
 // CSR Stats Section – follows team-members-grid / services-grid standards
 // Matches csr.html stats-section, stats-grid, stat-item structure
 
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;600;700;900&display=swap");
 
 :root {
     --primary-orange: #f48b2a;
@@ -68,7 +69,7 @@
 
 // === FRONTEND STYLES ===
 .twork-csr-stats-section {
-    font-family: "Roboto", sans-serif;
+    font-family: $font-primary;
     position: relative;
 
     .jivaka-container {

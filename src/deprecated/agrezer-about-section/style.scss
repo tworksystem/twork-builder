@@ -1,0 +1,171 @@
+@import "../../scss/typography";
+
+
+.twork-agrezer-about-section,
+.twork-agrezer-about-section-editor {
+    font-family: $font-secondary;
+}
+
+.agrezer-about {
+    .agrezer-about__container {
+        box-sizing: border-box;
+    }
+
+    .agrezer-about__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 24px;
+    }
+
+    .agrezer-about__label {
+        margin: 0 0 8px;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 17px;
+        font-weight: 600;
+    }
+
+    .agrezer-about__label-icon {
+        line-height: 1;
+    }
+
+    .agrezer-about__title {
+        margin: 0;
+        line-height: 1.12;
+        letter-spacing: -0.02em;
+    }
+
+    .agrezer-about__features-grid {
+        margin-top: 34px;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2rem;
+    }
+
+    .agrezer-about-feature__icon {
+        width: 50px;
+        height: 50px;
+        fill: none;
+        stroke: #a3a785;
+        stroke-width: 1.5;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+
+        path {
+            fill: none;
+        }
+    }
+
+    .agrezer-about-feature__title {
+        margin: 12px 0 8px;
+        font-size: 19px;
+        font-weight: 700;
+        color: #1d1d1d;
+    }
+
+    .agrezer-about-feature__desc {
+        margin: 0;
+        color: #6f7277;
+        font-size: 15px;
+        line-height: 1.45;
+        max-width: 260px;
+    }
+
+    .agrezer-about__images-grid {
+        margin-top: 34px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+
+    .agrezer-about-card {
+        position: relative;
+        border-radius: 20px;
+        overflow: hidden;
+        min-height: 348px;
+    }
+
+    .agrezer-about-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+
+    .agrezer-about-card__overlay {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        padding: 16px 18px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 14px;
+        background: linear-gradient(to top, rgba(27, 35, 20, 0.75), rgba(27, 35, 20, 0.35));
+        box-sizing: border-box;
+    }
+
+    .agrezer-about-card__overlay-text {
+        margin: 0;
+        max-width: 65%;
+        color: rgba(255, 255, 255, 0.92);
+        font-size: 16px;
+        line-height: 1.45;
+    }
+
+    .agrezer-about-card__overlay-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 13px 20px;
+        border-radius: 12px;
+        background: #d9ea57;
+        color: #1d2618;
+        font-size: 16px;
+        font-weight: 700;
+        white-space: nowrap;
+        text-decoration: none;
+    }
+}
+
+@media (max-width: 1040px) {
+    .agrezer-about {
+        .agrezer-about__features-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .agrezer-about__images-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+}
+
+@media (max-width: 700px) {
+    .agrezer-about {
+        .agrezer-about__header {
+            flex-direction: column;
+        }
+
+        .agrezer-about__features-grid {
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        .agrezer-about-card__overlay {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .agrezer-about-card__overlay-text {
+            max-width: 100%;
+        }
+    }
+}
+
+.agrezer-about-card__overlay-btn:focus-visible {
+    outline: 3px solid #1d2618;
+    outline-offset: 2px;
+}

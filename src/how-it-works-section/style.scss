@@ -1,3 +1,5 @@
+@import "../scss/typography";
+
 // How It Works Section – lab-style vertical steps based on journey steps infrastructure
 
 // Shared variables
@@ -73,7 +75,7 @@
 
 // === FRONTEND STYLES ===
 .twork-how-it-works-section {
-    font-family: 'Roboto', sans-serif;
+    font-family: $font-primary;
     position: relative;
     background-color: var(--howit-bg);
 

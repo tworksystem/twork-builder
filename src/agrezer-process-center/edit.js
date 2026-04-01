@@ -13,7 +13,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'agrezer-process__center',
+			className: 'twork-process__center',
 		} ),
 		[]
 	);
@@ -71,7 +71,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 					<>
 						<img
 							src={ image }
-							className="agrezer-process__img"
+							className="twork-process__img"
 							alt=""
 							style={ { maxWidth: `${ maxWidth }px` } }
 						/>

@@ -5,9 +5,21 @@ import { PanelBody, SelectControl } from '@wordpress/components';
 import { GreenerStatIcon } from './icons';
 
 export default function Edit( { attributes, setAttributes, isSelected } ) {
-	const { iconVariant, title, description } = attributes;
+	const {
+		// Icon-based schema (agrezer-derived variant)
+		iconVariant,
+		title,
+		description,
+		// Number-based schema (CSR-derived variant)
+		statNumber,
+		statLabel,
+	} = attributes;
+
+	const safeIconVariant = iconVariant ?? 'growth';
+	const safeTitle = title ?? statLabel ?? ( statNumber ? String( statNumber ) : '' );
+	const safeDescription = description ?? '';
 	const blockProps = useStableBlockProps(
-		() => ( { className: 'agrezer-greener-stat' } ),
+		() => ( { className: 'twork-greener-stat' } ),
 		[]
 	);
 
@@ -47,19 +59,19 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 			) }
 
 			<article { ...blockProps }>
-				<GreenerStatIcon variant={ iconVariant } />
+				<GreenerStatIcon variant={ safeIconVariant } />
 				<RichText
 					tagName="h3"
-					className="agrezer-greener-stat__title"
-					value={ title }
+					className="twork-greener-stat__title"
+					value={ safeTitle }
 					onChange={ ( val ) => setAttributes( { title: val } ) }
 					placeholder={ __( 'Stat title', 'twork-builder' ) }
 				/>
 
 				<RichText
 					tagName="p"
-					className="agrezer-greener-stat__text"
-					value={ description }
+					className="twork-greener-stat__text"
+					value={ safeDescription }
 					onChange={ ( val ) =>
 						setAttributes( { description: val } )
 					}

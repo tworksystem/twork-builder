@@ -1,3 +1,5 @@
+@import "../scss/typography";
+
 // Radiology "Why Choose Jivaka Imaging?" Section
 // Matches the design from radiology&imaging.html for:
 // .rad-section, .rad-container, .rad-header, .rad-why-grid, .rad-why-item, .rad-why-icon
@@ -58,7 +60,7 @@
 
 // === FRONTEND STYLES ===
 .twork-rad-why-section {
-  font-family: 'Roboto', sans-serif;
+  font-family: $font-primary;
   position: relative;
 
   // Defaults (can be overridden per-block via inline CSS variables from save.js)

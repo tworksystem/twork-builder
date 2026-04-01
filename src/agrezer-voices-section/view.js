@@ -23,12 +23,12 @@
 			return;
 		}
 
-		var section = slider.closest( '.twork-agrezer-voices-section' );
+		var section = slider.closest( '.twork-voices-section' );
 		if ( ! section ) {
 			return;
 		}
 
-		var slides = qsa( slider, '.agrezer-voices-section__slide' );
+		var slides = qsa( slider, '.twork-voices-section__slide' );
 		if ( slides.length === 0 ) {
 			return;
 		}
@@ -100,7 +100,7 @@
 	function init() {
 		document
 			.querySelectorAll(
-				'.twork-agrezer-voices-section .agrezer-voices-section__testimonial[data-voices-slider]'
+				'.twork-voices-section .twork-voices-section__testimonial[data-voices-slider]'
 			)
 			.forEach( initSlider );
 	}

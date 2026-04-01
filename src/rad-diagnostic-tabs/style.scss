@@ -1,3 +1,5 @@
+@import "../scss/typography";
+
 // Radiology Diagnostic Services Tabs Section
 // Matches the design from radiology&imaging.html for:
 // .rad-tabs-container, .rad-tab-menu, .rad-tab-btn, .rad-tab-content-area, .rad-tab-pane, .rad-pane-img, .rad-pane-title, .rad-pane-list
@@ -11,7 +13,7 @@
 
 // FRONTEND + EDITOR STYLES
 .twork-rad-diagnostic-tabs {
-  font-family: 'Roboto', sans-serif;
+  font-family: $font-primary;
 
   .rad-container {
     max-width: 1200px;

@@ -1,0 +1,51 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/agrezer-greener-card-item",
+	"version": "1.0.0",
+	"title": "Agrezer Greener Card",
+	"category": "twork-builder",
+	"parent": [ "twork/agrezer-greener-cards-row" ],
+	"icon": "index-card",
+	"description": "Image card with title and read-more link.",
+	"supports": {
+		"html": false,
+		"reusable": false
+	},
+	"attributes": {
+		"image": {
+			"type": "string",
+			"default": ""
+		},
+		"imageId": {
+			"type": "number"
+		},
+		"alt": {
+			"type": "string",
+			"default": ""
+		},
+		"title": {
+			"type": "string",
+			"default": "Organic Farm Solutions"
+		},
+		"linkText": {
+			"type": "string",
+			"default": "Read More"
+		},
+		"linkUrl": {
+			"type": "string",
+			"default": "#"
+		}
+	},
+	"example": {
+		"attributes": {
+			"image": "https://images.unsplash.com/photo-1500937386664-56d1dfef385a?auto=format&fit=crop&w=900&q=80",
+			"alt": "Organic farm at sunrise",
+			"title": "Organic Farm Solutions",
+			"linkText": "Read More",
+			"linkUrl": "#"
+		}
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js"
+}

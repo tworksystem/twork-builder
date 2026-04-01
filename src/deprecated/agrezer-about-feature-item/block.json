@@ -1,0 +1,38 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/agrezer-about-feature-item",
+	"version": "1.0.0",
+	"title": "Agrezer About Feature",
+	"category": "twork-builder",
+	"parent": [ "twork/agrezer-about-features-grid" ],
+	"icon": "yes-alt",
+	"description": "Single feature column with icon, title, and description.",
+	"supports": {
+		"html": false,
+		"reusable": false
+	},
+	"attributes": {
+		"title": {
+			"type": "string",
+			"default": "Farm Development"
+		},
+		"description": {
+			"type": "string",
+			"default": "Lorem Ipsum is simply dummy text of the printing industry."
+		},
+		"iconVariant": {
+			"type": "string",
+			"default": "growth"
+		}
+	},
+	"example": {
+		"attributes": {
+			"title": "Farm Development",
+			"description": "End-to-end planning for irrigation, drainage, and field layout tailored to your soil profile.",
+			"iconVariant": "growth"
+		}
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js"
+}

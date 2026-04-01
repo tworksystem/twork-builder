@@ -98,7 +98,7 @@ function FeatureIcon( { variant = 'leaf' } ) {
 export default function Edit( { attributes, setAttributes, isSelected } ) {
 	const { title, iconVariant } = attributes;
 	const blockProps = useStableBlockProps(
-		() => ( { className: 'agrezer-hero-feature' } ),
+		() => ( { className: 'twork-hero-feature' } ),
 		[]
 	);
 
@@ -136,12 +136,12 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 			) }
 
 			<article { ...blockProps }>
-				<div className="agrezer-hero-feature__badge" aria-hidden="true">
+				<div className="twork-hero-feature__badge" aria-hidden="true">
 					<FeatureIcon variant={ iconVariant } />
 				</div>
 				<RichText
 					tagName="h3"
-					className="agrezer-hero-feature__title"
+					className="twork-hero-feature__title"
 					value={ title }
 					onChange={ ( val ) => setAttributes( { title: val } ) }
 					placeholder={ __( 'Feature title...', 'twork-builder' ) }

@@ -1,5 +1,6 @@
+@import "../scss/typography";
+
 // Physio Stats Section – matches physiotherapy-rehab.html .phy-container, .phy-stats-grid, .phy-stat-card
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
 
 :root {
     --phy-primary: #f48b2a;
@@ -75,7 +76,7 @@
 
 // === FRONTEND STYLES ===
 .twork-phy-stats-section {
-    font-family: "Roboto", sans-serif;
+    font-family: $font-primary;
     position: relative;
     overflow: hidden;
 

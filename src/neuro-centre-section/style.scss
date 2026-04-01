@@ -1,4 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
+@import "../scss/typography";
+
 
 :root {
     --primary-orange: #f48b2a;
@@ -11,7 +12,7 @@
 }
 
 .twork-neuro-centre-section {
-    font-family: "Roboto", sans-serif;
+    font-family: $font-primary;
     background: #fff;
 
     /* Animation helpers: initial hidden state (neuro-centre-init.js reveals on scroll) */

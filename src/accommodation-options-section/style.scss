@@ -1,3 +1,5 @@
+@import "../scss/typography";
+
 // Accommodation Options Section – variables & shared with room card
 :root {
     --primary-orange: #f48b2a;
@@ -48,7 +50,7 @@
 
 // === FRONTEND STYLES ===
 .twork-accommodation-options-section {
-    font-family: "Roboto", sans-serif;
+    font-family: $font-primary;
     position: relative;
     overflow: hidden;
 

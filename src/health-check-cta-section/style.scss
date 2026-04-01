@@ -1,10 +1,12 @@
+@import "../scss/typography";
+
 // Health Check CTA Section – "Book Your Slot Today"
 // Matches health-check-up.html: chk-container > fade-up box with title, subtitle, chk-btn
 
 .twork-health-check-cta-section {
     --chk-secondary: #005f73;
     --chk-primary: #f48b2a;
-    font-family: "Roboto", sans-serif;
+    font-family: $font-primary;
 
     .chk-container {
         position: relative;

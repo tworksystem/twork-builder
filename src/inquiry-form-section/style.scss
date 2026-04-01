@@ -1,3 +1,5 @@
+@import "../scss/typography";
+
 // Inquiry Form Section
 // international-patients.html "Plan Your Treatment" – inquiry-wrapper, form
 
@@ -32,7 +34,7 @@
 // Target both block class and WordPress wrapper for max compatibility
 .twork-inquiry-form-section,
 .wp-block-twork-inquiry-form-section .twork-inquiry-form-section {
-    font-family: "Roboto", sans-serif;
+    font-family: $font-primary;
     position: relative;
     padding-top: var(--section-padding-top, 80px);
     padding-bottom: var(--section-padding-bottom, 80px);

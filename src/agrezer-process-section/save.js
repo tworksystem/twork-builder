@@ -26,15 +26,15 @@ export default function save( { attributes } ) {
 		: undefined;
 
 	const blockProps = useBlockProps.save( {
-		className: `agrezer-process twork-agrezer-process-section ${
+		className: `twork-process twork-process-section ${
 			wreathDecorationUrl ? 'has-process-wreath' : ''
 		}`,
 		style: {
 			backgroundColor,
 			paddingTop: `${ paddingTop }px`,
 			paddingBottom: `${ paddingBottom }px`,
-			'--agrezer-process-grid-gap': `${ gridGap }px`,
-			...( wreathVar ? { '--agrezer-process-wreath': wreathVar } : {} ),
+			'--twork-process-grid-gap': `${ gridGap }px`,
+			...( wreathVar ? { '--twork-process-wreath': wreathVar } : {} ),
 		},
 	} );
 
@@ -47,14 +47,14 @@ export default function save( { attributes } ) {
 	};
 
 	return (
-		<section { ...blockProps } aria-labelledby="agrezer-process-title">
-			<div className="agrezer-process__header">
+		<section { ...blockProps } aria-labelledby="twork-process-title">
+			<div className="twork-process__header">
 				<p
-					className="agrezer-process__tagline"
+					className="twork-process__tagline"
 					style={ { color: taglineColor } }
 				>
 					<span
-						className="agrezer-process__tagline-icon"
+						className="twork-process__tagline-icon"
 						style={ { color: taglineIconColor } }
 						aria-hidden="true"
 					>
@@ -64,8 +64,8 @@ export default function save( { attributes } ) {
 				</p>
 				<RichText.Content
 					tagName="h2"
-					id="agrezer-process-title"
-					className="agrezer-process__title"
+					id="twork-process-title"
+					className="twork-process__title"
 					value={ sectionTitle }
 					style={ {
 						color: titleColor,
@@ -76,7 +76,7 @@ export default function save( { attributes } ) {
 			</div>
 
 			<div
-				className="agrezer-process__container"
+				className="twork-process__container"
 				style={ containerStyle }
 			>
 				<InnerBlocks.Content />

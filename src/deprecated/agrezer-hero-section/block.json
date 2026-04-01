@@ -1,0 +1,116 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/agrezer-hero-section",
+	"version": "1.0.0",
+	"title": "Agrezer Hero Section",
+	"category": "twork-builder",
+	"icon": "cover-image",
+	"description": "Agrezer-style agriculture hero section with feature cards.",
+	"keywords": [ "hero", "agriculture", "organic", "banner", "twork" ],
+	"supports": {
+		"html": false,
+		"align": [ "wide", "full" ]
+	},
+	"attributes": {
+		"taglineText": {
+			"type": "string",
+			"default": "Agriculture & Organic Farms"
+		},
+		"title": {
+			"type": "string",
+			"default": "Rooted in Nature,<br />Growing the Future"
+		},
+		"description": {
+			"type": "string",
+			"default": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+		},
+		"buttonText": {
+			"type": "string",
+			"default": "Explore More"
+		},
+		"buttonUrl": {
+			"type": "string",
+			"default": "#"
+		},
+		"buttonLinkTarget": {
+			"type": "boolean",
+			"default": false
+		},
+		"backgroundImage": {
+			"type": "string",
+			"default": ""
+		},
+		"backgroundImageId": {
+			"type": "number"
+		},
+		"overlayColor": {
+			"type": "string",
+			"default": "rgba(6, 42, 12, 0.55)"
+		},
+		"containerMaxWidth": {
+			"type": "number",
+			"default": 1240
+		},
+		"containerPadding": {
+			"type": "number",
+			"default": 24
+		},
+		"paddingTop": {
+			"type": "number",
+			"default": 110
+		},
+		"paddingBottom": {
+			"type": "number",
+			"default": 90
+		},
+		"featuresGap": {
+			"type": "number",
+			"default": 18
+		}
+	},
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": {
+			"taglineText": "Organic Agriculture & Regenerative Farms",
+			"title": "Rooted in Nature,<br />Growing the Future",
+			"description": "We combine soil health, biodiversity, and modern agronomy to deliver resilient harvests—without compromising the land we depend on.",
+			"buttonText": "Explore Our Programs",
+			"buttonUrl": "#",
+			"buttonLinkTarget": false,
+			"backgroundImage": "https://images.unsplash.com/photo-1625246333195-f8989295e467?auto=format&fit=crop&w=1920&q=80",
+			"overlayColor": "rgba(6, 42, 12, 0.55)",
+			"containerMaxWidth": 1240,
+			"containerPadding": 24,
+			"paddingTop": 110,
+			"paddingBottom": 90,
+			"featuresGap": 18
+		},
+		"innerBlocks": [
+			{
+				"name": "twork/agrezer-hero-feature-item",
+				"attributes": {
+					"title": "Healthy Soil<br />Solutions",
+					"iconVariant": "leaf"
+				}
+			},
+			{
+				"name": "twork/agrezer-hero-feature-item",
+				"attributes": {
+					"title": "Pure Organic<br />Growth",
+					"iconVariant": "drop"
+				}
+			},
+			{
+				"name": "twork/agrezer-hero-feature-item",
+				"attributes": {
+					"title": "Nature-Driven<br />Innovation",
+					"iconVariant": "sprout"
+				}
+			}
+		]
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
+}

@@ -1,0 +1,51 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/agrezer-greener-cards-row",
+	"version": "1.0.0",
+	"title": "Agrezer Greener — Cards Row",
+	"category": "twork-builder",
+	"parent": [ "twork/agrezer-greener-section" ],
+	"icon": "screenoptions",
+	"description": "Three service cards for Greener section.",
+	"supports": {
+		"html": false,
+		"reusable": false
+	},
+	"example": {
+		"innerBlocks": [
+			{
+				"name": "twork/agrezer-greener-card-item",
+				"attributes": {
+					"title": "Organic Farm Solutions",
+					"linkText": "Read More",
+					"linkUrl": "#",
+					"image": "https://images.unsplash.com/photo-1500937386664-56d1dfef385a?auto=format&fit=crop&w=900&q=80",
+					"alt": "Organic farm"
+				}
+			},
+			{
+				"name": "twork/agrezer-greener-card-item",
+				"attributes": {
+					"title": "Eco-Friendly Farming",
+					"linkText": "Read More",
+					"linkUrl": "#",
+					"image": "https://images.unsplash.com/photo-1625246333195-f8989295e467?auto=format&fit=crop&w=900&q=80",
+					"alt": "Crops in field"
+				}
+			},
+			{
+				"name": "twork/agrezer-greener-card-item",
+				"attributes": {
+					"title": "Organic Produce Supply",
+					"linkText": "Read More",
+					"linkUrl": "#",
+					"image": "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=900&q=80",
+					"alt": "Produce display"
+				}
+			}
+		]
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js"
+}

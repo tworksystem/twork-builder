@@ -1,3 +1,5 @@
+@import "../scss/typography";
+
 // Career CTA Section
 // "Don't see the right fit?" – CV submission CTA
 
@@ -45,7 +47,7 @@
 
 // === FRONTEND STYLES ===
 .twork-career-cta-section {
-    font-family: "Roboto", sans-serif;
+    font-family: $font-primary;
 
     .career-cta {
         border-radius: 12px;

@@ -1,22 +1,22 @@
-.twork-agrezer-team-section-editor .agrezer-team-section__grid--editor .block-editor-block-list__layout {
+.twork-team-section-editor .twork-team-section__grid--editor .block-editor-block-list__layout {
 	display: grid;
-	grid-template-columns: repeat(var(--agrezer-team-cols, 3), 1fr);
-	gap: var(--agrezer-team-gap, 22px);
+	grid-template-columns: repeat(var(--twork-team-cols, 3), 1fr);
+	gap: var(--twork-team-gap, 22px);
 }
 
 @media (max-width: 992px) {
-	.twork-agrezer-team-section-editor .agrezer-team-section__grid--editor .block-editor-block-list__layout {
+	.twork-team-section-editor .twork-team-section__grid--editor .block-editor-block-list__layout {
 		grid-template-columns: repeat(2, 1fr);
 	}
 }
 
 @media (max-width: 640px) {
-	.twork-agrezer-team-section-editor .agrezer-team-section__grid--editor .block-editor-block-list__layout {
+	.twork-team-section-editor .twork-team-section__grid--editor .block-editor-block-list__layout {
 		grid-template-columns: 1fr;
 	}
 }
 
-.twork-agrezer-team-section-editor .agrezer-team-card .components-placeholder {
+.twork-team-section-editor .twork-team-card .components-placeholder {
 	min-height: 280px;
 	margin: 0;
 }

@@ -1,3 +1,5 @@
+@import "../scss/typography";
+
 /**
  * Lab How It Works Section – vertical timeline with zig-zag step rows
  * Matches laboratory-services.html "How It Works" block.
@@ -30,7 +32,7 @@
     position: relative;
     width: 100%;
     box-sizing: border-box;
-    font-family: "Roboto", sans-serif;
+    font-family: $font-primary;
 
     .lab-container {
         max-width: 1200px;

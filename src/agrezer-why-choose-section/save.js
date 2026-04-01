@@ -28,13 +28,13 @@ export default function save( { attributes } ) {
 		: undefined;
 
 	const blockProps = useBlockProps.save( {
-		className: `agrezer-why-choose twork-agrezer-why-choose-section ${
+		className: `twork-why-choose twork-why-choose-section ${
 			waveDecorationUrl ? 'has-wave-decoration' : ''
 		}`,
 		style: {
 			paddingTop: `${ paddingTop }px`,
 			paddingBottom: `${ paddingBottom }px`,
-			...( shapeVar ? { '--agrezer-why-choose-shape': shapeVar } : {} ),
+			...( shapeVar ? { '--twork-why-choose-shape': shapeVar } : {} ),
 		},
 	} );
 
@@ -50,18 +50,18 @@ export default function save( { attributes } ) {
 	};
 
 	return (
-		<section { ...blockProps } aria-labelledby="agrezer-why-choose-title">
+		<section { ...blockProps } aria-labelledby="twork-why-choose-title">
 			<div
-				className="agrezer-why-choose__container"
+				className="twork-why-choose__container"
 				style={ containerStyle }
 			>
-				<div className="agrezer-why-choose__header">
+				<div className="twork-why-choose__header">
 					<p
-						className="agrezer-why-choose__tagline"
+						className="twork-why-choose__tagline"
 						style={ { color: taglineColor } }
 					>
 						<span
-							className="agrezer-why-choose__tagline-icon"
+							className="twork-why-choose__tagline-icon"
 							style={ { color: taglineIconColor } }
 							aria-hidden="true"
 						>
@@ -74,8 +74,8 @@ export default function save( { attributes } ) {
 					</p>
 					<RichText.Content
 						tagName="h2"
-						id="agrezer-why-choose-title"
-						className="agrezer-why-choose__title"
+						id="twork-why-choose-title"
+						className="twork-why-choose__title"
 						value={ sectionTitle }
 						style={ {
 							color: titleColor,
@@ -85,12 +85,12 @@ export default function save( { attributes } ) {
 					/>
 				</div>
 
-				<div className="agrezer-why-choose__stage" style={ stageStyle }>
-					<div className="agrezer-why-choose__tractor-wrapper">
+				<div className="twork-why-choose__stage" style={ stageStyle }>
+					<div className="twork-why-choose__tractor-wrapper">
 						{ tractorImage && (
 							<img
 								src={ tractorImage }
-								className="agrezer-why-choose__tractor"
+								className="twork-why-choose__tractor"
 								alt={ tractorAlt || '' }
 								style={ { maxWidth: `${ tractorMaxWidth }px` } }
 							/>

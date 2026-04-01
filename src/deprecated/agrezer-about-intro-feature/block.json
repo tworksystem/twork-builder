@@ -1,0 +1,41 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/agrezer-about-intro-feature",
+	"version": "1.0.0",
+	"title": "Agrezer About Intro Feature",
+	"category": "twork-builder",
+	"parent": [ "twork/agrezer-about-intro-section" ],
+	"icon": "star-filled",
+	"description": "Icon and label for the about intro feature grid.",
+	"supports": {
+		"html": false,
+		"reusable": false
+	},
+	"attributes": {
+		"image": {
+			"type": "string",
+			"default": ""
+		},
+		"imageId": {
+			"type": "number"
+		},
+		"imageAlt": {
+			"type": "string",
+			"default": ""
+		},
+		"label": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"example": {
+		"attributes": {
+			"image": "https://images.unsplash.com/photo-1619566636858-adf3ef46400b?auto=format&fit=crop&w=128&q=80",
+			"imageAlt": "Feature icon",
+			"label": "World Class Services"
+		}
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js"
+}
