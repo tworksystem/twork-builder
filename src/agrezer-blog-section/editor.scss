@@ -1,7 +1,10 @@
 .twork-blog-section-editor {
-	.twork-blog-section-editor__chrome {
-		box-sizing: border-box;
-	}
+	box-sizing: border-box;
+}
+
+.twork-blog-section-editor .twork-blog__tagline .components-placeholder {
+	min-height: 40px;
+	margin: 0;
 }
 
 .twork-blog-section-editor .twork-blog__loading {

@@ -795,81 +795,6 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 			) }
 
 			<div { ...blockProps }>
-				<div className="twork-blog-section-editor__chrome">
-					<p className="twork-blog-section-editor__hint">
-						{ __(
-							'Edit heading and tagline below. Post cards load from your site.',
-							'twork-builder'
-						) }
-					</p>
-					<div className="twork-blog__tagline">
-						{ ! tagIcon ? (
-							<MediaPlaceholder
-								icon="format-image"
-								onSelect={ ( media ) =>
-									setAttributes( {
-										tagIcon: media.url,
-										tagIconId: media.id,
-										tagIconAlt: media.alt || tagIconAlt,
-									} )
-								}
-								allowedTypes={ [ 'image' ] }
-								multiple={ false }
-								labels={ {
-									title: __(
-										'Tagline icon',
-										'twork-builder'
-									),
-								} }
-							/>
-						) : (
-							<>
-								<img
-									src={ tagIcon }
-									alt=""
-									className="twork-blog__tag-icon"
-								/>
-
-								<Button
-									isSecondary
-									isSmall
-									onClick={ () =>
-										setAttributes( {
-											tagIcon: '',
-											tagIconId: null,
-										} )
-									}
-								>
-									{ __( 'Remove icon', 'twork-builder' ) }
-								</Button>
-							</>
-						) }
-						<RichText
-							tagName="span"
-							value={ tagline }
-							onChange={ ( val ) =>
-								setAttributes( { tagline: val } )
-							}
-							placeholder={ __( 'Tagline', 'twork-builder' ) }
-							allowedFormats={ [ 'core/bold', 'core/italic' ] }
-						/>
-					</div>
-					<RichText
-						tagName="h2"
-						className="twork-blog__title"
-						value={ sectionTitle }
-						onChange={ ( val ) =>
-							setAttributes( { sectionTitle: val } )
-						}
-						placeholder={ __( 'Section heading', 'twork-builder' ) }
-						allowedFormats={ [
-							'core/bold',
-							'core/italic',
-							'core/underline',
-						] }
-					/>
-				</div>
-
 				<section
 					className="twork-blog wp-block-twork-posts-grid"
 					style={ {
@@ -887,26 +812,77 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 					<div className="twork-blog__container">
 						<div className="twork-blog__header-row">
 							<div className="twork-blog__header-left">
-								{ ( tagline || tagIcon ) && (
-									<div className="twork-blog__tagline">
-										{ tagIcon ? (
+								<div className="twork-blog__tagline">
+									{ ! tagIcon ? (
+										<MediaPlaceholder
+											icon="format-image"
+											onSelect={ ( media ) =>
+												setAttributes( {
+													tagIcon: media.url,
+													tagIconId: media.id,
+													tagIconAlt: media.alt || tagIconAlt,
+												} )
+											}
+											allowedTypes={ [ 'image' ] }
+											multiple={ false }
+											labels={ {
+												title: __(
+													'Tagline icon',
+													'twork-builder'
+												),
+											} }
+										/>
+									) : (
+										<>
 											<img
 												src={ tagIcon }
 												alt=""
 												className="twork-blog__tag-icon"
 											/>
-										) : null }
-										{ tagline ? <span>{ tagline }</span> : null }
-									</div>
-								) }
-								{ sectionTitle ? (
-									<h2
-										className="twork-blog__title"
-										dangerouslySetInnerHTML={ {
-											__html: sectionTitle,
-										} }
+											<Button
+												isSecondary
+												isSmall
+												onClick={ () =>
+													setAttributes( {
+														tagIcon: '',
+														tagIconId: null,
+													} )
+												}
+											>
+												{ __( 'Remove icon', 'twork-builder' ) }
+											</Button>
+										</>
+									) }
+									<RichText
+										tagName="span"
+										value={ tagline }
+										onChange={ ( val ) =>
+											setAttributes( { tagline: val } )
+										}
+										placeholder={ __( 'Tagline', 'twork-builder' ) }
+										allowedFormats={ [
+											'core/bold',
+											'core/italic',
+										] }
 									/>
-								) : null }
+								</div>
+								<RichText
+									tagName="h2"
+									className="twork-blog__title"
+									value={ sectionTitle }
+									onChange={ ( val ) =>
+										setAttributes( { sectionTitle: val } )
+									}
+									placeholder={ __(
+										'Section heading',
+										'twork-builder'
+									) }
+									allowedFormats={ [
+										'core/bold',
+										'core/italic',
+										'core/underline',
+									] }
+								/>
 							</div>
 
 							<div className="twork-blog__header-right">
