@@ -8,6 +8,10 @@
  *
  * Memory: Terser runs with parallel: false to reduce peak heap during build.
  * Use NODE_OPTIONS=--max-old-space-size=8192 if the build still hits OOM.
+ *
+ * PHP (render.php): @wordpress/scripts copies PHP under src/ when WP_COPY_PHP_FILES_TO_DIST=1
+ * (see package.json `build` script) or when paths are listed from block.json `render`. Both are fine;
+ * the env flag guarantees render.php lands in build/ for dynamic blocks.
  */
 
 const path = require( 'path' );
