@@ -388,34 +388,44 @@ function twork_builder_init_blocks()
         // Register block with error suppression (to prevent one bad block from breaking all)
         try {
             $block_args = array();
-            if (isset($block_data['name']) && $block_data['name'] === 'twork/awards-section') {
-                $block_args['render_callback'] = 'twork_render_awards_section';
+            // Requirement: explicitly register twork/posts-grid from its build folder.
+            // This ensures WordPress reads block.json + its `render: file:./render.php`
+            // from the same directory where webpack copies PHP.
+            if (isset($block_data['name']) && $block_data['name'] === 'twork/posts-grid') {
+                // Requirement: explicitly register from the build folder.
+                // This ensures WordPress loads `block.json` + `render: file:./render.php` correctly.
+                $result = register_block_type( __DIR__ . '/build/agrezer-blog-section' );
+            } else {
+                if (isset($block_data['name']) && $block_data['name'] === 'twork/awards-section') {
+                    $block_args['render_callback'] = 'twork_render_awards_section';
+                }
+                if (isset($block_data['name']) && $block_data['name'] === 'twork/csr-initiatives-section') {
+                    $block_args['render_callback'] = 'twork_render_csr_initiatives_section';
+                }
+                if (isset($block_data['name']) && $block_data['name'] === 'twork/updates-section') {
+                    $block_args['render_callback'] = 'twork_render_updates_section';
+                }
+                if (isset($block_data['name']) && $block_data['name'] === 'twork/blog-section') {
+                    $block_args['render_callback'] = 'twork_render_blog_section';
+                }
+                if (isset($block_data['name']) && $block_data['name'] === 'twork/em-units-section') {
+                    $block_args['render_callback'] = 'twork_render_em_units_section';
+                }
+                if (isset($block_data['name']) && $block_data['name'] === 'twork/ph-shop-category-section') {
+                    $block_args['render_callback'] = 'twork_render_ph_shop_category_section';
+                }
+                if (isset($block_data['name']) && $block_data['name'] === 'twork/ph-popular-products-section') {
+                    $block_args['render_callback'] = 'twork_render_ph_popular_products_section';
+                }
+                if (isset($block_data['name']) && $block_data['name'] === 'twork/agrezer-shop-grid-section') {
+                    $block_args['render_callback'] = 'twork_render_agrezer_shop_grid_section';
+                }
+                if (isset($block_data['name']) && $block_data['name'] === 'twork/phy-facilities-section') {
+                    $block_args['render_callback'] = 'twork_render_phy_facilities_section';
+                }
+
+                $result = register_block_type($block_dir, $block_args);
             }
-            if (isset($block_data['name']) && $block_data['name'] === 'twork/csr-initiatives-section') {
-                $block_args['render_callback'] = 'twork_render_csr_initiatives_section';
-            }
-            if (isset($block_data['name']) && $block_data['name'] === 'twork/updates-section') {
-                $block_args['render_callback'] = 'twork_render_updates_section';
-            }
-            if (isset($block_data['name']) && $block_data['name'] === 'twork/blog-section') {
-                $block_args['render_callback'] = 'twork_render_blog_section';
-            }
-            if (isset($block_data['name']) && $block_data['name'] === 'twork/em-units-section') {
-                $block_args['render_callback'] = 'twork_render_em_units_section';
-            }
-            if (isset($block_data['name']) && $block_data['name'] === 'twork/ph-shop-category-section') {
-                $block_args['render_callback'] = 'twork_render_ph_shop_category_section';
-            }
-            if (isset($block_data['name']) && $block_data['name'] === 'twork/ph-popular-products-section') {
-                $block_args['render_callback'] = 'twork_render_ph_popular_products_section';
-            }
-            if (isset($block_data['name']) && $block_data['name'] === 'twork/agrezer-shop-grid-section') {
-                $block_args['render_callback'] = 'twork_render_agrezer_shop_grid_section';
-            }
-            if (isset($block_data['name']) && $block_data['name'] === 'twork/phy-facilities-section') {
-                $block_args['render_callback'] = 'twork_render_phy_facilities_section';
-            }
-            $result = register_block_type($block_dir, $block_args);
             
             if ($result && !is_wp_error($result)) {
                 $registered_count++;
