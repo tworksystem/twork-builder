@@ -22,6 +22,102 @@ import {
 } from '@wordpress/components';
 import { useEntityRecords } from '@wordpress/core-data';
 
+/** Stable REST queries when there is nothing to fetch by ID (avoids invalid empty `include`). */
+const NOOP_CATEGORY_QUERY = {
+	slug: 'twork-posts-grid__noop--categories',
+	per_page: 1,
+};
+const NOOP_POST_QUERY = {
+	slug: 'twork-posts-grid__noop--posts',
+	per_page: 1,
+};
+
+const IMAGE_SIZE_FALLBACK_ORDER = [
+	'large',
+	'medium_large',
+	'medium',
+	'thumbnail',
+	'full',
+];
+
+/**
+ * Merge two REST entity lists by numeric `id`. Items in `preferred` overwrite `base` on duplicates
+ * so explicitly fetched (include=…) records win over search results.
+ *
+ * @param {Array} baseRecords
+ * @param {Array} preferredRecords
+ * @return {Array}
+ */
+function mergeEntityRecordsById( baseRecords, preferredRecords ) {
+	const map = new Map();
+	for ( const item of baseRecords ) {
+		if ( item && typeof item.id === 'number' ) {
+			map.set( item.id, item );
+		}
+	}
+	for ( const item of preferredRecords ) {
+		if ( item && typeof item.id === 'number' ) {
+			map.set( item.id, item );
+		}
+	}
+	return [ ...map.values() ];
+}
+
+/**
+ * Resolve featured image URL from embedded media with size fallbacks.
+ *
+ * @param {Object|null|undefined} featuredMedia Embedded `wp:featuredmedia` item.
+ * @param {string}                preferredSize Attribute slug (e.g. large).
+ * @return {string} Empty string if nothing usable.
+ */
+function getFeaturedImageUrl( featuredMedia, preferredSize ) {
+	if ( ! featuredMedia || typeof featuredMedia !== 'object' ) {
+		return '';
+	}
+	const sizes = featuredMedia.media_details?.sizes;
+	if ( sizes && typeof sizes === 'object' ) {
+		const direct = sizes[ preferredSize ]?.source_url;
+		if ( direct ) {
+			return direct;
+		}
+		for ( const key of IMAGE_SIZE_FALLBACK_ORDER ) {
+			const url = sizes[ key ]?.source_url;
+			if ( url ) {
+				return url;
+			}
+		}
+		for ( const entry of Object.values( sizes ) ) {
+			if ( entry?.source_url ) {
+				return entry.source_url;
+			}
+		}
+	}
+	if ( typeof featuredMedia.source_url === 'string' && featuredMedia.source_url ) {
+		return featuredMedia.source_url;
+	}
+	return '';
+}
+
+/** Parse "#123" tokens from FormTokenField when labels are unknown. */
+function parseHashIdToken( token ) {
+	if ( typeof token !== 'string' ) {
+		return null;
+	}
+	const m = token.match( /^#(\d+)$/ );
+	if ( ! m ) {
+		return null;
+	}
+	const n = parseInt( m[ 1 ], 10 );
+	return Number.isFinite( n ) && n > 0 ? n : null;
+}
+
+function getPostPlainTitle( post ) {
+	if ( post?.title?.rendered ) {
+		return post.title.rendered.replace( /<[^>]+>/g, '' );
+	}
+	return __( '(Untitled)', 'twork-builder' );
+}
+
 export default function Edit( { attributes, setAttributes, isSelected } ) {
 	const {
 		sectionTitle,
@@ -155,10 +251,45 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 		_embed: false,
 	} );
 
+	const selectedCategoriesQuery = useMemo( () => {
+		if ( ! normalizedCategoryIds.length ) {
+			return NOOP_CATEGORY_QUERY;
+		}
+		return {
+			include: normalizedCategoryIds,
+			per_page: Math.min( 100, normalizedCategoryIds.length ),
+			hide_empty: false,
+		};
+	}, [ normalizedCategoryIds ] );
+
+	const selectedExcludePostsQuery = useMemo( () => {
+		if ( ! normalizedExcludeIds.length ) {
+			return NOOP_POST_QUERY;
+		}
+		return {
+			include: normalizedExcludeIds,
+			per_page: Math.min( 100, normalizedExcludeIds.length ),
+		};
+	}, [ normalizedExcludeIds ] );
+
+	const {
+		records: selectedCategoryRecords = [],
+		isResolving: isSelectedCategoriesResolving,
+	} = useEntityRecords( 'taxonomy', 'category', selectedCategoriesQuery );
+
+	const {
+		records: selectedExcludePostRecords = [],
+		isResolving: isSelectedExcludePostsResolving,
+	} = useEntityRecords( 'postType', 'post', selectedExcludePostsQuery );
+
 	const isCategorySearching =
-		categoryInputValue !== categorySearchTerm || isCategoriesResolving;
+		categoryInputValue !== categorySearchTerm ||
+		isCategoriesResolving ||
+		( normalizedCategoryIds.length > 0 && isSelectedCategoriesResolving );
 	const isExcludePostsSearching =
-		excludePostInputValue !== excludePostSearchTerm || isExcludePostsResolving;
+		excludePostInputValue !== excludePostSearchTerm ||
+		isExcludePostsResolving ||
+		( normalizedExcludeIds.length > 0 && isSelectedExcludePostsResolving );
 
 	const safeCategoryRecords = Array.isArray( categoryRecords )
 		? categoryRecords
@@ -166,20 +297,46 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 	const safeExcludePostRecords = Array.isArray( excludePostRecords )
 		? excludePostRecords
 		: [];
+	const safeSelectedCategoryRecords = Array.isArray( selectedCategoryRecords )
+		? selectedCategoryRecords
+		: [];
+	const safeSelectedExcludePostRecords = Array.isArray(
+		selectedExcludePostRecords
+	)
+		? selectedExcludePostRecords
+		: [];
+
+	const combinedCategoryRecords = useMemo(
+		() =>
+			mergeEntityRecordsById(
+				safeCategoryRecords,
+				safeSelectedCategoryRecords
+			),
+		[ safeCategoryRecords, safeSelectedCategoryRecords ]
+	);
+
+	const combinedExcludePostRecords = useMemo(
+		() =>
+			mergeEntityRecordsById(
+				safeExcludePostRecords,
+				safeSelectedExcludePostRecords
+			),
+		[ safeExcludePostRecords, safeSelectedExcludePostRecords ]
+	);
 
 	const categoryIdToName = useMemo( () => {
-		const entries = safeCategoryRecords
+		const entries = combinedCategoryRecords
 			.filter( ( term ) => term && typeof term.id === 'number' )
 			.map( ( term ) => [ term.id, term.name || '' ] );
 		return new Map( entries );
-	}, [ safeCategoryRecords ] );
+	}, [ combinedCategoryRecords ] );
 
 	const categorySuggestions = useMemo(
 		() =>
-			safeCategoryRecords
+			combinedCategoryRecords
 				.filter( ( term ) => term && term.name )
 				.map( ( term ) => term.name ),
-		[ safeCategoryRecords ]
+		[ combinedCategoryRecords ]
 	);
 
 	const selectedCategoryTokens = useMemo(
@@ -191,28 +348,19 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 	);
 
 	const postIdToTitle = useMemo( () => {
-		const entries = safeExcludePostRecords
+		const entries = combinedExcludePostRecords
 			.filter( ( p ) => p && typeof p.id === 'number' )
-			.map( ( post ) => [
-				post.id,
-				post?.title?.rendered
-					? post.title.rendered.replace( /<[^>]+>/g, '' )
-					: __( '(Untitled)', 'twork-builder' ),
-			] );
+			.map( ( post ) => [ post.id, getPostPlainTitle( post ) ] );
 		return new Map( entries );
-	}, [ safeExcludePostRecords ] );
+	}, [ combinedExcludePostRecords ] );
 
 	const postSuggestions = useMemo(
 		() =>
-			safeExcludePostRecords
+			combinedExcludePostRecords
 				.filter( ( p ) => p && typeof p.id === 'number' )
-				.map( ( post ) =>
-					post?.title?.rendered
-						? post.title.rendered.replace( /<[^>]+>/g, '' )
-						: __( '(Untitled)', 'twork-builder' )
-				)
+				.map( ( post ) => getPostPlainTitle( post ) )
 				.filter( Boolean ),
-		[ safeExcludePostRecords ]
+		[ combinedExcludePostRecords ]
 	);
 
 	const selectedExcludeTokens = useMemo(
@@ -227,41 +375,48 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 		( tokens ) => {
 			const list = Array.isArray( tokens ) ? tokens : [];
 			const idByName = new Map(
-				safeCategoryRecords
+				combinedCategoryRecords
 					.filter( ( term ) => term && term.name && typeof term.id === 'number' )
 					.map( ( term ) => [ term.name, term.id ] )
 			);
 
 			const ids = list
-				.map( ( token ) => idByName.get( token ) )
+				.map( ( token ) => {
+					const byName = idByName.get( token );
+					if ( Number.isFinite( byName ) ) {
+						return byName;
+					}
+					return parseHashIdToken( token );
+				} )
 				.filter( ( id ) => Number.isFinite( id ) );
 
 			setAttributes( { categoryIds: [ ...new Set( ids ) ] } );
 		},
-		[ safeCategoryRecords, setAttributes ]
+		[ combinedCategoryRecords, setAttributes ]
 	);
 
 	const onExcludeTokensChange = useCallback(
 		( tokens ) => {
 			const list = Array.isArray( tokens ) ? tokens : [];
 			const idByTitle = new Map(
-				safeExcludePostRecords
+				combinedExcludePostRecords
 					.filter( ( p ) => p && typeof p.id === 'number' )
-					.map( ( post ) => [
-						post?.title?.rendered
-							? post.title.rendered.replace( /<[^>]+>/g, '' )
-							: __( '(Untitled)', 'twork-builder' ),
-						post.id,
-					] )
+					.map( ( post ) => [ getPostPlainTitle( post ), post.id ] )
 			);
 
 			const ids = list
-				.map( ( token ) => idByTitle.get( token ) )
+				.map( ( token ) => {
+					const byTitle = idByTitle.get( token );
+					if ( Number.isFinite( byTitle ) ) {
+						return byTitle;
+					}
+					return parseHashIdToken( token );
+				} )
 				.filter( ( id ) => Number.isFinite( id ) );
 
 			setAttributes( { excludeIds: [ ...new Set( ids ) ] } );
 		},
-		[ safeExcludePostRecords, setAttributes ]
+		[ combinedExcludePostRecords, setAttributes ]
 	);
 
 	const blockProps = useStableBlockProps(
@@ -798,11 +953,10 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 									const featured =
 										post?._embedded?.[ 'wp:featuredmedia' ]?.[ 0 ];
-									const imgUrl =
-										featured?.media_details?.sizes?.[ imageSize ]
-											?.source_url ||
-										featured?.source_url ||
-										'';
+									const imgUrl = getFeaturedImageUrl(
+										featured,
+										imageSize || 'large'
+									);
 
 									const dateObj = post?.date ? new Date( post.date ) : null;
 									const day = dateObj

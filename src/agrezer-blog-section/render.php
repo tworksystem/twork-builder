@@ -178,8 +178,20 @@ ob_start();
                     $post_id   = get_the_ID();
                     $permalink = get_permalink($post_id);
                     $title     = get_the_title($post_id);
-                    $thumb_id  = get_post_thumbnail_id($post_id);
-                    $img_url   = $thumb_id ? wp_get_attachment_image_url($thumb_id, $image_size) : '';
+                    $thumb_id = get_post_thumbnail_id($post_id);
+                    $img_url  = '';
+                    if ($thumb_id) {
+                        $img_url = wp_get_attachment_image_url($thumb_id, $image_size);
+                        if (!$img_url) {
+                            foreach (array('large', 'medium_large', 'medium', 'thumbnail', 'full') as $fb_size) {
+                                $try = wp_get_attachment_image_url($thumb_id, $fb_size);
+                                if ($try) {
+                                    $img_url = $try;
+                                    break;
+                                }
+                            }
+                        }
+                    }
                     $day       = get_the_date('j', $post_id);
                     $month     = get_the_date('M', $post_id);
                     $comments  = (int) get_comments_number($post_id);

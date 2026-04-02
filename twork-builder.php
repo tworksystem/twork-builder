@@ -310,6 +310,16 @@ function twork_builder_init_blocks()
     $registered_count = 0;
     $failed_count = 0;
 
+    /**
+     * Dynamic blocks that declare "render": "file:./render.php" in block.json (for example
+     * twork/posts-grid under build/agrezer-blog-section/) are registered automatically when you call
+     * register_block_type( $block_dir ). WordPress resolves render.php relative to that folder.
+     * Do not add a render_callback for those blocks unless you intentionally override server output.
+     *
+     * Stand-alone registration (e.g. custom path) would look like:
+     * register_block_type_from_metadata( TWORK_BUILDER_PATH . 'build/agrezer-blog-section' );
+     */
+
     foreach ($block_folders as $folder) {
         $block_dir = $blocks_path . $folder;
         
