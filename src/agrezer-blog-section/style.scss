@@ -63,9 +63,19 @@
 	color: #fff;
 }
 
+/**
+ * Grid columns are driven by inline CSS variables from edit.js / render.php:
+ *   --twork-blog-cols   (number of columns on wide viewports)
+ *   --twork-blog-max    (max container width, px)
+ *   --twork-blog-width  (fluid width % cap)
+ * `minmax(0, 1fr)` avoids overflow when card content is wider than the track.
+ */
 .twork-blog__grid {
 	display: grid;
-	grid-template-columns: repeat(var(--twork-blog-cols, 3), 1fr);
+	grid-template-columns: repeat(
+		var(--twork-blog-cols, 3),
+		minmax(0, 1fr)
+	);
 	gap: 30px;
 }
 
@@ -226,13 +236,16 @@
 	}
 
 	.twork-blog__grid {
-		grid-template-columns: repeat(2, 1fr);
+		grid-template-columns: repeat(
+			min(2, var(--twork-blog-cols, 3)),
+			minmax(0, 1fr)
+		);
 	}
 }
 
 @media (max-width: 768px) {
 	.twork-blog__grid {
-		grid-template-columns: 1fr;
+		grid-template-columns: minmax(0, 1fr);
 	}
 }
 
