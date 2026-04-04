@@ -2,12 +2,22 @@
 /**
  * Dynamic render for twork/posts-grid.
  *
+ * Attribute names MUST match src/agrezer-blog-section/block.json (e.g. categoryIds, excludeIds).
+ *
  * @package TworkBuilder
  */
 
 defined('ABSPATH') || exit;
 
-$attributes = isset($attributes) && is_array($attributes) ? $attributes : array();
+$attributes = (isset($attributes) && is_array($attributes)) ? $attributes : array();
+
+// Singular keys are not in block.json; support them only for legacy/migrated content.
+if (!isset($attributes['categoryIds']) && isset($attributes['categoryId'])) {
+    $attributes['categoryIds'] = $attributes['categoryId'];
+}
+if (!isset($attributes['excludeIds']) && isset($attributes['excludeId'])) {
+    $attributes['excludeIds'] = $attributes['excludeId'];
+}
 
 $defaults = array(
     'sectionTitle'      => 'Explore Our Latest<br>News &amp; Blog',
@@ -39,23 +49,55 @@ $defaults = array(
 
 $atts = wp_parse_args($attributes, $defaults);
 
-// JSON may deserialize null or wrong types; keep query args safe.
-if (!is_array($atts['categoryIds'])) {
-    $atts['categoryIds'] = array();
-}
-if (!is_array($atts['excludeIds'])) {
-    $atts['excludeIds'] = array();
+// wp_parse_args uses array_merge: explicit null in saved attrs can override defaults.
+foreach (array('categoryIds', 'excludeIds') as $list_key) {
+    if (!isset($atts[$list_key]) || !is_array($atts[$list_key])) {
+        $atts[$list_key] = array();
+    }
 }
 
-$posts_to_show = max(1, min(12, (int) $atts['postsToShow']));
-$columns       = max(1, min(4, (int) $atts['columns']));
-$offset        = max(0, (int) $atts['offset']);
+/**
+ * Normalize block list attributes into a clean list of positive integers.
+ *
+ * @param mixed $raw Array, comma-separated string, single scalar, or empty.
+ * @return int[]
+ */
+$twork_normalize_post_grid_ids = static function ($raw) {
+    if (is_array($raw)) {
+        $out = array_map('absint', $raw);
+    } elseif (is_string($raw) && $raw !== '') {
+        $out = array_map('absint', array_map('trim', explode(',', $raw)));
+    } elseif ($raw === null || $raw === '' || false === $raw) {
+        return array();
+    } else {
+        $out = array(absint($raw));
+    }
+    $out = array_filter(
+        $out,
+        static function ($id) {
+            return $id > 0;
+        }
+    );
+    return array_values(array_unique($out));
+};
 
-$orderby_raw = (string) $atts['orderBy'];
+$category_ids = $twork_normalize_post_grid_ids($atts['categoryIds']);
+$exclude_ids  = $twork_normalize_post_grid_ids($atts['excludeIds']);
+
+$posts_to_show = isset($atts['postsToShow']) ? (int) $atts['postsToShow'] : 3;
+$posts_to_show = max(1, min(12, $posts_to_show));
+
+$columns = isset($atts['columns']) ? (int) $atts['columns'] : 3;
+$columns = max(1, min(4, $columns));
+
+$offset = isset($atts['offset']) ? (int) $atts['offset'] : 0;
+$offset = max(0, $offset);
+
+$orderby_raw     = isset($atts['orderBy']) ? (string) $atts['orderBy'] : 'date';
 $allowed_orderby = array('date', 'title', 'modified', 'comment_count', 'rand');
-$orderby = in_array($orderby_raw, $allowed_orderby, true) ? $orderby_raw : 'date';
+$orderby         = in_array($orderby_raw, $allowed_orderby, true) ? $orderby_raw : 'date';
 
-$order = strtoupper((string) $atts['order']) === 'ASC' ? 'ASC' : 'DESC';
+$order = isset($atts['order']) && strtoupper((string) $atts['order']) === 'ASC' ? 'ASC' : 'DESC';
 
 $query_args = array(
     'post_type'           => 'post',
@@ -68,26 +110,11 @@ $query_args = array(
     'no_found_rows'       => true,
 );
 
-// Accept arrays (new schema) and comma-separated strings (legacy safety).
-$category_ids = array();
-if (is_array($atts['categoryIds'])) {
-    $category_ids = array_filter(array_map('absint', $atts['categoryIds']));
-} elseif (!empty($atts['categoryIds'])) {
-    $raw = array_map('trim', explode(',', (string) $atts['categoryIds']));
-    $category_ids = array_filter(array_map('absint', $raw));
-}
+// Never pass empty arrays — WordPress treats category__in => array() as "match nothing".
 if (!empty($category_ids)) {
     $query_args['category__in'] = $category_ids;
 }
 
-// Accept arrays (new schema) and comma-separated strings (legacy safety).
-$exclude_ids = array();
-if (is_array($atts['excludeIds'])) {
-    $exclude_ids = array_filter(array_map('absint', $atts['excludeIds']));
-} elseif (!empty($atts['excludeIds'])) {
-    $raw = array_map('trim', explode(',', (string) $atts['excludeIds']));
-    $exclude_ids = array_filter(array_map('absint', $raw));
-}
 if (!empty($exclude_ids)) {
     $query_args['post__not_in'] = $exclude_ids;
 }
@@ -103,7 +130,7 @@ $q = new WP_Query($query_args);
 $more_url = (string) $atts['moreButtonUrl'];
 if ($more_url === '' || $more_url === '#') {
     $posts_page = (int) get_option('page_for_posts');
-    $more_url = $posts_page ? get_permalink($posts_page) : home_url('/');
+    $more_url   = $posts_page ? get_permalink($posts_page) : home_url('/');
 }
 
 $wrapper_attributes = '';
@@ -178,8 +205,8 @@ ob_start();
                     $post_id   = get_the_ID();
                     $permalink = get_permalink($post_id);
                     $title     = get_the_title($post_id);
-                    $thumb_id = get_post_thumbnail_id($post_id);
-                    $img_url  = '';
+                    $thumb_id  = get_post_thumbnail_id($post_id);
+                    $img_url   = '';
                     if ($thumb_id) {
                         $img_url = wp_get_attachment_image_url($thumb_id, $image_size);
                         if (!$img_url) {
@@ -276,6 +303,15 @@ ob_start();
                 endwhile;
                 wp_reset_postdata();
             else :
+                $debug_payload = array(
+                    'post_count'   => (int) $q->post_count,
+                    'category__in' => !empty($category_ids) ? $category_ids : null,
+                    'post__not_in' => !empty($exclude_ids) ? $exclude_ids : null,
+                    'posts_per_pg' => $posts_to_show,
+                    'offset'       => $offset,
+                );
+                // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Debug JSON inside HTML comment only.
+                echo "\n<!-- twork/posts-grid: no posts matched query. " . esc_html(wp_json_encode($debug_payload)) . " -->\n";
                 ?>
                 <p class="twork-blog__empty"><?php esc_html_e('No posts found.', 'twork-builder'); ?></p>
                 <?php
@@ -286,4 +322,3 @@ ob_start();
 </section>
 <?php
 return ob_get_clean();
-
