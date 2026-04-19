@@ -1,11 +1,12 @@
 import { __ } from '@wordpress/i18n';
-import { useStableBlockProps } from '@twork-builder/editor-utils';
 import {
 	InnerBlocks,
 	InspectorControls,
 	RichText,
 	MediaPlaceholder,
+	MediaUpload,
 	PanelColorSettings,
+	useBlockProps,
 } from '@wordpress/block-editor';
 import {
 	PanelBody,
@@ -52,38 +53,27 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 		columns,
 		headerMarginBottom,
 		tagIcon,
+		tagIconId,
 		tagIconAlt,
 		tagline,
 		title,
 	} = attributes;
 
-	const blockProps = useStableBlockProps(
-		() => ( {
-			className: 'agrezer-team-section twork-agrezer-team-section-editor',
-			style: {
-				backgroundColor,
-				paddingTop: `${ paddingTop }px`,
-				paddingBottom: `${ paddingBottom }px`,
-				'--agrezer-team-max': `${ containerMaxWidth }px`,
-				'--agrezer-team-width-pct': `${ containerWidthPct }%`,
-				'--agrezer-team-gap': `${ gridGap }px`,
-				'--agrezer-team-cols': String(
-					Math.min( 4, Math.max( 1, columns || 3 ) )
-				),
-				'--agrezer-team-header-mb': `${ headerMarginBottom }px`,
-			},
-		} ),
-		[
+	const blockProps = useBlockProps( {
+		className: 'agrezer-team-section twork-agrezer-team-section-editor',
+		style: {
 			backgroundColor,
-			columns,
-			containerMaxWidth,
-			containerWidthPct,
-			gridGap,
-			headerMarginBottom,
-			paddingBottom,
-			paddingTop,
-		]
-	);
+			paddingTop: `${ paddingTop }px`,
+			paddingBottom: `${ paddingBottom }px`,
+			'--agrezer-team-max': `${ containerMaxWidth }px`,
+			'--agrezer-team-width-pct': `${ containerWidthPct }%`,
+			'--agrezer-team-gap': `${ gridGap }px`,
+			'--agrezer-team-cols': String(
+				Math.min( 4, Math.max( 1, columns || 3 ) )
+			),
+			'--agrezer-team-header-mb': `${ headerMarginBottom }px`,
+		},
+	} );
 
 	return (
 		<>
@@ -263,10 +253,37 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 					<div className="agrezer-team-section__header">
 						<div className="agrezer-team-section__tagline">
 							{ tagIcon && (
-								<img
-									src={ tagIcon }
-									alt=""
-									className="agrezer-team-section__tag-icon"
+								<MediaUpload
+									onSelect={ ( media ) =>
+										setAttributes( {
+											tagIcon: media.url,
+											tagIconId: media.id,
+											tagIconAlt: media.alt || tagIconAlt,
+										} )
+									}
+									allowedTypes={ [ 'image' ] }
+									value={ tagIconId }
+									render={ ( { open } ) => (
+										<img
+											src={ tagIcon }
+											alt={ tagIconAlt || '' }
+											className="agrezer-team-section__tag-icon"
+											width="20"
+											height="20"
+											onClick={ open }
+											role="button"
+											tabIndex={ 0 }
+											onKeyDown={ ( event ) => {
+												if (
+													event.key === 'Enter' ||
+													event.key === ' '
+												) {
+													event.preventDefault();
+													open();
+												}
+											} }
+										/>
+									) }
 								/>
 							) }
 							<RichText

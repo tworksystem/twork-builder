@@ -2,6 +2,11 @@
  * Agrezer team section — from my-avocado _team-section.scss
  */
 
+.twork-team-section {
+	padding-top: var(--tw-team-pt, 90px) !important;
+	padding-bottom: var(--tw-team-pb, 110px) !important;
+}
+
 .twork-team-section__container {
 	width: min(var(--twork-team-max, 1200px), var(--twork-team-width-pct, 90%));
 	margin: 0 auto;
@@ -12,36 +17,36 @@
 	margin-bottom: var(--twork-team-header-mb, 34px);
 }
 
-.twork-team-section__tagline {
+.twork-team-section .twork-team-section__tagline {
 	display: inline-flex;
 	align-items: center;
-	gap: 10px;
-	color: #1f1f1f;
-	font-size: 1.05rem;
+	gap: var(--tw-tag-gap, 10px) !important;
+	color: var(--tw-tag-color, #1f1f1f) !important;
+	font-size: var(--tw-tag-size, 1.05rem) !important;
 	font-weight: 600;
 	margin-bottom: 14px;
 }
 
-.twork-team-section__tag-icon {
-	width: 20px;
-	height: 20px;
+.twork-team-section .twork-team-section__tag-icon {
+	width: var(--tw-tag-icon-size, 20px) !important;
+	height: var(--tw-tag-icon-size, 20px) !important;
 	object-fit: contain;
 	filter: invert(61%) sepia(68%) saturate(366%) hue-rotate(46deg) brightness(95%) contrast(90%);
 	flex-shrink: 0;
 }
 
-.twork-team-section__title {
+.twork-team-section .twork-team-section__title {
 	margin: 0;
-	color: #131313;
-	font-size: clamp(2.2rem, 4vw, 3.8rem);
+	color: var(--tw-team-title-color, #131313) !important;
+	font-size: var(--tw-team-title-size, clamp(2.2rem, 4vw, 3.8rem)) !important;
 	line-height: 1.1;
 	letter-spacing: -0.02em;
 }
 
-.twork-team-section__grid {
+.twork-team-section .twork-team-section__grid {
 	display: grid;
 	grid-template-columns: repeat(var(--twork-team-cols, 3), 1fr);
-	gap: var(--twork-team-gap, 22px);
+	gap: var(--twork-team-gap, 22px) !important;
 }
 
 .twork-team-card {
@@ -80,17 +85,17 @@
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
-	background: #94cf37;
-	color: #fff;
+	background: var(--tw-card-action-bg, #94cf37) !important;
+	color: var(--tw-card-action-color, #fff) !important;
 	text-decoration: none;
 	font-size: 1.2rem;
 	z-index: 3;
-	transition: transform 0.2s ease, background-color 0.2s ease;
+	transition: transform 0.2s ease, filter 0.2s ease !important;
 }
 
 .twork-team-card__action:hover {
 	transform: translateY(-1px);
-	background: #8ac22f;
+	filter: brightness(0.9);
 }
 
 .twork-team-card__action--static {
@@ -100,12 +105,13 @@
 
 .twork-team-card__action--static:hover {
 	transform: none;
-	background: #94cf37;
+	filter: none;
 }
 
 @media (prefers-reduced-motion: reduce) {
 	.twork-team-card__action:hover {
 		transform: none;
+		filter: none;
 	}
 }
 
@@ -134,22 +140,34 @@
 }
 
 @media (max-width: 992px) {
-	.twork-team-section__grid {
-		grid-template-columns: repeat(2, 1fr);
+	.twork-team-section .twork-team-section__grid {
+		grid-template-columns: repeat(2, 1fr) !important;
 	}
 }
 
 @media (max-width: 640px) {
-	.twork-team-section__title {
-		font-size: clamp(1.9rem, 8vw, 2.6rem);
+	.twork-team-section .twork-team-section__title {
+		font-size: var(--tw-team-title-size, clamp(1.9rem, 8vw, 2.6rem)) !important;
 	}
 
-	.twork-team-section__grid {
-		grid-template-columns: 1fr;
+	.twork-team-section .twork-team-section__grid {
+		grid-template-columns: 1fr !important;
 	}
 
 	.twork-team-card,
 	.twork-team-card__img {
 		min-height: 340px;
 	}
+
+	.twork-team-section {
+		padding-top: calc(var(--tw-team-pt, 90px) * 0.6);
+		padding-bottom: calc(var(--tw-team-pb, 110px) * 0.6);
+	}
+}
+
+.twork-team-card__action svg {
+	width: 20px !important;
+	height: 20px !important;
+	display: block;
+	stroke-width: 2.5px !important;
 }

@@ -29,6 +29,34 @@
 		"name": {
 			"type": "string",
 			"default": ""
+		},
+		"showName": {
+			"type": "boolean",
+			"default": true
+		},
+		"imageWidth": {
+			"type": "number",
+			"default": 150
+		},
+		"imageHeight": {
+			"type": "number",
+			"default": 0
+		},
+		"imageObjectFit": {
+			"type": "string",
+			"default": "contain"
+		},
+		"nameColor": {
+			"type": "string",
+			"default": "#111416"
+		},
+		"nameFontSize": {
+			"type": "number",
+			"default": 1.25
+		},
+		"nameFontWeight": {
+			"type": "number",
+			"default": 700
 		}
 	},
 	"example": {
@@ -39,5 +67,7 @@
 		}
 	},
 	"textdomain": "twork-builder",
-	"editorScript": "file:./index.js"
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css",
+	"editorStyle": "file:./index.css"
 }

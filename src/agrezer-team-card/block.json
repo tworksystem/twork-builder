@@ -45,6 +45,22 @@
 		"actionAriaLabel": {
 			"type": "string",
 			"default": "View profile"
+		},
+		"showActionIcon": {
+			"type": "boolean",
+			"default": true
+		},
+		"actionIconType": {
+			"type": "string",
+			"default": "diagonal-arrow"
+		},
+		"actionBgColor": {
+			"type": "string",
+			"default": "#94cf37"
+		},
+		"actionIconColor": {
+			"type": "string",
+			"default": "#ffffff"
 		}
 	},
 	"example": {
@@ -59,5 +75,6 @@
 		}
 	},
 	"textdomain": "twork-builder",
-	"editorScript": "file:./index.js"
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css"
 }
