@@ -1,4 +1,5 @@
 import { __ } from '@wordpress/i18n';
+// eslint-disable-next-line import/no-unresolved -- workspace alias via webpack
 import { useStableBlockProps } from '@twork-builder/editor-utils';
 import { memo, useMemo, useCallback } from '@wordpress/element';
 import {
@@ -7,16 +8,95 @@ import {
 	RichText,
 	PanelColorSettings,
 	MediaPlaceholder,
+	MediaUpload,
+	MediaUploadCheck,
 } from '@wordpress/block-editor';
 import {
 	BaseControl,
 	Button,
+	GradientPicker,
 	PanelBody,
 	RangeControl,
+	SelectControl,
 	TextControl,
 	ToggleControl,
-	__experimentalDivider as Divider,
+	Divider as StableDivider,
 } from '@wordpress/components';
+
+const Divider =
+	StableDivider ||
+	function DividerFallback() {
+		return (
+			<hr
+				style={ {
+					margin: '16px 0',
+					border: 'none',
+					borderTop: '1px solid #ddd',
+				} }
+			/>
+		);
+	};
+
+const HERO_OVERLAY_GRADIENT_PRESET_CUSTOM = 'custom';
+const HERO_OVERLAY_GRADIENT_PRESET_NONE = 'none';
+
+const HERO_OVERLAY_GRADIENT_PRESETS = [
+	{
+		slug: 'meadow-dawn',
+		label: __( 'Meadow dawn (organic sage)', 'twork-builder' ),
+		gradient:
+			'linear-gradient(135deg, rgba(143, 189, 69, 0.24) 0%, rgba(22, 46, 22, 0.1) 100%)',
+	},
+	{
+		slug: 'deep-canopy',
+		label: __( 'Deep canopy (dark forest)', 'twork-builder' ),
+		gradient:
+			'linear-gradient(165deg, rgba(8, 26, 12, 0.78) 0%, rgba(4, 14, 6, 0.42) 52%, rgba(143, 189, 69, 0.06) 100%)',
+	},
+	{
+		slug: 'golden-hour',
+		label: __( 'Golden hour harvest', 'twork-builder' ),
+		gradient:
+			'linear-gradient(118deg, rgba(232, 196, 96, 0.26) 0%, rgba(72, 48, 18, 0.42) 100%)',
+	},
+	{
+		slug: 'morning-mist',
+		label: __( 'Morning mist over fields', 'twork-builder' ),
+		gradient:
+			'linear-gradient(180deg, rgba(200, 224, 232, 0.2) 0%, rgba(38, 66, 52, 0.32) 100%)',
+	},
+	{
+		slug: 'rich-earth',
+		label: __( 'Rich earth (soil tones)', 'twork-builder' ),
+		gradient:
+			'linear-gradient(145deg, rgba(62, 44, 28, 0.48) 0%, rgba(22, 36, 24, 0.55) 100%)',
+	},
+	{
+		slug: HERO_OVERLAY_GRADIENT_PRESET_NONE,
+		label: __( 'No gradient layer', 'twork-builder' ),
+		gradient:
+			'linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 100%)',
+	},
+];
+
+const HERO_OVERLAY_GRADIENT_SWATCHES = HERO_OVERLAY_GRADIENT_PRESETS.filter(
+	( p ) => p.slug !== HERO_OVERLAY_GRADIENT_PRESET_NONE
+).map( ( p ) => ( {
+	name: p.label,
+	slug: p.slug,
+	gradient: p.gradient,
+} ) );
+
+function getHeroOverlayPresetSlugFromGradient( gradient ) {
+	const g = typeof gradient === 'string' ? gradient.trim() : '';
+	if ( ! g ) {
+		return HERO_OVERLAY_GRADIENT_PRESET_NONE;
+	}
+	const hit = HERO_OVERLAY_GRADIENT_PRESETS.find(
+		( p ) => p.gradient.trim() === g
+	);
+	return hit ? hit.slug : HERO_OVERLAY_GRADIENT_PRESET_CUSTOM;
+}
 
 const ALLOWED_BLOCKS = [ 'twork/hero-feature' ];
 const TEMPLATE = [
@@ -53,17 +133,59 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 		title,
 		description,
 		buttonText,
+		buttonMediaUrl,
+		buttonMediaId,
+		buttonMediaType,
 		buttonUrl,
 		buttonLinkTarget,
 		backgroundImage,
-		backgroundImageId,
 		overlayColor,
+		overlayGradient,
+		overlayGradientPreset,
+		overlayOpacity,
+		buttonBgColor,
+		buttonTextColor,
+		buttonBorderRadius,
 		containerMaxWidth,
 		containerPadding,
 		paddingTop,
 		paddingBottom,
+		paddingTopMobile,
+		paddingBottomMobile,
 		featuresGap,
 	} = attributes;
+
+	const overlayGradientCss = useMemo( () => {
+		const g =
+			typeof overlayGradient === 'string' ? overlayGradient.trim() : '';
+		if ( ! g ) {
+			return HERO_OVERLAY_GRADIENT_PRESETS.find(
+				( p ) => p.slug === HERO_OVERLAY_GRADIENT_PRESET_NONE
+			).gradient;
+		}
+		return overlayGradient;
+	}, [ overlayGradient ] );
+
+	const resolvedOverlayPreset = useMemo( () => {
+		if ( overlayGradientPreset && overlayGradientPreset !== '' ) {
+			return overlayGradientPreset;
+		}
+		return getHeroOverlayPresetSlugFromGradient( overlayGradient );
+	}, [ overlayGradientPreset, overlayGradient ] );
+
+	const overlayPresetSelectOptions = useMemo(
+		() => [
+			...HERO_OVERLAY_GRADIENT_PRESETS.map( ( p ) => ( {
+				label: p.label,
+				value: p.slug,
+			} ) ),
+			{
+				label: __( 'Custom gradient…', 'twork-builder' ),
+				value: HERO_OVERLAY_GRADIENT_PRESET_CUSTOM,
+			},
+		],
+		[]
+	);
 
 	const sectionStyle = useMemo(
 		() => ( {
@@ -77,6 +199,12 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 			'--twork-container-max-width': `${ containerMaxWidth }px`,
 			'--twork-container-padding': `${ containerPadding }px`,
 			'--twork-features-gap': `${ featuresGap }px`,
+			'--twork-hero-btn-bg': buttonBgColor,
+			'--twork-hero-btn-text': buttonTextColor,
+			'--twork-hero-btn-radius': `${ buttonBorderRadius }px`,
+			'--twork-padding-top-mobile': `${ paddingTopMobile }px`,
+			'--twork-padding-bottom-mobile': `${ paddingBottomMobile }px`,
+			'--twork-hero-overlay-gradient': overlayGradientCss,
 		} ),
 		[
 			backgroundImage,
@@ -85,13 +213,18 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 			containerMaxWidth,
 			containerPadding,
 			featuresGap,
+			buttonBgColor,
+			buttonTextColor,
+			buttonBorderRadius,
+			paddingTopMobile,
+			paddingBottomMobile,
+			overlayGradientCss,
 		]
 	);
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className:
-				'twork-hero twork-hero--bg twork-hero-section-editor',
+			className: 'twork-hero twork-hero--bg twork-hero--editor',
 			style: sectionStyle,
 		} ),
 		[ sectionStyle ]
@@ -103,6 +236,31 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 	);
 	const onButtonText = useCallback(
 		( val ) => setAttributes( { buttonText: val } ),
+		[ setAttributes ]
+	);
+	const onSelectButtonMedia = useCallback(
+		( media ) => {
+			if ( ! media?.url ) {
+				return;
+			}
+			const isVideo =
+				media?.mime?.indexOf( 'video' ) === 0 ||
+				/\.(mp4|webm)$/i.test( media.url );
+			setAttributes( {
+				buttonMediaUrl: media.url,
+				buttonMediaId: media.id,
+				buttonMediaType: isVideo ? 'video' : 'image',
+			} );
+		},
+		[ setAttributes ]
+	);
+	const onRemoveButtonMedia = useCallback(
+		() =>
+			setAttributes( {
+				buttonMediaUrl: '',
+				buttonMediaId: null,
+				buttonMediaType: 'image',
+			} ),
 		[ setAttributes ]
 	);
 	const onTitle = useCallback(
@@ -158,6 +316,59 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 		[ setAttributes ]
 	);
 
+	const onOverlayGradientPresetChange = useCallback(
+		( slug ) => {
+			if ( slug === HERO_OVERLAY_GRADIENT_PRESET_CUSTOM ) {
+				setAttributes( {
+					overlayGradientPreset: HERO_OVERLAY_GRADIENT_PRESET_CUSTOM,
+				} );
+				return;
+			}
+			const preset = HERO_OVERLAY_GRADIENT_PRESETS.find(
+				( p ) => p.slug === slug
+			);
+			if ( preset ) {
+				setAttributes( {
+					overlayGradientPreset: slug,
+					overlayGradient: preset.gradient,
+				} );
+			}
+		},
+		[ setAttributes ]
+	);
+
+	const onOverlayGradientPickerChange = useCallback(
+		( newGradient ) => {
+			let raw = '';
+			if ( newGradient !== null && newGradient !== undefined ) {
+				raw = String( newGradient ).trim();
+			}
+			const noneGrad = HERO_OVERLAY_GRADIENT_PRESETS.find(
+				( p ) => p.slug === HERO_OVERLAY_GRADIENT_PRESET_NONE
+			).gradient;
+			const nextGradient = raw === '' ? noneGrad : String( newGradient );
+			setAttributes( {
+				overlayGradient: nextGradient,
+				overlayGradientPreset: HERO_OVERLAY_GRADIENT_PRESET_CUSTOM,
+			} );
+		},
+		[ setAttributes ]
+	);
+
+	const onOverlayGradientTextChange = useCallback(
+		( val ) => {
+			const trimmed = typeof val === 'string' ? val.trim() : '';
+			const noneGrad = HERO_OVERLAY_GRADIENT_PRESETS.find(
+				( p ) => p.slug === HERO_OVERLAY_GRADIENT_PRESET_NONE
+			).gradient;
+			setAttributes( {
+				overlayGradient: trimmed === '' ? noneGrad : val,
+				overlayGradientPreset: HERO_OVERLAY_GRADIENT_PRESET_CUSTOM,
+			} );
+		},
+		[ setAttributes ]
+	);
+
 	const href = buttonUrl && buttonUrl.trim() !== '' ? buttonUrl : '#';
 
 	return (
@@ -191,7 +402,10 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 						/>
 
 						<ToggleControl
-							label={ __( 'Open button link in new tab', 'twork-builder' ) }
+							label={ __(
+								'Open button link in new tab',
+								'twork-builder'
+							) }
 							checked={ buttonLinkTarget }
 							onChange={ onButtonTarget }
 						/>
@@ -202,6 +416,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 						initialOpen={ false }
 					>
 						<BaseControl
+							id="twork-hero-background-image"
 							label={ __( 'Background image', 'twork-builder' ) }
 						>
 							{ ! backgroundImage ? (
@@ -253,6 +468,126 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 								},
 							] }
 						/>
+						<RangeControl
+							label={ __( 'Overlay opacity', 'twork-builder' ) }
+							value={ overlayOpacity }
+							onChange={ ( val ) =>
+								setAttributes( { overlayOpacity: val } )
+							}
+							min={ 0 }
+							max={ 1 }
+							step={ 0.05 }
+							help={ __(
+								'Fades the entire overlay (color + gradient layers) together.',
+								'twork-builder'
+							) }
+						/>
+						<SelectControl
+							label={ __( 'Overlay gradient', 'twork-builder' ) }
+							value={ resolvedOverlayPreset }
+							options={ overlayPresetSelectOptions }
+							onChange={ onOverlayGradientPresetChange }
+							help={ __(
+								'Adds a nature-themed wash between the photo and the solid overlay color.',
+								'twork-builder'
+							) }
+						/>
+						{ resolvedOverlayPreset ===
+							HERO_OVERLAY_GRADIENT_PRESET_CUSTOM && (
+							<BaseControl
+								label={ __(
+									'Custom gradient',
+									'twork-builder'
+								) }
+								id="twork-hero-overlay-gradient-picker"
+							>
+								<GradientPicker
+									__experimentalIsRenderedInSidebar
+									value={ overlayGradientCss }
+									onChange={ onOverlayGradientPickerChange }
+									gradients={ HERO_OVERLAY_GRADIENT_SWATCHES }
+								/>
+							</BaseControl>
+						) }
+						<TextControl
+							label={ __(
+								'Overlay gradient (CSS, advanced)',
+								'twork-builder'
+							) }
+							value={ overlayGradient }
+							onChange={ onOverlayGradientTextChange }
+							help={ __(
+								'Optional: paste any valid CSS gradient. Shown when you need pixel-perfect control beyond the picker.',
+								'twork-builder'
+							) }
+						/>
+					</PanelBody>
+
+					<PanelBody
+						title={ __( 'Button Media', 'twork-builder' ) }
+						initialOpen={ false }
+					>
+						<MediaUploadCheck>
+							<MediaUpload
+								onSelect={ onSelectButtonMedia }
+								allowedTypes={ [ 'image', 'video' ] }
+								value={ buttonMediaId }
+								render={ ( { open } ) => (
+									<Button isSecondary onClick={ open }>
+										{ buttonMediaUrl
+											? __(
+													'Replace button media',
+													'twork-builder'
+											  )
+											: __(
+													'Select button media',
+													'twork-builder'
+											  ) }
+									</Button>
+								) }
+							/>
+						</MediaUploadCheck>
+						{ buttonMediaUrl && (
+							<Button
+								isDestructive
+								isSmall
+								onClick={ onRemoveButtonMedia }
+							>
+								{ __( 'Remove media', 'twork-builder' ) }
+							</Button>
+						) }
+						<PanelColorSettings
+							title={ __( 'Button Colors', 'twork-builder' ) }
+							colorSettings={ [
+								{
+									value: buttonBgColor,
+									onChange: ( val ) =>
+										setAttributes( { buttonBgColor: val } ),
+									label: __( 'Background', 'twork-builder' ),
+								},
+								{
+									value: buttonTextColor,
+									onChange: ( val ) =>
+										setAttributes( {
+											buttonTextColor: val,
+										} ),
+									label: __( 'Text', 'twork-builder' ),
+								},
+							] }
+						/>
+						<RangeControl
+							label={ __(
+								'Button border radius (px)',
+								'twork-builder'
+							) }
+							value={ buttonBorderRadius }
+							onChange={ ( val ) =>
+								setAttributes( { buttonBorderRadius: val } )
+							}
+							min={ 0 }
+							max={ 64 }
+							step={ 1 }
+						/>
 					</PanelBody>
 
 					<PanelBody
@@ -303,6 +638,32 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 							max={ 240 }
 							step={ 5 }
 						/>
+						<RangeControl
+							label={ __(
+								'Top padding mobile (px)',
+								'twork-builder'
+							) }
+							value={ paddingTopMobile }
+							onChange={ ( val ) =>
+								setAttributes( { paddingTopMobile: val } )
+							}
+							min={ 0 }
+							max={ 180 }
+							step={ 2 }
+						/>
+						<RangeControl
+							label={ __(
+								'Bottom padding mobile (px)',
+								'twork-builder'
+							) }
+							value={ paddingBottomMobile }
+							onChange={ ( val ) =>
+								setAttributes( { paddingBottomMobile: val } )
+							}
+							min={ 0 }
+							max={ 180 }
+							step={ 2 }
+						/>
 
 						<Divider />
 						<RangeControl
@@ -317,10 +678,14 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 				</InspectorControls>
 			) }
 
-			<section { ...blockProps } aria-labelledby="twork-hero-title">
+			<section { ...blockProps }>
 				<div
 					className="twork-hero__overlay"
-					style={ { backgroundColor: overlayColor } }
+					style={ {
+						'--twork-hero-overlay-color': overlayColor,
+						'--twork-hero-overlay-opacity': overlayOpacity,
+						'--twork-hero-overlay-gradient': overlayGradientCss,
+					} }
 				/>
 
 				<div className="twork-hero__container">
@@ -340,12 +705,11 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 						</div>
 						<RichText
 							tagName="h1"
-							id="twork-hero-title"
-							className="twork-hero__title"
+							className="twork-hero__title twork-hero__title"
 							value={ title }
 							onChange={ onTitle }
 							placeholder={ __(
-								'Rooted in Nature,<br />Growing the Future',
+								'Rooted in Nature, Growing the Future',
 								'twork-builder'
 							) }
 						/>
@@ -356,7 +720,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 							value={ description }
 							onChange={ onDescription }
 							placeholder={ __(
-								'Hero description...',
+								'Hero description…',
 								'twork-builder'
 							) }
 						/>
@@ -381,17 +745,40 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 									'twork-builder'
 								) }
 							/>
-							<span aria-hidden="true">&#x2197;</span>
+							{ ! buttonMediaUrl && (
+								<span aria-hidden="true">&#x2197;</span>
+							) }
+							{ buttonMediaUrl && buttonMediaType === 'video' && (
+								<video
+									className="twork-hero__btn-media"
+									src={ buttonMediaUrl }
+									autoPlay
+									muted
+									loop
+									playsInline
+									aria-hidden="true"
+								/>
+							) }
+							{ buttonMediaUrl && buttonMediaType !== 'video' && (
+								<img
+									className="twork-hero__btn-media"
+									src={ buttonMediaUrl }
+									alt=""
+									aria-hidden="true"
+								/>
+							) }
 						</a>
 					</div>
 
 					<div className="twork-hero__features-wrapper">
-						<InnerBlocks
-							allowedBlocks={ ALLOWED_BLOCKS }
-							template={ TEMPLATE }
-							templateLock={ false }
-							renderAppender={ InnerBlocks.ButtonBlockAppender }
-						/>
+						<div className="twork-hero__features-track">
+							<InnerBlocks
+								allowedBlocks={ ALLOWED_BLOCKS }
+								template={ TEMPLATE }
+								templateLock={ false }
+								renderAppender={ InnerBlocks.ButtonBlockAppender }
+							/>
+						</div>
 					</div>
 				</div>
 			</section>

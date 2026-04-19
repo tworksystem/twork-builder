@@ -1,60 +1,78 @@
 /**
- * Hero feature cards — reference layout (my-avocado _hero-feature).
+ * Hero feature cards — zig-zag strip; width tuned for 3-up row inside hero.
  */
-$twork-hero-green-primary: #314d22;
-$twork-hero-green-light: #8fbd45;
 
-.twork-hero__features-wrapper .twork-hero-feature {
-	flex: 0 0 auto;
+.twork-hero-feature {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	text-align: center;
+	flex: 1 1 auto;
+	min-width: 0;
+	width: auto;
+	max-width: 200px;
 }
 
-.twork-hero-feature:nth-child(2) {
-	transform: translateY(-20px);
+/*
+ * Middle card stagger: count only .wp-block-twork-hero-feature siblings inside the track.
+ * The block appender / inserter is not that class, so it does not affect `of` matching.
+ * Scope to .twork-hero__features-track (stable wrapper in hero markup) for a single parent.
+ */
+.twork-hero__features-track
+	.wp-block-twork-hero-feature:nth-child(2 of .wp-block-twork-hero-feature) {
+	transform: translateY(-30px);
 }
 
 .twork-hero-feature__badge {
-	width: 72px;
-	height: 72px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	background: $twork-hero-green-light;
-	color: $twork-hero-green-primary;
-	clip-path: polygon(
-		50% 0%,
-		60% 10%,
-		72% 14%,
-		86% 22%,
-		92% 36%,
-		100% 50%,
-		92% 64%,
-		86% 78%,
-		72% 86%,
-		60% 90%,
-		50% 100%,
-		40% 90%,
-		28% 86%,
-		14% 78%,
-		8% 64%,
-		0% 50%,
-		8% 36%,
-		14% 22%,
-		28% 14%,
-		40% 10%
-	);
-	box-shadow:
-		inset 0 0 0 3px rgba(255, 255, 255, 0.25),
-		0 12px 26px rgba(0, 0, 0, 0.32);
+	position: relative;
+	width: 82px;
+	height: 82px;
+	margin: 0 auto;
+	flex-shrink: 0;
+	display: grid;
+	place-items: center;
 }
 
-.twork-hero-feature__badge svg {
+.twork-hero-feature__badge-svg {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	filter: drop-shadow(0px 10px 16px rgba(0, 0, 0, 0.15));
+	pointer-events: none;
+}
+
+/* Classic dead-center; 30×30 box — svg/img fill this box */
+.twork-hero-feature__icon-wrap {
+	position: absolute;
+	inset: 0;
+	z-index: 2;
+	display: grid;
+	place-items: center;
+	pointer-events: none;
+	transform: translate(var(--twork-icon-x, 0px), var(--twork-icon-y, 0px));
+	transition: transform 220ms ease;
+}
+
+.twork-hero-feature__icon-wrap svg,
+.twork-hero-feature__icon-wrap img,
+.twork-hero-feature__icon-wrap video {
+	width: 30px;
+	height: 30px;
+	max-width: 100%;
+	max-height: 100%;
 	display: block;
-	width: 32px;
-	height: 32px;
+	flex-shrink: 0;
+	box-sizing: border-box;
+}
+
+.twork-hero-feature__icon-wrap img {
+	object-fit: contain;
+}
+
+.twork-hero-feature__icon-wrap video {
+	object-fit: contain;
 }
 
 .twork-hero-feature__title {
@@ -69,18 +87,74 @@ $twork-hero-green-light: #8fbd45;
 	}
 }
 
+.twork-hero-feature.is-hover-anim-enabled {
+	.twork-hero-feature__badge {
+		transition: transform 220ms ease;
+	}
+
+	.twork-hero-feature__icon-wrap {
+		transition: transform 220ms ease;
+	}
+
+	&:hover {
+		.twork-hero-feature__badge {
+			transform: translateY(-4px);
+		}
+
+		.twork-hero-feature__icon-wrap {
+			transform: translate(
+					var(--twork-icon-x, 0px),
+					calc(var(--twork-icon-y, 0px) - 1px)
+				)
+				scale(1.06);
+		}
+	}
+}
+
 @media (max-width: 1000px) {
-	.twork-hero-feature:nth-child(2) {
-		transform: translateY(-10px);
+	.twork-hero__features-track
+		.wp-block-twork-hero-feature:nth-child(2 of .wp-block-twork-hero-feature) {
+		transform: translateY(-16px);
 	}
 
 	.twork-hero-feature__badge {
-		width: 62px;
-		height: 62px;
+		width: 68px;
+		height: 68px;
+	}
+
+	.twork-hero-feature__icon-wrap svg,
+	.twork-hero-feature__icon-wrap img,
+	.twork-hero-feature__icon-wrap video {
+		width: 26px;
+		height: 26px;
 	}
 
 	.twork-hero-feature__title {
 		font-size: 0.95rem;
 		margin-top: 12px;
+	}
+}
+
+@media (max-width: 700px) {
+	/*
+	 * Strip stagger + hover motion on small viewports; keep icon offsets via custom props.
+	 * Duplicated selectors so each rule stays simple and wins over nested hover/stagger.
+	 */
+	.twork-hero__features-track
+		.wp-block-twork-hero-feature:nth-child(2 of .wp-block-twork-hero-feature) {
+		transform: none !important;
+	}
+
+	.twork-hero-feature.is-hover-anim-enabled:hover .twork-hero-feature__badge,
+	.twork-hero-feature.is-hover-anim-enabled:focus-within .twork-hero-feature__badge {
+		transform: none !important;
+	}
+
+	.twork-hero-feature.is-hover-anim-enabled:hover .twork-hero-feature__icon-wrap,
+	.twork-hero-feature.is-hover-anim-enabled:focus-within .twork-hero-feature__icon-wrap {
+		transform: translate(
+			var(--twork-icon-x, 0px),
+			var(--twork-icon-y, 0px)
+		) !important;
 	}
 }
