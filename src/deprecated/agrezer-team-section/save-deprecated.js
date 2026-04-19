@@ -1,6 +1,13 @@
 import { useBlockProps, InnerBlocks, RichText } from '@wordpress/block-editor';
 
-export default function save( { attributes } ) {
+/**
+ * Previous save markup for twork/agrezer-team-section (conditional tagline/title).
+ * Kept so existing content validates after save.js is aligned with edit.js.
+ *
+ * @param {Object} props            Props passed to the deprecated save.
+ * @param {Object} props.attributes Block attributes.
+ */
+export default function saveDeprecated( { attributes } ) {
 	const {
 		backgroundColor,
 		paddingTop,
@@ -36,25 +43,34 @@ export default function save( { attributes } ) {
 		<section { ...blockProps }>
 			<div className="agrezer-team-section__container">
 				<div className="agrezer-team-section__header">
-					<div className="agrezer-team-section__tagline">
-						{ tagIcon && (
-							<img
-								src={ tagIcon }
-								alt={ tagIconAlt || '' }
-								className="agrezer-team-section__tag-icon"
-								width="20"
-								height="20"
-								loading="lazy"
-								decoding="async"
-							/>
-						) }
-						<RichText.Content tagName="span" value={ tagline } />
-					</div>
-					<RichText.Content
-						tagName="h2"
-						className="agrezer-team-section__title"
-						value={ title }
-					/>
+					{ ( tagline || tagIcon ) && (
+						<div className="agrezer-team-section__tagline">
+							{ tagIcon && (
+								<img
+									src={ tagIcon }
+									alt={ tagIconAlt || '' }
+									className="agrezer-team-section__tag-icon"
+									width="20"
+									height="20"
+									loading="lazy"
+									decoding="async"
+								/>
+							) }
+							{ tagline && (
+								<RichText.Content
+									tagName="span"
+									value={ tagline }
+								/>
+							) }
+						</div>
+					) }
+					{ title && (
+						<RichText.Content
+							tagName="h2"
+							className="agrezer-team-section__title"
+							value={ title }
+						/>
+					) }
 				</div>
 
 				<div className="agrezer-team-section__grid">

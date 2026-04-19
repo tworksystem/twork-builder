@@ -1,11 +1,13 @@
 import { __ } from '@wordpress/i18n';
-import { useStableBlockProps } from '@twork-builder/editor-utils';
 import {
 	InnerBlocks,
 	InspectorControls,
 	RichText,
 	MediaPlaceholder,
+	MediaUpload,
 	PanelColorSettings,
+	useBlockProps,
+	useInnerBlocksProps,
 } from '@wordpress/block-editor';
 import {
 	PanelBody,
@@ -41,7 +43,12 @@ const TEMPLATE = [
 	],
 ];
 
-export default function Edit( { attributes, setAttributes, isSelected } ) {
+export default function Edit( {
+	attributes,
+	setAttributes,
+	isSelected,
+	clientId,
+} ) {
 	const {
 		backgroundColor,
 		paddingTop,
@@ -52,37 +59,69 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 		columns,
 		headerMarginBottom,
 		tagIcon,
+		tagIconId,
 		tagIconAlt,
+		taglineColor = '#1f1f1f',
+		taglineFontSize = 17,
+		tagIconSize = 20,
+		taglineGap = 10,
 		tagline,
+		titleColor = '#131313',
+		titleFontSize = 0,
 		title,
 	} = attributes;
 
-	const blockProps = useStableBlockProps(
-		() => ( {
-			className: 'twork-team-section twork-team-section-editor',
-			style: {
-				backgroundColor,
-				paddingTop: `${ paddingTop }px`,
-				paddingBottom: `${ paddingBottom }px`,
-				'--twork-team-max': `${ containerMaxWidth }px`,
-				'--twork-team-width-pct': `${ containerWidthPct }%`,
-				'--twork-team-gap': `${ gridGap }px`,
-				'--twork-team-cols': String(
-					Math.min( 4, Math.max( 1, columns || 3 ) )
-				),
-				'--twork-team-header-mb': `${ headerMarginBottom }px`,
-			},
-		} ),
-		[
-			backgroundColor,
-			columns,
-			containerMaxWidth,
-			containerWidthPct,
-			gridGap,
-			headerMarginBottom,
-			paddingBottom,
-			paddingTop,
-		]
+	const parsedCols = Math.min(
+		4,
+		Math.max( 1, parseInt( columns, 10 ) || 3 )
+	);
+
+	const dynamicStyles = `
+    #twork-block-${ clientId } {
+        ${
+			backgroundColor
+				? `background-color: ${ backgroundColor } !important;`
+				: ''
+		}
+        --tw-team-pt: ${
+			paddingTop !== undefined ? paddingTop : 90
+		}px;
+        --tw-team-pb: ${
+			paddingBottom !== undefined ? paddingBottom : 110
+		}px;
+        --twork-team-max: ${ containerMaxWidth }px;
+        --twork-team-width-pct: ${ containerWidthPct }%;
+        --twork-team-gap: ${ gridGap }px;
+        --twork-team-cols: ${ parsedCols };
+        --twork-team-header-mb: ${ headerMarginBottom }px;
+        --tw-tag-color: ${ taglineColor };
+        --tw-tag-size: ${ taglineFontSize }px;
+        --tw-tag-icon-size: ${ tagIconSize }px;
+        --tw-tag-gap: ${ taglineGap }px;
+        --tw-team-title-color: ${ titleColor };
+        ${
+			titleFontSize >= 20
+				? `--tw-team-title-size: ${ titleFontSize }px;`
+				: ''
+		}
+    }
+`;
+
+	const blockProps = useBlockProps( {
+		id: `twork-block-${ clientId }`,
+		className: 'twork-team-section twork-team-section-editor',
+	} );
+
+	const innerBlocksProps = useInnerBlocksProps(
+		{
+			className: 'twork-team-section__grid',
+		},
+		{
+			allowedBlocks: ALLOWED_BLOCKS,
+			template: TEMPLATE,
+			templateLock: false,
+			renderAppender: InnerBlocks.ButtonBlockAppender,
+		}
 	);
 
 	return (
@@ -90,7 +129,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 			{ isSelected && (
 				<InspectorControls>
 					<PanelBody
-						title={ __( 'Tagline icon', 'twork-builder' ) }
+						title={ __( 'Tagline', 'twork-builder' ) }
 						initialOpen={ true }
 					>
 						<TextControl
@@ -99,6 +138,42 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 							onChange={ ( val ) =>
 								setAttributes( { tagIconAlt: val } )
 							}
+						/>
+
+						<RangeControl
+							label={ __(
+								'Tagline font size (px)',
+								'twork-builder'
+							) }
+							value={ taglineFontSize }
+							onChange={ ( val ) =>
+								setAttributes( { taglineFontSize: val } )
+							}
+							min={ 12 }
+							max={ 40 }
+						/>
+
+						<RangeControl
+							label={ __(
+								'Tag icon size (px)',
+								'twork-builder'
+							) }
+							value={ tagIconSize }
+							onChange={ ( val ) =>
+								setAttributes( { tagIconSize: val } )
+							}
+							min={ 10 }
+							max={ 60 }
+						/>
+
+						<RangeControl
+							label={ __( 'Tagline gap (px)', 'twork-builder' ) }
+							value={ taglineGap }
+							onChange={ ( val ) =>
+								setAttributes( { taglineGap: val } )
+							}
+							min={ 0 }
+							max={ 30 }
 						/>
 
 						{ ! tagIcon ? (
@@ -125,6 +200,8 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 									src={ tagIcon }
 									alt=""
 									className="twork-team-section__tag-icon"
+									width={ tagIconSize }
+									height={ tagIconSize }
 								/>
 
 								<Button
@@ -141,6 +218,56 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 								</Button>
 							</>
 						) }
+					</PanelBody>
+
+					<PanelColorSettings
+						title={ __( 'Tagline color', 'twork-builder' ) }
+						colorSettings={ [
+							{
+								value: taglineColor,
+								onChange: ( val ) =>
+									setAttributes( { taglineColor: val } ),
+								label: __( 'Tagline text', 'twork-builder' ),
+							},
+						] }
+					/>
+
+					<PanelBody
+						title={ __( 'Title Settings', 'twork-builder' ) }
+						initialOpen={ false }
+					>
+						<PanelColorSettings
+							title={ __( 'Title', 'twork-builder' ) }
+							colorSettings={ [
+								{
+									value: titleColor,
+									onChange: ( val ) =>
+										setAttributes( { titleColor: val } ),
+									label: __( 'Title color', 'twork-builder' ),
+								},
+							] }
+						/>
+
+						<RangeControl
+							label={ __(
+								'Title font size (px)',
+								'twork-builder'
+							) }
+							help={ __(
+								'Reset to use the default responsive size. Custom: 20–100 px.',
+								'twork-builder'
+							) }
+							value={ titleFontSize < 20 ? 20 : titleFontSize }
+							onChange={ ( val ) =>
+								setAttributes( {
+									titleFontSize: val < 20 ? 0 : val,
+								} )
+							}
+							min={ 20 }
+							max={ 100 }
+							allowReset
+							resetFallbackValue={ 0 }
+						/>
 					</PanelBody>
 
 					<PanelBody
@@ -258,15 +385,45 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 				</InspectorControls>
 			) }
 
+			<style
+				dangerouslySetInnerHTML={ { __html: dynamicStyles } }
+			/>
 			<section { ...blockProps }>
 				<div className="twork-team-section__container">
 					<div className="twork-team-section__header">
 						<div className="twork-team-section__tagline">
 							{ tagIcon && (
-								<img
-									src={ tagIcon }
-									alt=""
-									className="twork-team-section__tag-icon"
+								<MediaUpload
+									onSelect={ ( media ) =>
+										setAttributes( {
+											tagIcon: media.url,
+											tagIconId: media.id,
+											tagIconAlt: media.alt || tagIconAlt,
+										} )
+									}
+									allowedTypes={ [ 'image' ] }
+									value={ tagIconId }
+									render={ ( { open } ) => (
+										<img
+											src={ tagIcon }
+											alt={ tagIconAlt || '' }
+											className="twork-team-section__tag-icon"
+											width={ tagIconSize }
+											height={ tagIconSize }
+											onClick={ open }
+											role="button"
+											tabIndex={ 0 }
+											onKeyDown={ ( event ) => {
+												if (
+													event.key === 'Enter' ||
+													event.key === ' '
+												) {
+													event.preventDefault();
+													open();
+												}
+											} }
+										/>
+									) }
 								/>
 							) }
 							<RichText
@@ -298,18 +455,10 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 								'core/italic',
 								'core/underline',
 							] }
-							multiline="br"
 						/>
 					</div>
 
-					<div className="twork-team-section__grid twork-team-section__grid--editor">
-						<InnerBlocks
-							allowedBlocks={ ALLOWED_BLOCKS }
-							template={ TEMPLATE }
-							templateLock={ false }
-							renderAppender={ InnerBlocks.ButtonBlockAppender }
-						/>
-					</div>
+					<div { ...innerBlocksProps } />
 				</div>
 			</section>
 		</>

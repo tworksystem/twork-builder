@@ -65,6 +65,30 @@
 			"type": "string",
 			"default": ""
 		},
+		"taglineColor": {
+			"type": "string",
+			"default": "#1f1f1f"
+		},
+		"taglineFontSize": {
+			"type": "number",
+			"default": 17
+		},
+		"tagIconSize": {
+			"type": "number",
+			"default": 20
+		},
+		"taglineGap": {
+			"type": "number",
+			"default": 10
+		},
+		"titleColor": {
+			"type": "string",
+			"default": "#131313"
+		},
+		"titleFontSize": {
+			"type": "number",
+			"default": 0
+		},
 		"tagline": {
 			"type": "string",
 			"default": "Our farms"
@@ -132,5 +156,6 @@
 	},
 	"textdomain": "twork-builder",
 	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
 	"style": "file:./style-index.css"
 }

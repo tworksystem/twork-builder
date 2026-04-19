@@ -1,9 +1,10 @@
 import { __ } from '@wordpress/i18n';
-import { useStableBlockProps } from '@twork-builder/editor-utils';
 import {
 	RichText,
 	MediaPlaceholder,
 	InspectorControls,
+	MediaUpload,
+	useBlockProps,
 } from '@wordpress/block-editor';
 import {
 	PanelBody,
@@ -15,6 +16,7 @@ import {
 export default function Edit( { attributes, setAttributes, isSelected } ) {
 	const {
 		image,
+		imageId,
 		imageAlt,
 		name,
 		role,
@@ -26,12 +28,9 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 	const urlTrim = String( profileUrl || '' ).trim();
 	const isRealLink = urlTrim !== '';
 
-	const blockProps = useStableBlockProps(
-		() => ( {
-			className: 'agrezer-team-card',
-		} ),
-		[]
-	);
+	const blockProps = useBlockProps( {
+		className: 'agrezer-team-card',
+	} );
 
 	return (
 		<>
@@ -120,10 +119,35 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 						} }
 					/>
 				) : (
-					<img
-						src={ image }
-						alt=""
-						className="agrezer-team-card__img"
+					<MediaUpload
+						onSelect={ ( media ) =>
+							setAttributes( {
+								image: media.url,
+								imageId: media.id,
+								imageAlt: media.alt || imageAlt,
+							} )
+						}
+						allowedTypes={ [ 'image' ] }
+						value={ imageId }
+						render={ ( { open } ) => (
+							<img
+								src={ image }
+								alt={ imageAlt || '' }
+								className="agrezer-team-card__img"
+								onClick={ open }
+								role="button"
+								tabIndex={ 0 }
+								onKeyDown={ ( event ) => {
+									if (
+										event.key === 'Enter' ||
+										event.key === ' '
+									) {
+										event.preventDefault();
+										open();
+									}
+								} }
+							/>
+						) }
 					/>
 				) }
 

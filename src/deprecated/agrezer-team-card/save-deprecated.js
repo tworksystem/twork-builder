@@ -1,6 +1,12 @@
 import { useBlockProps, RichText } from '@wordpress/block-editor';
 
-export default function save( { attributes } ) {
+/**
+ * Previous save markup for twork/agrezer-team-card (conditional rich text nodes).
+ *
+ * @param {Object} props            Props passed to the deprecated save.
+ * @param {Object} props.attributes Block attributes.
+ */
+export default function saveDeprecated( { attributes } ) {
 	const {
 		image,
 		imageAlt,
@@ -51,16 +57,20 @@ export default function save( { attributes } ) {
 				</span>
 			) }
 			<div className="agrezer-team-card__content">
-				<RichText.Content
-					tagName="h3"
-					className="agrezer-team-card__name"
-					value={ name }
-				/>
-				<RichText.Content
-					tagName="p"
-					className="agrezer-team-card__role"
-					value={ role }
-				/>
+				{ name && (
+					<RichText.Content
+						tagName="h3"
+						className="agrezer-team-card__name"
+						value={ name }
+					/>
+				) }
+				{ role && (
+					<RichText.Content
+						tagName="p"
+						className="agrezer-team-card__role"
+						value={ role }
+					/>
+				) }
 			</div>
 		</article>
 	);
