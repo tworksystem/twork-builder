@@ -28,7 +28,7 @@
 		},
 		"title": {
 			"type": "string",
-			"default": "Rooted in Nature,<br />Growing the Future"
+			"default": "Rooted in Nature,<br>Growing the Future"
 		},
 		"description": {
 			"type": "string",
@@ -37,6 +37,17 @@
 		"buttonText": {
 			"type": "string",
 			"default": "Explore More"
+		},
+		"buttonMediaUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"buttonMediaId": {
+			"type": "number"
+		},
+		"buttonMediaType": {
+			"type": "string",
+			"default": "image"
 		},
 		"buttonUrl": {
 			"type": "string",
@@ -57,6 +68,30 @@
 			"type": "string",
 			"default": "rgba(6, 42, 12, 0.55)"
 		},
+		"overlayGradient": {
+			"type": "string",
+			"default": "linear-gradient(135deg, rgba(143, 189, 69, 0.24) 0%, rgba(22, 46, 22, 0.1) 100%)"
+		},
+		"overlayGradientPreset": {
+			"type": "string",
+			"default": ""
+		},
+		"overlayOpacity": {
+			"type": "number",
+			"default": 1
+		},
+		"buttonBgColor": {
+			"type": "string",
+			"default": "#d9ea57"
+		},
+		"buttonTextColor": {
+			"type": "string",
+			"default": "#171b11"
+		},
+		"buttonBorderRadius": {
+			"type": "number",
+			"default": 16
+		},
 		"containerMaxWidth": {
 			"type": "number",
 			"default": 1240
@@ -73,6 +108,14 @@
 			"type": "number",
 			"default": 90
 		},
+		"paddingTopMobile": {
+			"type": "number",
+			"default": 92
+		},
+		"paddingBottomMobile": {
+			"type": "number",
+			"default": 34
+		},
 		"featuresGap": {
 			"type": "number",
 			"default": 18
@@ -82,17 +125,27 @@
 		"viewportWidth": 1200,
 		"attributes": {
 			"taglineText": "Organic Agriculture & Regenerative Farms",
-			"title": "Rooted in Nature,<br />Growing the Future",
+			"title": "Rooted in Nature,<br>Growing the Future",
 			"description": "We combine soil health, biodiversity, and modern agronomy to deliver resilient harvests—without compromising the land we depend on.",
 			"buttonText": "Explore Our Programs",
+			"buttonMediaUrl": "",
+			"buttonMediaType": "image",
 			"buttonUrl": "#",
 			"buttonLinkTarget": false,
 			"backgroundImage": "https://images.unsplash.com/photo-1625246333195-f8989295e467?auto=format&fit=crop&w=1920&q=80",
 			"overlayColor": "rgba(6, 42, 12, 0.55)",
+			"overlayGradient": "linear-gradient(135deg, rgba(143, 189, 69, 0.24) 0%, rgba(22, 46, 22, 0.1) 100%)",
+			"overlayGradientPreset": "meadow-dawn",
+			"overlayOpacity": 1,
+			"buttonBgColor": "#d9ea57",
+			"buttonTextColor": "#171b11",
+			"buttonBorderRadius": 16,
 			"containerMaxWidth": 1240,
 			"containerPadding": 24,
 			"paddingTop": 110,
 			"paddingBottom": 90,
+			"paddingTopMobile": 92,
+			"paddingBottomMobile": 34,
 			"featuresGap": 18
 		},
 		"innerBlocks": [
@@ -121,5 +174,6 @@
 	},
 	"textdomain": "twork-builder",
 	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
 	"style": "file:./style-index.css"
 }

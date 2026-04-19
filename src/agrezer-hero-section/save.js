@@ -1,5 +1,8 @@
 import { useBlockProps, InnerBlocks, RichText } from '@wordpress/block-editor';
 
+const HERO_OVERLAY_TRANSPARENT_GRADIENT =
+	'linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 100%)';
+
 function TaglineIcon() {
 	return (
 		<svg
@@ -19,24 +22,36 @@ export default function save( { attributes } ) {
 		title,
 		description,
 		buttonText,
+		buttonMediaUrl,
+		buttonMediaType,
 		buttonUrl,
 		buttonLinkTarget,
 		backgroundImage,
 		overlayColor,
+		overlayGradient,
+		overlayOpacity,
+		buttonBgColor,
+		buttonTextColor,
+		buttonBorderRadius,
 		containerMaxWidth,
 		containerPadding,
 		paddingTop,
 		paddingBottom,
+		paddingTopMobile,
+		paddingBottomMobile,
 		featuresGap,
 	} = attributes;
 
 	const href =
-		buttonUrl && String( buttonUrl ).trim() !== ''
-			? buttonUrl
-			: '#';
+		buttonUrl && String( buttonUrl ).trim() !== '' ? buttonUrl : '#';
+
+	const overlayGradientCss =
+		overlayGradient && String( overlayGradient ).trim() !== ''
+			? overlayGradient
+			: HERO_OVERLAY_TRANSPARENT_GRADIENT;
 
 	const blockProps = useBlockProps.save( {
-		className: 'twork-hero twork-hero--bg twork-hero-section',
+		className: 'twork-hero twork-hero--bg',
 		style: {
 			backgroundImage: backgroundImage
 				? `url(${ backgroundImage })`
@@ -48,14 +63,24 @@ export default function save( { attributes } ) {
 			'--twork-container-max-width': `${ containerMaxWidth }px`,
 			'--twork-container-padding': `${ containerPadding }px`,
 			'--twork-features-gap': `${ featuresGap }px`,
+			'--twork-hero-btn-bg': buttonBgColor,
+			'--twork-hero-btn-text': buttonTextColor,
+			'--twork-hero-btn-radius': `${ buttonBorderRadius }px`,
+			'--twork-padding-top-mobile': `${ paddingTopMobile }px`,
+			'--twork-padding-bottom-mobile': `${ paddingBottomMobile }px`,
+			'--twork-hero-overlay-gradient': overlayGradientCss,
 		},
 	} );
 
 	return (
-		<section { ...blockProps } aria-labelledby="twork-hero-title">
+		<section { ...blockProps }>
 			<div
 				className="twork-hero__overlay"
-				style={ { backgroundColor: overlayColor } }
+				style={ {
+					'--twork-hero-overlay-color': overlayColor,
+					'--twork-hero-overlay-opacity': overlayOpacity,
+					'--twork-hero-overlay-gradient': overlayGradientCss,
+				} }
 			/>
 			<div className="twork-hero__container">
 				<div className="twork-hero__content">
@@ -69,8 +94,7 @@ export default function save( { attributes } ) {
 					</div>
 					<RichText.Content
 						tagName="h1"
-						id="twork-hero-title"
-						className="twork-hero__title"
+						className="twork-hero__title twork-hero__title"
 						value={ title }
 					/>
 					<RichText.Content
@@ -83,18 +107,39 @@ export default function save( { attributes } ) {
 						className="twork-hero__btn"
 						target={ buttonLinkTarget ? '_blank' : undefined }
 						rel={
-							buttonLinkTarget
-								? 'noopener noreferrer'
-								: undefined
+							buttonLinkTarget ? 'noopener noreferrer' : undefined
 						}
 					>
 						<RichText.Content tagName="span" value={ buttonText } />
-						<span aria-hidden="true">&#x2197;</span>
+						{ ! buttonMediaUrl && (
+							<span aria-hidden="true">&#x2197;</span>
+						) }
+						{ buttonMediaUrl && buttonMediaType === 'video' && (
+							<video
+								className="twork-hero__btn-media"
+								src={ buttonMediaUrl }
+								autoPlay
+								muted
+								loop
+								playsInline
+								aria-hidden="true"
+							/>
+						) }
+						{ buttonMediaUrl && buttonMediaType !== 'video' && (
+							<img
+								className="twork-hero__btn-media"
+								src={ buttonMediaUrl }
+								alt=""
+								aria-hidden="true"
+							/>
+						) }
 					</a>
 				</div>
 
 				<div className="twork-hero__features-wrapper">
-					<InnerBlocks.Content />
+					<div className="twork-hero__features-track">
+						<InnerBlocks.Content />
+					</div>
 				</div>
 			</div>
 		</section>

@@ -22,12 +22,51 @@
 		"iconVariant": {
 			"type": "string",
 			"default": "leaf"
+		},
+		"customIconUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"customIconId": {
+			"type": "number"
+		},
+		"customIconType": {
+			"type": "string",
+			"default": "image"
+		},
+		"badgeColor": {
+			"type": "string",
+			"default": "#8fbd45"
+		},
+		"iconColor": {
+			"type": "string",
+			"default": "#ffffff"
+		},
+		"iconSize": {
+			"type": "number",
+			"default": 30
+		},
+		"iconOffsetX": {
+			"type": "number",
+			"default": 0
+		},
+		"iconOffsetY": {
+			"type": "number",
+			"default": 0
+		},
+		"enableHoverAnimation": {
+			"type": "boolean",
+			"default": false
 		}
 	},
 	"example": {
 		"attributes": {
 			"title": "Healthy Soil<br>Solutions",
-			"iconVariant": "leaf"
+			"iconVariant": "leaf",
+			"iconSize": 30,
+			"iconOffsetX": 0,
+			"iconOffsetY": 0,
+			"enableHoverAnimation": false
 		}
 	},
 	"textdomain": "twork-builder",

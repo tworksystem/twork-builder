@@ -1,15 +1,14 @@
 @import "../scss/typography";
 
 /**
- * Agrezer hero — aligned with my-avocado reference (hero + features strip).
+ * Hero section — theme-safe typography via deep compound selectors.
  */
 
-/* Reference tokens */
-$twork-hero-green-primary: #314d22;
 $twork-hero-green-light: #8fbd45;
 $twork-hero-button-yellow: #d9ea57;
 
-.twork-hero {
+.twork-hero.twork-hero--bg.wp-block-twork-hero-section,
+.twork-hero.twork-hero--bg.twork-hero--editor {
 	position: relative;
 	min-height: 760px;
 	padding: 154px 0 48px;
@@ -18,150 +17,289 @@ $twork-hero-button-yellow: #d9ea57;
 	overflow: hidden;
 	background-size: cover;
 	background-position: center;
-}
 
-.twork-hero__overlay {
-	position: absolute;
-	inset: 0;
-	background:
-		radial-gradient(
-			circle at 18% 88%,
-			rgba(143, 189, 69, 0.3) 0,
-			rgba(143, 189, 69, 0) 42%
-		),
-		linear-gradient(
-			to top,
-			rgba(16, 37, 16, 0.65) 0,
-			rgba(16, 37, 16, 0.06) 38%,
-			rgba(16, 37, 16, 0) 100%
+	/* Overlay opacity scales the whole stack (accent + base wash + attribute gradient + solid color). */
+	.twork-hero__overlay {
+		position: absolute;
+		inset: 0;
+		background:
+			radial-gradient(
+				circle at 18% 88%,
+				rgba(143, 189, 69, 0.3) 0,
+				rgba(143, 189, 69, 0) 42%
+			),
+			linear-gradient(
+				to top,
+				rgba(16, 37, 16, 0.65) 0,
+				rgba(16, 37, 16, 0.06) 38%,
+				rgba(16, 37, 16, 0) 100%
+			),
+			var(
+				--twork-hero-overlay-gradient,
+				linear-gradient(
+					135deg,
+					rgba(143, 189, 69, 0.24) 0%,
+					rgba(22, 46, 22, 0.1) 100%
+				)
+			),
+			var(--twork-hero-overlay-color, rgba(6, 42, 12, 0.55));
+		opacity: var(--twork-hero-overlay-opacity, 1);
+		pointer-events: none;
+		z-index: 0;
+	}
+
+	/* Two columns: copy + feature strip; stacks when narrow (see <1000px). */
+	.twork-hero__container {
+		position: relative;
+		z-index: 1;
+		width: min(
+			100% - 96px,
+			var(--twork-container-max-width, 1240px)
 		);
-	pointer-events: none;
-	z-index: 0;
+		margin-inline: auto;
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) minmax(0, min(100%, 560px));
+		align-items: end;
+		column-gap: clamp(1.5rem, 4vw, 2.75rem);
+		row-gap: 44px;
+		padding-left: var(--twork-container-padding, 24px);
+		padding-right: var(--twork-container-padding, 24px);
+		box-sizing: border-box;
+	}
+
+	.twork-hero__content {
+		box-sizing: border-box;
+		max-width: 600px;
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		gap: 1.4rem;
+		align-items: flex-start;
+
+		.twork-hero__tagline {
+			margin: 0;
+			padding: 0;
+			display: inline-flex;
+			align-items: center;
+			gap: 0.55rem;
+			width: fit-content;
+
+			.twork-hero__tagline-text {
+				color: rgba(255, 255, 255, 0.95);
+				font-size: 1.04rem;
+				font-weight: 600;
+				line-height: 1.2;
+			}
+
+			.twork-hero__tagline-icon {
+				width: 1.45rem;
+				height: 1.45rem;
+				flex-shrink: 0;
+				fill: none;
+				stroke: $twork-hero-green-light;
+				stroke-width: 1.65;
+				stroke-linecap: round;
+				stroke-linejoin: round;
+			}
+		}
+
+		p.twork-hero__desc {
+			box-sizing: border-box;
+			margin: 0;
+			padding: 0;
+			max-width: 600px;
+			width: 100%;
+			color: rgba(255, 255, 255, 0.86);
+			font-size: 1.125rem;
+			line-height: 1.6;
+		}
+
+		a.twork-hero__btn {
+			box-sizing: border-box;
+			margin-top: 0.25rem;
+			margin-bottom: 0;
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			gap: 0.55rem;
+			width: fit-content;
+			padding: 16px 32px;
+			border-radius: 16px;
+			border-radius: var(--twork-hero-btn-radius, 16px);
+			border: none;
+			box-shadow: none;
+			background: var(--twork-hero-btn-bg, $twork-hero-button-yellow);
+			color: var(--twork-hero-btn-text, #171b11);
+			font-weight: 600;
+			font-size: 1.125rem;
+			text-decoration: none;
+			transition: background-color 180ms ease, transform 180ms ease,
+				box-shadow 180ms ease, color 180ms ease;
+
+			span {
+				color: inherit;
+			}
+
+			.twork-hero__btn-media {
+				width: 1.2rem;
+				height: 1.2rem;
+				object-fit: contain;
+				display: inline-block;
+				vertical-align: middle;
+				flex-shrink: 0;
+				border-radius: 2px;
+			}
+
+			&:hover {
+				background: #cfdc48;
+				color: #171b11;
+				transform: translateY(-2px);
+				box-shadow: 0 10px 22px rgba(0, 0, 0, 0.25);
+			}
+		}
+	}
+
+	/*
+	 * Outer shell: width + grid placement. Inner track holds the flex row.
+	 * Editor: unwrap only non-block wrappers (anything without .wp-block-twork-hero-feature)
+	 * so we never target block-editor-* class names. Serialized blocks always carry that class.
+	 */
+	.twork-hero__features-wrapper {
+		justify-self: end;
+		width: 100%;
+		max-width: 560px;
+		box-sizing: border-box;
+	}
+
+	.twork-hero__features-track {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: flex-end;
+		gap: var(--twork-features-gap, 2rem);
+		width: 100%;
+		min-width: 0;
+	}
+
+	.twork-hero__features-track > *:not(.wp-block-twork-hero-feature) {
+		display: contents;
+	}
+
+	.twork-hero__features-track
+		> *:not(.wp-block-twork-hero-feature)
+		> *:only-child {
+		display: contents;
+	}
+
+	.twork-hero__features-track .wp-block-twork-hero-feature {
+		flex: 1 1 auto;
+		min-width: 0;
+		max-width: 200px;
+		margin-block: 0 !important;
+		margin-inline: 0 !important;
+	}
 }
 
-.twork-hero__container {
-	position: relative;
-	z-index: 1;
-	width: min(
-		100% - 96px,
-		var(--twork-container-max-width, 1240px)
-	);
-	margin-inline: auto;
-	min-height: calc(760px - 202px);
-	display: grid;
-	grid-template-columns: 1fr;
-	align-content: space-between;
-	gap: 44px;
-	padding-left: var(--twork-container-padding, 24px);
-	padding-right: var(--twork-container-padding, 24px);
+/*
+ * Bulletproof hero title: body + doubled .twork-hero__title beats .wp-site-blocks h1.
+ * Second compound class increases selector weight without extra HTML.
+ */
+body .twork-hero.twork-hero--bg.wp-block-twork-hero-section .twork-hero__content h1.twork-hero__title.twork-hero__title,
+body .twork-hero.twork-hero--bg.twork-hero--editor .twork-hero__content h1.twork-hero__title.twork-hero__title {
 	box-sizing: border-box;
-}
-
-.twork-hero__content {
-	max-width: 600px;
-	display: flex;
-	flex-direction: column;
-	gap: 1.4rem;
-}
-
-.twork-hero__tagline {
 	margin: 0;
-	display: inline-flex;
-	align-items: center;
-	gap: 0.55rem;
-	color: rgba(255, 255, 255, 0.95);
-	font-size: 1.04rem;
-	font-weight: 600;
-	width: fit-content;
-}
-
-.twork-hero__tagline-icon {
-	width: 1.45rem;
-	height: 1.45rem;
-	flex-shrink: 0;
-	fill: none;
-	stroke: $twork-hero-green-light;
-	stroke-width: 1.65;
-	stroke-linecap: round;
-	stroke-linejoin: round;
-}
-
-.twork-hero__title {
-	margin: 0;
-	max-width: 600px;
+	padding: 0;
+	width: 100%;
+	max-width: min(100%, 42rem);
 	font-family: $font-heading;
-	font-size: clamp(3rem, 6vw, 5rem);
-	line-height: 1.06;
 	font-weight: 700;
 	letter-spacing: -0.02em;
-}
-
-.twork-hero__desc {
-	margin: 0;
-	max-width: 600px;
-	color: rgba(255, 255, 255, 0.86);
-	font-size: 1.125rem;
-	line-height: 1.6;
-}
-
-.twork-hero__btn {
-	margin-top: 0.25rem;
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	gap: 0.55rem;
-	width: fit-content;
-	padding: 16px 32px;
-	border-radius: 16px;
-	background: $twork-hero-button-yellow;
-	color: #171b11;
-	font-weight: 600;
-	font-size: 1.125rem;
-	text-decoration: none;
-	transition: background-color 180ms ease, transform 180ms ease,
-		box-shadow 180ms ease;
-}
-
-.twork-hero__btn:hover {
-	background: #cfdc48;
-	transform: translateY(-2px);
-	box-shadow: 0 10px 22px rgba(0, 0, 0, 0.25);
-}
-
-.twork-hero__features-wrapper {
-	margin-left: auto;
-	width: min(100%, 560px);
-	display: flex;
-	gap: var(--twork-features-gap, 2rem);
-	align-items: flex-end;
-	flex-wrap: wrap;
-	justify-content: flex-end;
+	white-space: pre-wrap;
+	word-break: break-word;
+	/* Compound chain first; !important on the trio FSE themes love to override */
+	font-size: clamp(3rem, 6vw, 5rem) !important;
+	line-height: 1.06 !important;
+	color: #ffffff !important;
 }
 
 @media (max-width: 1000px) {
-	.twork-hero {
+	.twork-hero.twork-hero--bg.wp-block-twork-hero-section,
+	.twork-hero.twork-hero--bg.twork-hero--editor {
 		min-height: auto;
-		padding-top: 134px;
-		padding-bottom: 34px;
+		padding-top: var(--twork-padding-top-mobile, 92px);
+		padding-bottom: var(--twork-padding-bottom-mobile, 34px);
+
+		.twork-hero__container {
+			width: min(
+				100% - 36px,
+				var(--twork-container-max-width, 1240px)
+			);
+			grid-template-columns: 1fr;
+			justify-items: center;
+			align-items: start;
+			row-gap: clamp(1.5rem, 4vw, 2rem);
+		}
+
+		.twork-hero__content {
+			align-items: center;
+			text-align: center;
+
+			.twork-hero__tagline {
+				justify-content: center;
+			}
+
+			p.twork-hero__desc {
+				margin-inline: auto;
+			}
+
+			a.twork-hero__btn {
+				margin-inline: auto;
+			}
+		}
+
+		.twork-hero__features-wrapper {
+			justify-self: center;
+			max-width: min(100%, 36rem);
+			margin-inline: auto;
+		}
+
+		.twork-hero__features-track {
+			justify-content: center;
+			align-items: center;
+		}
+
+		.twork-hero__features-track .wp-block-twork-hero-feature {
+			margin-inline: auto;
+		}
 	}
 
-	.twork-hero__container {
-		width: min(
-			100% - 36px,
-			var(--twork-container-max-width, 1240px)
-		);
-		min-height: auto;
+	body .twork-hero.twork-hero--bg.wp-block-twork-hero-section .twork-hero__content h1.twork-hero__title.twork-hero__title,
+	body .twork-hero.twork-hero--bg.twork-hero--editor .twork-hero__content h1.twork-hero__title.twork-hero__title {
+		font-size: clamp(2rem, 7vw, 3.5rem) !important;
 	}
+}
 
-	.twork-hero__title {
-		font-size: clamp(2rem, 7vw, 3.5rem);
-	}
+@media (max-width: 700px) {
+	.twork-hero.twork-hero--bg.wp-block-twork-hero-section,
+	.twork-hero.twork-hero--bg.twork-hero--editor {
+		.twork-hero__features-wrapper {
+			max-width: 100%;
+		}
 
-	.twork-hero__features-wrapper {
-		margin-left: 0;
-		width: 100%;
-		max-width: 340px;
-		justify-content: space-between;
-		gap: 1.2rem;
+		.twork-hero__features-track {
+			flex-direction: column;
+			flex-wrap: nowrap;
+			justify-content: center;
+			align-items: center;
+			row-gap: 1rem;
+			column-gap: var(--twork-features-gap, 2rem);
+		}
+
+		.twork-hero__features-track .wp-block-twork-hero-feature {
+			flex: 0 1 auto;
+			max-width: 220px;
+			width: 100%;
+			margin-inline: auto;
+		}
 	}
 }
