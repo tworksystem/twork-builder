@@ -1,7 +1,4 @@
-/**
- * Agrezer blog — matches my-avocado _blog.scss; scoped for block front + editor.
- */
-
+/* Dynamic vars are provided by edit.js and render.php. */
 .twork-blog.wp-block-twork-posts-grid,
 .wp-block-twork-posts-grid.twork-blog {
 	overflow: hidden;
@@ -23,13 +20,17 @@
 }
 
 .twork-blog__tagline {
-	display: flex;
+	display: inline-flex;
 	align-items: center;
 	gap: 10px;
-	font-weight: 600;
-	color: #222;
-	margin-bottom: 15px;
 	flex-wrap: wrap;
+	margin-bottom: 15px;
+	padding: 8px 14px;
+	border-radius: 999px;
+	color: var(--twork-tagline-color, #222);
+	background: var(--twork-tagline-bg, transparent);
+	font-size: var(--twork-tagline-size, 16px);
+	font-weight: var(--twork-tagline-weight, 600);
 }
 
 .twork-blog__tag-icon {
@@ -40,87 +41,84 @@
 }
 
 .twork-blog__title {
-	font-size: clamp(1.75rem, 4vw, 3rem);
-	font-weight: 700;
-	line-height: 1.15;
-	color: #000;
 	margin: 0;
+	font-size: clamp(1.75rem, 4vw, var(--twork-title-size, 48px));
+	font-weight: var(--twork-title-weight, 700);
+	line-height: 1.15;
+	color: var(--twork-title-color, #000);
 }
 
 .twork-blog__more-btn {
 	display: inline-flex;
 	padding: 16px 32px;
-	background-color: #dce55d;
-	color: #000;
-	font-weight: 600;
 	border-radius: 12px;
 	text-decoration: none;
 	transition: background-color 0.3s ease, color 0.3s ease;
+	color: var(--twork-more-text, #000);
+	background: var(--twork-more-bg, #dce55d);
 }
 
 .twork-blog__more-btn:hover {
-	background-color: #8bc34a;
-	color: #fff;
+	color: var(--twork-more-text-hover, #fff);
+	background: var(--twork-more-bg-hover, #8bc34a);
 }
 
-/**
- * Grid columns are driven by inline CSS variables from edit.js / render.php:
- *   --twork-blog-cols   (number of columns on wide viewports)
- *   --twork-blog-max    (max container width, px)
- *   --twork-blog-width  (fluid width % cap)
- * `minmax(0, 1fr)` avoids overflow when card content is wider than the track.
- */
 .twork-blog__grid {
 	display: grid;
-	grid-template-columns: repeat(
-		var(--twork-blog-cols, 3),
-		minmax(0, 1fr)
-	);
+	grid-template-columns: repeat(var(--twork-blog-cols, 3), minmax(0, 1fr));
 	gap: 30px;
 }
 
-.twork-blog__empty {
-	grid-column: 1 / -1;
-	text-align: center;
-	color: #666;
-	margin: 0;
-	padding: 2rem;
-}
-
-/* Cards */
 .twork-blog-card {
-	background-color: #fff;
-	border-radius: 20px;
-	border: 1px solid #ebebeb;
+	background: var(--twork-card-bg, #fff);
+	border-radius: var(--twork-card-radius, 20px);
+	border: var(--twork-card-border-width, 1px) solid var(--twork-card-border, #ebebeb);
 	overflow: hidden;
 	transition: transform 0.3s ease, box-shadow 0.3s ease;
+	box-shadow: var(--twork-card-shadow, none);
+	min-width: 0;
 }
 
 .twork-blog-card:hover {
-	transform: translateY(-10px);
-	box-shadow: 0 15px 40px rgba(0, 0, 0, 0.05);
+	transform: translateY(var(--twork-card-lift, -10px));
+	box-shadow: var(--twork-card-shadow-hover, 0 15px 40px rgba(0, 0, 0, 0.05));
 }
 
 .twork-blog-card__img-box {
 	position: relative;
 }
 
-.twork-blog-card__img {
-	width: 100%;
-	height: 260px;
-	object-fit: cover;
-	display: block;
-}
-
 .twork-blog-card__img-link {
 	display: block;
 	text-decoration: none;
+	position: relative;
+	overflow: hidden;
+	border-radius: var(--twork-img-radius, 0);
+}
+
+.twork-blog-card__img {
+	width: 100%;
+	height: var(--twork-img-height, 260px);
+	aspect-ratio: var(--twork-img-aspect, 16/9);
+	object-fit: var(--twork-img-fit, cover);
+	display: block;
+}
+
+.twork-blog-card__img-overlay {
+	position: absolute;
+	inset: 0;
+	background: var(--twork-img-overlay, rgba(0, 0, 0, 0));
+	transition: background-color 0.3s ease;
+}
+
+.twork-blog-card:hover .twork-blog-card__img-overlay {
+	background: var(--twork-img-overlay-hover, rgba(0, 0, 0, 0));
 }
 
 .twork-blog-card__img-placeholder {
 	display: block;
 	width: 100%;
-	height: 260px;
+	height: var(--twork-img-height, 260px);
 	background: linear-gradient(135deg, #f0f0f0 0%, #e4e4e4 100%);
 }
 
@@ -128,29 +126,16 @@
 	position: absolute;
 	bottom: -25px;
 	left: 30px;
-	background-color: #8bc34a;
-	color: #fff;
+	background: var(--twork-date-bg, #8bc34a);
+	color: var(--twork-date-text, #fff);
 	padding: 12px 20px;
-	border-radius: 12px;
+	border-radius: var(--twork-date-radius, 12px);
 	border: 5px solid #fff;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	box-sizing: content-box;
 	z-index: 2;
-}
-
-.twork-blog-card__date-day {
-	font-size: 1.5rem;
-	font-weight: 700;
-	line-height: 1;
-}
-
-.twork-blog-card__date-month {
-	font-size: 0.85rem;
-	font-weight: 500;
-	text-transform: uppercase;
-	margin-top: 4px;
 }
 
 .twork-blog-card__content {
@@ -162,8 +147,9 @@
 	flex-wrap: wrap;
 	gap: 20px;
 	margin-bottom: 15px;
-	color: #777;
-	font-size: 0.95rem;
+	color: var(--twork-meta-color, #777);
+	font-size: var(--twork-meta-size, 15px);
+	font-weight: var(--twork-meta-weight, 500);
 }
 
 .twork-blog-card__meta span {
@@ -172,28 +158,32 @@
 	gap: 8px;
 }
 
+.twork-blog-card__meta-icon {
+	color: var(--twork-meta-icon-color, #8bc34a);
+	font-size: 10px;
+	line-height: 1;
+}
+
 .twork-blog-card__title {
-	font-size: 1.35rem;
-	font-weight: 700;
+	font-size: var(--twork-card-title-size, 22px);
+	font-weight: var(--twork-card-title-weight, 700);
 	line-height: 1.4;
 	margin: 0 0 25px;
 }
 
 .twork-blog-card__title a {
-	color: #000;
+	color: var(--twork-card-title-color, #000);
 	text-decoration: none;
 	transition: color 0.3s ease;
 }
 
 .twork-blog-card__title a:hover {
-	color: #8bc34a;
+	color: var(--twork-card-title-hover, #8bc34a);
 }
 
 .twork-blog-card__footer {
 	border-top: 1px solid #f0f0f0;
 	padding-top: 20px;
-	display: flex;
-	justify-content: flex-start;
 }
 
 .twork-blog-card__read-btn {
@@ -201,31 +191,32 @@
 	align-items: center;
 	gap: 12px;
 	font-weight: 700;
-	color: #000;
 	text-decoration: none;
-	font-size: 1.05rem;
-	transition: color 0.3s ease;
+	transition: color 0.3s ease, background-color 0.3s ease;
+	color: var(--twork-read-text, #000);
+	background: var(--twork-read-bg, transparent);
 }
 
 .twork-blog-card__read-btn .icon-circle {
 	width: 40px;
 	height: 40px;
 	border-radius: 50%;
-	background-color: #f5f5f5;
-	display: flex;
+	display: inline-flex;
 	justify-content: center;
 	align-items: center;
-	font-size: 1.2rem;
 	transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+	color: var(--twork-read-icon, #000);
+	background: var(--twork-read-icon-bg, #f5f5f5);
 }
 
 .twork-blog-card__read-btn:hover {
-	color: #8bc34a;
+	color: var(--twork-read-text-hover, #8bc34a);
+	background: var(--twork-read-bg-hover, transparent);
 }
 
 .twork-blog-card__read-btn:hover .icon-circle {
-	background-color: #8bc34a;
-	color: #fff;
+	color: var(--twork-read-icon-hover, #fff);
+	background: var(--twork-read-icon-bg-hover, #8bc34a);
 	transform: translateX(6px) rotate(-45deg);
 }
 
@@ -234,12 +225,8 @@
 		flex-direction: column;
 		align-items: flex-start;
 	}
-
 	.twork-blog__grid {
-		grid-template-columns: repeat(
-			min(2, var(--twork-blog-cols, 3)),
-			minmax(0, 1fr)
-		);
+		grid-template-columns: repeat(min(2, var(--twork-blog-cols, 3)), minmax(0, 1fr));
 	}
 }
 

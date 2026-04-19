@@ -1,7 +1,7 @@
 import { __ } from '@wordpress/i18n';
-import { useStableBlockProps } from '@twork-builder/editor-utils';
 import {
-	InnerBlocks,
+	useBlockProps,
+	useInnerBlocksProps,
 	InspectorControls,
 	RichText,
 	PanelColorSettings,
@@ -95,17 +95,26 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 		gridGap,
 	} = attributes;
 
-	const blockProps = useStableBlockProps(
-		() => ( {
-			className: 'twork-stats twork-stats-section-editor',
-			style: {
-				backgroundColor,
-				paddingTop: `${ paddingTop }px`,
-				paddingBottom: `${ paddingBottom }px`,
-				'--twork-stats-grid-gap': `${ gridGap }px`,
-			},
-		} ),
-		[ backgroundColor, gridGap, paddingBottom, paddingTop ]
+	const blockProps = useBlockProps( {
+		className: 'twork-stats twork-stats-section-editor',
+		style: {
+			backgroundColor,
+			paddingTop: `${ paddingTop }px`,
+			paddingBottom: `${ paddingBottom }px`,
+			'--twork-stats-grid-gap': `${ gridGap }px`,
+		},
+	} );
+
+	const innerBlocksProps = useInnerBlocksProps(
+		{
+			className: 'twork-stats__grid twork-stats__grid-editor',
+			style: { gap: `${ gridGap }px` },
+		},
+		{
+			allowedBlocks: ALLOWED_BLOCKS,
+			template: TEMPLATE,
+			templateLock: 'all',
+		}
 	);
 
 	const containerStyle = {
@@ -400,16 +409,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 						/>
 					</div>
 
-					<div
-						className="twork-stats__grid twork-stats__grid-editor"
-						style={ { gap: `${ gridGap }px` } }
-					>
-						<InnerBlocks
-							allowedBlocks={ ALLOWED_BLOCKS }
-							template={ TEMPLATE }
-							templateLock="all"
-						/>
-					</div>
+					<div { ...innerBlocksProps } />
 				</div>
 			</section>
 		</>

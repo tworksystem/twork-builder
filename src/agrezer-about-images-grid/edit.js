@@ -1,5 +1,8 @@
-import { useStableBlockProps } from '@twork-builder/editor-utils';
-import { InnerBlocks } from '@wordpress/block-editor';
+import {
+	useBlockProps,
+	useInnerBlocksProps,
+	InnerBlocks,
+} from '@wordpress/block-editor';
 
 const ALLOWED_BLOCKS = [ 'twork/image-card' ];
 const TEMPLATE = [
@@ -27,22 +30,16 @@ const TEMPLATE = [
 ];
 
 export default function Edit() {
-	const blockProps = useStableBlockProps(
-		() => ( {
-			className:
-				'twork-about__images-grid twork-about-images-grid-editor',
-		} ),
-		[]
-	);
+	const blockProps = useBlockProps( {
+		className:
+			'twork-about__images-grid twork-about-images-grid-editor',
+	} );
+	const innerBlocksProps = useInnerBlocksProps( blockProps, {
+		allowedBlocks: ALLOWED_BLOCKS,
+		template: TEMPLATE,
+		templateLock: false,
+		renderAppender: InnerBlocks.ButtonBlockAppender,
+	} );
 
-	return (
-		<div { ...blockProps }>
-			<InnerBlocks
-				allowedBlocks={ ALLOWED_BLOCKS }
-				template={ TEMPLATE }
-				templateLock={ false }
-				renderAppender={ InnerBlocks.ButtonBlockAppender }
-			/>
-		</div>
-	);
+	return <div { ...innerBlocksProps } />;
 }

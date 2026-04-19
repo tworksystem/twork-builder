@@ -2,7 +2,27 @@
  * Agrezer third section — from my-avocado _third-section.scss
  */
 
+.twork-third-section {
+	position: relative;
+}
+
+.twork-third-section::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	z-index: 0;
+	pointer-events: none;
+	background: rgba(
+		0,
+		0,
+		0,
+		var(--tw-third-overlay, 0)
+	);
+}
+
 .twork-third-section__container {
+	position: relative;
+	z-index: 1;
 	width: min(var(--twork-third-max, 1200px), var(--twork-third-width-pct, 90%));
 	margin: 0 auto;
 }
@@ -26,9 +46,6 @@
 	align-items: center;
 	gap: 10px;
 	margin-bottom: 14px;
-	color: #1e2b20;
-	font-size: 1.05rem;
-	font-weight: 600;
 }
 
 .twork-third-section__tag-icon {
@@ -40,19 +57,26 @@
 }
 
 .twork-third-section__title {
-	margin: 0;
-	color: #111;
-	font-size: clamp(2.2rem, 3.5vw, 3.5rem);
-	line-height: 1.08;
-	font-weight: 700;
-	letter-spacing: -0.02em;
-	max-width: none;
+	margin: 0 !important;
+	color: var(--tw-third-title-color, #131313) !important;
+	font-size: var(--tw-third-title-size, 48px) !important;
+	line-height: 1.08 !important;
+	font-weight: 700 !important;
+	letter-spacing: -0.02em !important;
+	max-width: none !important;
+}
+
+.twork-third-section__subtitle {
+	color: var(--tw-third-sub-color, #f48b2a) !important;
+	font-size: var(--tw-third-sub-size, 16px) !important;
+	font-weight: 600 !important;
+	line-height: 1.35 !important;
 }
 
 .twork-third-section__desc {
 	margin: 8px 0 0;
-	color: #4c4c4c;
-	font-size: 1.09rem;
+	color: var(--tw-third-desc-color, #4c4c4c) !important;
+	font-size: var(--tw-third-desc-size, 17px) !important;
 	line-height: 1.85;
 	max-width: 58ch;
 }
@@ -63,8 +87,8 @@
 	gap: 9px;
 	padding: 16px 28px;
 	border-radius: 16px;
-	background-color: #d7e84f;
-	color: #1a1a1a;
+	background-color: var(--tw-third-cta-bg, #d7e84f) !important;
+	color: var(--tw-third-cta-color, #1a1a1a) !important;
 	text-decoration: none;
 	font-weight: 700;
 	font-size: 1rem;
@@ -79,8 +103,8 @@
 
 .twork-third-section__cta:hover {
 	transform: translateY(-2px);
-	background-color: #d1e53d;
-	box-shadow: 0 10px 25px rgba(120, 140, 0, 0.2);
+	filter: brightness(0.9) !important;
+	box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15) !important;
 }
 
 .twork-third-section__cta--static {
@@ -89,8 +113,9 @@
 
 .twork-third-section__cta--static:hover {
 	transform: none;
-	box-shadow: none;
-	background-color: #d7e84f;
+	filter: none !important;
+	box-shadow: none !important;
+	background-color: var(--tw-third-cta-bg, #d7e84f) !important;
 }
 
 @media (prefers-reduced-motion: reduce) {

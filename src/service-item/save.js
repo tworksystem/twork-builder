@@ -352,11 +352,41 @@ export default function save( { attributes } ) {
 							infoBlocks.length > 0 &&
 							infoBlocks.map( ( block, index ) => (
 								<div key={ index } className="info-block">
-									<div className="info-icon">
-										<i
-											className={ block.icon }
-											aria-hidden="true"
-										/>
+									<div
+										className={ `info-icon ${
+											( block.mediaType || 'icon' ) === 'icon'
+												? 'info-icon--icon'
+												: 'info-icon--media'
+										}` }
+									>
+										{ ( block.mediaType || 'icon' ) === 'icon' ? (
+											<i className={ block.icon } aria-hidden="true" />
+										) : ( block.mediaType || '' ) === 'image' && block.mediaUrl ? (
+											<img
+												src={ block.mediaUrl }
+												alt={ block.mediaAlt || '' }
+												style={ {
+													width: `${ block.mediaWidth || 40 }px`,
+													height: 'auto',
+													objectFit: 'contain',
+												} }
+											/>
+										) : ( block.mediaType || '' ) === 'video' && block.mediaUrl ? (
+											<video
+												src={ block.mediaUrl }
+												autoPlay
+												loop
+												muted
+												playsInline
+												style={ {
+													width: `${ block.mediaWidth || 40 }px`,
+													height: 'auto',
+													objectFit: 'contain',
+												} }
+											/>
+										) : (
+											<i className={ block.icon } aria-hidden="true" />
+										) }
 									</div>
 									<div className="info-content">
 										<h4 className="info-title">

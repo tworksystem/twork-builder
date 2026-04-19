@@ -2,158 +2,102 @@
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
 	"name": "twork/posts-grid",
-	"version": "1.0.0",
+	"version": "1.1.0",
 	"title": "Posts Grid",
 	"category": "twork-builder",
 	"icon": "admin-post",
-	"description": "Dynamic posts grid (server-rendered).",
-	"keywords": [
-		"blog",
-		"posts",
-		"news",
-		"grid",
-		"twork"
-	],
+	"description": "Dynamic posts grid with advanced design controls.",
+	"keywords": [ "blog", "posts", "news", "grid", "twork" ],
 	"attributes": {
-		"sectionTitle": {
-			"type": "string",
-			"default": "Explore Our Latest<br>News &amp; Blog"
-		},
-		"tagline": {
-			"type": "string",
-			"default": "Read Our Blog"
-		},
-		"tagIcon": {
-			"type": "string",
-			"default": ""
-		},
-		"tagIconId": {
-			"type": "number"
-		},
-		"tagIconAlt": {
-			"type": "string",
-			"default": ""
-		},
-		"moreButtonUrl": {
-			"type": "string",
-			"default": ""
-		},
-		"moreButtonText": {
-			"type": "string",
-			"default": "More News ↗"
-		},
-		"moreButtonNewTab": {
-			"type": "boolean",
-			"default": false
-		},
-		"readMoreText": {
-			"type": "string",
-			"default": "Read More"
-		},
-		"postsToShow": {
-			"type": "number",
-			"default": 3
-		},
-		"columns": {
-			"type": "number",
-			"default": 3
-		},
-		"orderBy": {
-			"type": "string",
-			"default": "date"
-		},
-		"order": {
-			"type": "string",
-			"default": "DESC"
-		},
-		"categoryIds": {
-			"type": "array",
-			"default": []
-		},
-		"excludeIds": {
-			"type": "array",
-			"default": []
-		},
-		"offset": {
-			"type": "number",
-			"default": 0
-		},
-		"imageSize": {
-			"type": "string",
-			"default": "large"
-		},
-		"backgroundColor": {
-			"type": "string",
-			"default": "#FAFAFA"
-		},
-		"paddingTop": {
-			"type": "number",
-			"default": 100
-		},
-		"paddingBottom": {
-			"type": "number",
-			"default": 100
-		},
-		"containerMaxWidth": {
-			"type": "number",
-			"default": 1200
-		},
-		"containerWidthPct": {
-			"type": "number",
-			"default": 90
-		},
-		"showAuthorMeta": {
-			"type": "boolean",
-			"default": true
-		},
-		"authorPrefix": {
-			"type": "string",
-			"default": "👤 "
-		},
-		"showCommentsMeta": {
-			"type": "boolean",
-			"default": true
-		},
-		"commentPrefix": {
-			"type": "string",
-			"default": "💬 "
-		}
+		"sectionTitle": { "type": "string", "default": "Explore Our Latest<br>News &amp; Blog" },
+		"tagline": { "type": "string", "default": "Read Our Blog" },
+		"tagIcon": { "type": "string", "default": "" },
+		"tagIconId": { "type": "number" },
+		"tagIconAlt": { "type": "string", "default": "" },
+		"tagIconMime": { "type": "string", "default": "image" },
+		"moreButtonUrl": { "type": "string", "default": "" },
+		"moreButtonText": { "type": "string", "default": "More News ↗" },
+		"moreButtonNewTab": { "type": "boolean", "default": false },
+		"readMoreText": { "type": "string", "default": "Read More" },
+		"postsToShow": { "type": "number", "default": 3 },
+		"columns": { "type": "number", "default": 3 },
+		"orderBy": { "type": "string", "default": "date" },
+		"order": { "type": "string", "default": "DESC" },
+		"categoryIds": { "type": "array", "default": [] },
+		"excludeIds": { "type": "array", "default": [] },
+		"offset": { "type": "number", "default": 0 },
+		"imageSize": { "type": "string", "default": "large" },
+		"backgroundColor": { "type": "string", "default": "#FAFAFA" },
+		"paddingTop": { "type": "number", "default": 100 },
+		"paddingBottom": { "type": "number", "default": 100 },
+		"containerMaxWidth": { "type": "number", "default": 1200 },
+		"containerWidthPct": { "type": "number", "default": 90 },
+		"showAuthorMeta": { "type": "boolean", "default": true },
+		"authorPrefix": { "type": "string", "default": "👤 " },
+		"showCommentsMeta": { "type": "boolean", "default": true },
+		"commentPrefix": { "type": "string", "default": "💬 " },
+		"titleColor": { "type": "string", "default": "#000000" },
+		"titleFontSize": { "type": "number", "default": 48 },
+		"titleFontWeight": { "type": "string", "default": "700" },
+		"taglineColor": { "type": "string", "default": "#222222" },
+		"taglineBackgroundColor": { "type": "string", "default": "transparent" },
+		"taglineFontSize": { "type": "number", "default": 16 },
+		"taglineFontWeight": { "type": "string", "default": "600" },
+		"moreButtonTextColor": { "type": "string", "default": "#000000" },
+		"moreButtonBackgroundColor": { "type": "string", "default": "#dce55d" },
+		"moreButtonHoverTextColor": { "type": "string", "default": "#ffffff" },
+		"moreButtonHoverBackgroundColor": { "type": "string", "default": "#8bc34a" },
+		"postTitleColor": { "type": "string", "default": "#000000" },
+		"postTitleHoverColor": { "type": "string", "default": "#8bc34a" },
+		"postTitleFontSize": { "type": "number", "default": 22 },
+		"postTitleFontWeight": { "type": "string", "default": "700" },
+		"postMetaColor": { "type": "string", "default": "#777777" },
+		"postMetaIconColor": { "type": "string", "default": "#8bc34a" },
+		"postMetaFontSize": { "type": "number", "default": 15 },
+		"postMetaFontWeight": { "type": "string", "default": "500" },
+		"dateBadgeBackgroundColor": { "type": "string", "default": "#8bc34a" },
+		"dateBadgeTextColor": { "type": "string", "default": "#ffffff" },
+		"dateBadgeBorderRadius": { "type": "number", "default": 12 },
+		"readMoreTextColor": { "type": "string", "default": "#000000" },
+		"readMoreBackgroundColor": { "type": "string", "default": "transparent" },
+		"readMoreHoverTextColor": { "type": "string", "default": "#8bc34a" },
+		"readMoreHoverBackgroundColor": { "type": "string", "default": "transparent" },
+		"readMoreIconColor": { "type": "string", "default": "#000000" },
+		"readMoreIconBackgroundColor": { "type": "string", "default": "#f5f5f5" },
+		"readMoreIconHoverColor": { "type": "string", "default": "#ffffff" },
+		"readMoreIconHoverBackgroundColor": { "type": "string", "default": "#8bc34a" },
+		"cardBackgroundColor": { "type": "string", "default": "#ffffff" },
+		"cardBorderRadius": { "type": "number", "default": 20 },
+		"cardBorderColor": { "type": "string", "default": "#ebebeb" },
+		"cardBorderWidth": { "type": "number", "default": 1 },
+		"cardBoxShadow": { "type": "string", "default": "0 0 0 rgba(0, 0, 0, 0)" },
+		"cardBoxShadowHover": { "type": "string", "default": "0 15px 40px rgba(0, 0, 0, 0.05)" },
+		"cardHoverTranslateY": { "type": "number", "default": -10 },
+		"imageAspectRatio": { "type": "string", "default": "16/9" },
+		"imageObjectFit": { "type": "string", "default": "cover" },
+		"imageHeight": { "type": "number", "default": 260 },
+		"imageBorderRadius": { "type": "number", "default": 0 },
+		"imageOverlayColor": { "type": "string", "default": "#000000" },
+		"imageOverlayOpacity": { "type": "number", "default": 0 },
+		"imageOverlayGradient": { "type": "string", "default": "" },
+		"imageOverlayHoverColor": { "type": "string", "default": "#000000" },
+		"imageOverlayHoverOpacity": { "type": "number", "default": 0 },
+		"imageOverlayHoverGradient": { "type": "string", "default": "" }
 	},
 	"example": {
 		"viewportWidth": 1200,
 		"attributes": {
 			"sectionTitle": "Explore Our Latest<br>News &amp; Blog",
 			"tagline": "Read Our Blog",
-			"moreButtonUrl": "#",
 			"moreButtonText": "More News ↗",
-			"moreButtonNewTab": false,
-			"readMoreText": "Read More",
 			"postsToShow": 3,
-			"columns": 3,
-			"orderBy": "date",
-			"order": "DESC",
-			"categoryIds": [],
-			"excludeIds": [],
-			"offset": 0,
-			"imageSize": "large",
-			"backgroundColor": "#FAFAFA",
-			"paddingTop": 100,
-			"paddingBottom": 100,
-			"containerMaxWidth": 1200,
-			"containerWidthPct": 90,
-			"showAuthorMeta": true,
-			"authorPrefix": "👤 ",
-			"showCommentsMeta": true,
-			"commentPrefix": "💬 "
+			"columns": 3
 		}
 	},
 	"render": "file:./render.php",
 	"supports": {
 		"html": false,
-		"align": [
-			"wide",
-			"full"
-		],
+		"align": [ "wide", "full" ],
 		"anchor": true
 	},
 	"textdomain": "twork-builder",

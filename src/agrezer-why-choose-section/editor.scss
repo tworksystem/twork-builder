@@ -1,33 +1,30 @@
 .twork-why-choose-section-editor {
+	position: relative;
+	overflow: hidden;
+
 	.twork-why-choose__tagline span[contenteditable="true"],
 	.twork-why-choose__title[contenteditable="true"] {
-		&:focus {
-			outline: 1px dashed #2271b1;
-			outline-offset: 2px;
-		}
+		&:focus { outline: 1px dashed #2271b1; outline-offset: 2px; }
 	}
 
+	.twork-why-choose__shape-divider {
+		position: absolute !important;
+		left: 0 !important;
+		bottom: 0 !important;
+		width: 100% !important;
+		pointer-events: none !important;
+		z-index: 1 !important;
+	}
+
+	.block-list-appender,
+	.block-editor-button-block-appender {
+		position: relative;
+		z-index: 3;
+	}
+
+	/* Ensure inner children (the points) don't get trapped by layout constraints */
 	.twork-why-choose__stage-editor {
-		> .block-editor-inner-blocks {
-			display: contents;
-
-			> .block-editor-block-list__layout {
-				display: contents;
-
-				> .wp-block,
-				> [data-type="twork/benefit-point"] {
-					display: block;
-				}
-			}
-		}
-	}
-
-	.twork-why-choose__point {
-		.twork-why-choose__point-text[contenteditable="true"] {
-			&:focus {
-				outline: 1px dashed #2271b1;
-				outline-offset: 2px;
-			}
-		}
+		position: relative !important;
+		> .wp-block { position: absolute !important; }
 	}
 }

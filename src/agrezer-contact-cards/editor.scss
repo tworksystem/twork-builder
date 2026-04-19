@@ -1,25 +1,4 @@
-.twork-contact-cards-editor .twork-contact-cards__container .block-editor-block-list__layout {
-	display: grid;
-	grid-template-columns: repeat(var(--twork-contact-cols, 3), 1fr);
-	gap: var(--twork-contact-gap, 24px);
-}
-
-.twork-contact-cards-editor .twork-contact-card__icon-wrap .components-placeholder {
-	min-height: 0;
-	padding: 4px;
-	width: 100%;
-	height: 100%;
-	border-radius: 50%;
-	background: transparent;
-}
-
-.twork-contact-cards-editor .twork-contact-card__link--preview {
+.twork-contact-cards .twork-contact-card__link--preview {
 	color: #8d8d8d;
 	font-size: 1.12rem;
-}
-
-@media (max-width: 992px) {
-	.twork-contact-cards-editor .twork-contact-cards__container .block-editor-block-list__layout {
-		grid-template-columns: repeat(var(--twork-contact-cols-md, 1), 1fr);
-	}
 }

@@ -35,6 +35,42 @@
 			"type": "number",
 			"default": 120
 		},
+		"titleColor": {
+			"type": "string",
+			"default": "#131313"
+		},
+		"titleFontSize": {
+			"type": "number",
+			"default": 48
+		},
+		"subtitleColor": {
+			"type": "string",
+			"default": "#f48b2a"
+		},
+		"subtitleFontSize": {
+			"type": "number",
+			"default": 16
+		},
+		"descriptionColor": {
+			"type": "string",
+			"default": "#4c4c4c"
+		},
+		"descriptionFontSize": {
+			"type": "number",
+			"default": 17
+		},
+		"ctaBgColor": {
+			"type": "string",
+			"default": "#d7e84f"
+		},
+		"ctaTextColor": {
+			"type": "string",
+			"default": "#1a1a1a"
+		},
+		"overlayOpacity": {
+			"type": "number",
+			"default": 0
+		},
 		"containerMaxWidth": {
 			"type": "number",
 			"default": 1200
@@ -111,6 +147,15 @@
 			"topMarginBottom": 46,
 			"cardsGap": 22,
 			"cardsMarginTop": 80,
+			"titleColor": "#131313",
+			"titleFontSize": 48,
+			"subtitleColor": "#f48b2a",
+			"subtitleFontSize": 16,
+			"descriptionColor": "#4c4c4c",
+			"descriptionFontSize": 17,
+			"ctaBgColor": "#d7e84f",
+			"ctaTextColor": "#1a1a1a",
+			"overlayOpacity": 0,
 			"tagline": "Farm Solutions",
 			"title": "Experience the Best of<br>Nature, Curated for You",
 			"description": "From soil health programs to harvest logistics, we help growers and buyers move product with confidence.",
@@ -154,5 +199,6 @@
 	},
 	"textdomain": "twork-builder",
 	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
 	"style": "file:./style-index.css"
 }

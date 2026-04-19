@@ -1,89 +1,26 @@
-.twork-stats-section-editor {
-	.twork-stats__tagline span[contenteditable="true"],
-	.twork-stats__title[contenteditable="true"],
-	.twork-stats__desc[contenteditable="true"] {
-		&:focus {
-			outline: 1px dashed #2271b1;
-			outline-offset: 2px;
-		}
-	}
-
+.editor-styles-wrapper .twork-stats-section-editor {
 	.twork-stats__grid-editor {
 		display: grid !important;
-		grid-template-columns: repeat(3, 1fr) !important;
+		grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
 		gap: var(--twork-stats-grid-gap, 2rem) !important;
 		width: 100% !important;
 
-		> .block-editor-inner-blocks {
-			display: contents !important;
-
-			> .block-editor-block-list__layout {
-				display: contents !important;
-
-				> .wp-block,
-				> [data-type="twork/stats-column"] {
-					display: block !important;
-				}
-			}
+		/* Force children (columns) to respect grid boundaries */
+		> .wp-block {
+			min-width: 0 !important;
+			display: flex !important;
+			flex-direction: column !important;
+			gap: 2rem !important;
 		}
-	}
 
-	.twork-stats-column-editor {
-		display: flex;
-		flex-direction: column;
-		gap: 2rem;
-		width: 100%;
-		min-height: 40px;
-
-		> .block-editor-inner-blocks {
-			display: flex;
-			flex-direction: column;
-			gap: 2rem;
-			width: 100%;
-
-			> .block-editor-block-list__layout {
-				display: flex;
-				flex-direction: column;
-				gap: 2rem;
-				width: 100%;
-			}
-		}
-	}
-
-	.twork-stats__col:nth-child(2).twork-stats-column-editor {
-		align-items: center;
-
-		> .block-editor-inner-blocks > .block-editor-block-list__layout {
-			align-items: center;
-		}
-	}
-
-	.twork-stats-card__editor-bar {
-		position: absolute;
-		top: 8px;
-		right: 8px;
-		z-index: 2;
-	}
-
-	.twork-stats__btn--editor {
-		pointer-events: none;
-		user-select: none;
-		cursor: default;
-	}
-
-	.twork-stats-card {
-		.twork-stats-card__value[contenteditable="true"],
-		.twork-stats-card__label[contenteditable="true"] {
-			&:focus {
-				outline: 1px dashed #2271b1;
-				outline-offset: 2px;
-			}
+		> .wp-block:nth-child(2) {
+			align-items: center !important;
 		}
 	}
 }
-
 @media (max-width: 1080px) {
-	.twork-stats-section-editor .twork-stats__grid-editor {
+	.editor-styles-wrapper .twork-stats-section-editor .twork-stats__grid-editor {
 		grid-template-columns: 1fr !important;
+		> .wp-block:nth-child(2) { align-items: flex-start !important; }
 	}
 }

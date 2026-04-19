@@ -1,36 +1,72 @@
 import { __ } from '@wordpress/i18n';
-import { useStableBlockProps } from '@twork-builder/editor-utils';
 import {
 	RichText,
 	InspectorControls,
 	MediaPlaceholder,
+	MediaUpload,
+	useBlockProps,
 } from '@wordpress/block-editor';
-import {
-	PanelBody,
-	RangeControl,
-	TextControl,
-	ToggleControl,
-	Button,
-	SelectControl,
-} from '@wordpress/components';
-import { Fragment } from '@wordpress/element';
+import { PanelBody, RangeControl, TextControl, ToggleControl, Button, SelectControl, ColorPalette, BaseControl } from '@wordpress/components';
+import { Fragment, useEffect } from '@wordpress/element';
 
 const DEFAULT_CRUMBS = [
 	{ label: 'Home', url: '/' },
 	{ label: 'About Us', url: '' },
 ];
 
+const THEME_COLORS = [
+	{ name: 'White', color: '#ffffff' },
+	{ name: 'Dark Green', color: '#0c2614' },
+	{ name: 'Accent Green', color: '#8bc34a' },
+];
+
+const DEFAULT_BG_COLOR = '#0c2614';
+const DEFAULT_OVERLAY_OPACITY = 85;
+
+function parseLegacyOverlayColor( legacyOverlayColor ) {
+	if ( typeof legacyOverlayColor !== 'string' ) {
+		return null;
+	}
+	const rgbaMatch = legacyOverlayColor
+		.replaceAll( ' ', '' )
+		.match( /^rgba?\((\d+),(\d+),(\d+)(?:,([0-9.]+))?\)$/i );
+	if ( ! rgbaMatch ) {
+		return null;
+	}
+	const r = Number( rgbaMatch[ 1 ] );
+	const g = Number( rgbaMatch[ 2 ] );
+	const b = Number( rgbaMatch[ 3 ] );
+	const a = rgbaMatch[ 4 ] !== undefined ? Number( rgbaMatch[ 4 ] ) : 1;
+	if ( [ r, g, b, a ].some( ( n ) => Number.isNaN( n ) ) ) {
+		return null;
+	}
+	const clampedA = Math.max( 0, Math.min( 1, a ) );
+	const toHex = ( n ) => Math.max( 0, Math.min( 255, n ) ).toString( 16 ).padStart( 2, '0' );
+	return {
+		color: `#${ toHex( r ) }${ toHex( g ) }${ toHex( b ) }`,
+		opacity: Math.round( clampedA * 100 ),
+	};
+}
+
 export default function Edit( { attributes, setAttributes, isSelected } ) {
 	const {
 		title,
+		backgroundType,
+		backgroundVideo,
 		backgroundImage,
 		backgroundImageId,
+		backgroundColor,
+		overlayOpacity,
+		titleColor,
+		titleFontSize,
+		breadcrumbColor,
+		breadcrumbActiveColor,
 		backgroundPosition,
-		overlayColor,
 		graphicImage,
 		graphicImageId,
 		graphicAlt,
 		graphicMaxWidth,
+		overlayColor,
 		breadcrumbs,
 		separatorChar,
 		containerMaxWidth,
@@ -40,26 +76,19 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 		containerMinHeight,
 		enableTractorAnimation,
 		fallbackBgColor,
+		hasMigratedLegacyBg,
 	} = attributes;
 
-	const crumbs =
-		Array.isArray( breadcrumbs ) && breadcrumbs.length
-			? breadcrumbs
-			: DEFAULT_CRUMBS;
+	const crumbs = Array.isArray( breadcrumbs ) && breadcrumbs.length ? breadcrumbs : DEFAULT_CRUMBS;
 
 	const updateCrumb = ( index, field, value ) => {
-		const next = crumbs.map( ( c, i ) =>
-			i === index ? { ...c, [ field ]: value } : c
-		);
+		const next = crumbs.map( ( c, i ) => ( i === index ? { ...c, [ field ]: value } : c ) );
 		setAttributes( { breadcrumbs: next } );
 	};
 
 	const addCrumb = () => {
 		setAttributes( {
-			breadcrumbs: [
-				...crumbs,
-				{ label: __( 'New item', 'twork-builder' ), url: '' },
-			],
+			breadcrumbs: [ ...crumbs, { label: __( 'New item', 'twork-builder' ), url: '' } ],
 		} );
 	};
 
@@ -67,319 +96,178 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 		if ( crumbs.length < 2 ) {
 			return;
 		}
-		setAttributes( {
-			breadcrumbs: crumbs.filter( ( _, i ) => i !== index ),
-		} );
+		setAttributes( { breadcrumbs: crumbs.filter( ( _, i ) => i !== index ) } );
 	};
 
-	const blockProps = useStableBlockProps(
-		() => ( {
-			className:
-				'twork-page-header twork-page-header-section-editor',
-			style: {
-				backgroundColor: fallbackBgColor,
-				paddingTop: `${ paddingTop }px`,
-				paddingBottom: `${ paddingBottom }px`,
-				'--twork-page-header-overlay': overlayColor,
-				'--twork-page-header-max': `${ containerMaxWidth }px`,
-				'--twork-page-header-width-pct': `${ containerWidthPct }%`,
-				'--twork-page-header-min-h': `${ containerMinHeight }px`,
-			},
-			'data-tractor-anim': enableTractorAnimation ? 'true' : 'false',
-		} ),
-		[
-			containerMaxWidth,
-			containerMinHeight,
-			containerWidthPct,
-			enableTractorAnimation,
-			fallbackBgColor,
-			overlayColor,
-			paddingBottom,
-			paddingTop,
-		]
-	);
+	// Backward compatibility: map legacy overlayColor/fallbackBgColor into new attributes.
+	useEffect( () => {
+		if ( hasMigratedLegacyBg ) {
+			return;
+		}
+
+		const patch = {};
+
+		if (
+			typeof fallbackBgColor === 'string' &&
+			fallbackBgColor &&
+			backgroundColor === DEFAULT_BG_COLOR
+		) {
+			patch.backgroundColor = fallbackBgColor;
+		}
+
+		const parsedLegacyOverlay = parseLegacyOverlayColor( overlayColor );
+		if ( parsedLegacyOverlay ) {
+			if ( backgroundColor === DEFAULT_BG_COLOR ) {
+				patch.backgroundColor = parsedLegacyOverlay.color;
+			}
+			if ( overlayOpacity === DEFAULT_OVERLAY_OPACITY ) {
+				patch.overlayOpacity = parsedLegacyOverlay.opacity;
+			}
+		}
+
+		patch.hasMigratedLegacyBg = true;
+		setAttributes( patch );
+	}, [
+		backgroundColor,
+		fallbackBgColor,
+		hasMigratedLegacyBg,
+		overlayColor,
+		overlayOpacity,
+		setAttributes,
+	] );
+
+	const blockProps = useBlockProps( {
+		className: 'twork-page-header twork-page-header-section twork-page-header-section-editor',
+		style: {
+			'--tw-bg-color': backgroundColor,
+			'--tw-overlay-opacity': `${ overlayOpacity / 100 }`,
+			'--tw-title-size': `${ titleFontSize }px`,
+			'--tw-title-color': titleColor,
+			'--tw-crumb-color': breadcrumbColor,
+			'--tw-crumb-active-color': breadcrumbActiveColor,
+			paddingTop: `${ paddingTop }px`,
+			paddingBottom: `${ paddingBottom }px`,
+			'--twork-page-header-max': `${ containerMaxWidth }px`,
+			'--twork-page-header-width-pct': `${ containerWidthPct }%`,
+			'--twork-page-header-min-h': `${ containerMinHeight }px`,
+		},
+		'data-tractor-anim': enableTractorAnimation ? 'true' : 'false',
+	} );
 
 	return (
 		<>
 			{ isSelected && (
 				<InspectorControls>
-					<PanelBody
-						title={ __( 'Title', 'twork-builder' ) }
-						initialOpen={ true }
-					>
-						<TextControl
-							label={ __( 'Page title', 'twork-builder' ) }
-							value={ title }
-							onChange={ ( val ) =>
-								setAttributes( { title: val } )
-							}
-							help={ __(
-								'Shown as the main heading (twork-page-header__title). You can also click the title in the preview.',
-								'twork-builder'
-							) }
-						/>
-					</PanelBody>
-
-					<PanelBody
-						title={ __( 'Background', 'twork-builder' ) }
-						initialOpen={ false }
-					>
-						{ ! backgroundImage ? (
-							<MediaPlaceholder
-								icon="format-image"
-								onSelect={ ( media ) =>
-									setAttributes( {
-										backgroundImage: media.url,
-										backgroundImageId: media.id,
-									} )
-								}
-								allowedTypes={ [ 'image' ] }
-								multiple={ false }
-								labels={ {
-									title: __(
-										'Header background',
-										'twork-builder'
-									),
-								} }
-							/>
-						) : (
-							<>
-								<img
-									src={ backgroundImage }
-									alt=""
-									style={ {
-										width: '100%',
-										maxHeight: 140,
-										objectFit: 'cover',
-										borderRadius: 6,
-									} }
-								/>
-
-								<Button
-									isSecondary
-									isSmall
-									onClick={ () =>
-										setAttributes( {
-											backgroundImage: '',
-											backgroundImageId: null,
-										} )
-									}
-								>
-									{ __(
-										'Remove background',
-										'twork-builder'
-									) }
-								</Button>
-							</>
-						) }
+					<PanelBody title={ __( 'Background Settings', 'twork-builder' ) } initialOpen={ true }>
 						<SelectControl
-							label={ __(
-								'Background position',
-								'twork-builder'
-							) }
-							value={ backgroundPosition }
+							label={ __( 'Background type', 'twork-builder' ) }
+							value={ backgroundType }
 							options={ [
-								{
-									label: __( 'Center', 'twork-builder' ),
-									value: 'center center',
-								},
-								{
-									label: __( 'Top', 'twork-builder' ),
-									value: 'center top',
-								},
-								{
-									label: __( 'Bottom', 'twork-builder' ),
-									value: 'center bottom',
-								},
-								{
-									label: __( 'Left', 'twork-builder' ),
-									value: 'left center',
-								},
-								{
-									label: __( 'Right', 'twork-builder' ),
-									value: 'right center',
-								},
+								{ label: __( 'Image', 'twork-builder' ), value: 'image' },
+								{ label: __( 'Video', 'twork-builder' ), value: 'video' },
+								{ label: __( 'Color', 'twork-builder' ), value: 'color' },
 							] }
-							onChange={ ( val ) =>
-								setAttributes( { backgroundPosition: val } )
-							}
-						/>
-					</PanelBody>
-
-					<PanelBody
-						title={ __( 'Overlay & fallback', 'twork-builder' ) }
-						initialOpen={ false }
-					>
-						<TextControl
-							label={ __(
-								'Photo overlay (CSS)',
-								'twork-builder'
-							) }
-							value={ overlayColor }
-							onChange={ ( val ) =>
-								setAttributes( { overlayColor: val } )
-							}
-							help={ __(
-								'e.g. rgba(12, 38, 20, 0.85)',
-								'twork-builder'
-							) }
+							onChange={ ( value ) => setAttributes( { backgroundType: value } ) }
 						/>
 
-						<TextControl
-							label={ __(
-								'Fallback background (CSS)',
-								'twork-builder'
-							) }
-							value={ fallbackBgColor }
-							onChange={ ( val ) =>
-								setAttributes( { fallbackBgColor: val } )
-							}
-							help={ __(
-								'Shown behind overlay when no image is set.',
-								'twork-builder'
-							) }
-						/>
-					</PanelBody>
-
-					<PanelBody
-						title={ __(
-							'Graphic (e.g. tractor)',
-							'twork-builder'
-						) }
-						initialOpen={ false }
-					>
-						<TextControl
-							label={ __( 'Image alt text', 'twork-builder' ) }
-							value={ graphicAlt }
-							onChange={ ( val ) =>
-								setAttributes( { graphicAlt: val } )
-							}
-						/>
-
-						{ ! graphicImage ? (
-							<MediaPlaceholder
-								icon="format-image"
-								onSelect={ ( media ) =>
-									setAttributes( {
-										graphicImage: media.url,
-										graphicImageId: media.id,
-										graphicAlt: media.alt || graphicAlt,
-									} )
-								}
-								allowedTypes={ [ 'image' ] }
-								multiple={ false }
-								labels={ {
-									title: __(
-										'Side graphic (PNG/SVG)',
-										'twork-builder'
-									),
-								} }
-							/>
-						) : (
+						{ backgroundType === 'image' && (
 							<>
-								<img
-									src={ graphicImage }
-									alt=""
-									style={ {
-										maxWidth: graphicMaxWidth,
-										height: 'auto',
-									} }
+								{ ! backgroundImage ? (
+									<MediaPlaceholder
+										icon="format-image"
+										onSelect={ ( media ) => setAttributes( { backgroundImage: media.url, backgroundImageId: media.id } ) }
+										allowedTypes={ [ 'image' ] }
+										multiple={ false }
+										labels={ { title: __( 'Header background image', 'twork-builder' ) } }
+									/>
+								) : (
+									<>
+										<img src={ backgroundImage } alt="" style={ { width: '100%', maxHeight: 140, objectFit: 'cover', borderRadius: 6 } } />
+										<Button isSecondary isSmall onClick={ () => setAttributes( { backgroundImage: '', backgroundImageId: null } ) }>
+											{ __( 'Remove image', 'twork-builder' ) }
+										</Button>
+									</>
+								) }
+								<SelectControl
+									label={ __( 'Background position', 'twork-builder' ) }
+									value={ backgroundPosition }
+									options={ [
+										{ label: __( 'Center', 'twork-builder' ), value: 'center center' },
+										{ label: __( 'Top', 'twork-builder' ), value: 'center top' },
+										{ label: __( 'Bottom', 'twork-builder' ), value: 'center bottom' },
+										{ label: __( 'Left', 'twork-builder' ), value: 'left center' },
+										{ label: __( 'Right', 'twork-builder' ), value: 'right center' },
+									] }
+									onChange={ ( value ) => setAttributes( { backgroundPosition: value } ) }
 								/>
-
-								<Button
-									isSecondary
-									isSmall
-									onClick={ () =>
-										setAttributes( {
-											graphicImage: '',
-											graphicImageId: null,
-										} )
-									}
-								>
-									{ __( 'Remove graphic', 'twork-builder' ) }
-								</Button>
 							</>
 						) }
-						<RangeControl
-							label={ __( 'Max width (px)', 'twork-builder' ) }
-							value={ graphicMaxWidth }
-							onChange={ ( val ) =>
-								setAttributes( { graphicMaxWidth: val } )
-							}
-							min={ 200 }
-							max={ 640 }
-							step={ 10 }
-						/>
 
-						<ToggleControl
-							label={ __(
-								'Slide-in animation',
-								'twork-builder'
-							) }
-							checked={ enableTractorAnimation }
-							onChange={ ( val ) =>
-								setAttributes( { enableTractorAnimation: val } )
-							}
-							help={ __(
-								'Still respects visitor “reduce motion” settings.',
-								'twork-builder'
-							) }
+						{ backgroundType === 'video' && (
+							<>
+								{ ! backgroundVideo ? (
+									<MediaPlaceholder
+										icon="video-alt3"
+										onSelect={ ( media ) => setAttributes( { backgroundVideo: media.url } ) }
+										allowedTypes={ [ 'video' ] }
+										multiple={ false }
+										labels={ { title: __( 'Background video', 'twork-builder' ) } }
+									/>
+								) : (
+									<>
+										<video src={ backgroundVideo } style={ { width: '100%', maxHeight: 180, borderRadius: 6 } } muted playsInline />
+										<Button isSecondary isSmall onClick={ () => setAttributes( { backgroundVideo: '' } ) }>
+											{ __( 'Remove video', 'twork-builder' ) }
+										</Button>
+									</>
+								) }
+							</>
+						) }
+
+						<BaseControl label={ __( 'Background color', 'twork-builder' ) }>
+							<ColorPalette
+								colors={ THEME_COLORS }
+								value={ backgroundColor }
+								onChange={ ( value ) => setAttributes( { backgroundColor: value || '#0c2614' } ) }
+							/>
+						</BaseControl>
+
+						<RangeControl
+							label={ __( 'Overlay opacity (%)', 'twork-builder' ) }
+							value={ overlayOpacity }
+							onChange={ ( value ) => setAttributes( { overlayOpacity: value || 0 } ) }
+							min={ 0 }
+							max={ 100 }
 						/>
 					</PanelBody>
 
-					<PanelBody
-						title={ __( 'Breadcrumb', 'twork-builder' ) }
-						initialOpen={ false }
-					>
-						<TextControl
-							label={ __( 'Separator', 'twork-builder' ) }
-							value={ separatorChar }
-							onChange={ ( val ) =>
-								setAttributes( { separatorChar: val } )
-							}
+					<PanelBody title={ __( 'Title Settings', 'twork-builder' ) } initialOpen={ false }>
+						<TextControl label={ __( 'Page title', 'twork-builder' ) } value={ title } onChange={ ( value ) => setAttributes( { title: value } ) } />
+						<RangeControl
+							label={ __( 'Title size (px)', 'twork-builder' ) }
+							value={ titleFontSize }
+							onChange={ ( value ) => setAttributes( { titleFontSize: value || 0 } ) }
+							min={ 24 }
+							max={ 120 }
 						/>
+						<BaseControl label={ __( 'Title color', 'twork-builder' ) }>
+							<ColorPalette colors={ THEME_COLORS } value={ titleColor } onChange={ ( value ) => setAttributes( { titleColor: value || '#ffffff' } ) } />
+						</BaseControl>
+					</PanelBody>
 
-						<p className="components-base-control__help">
-							{ __(
-								'Leave URL empty for the current page (shown in green, not linked).',
-								'twork-builder'
-							) }
-						</p>
+					<PanelBody title={ __( 'Breadcrumb Settings', 'twork-builder' ) } initialOpen={ false }>
+						<TextControl label={ __( 'Separator', 'twork-builder' ) } value={ separatorChar } onChange={ ( value ) => setAttributes( { separatorChar: value } ) } />
+						<BaseControl label={ __( 'Breadcrumb text color', 'twork-builder' ) }>
+							<ColorPalette colors={ THEME_COLORS } value={ breadcrumbColor } onChange={ ( value ) => setAttributes( { breadcrumbColor: value || '#ffffff' } ) } />
+						</BaseControl>
+						<BaseControl label={ __( 'Active breadcrumb color', 'twork-builder' ) }>
+							<ColorPalette colors={ THEME_COLORS } value={ breadcrumbActiveColor } onChange={ ( value ) => setAttributes( { breadcrumbActiveColor: value || '#8bc34a' } ) } />
+						</BaseControl>
 						{ crumbs.map( ( crumb, index ) => (
-							<div
-								key={ index }
-								style={ {
-									marginBottom: 12,
-									paddingBottom: 12,
-									borderBottom: '1px solid #ddd',
-								} }
-							>
-								<TextControl
-									label={ __( 'Label', 'twork-builder' ) }
-									value={ crumb.label }
-									onChange={ ( val ) =>
-										updateCrumb( index, 'label', val )
-									}
-								/>
-
-								<TextControl
-									label={ __(
-										'URL (empty = current)',
-										'twork-builder'
-									) }
-									value={ crumb.url }
-									onChange={ ( val ) =>
-										updateCrumb( index, 'url', val )
-									}
-									placeholder="/"
-								/>
-
-								<Button
-									isDestructive
-									isSmall
-									disabled={ crumbs.length < 2 }
-									onClick={ () => removeCrumb( index ) }
-								>
+							<div key={ index } style={ { marginBottom: 12, paddingBottom: 12, borderBottom: '1px solid #ddd' } }>
+								<TextControl label={ __( 'Label', 'twork-builder' ) } value={ crumb.label } onChange={ ( value ) => updateCrumb( index, 'label', value ) } />
+								<TextControl label={ __( 'URL (empty = current)', 'twork-builder' ) } value={ crumb.url } onChange={ ( value ) => updateCrumb( index, 'url', value ) } placeholder="/" />
+								<Button isDestructive isSmall disabled={ crumbs.length < 2 } onClick={ () => removeCrumb( index ) }>
 									{ __( 'Remove', 'twork-builder' ) }
 								</Button>
 							</div>
@@ -389,91 +277,48 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 						</Button>
 					</PanelBody>
 
-					<PanelBody
-						title={ __( 'Layout', 'twork-builder' ) }
-						initialOpen={ false }
-					>
-						<RangeControl
-							label={ __(
-								'Container max width (px)',
-								'twork-builder'
-							) }
-							value={ containerMaxWidth }
-							onChange={ ( val ) =>
-								setAttributes( { containerMaxWidth: val } )
-							}
-							min={ 600 }
-							max={ 1600 }
-							step={ 10 }
-						/>
+					<PanelBody title={ __( 'Graphic Settings', 'twork-builder' ) } initialOpen={ false }>
+						<TextControl label={ __( 'Image alt text', 'twork-builder' ) } value={ graphicAlt } onChange={ ( value ) => setAttributes( { graphicAlt: value } ) } />
+						{ ! graphicImage ? (
+							<MediaPlaceholder
+								icon="format-image"
+								onSelect={ ( media ) => setAttributes( { graphicImage: media.url, graphicImageId: media.id, graphicAlt: media.alt || graphicAlt } ) }
+								allowedTypes={ [ 'image' ] }
+								multiple={ false }
+								labels={ { title: __( 'Side graphic (PNG/SVG)', 'twork-builder' ) } }
+							/>
+						) : (
+							<>
+								<img src={ graphicImage } alt="" style={ { maxWidth: graphicMaxWidth, height: 'auto' } } />
+								<Button isSecondary isSmall onClick={ () => setAttributes( { graphicImage: '', graphicImageId: null } ) }>
+									{ __( 'Remove graphic', 'twork-builder' ) }
+								</Button>
+							</>
+						) }
+						<RangeControl label={ __( 'Max width (px)', 'twork-builder' ) } value={ graphicMaxWidth } onChange={ ( value ) => setAttributes( { graphicMaxWidth: value } ) } min={ 200 } max={ 640 } step={ 10 } />
+						<ToggleControl label={ __( 'Slide-in animation', 'twork-builder' ) } checked={ enableTractorAnimation } onChange={ ( value ) => setAttributes( { enableTractorAnimation: value } ) } />
+					</PanelBody>
 
-						<RangeControl
-							label={ __(
-								'Container width (%)',
-								'twork-builder'
-							) }
-							value={ containerWidthPct }
-							onChange={ ( val ) =>
-								setAttributes( { containerWidthPct: val } )
-							}
-							min={ 70 }
-							max={ 100 }
-						/>
-
-						<RangeControl
-							label={ __( 'Padding top (px)', 'twork-builder' ) }
-							value={ paddingTop }
-							onChange={ ( val ) =>
-								setAttributes( { paddingTop: val } )
-							}
-							min={ 60 }
-							max={ 280 }
-							step={ 4 }
-						/>
-
-						<RangeControl
-							label={ __(
-								'Padding bottom (px)',
-								'twork-builder'
-							) }
-							value={ paddingBottom }
-							onChange={ ( val ) =>
-								setAttributes( { paddingBottom: val } )
-							}
-							min={ 40 }
-							max={ 200 }
-							step={ 4 }
-						/>
-
-						<RangeControl
-							label={ __(
-								'Content row min height (px)',
-								'twork-builder'
-							) }
-							value={ containerMinHeight }
-							onChange={ ( val ) =>
-								setAttributes( { containerMinHeight: val } )
-							}
-							min={ 120 }
-							max={ 400 }
-							step={ 10 }
-						/>
+					<PanelBody title={ __( 'Layout Settings', 'twork-builder' ) } initialOpen={ false }>
+						<RangeControl label={ __( 'Container max width (px)', 'twork-builder' ) } value={ containerMaxWidth } onChange={ ( value ) => setAttributes( { containerMaxWidth: value } ) } min={ 600 } max={ 1600 } step={ 10 } />
+						<RangeControl label={ __( 'Container width (%)', 'twork-builder' ) } value={ containerWidthPct } onChange={ ( value ) => setAttributes( { containerWidthPct: value } ) } min={ 70 } max={ 100 } />
+						<RangeControl label={ __( 'Padding top (px)', 'twork-builder' ) } value={ paddingTop } onChange={ ( value ) => setAttributes( { paddingTop: value } ) } min={ 60 } max={ 280 } step={ 4 } />
+						<RangeControl label={ __( 'Padding bottom (px)', 'twork-builder' ) } value={ paddingBottom } onChange={ ( value ) => setAttributes( { paddingBottom: value } ) } min={ 40 } max={ 200 } step={ 4 } />
+						<RangeControl label={ __( 'Content row min height (px)', 'twork-builder' ) } value={ containerMinHeight } onChange={ ( value ) => setAttributes( { containerMinHeight: value } ) } min={ 120 } max={ 400 } step={ 10 } />
 					</PanelBody>
 				</InspectorControls>
 			) }
 
 			<section { ...blockProps }>
-				<div
-					className="twork-page-header__bg"
-					style={
-						backgroundImage
-							? {
-									backgroundImage: `url(${ backgroundImage })`,
-									backgroundPosition,
-							  }
-							: undefined
-					}
-				/>
+				{ backgroundType === 'video' && backgroundVideo && (
+					<div className="twork-page-header__video-layer" aria-hidden="true">
+						<video src={ backgroundVideo } autoPlay muted loop playsInline />
+					</div>
+				) }
+				{ backgroundType === 'image' && backgroundImage && (
+					<div className="twork-page-header__image-layer" style={ { backgroundImage: `url(${ backgroundImage })`, backgroundPosition } } aria-hidden="true" />
+				) }
+				<div className="twork-page-header__bg-overlay" aria-hidden="true" />
 
 				<div className="twork-page-header__container">
 					<div className="twork-page-header__content">
@@ -481,64 +326,69 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 							tagName="h1"
 							className="twork-page-header__title"
 							value={ title }
-							onChange={ ( val ) =>
-								setAttributes( { title: val } )
-							}
+							onChange={ ( value ) => setAttributes( { title: value } ) }
 							placeholder={ __( 'Page title', 'twork-builder' ) }
 							allowedFormats={ [ 'core/bold', 'core/italic' ] }
 						/>
 
-						<ul className="twork-page-header__breadcrumb">
-							{ crumbs.map( ( crumb, index ) => {
-								const isCurrent =
-									String( crumb.url || '' ).trim() === '';
-								return (
-									<Fragment key={ index }>
-										{ index > 0 && (
-											<li
-												className="separator"
-												aria-hidden="true"
-											>
-												{ separatorChar || '•' }
-											</li>
-										) }
-										<li
-											className={
-												isCurrent ? 'active' : undefined
-											}
-										>
-											{ ! isCurrent ? (
-												<a
-													href={ crumb.url }
-													onClick={ ( e ) =>
-														e.preventDefault()
+						{ crumbs.length > 0 && (
+							<nav
+								className="twork-page-header__breadcrumb-nav"
+								aria-label="Breadcrumb"
+							>
+								<ul className="twork-page-header__breadcrumb">
+									{ crumbs.map( ( crumb, index ) => {
+										const label = crumb?.label ?? '';
+										const url = crumb?.url ?? '';
+										const isCurrent =
+											String( url ).trim() === '';
+										return (
+											<Fragment key={ index }>
+												{ index > 0 && (
+													<li
+														className="separator"
+														aria-hidden="true"
+													>
+														{ separatorChar || '•' }
+													</li>
+												) }
+												<li
+													className={
+														isCurrent
+															? 'active'
+															: undefined
 													}
+													{ ...( isCurrent
+														? {
+																'aria-current':
+																	'page',
+														  }
+														: {} ) }
 												>
-													{ crumb.label }
-												</a>
-											) : (
-												crumb.label
-											) }
-										</li>
-									</Fragment>
-								);
-							} ) }
-						</ul>
+													{ ! isCurrent ? (
+														<a
+															href={ url }
+															onClick={ ( event ) =>
+																event.preventDefault()
+															}
+														>
+															{ label }
+														</a>
+													) : (
+														label
+													) }
+												</li>
+											</Fragment>
+										);
+									} ) }
+								</ul>
+							</nav>
+						) }
 					</div>
 
 					{ graphicImage ? (
 						<div className="twork-page-header__graphic">
-							<img
-								src={ graphicImage }
-								alt=""
-								className="twork-page-header__img"
-								style={ { maxWidth: `${ graphicMaxWidth }px` } }
-							/>
-						</div>
-					) : (
-						<div className="twork-page-header__graphic twork-page-header__graphic--placeholder">
-							<MediaPlaceholder
-								icon="format-image"
+							<MediaUpload
 								onSelect={ ( media ) =>
 									setAttributes( {
 										graphicImage: media.url,
@@ -547,10 +397,34 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 									} )
 								}
 								allowedTypes={ [ 'image' ] }
+								value={ graphicImageId }
+								render={ ( { open } ) => (
+									<img
+										src={ graphicImage }
+										alt={ graphicAlt || '' }
+										className="twork-page-header__img"
+										style={ { maxWidth: `${ graphicMaxWidth }px` } }
+										onClick={ open }
+										role="button"
+										tabIndex={ 0 }
+										onKeyDown={ ( event ) => {
+											if ( event.key === 'Enter' || event.key === ' ' ) {
+												event.preventDefault();
+												open();
+											}
+										} }
+									/>
+								) }
+							/>
+						</div>
+					) : (
+						<div className="twork-page-header__graphic twork-page-header__graphic--placeholder">
+							<MediaPlaceholder
+								icon="format-image"
+								onSelect={ ( media ) => setAttributes( { graphicImage: media.url, graphicImageId: media.id, graphicAlt: media.alt || graphicAlt } ) }
+								allowedTypes={ [ 'image' ] }
 								multiple={ false }
-								labels={ {
-									title: __( 'Graphic', 'twork-builder' ),
-								} }
+								labels={ { title: __( 'Graphic', 'twork-builder' ) } }
 							/>
 						</div>
 					) }

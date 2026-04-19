@@ -1,9 +1,10 @@
 import { __ } from '@wordpress/i18n';
-import { useStableBlockProps } from '@twork-builder/editor-utils';
 import {
 	RichText,
 	MediaPlaceholder,
 	InspectorControls,
+	MediaUpload,
+	useBlockProps,
 } from '@wordpress/block-editor';
 import {
 	PanelBody,
@@ -19,14 +20,11 @@ const ALIGN_OPTIONS = [
 ];
 
 export default function Edit( { attributes, setAttributes, isSelected } ) {
-	const { image, imageAlt, stat, label, cardAlign } = attributes;
+	const { image, imageId, imageAlt, stat, label, cardAlign } = attributes;
 
-	const blockProps = useStableBlockProps(
-		() => ( {
-			className: `twork-third-section__card twork-third-section__card--${ cardAlign }`,
-		} ),
-		[ cardAlign ]
-	);
+	const blockProps = useBlockProps( {
+		className: `twork-third-section__card twork-third-section__card--${ cardAlign }`,
+	} );
 
 	return (
 		<>
@@ -100,10 +98,35 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 						} }
 					/>
 				) : (
-					<img
-						src={ image }
-						alt=""
-						className="twork-third-section__card-img"
+					<MediaUpload
+						onSelect={ ( media ) =>
+							setAttributes( {
+								image: media.url,
+								imageId: media.id,
+								imageAlt: media.alt || imageAlt,
+							} )
+						}
+						allowedTypes={ [ 'image' ] }
+						value={ imageId }
+						render={ ( { open } ) => (
+							<img
+								src={ image }
+								alt={ imageAlt || '' }
+								className="twork-third-section__card-img"
+								onClick={ open }
+								role="button"
+								tabIndex={ 0 }
+								onKeyDown={ ( event ) => {
+									if (
+										event.key === 'Enter' ||
+										event.key === ' '
+									) {
+										event.preventDefault();
+										open();
+									}
+								} }
+							/>
+						) }
 					/>
 				) }
 				<div className="twork-third-section__card-content">

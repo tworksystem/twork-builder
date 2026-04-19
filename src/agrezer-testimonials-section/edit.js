@@ -2,6 +2,7 @@ import { __ } from '@wordpress/i18n';
 import { useStableBlockProps } from '@twork-builder/editor-utils';
 import {
 	InnerBlocks,
+	useInnerBlocksProps,
 	InspectorControls,
 	RichText,
 	MediaPlaceholder,
@@ -26,7 +27,6 @@ const TEMPLATE = [
 			rating: 5,
 		},
 	],
-
 	[
 		'twork/testimonial',
 		{
@@ -36,7 +36,6 @@ const TEMPLATE = [
 			rating: 5,
 		},
 	],
-
 	[
 		'twork/testimonial',
 		{
@@ -98,6 +97,16 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 			paddingTop,
 			widthPercent,
 		]
+	);
+
+	const innerBlocksProps = useInnerBlocksProps(
+		{ className: 'twork-testimonials__slides twork-testimonials__slides--editor' },
+		{
+			allowedBlocks: ALLOWED_BLOCKS,
+			template: TEMPLATE,
+			templateLock: false,
+			renderAppender: InnerBlocks.ButtonBlockAppender,
+		}
 	);
 
 	return (
@@ -460,16 +469,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 						/>
 
 						<div className="twork-testimonials__quote-region twork-testimonials__quote-region--editor">
-							<div className="twork-testimonials__slides twork-testimonials__slides--editor">
-								<InnerBlocks
-									allowedBlocks={ ALLOWED_BLOCKS }
-									template={ TEMPLATE }
-									templateLock={ false }
-									renderAppender={
-										InnerBlocks.ButtonBlockAppender
-									}
-								/>
-							</div>
+							<div { ...innerBlocksProps } />
 						</div>
 
 						<div className="twork-testimonials__bottom twork-testimonials__bottom--editor">

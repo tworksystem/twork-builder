@@ -13,18 +13,10 @@
 		align-items: center !important;
 		gap: var(--twork-process-grid-gap, 2rem) !important;
 
-		> .block-editor-inner-blocks {
-			display: contents !important;
-
-			> .block-editor-block-list__layout {
-				display: contents !important;
-
-				> .wp-block,
-				> [data-type="twork/process-step"],
-				> [data-type="twork/process-center"] {
-					display: block !important;
-				}
-			}
+		/* Direct children are now the actual blocks */
+		> .wp-block {
+			display: block !important;
+			min-width: 0 !important;
 		}
 	}
 

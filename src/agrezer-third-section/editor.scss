@@ -1,22 +1,12 @@
-.twork-third-section-editor .twork-third-section__cards--editor .block-editor-block-list__layout {
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	gap: var(--twork-third-cards-gap, 22px);
-}
-
-@media (max-width: 992px) {
-	.twork-third-section-editor .twork-third-section__cards--editor .block-editor-block-list__layout {
-		grid-template-columns: repeat(2, 1fr);
-	}
-}
-
-@media (max-width: 640px) {
-	.twork-third-section-editor .twork-third-section__cards--editor .block-editor-block-list__layout {
-		grid-template-columns: 1fr;
-	}
-}
-
 .twork-third-section-editor .twork-third-section__card .components-placeholder {
 	min-height: 280px;
 	margin: 0;
+}
+
+body .editor-styles-wrapper .wp-block-twork-cta-cards-section.twork-third-section-editor .twork-third-section__subtitle {
+	color: var(--tw-third-sub-color, #f48b2a) !important;
+	font-size: var(--tw-third-sub-size, 16px) !important;
+	display: inline-block !important;
+	line-height: 1.35 !important;
+	font-weight: 600 !important;
 }

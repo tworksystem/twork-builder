@@ -6,7 +6,10 @@ import {
 	InspectorControls,
 	RichText,
 	MediaPlaceholder,
+	MediaUpload,
+	MediaUploadCheck,
 	PanelColorSettings,
+	FontSizePicker,
 } from '@wordpress/block-editor';
 import {
 	PanelBody,
@@ -118,6 +121,35 @@ function getPostPlainTitle( post ) {
 	return __( '(Untitled)', 'twork-builder' );
 }
 
+function hexToRgba( color, opacity ) {
+	if ( typeof color !== 'string' || ! color.startsWith( '#' ) ) {
+		return 'rgba(0, 0, 0, 0)';
+	}
+	const value = color.replace( '#', '' );
+	if ( value.length !== 3 && value.length !== 6 ) {
+		return 'rgba(0, 0, 0, 0)';
+	}
+	const normalize = value.length === 3
+		? value
+				.split( '' )
+				.map( ( char ) => `${ char }${ char }` )
+				.join( '' )
+		: value;
+	const int = parseInt( normalize, 16 );
+	const r = ( int >> 16 ) & 255;
+	const g = ( int >> 8 ) & 255;
+	const b = int & 255;
+	const safeOpacity = Math.min( 1, Math.max( 0, opacity ) );
+	return `rgba(${ r }, ${ g }, ${ b }, ${ safeOpacity })`;
+}
+
+function isVideoAsset( url = '', mime = '' ) {
+	if ( typeof mime === 'string' && mime.indexOf( 'video' ) === 0 ) {
+		return true;
+	}
+	return /\.(mp4|webm|ogg)$/i.test( String( url ) );
+}
+
 export default function Edit( { attributes, setAttributes, isSelected } ) {
 	const {
 		sectionTitle,
@@ -146,6 +178,54 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 		authorPrefix,
 		showCommentsMeta,
 		commentPrefix,
+		titleColor,
+		titleFontSize,
+		titleFontWeight,
+		taglineColor,
+		taglineBackgroundColor,
+		taglineFontSize,
+		taglineFontWeight,
+		moreButtonTextColor,
+		moreButtonBackgroundColor,
+		moreButtonHoverTextColor,
+		moreButtonHoverBackgroundColor,
+		postTitleColor,
+		postTitleHoverColor,
+		postTitleFontSize,
+		postTitleFontWeight,
+		postMetaColor,
+		postMetaIconColor,
+		postMetaFontSize,
+		postMetaFontWeight,
+		dateBadgeBackgroundColor,
+		dateBadgeTextColor,
+		dateBadgeBorderRadius,
+		readMoreTextColor,
+		readMoreBackgroundColor,
+		readMoreHoverTextColor,
+		readMoreHoverBackgroundColor,
+		readMoreIconColor,
+		readMoreIconBackgroundColor,
+		readMoreIconHoverColor,
+		readMoreIconHoverBackgroundColor,
+		cardBackgroundColor,
+		cardBorderRadius,
+		cardBorderColor,
+		cardBorderWidth,
+		cardBoxShadow,
+		cardBoxShadowHover,
+		cardHoverTranslateY,
+		imageAspectRatio,
+		imageObjectFit,
+		imageHeight,
+		imageBorderRadius,
+		imageOverlayColor,
+		imageOverlayOpacity,
+		imageOverlayGradient,
+		imageOverlayHoverColor,
+		imageOverlayHoverOpacity,
+		imageOverlayHoverGradient,
+		tagIconMime,
 	} = attributes;
 
 	const [ categoryInputValue, setCategoryInputValue ] = useState( '' );
@@ -421,9 +501,118 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'twork-blog-section-editor',
+			className: 'twork-blog twork-blog-section-editor',
+			style: {
+				backgroundColor,
+				paddingTop: `${ paddingTop }px`,
+				paddingBottom: `${ paddingBottom }px`,
+				'--twork-blog-cols': Math.min( 4, Math.max( 1, columns || 3 ) ),
+				'--twork-blog-max': `${ containerMaxWidth }px`,
+				'--twork-blog-width': `${ containerWidthPct }%`,
+				'--twork-title-color': titleColor,
+				'--twork-title-size': `${ titleFontSize }px`,
+				'--twork-title-weight': titleFontWeight,
+				'--twork-tagline-color': taglineColor,
+				'--twork-tagline-bg': taglineBackgroundColor,
+				'--twork-tagline-size': `${ taglineFontSize }px`,
+				'--twork-tagline-weight': taglineFontWeight,
+				'--twork-more-text': moreButtonTextColor,
+				'--twork-more-bg': moreButtonBackgroundColor,
+				'--twork-more-text-hover': moreButtonHoverTextColor,
+				'--twork-more-bg-hover': moreButtonHoverBackgroundColor,
+				'--twork-card-title-color': postTitleColor,
+				'--twork-card-title-hover': postTitleHoverColor,
+				'--twork-card-title-size': `${ postTitleFontSize }px`,
+				'--twork-card-title-weight': postTitleFontWeight,
+				'--twork-meta-color': postMetaColor,
+				'--twork-meta-icon-color': postMetaIconColor,
+				'--twork-meta-size': `${ postMetaFontSize }px`,
+				'--twork-meta-weight': postMetaFontWeight,
+				'--twork-date-bg': dateBadgeBackgroundColor,
+				'--twork-date-text': dateBadgeTextColor,
+				'--twork-date-radius': `${ dateBadgeBorderRadius }px`,
+				'--twork-read-text': readMoreTextColor,
+				'--twork-read-bg': readMoreBackgroundColor,
+				'--twork-read-text-hover': readMoreHoverTextColor,
+				'--twork-read-bg-hover': readMoreHoverBackgroundColor,
+				'--twork-read-icon': readMoreIconColor,
+				'--twork-read-icon-bg': readMoreIconBackgroundColor,
+				'--twork-read-icon-hover': readMoreIconHoverColor,
+				'--twork-read-icon-bg-hover': readMoreIconHoverBackgroundColor,
+				'--twork-card-bg': cardBackgroundColor,
+				'--twork-card-radius': `${ cardBorderRadius }px`,
+				'--twork-card-border': cardBorderColor,
+				'--twork-card-border-width': `${ cardBorderWidth }px`,
+				'--twork-card-shadow': cardBoxShadow,
+				'--twork-card-shadow-hover': cardBoxShadowHover,
+				'--twork-card-lift': `${ cardHoverTranslateY }px`,
+				'--twork-img-height': `${ imageHeight }px`,
+				'--twork-img-fit': imageObjectFit,
+				'--twork-img-radius': `${ imageBorderRadius }px`,
+				'--twork-img-aspect': imageAspectRatio === 'auto' ? 'auto' : imageAspectRatio,
+				'--twork-img-overlay':
+					imageOverlayGradient ||
+					hexToRgba( imageOverlayColor, imageOverlayOpacity / 100 ),
+				'--twork-img-overlay-hover':
+					imageOverlayHoverGradient ||
+					hexToRgba( imageOverlayHoverColor, imageOverlayHoverOpacity / 100 ),
+			},
 		} ),
-		[]
+		[
+			backgroundColor,
+			paddingTop,
+			paddingBottom,
+			columns,
+			containerMaxWidth,
+			containerWidthPct,
+			titleColor,
+			titleFontSize,
+			titleFontWeight,
+			taglineColor,
+			taglineBackgroundColor,
+			taglineFontSize,
+			taglineFontWeight,
+			moreButtonTextColor,
+			moreButtonBackgroundColor,
+			moreButtonHoverTextColor,
+			moreButtonHoverBackgroundColor,
+			postTitleColor,
+			postTitleHoverColor,
+			postTitleFontSize,
+			postTitleFontWeight,
+			postMetaColor,
+			postMetaIconColor,
+			postMetaFontSize,
+			postMetaFontWeight,
+			dateBadgeBackgroundColor,
+			dateBadgeTextColor,
+			dateBadgeBorderRadius,
+			readMoreTextColor,
+			readMoreBackgroundColor,
+			readMoreHoverTextColor,
+			readMoreHoverBackgroundColor,
+			readMoreIconColor,
+			readMoreIconBackgroundColor,
+			readMoreIconHoverColor,
+			readMoreIconHoverBackgroundColor,
+			cardBackgroundColor,
+			cardBorderRadius,
+			cardBorderColor,
+			cardBorderWidth,
+			cardBoxShadow,
+			cardBoxShadowHover,
+			cardHoverTranslateY,
+			imageAspectRatio,
+			imageObjectFit,
+			imageHeight,
+			imageBorderRadius,
+			imageOverlayColor,
+			imageOverlayOpacity,
+			imageOverlayGradient,
+			imageOverlayHoverColor,
+			imageOverlayHoverOpacity,
+			imageOverlayHoverGradient,
+		]
 	);
 
 	const imageSizeOptions = [
@@ -611,11 +800,32 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 					<PanelBody
 						title={ __(
-							'Tagline icon (accessibility)',
+							'Header content',
 							'twork-builder'
 						) }
 						initialOpen={ false }
 					>
+						<TextControl
+							label={ __( 'More button URL', 'twork-builder' ) }
+							value={ moreButtonUrl }
+							onChange={ ( val ) =>
+								setAttributes( { moreButtonUrl: val } )
+							}
+						/>
+						<TextControl
+							label={ __( 'More button label', 'twork-builder' ) }
+							value={ moreButtonText }
+							onChange={ ( val ) =>
+								setAttributes( { moreButtonText: val } )
+							}
+						/>
+						<ToggleControl
+							label={ __( 'Open in new tab', 'twork-builder' ) }
+							checked={ moreButtonNewTab }
+							onChange={ ( val ) =>
+								setAttributes( { moreButtonNewTab: val } )
+							}
+						/>
 						<TextControl
 							label={ __( 'Icon alt text', 'twork-builder' ) }
 							value={ tagIconAlt }
@@ -625,47 +835,9 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 						/>
 					</PanelBody>
 
-					<PanelBody
-						title={ __( 'Header & buttons', 'twork-builder' ) }
-						initialOpen={ false }
-					>
+					<PanelBody title={ __( 'Card content', 'twork-builder' ) } initialOpen={ false }>
 						<TextControl
-							label={ __( '“More news” URL', 'twork-builder' ) }
-							value={ moreButtonUrl }
-							onChange={ ( val ) =>
-								setAttributes( { moreButtonUrl: val } )
-							}
-							help={ __(
-								'Empty uses your Posts page (Settings → Reading) or the site home.',
-								'twork-builder'
-							) }
-						/>
-
-						<TextControl
-							label={ __( '“More news” label', 'twork-builder' ) }
-							value={ moreButtonText }
-							onChange={ ( val ) =>
-								setAttributes( { moreButtonText: val } )
-							}
-						/>
-
-						<ToggleControl
-							label={ __(
-								'Open “More news” in new tab',
-								'twork-builder'
-							) }
-							checked={ moreButtonNewTab }
-							onChange={ ( val ) =>
-								setAttributes( { moreButtonNewTab: val } )
-							}
-						/>
-
-						<Divider />
-						<TextControl
-							label={ __(
-								'Card “Read more” label',
-								'twork-builder'
-							) }
+							label={ __( 'Card "Read More" label', 'twork-builder' ) }
 							value={ readMoreText }
 							onChange={ ( val ) =>
 								setAttributes( { readMoreText: val } )
@@ -720,6 +892,102 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 								}
 							/>
 						) }
+					</PanelBody>
+
+					<PanelBody title={ __( 'Featured image', 'twork-builder' ) } initialOpen={ false }>
+						<SelectControl
+							label={ __( 'Image aspect ratio', 'twork-builder' ) }
+							value={ imageAspectRatio }
+							options={ [
+								{ label: __( '16:9', 'twork-builder' ), value: '16/9' },
+								{ label: __( '4:3', 'twork-builder' ), value: '4/3' },
+								{ label: __( '1:1', 'twork-builder' ), value: '1/1' },
+								{ label: __( 'Auto', 'twork-builder' ), value: 'auto' },
+							] }
+							onChange={ ( val ) => setAttributes( { imageAspectRatio: val } ) }
+						/>
+						<SelectControl
+							label={ __( 'Object fit', 'twork-builder' ) }
+							value={ imageObjectFit }
+							options={ [
+								{ label: __( 'Cover', 'twork-builder' ), value: 'cover' },
+								{ label: __( 'Contain', 'twork-builder' ), value: 'contain' },
+							] }
+							onChange={ ( val ) => setAttributes( { imageObjectFit: val } ) }
+						/>
+						<RangeControl
+							label={ __( 'Image height (px)', 'twork-builder' ) }
+							value={ imageHeight }
+							onChange={ ( val ) => setAttributes( { imageHeight: val } ) }
+							min={ 120 }
+							max={ 600 }
+						/>
+						<RangeControl
+							label={ __( 'Image border radius (px)', 'twork-builder' ) }
+							value={ imageBorderRadius }
+							onChange={ ( val ) => setAttributes( { imageBorderRadius: val } ) }
+							min={ 0 }
+							max={ 40 }
+						/>
+						<RangeControl
+							label={ __( 'Overlay opacity (%)', 'twork-builder' ) }
+							value={ imageOverlayOpacity }
+							onChange={ ( val ) => setAttributes( { imageOverlayOpacity: val } ) }
+							min={ 0 }
+							max={ 100 }
+						/>
+						<RangeControl
+							label={ __( 'Overlay hover opacity (%)', 'twork-builder' ) }
+							value={ imageOverlayHoverOpacity }
+							onChange={ ( val ) => setAttributes( { imageOverlayHoverOpacity: val } ) }
+							min={ 0 }
+							max={ 100 }
+						/>
+						<TextControl
+							label={ __( 'Overlay gradient (optional CSS)', 'twork-builder' ) }
+							value={ imageOverlayGradient }
+							onChange={ ( val ) => setAttributes( { imageOverlayGradient: val } ) }
+							help={ __( 'Example: linear-gradient(180deg, rgba(0,0,0,.1), rgba(0,0,0,.45))', 'twork-builder' ) }
+						/>
+						<TextControl
+							label={ __( 'Overlay hover gradient (optional CSS)', 'twork-builder' ) }
+							value={ imageOverlayHoverGradient }
+							onChange={ ( val ) => setAttributes( { imageOverlayHoverGradient: val } ) }
+						/>
+					</PanelBody>
+
+					<PanelBody title={ __( 'Card box', 'twork-builder' ) } initialOpen={ false }>
+						<RangeControl
+							label={ __( 'Card border radius (px)', 'twork-builder' ) }
+							value={ cardBorderRadius }
+							onChange={ ( val ) => setAttributes( { cardBorderRadius: val } ) }
+							min={ 0 }
+							max={ 40 }
+						/>
+						<RangeControl
+							label={ __( 'Card border width (px)', 'twork-builder' ) }
+							value={ cardBorderWidth }
+							onChange={ ( val ) => setAttributes( { cardBorderWidth: val } ) }
+							min={ 0 }
+							max={ 8 }
+						/>
+						<RangeControl
+							label={ __( 'Card hover translate Y (px)', 'twork-builder' ) }
+							value={ cardHoverTranslateY }
+							onChange={ ( val ) => setAttributes( { cardHoverTranslateY: val } ) }
+							min={ -50 }
+							max={ 10 }
+						/>
+						<TextControl
+							label={ __( 'Card box shadow', 'twork-builder' ) }
+							value={ cardBoxShadow }
+							onChange={ ( val ) => setAttributes( { cardBoxShadow: val } ) }
+						/>
+						<TextControl
+							label={ __( 'Card box shadow (hover)', 'twork-builder' ) }
+							value={ cardBoxShadowHover }
+							onChange={ ( val ) => setAttributes( { cardBoxShadowHover: val } ) }
+						/>
 					</PanelBody>
 
 					<PanelBody
@@ -777,8 +1045,100 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 						/>
 					</PanelBody>
 
+					<PanelBody title={ __( 'Typography', 'twork-builder' ) } initialOpen={ false }>
+						<p>{ __( 'Section Title Size', 'twork-builder' ) }</p>
+						<FontSizePicker
+							value={ titleFontSize }
+							onChange={ ( val ) =>
+								setAttributes( { titleFontSize: parseInt( val, 10 ) || 48 } )
+							}
+							fontSizes={ [] }
+							fallbackFontSize={ titleFontSize || 48 }
+							withSlider
+						/>
+						<SelectControl
+							label={ __( 'Section Title Weight', 'twork-builder' ) }
+							value={ titleFontWeight }
+							options={ [
+								{ label: '400', value: '400' },
+								{ label: '500', value: '500' },
+								{ label: '600', value: '600' },
+								{ label: '700', value: '700' },
+								{ label: '800', value: '800' },
+							] }
+							onChange={ ( val ) => setAttributes( { titleFontWeight: val } ) }
+						/>
+						<Divider />
+						<p>{ __( 'Tagline Size', 'twork-builder' ) }</p>
+						<FontSizePicker
+							value={ taglineFontSize }
+							onChange={ ( val ) =>
+								setAttributes( { taglineFontSize: parseInt( val, 10 ) || 16 } )
+							}
+							fontSizes={ [] }
+							fallbackFontSize={ taglineFontSize || 16 }
+							withSlider
+						/>
+						<SelectControl
+							label={ __( 'Tagline Weight', 'twork-builder' ) }
+							value={ taglineFontWeight }
+							options={ [
+								{ label: '400', value: '400' },
+								{ label: '500', value: '500' },
+								{ label: '600', value: '600' },
+								{ label: '700', value: '700' },
+							] }
+							onChange={ ( val ) => setAttributes( { taglineFontWeight: val } ) }
+						/>
+						<Divider />
+						<p>{ __( 'Post Title Size', 'twork-builder' ) }</p>
+						<FontSizePicker
+							value={ postTitleFontSize }
+							onChange={ ( val ) =>
+								setAttributes( { postTitleFontSize: parseInt( val, 10 ) || 22 } )
+							}
+							fontSizes={ [] }
+							fallbackFontSize={ postTitleFontSize || 22 }
+							withSlider
+						/>
+						<SelectControl
+							label={ __( 'Post Title Weight', 'twork-builder' ) }
+							value={ postTitleFontWeight }
+							options={ [
+								{ label: '400', value: '400' },
+								{ label: '500', value: '500' },
+								{ label: '600', value: '600' },
+								{ label: '700', value: '700' },
+								{ label: '800', value: '800' },
+							] }
+							onChange={ ( val ) => setAttributes( { postTitleFontWeight: val } ) }
+						/>
+						<Divider />
+						<p>{ __( 'Meta Size', 'twork-builder' ) }</p>
+						<FontSizePicker
+							value={ postMetaFontSize }
+							onChange={ ( val ) =>
+								setAttributes( { postMetaFontSize: parseInt( val, 10 ) || 15 } )
+							}
+							fontSizes={ [] }
+							fallbackFontSize={ postMetaFontSize || 15 }
+							withSlider
+						/>
+						<SelectControl
+							label={ __( 'Meta Weight', 'twork-builder' ) }
+							value={ postMetaFontWeight }
+							options={ [
+								{ label: '400', value: '400' },
+								{ label: '500', value: '500' },
+								{ label: '600', value: '600' },
+								{ label: '700', value: '700' },
+							] }
+							onChange={ ( val ) => setAttributes( { postMetaFontWeight: val } ) }
+						/>
+					</PanelBody>
+
 					<PanelColorSettings
-						title={ __( 'Colors', 'twork-builder' ) }
+						title={ __( 'Advanced colors', 'twork-builder' ) }
 						colorSettings={ [
 							{
 								value: backgroundColor,
@@ -789,26 +1149,35 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 									'twork-builder'
 								),
 							},
+							{ value: titleColor, onChange: ( val ) => setAttributes( { titleColor: val } ), label: __( 'Section title', 'twork-builder' ) },
+							{ value: taglineColor, onChange: ( val ) => setAttributes( { taglineColor: val } ), label: __( 'Tagline text', 'twork-builder' ) },
+							{ value: taglineBackgroundColor, onChange: ( val ) => setAttributes( { taglineBackgroundColor: val } ), label: __( 'Tagline background', 'twork-builder' ) },
+							{ value: moreButtonTextColor, onChange: ( val ) => setAttributes( { moreButtonTextColor: val } ), label: __( 'More button text', 'twork-builder' ) },
+							{ value: moreButtonBackgroundColor, onChange: ( val ) => setAttributes( { moreButtonBackgroundColor: val } ), label: __( 'More button background', 'twork-builder' ) },
+							{ value: moreButtonHoverTextColor, onChange: ( val ) => setAttributes( { moreButtonHoverTextColor: val } ), label: __( 'More button text (hover)', 'twork-builder' ) },
+							{ value: moreButtonHoverBackgroundColor, onChange: ( val ) => setAttributes( { moreButtonHoverBackgroundColor: val } ), label: __( 'More button background (hover)', 'twork-builder' ) },
+							{ value: postTitleColor, onChange: ( val ) => setAttributes( { postTitleColor: val } ), label: __( 'Post title', 'twork-builder' ) },
+							{ value: postTitleHoverColor, onChange: ( val ) => setAttributes( { postTitleHoverColor: val } ), label: __( 'Post title (hover)', 'twork-builder' ) },
+							{ value: postMetaColor, onChange: ( val ) => setAttributes( { postMetaColor: val } ), label: __( 'Meta text', 'twork-builder' ) },
+							{ value: postMetaIconColor, onChange: ( val ) => setAttributes( { postMetaIconColor: val } ), label: __( 'Meta icon', 'twork-builder' ) },
+							{ value: dateBadgeBackgroundColor, onChange: ( val ) => setAttributes( { dateBadgeBackgroundColor: val } ), label: __( 'Date badge background', 'twork-builder' ) },
+							{ value: dateBadgeTextColor, onChange: ( val ) => setAttributes( { dateBadgeTextColor: val } ), label: __( 'Date badge text', 'twork-builder' ) },
+							{ value: readMoreTextColor, onChange: ( val ) => setAttributes( { readMoreTextColor: val } ), label: __( 'Read more text', 'twork-builder' ) },
+							{ value: readMoreHoverTextColor, onChange: ( val ) => setAttributes( { readMoreHoverTextColor: val } ), label: __( 'Read more text (hover)', 'twork-builder' ) },
+							{ value: readMoreIconColor, onChange: ( val ) => setAttributes( { readMoreIconColor: val } ), label: __( 'Read more icon', 'twork-builder' ) },
+							{ value: readMoreIconBackgroundColor, onChange: ( val ) => setAttributes( { readMoreIconBackgroundColor: val } ), label: __( 'Read more icon background', 'twork-builder' ) },
+							{ value: readMoreIconHoverColor, onChange: ( val ) => setAttributes( { readMoreIconHoverColor: val } ), label: __( 'Read more icon (hover)', 'twork-builder' ) },
+							{ value: readMoreIconHoverBackgroundColor, onChange: ( val ) => setAttributes( { readMoreIconHoverBackgroundColor: val } ), label: __( 'Read more icon background (hover)', 'twork-builder' ) },
+							{ value: cardBackgroundColor, onChange: ( val ) => setAttributes( { cardBackgroundColor: val } ), label: __( 'Card background', 'twork-builder' ) },
+							{ value: cardBorderColor, onChange: ( val ) => setAttributes( { cardBorderColor: val } ), label: __( 'Card border', 'twork-builder' ) },
+							{ value: imageOverlayColor, onChange: ( val ) => setAttributes( { imageOverlayColor: val } ), label: __( 'Image overlay', 'twork-builder' ) },
+							{ value: imageOverlayHoverColor, onChange: ( val ) => setAttributes( { imageOverlayHoverColor: val } ), label: __( 'Image overlay (hover)', 'twork-builder' ) },
 						] }
 					/>
 				</InspectorControls>
 			) }
 
-			<div { ...blockProps }>
-				<section
-					className="twork-blog wp-block-twork-posts-grid"
-					style={ {
-						backgroundColor,
-						paddingTop: `${ paddingTop }px`,
-						paddingBottom: `${ paddingBottom }px`,
-						'--twork-blog-cols': Math.min(
-							4,
-							Math.max( 1, columns || 3 )
-						),
-						'--twork-blog-max': `${ containerMaxWidth }px`,
-						'--twork-blog-width': `${ containerWidthPct }%`,
-					} }
-				>
+			<section { ...blockProps }>
 					<div className="twork-blog__container">
 						<div className="twork-blog__header-row">
 							<div className="twork-blog__header-left">
@@ -821,9 +1190,10 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 													tagIcon: media.url,
 													tagIconId: media.id,
 													tagIconAlt: media.alt || tagIconAlt,
+													tagIconMime: media.mime || '',
 												} )
 											}
-											allowedTypes={ [ 'image' ] }
+											allowedTypes={ [ 'image', 'video' ] }
 											multiple={ false }
 											labels={ {
 												title: __(
@@ -834,22 +1204,43 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 										/>
 									) : (
 										<>
-											<img
-												src={ tagIcon }
-												alt=""
-												className="twork-blog__tag-icon"
-											/>
+											{ isVideoAsset( tagIcon, tagIconMime ) ? (
+												<video
+													src={ tagIcon }
+													className="twork-blog__tag-icon twork-blog__tag-icon--media"
+													autoPlay
+													loop
+													muted
+													playsInline
+												/>
+											) : (
+												<img src={ tagIcon } alt="" className="twork-blog__tag-icon" />
+											) }
+											<MediaUploadCheck>
+												<MediaUpload
+													onSelect={ ( media ) =>
+														setAttributes( {
+															tagIcon: media.url,
+															tagIconId: media.id,
+															tagIconAlt: media.alt || tagIconAlt,
+															tagIconMime: media.mime || '',
+														} )
+													}
+													allowedTypes={ [ 'image', 'video' ] }
+													value={ tagIconId }
+													render={ ( { open } ) => (
+														<Button isSecondary isSmall onClick={ open }>
+															{ __( 'Replace icon media', 'twork-builder' ) }
+														</Button>
+													) }
+												/>
+											</MediaUploadCheck>
 											<Button
-												isSecondary
+												isDestructive
 												isSmall
-												onClick={ () =>
-													setAttributes( {
-														tagIcon: '',
-														tagIconId: null,
-													} )
-												}
+												onClick={ () => setAttributes( { tagIcon: '', tagIconId: null, tagIconMime: '' } ) }
 											>
-												{ __( 'Remove icon', 'twork-builder' ) }
+												{ __( 'Remove', 'twork-builder' ) }
 											</Button>
 										</>
 									) }
@@ -962,11 +1353,8 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 														tabIndex={ -1 }
 														onClick={ ( e ) => e.preventDefault() }
 													>
-														<img
-															src={ imgUrl }
-															className="twork-blog-card__img"
-															alt=""
-														/>
+														<img src={ imgUrl } className="twork-blog-card__img" alt="" />
+														<span className="twork-blog-card__img-overlay" aria-hidden="true" />
 													</a>
 												) : (
 													<a
@@ -998,6 +1386,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 													<div className="twork-blog-card__meta">
 														{ showAuthorMeta && (
 															<span>
+																<span className="twork-blog-card__meta-icon" aria-hidden="true">●</span>
 																{ authorPrefix || '' }
 																{ authorName }
 															</span>
@@ -1006,6 +1395,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 														{ showCommentsMeta &&
 															commentCountSafe !== null && (
 																<span>
+																	<span className="twork-blog-card__meta-icon" aria-hidden="true">●</span>
 																	{ commentPrefix || '' }
 																	{ commentCountSafe }{ ' ' }
 																	{ commentCountSafe === 1
@@ -1046,8 +1436,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 							</div>
 						) }
 					</div>
-				</section>
-			</div>
+			</section>
 		</>
 	);
 }

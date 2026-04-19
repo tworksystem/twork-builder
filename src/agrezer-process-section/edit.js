@@ -1,7 +1,7 @@
 import { __ } from '@wordpress/i18n';
-import { useStableBlockProps } from '@twork-builder/editor-utils';
 import {
-	InnerBlocks,
+	useBlockProps,
+	useInnerBlocksProps,
 	InspectorControls,
 	RichText,
 	PanelColorSettings,
@@ -35,14 +35,12 @@ const TEMPLATE = [
 			ctaUrl: '#',
 		},
 	],
-
 	[
 		'twork/process-center',
 		{
 			alt: 'Process Wheel',
 		},
 	],
-
 	[
 		'twork/process-step',
 		{
@@ -81,39 +79,36 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 				.replace( /"/g, '\\"' ) }")`
 		: undefined;
 
-	const blockProps = useStableBlockProps(
-		() => ( {
-			className: `twork-process twork-process-section-editor ${
-				wreathDecorationUrl ? 'has-process-wreath' : ''
-			}`,
-
-			style: {
-				backgroundColor,
-				paddingTop: `${ paddingTop }px`,
-				paddingBottom: `${ paddingBottom }px`,
-				'--twork-process-grid-gap': `${ gridGap }px`,
-				...( wreathVar
-					? { '--twork-process-wreath': wreathVar }
-					: {} ),
-			},
-		} ),
-		[
+	const blockProps = useBlockProps( {
+		className: `twork-process twork-process-section-editor ${
+			wreathDecorationUrl ? 'has-process-wreath' : ''
+		}`,
+		style: {
 			backgroundColor,
-			gridGap,
-			paddingBottom,
-			paddingTop,
-			wreathDecorationUrl,
-			wreathVar,
-		]
-	);
+			paddingTop: `${ paddingTop }px`,
+			paddingBottom: `${ paddingBottom }px`,
+			'--twork-process-grid-gap': `${ gridGap }px`,
+			...( wreathVar ? { '--twork-process-wreath': wreathVar } : {} ),
+		},
+	} );
 
 	const containerStyle = {
-		width: `min(100% - ${
-			containerGutter * 2
-		}px, ${ containerMaxWidth }px)`,
+		width: `min(100% - ${ containerGutter * 2 }px, ${ containerMaxWidth }px)`,
 		marginInline: 'auto',
 		gap: `${ gridGap }px`,
 	};
+
+	const innerBlocksProps = useInnerBlocksProps(
+		{
+			className: 'twork-process__container twork-process__container-editor',
+			style: containerStyle,
+		},
+		{
+			allowedBlocks: ALLOWED_BLOCKS,
+			template: TEMPLATE,
+			templateLock: 'all',
+		}
+	);
 
 	return (
 		<>
@@ -375,16 +370,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 					/>
 				</div>
 
-				<div
-					className="twork-process__container twork-process__container-editor"
-					style={ containerStyle }
-				>
-					<InnerBlocks
-						allowedBlocks={ ALLOWED_BLOCKS }
-						template={ TEMPLATE }
-						templateLock="all"
-					/>
-				</div>
+				<div { ...innerBlocksProps } />
 			</section>
 		</>
 	);

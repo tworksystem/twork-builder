@@ -1,5 +1,5 @@
 import { useStableBlockProps } from '@twork-builder/editor-utils';
-import { InnerBlocks } from '@wordpress/block-editor';
+import { useInnerBlocksProps, InnerBlocks } from '@wordpress/block-editor';
 
 const ALLOWED_BLOCKS = [
 	'twork/cta-block',
@@ -14,12 +14,10 @@ export default function Edit() {
 		[]
 	);
 
-	return (
-		<div { ...blockProps }>
-			<InnerBlocks
-				allowedBlocks={ ALLOWED_BLOCKS }
-				renderAppender={ InnerBlocks.ButtonBlockAppender }
-			/>
-		</div>
-	);
+	const innerBlocksProps = useInnerBlocksProps( blockProps, {
+		allowedBlocks: ALLOWED_BLOCKS,
+		renderAppender: InnerBlocks.ButtonBlockAppender,
+	} );
+
+	return <div { ...innerBlocksProps } />;
 }

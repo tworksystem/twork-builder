@@ -24,6 +24,7 @@ $defaults = array(
     'tagline'           => 'Read Our Blog',
     'tagIcon'           => '',
     'tagIconAlt'        => '',
+    'tagIconMime'       => 'image',
     'moreButtonUrl'     => '',
     'moreButtonText'    => 'More News ↗',
     'moreButtonNewTab'  => false,
@@ -45,9 +46,73 @@ $defaults = array(
     'authorPrefix'      => '👤 ',
     'showCommentsMeta'  => true,
     'commentPrefix'     => '💬 ',
+    'titleColor'                    => '#000000',
+    'titleFontSize'                 => 48,
+    'titleFontWeight'               => '700',
+    'taglineColor'                  => '#222222',
+    'taglineBackgroundColor'        => 'transparent',
+    'taglineFontSize'               => 16,
+    'taglineFontWeight'             => '600',
+    'moreButtonTextColor'           => '#000000',
+    'moreButtonBackgroundColor'     => '#dce55d',
+    'moreButtonHoverTextColor'      => '#ffffff',
+    'moreButtonHoverBackgroundColor'=> '#8bc34a',
+    'postTitleColor'                => '#000000',
+    'postTitleHoverColor'           => '#8bc34a',
+    'postTitleFontSize'             => 22,
+    'postTitleFontWeight'           => '700',
+    'postMetaColor'                 => '#777777',
+    'postMetaIconColor'             => '#8bc34a',
+    'postMetaFontSize'              => 15,
+    'postMetaFontWeight'            => '500',
+    'dateBadgeBackgroundColor'      => '#8bc34a',
+    'dateBadgeTextColor'            => '#ffffff',
+    'dateBadgeBorderRadius'         => 12,
+    'readMoreTextColor'             => '#000000',
+    'readMoreBackgroundColor'       => 'transparent',
+    'readMoreHoverTextColor'        => '#8bc34a',
+    'readMoreHoverBackgroundColor'  => 'transparent',
+    'readMoreIconColor'             => '#000000',
+    'readMoreIconBackgroundColor'   => '#f5f5f5',
+    'readMoreIconHoverColor'        => '#ffffff',
+    'readMoreIconHoverBackgroundColor' => '#8bc34a',
+    'cardBackgroundColor'           => '#ffffff',
+    'cardBorderRadius'              => 20,
+    'cardBorderColor'               => '#ebebeb',
+    'cardBorderWidth'               => 1,
+    'cardBoxShadow'                 => '0 0 0 rgba(0, 0, 0, 0)',
+    'cardBoxShadowHover'            => '0 15px 40px rgba(0, 0, 0, 0.05)',
+    'cardHoverTranslateY'           => -10,
+    'imageAspectRatio'              => '16/9',
+    'imageObjectFit'                => 'cover',
+    'imageHeight'                   => 260,
+    'imageBorderRadius'             => 0,
+    'imageOverlayColor'             => '#000000',
+    'imageOverlayOpacity'           => 0,
+    'imageOverlayGradient'          => '',
+    'imageOverlayHoverColor'        => '#000000',
+    'imageOverlayHoverOpacity'      => 0,
+    'imageOverlayHoverGradient'     => '',
 );
 
 $atts = wp_parse_args($attributes, $defaults);
+
+$twork_hex_to_rgba = static function ($color, $opacity) {
+    $color = is_string($color) ? trim($color) : '';
+    if (!preg_match('/^#([a-f0-9]{3}|[a-f0-9]{6})$/i', $color)) {
+        $color = '#000000';
+    }
+    $hex = ltrim($color, '#');
+    if (strlen($hex) === 3) {
+        $hex = $hex[0] . $hex[0] . $hex[1] . $hex[1] . $hex[2] . $hex[2];
+    }
+    $int = hexdec($hex);
+    $r = ($int >> 16) & 255;
+    $g = ($int >> 8) & 255;
+    $b = $int & 255;
+    $o = max(0, min(1, (float) $opacity));
+    return sprintf('rgba(%d,%d,%d,%.2f)', $r, $g, $b, $o);
+};
 
 // wp_parse_args uses array_merge: explicit null in saved attrs can override defaults.
 foreach (array('categoryIds', 'excludeIds') as $list_key) {
@@ -135,16 +200,73 @@ if ($more_url === '' || $more_url === '#') {
 
 $wrapper_attributes = '';
 if (function_exists('get_block_wrapper_attributes')) {
+    $overlay_opacity       = max(0, min(100, (int) $atts['imageOverlayOpacity'])) / 100;
+    $overlay_hover_opacity = max(0, min(100, (int) $atts['imageOverlayHoverOpacity'])) / 100;
+    $overlay_css = (string) $atts['imageOverlayGradient'];
+    $overlay_hover_css = (string) $atts['imageOverlayHoverGradient'];
+    if ($overlay_css === '') {
+        $overlay_css = $twork_hex_to_rgba((string) $atts['imageOverlayColor'], $overlay_opacity);
+    }
+    if ($overlay_hover_css === '') {
+        $overlay_hover_css = $twork_hex_to_rgba((string) $atts['imageOverlayHoverColor'], $overlay_hover_opacity);
+    }
+    $image_aspect = (string) $atts['imageAspectRatio'];
+    if (!in_array($image_aspect, array('16/9', '4/3', '1/1', 'auto'), true)) {
+        $image_aspect = '16/9';
+    }
     $extra = array(
         'class' => 'twork-blog',
         'style' => sprintf(
-            'background-color:%s;padding-top:%dpx;padding-bottom:%dpx;--twork-blog-cols:%d;--twork-blog-max:%dpx;--twork-blog-width:%d%%;',
+            'background-color:%s;padding-top:%dpx;padding-bottom:%dpx;--twork-blog-cols:%d;--twork-blog-max:%dpx;--twork-blog-width:%d%%;--twork-title-color:%s;--twork-title-size:%dpx;--twork-title-weight:%s;--twork-tagline-color:%s;--twork-tagline-bg:%s;--twork-tagline-size:%dpx;--twork-tagline-weight:%s;--twork-more-text:%s;--twork-more-bg:%s;--twork-more-text-hover:%s;--twork-more-bg-hover:%s;--twork-card-title-color:%s;--twork-card-title-hover:%s;--twork-card-title-size:%dpx;--twork-card-title-weight:%s;--twork-meta-color:%s;--twork-meta-icon-color:%s;--twork-meta-size:%dpx;--twork-meta-weight:%s;--twork-date-bg:%s;--twork-date-text:%s;--twork-date-radius:%dpx;--twork-read-text:%s;--twork-read-bg:%s;--twork-read-text-hover:%s;--twork-read-bg-hover:%s;--twork-read-icon:%s;--twork-read-icon-bg:%s;--twork-read-icon-hover:%s;--twork-read-icon-bg-hover:%s;--twork-card-bg:%s;--twork-card-radius:%dpx;--twork-card-border:%s;--twork-card-border-width:%dpx;--twork-card-shadow:%s;--twork-card-shadow-hover:%s;--twork-card-lift:%dpx;--twork-img-height:%dpx;--twork-img-fit:%s;--twork-img-radius:%dpx;--twork-img-aspect:%s;--twork-img-overlay:%s;--twork-img-overlay-hover:%s;',
             esc_attr((string) $atts['backgroundColor']),
             (int) $atts['paddingTop'],
             (int) $atts['paddingBottom'],
             $columns,
             (int) $atts['containerMaxWidth'],
-            (int) $atts['containerWidthPct']
+            (int) $atts['containerWidthPct'],
+            esc_attr((string) $atts['titleColor']),
+            (int) $atts['titleFontSize'],
+            esc_attr((string) $atts['titleFontWeight']),
+            esc_attr((string) $atts['taglineColor']),
+            esc_attr((string) $atts['taglineBackgroundColor']),
+            (int) $atts['taglineFontSize'],
+            esc_attr((string) $atts['taglineFontWeight']),
+            esc_attr((string) $atts['moreButtonTextColor']),
+            esc_attr((string) $atts['moreButtonBackgroundColor']),
+            esc_attr((string) $atts['moreButtonHoverTextColor']),
+            esc_attr((string) $atts['moreButtonHoverBackgroundColor']),
+            esc_attr((string) $atts['postTitleColor']),
+            esc_attr((string) $atts['postTitleHoverColor']),
+            (int) $atts['postTitleFontSize'],
+            esc_attr((string) $atts['postTitleFontWeight']),
+            esc_attr((string) $atts['postMetaColor']),
+            esc_attr((string) $atts['postMetaIconColor']),
+            (int) $atts['postMetaFontSize'],
+            esc_attr((string) $atts['postMetaFontWeight']),
+            esc_attr((string) $atts['dateBadgeBackgroundColor']),
+            esc_attr((string) $atts['dateBadgeTextColor']),
+            (int) $atts['dateBadgeBorderRadius'],
+            esc_attr((string) $atts['readMoreTextColor']),
+            esc_attr((string) $atts['readMoreBackgroundColor']),
+            esc_attr((string) $atts['readMoreHoverTextColor']),
+            esc_attr((string) $atts['readMoreHoverBackgroundColor']),
+            esc_attr((string) $atts['readMoreIconColor']),
+            esc_attr((string) $atts['readMoreIconBackgroundColor']),
+            esc_attr((string) $atts['readMoreIconHoverColor']),
+            esc_attr((string) $atts['readMoreIconHoverBackgroundColor']),
+            esc_attr((string) $atts['cardBackgroundColor']),
+            (int) $atts['cardBorderRadius'],
+            esc_attr((string) $atts['cardBorderColor']),
+            (int) $atts['cardBorderWidth'],
+            esc_attr((string) $atts['cardBoxShadow']),
+            esc_attr((string) $atts['cardBoxShadowHover']),
+            (int) $atts['cardHoverTranslateY'],
+            (int) $atts['imageHeight'],
+            esc_attr((string) $atts['imageObjectFit']),
+            (int) $atts['imageBorderRadius'],
+            esc_attr($image_aspect),
+            esc_attr($overlay_css),
+            esc_attr($overlay_hover_css)
         ),
     );
     if (isset($block) && $block instanceof WP_Block) {
@@ -155,6 +277,9 @@ if (function_exists('get_block_wrapper_attributes')) {
 }
 
 $more_target = !empty($atts['moreButtonNewTab']);
+$tag_icon_url = (string) $atts['tagIcon'];
+$tag_icon_mime = (string) $atts['tagIconMime'];
+$tag_icon_is_video = (strpos($tag_icon_mime, 'video') === 0) || preg_match('/\.(mp4|webm|ogg)$/i', $tag_icon_url);
 
 ob_start();
 ?>
@@ -165,15 +290,26 @@ ob_start();
                 <?php if (!empty($atts['tagline']) || !empty($atts['tagIcon'])) : ?>
                     <div class="twork-blog__tagline">
                         <?php if (!empty($atts['tagIcon'])) : ?>
-                            <img
-                                src="<?php echo esc_url((string) $atts['tagIcon']); ?>"
-                                alt="<?php echo esc_attr((string) $atts['tagIconAlt']); ?>"
-                                class="twork-blog__tag-icon"
-                                width="20"
-                                height="20"
-                                loading="lazy"
-                                decoding="async"
-                            />
+                            <?php if ($tag_icon_is_video) : ?>
+                                <video
+                                    src="<?php echo esc_url($tag_icon_url); ?>"
+                                    class="twork-blog__tag-icon twork-blog__tag-icon--media"
+                                    autoplay
+                                    loop
+                                    muted
+                                    playsinline
+                                ></video>
+                            <?php else : ?>
+                                <img
+                                    src="<?php echo esc_url($tag_icon_url); ?>"
+                                    alt="<?php echo esc_attr((string) $atts['tagIconAlt']); ?>"
+                                    class="twork-blog__tag-icon"
+                                    width="20"
+                                    height="20"
+                                    loading="lazy"
+                                    decoding="async"
+                                />
+                            <?php endif; ?>
                         <?php endif; ?>
                         <?php if (!empty($atts['tagline'])) : ?>
                             <span><?php echo wp_kses_post((string) $atts['tagline']); ?></span>
@@ -236,6 +372,7 @@ ob_start();
                                         loading="lazy"
                                         decoding="async"
                                     />
+                                    <span class="twork-blog-card__img-overlay" aria-hidden="true"></span>
                                 </a>
                             <?php else : ?>
                                 <a
@@ -259,6 +396,7 @@ ob_start();
                                 <div class="twork-blog-card__meta">
                                     <?php if (!empty($atts['showAuthorMeta'])) : ?>
                                         <span>
+                                            <span class="twork-blog-card__meta-icon" aria-hidden="true">●</span>
                                             <?php
                                             if ((string) $atts['authorPrefix'] !== '') {
                                                 echo wp_kses_post((string) $atts['authorPrefix']);
@@ -270,6 +408,7 @@ ob_start();
 
                                     <?php if (!empty($atts['showCommentsMeta'])) : ?>
                                         <span>
+                                            <span class="twork-blog-card__meta-icon" aria-hidden="true">●</span>
                                             <?php
                                             if ((string) $atts['commentPrefix'] !== '') {
                                                 echo wp_kses_post((string) $atts['commentPrefix']);
@@ -321,4 +460,4 @@ ob_start();
     </div>
 </section>
 <?php
-return ob_get_clean();
+echo ob_get_clean();
