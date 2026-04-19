@@ -148,7 +148,7 @@ function twork_agrezer_shop_grid_mini_product_args($atts)
 }
 
 /**
- * Render callback for twork/agrezer-shop-grid-section dynamic block.
+ * Render callback for twork/products-grid (and legacy twork/agrezer-shop-grid-section).
  *
  * @param array    $attributes Block attributes.
  * @param string   $content    Block content.
@@ -159,7 +159,9 @@ function twork_agrezer_shop_grid_mini_product_args($atts)
 function twork_render_agrezer_shop_grid_section($attributes, $content, $block)
 {
     if (! class_exists('WooCommerce')) {
-        return '<!-- Twork Agrezer Shop Grid: WooCommerce not active. -->';
+        return '<div class="twork-products-grid__wc-notice" style="padding:1rem 1.25rem;border:1px dashed #c3c4c7;background:#fcf9e8;border-radius:4px;font-size:14px;">' .
+            esc_html__('WooCommerce must be installed and active for the Products Grid block.', 'twork-builder') .
+            '</div>';
     }
 
     $defaults = array(

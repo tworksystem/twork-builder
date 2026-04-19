@@ -417,7 +417,7 @@ function twork_builder_init_blocks()
                 if (isset($block_data['name']) && $block_data['name'] === 'twork/ph-popular-products-section') {
                     $block_args['render_callback'] = 'twork_render_ph_popular_products_section';
                 }
-                if (isset($block_data['name']) && $block_data['name'] === 'twork/agrezer-shop-grid-section') {
+                if (isset($block_data['name']) && in_array($block_data['name'], array('twork/agrezer-shop-grid-section', 'twork/products-grid'), true)) {
                     $block_args['render_callback'] = 'twork_render_agrezer_shop_grid_section';
                 }
                 if (isset($block_data['name']) && $block_data['name'] === 'twork/phy-facilities-section') {
