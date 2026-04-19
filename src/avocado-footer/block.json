@@ -1,0 +1,118 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/avocado-footer",
+	"version": "1.0.0",
+	"title": "Avocado Footer",
+	"category": "twork-builder",
+	"icon": "admin-site-alt3",
+	"description": "Premium dynamic footer block with advanced background modes and social repeater.",
+	"supports": {
+		"html": false,
+		"align": [ "full", "wide" ]
+	},
+	"attributes": {
+		"bgType": {
+			"type": "string",
+			"default": "color"
+		},
+		"bgMediaUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"bgColor": {
+			"type": "string",
+			"default": "#133a22"
+		},
+		"bgOverlay": {
+			"type": "string",
+			"default": "rgba(19, 58, 34, 0.95)"
+		},
+		"columnCount": {
+			"type": "number",
+			"default": 3
+		},
+		"logoText": {
+			"type": "string",
+			"default": "My Avocado"
+		},
+		"description": {
+			"type": "string",
+			"default": "Rooted in nature's care, we grow with integrity, nurture every seed with love, and harvest pure, healthier world for you."
+		},
+		"col2Heading": {
+			"type": "string",
+			"default": "Quick Links"
+		},
+		"col3Heading": {
+			"type": "string",
+			"default": "Sign up to our newsletter"
+		},
+		"col4Heading": {
+			"type": "string",
+			"default": "About Farm"
+		},
+		"col4Text": {
+			"type": "string",
+			"default": "Sustainable farming programs and seasonal produce updates for mindful living."
+		},
+		"col5Heading": {
+			"type": "string",
+			"default": "Contact"
+		},
+		"col5Text": {
+			"type": "string",
+			"default": "support@myavocado.com\n+66 2 000 0000"
+		},
+		"showNewsletter": {
+			"type": "boolean",
+			"default": true
+		},
+		"newsletterActionUrl": {
+			"type": "string",
+			"default": "#"
+		},
+		"socialLinks": {
+			"type": "array",
+			"default": [
+				{
+					"type": "icon",
+					"iconClass": "dashicons dashicons-facebook",
+					"imageUrl": "",
+					"url": "#"
+				},
+				{
+					"type": "icon",
+					"iconClass": "dashicons dashicons-twitter",
+					"imageUrl": "",
+					"url": "#"
+				},
+				{
+					"type": "icon",
+					"iconClass": "dashicons dashicons-instagram",
+					"imageUrl": "",
+					"url": "#"
+				},
+				{
+					"type": "icon",
+					"iconClass": "dashicons dashicons-linkedin",
+					"imageUrl": "",
+					"url": "#"
+				},
+				{
+					"type": "icon",
+					"iconClass": "dashicons dashicons-video-alt3",
+					"imageUrl": "",
+					"url": "#"
+				}
+			]
+		},
+		"copyrightText": {
+			"type": "string",
+			"default": "© Copyright 2026. All rights reserved. My Avocado. Designed by Zozothemes."
+		}
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
+}
