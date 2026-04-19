@@ -1,6 +1,9 @@
 import { __ } from '@wordpress/i18n';
-import { useStableBlockProps } from '@twork-builder/editor-utils';
-import { InnerBlocks, InspectorControls } from '@wordpress/block-editor';
+import {
+	InspectorControls,
+	useBlockProps,
+	useInnerBlocksProps,
+} from '@wordpress/block-editor';
 import { PanelBody, RangeControl, BaseControl } from '@wordpress/components';
 
 export default function Edit( { attributes, setAttributes, isSelected } ) {
@@ -57,17 +60,14 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 		],
 	];
 
-	const blockProps = useStableBlockProps(
-		() => ( {
-			className: 'twork-contact-cards-editor',
-			style: {
-				backgroundColor,
-				paddingTop: `${ paddingTop }px`,
-				paddingBottom: `${ paddingBottom }px`,
-			},
-		} ),
-		[ backgroundColor, paddingBottom, paddingTop ]
-	);
+	const blockProps = useBlockProps( {
+		className: 'twork-contact-cards',
+		style: {
+			backgroundColor,
+			paddingTop: `${ paddingTop }px`,
+			paddingBottom: `${ paddingBottom }px`,
+		},
+	} );
 
 	const gridStyle = {
 		'--twork-contact-cols': columns,
@@ -78,6 +78,18 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 		margin: '0 auto',
 		padding: `0 ${ containerPadding }px`,
 	};
+
+	const innerBlocksProps = useInnerBlocksProps(
+		{
+			className: 'twork-contact-cards__container',
+			style: gridStyle,
+		},
+		{
+			allowedBlocks: ALLOWED_BLOCKS,
+			template: TEMPLATE,
+			templateLock: false,
+		}
+	);
 
 	return (
 		<>
@@ -208,16 +220,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 			) }
 
 			<section { ...blockProps }>
-				<div
-					className="twork-contact-cards__container"
-					style={ gridStyle }
-				>
-					<InnerBlocks
-						allowedBlocks={ ALLOWED_BLOCKS }
-						template={ TEMPLATE }
-						templateLock={ false }
-					/>
-				</div>
+				<div { ...innerBlocksProps } />
 			</section>
 		</>
 	);

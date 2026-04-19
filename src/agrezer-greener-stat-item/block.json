@@ -19,6 +19,14 @@
 			"type": "string",
 			"default": "growth"
 		},
+		"mediaType": {
+			"type": "string",
+			"default": "svg"
+		},
+		"mediaUrl": {
+			"type": "string",
+			"default": ""
+		},
 		"title": {
 			"type": "string",
 			"default": "80% Pure Growth"

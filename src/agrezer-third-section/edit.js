@@ -1,11 +1,13 @@
 import { __ } from '@wordpress/i18n';
-import { useStableBlockProps } from '@twork-builder/editor-utils';
 import {
 	InnerBlocks,
 	InspectorControls,
 	RichText,
 	MediaPlaceholder,
+	MediaUpload,
 	PanelColorSettings,
+	useBlockProps,
+	useInnerBlocksProps,
 } from '@wordpress/block-editor';
 import {
 	PanelBody,
@@ -15,10 +17,11 @@ import {
 	Button,
 } from '@wordpress/components';
 
-const ALLOWED_BLOCKS = [ 'twork/cta-cards-section-card' ];
+// Must match the actual child block name (see src/agrezer-third-section-card/block.json).
+const ALLOWED_BLOCKS = [ 'twork/stat-image-card' ];
 const TEMPLATE = [
 	[
-		'twork/cta-cards-section-card',
+		'twork/stat-image-card',
 		{
 			cardAlign: 'left',
 			stat: '80%',
@@ -27,7 +30,7 @@ const TEMPLATE = [
 	],
 
 	[
-		'twork/cta-cards-section-card',
+		'twork/stat-image-card',
 		{
 			cardAlign: 'center',
 			stat: '98%',
@@ -36,7 +39,7 @@ const TEMPLATE = [
 	],
 
 	[
-		'twork/cta-cards-section-card',
+		'twork/stat-image-card',
 		{
 			cardAlign: 'right',
 			stat: '50%',
@@ -45,11 +48,25 @@ const TEMPLATE = [
 	],
 ];
 
-export default function Edit( { attributes, setAttributes, isSelected } ) {
+export default function Edit( {
+	attributes,
+	setAttributes,
+	isSelected,
+	clientId,
+} ) {
 	const {
-		backgroundColor,
-		paddingTop,
-		paddingBottom,
+		backgroundColor = '#f4f4f0',
+		paddingTop = 110,
+		paddingBottom = 120,
+		titleColor = '#131313',
+		titleFontSize = 48,
+		subtitleColor = '#f48b2a',
+		subtitleFontSize = 16,
+		descriptionColor = '#4c4c4c',
+		descriptionFontSize = 17,
+		ctaBgColor = '#d7e84f',
+		ctaTextColor = '#1a1a1a',
+		overlayOpacity = 0,
 		containerMaxWidth,
 		containerWidthPct,
 		topGridGap,
@@ -57,6 +74,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 		cardsGap,
 		cardsMarginTop,
 		tagIcon,
+		tagIconId,
 		tagIconAlt,
 		tagline,
 		title,
@@ -67,33 +85,49 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 		showCta,
 	} = attributes;
 
-	const blockProps = useStableBlockProps(
-		() => ( {
-			className:
-				'twork-third-section twork-third-section-editor',
-			style: {
-				backgroundColor,
-				paddingTop: `${ paddingTop }px`,
-				paddingBottom: `${ paddingBottom }px`,
-				'--twork-third-max': `${ containerMaxWidth }px`,
-				'--twork-third-width-pct': `${ containerWidthPct }%`,
-				'--twork-third-top-gap': `${ topGridGap }px`,
-				'--twork-third-top-mb': `${ topMarginBottom }px`,
-				'--twork-third-cards-gap': `${ cardsGap }px`,
-				'--twork-third-cards-mt': `${ cardsMarginTop }px`,
-			},
-		} ),
-		[
-			backgroundColor,
-			cardsGap,
-			cardsMarginTop,
-			containerMaxWidth,
-			containerWidthPct,
-			paddingBottom,
-			paddingTop,
-			topGridGap,
-			topMarginBottom,
-		]
+	const overlayRaw = Number( overlayOpacity );
+	const overlayAlpha = Number.isFinite( overlayRaw )
+		? Math.min( 1, Math.max( 0, overlayRaw / 100 ) )
+		: 0;
+	const uniqueClass = `twork-third-${ clientId }`;
+
+	const dynamicStyles = `
+    .${ uniqueClass } {
+        background-color: ${ backgroundColor } !important;
+        padding-top: ${ paddingTop }px !important;
+        padding-bottom: ${ paddingBottom }px !important;
+        --twork-third-max: ${ containerMaxWidth }px;
+        --twork-third-width-pct: ${ containerWidthPct }%;
+        --twork-third-top-gap: ${ topGridGap }px;
+        --twork-third-top-mb: ${ topMarginBottom }px;
+        --twork-third-cards-gap: ${ cardsGap }px;
+        --twork-third-cards-mt: ${ cardsMarginTop }px;
+        --tw-third-title-color: ${ titleColor };
+        --tw-third-title-size: ${ titleFontSize }px;
+        --tw-third-sub-color: ${ subtitleColor };
+        --tw-third-sub-size: ${ subtitleFontSize }px;
+        --tw-third-desc-color: ${ descriptionColor };
+        --tw-third-desc-size: ${ descriptionFontSize }px;
+        --tw-third-cta-bg: ${ ctaBgColor };
+        --tw-third-cta-color: ${ ctaTextColor };
+        --tw-third-overlay: ${ overlayAlpha };
+    }
+`;
+
+	const blockProps = useBlockProps( {
+		className: `twork-third-section twork-third-section-editor ${ uniqueClass }`,
+	} );
+
+	const innerBlocksProps = useInnerBlocksProps(
+		{
+			className: 'twork-third-section__cards',
+		},
+		{
+			allowedBlocks: ALLOWED_BLOCKS,
+			template: TEMPLATE,
+			templateLock: false,
+			renderAppender: InnerBlocks.ButtonBlockAppender,
+		}
 	);
 
 	const urlTrim = String( ctaUrl || '' ).trim();
@@ -104,9 +138,238 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 			{ isSelected && (
 				<InspectorControls>
 					<PanelBody
-						title={ __( 'Call to action', 'twork-builder' ) }
+						title={ __( 'Typography', 'twork-builder' ) }
 						initialOpen={ true }
 					>
+						<RangeControl
+							label={ __( 'Title font size (px)', 'twork-builder' ) }
+							value={ titleFontSize }
+							onChange={ ( val ) =>
+								setAttributes( { titleFontSize: val } )
+							}
+							min={ 24 }
+							max={ 96 }
+							step={ 1 }
+						/>
+						<RangeControl
+							label={ __(
+								'Subtitle font size (px)',
+								'twork-builder'
+							) }
+							value={ subtitleFontSize }
+							onChange={ ( val ) =>
+								setAttributes( { subtitleFontSize: val } )
+							}
+							min={ 10 }
+							max={ 32 }
+							step={ 1 }
+						/>
+						<RangeControl
+							label={ __(
+								'Description font size (px)',
+								'twork-builder'
+							) }
+							value={ descriptionFontSize }
+							onChange={ ( val ) =>
+								setAttributes( {
+									descriptionFontSize: val,
+								} )
+							}
+							min={ 12 }
+							max={ 32 }
+							step={ 1 }
+						/>
+					</PanelBody>
+
+					<PanelColorSettings
+						title={ __( 'Colors', 'twork-builder' ) }
+						colorSettings={ [
+							{
+								value: titleColor,
+								onChange: ( val ) =>
+									setAttributes( { titleColor: val } ),
+								label: __( 'Title', 'twork-builder' ),
+							},
+							{
+								value: subtitleColor,
+								onChange: ( val ) =>
+									setAttributes( { subtitleColor: val } ),
+								label: __( 'Subtitle', 'twork-builder' ),
+							},
+							{
+								value: descriptionColor,
+								onChange: ( val ) =>
+									setAttributes( {
+										descriptionColor: val,
+									} ),
+								label: __( 'Description', 'twork-builder' ),
+							},
+							{
+								value: backgroundColor,
+								onChange: ( val ) =>
+									setAttributes( { backgroundColor: val } ),
+								label: __(
+									'Section background',
+									'twork-builder'
+								),
+							},
+						] }
+					/>
+
+					<PanelBody
+						title={ __( 'Overlay', 'twork-builder' ) }
+						initialOpen={ false }
+					>
+						<RangeControl
+							label={ __(
+								'Dark overlay opacity (%)',
+								'twork-builder'
+							) }
+							value={ overlayOpacity }
+							onChange={ ( val ) =>
+								setAttributes( { overlayOpacity: val } )
+							}
+							min={ 0 }
+							max={ 100 }
+							step={ 1 }
+							help={ __(
+								'Adds a subtle dark layer over the section background.',
+								'twork-builder'
+							) }
+						/>
+					</PanelBody>
+
+					<PanelBody
+						title={ __( 'Spacing', 'twork-builder' ) }
+						initialOpen={ false }
+					>
+						<RangeControl
+							label={ __( 'Padding top (px)', 'twork-builder' ) }
+							value={ paddingTop }
+							onChange={ ( val ) =>
+								setAttributes( { paddingTop: val } )
+							}
+							min={ 40 }
+							max={ 200 }
+							step={ 2 }
+						/>
+						<RangeControl
+							label={ __(
+								'Padding bottom (px)',
+								'twork-builder'
+							) }
+							value={ paddingBottom }
+							onChange={ ( val ) =>
+								setAttributes( { paddingBottom: val } )
+							}
+							min={ 40 }
+							max={ 200 }
+							step={ 2 }
+						/>
+						<RangeControl
+							label={ __(
+								'Top row column gap (px)',
+								'twork-builder'
+							) }
+							value={ topGridGap }
+							onChange={ ( val ) =>
+								setAttributes( { topGridGap: val } )
+							}
+							min={ 16 }
+							max={ 80 }
+						/>
+						<RangeControl
+							label={ __(
+								'Space below top row (px)',
+								'twork-builder'
+							) }
+							value={ topMarginBottom }
+							onChange={ ( val ) =>
+								setAttributes( { topMarginBottom: val } )
+							}
+							min={ 16 }
+							max={ 80 }
+						/>
+						<RangeControl
+							label={ __( 'Cards gap (px)', 'twork-builder' ) }
+							value={ cardsGap }
+							onChange={ ( val ) =>
+								setAttributes( { cardsGap: val } )
+							}
+							min={ 8 }
+							max={ 40 }
+						/>
+						<RangeControl
+							label={ __(
+								'Cards top margin (px)',
+								'twork-builder'
+							) }
+							value={ cardsMarginTop }
+							onChange={ ( val ) =>
+								setAttributes( { cardsMarginTop: val } )
+							}
+							min={ 0 }
+							max={ 120 }
+						/>
+					</PanelBody>
+
+					<PanelBody
+						title={ __( 'Layout', 'twork-builder' ) }
+						initialOpen={ false }
+					>
+						<RangeControl
+							label={ __(
+								'Container max width (px)',
+								'twork-builder'
+							) }
+							value={ containerMaxWidth }
+							onChange={ ( val ) =>
+								setAttributes( { containerMaxWidth: val } )
+							}
+							min={ 600 }
+							max={ 1600 }
+							step={ 10 }
+						/>
+						<RangeControl
+							label={ __(
+								'Container width (%)',
+								'twork-builder'
+							) }
+							value={ containerWidthPct }
+							onChange={ ( val ) =>
+								setAttributes( { containerWidthPct: val } )
+							}
+							min={ 70 }
+							max={ 100 }
+						/>
+					</PanelBody>
+
+					<PanelBody
+						title={ __( 'Call to action', 'twork-builder' ) }
+						initialOpen={ false }
+					>
+						<PanelColorSettings
+							title={ __( 'Button colors', 'twork-builder' ) }
+							colorSettings={ [
+								{
+									value: ctaBgColor,
+									onChange: ( val ) =>
+										setAttributes( {
+											ctaBgColor: val,
+										} ),
+									label: __( 'Background', 'twork-builder' ),
+								},
+								{
+									value: ctaTextColor,
+									onChange: ( val ) =>
+										setAttributes( {
+											ctaTextColor: val,
+										} ),
+									label: __( 'Text', 'twork-builder' ),
+								},
+							] }
+						/>
+
 						<ToggleControl
 							label={ __( 'Show CTA', 'twork-builder' ) }
 							checked={ showCta }
@@ -211,146 +474,60 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 						) }
 					</PanelBody>
 
-					<PanelBody
-						title={ __( 'Layout', 'twork-builder' ) }
-						initialOpen={ false }
-					>
-						<RangeControl
-							label={ __(
-								'Container max width (px)',
-								'twork-builder'
-							) }
-							value={ containerMaxWidth }
-							onChange={ ( val ) =>
-								setAttributes( { containerMaxWidth: val } )
-							}
-							min={ 600 }
-							max={ 1600 }
-							step={ 10 }
-						/>
-
-						<RangeControl
-							label={ __(
-								'Container width (%)',
-								'twork-builder'
-							) }
-							value={ containerWidthPct }
-							onChange={ ( val ) =>
-								setAttributes( { containerWidthPct: val } )
-							}
-							min={ 70 }
-							max={ 100 }
-						/>
-
-						<RangeControl
-							label={ __( 'Top row gap (px)', 'twork-builder' ) }
-							value={ topGridGap }
-							onChange={ ( val ) =>
-								setAttributes( { topGridGap: val } )
-							}
-							min={ 16 }
-							max={ 80 }
-						/>
-
-						<RangeControl
-							label={ __(
-								'Space below top row (px)',
-								'twork-builder'
-							) }
-							value={ topMarginBottom }
-							onChange={ ( val ) =>
-								setAttributes( { topMarginBottom: val } )
-							}
-							min={ 16 }
-							max={ 80 }
-						/>
-
-						<RangeControl
-							label={ __( 'Cards gap (px)', 'twork-builder' ) }
-							value={ cardsGap }
-							onChange={ ( val ) =>
-								setAttributes( { cardsGap: val } )
-							}
-							min={ 8 }
-							max={ 40 }
-						/>
-
-						<RangeControl
-							label={ __(
-								'Cards top margin (px)',
-								'twork-builder'
-							) }
-							value={ cardsMarginTop }
-							onChange={ ( val ) =>
-								setAttributes( { cardsMarginTop: val } )
-							}
-							min={ 0 }
-							max={ 120 }
-						/>
-
-						<RangeControl
-							label={ __( 'Padding top (px)', 'twork-builder' ) }
-							value={ paddingTop }
-							onChange={ ( val ) =>
-								setAttributes( { paddingTop: val } )
-							}
-							min={ 40 }
-							max={ 200 }
-							step={ 2 }
-						/>
-
-						<RangeControl
-							label={ __(
-								'Padding bottom (px)',
-								'twork-builder'
-							) }
-							value={ paddingBottom }
-							onChange={ ( val ) =>
-								setAttributes( { paddingBottom: val } )
-							}
-							min={ 40 }
-							max={ 200 }
-							step={ 2 }
-						/>
-					</PanelBody>
-
-					<PanelColorSettings
-						title={ __( 'Colors', 'twork-builder' ) }
-						colorSettings={ [
-							{
-								value: backgroundColor,
-								onChange: ( val ) =>
-									setAttributes( { backgroundColor: val } ),
-								label: __(
-									'Section background',
-									'twork-builder'
-								),
-							},
-						] }
-					/>
 				</InspectorControls>
 			) }
 
+			<style
+				dangerouslySetInnerHTML={ { __html: dynamicStyles } }
+			/>
 			<section { ...blockProps }>
 				<div className="twork-third-section__container">
 					<div className="twork-third-section__top">
 						<div className="twork-third-section__intro">
 							<div className="twork-third-section__tagline">
 								{ tagIcon && (
-									<img
-										src={ tagIcon }
-										alt=""
-										className="twork-third-section__tag-icon"
+									<MediaUpload
+										onSelect={ ( media ) =>
+											setAttributes( {
+												tagIcon: media.url,
+												tagIconId: media.id,
+												tagIconAlt:
+													media.alt || tagIconAlt,
+											} )
+										}
+										allowedTypes={ [ 'image' ] }
+										value={ tagIconId }
+										render={ ( { open } ) => (
+											<img
+												src={ tagIcon }
+												alt={ tagIconAlt || '' }
+												className="twork-third-section__tag-icon"
+												onClick={ open }
+												role="button"
+												tabIndex={ 0 }
+												onKeyDown={ ( event ) => {
+													if (
+														event.key ===
+															'Enter' ||
+														event.key === ' '
+													) {
+														event.preventDefault();
+														open();
+													}
+												} }
+											/>
+										) }
 									/>
 								) }
 								<RichText
 									tagName="span"
+									className="twork-third-section__subtitle"
 									value={ tagline }
 									onChange={ ( val ) =>
 										setAttributes( { tagline: val } )
 									}
 									placeholder={ __(
-										'Tagline',
+										'Subtitle',
 										'twork-builder'
 									) }
 									allowedFormats={ [
@@ -372,7 +549,6 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 									'core/italic',
 									'core/underline',
 								] }
-								multiline="br"
 							/>
 						</div>
 
@@ -414,14 +590,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 						</div>
 					</div>
 
-					<div className="twork-third-section__cards twork-third-section__cards--editor">
-						<InnerBlocks
-							allowedBlocks={ ALLOWED_BLOCKS }
-							template={ TEMPLATE }
-							templateLock={ false }
-							renderAppender={ InnerBlocks.ButtonBlockAppender }
-						/>
-					</div>
+					<div { ...innerBlocksProps } />
 				</div>
 			</section>
 		</>

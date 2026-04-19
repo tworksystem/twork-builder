@@ -5,9 +5,16 @@ export default function save( { attributes } ) {
 	const {
 		title,
 		anchor,
+		backgroundType,
+		backgroundVideo,
 		backgroundImage,
+		backgroundColor,
+		overlayOpacity,
+		titleColor,
+		titleFontSize,
+		breadcrumbColor,
+		breadcrumbActiveColor,
 		backgroundPosition,
-		overlayColor,
 		graphicImage,
 		graphicAlt,
 		graphicMaxWidth,
@@ -19,7 +26,6 @@ export default function save( { attributes } ) {
 		paddingBottom,
 		containerMinHeight,
 		enableTractorAnimation,
-		fallbackBgColor,
 	} = attributes;
 
 	const crumbs =
@@ -28,10 +34,14 @@ export default function save( { attributes } ) {
 	const blockProps = useBlockProps.save( {
 		className: 'twork-page-header twork-page-header-section',
 		style: {
-			backgroundColor: fallbackBgColor,
+			'--tw-bg-color': backgroundColor,
+			'--tw-overlay-opacity': `${ overlayOpacity / 100 }`,
+			'--tw-title-size': `${ titleFontSize }px`,
+			'--tw-title-color': titleColor,
+			'--tw-crumb-color': breadcrumbColor,
+			'--tw-crumb-active-color': breadcrumbActiveColor,
 			paddingTop: `${ paddingTop }px`,
 			paddingBottom: `${ paddingBottom }px`,
-			'--twork-page-header-overlay': overlayColor,
 			'--twork-page-header-max': `${ containerMaxWidth }px`,
 			'--twork-page-header-width-pct': `${ containerWidthPct }%`,
 			'--twork-page-header-min-h': `${ containerMinHeight }px`,
@@ -43,18 +53,22 @@ export default function save( { attributes } ) {
 
 	return (
 		<section { ...blockProps } aria-labelledby={ titleId || undefined }>
-			<div
-				className="twork-page-header__bg"
-				style={
-					backgroundImage
-						? {
-								backgroundImage: `url(${ backgroundImage })`,
-								backgroundPosition,
-						  }
-						: undefined
-				}
-				aria-hidden="true"
-			/>
+			{ backgroundType === 'video' && backgroundVideo && (
+				<div className="twork-page-header__video-layer" aria-hidden="true">
+					<video src={ backgroundVideo } autoPlay muted loop playsInline />
+				</div>
+			) }
+			{ backgroundType === 'image' && backgroundImage && (
+				<div
+					className="twork-page-header__image-layer"
+					style={ {
+						backgroundImage: `url(${ backgroundImage })`,
+						backgroundPosition,
+					} }
+					aria-hidden="true"
+				/>
+			) }
+			<div className="twork-page-header__bg-overlay" aria-hidden="true" />
 
 			<div className="twork-page-header__container">
 				<div className="twork-page-header__content">

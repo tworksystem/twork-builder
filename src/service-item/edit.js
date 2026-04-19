@@ -1,11 +1,14 @@
 import { __ } from '@wordpress/i18n';
 import { useStableBlockProps } from '@twork-builder/editor-utils';
+import { useEffect } from '@wordpress/element';
 import {
 	RichText,
 	MediaPlaceholder,
 	InspectorControls,
 	URLInput,
 	PanelColorSettings,
+	MediaUpload,
+	MediaUploadCheck,
 } from '@wordpress/block-editor';
 import {
 	PanelBody,
@@ -19,6 +22,41 @@ import {
 	__experimentalDivider as Divider,
 	__experimentalNumberControl as NumberControl,
 } from '@wordpress/components';
+
+const DEFAULT_INFO_BLOCK = {
+	icon: 'fas fa-phone',
+	title: '',
+	content: '',
+	subtitle: '',
+	mediaType: 'icon',
+	mediaUrl: '',
+	mediaId: null,
+	mediaAlt: '',
+	mediaWidth: 40,
+};
+
+function normalizeInfoBlock( block = {} ) {
+	const mediaType = [ 'icon', 'image', 'video' ].includes( block.mediaType )
+		? block.mediaType
+		: 'icon';
+	const mediaWidth = Number.isFinite( Number( block.mediaWidth ) )
+		? Number( block.mediaWidth )
+		: 40;
+
+	return {
+		...DEFAULT_INFO_BLOCK,
+		...block,
+		mediaType,
+		mediaWidth,
+	};
+}
+
+function normalizeInfoBlocks( blocks ) {
+	if ( ! Array.isArray( blocks ) ) {
+		return [];
+	}
+	return blocks.map( normalizeInfoBlock );
+}
 
 export default function Edit( {
 	attributes,
@@ -185,6 +223,12 @@ export default function Edit( {
 		{ label: __( 'Right', 'twork-builder' ), value: 'right' },
 	];
 
+	const mediaTypeOptions = [
+		{ label: __( 'Icon class', 'twork-builder' ), value: 'icon' },
+		{ label: __( 'Image / GIF', 'twork-builder' ), value: 'image' },
+		{ label: __( 'Video', 'twork-builder' ), value: 'video' },
+	];
+
 	// Get background style based on card style
 	const getBackgroundStyle = () => {
 		if ( cardStyle === 'primary' ) {
@@ -230,6 +274,11 @@ export default function Edit( {
 			...infoBlocks,
 			{
 				icon: 'fas fa-phone',
+				mediaType: 'icon',
+				mediaUrl: '',
+				mediaId: null,
+				mediaAlt: '',
+				mediaWidth: 40,
 				title: __( 'New Info Block', 'twork-builder' ),
 				content: __( 'Info content...', 'twork-builder' ),
 				subtitle: '',
@@ -252,6 +301,26 @@ export default function Edit( {
 		const newInfoBlocks = infoBlocks.filter( ( _, i ) => i !== index );
 		setAttributes( { infoBlocks: newInfoBlocks } );
 	};
+
+	// Backward compatibility: normalize legacy infoBlocks missing media fields.
+	useEffect( () => {
+		if ( ! Array.isArray( infoBlocks ) ) {
+			setAttributes( { infoBlocks: [] } );
+			return;
+		}
+
+		const normalized = normalizeInfoBlocks( infoBlocks );
+		const hasChanges =
+			normalized.length !== infoBlocks.length ||
+			normalized.some(
+				( block, index ) =>
+					JSON.stringify( block ) !== JSON.stringify( infoBlocks[ index ] )
+			);
+
+		if ( hasChanges ) {
+			setAttributes( { infoBlocks: normalized } );
+		}
+	}, [ infoBlocks, setAttributes ] );
 
 	return (
 		<>
@@ -1682,24 +1751,80 @@ export default function Edit( {
 											'twork-builder'
 										) }
 									>
-										<TextControl
-											label={ __(
-												'Icon Class',
-												'twork-builder'
-											) }
-											value={ block.icon }
+										<SelectControl
+											label={ __( 'Media Type', 'twork-builder' ) }
+											value={ block.mediaType || 'icon' }
+											options={ mediaTypeOptions }
 											onChange={ ( val ) =>
-												updateInfoBlock(
-													index,
-													'icon',
-													val
-												)
+												updateInfoBlock( index, 'mediaType', val )
 											}
-											help={ __(
-												'e.g., fas fa-phone',
-												'twork-builder'
-											) }
 										/>
+										{ ( block.mediaType || 'icon' ) === 'icon' && (
+											<TextControl
+												label={ __( 'Icon Class', 'twork-builder' ) }
+												value={ block.icon || '' }
+												onChange={ ( val ) =>
+													updateInfoBlock( index, 'icon', val )
+												}
+												help={ __( 'e.g., fas fa-phone', 'twork-builder' ) }
+											/>
+										) }
+										{ [ 'image', 'video' ].includes( block.mediaType || '' ) && (
+											<>
+												<MediaUploadCheck>
+													<MediaUpload
+														onSelect={ ( media ) => {
+															updateInfoBlock( index, 'mediaUrl', media.url || '' );
+															updateInfoBlock( index, 'mediaId', media.id || null );
+															updateInfoBlock( index, 'mediaAlt', media.alt || '' );
+														} }
+														allowedTypes={
+															( block.mediaType || 'image' ) === 'video'
+																? [ 'video' ]
+																: [ 'image' ]
+														}
+														value={ block.mediaId }
+														render={ ( { open } ) => (
+															<Button isSecondary onClick={ open }>
+																{ block.mediaUrl
+																	? __( 'Replace Media', 'twork-builder' )
+																	: __( 'Select Media', 'twork-builder' ) }
+															</Button>
+														) }
+													/>
+												</MediaUploadCheck>
+												{ block.mediaUrl && (
+													<Button
+														isDestructive
+														onClick={ () => {
+															updateInfoBlock( index, 'mediaUrl', '' );
+															updateInfoBlock( index, 'mediaId', null );
+														} }
+													>
+														{ __( 'Remove Media', 'twork-builder' ) }
+													</Button>
+												) }
+												{ ( block.mediaType || 'image' ) === 'image' && (
+													<TextControl
+														label={ __( 'Image alt text', 'twork-builder' ) }
+														value={ block.mediaAlt || '' }
+														onChange={ ( val ) =>
+															updateInfoBlock( index, 'mediaAlt', val )
+														}
+													/>
+												) }
+												<RangeControl
+													label={ __( 'Media width (px)', 'twork-builder' ) }
+													value={ block.mediaWidth || 40 }
+													onChange={ ( val ) =>
+														updateInfoBlock( index, 'mediaWidth', val || 40 )
+													}
+													min={ 20 }
+													max={ 120 }
+													step={ 1 }
+												/>
+											</>
+										) }
 
 										<TextControl
 											label={ __(
@@ -2114,18 +2239,64 @@ export default function Edit( {
 										gap: '18px',
 									} }
 								>
-									<i
-										className={ block.icon }
-										aria-hidden="true"
-										style={ {
-											fontSize: '1.5rem',
-											color: '#f48b2a',
-											width: '24px',
-											textAlign: 'center',
-											flexShrink: 0,
-											marginTop: '2px',
-										} }
-									/>
+									<div
+										className={ `info-icon ${
+											( block.mediaType || 'icon' ) === 'icon'
+												? 'info-icon--icon'
+												: 'info-icon--media'
+										}` }
+									>
+										{ ( block.mediaType || 'icon' ) === 'icon' ? (
+											<i
+												className={ block.icon }
+												aria-hidden="true"
+												style={ {
+													fontSize: '1.5rem',
+													color: '#f48b2a',
+													width: '24px',
+													textAlign: 'center',
+													flexShrink: 0,
+													marginTop: '2px',
+												} }
+											/>
+										) : ( block.mediaType || '' ) === 'image' && block.mediaUrl ? (
+											<img
+												src={ block.mediaUrl }
+												alt={ block.mediaAlt || '' }
+												style={ {
+													width: `${ block.mediaWidth || 40 }px`,
+													height: 'auto',
+													objectFit: 'contain',
+												} }
+											/>
+										) : ( block.mediaType || '' ) === 'video' && block.mediaUrl ? (
+											<video
+												src={ block.mediaUrl }
+												autoPlay
+												loop
+												muted
+												playsInline
+												style={ {
+													width: `${ block.mediaWidth || 40 }px`,
+													height: 'auto',
+													objectFit: 'contain',
+												} }
+											/>
+										) : (
+											<i
+												className={ block.icon }
+												aria-hidden="true"
+												style={ {
+													fontSize: '1.5rem',
+													color: '#f48b2a',
+													width: '24px',
+													textAlign: 'center',
+													flexShrink: 0,
+													marginTop: '2px',
+												} }
+											/>
+										) }
+									</div>
 
 									<div style={ { flex: 1 } }>
 										<h4

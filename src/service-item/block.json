@@ -298,7 +298,47 @@
 		},
 		"infoBlocks": {
 			"type": "array",
-			"default": []
+			"default": [],
+			"items": {
+				"type": "object",
+				"properties": {
+					"icon": {
+						"type": "string",
+						"default": "fas fa-phone"
+					},
+					"title": {
+						"type": "string",
+						"default": ""
+					},
+					"content": {
+						"type": "string",
+						"default": ""
+					},
+					"subtitle": {
+						"type": "string",
+						"default": ""
+					},
+					"mediaType": {
+						"type": "string",
+						"default": "icon"
+					},
+					"mediaUrl": {
+						"type": "string",
+						"default": ""
+					},
+					"mediaId": {
+						"type": "number"
+					},
+					"mediaAlt": {
+						"type": "string",
+						"default": ""
+					},
+					"mediaWidth": {
+						"type": "number",
+						"default": 40
+					}
+				}
+			}
 		},
 		"showOverlay": {
 			"type": "boolean",

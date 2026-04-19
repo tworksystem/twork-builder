@@ -1,13 +1,27 @@
-@import "../twork-shared/editor-inner-blocks";
-
 .twork-about-images-grid-editor {
-	@include twork-editor-inner-grid(repeat(2, minmax(0, 1fr)), 2rem);
+	display: grid !important;
+	grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+	gap: 2rem !important;
+
+	/* Flatten Gutenberg's injected wrappers */
+	> .block-editor-inner-blocks {
+		display: contents !important;
+
+		> .block-editor-block-list__layout {
+			display: contents !important;
+
+			> .wp-block {
+				display: block !important;
+				min-width: 0 !important; /* CRITICAL */
+				width: 100% !important;
+				margin: 0 !important;
+			}
+		}
+	}
 }
 
 @media (max-width: 1040px) {
 	.twork-about-images-grid-editor {
-		.block-editor-inner-blocks > .block-editor-block-list__layout {
-			grid-template-columns: minmax(0, 1fr) !important;
-		}
+		grid-template-columns: minmax(0, 1fr) !important;
 	}
 }

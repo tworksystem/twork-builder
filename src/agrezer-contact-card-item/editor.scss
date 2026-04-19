@@ -1,3 +1,7 @@
-.wp-block-twork-contact-card-item {
+.wp-block-twork-contact-card {
 	min-width: 0;
+}
+
+.wp-block-twork-contact-card .twork-contact-card__icon-placeholder .components-placeholder {
+	min-height: 120px;
 }

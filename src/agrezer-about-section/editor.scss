@@ -1,8 +1,6 @@
-/**
- * Editor-only: InnerBlocks + child grid blocks (features / images) match frontend.
- */
-
-.twork-about-section-editor {
+.editor-styles-wrapper .wp-block-twork-info-section,
+.editor-styles-wrapper .twork-about-section-editor {
+	/* Fix focus outlines */
 	.twork-about__label span[contenteditable="true"],
 	.twork-about__title[contenteditable="true"] {
 		&:focus {
@@ -11,96 +9,40 @@
 		}
 	}
 
-	.twork-about-feature {
-		h3[contenteditable="true"],
-		p[contenteditable="true"] {
-			&:focus {
-				outline: 1px dashed #2271b1;
-				outline-offset: 2px;
-			}
-		}
-	}
-
-	.twork-about-card__overlay-text[contenteditable="true"] {
-		&:focus {
-			outline: 1px dashed #2271b1;
-			outline-offset: 2px;
-		}
+	.twork-about-section__inner-blocks {
+		display: flex !important;
+		flex-direction: column !important;
+		gap: 34px !important;
 	}
 
 	.twork-about-features-grid-editor {
 		display: grid !important;
-		grid-template-columns: repeat(4, 1fr) !important;
+		grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
 		gap: 2rem !important;
-		width: 100% !important;
 
-		> .block-editor-inner-blocks {
-			display: contents !important;
-
-			> .block-editor-block-list__layout {
-				display: contents !important;
-
-				> .wp-block,
-				> [data-type="twork/feature-item"] {
-					display: block !important;
-				}
-			}
+		> .wp-block,
+		.block-editor-block-list__layout > .wp-block {
+			min-width: 0 !important;
+			word-break: break-word;
 		}
 	}
 
 	.twork-about-images-grid-editor {
 		display: grid !important;
-		grid-template-columns: repeat(2, 1fr) !important;
+		grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
 		gap: 2rem !important;
-		width: 100% !important;
 
-		> .block-editor-inner-blocks {
-			display: contents !important;
-
-			> .block-editor-block-list__layout {
-				display: contents !important;
-
-				> .wp-block,
-				> [data-type="twork/image-card"] {
-					display: block !important;
-				}
-			}
+		> .wp-block,
+		.block-editor-block-list__layout > .wp-block {
+			min-width: 0 !important;
 		}
-	}
-
-	.twork-about-card__overlay-btn:not(a) {
-		pointer-events: none;
-		user-select: none;
-	}
-
-	.twork-about-card__placeholder {
-		min-height: 200px;
-	}
-
-	.twork-about-card__editor-tools {
-		position: absolute;
-		top: 10px;
-		right: 10px;
-		z-index: 3;
 	}
 }
 
 @media (max-width: 1040px) {
-	.twork-about-section-editor {
+	.editor-styles-wrapper
+		.twork-about-section-editor
 		.twork-about-features-grid-editor {
-			grid-template-columns: repeat(2, 1fr) !important;
-		}
-
-		.twork-about-images-grid-editor {
-			grid-template-columns: 1fr !important;
-		}
-	}
-}
-
-@media (max-width: 700px) {
-	.twork-about-section-editor {
-		.twork-about-features-grid-editor {
-			grid-template-columns: 1fr !important;
-		}
+		grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
 	}
 }

@@ -26,6 +26,21 @@
 		"iconVariant": {
 			"type": "string",
 			"default": "growth"
+		},
+		"iconType": {
+			"type": "string",
+			"default": "svg"
+		},
+		"mediaUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"mediaId": {
+			"type": "number"
+		},
+		"mediaType": {
+			"type": "string",
+			"default": "image"
 		}
 	},
 	"example": {

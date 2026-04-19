@@ -1,23 +1,33 @@
-.twork-testimonials-section-editor .twork-testimonials__slide--editor .twork-testimonials__author-box {
-	margin-top: 12px;
-	padding-top: 12px;
-	border-top: 1px dashed #e0e0e0;
-}
+.twork-testimonials-section-editor {
+	.twork-testimonials__slide--editor .twork-testimonials__author-box {
+		margin-top: 12px;
+		padding-top: 12px;
+		border-top: 1px dashed #e0e0e0;
+	}
 
-.twork-testimonials-section-editor .twork-testimonials__slides--editor .block-editor-inner-blocks > .block-editor-block-list__layout {
-	display: flex;
-	flex-direction: column;
-	gap: 1.25rem;
-}
+	/* Target the new useInnerBlocksProps container directly */
+	.twork-testimonials__slides--editor {
+		display: flex !important;
+		flex-direction: column !important;
+		gap: 1.25rem !important;
 
-.twork-testimonials__bottom--editor {
-	flex-wrap: wrap;
-}
+		/* Ensure child slides don't blow out */
+		> .wp-block {
+			display: block !important;
+			min-width: 0 !important;
+			width: 100% !important;
+		}
+	}
 
-.twork-testimonials__editor-hint {
-	flex: 1 1 200px;
-	margin: 0;
-	font-size: 0.85rem;
-	color: #666;
-	line-height: 1.4;
+	.twork-testimonials__bottom--editor {
+		flex-wrap: wrap;
+	}
+
+	.twork-testimonials__editor-hint {
+		flex: 1 1 200px;
+		margin: 0;
+		font-size: 0.85rem;
+		color: #666;
+		line-height: 1.4;
+	}
 }

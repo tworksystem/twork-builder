@@ -1,7 +1,7 @@
 import { __ } from '@wordpress/i18n';
-import { useStableBlockProps } from '@twork-builder/editor-utils';
 import {
-	InnerBlocks,
+	useBlockProps,
+	useInnerBlocksProps,
 	InspectorControls,
 	RichText,
 	PanelColorSettings,
@@ -15,10 +15,7 @@ import {
 	__experimentalDivider as Divider,
 } from '@wordpress/components';
 
-const ALLOWED_BLOCKS = [
-	'twork/stats-row',
-	'twork/cards-row',
-];
+const ALLOWED_BLOCKS = [ 'twork/stats-row', 'twork/cards-row' ];
 
 const TEMPLATE = [
 	[
@@ -34,7 +31,6 @@ const TEMPLATE = [
 						'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
 				},
 			],
-
 			[
 				'twork/stat-item',
 				{
@@ -46,7 +42,6 @@ const TEMPLATE = [
 			],
 		],
 	],
-
 	[
 		'twork/cards-row',
 		{},
@@ -61,7 +56,6 @@ const TEMPLATE = [
 					alt: 'Organic farm solutions',
 				},
 			],
-
 			[
 				'twork/image-link-card',
 				{
@@ -72,7 +66,6 @@ const TEMPLATE = [
 					alt: 'Eco-friendly farming',
 				},
 			],
-
 			[
 				'twork/image-link-card',
 				{
@@ -107,235 +100,74 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 		titleFontWeight,
 	} = attributes;
 
-	const blockProps = useStableBlockProps(
-		() => ( {
-			className: 'twork-greener twork-greener-section-editor',
-			style: {
-				backgroundColor,
-				paddingTop: `${ paddingTop }px`,
-				paddingBottom: `${ paddingBottom }px`,
-				'--twork-greener-gap': `${ mainColumnGap }px`,
-			},
-		} ),
-		[ backgroundColor, mainColumnGap, paddingBottom, paddingTop ]
-	);
+	const blockProps = useBlockProps( {
+		className: 'twork-greener twork-greener-section-editor',
+		style: {
+			backgroundColor,
+			paddingTop: `${ paddingTop }px`,
+			paddingBottom: `${ paddingBottom }px`,
+			'--twork-greener-gap': `${ mainColumnGap }px`,
+		},
+	} );
 
 	const containerStyle = {
-		width: `min(100% - ${
-			containerGutter * 2
-		}px, ${ containerMaxWidth }px)`,
+		width: `min(100% - ${ containerGutter * 2 }px, ${ containerMaxWidth }px)`,
 		marginInline: 'auto',
 		gap: `${ mainColumnGap }px`,
 	};
+
+	const innerBlocksProps = useInnerBlocksProps(
+		{ className: 'twork-greener__inner-content' },
+		{ allowedBlocks: ALLOWED_BLOCKS, template: TEMPLATE, templateLock: 'all' }
+	);
 
 	return (
 		<>
 			{ isSelected && (
 				<InspectorControls>
-					<PanelBody
-						title={ __( 'Left image', 'twork-builder' ) }
-						initialOpen={ true }
-					>
-						<TextControl
-							label={ __( 'Alt text', 'twork-builder' ) }
-							value={ mainImageAlt }
-							onChange={ ( val ) =>
-								setAttributes( { mainImageAlt: val } )
-							}
-						/>
+					<PanelBody title={ __( 'Left image', 'twork-builder' ) } initialOpen={ true }>
+						<TextControl label={ __( 'Alt text', 'twork-builder' ) } value={ mainImageAlt } onChange={ ( val ) => setAttributes( { mainImageAlt: val } ) } />
 					</PanelBody>
-
-					<PanelBody
-						title={ __( 'Header', 'twork-builder' ) }
-						initialOpen={ true }
-					>
-						<TextControl
-							label={ __(
-								'Tagline icon (emoji)',
-								'twork-builder'
-							) }
-							value={ taglineIcon }
-							onChange={ ( val ) =>
-								setAttributes( { taglineIcon: val } )
-							}
-						/>
-
+					<PanelBody title={ __( 'Header', 'twork-builder' ) } initialOpen={ true }>
+						<TextControl label={ __( 'Tagline icon (emoji)', 'twork-builder' ) } value={ taglineIcon } onChange={ ( val ) => setAttributes( { taglineIcon: val } ) } />
 						<PanelColorSettings
 							title={ __( 'Tagline', 'twork-builder' ) }
 							colorSettings={ [
-								{
-									value: taglineColor,
-									onChange: ( val ) =>
-										setAttributes( { taglineColor: val } ),
-									label: __( 'Text', 'twork-builder' ),
-								},
-								{
-									value: taglineIconColor,
-									onChange: ( val ) =>
-										setAttributes( {
-											taglineIconColor: val,
-										} ),
-									label: __( 'Icon', 'twork-builder' ),
-								},
+								{ value: taglineColor, onChange: ( val ) => setAttributes( { taglineColor: val } ), label: __( 'Text', 'twork-builder' ) },
+								{ value: taglineIconColor, onChange: ( val ) => setAttributes( { taglineIconColor: val } ), label: __( 'Icon', 'twork-builder' ) },
 							] }
 						/>
-
 						<Divider />
 						<PanelColorSettings
 							title={ __( 'Title', 'twork-builder' ) }
-							colorSettings={ [
-								{
-									value: titleColor,
-									onChange: ( val ) =>
-										setAttributes( { titleColor: val } ),
-									label: __( 'Color', 'twork-builder' ),
-								},
-							] }
+							colorSettings={ [ { value: titleColor, onChange: ( val ) => setAttributes( { titleColor: val } ), label: __( 'Color', 'twork-builder' ) } ] }
 						/>
-
-						<RangeControl
-							label={ __( 'Title size (rem)', 'twork-builder' ) }
-							value={ titleFontSize }
-							onChange={ ( val ) =>
-								setAttributes( { titleFontSize: val } )
-							}
-							min={ 1.5 }
-							max={ 4 }
-							step={ 0.05 }
-						/>
-
-						<RangeControl
-							label={ __( 'Title weight', 'twork-builder' ) }
-							value={ titleFontWeight }
-							onChange={ ( val ) =>
-								setAttributes( { titleFontWeight: val } )
-							}
-							min={ 400 }
-							max={ 900 }
-							step={ 100 }
-						/>
+						<RangeControl label={ __( 'Title size (rem)', 'twork-builder' ) } value={ titleFontSize } onChange={ ( val ) => setAttributes( { titleFontSize: val } ) } min={ 1.5 } max={ 4 } step={ 0.05 } />
+						<RangeControl label={ __( 'Title weight', 'twork-builder' ) } value={ titleFontWeight } onChange={ ( val ) => setAttributes( { titleFontWeight: val } ) } min={ 400 } max={ 900 } step={ 100 } />
 					</PanelBody>
-
-					<PanelBody
-						title={ __( 'Layout', 'twork-builder' ) }
-						initialOpen={ false }
-					>
+					<PanelBody title={ __( 'Layout', 'twork-builder' ) } initialOpen={ false }>
 						<PanelColorSettings
 							title={ __( 'Background', 'twork-builder' ) }
-							colorSettings={ [
-								{
-									value: backgroundColor,
-									onChange: ( val ) =>
-										setAttributes( {
-											backgroundColor: val,
-										} ),
-									label: __( 'Background', 'twork-builder' ),
-								},
-							] }
+							colorSettings={ [ { value: backgroundColor, onChange: ( val ) => setAttributes( { backgroundColor: val } ), label: __( 'Background', 'twork-builder' ) } ] }
 						/>
-
-						<RangeControl
-							label={ __( 'Column gap (px)', 'twork-builder' ) }
-							value={ mainColumnGap }
-							onChange={ ( val ) =>
-								setAttributes( { mainColumnGap: val } )
-							}
-							min={ 24 }
-							max={ 96 }
-							step={ 4 }
-						/>
-
-						<RangeControl
-							label={ __( 'Max width (px)', 'twork-builder' ) }
-							value={ containerMaxWidth }
-							onChange={ ( val ) =>
-								setAttributes( { containerMaxWidth: val } )
-							}
-							min={ 960 }
-							max={ 1440 }
-							step={ 10 }
-						/>
-
-						<RangeControl
-							label={ __( 'Side gutter (px)', 'twork-builder' ) }
-							value={ containerGutter }
-							onChange={ ( val ) =>
-								setAttributes( { containerGutter: val } )
-							}
-							min={ 12 }
-							max={ 48 }
-							step={ 2 }
-						/>
-
-						<RangeControl
-							label={ __( 'Padding top (px)', 'twork-builder' ) }
-							value={ paddingTop }
-							onChange={ ( val ) =>
-								setAttributes( { paddingTop: val } )
-							}
-							min={ 0 }
-							max={ 160 }
-							step={ 4 }
-						/>
-
-						<RangeControl
-							label={ __(
-								'Padding bottom (px)',
-								'twork-builder'
-							) }
-							value={ paddingBottom }
-							onChange={ ( val ) =>
-								setAttributes( { paddingBottom: val } )
-							}
-							min={ 0 }
-							max={ 160 }
-							step={ 4 }
-						/>
+						<RangeControl label={ __( 'Column gap (px)', 'twork-builder' ) } value={ mainColumnGap } onChange={ ( val ) => setAttributes( { mainColumnGap: val } ) } min={ 24 } max={ 96 } step={ 4 } />
+						<RangeControl label={ __( 'Max width (px)', 'twork-builder' ) } value={ containerMaxWidth } onChange={ ( val ) => setAttributes( { containerMaxWidth: val } ) } min={ 960 } max={ 1440 } step={ 10 } />
+						<RangeControl label={ __( 'Side gutter (px)', 'twork-builder' ) } value={ containerGutter } onChange={ ( val ) => setAttributes( { containerGutter: val } ) } min={ 12 } max={ 48 } step={ 2 } />
+						<RangeControl label={ __( 'Padding top (px)', 'twork-builder' ) } value={ paddingTop } onChange={ ( val ) => setAttributes( { paddingTop: val } ) } min={ 0 } max={ 160 } step={ 4 } />
+						<RangeControl label={ __( 'Padding bottom (px)', 'twork-builder' ) } value={ paddingBottom } onChange={ ( val ) => setAttributes( { paddingBottom: val } ) } min={ 0 } max={ 160 } step={ 4 } />
 					</PanelBody>
 				</InspectorControls>
 			) }
 
 			<section { ...blockProps } aria-labelledby="twork-greener-title">
-				<div
-					className="twork-greener__container"
-					style={ containerStyle }
-				>
+				<div className="twork-greener__container" style={ containerStyle }>
 					<div className="twork-greener__left">
 						{ ! mainImage ? (
-							<MediaPlaceholder
-								onSelect={ ( media ) =>
-									setAttributes( {
-										mainImage: media.url,
-										mainImageId: media.id,
-									} )
-								}
-								allowedTypes={ [ 'image' ] }
-								multiple={ false }
-								labels={ {
-									title: __(
-										'Main image (farmer)',
-										'twork-builder'
-									),
-								} }
-							/>
+							<MediaPlaceholder onSelect={ ( media ) => setAttributes( { mainImage: media.url, mainImageId: media.id } ) } allowedTypes={ [ 'image' ] } multiple={ false } labels={ { title: __( 'Main image (farmer)', 'twork-builder' ) } } />
 						) : (
 							<div className="twork-greener__left-inner">
-								<img
-									src={ mainImage }
-									className="twork-greener__main-img"
-									alt=""
-								/>
-
-								<Button
-									isSecondary
-									isSmall
-									onClick={ () =>
-										setAttributes( {
-											mainImage: '',
-											mainImageId: null,
-										} )
-									}
-								>
+								<img src={ mainImage } className="twork-greener__main-img" alt="" />
+								<Button isSecondary isSmall onClick={ () => setAttributes( { mainImage: '', mainImageId: null } ) }>
 									{ __( 'Replace image', 'twork-builder' ) }
 								</Button>
 							</div>
@@ -344,52 +176,13 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 					<div className="twork-greener__right">
 						<header className="twork-greener__header">
-							<p
-								className="twork-greener__tagline"
-								style={ { color: taglineColor } }
-							>
-								<span
-									className="twork-greener__tagline-icon"
-									style={ { color: taglineIconColor } }
-									aria-hidden="true"
-								>
-									{ taglineIcon }
-								</span>
-								<RichText
-									tagName="span"
-									value={ taglineText }
-									onChange={ ( val ) =>
-										setAttributes( { taglineText: val } )
-									}
-									placeholder={ __(
-										'Agro Excellence',
-										'twork-builder'
-									) }
-									allowedFormats={ [] }
-								/>
+							<p className="twork-greener__tagline" style={ { color: taglineColor } }>
+								<span className="twork-greener__tagline-icon" style={ { color: taglineIconColor } } aria-hidden="true">{ taglineIcon }</span>
+								<RichText tagName="span" value={ taglineText } onChange={ ( val ) => setAttributes( { taglineText: val } ) } placeholder={ __( 'Agro Excellence', 'twork-builder' ) } allowedFormats={ [] } />
 							</p>
-							<RichText
-								tagName="h2"
-								id="twork-greener-title"
-								className="twork-greener__title"
-								value={ sectionTitle }
-								onChange={ ( val ) =>
-									setAttributes( { sectionTitle: val } )
-								}
-								placeholder={ __( 'Title…', 'twork-builder' ) }
-								style={ {
-									color: titleColor,
-									fontSize: `${ titleFontSize }rem`,
-									fontWeight: titleFontWeight,
-								} }
-							/>
+							<RichText tagName="h2" id="twork-greener-title" className="twork-greener__title" value={ sectionTitle } onChange={ ( val ) => setAttributes( { sectionTitle: val } ) } placeholder={ __( 'Title…', 'twork-builder' ) } style={ { color: titleColor, fontSize: `${ titleFontSize }rem`, fontWeight: titleFontWeight } } />
 						</header>
-
-						<InnerBlocks
-							allowedBlocks={ ALLOWED_BLOCKS }
-							template={ TEMPLATE }
-							templateLock="all"
-						/>
+						<div { ...innerBlocksProps } />
 					</div>
 				</div>
 			</section>

@@ -18,19 +18,7 @@
 		grid-template-columns: 1fr 1fr !important;
 		gap: 2rem !important;
 		width: 100% !important;
-
-		> .block-editor-inner-blocks {
-			display: contents !important;
-
-			> .block-editor-block-list__layout {
-				display: contents !important;
-
-				> .wp-block,
-				> [data-type="twork/stat-item"] {
-					display: block !important;
-				}
-			}
-		}
+		> .wp-block { min-width: 0 !important; display: block !important; }
 	}
 
 	.twork-greener-cards-row-editor {
@@ -38,19 +26,7 @@
 		grid-template-columns: repeat(3, 1fr) !important;
 		gap: 1.5rem !important;
 		width: 100% !important;
-
-		> .block-editor-inner-blocks {
-			display: contents !important;
-
-			> .block-editor-block-list__layout {
-				display: contents !important;
-
-				> .wp-block,
-				> [data-type="twork/image-link-card"] {
-					display: block !important;
-				}
-			}
-		}
+		> .wp-block { min-width: 0 !important; display: block !important; }
 	}
 
 	.twork-greener-stat {
@@ -81,12 +57,7 @@
 		}
 	}
 }
-
 @media (max-width: 760px) {
-	.twork-greener-section-editor {
-		.twork-greener-stats-row-editor,
-		.twork-greener-cards-row-editor {
-			grid-template-columns: 1fr !important;
-		}
-	}
+	.twork-greener-section-editor .twork-greener-stats-row-editor,
+	.twork-greener-section-editor .twork-greener-cards-row-editor { grid-template-columns: 1fr !important; }
 }

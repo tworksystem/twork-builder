@@ -23,6 +23,14 @@
 			"type": "string",
 			"default": "01"
 		},
+		"mediaType": {
+			"type": "string",
+			"default": "text"
+		},
+		"mediaUrl": {
+			"type": "string",
+			"default": ""
+		},
 		"stepTitle": {
 			"type": "string",
 			"default": ""

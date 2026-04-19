@@ -2,9 +2,18 @@ import { useBlockProps, InnerBlocks, RichText } from '@wordpress/block-editor';
 
 export default function save( { attributes } ) {
 	const {
-		backgroundColor,
-		paddingTop,
-		paddingBottom,
+		backgroundColor = '#f4f4f0',
+		paddingTop = 110,
+		paddingBottom = 120,
+		titleColor = '#131313',
+		titleFontSize = 48,
+		subtitleColor = '#f48b2a',
+		subtitleFontSize = 16,
+		descriptionColor = '#4c4c4c',
+		descriptionFontSize = 17,
+		ctaBgColor = '#d7e84f',
+		ctaTextColor = '#1a1a1a',
+		overlayOpacity = 0,
 		containerMaxWidth,
 		containerWidthPct,
 		topGridGap,
@@ -22,8 +31,13 @@ export default function save( { attributes } ) {
 		showCta,
 	} = attributes;
 
+	const overlayRaw = Number( overlayOpacity );
+	const overlayAlpha = Number.isFinite( overlayRaw )
+		? Math.min( 1, Math.max( 0, overlayRaw / 100 ) )
+		: 0;
+
 	const blockProps = useBlockProps.save( {
-		className: 'twork-third-section twork-third-section',
+		className: 'twork-third-section',
 		style: {
 			backgroundColor,
 			paddingTop: `${ paddingTop }px`,
@@ -34,6 +48,15 @@ export default function save( { attributes } ) {
 			'--twork-third-top-mb': `${ topMarginBottom }px`,
 			'--twork-third-cards-gap': `${ cardsGap }px`,
 			'--twork-third-cards-mt': `${ cardsMarginTop }px`,
+			'--tw-third-title-color': titleColor,
+			'--tw-third-title-size': `${ titleFontSize }px`,
+			'--tw-third-sub-color': subtitleColor,
+			'--tw-third-sub-size': `${ subtitleFontSize }px`,
+			'--tw-third-desc-color': descriptionColor,
+			'--tw-third-desc-size': `${ descriptionFontSize }px`,
+			'--tw-third-cta-bg': ctaBgColor,
+			'--tw-third-cta-color': ctaTextColor,
+			'--tw-third-overlay': overlayAlpha,
 		},
 	} );
 
@@ -67,6 +90,7 @@ export default function save( { attributes } ) {
 								{ tagline && (
 									<RichText.Content
 										tagName="span"
+										className="twork-third-section__subtitle"
 										value={ tagline }
 									/>
 								) }

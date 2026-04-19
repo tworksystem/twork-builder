@@ -36,7 +36,7 @@ export default function save( { attributes } ) {
 	};
 
 	return (
-		<section { ...blockProps } aria-labelledby="twork-about-title">
+		<section { ...blockProps }>
 			<div className="twork-about__container" style={ containerStyle }>
 				<div className="twork-about__header">
 					<div className="twork-about__heading">
@@ -58,7 +58,6 @@ export default function save( { attributes } ) {
 						</p>
 						<RichText.Content
 							tagName="h2"
-							id="twork-about-title"
 							className="twork-about__title"
 							value={ sectionTitle }
 							style={ {

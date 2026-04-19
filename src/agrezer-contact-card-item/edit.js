@@ -1,9 +1,9 @@
 import { __ } from '@wordpress/i18n';
-import { useStableBlockProps } from '@twork-builder/editor-utils';
 import {
 	RichText,
 	MediaPlaceholder,
 	InspectorControls,
+	useBlockProps,
 } from '@wordpress/block-editor';
 import {
 	PanelBody,
@@ -27,15 +27,12 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 		cardBgColor,
 	} = attributes;
 
-	const blockProps = useStableBlockProps(
-		() => ( {
-			className: 'twork-contact-card-item-editor',
-			style: {
-				backgroundColor: cardBgColor,
-			},
-		} ),
-		[ cardBgColor ]
-	);
+	const blockProps = useBlockProps( {
+		className: 'twork-contact-card',
+		style: {
+			backgroundColor: cardBgColor,
+		},
+	} );
 
 	return (
 		<>
@@ -146,8 +143,8 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 			) }
 
 			<article { ...blockProps }>
-				<div className="twork-contact-card__icon-wrap">
-					{ iconUrl ? (
+				{ iconUrl ? (
+					<div className="twork-contact-card__icon-wrap">
 						<img
 							src={ iconUrl }
 							alt={ iconAlt || '' }
@@ -155,7 +152,9 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 							width={ 24 }
 							height={ 24 }
 						/>
-					) : (
+					</div>
+				) : (
+					<div className="twork-contact-card__icon-placeholder">
 						<MediaPlaceholder
 							labels={ {
 								title: __( 'Icon image', 'twork-builder' ),
@@ -171,8 +170,8 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 							multiple={ false }
 							icons={ false }
 						/>
-					) }
-				</div>
+					</div>
+				) }
 				<RichText
 					tagName="h3"
 					className="twork-contact-card__title"

@@ -1,17 +1,27 @@
 import { __ } from '@wordpress/i18n';
 import { useStableBlockProps } from '@twork-builder/editor-utils';
-import { RichText, InspectorControls } from '@wordpress/block-editor';
+import { RichText, InspectorControls, MediaUpload, MediaUploadCheck } from '@wordpress/block-editor';
 import {
 	PanelBody,
 	SelectControl,
 	TextControl,
 	ToggleControl,
+	Button,
 } from '@wordpress/components';
+
+const badgeMediaStyle = {
+	width: '100%',
+	height: '100%',
+	objectFit: 'cover',
+	borderRadius: '50%',
+};
 
 export default function Edit( { attributes, setAttributes, isSelected } ) {
 	const {
 		position,
 		badgeNum,
+		mediaType,
+		mediaUrl,
 		stepTitle,
 		stepText,
 		showCta,
@@ -19,6 +29,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 		ctaUrl,
 	} = attributes;
 
+	const isVideo = mediaUrl && mediaUrl.match( /\.(mp4|webm)$/i );
 	const blockProps = useStableBlockProps(
 		() => ( {
 			className: `twork-process__step twork-process__step--${ position }`,
@@ -67,6 +78,48 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 							}
 						/>
 
+						<SelectControl
+							label={ __( 'Badge Type', 'twork-builder' ) }
+							value={ mediaType }
+							options={ [
+								{ label: __( 'Text Number', 'twork-builder' ), value: 'text' },
+								{ label: __( 'Custom Image/Video', 'twork-builder' ), value: 'media' },
+							] }
+							onChange={ ( val ) => setAttributes( { mediaType: val } ) }
+						/>
+
+						{ mediaType === 'media' && (
+							<MediaUploadCheck>
+								<MediaUpload
+									allowedTypes={ [ 'image', 'video' ] }
+									onSelect={ ( media ) =>
+										setAttributes( { mediaUrl: media?.url || '' } )
+									}
+									value={ mediaUrl }
+									render={ ( { open } ) => (
+										<div>
+											<Button variant="secondary" onClick={ open }>
+												{ mediaUrl
+													? __( 'Replace media', 'twork-builder' )
+													: __( 'Upload media', 'twork-builder' ) }
+											</Button>
+											{ !! mediaUrl && (
+												<Button
+													variant="link"
+													isDestructive
+													onClick={ () =>
+														setAttributes( { mediaUrl: '' } )
+													}
+												>
+													{ __( 'Remove media', 'twork-builder' ) }
+												</Button>
+											) }
+										</div>
+									) }
+								/>
+							</MediaUploadCheck>
+						) }
+
 						<ToggleControl
 							label={ __( 'Show CTA button', 'twork-builder' ) }
 							checked={ showCta }
@@ -96,9 +149,22 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 			<div { ...blockProps }>
 				<div className="twork-process__badge-wrapper">
 					<div className="twork-process__badge">
-						<span className="twork-process__badge-num">
-							{ badgeNum }
-						</span>
+						{ mediaType === 'media' && mediaUrl ? (
+							isVideo ? (
+								<video
+									src={ mediaUrl }
+									autoPlay
+									loop
+									muted
+									playsInline
+									style={ badgeMediaStyle }
+								/>
+							) : (
+								<img src={ mediaUrl } alt="" style={ badgeMediaStyle } />
+							)
+						) : (
+							<span className="twork-process__badge-num">{ badgeNum }</span>
+						) }
 					</div>
 				</div>
 				<RichText

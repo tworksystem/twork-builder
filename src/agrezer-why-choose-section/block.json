@@ -30,6 +30,14 @@
 			"type": "number",
 			"default": 0
 		},
+		"paddingTopMobile": {
+			"type": "number",
+			"default": 67
+		},
+		"paddingBottomMobile": {
+			"type": "number",
+			"default": 0
+		},
 		"containerMaxWidth": {
 			"type": "number",
 			"default": 1240
@@ -58,9 +66,25 @@
 			"type": "string",
 			"default": "#8fbd45"
 		},
+		"taglineLetterSpacing": {
+			"type": "string",
+			"default": "normal"
+		},
 		"titleColor": {
 			"type": "string",
 			"default": "#161b14"
+		},
+		"titleLineHeight": {
+			"type": "number",
+			"default": 1.1
+		},
+		"bgGradientStartColor": {
+			"type": "string",
+			"default": "#f5f8ee"
+		},
+		"bgGradientEndColor": {
+			"type": "string",
+			"default": "#3a4d1e"
 		},
 		"titleFontSize": {
 			"type": "number",
@@ -70,20 +94,88 @@
 			"type": "number",
 			"default": 700
 		},
-		"tractorImage": {
+		"centerMediaUrl": {
 			"type": "string",
 			"default": ""
 		},
-		"tractorImageId": {
+		"centerMediaId": {
 			"type": "number"
 		},
-		"tractorAlt": {
+		"centerMediaType": {
 			"type": "string",
-			"default": "Tractor"
+			"default": "image"
 		},
-		"tractorMaxWidth": {
+		"centerMediaAlt": {
+			"type": "string",
+			"default": "Center media"
+		},
+		"videoAutoplay": {
+			"type": "boolean",
+			"default": true
+		},
+		"videoLoop": {
+			"type": "boolean",
+			"default": true
+		},
+		"videoMuted": {
+			"type": "boolean",
+			"default": true
+		},
+		"mediaBorderRadius": {
+			"type": "number",
+			"default": 0
+		},
+		"mediaDropShadow": {
+			"type": "boolean",
+			"default": false
+		},
+		"filterBrightness": {
+			"type": "number",
+			"default": 100
+		},
+		"filterContrast": {
+			"type": "number",
+			"default": 100
+		},
+		"filterGrayscale": {
+			"type": "number",
+			"default": 0
+		},
+		"mediaMaxWidthDesktop": {
 			"type": "number",
 			"default": 550
+		},
+		"mediaMaxWidthMobile": {
+			"type": "number",
+			"default": 520
+		},
+		"imageAnimationType": {
+			"type": "string",
+			"default": "none"
+		},
+		"hoverEffectType": {
+			"type": "string",
+			"default": "none"
+		},
+		"imageAnimationDuration": {
+			"type": "number",
+			"default": 2
+		},
+		"imageAnimationDelay": {
+			"type": "number",
+			"default": 0
+		},
+		"imageVerticalOffset": {
+			"type": "number",
+			"default": 30
+		},
+		"backgroundOverlayOpacity": {
+			"type": "number",
+			"default": 0
+		},
+		"enableParallax": {
+			"type": "boolean",
+			"default": false
 		},
 		"stageMinHeight": {
 			"type": "number",
@@ -95,6 +187,26 @@
 		},
 		"waveDecorationId": {
 			"type": "number"
+		},
+		"waveHeightDesktop": {
+			"type": "number",
+			"default": 124
+		},
+		"waveHeightMobile": {
+			"type": "number",
+			"default": 86
+		},
+		"waveOpacity": {
+			"type": "number",
+			"default": 1
+		},
+		"waveFlipHorizontal": {
+			"type": "boolean",
+			"default": false
+		},
+		"waveFlipVertical": {
+			"type": "boolean",
+			"default": false
 		}
 	},
 	"example": {
@@ -102,6 +214,8 @@
 		"attributes": {
 			"paddingTop": 88,
 			"paddingBottom": 0,
+			"paddingTopMobile": 67,
+			"paddingBottomMobile": 0,
 			"containerMaxWidth": 1240,
 			"containerGutter": 24,
 			"taglineIcon": "🌿",
@@ -109,13 +223,39 @@
 			"sectionTitle": "Rooted in Nature, Growing<br>with Honest Purpose",
 			"taglineColor": "#2f3927",
 			"taglineIconColor": "#8fbd45",
+			"taglineLetterSpacing": "normal",
 			"titleColor": "#161b14",
 			"titleFontSize": 2.75,
 			"titleFontWeight": 700,
-			"tractorImage": "https://images.unsplash.com/photo-1592982537447-7440770cbfc9?auto=format&fit=crop&w=1000&q=80",
-			"tractorAlt": "Green tractor in a field",
-			"tractorMaxWidth": 520,
-			"stageMinHeight": 620
+			"titleLineHeight": 1.1,
+			"bgGradientStartColor": "#f5f8ee",
+			"bgGradientEndColor": "#3a4d1e",
+			"centerMediaUrl": "https://images.unsplash.com/photo-1592982537447-7440770cbfc9?auto=format&fit=crop&w=1000&q=80",
+			"centerMediaType": "image",
+			"centerMediaAlt": "Green tractor in a field",
+			"videoAutoplay": true,
+			"videoLoop": true,
+			"videoMuted": true,
+			"mediaBorderRadius": 0,
+			"mediaDropShadow": false,
+			"filterBrightness": 100,
+			"filterContrast": 100,
+			"filterGrayscale": 0,
+			"mediaMaxWidthDesktop": 520,
+			"mediaMaxWidthMobile": 420,
+			"imageAnimationType": "none",
+			"hoverEffectType": "none",
+			"imageAnimationDuration": 2,
+			"imageAnimationDelay": 0,
+			"imageVerticalOffset": 30,
+			"backgroundOverlayOpacity": 0,
+			"enableParallax": false,
+			"stageMinHeight": 620,
+			"waveHeightDesktop": 124,
+			"waveHeightMobile": 86,
+			"waveOpacity": 1,
+			"waveFlipHorizontal": false,
+			"waveFlipVertical": false
 		},
 		"innerBlocks": [
 			{

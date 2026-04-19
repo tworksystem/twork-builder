@@ -1,9 +1,18 @@
 import { useBlockProps, RichText } from '@wordpress/block-editor';
 
+const badgeMediaStyle = {
+	width: '100%',
+	height: '100%',
+	objectFit: 'cover',
+	borderRadius: '50%',
+};
+
 export default function save( { attributes } ) {
 	const {
 		position,
 		badgeNum,
+		mediaType,
+		mediaUrl,
 		stepTitle,
 		stepText,
 		showCta,
@@ -12,6 +21,7 @@ export default function save( { attributes } ) {
 	} = attributes;
 
 	const side = position === 'right' ? 'right' : 'left';
+	const isVideo = mediaUrl && mediaUrl.match( /\.(mp4|webm)$/i );
 
 	const blockProps = useBlockProps.save( {
 		className: `twork-process__step twork-process__step--${ side }`,
@@ -21,9 +31,22 @@ export default function save( { attributes } ) {
 		<div { ...blockProps }>
 			<div className="twork-process__badge-wrapper">
 				<div className="twork-process__badge">
-					<span className="twork-process__badge-num">
-						{ badgeNum }
-					</span>
+					{ mediaType === 'media' && mediaUrl ? (
+						isVideo ? (
+							<video
+								src={ mediaUrl }
+								autoPlay
+								loop
+								muted
+								playsInline
+								style={ badgeMediaStyle }
+							/>
+						) : (
+							<img src={ mediaUrl } alt="" style={ badgeMediaStyle } />
+						)
+					) : (
+						<span className="twork-process__badge-num">{ badgeNum }</span>
+					) }
 				</div>
 			</div>
 			<RichText.Content

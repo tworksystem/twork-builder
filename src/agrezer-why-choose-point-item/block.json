@@ -26,6 +26,14 @@
 		"pointText": {
 			"type": "string",
 			"default": ""
+		},
+		"mediaType": {
+			"type": "string",
+			"default": "text"
+		},
+		"mediaUrl": {
+			"type": "string",
+			"default": ""
 		}
 	},
 	"example": {

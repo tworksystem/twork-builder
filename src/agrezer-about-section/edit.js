@@ -1,7 +1,8 @@
 import { __ } from '@wordpress/i18n';
+import { useInstanceId } from '@wordpress/compose';
 import { useStableBlockProps } from '@twork-builder/editor-utils';
 import {
-	InnerBlocks,
+	useInnerBlocksProps,
 	InspectorControls,
 	RichText,
 	PanelColorSettings,
@@ -24,6 +25,8 @@ const TEMPLATE = [
 ];
 
 export default function Edit( { attributes, setAttributes, isSelected } ) {
+	const titleId = useInstanceId( Edit, 'twork-about-title' );
+
 	const {
 		backgroundColor,
 		paddingTop,
@@ -66,6 +69,17 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 		}px, ${ containerMaxWidth }px)`,
 		marginInline: 'auto',
 	};
+
+	const innerBlocksProps = useInnerBlocksProps(
+		{
+			className: 'twork-about-section__inner-blocks',
+		},
+		{
+			allowedBlocks: ALLOWED_BLOCKS,
+			template: TEMPLATE,
+			templateLock: 'all',
+		}
+	);
 
 	return (
 		<>
@@ -240,7 +254,10 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 				</InspectorControls>
 			) }
 
-			<section { ...blockProps } aria-labelledby="twork-about-title">
+			<section
+				{ ...blockProps }
+				aria-labelledby={ titleId }
+			>
 				<div
 					className="twork-about__container"
 					style={ containerStyle }
@@ -273,7 +290,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 							</p>
 							<RichText
 								tagName="h2"
-								id="twork-about-title"
+								id={ titleId }
 								className="twork-about__title"
 								value={ sectionTitle }
 								onChange={ ( val ) =>
@@ -292,11 +309,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 						</div>
 					</div>
 
-					<InnerBlocks
-						allowedBlocks={ ALLOWED_BLOCKS }
-						template={ TEMPLATE }
-						templateLock="all"
-					/>
+					<div { ...innerBlocksProps } />
 				</div>
 			</section>
 		</>

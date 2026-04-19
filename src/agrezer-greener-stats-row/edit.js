@@ -1,5 +1,5 @@
 import { useStableBlockProps } from '@twork-builder/editor-utils';
-import { InnerBlocks } from '@wordpress/block-editor';
+import { useInnerBlocksProps, InnerBlocks } from '@wordpress/block-editor';
 
 const ALLOWED_BLOCKS = [ 'twork/stat-item' ];
 const TEMPLATE = [
@@ -12,7 +12,6 @@ const TEMPLATE = [
 				'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
 		},
 	],
-
 	[
 		'twork/stat-item',
 		{
@@ -26,20 +25,13 @@ const TEMPLATE = [
 
 export default function Edit() {
 	const blockProps = useStableBlockProps(
-		() => ( {
-			className:
-				'twork-greener__stats twork-greener-stats-row-editor',
-		} ),
+		() => ( { className: 'twork-greener__stats twork-greener-stats-row-editor' } ),
 		[]
 	);
-
-	return (
-		<div { ...blockProps }>
-			<InnerBlocks
-				allowedBlocks={ ALLOWED_BLOCKS }
-				template={ TEMPLATE }
-				renderAppender={ InnerBlocks.ButtonBlockAppender }
-			/>
-		</div>
-	);
+	const innerBlocksProps = useInnerBlocksProps( blockProps, {
+		allowedBlocks: ALLOWED_BLOCKS,
+		template: TEMPLATE,
+		renderAppender: InnerBlocks.ButtonBlockAppender,
+	} );
+	return <div { ...innerBlocksProps } />;
 }
