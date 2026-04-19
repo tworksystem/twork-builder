@@ -10,6 +10,7 @@ import {
 	ToggleControl,
 	SelectControl,
 	TextControl,
+	Spinner,
 	__experimentalDivider as Divider,
 } from '@wordpress/components';
 import ServerSideRender from '@wordpress/server-side-render';
@@ -49,6 +50,11 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 	const blockProps = useStableBlockProps(
 		() => ( {
 			className: 'twork-shop-grid-editor',
+			style: {
+				width: '100%',
+				maxWidth: '100%',
+				minWidth: 0,
+			},
 		} ),
 		[]
 	);
@@ -502,10 +508,65 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 			) }
 
 			<div { ...blockProps }>
-				<ServerSideRender
-					block={ metadata.name }
-					attributes={ attributes }
-				/>
+				<div
+					className="twork-shop-grid-editor__label"
+					aria-hidden="true"
+				>
+					{ __( 'Products Grid — preview', 'twork-builder' ) }
+				</div>
+				<div className="twork-shop-grid-editor__preview">
+					<ServerSideRender
+						block={ metadata.name }
+						attributes={ attributes }
+						httpMethod="POST"
+						LoadingResponsePlaceholder={ () => (
+							<div className="twork-shop-grid-editor__placeholder twork-shop-grid-editor__placeholder--loading">
+								<Spinner />
+								<p>
+									{ __(
+										'Loading shop preview…',
+										'twork-builder'
+									) }
+								</p>
+							</div>
+						) }
+						ErrorResponsePlaceholder={ ( props ) => {
+							const msg =
+								props?.response?.message ||
+								props?.error?.message ||
+								'';
+							return (
+							<div className="twork-shop-grid-editor__placeholder twork-shop-grid-editor__placeholder--error">
+								<p>
+									<strong>
+										{ __(
+											'Preview could not be loaded.',
+											'twork-builder'
+										) }
+									</strong>
+								</p>
+								{ msg ? <p>{ msg }</p> : null }
+								<p className="twork-shop-grid-editor__hint">
+									{ __(
+										'Activate WooCommerce, add products, save the page, and reload the editor if this persists.',
+										'twork-builder'
+									) }
+								</p>
+							</div>
+							);
+						} }
+						EmptyResponsePlaceholder={ () => (
+							<div className="twork-shop-grid-editor__placeholder twork-shop-grid-editor__placeholder--empty">
+								<p>
+									{ __(
+										'No preview output yet. Check WooCommerce and try again.',
+										'twork-builder'
+									) }
+								</p>
+							</div>
+						) }
+					/>
+				</div>
 			</div>
 		</>
 	);

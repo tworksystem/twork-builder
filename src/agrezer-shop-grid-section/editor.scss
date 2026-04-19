@@ -1,5 +1,109 @@
+/**
+ * Products Grid — block editor: preview chrome + layout so SSR markup is visible.
+ */
+
 .twork-shop-grid-editor {
-	.wp-block-server-side-render {
-		min-height: 200px;
+	box-sizing: border-box;
+	width: 100%;
+	max-width: 100%;
+	min-width: 0;
+	position: relative;
+
+	// Avoid editor canvas clipping wide shop layouts (align default / wide / full).
+	.block-editor-block-list__block & {
+		overflow: visible;
 	}
+}
+
+.twork-shop-grid-editor__label {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 0 0 10px;
+	padding: 6px 12px;
+	font-size: 11px;
+	font-weight: 600;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+	color: #fff;
+	background: #1d2327;
+	border-radius: 4px;
+	opacity: 0.92;
+}
+
+.twork-shop-grid-editor__preview {
+	width: 100%;
+	min-width: 0;
+	overflow-x: auto;
+	overflow-y: visible;
+	-webkit-overflow-scrolling: touch;
+
+	// ServerSideRender root (WP wraps output)
+	.wp-block-server-side-render {
+		display: block;
+		width: 100%;
+		min-height: 240px;
+	}
+
+	.components-placeholder {
+		min-height: 240px;
+		box-sizing: border-box;
+	}
+
+	// Injected PHP markup: full-width grid inside constrained editor column
+	.agrezer-shop-grid {
+		box-sizing: border-box;
+		max-width: 100%;
+	}
+
+	.agrezer-shop-grid__container {
+		max-width: 100%;
+	}
+}
+
+.twork-shop-grid-editor__placeholder {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 12px;
+	min-height: 240px;
+	padding: 28px 20px;
+	text-align: center;
+	box-sizing: border-box;
+	border: 1px dashed #c3c4c7;
+	border-radius: 4px;
+	background: #f6f7f7;
+	color: #1d2327;
+	font-size: 13px;
+	line-height: 1.5;
+
+	p {
+		margin: 0;
+		max-width: 28em;
+	}
+
+	.components-spinner {
+		margin: 0;
+	}
+}
+
+.twork-shop-grid-editor__placeholder--loading {
+	background: #fff;
+}
+
+.twork-shop-grid-editor__placeholder--error {
+	border-color: #d63638;
+	background: #fcf0f1;
+	color: #1d2327;
+}
+
+.twork-shop-grid-editor__placeholder--empty {
+	border-color: #dba617;
+	background: #fcf9e8;
+}
+
+.twork-shop-grid-editor__hint {
+	font-size: 12px !important;
+	color: #50575e !important;
 }

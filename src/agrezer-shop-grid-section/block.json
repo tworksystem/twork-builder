@@ -3,14 +3,17 @@
 	"apiVersion": 3,
 	"name": "twork/products-grid",
 	"version": "1.0.0",
-	"title": "Products Grid",
+	"title": "Products Grid (Agrezer)",
 	"category": "twork-builder",
 	"icon": "cart",
-	"description": "Dynamic products grid (server-rendered).",
+	"description": "WooCommerce shop layout: sidebar (categories, mini products, contact), sort toolbar, product grid, pagination.",
 	"keywords": [
 		"woocommerce",
 		"shop",
 		"products",
+		"agrezer",
+		"agrezer shop",
+		"shop grid",
 		"twork"
 	],
 	"attributes": {
