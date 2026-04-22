@@ -3,15 +3,10 @@
 	display: flex;
 }
 
-// Default CTA bottom rhythm:
-// - applies only when block supports didn't set an explicit margin-bottom inline
-// - applies only when CTA is not the last child in its container
-// - keeps Gutenberg/user spacing controls authoritative
-.wp-block-twork-cta-block:not(:last-child):not([style*="margin-bottom"]) {
-	margin-bottom: var(
-		--wp--style--block-gap,
-		var(--twork-stats-grid-gap, 1.5rem)
-	);
+// Strong selector to survive theme/core block style overrides in frontend.
+// Uses the wrapper class emitted by save.js: "wp-block-twork-cta-block twork-stats__btn-wrap".
+.wp-block-twork-cta-block.twork-stats__btn-wrap {
+	margin-block-end: var(--twork-stats-grid-gap, 2rem) !important;
 }
 
 // Interactive hover (frontend): anchor button + icon nudge

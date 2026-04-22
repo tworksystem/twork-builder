@@ -63,16 +63,7 @@
         justify-self: center;
         width: 100%;
         margin-inline: auto;
-    }
-
-    // Grid full-width CTA clearance: when margin-bottom isn't explicitly set by block supports,
-    // provide a safe desktop bottom rhythm so the next row doesn't feel collapsed.
-    .twork-stats__grid > .wp-block-twork-cta-block:not(:last-child):not([style*="margin-bottom"]),
-    .twork-stats__grid > .twork-stats__btn-wrap:not(:last-child) {
-        margin-block-end: var(
-            --wp--style--block-gap,
-            var(--twork-stats-grid-gap, 1.5rem)
-        );
+        margin-block-end: var(--twork-stats-grid-gap, 2rem) !important;
     }
 
     // All columns share flex stacking via `twork/stats-column` styles; only 2nd column alignment is special.
