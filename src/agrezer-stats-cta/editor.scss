@@ -4,13 +4,13 @@
 	display: flex;
 }
 
-// Mirror frontend fallback in editor preview:
-// only non-last CTA blocks without explicit margin-bottom get default rhythm.
-.wp-block-twork-cta-block:not(:last-child):not([style*="margin-bottom"]) {
-	margin-bottom: var(
-		--wp--style--block-gap,
-		var(--twork-stats-grid-gap, 1.5rem)
-	);
+// Gutenberg canvas can apply stronger default block styles; use high-specificity selectors.
+.wp-block-twork-cta-block.twork-stats__btn-wrap {
+	margin-block-end: var(--twork-stats-grid-gap, 2rem) !important;
+}
+
+.editor-styles-wrapper .wp-block-twork-cta-block.twork-stats__btn-wrap {
+	margin-block-end: var(--twork-stats-grid-gap, 2rem) !important;
 }
 
 // Interactive hover (editor canvas): .twork-stats__btn and --editor are spans.
