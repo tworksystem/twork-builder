@@ -7,6 +7,9 @@
 }
 
 .twork-stats {
+    // Fluid default gap that scales across viewport sizes unless overridden by block controls.
+    --twork-stats-grid-gap: var(--twork-stats-grid-gap, clamp(1rem, 3vw, 2.5rem));
+
     .twork-stats__container {
         box-sizing: border-box;
     }
@@ -50,9 +53,9 @@
         margin-top: 2.2rem;
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        row-gap: var(--twork-stats-grid-gap, 2rem);
-        column-gap: var(--twork-stats-grid-gap, 2rem);
-        gap: var(--twork-stats-grid-gap, 2rem);
+        row-gap: var(--twork-stats-grid-gap);
+        column-gap: var(--twork-stats-grid-gap);
+        gap: var(--twork-stats-grid-gap);
         align-items: start;
     }
 
@@ -63,7 +66,12 @@
         justify-self: center;
         width: 100%;
         margin-inline: auto;
-        margin-block-end: var(--twork-stats-grid-gap, 2rem) !important;
+    }
+
+    // Preserve grid rhythm for direct CTA rows when no explicit margin was chosen in block supports.
+    .twork-stats__grid > .wp-block-twork-cta-block:not([style*="margin"]):not([class*="has-margin"]),
+    .twork-stats__grid > .twork-stats__btn-wrap:not([style*="margin"]):not([class*="has-margin"]) {
+        margin-block-end: var(--twork-stats-grid-gap);
     }
 
     // All columns share flex stacking via `twork/stats-column` styles; only 2nd column alignment is special.
@@ -153,6 +161,9 @@
 
 @media (max-width: 1080px) {
     .twork-stats {
+        // Tablet: moderate spacing.
+        --twork-stats-grid-gap: var(--twork-stats-grid-gap, clamp(0.875rem, 2.2vw, 1.5rem));
+
         .twork-stats__header {
             flex-direction: column;
             gap: 1.2rem;
@@ -165,6 +176,8 @@
 
         .twork-stats__grid {
             grid-template-columns: 1fr;
+            row-gap: var(--twork-stats-grid-gap);
+            column-gap: var(--twork-stats-grid-gap);
         }
 
         // Flatten columns so nested CTA/stat-card become direct grid items, enabling global order utility behavior.
@@ -179,6 +192,18 @@
 
         .twork-stats__col:nth-child(2) {
             align-items: flex-start;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .twork-stats {
+        // Mobile: compact spacing.
+        --twork-stats-grid-gap: var(--twork-stats-grid-gap, clamp(0.75rem, 2vw, 1.125rem));
+
+        .twork-stats__grid {
+            row-gap: var(--twork-stats-grid-gap);
+            column-gap: var(--twork-stats-grid-gap);
         }
     }
 }
