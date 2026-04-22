@@ -1,0 +1,33 @@
+// Shared responsive utilities for twork/stats-column + twork/cta-block.
+// Single source (imported from `src/global.scss`). Emitted once in `build/global.css`.
+// Breakpoint matches `agrezer-stats-section/style.scss` (grid stacks at 1080px) so CTA
+// `order` / `justify-content` apply whenever the section is in "mobile" column layout.
+
+@media (max-width: 1080px) {
+	.twork-stats__grid .wp-block-twork-cta-block.is-order-first-mobile,
+	.wp-block-twork-stats-column .wp-block-twork-cta-block.is-order-first-mobile {
+		order: -1 !important;
+	}
+
+	.twork-stats__grid .wp-block-twork-cta-block.is-order-last-mobile,
+	.wp-block-twork-stats-column .wp-block-twork-cta-block.is-order-last-mobile {
+		order: 999 !important;
+	}
+
+	.twork-stats__grid .wp-block-twork-cta-block.is-hidden-mobile,
+	.wp-block-twork-stats-column .wp-block-twork-cta-block.is-hidden-mobile {
+		display: none !important;
+	}
+
+	.wp-block-twork-cta-block.is-mobile-align-left {
+		justify-content: flex-start;
+	}
+
+	.wp-block-twork-cta-block.is-mobile-align-center {
+		justify-content: center;
+	}
+
+	.wp-block-twork-cta-block.is-mobile-align-right {
+		justify-content: flex-end;
+	}
+}

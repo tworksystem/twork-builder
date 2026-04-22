@@ -13,7 +13,7 @@ import {
 	__experimentalDivider as Divider,
 } from '@wordpress/components';
 
-const ALLOWED_BLOCKS = [ 'twork/stats-column' ];
+const ALLOWED_BLOCKS = [ 'twork/stats-column', 'twork/cta-block' ];
 
 const TEMPLATE = [
 	[
@@ -94,6 +94,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 		headerBorderColor,
 		gridGap,
 	} = attributes;
+	const statsGridGap = `${ gridGap }px`;
 
 	const blockProps = useBlockProps( {
 		className: 'twork-stats twork-stats-section-editor',
@@ -101,19 +102,23 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 			backgroundColor,
 			paddingTop: `${ paddingTop }px`,
 			paddingBottom: `${ paddingBottom }px`,
-			'--twork-stats-grid-gap': `${ gridGap }px`,
+			'--twork-stats-grid-gap': statsGridGap,
+			'--wp--style--block-gap': statsGridGap,
 		},
 	} );
 
 	const innerBlocksProps = useInnerBlocksProps(
 		{
 			className: 'twork-stats__grid twork-stats__grid-editor',
-			style: { gap: `${ gridGap }px` },
+			style: {
+				gap: statsGridGap,
+				'--twork-stats-grid-gap': statsGridGap,
+			},
 		},
 		{
 			allowedBlocks: ALLOWED_BLOCKS,
 			template: TEMPLATE,
-			templateLock: 'all',
+			templateLock: false,
 		}
 	);
 

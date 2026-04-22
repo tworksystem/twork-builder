@@ -12,7 +12,19 @@
 	"description": "Call-to-action block.",
 	"supports": {
 		"html": false,
-		"reusable": false
+		"reusable": false,
+		"customClassName": true,
+		"align": true,
+		"spacing": {
+			"margin": true,
+			"padding": true
+		},
+		"typography": {
+			"fontSize": true,
+			"lineHeight": true,
+			"fontWeight": true,
+			"textTransform": true
+		}
 	},
 	"attributes": {
 		"buttonText": {
@@ -22,12 +34,34 @@
 		"buttonUrl": {
 			"type": "string",
 			"default": "#"
+		},
+		"showButtonIcon": {
+			"type": "boolean",
+			"default": true
+		},
+		"buttonIconType": {
+			"type": "string",
+			"default": "diagonal-arrow"
+		},
+		"responsiveOrder": {
+			"type": "string",
+			"default": "default"
+		},
+		"hideOnMobile": {
+			"type": "boolean",
+			"default": false
+		},
+		"mobileAlign": {
+			"type": "string",
+			"default": ""
 		}
 	},
 	"example": {
 		"attributes": {
 			"buttonText": "Get In Touch",
-			"buttonUrl": "#"
+			"buttonUrl": "#",
+			"showButtonIcon": true,
+			"buttonIconType": "diagonal-arrow"
 		}
 	},
 	"textdomain": "twork-builder",

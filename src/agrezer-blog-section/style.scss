@@ -2,6 +2,11 @@
 .twork-blog.wp-block-twork-posts-grid,
 .wp-block-twork-posts-grid.twork-blog {
 	overflow: hidden;
+	border: none !important;
+	border-top: 0 !important;
+	outline: none;
+	box-shadow: none;
+	margin-block-start: 0;
 }
 
 .twork-blog__container {
@@ -50,12 +55,27 @@
 
 .twork-blog__more-btn {
 	display: inline-flex;
+	align-items: center;
+	gap: 10px;
 	padding: 16px 32px;
 	border-radius: 12px;
 	text-decoration: none;
 	transition: background-color 0.3s ease, color 0.3s ease;
 	color: var(--twork-more-text, #000);
 	background: var(--twork-more-bg, #dce55d);
+}
+
+.twork-blog__more-btn-icon {
+	display: inline-flex;
+	flex-shrink: 0;
+	line-height: 0;
+	color: inherit;
+}
+
+.twork-blog__more-btn-icon svg {
+	width: 20px;
+	height: 20px;
+	display: block;
 }
 
 .twork-blog__more-btn:hover {
@@ -207,6 +227,13 @@
 	transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
 	color: var(--twork-read-icon, #000);
 	background: var(--twork-read-icon-bg, #f5f5f5);
+}
+
+.twork-blog-card__read-btn .icon-circle svg {
+	width: 20px;
+	height: 20px;
+	display: block;
+	flex-shrink: 0;
 }
 
 .twork-blog-card__read-btn:hover {

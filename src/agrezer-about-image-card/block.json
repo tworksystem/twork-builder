@@ -41,6 +41,14 @@
 		"overlayButtonUrl": {
 			"type": "string",
 			"default": "#"
+		},
+		"showButtonIcon": {
+			"type": "boolean",
+			"default": true
+		},
+		"buttonIconType": {
+			"type": "string",
+			"default": "diagonal-arrow"
 		}
 	},
 	"example": {
@@ -50,7 +58,9 @@
 			"alt": "Farmer inspecting healthy crops",
 			"overlayText": "Agriculture nurtures life through organic growth, sustainable farming, and careful stewardship of the land.",
 			"overlayButtonText": "About Us",
-			"overlayButtonUrl": "#"
+			"overlayButtonUrl": "#",
+			"showButtonIcon": true,
+			"buttonIconType": "diagonal-arrow"
 		}
 	},
 	"textdomain": "twork-builder",

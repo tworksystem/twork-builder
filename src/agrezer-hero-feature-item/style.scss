@@ -1,5 +1,10 @@
 /**
- * Hero feature cards — zig-zag strip; width tuned for 3-up row inside hero.
+ * Hero feature cards — width tuned for 3-up row inside hero.
+ *
+ * Breakpoints:
+ * - Stagger (translateY) only when items sit in a row (desktop / wide tablet).
+ * - No vertical stagger below 768px — avoids overlap when cards wrap.
+ * - Touch / coarse hover: disable lift animations to prevent sticky hover states.
  */
 
 .twork-hero-feature {
@@ -13,14 +18,31 @@
 	max-width: 200px;
 }
 
-/*
- * Middle card stagger: count only .wp-block-twork-hero-feature siblings inside the track.
- * The block appender / inserter is not that class, so it does not affect `of` matching.
- * Scope to .twork-hero__features-track (stable wrapper in hero markup) for a single parent.
- */
+/* Default: no stagger (mobile-first; desktop overrides below). */
 .twork-hero__features-track
 	.wp-block-twork-hero-feature:nth-child(2 of .wp-block-twork-hero-feature) {
-	transform: translateY(-30px);
+	transform: none;
+}
+
+/*
+ * Tablet (769px–1024px): mild stagger when three items still fit in one row.
+ * Appender / inserter does not match .wp-block-twork-hero-feature in `of` list.
+ */
+@media (min-width: 769px) and (max-width: 1024px) {
+	.twork-hero__features-track
+		.wp-block-twork-hero-feature:nth-child(2 of .wp-block-twork-hero-feature) {
+		transform: translateY(-16px);
+	}
+}
+
+/*
+ * Desktop (>=1025px): full stagger — only when cards are reliably side-by-side.
+ */
+@media (min-width: 1025px) {
+	.twork-hero__features-track
+		.wp-block-twork-hero-feature:nth-child(2 of .wp-block-twork-hero-feature) {
+		transform: translateY(-30px);
+	}
 }
 
 .twork-hero-feature__badge {
@@ -111,12 +133,8 @@
 	}
 }
 
-@media (max-width: 1000px) {
-	.twork-hero__features-track
-		.wp-block-twork-hero-feature:nth-child(2 of .wp-block-twork-hero-feature) {
-		transform: translateY(-16px);
-	}
-
+/* Tablet: slightly smaller badge stack (aligns with <=1024 hero layout). */
+@media (max-width: 1024px) {
 	.twork-hero-feature__badge {
 		width: 68px;
 		height: 68px;
@@ -135,16 +153,31 @@
 	}
 }
 
-@media (max-width: 700px) {
-	/*
-	 * Strip stagger + hover motion on small viewports; keep icon offsets via custom props.
-	 * Duplicated selectors so each rule stays simple and wins over nested hover/stagger.
-	 */
+/*
+ * Mobile (<=768px): explicit stagger off; neutralize hover lifts on touch / narrow viewports.
+ */
+@media (max-width: 768px) {
 	.twork-hero__features-track
 		.wp-block-twork-hero-feature:nth-child(2 of .wp-block-twork-hero-feature) {
 		transform: none !important;
 	}
 
+	.twork-hero-feature.is-hover-anim-enabled:hover .twork-hero-feature__badge,
+	.twork-hero-feature.is-hover-anim-enabled:focus-within .twork-hero-feature__badge {
+		transform: none !important;
+	}
+
+	.twork-hero-feature.is-hover-anim-enabled:hover .twork-hero-feature__icon-wrap,
+	.twork-hero-feature.is-hover-anim-enabled:focus-within .twork-hero-feature__icon-wrap {
+		transform: translate(
+			var(--twork-icon-x, 0px),
+			var(--twork-icon-y, 0px)
+		) !important;
+	}
+}
+
+/* Devices without fine pointer hover (touch): keep icon offsets, drop hover motion. */
+@media (hover: none) {
 	.twork-hero-feature.is-hover-anim-enabled:hover .twork-hero-feature__badge,
 	.twork-hero-feature.is-hover-anim-enabled:focus-within .twork-hero-feature__badge {
 		transform: none !important;

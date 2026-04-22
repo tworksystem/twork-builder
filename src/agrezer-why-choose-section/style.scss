@@ -1,9 +1,9 @@
-@import "../scss/typography";
+@use "../scss/typography";
 
 
 .twork-why-choose-section,
 .twork-why-choose-section-editor {
-    font-family: $font-secondary;
+    font-family: typography.$font-secondary;
 }
 
 .twork-why-choose {

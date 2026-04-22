@@ -50,6 +50,14 @@
 		"ctaUrl": {
 			"type": "string",
 			"default": "#"
+		},
+		"showButtonIcon": {
+			"type": "boolean",
+			"default": true
+		},
+		"buttonIconType": {
+			"type": "string",
+			"default": "diagonal-arrow"
 		}
 	},
 	"example": {
@@ -60,7 +68,9 @@
 			"stepText": "Soil maps, weather data, and scouting apps align every pass across the field.",
 			"showCta": true,
 			"ctaText": "More Details",
-			"ctaUrl": "#"
+			"ctaUrl": "#",
+			"showButtonIcon": true,
+			"buttonIconType": "diagonal-arrow"
 		}
 	},
 	"textdomain": "twork-builder",

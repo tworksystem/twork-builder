@@ -16,7 +16,11 @@
 		"tagIconAlt": { "type": "string", "default": "" },
 		"tagIconMime": { "type": "string", "default": "image" },
 		"moreButtonUrl": { "type": "string", "default": "" },
-		"moreButtonText": { "type": "string", "default": "More News ↗" },
+		"moreButtonText": { "type": "string", "default": "More News" },
+		"showMoreButtonIcon": { "type": "boolean", "default": true },
+		"moreButtonIconType": { "type": "string", "default": "diagonal-arrow" },
+		"showReadMoreIcon": { "type": "boolean", "default": true },
+		"readMoreIconType": { "type": "string", "default": "arrow-right" },
 		"moreButtonNewTab": { "type": "boolean", "default": false },
 		"readMoreText": { "type": "string", "default": "Read More" },
 		"postsToShow": { "type": "number", "default": 3 },
@@ -89,7 +93,11 @@
 		"attributes": {
 			"sectionTitle": "Explore Our Latest<br>News &amp; Blog",
 			"tagline": "Read Our Blog",
-			"moreButtonText": "More News ↗",
+			"moreButtonText": "More News",
+			"showMoreButtonIcon": true,
+			"moreButtonIconType": "diagonal-arrow",
+			"showReadMoreIcon": true,
+			"readMoreIconType": "arrow-right",
 			"postsToShow": 3,
 			"columns": 3
 		}

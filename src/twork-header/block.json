@@ -1,0 +1,70 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/header",
+	"version": "1.0.0",
+	"title": "Header Template",
+	"category": "twork-builder",
+	"icon": "menu",
+	"description": "Highly customizable header template with logo, navigation items, search, and CTA button.",
+	"keywords": [ "header", "navigation", "menu", "cta", "twork" ],
+	"supports": {
+		"html": false,
+		"align": [ "full", "wide" ]
+	},
+	"attributes": {
+		"isSticky": { "type": "boolean", "default": true },
+		"backgroundColor": { "type": "string", "default": "#ffffff" },
+		"textColor": { "type": "string", "default": "#333333" },
+		"hoverColor": { "type": "string", "default": "#4caf50" },
+		"headerHeight": { "type": "number", "default": 80 },
+		"containerMaxWidth": { "type": "number", "default": 1200 },
+		"navAlignment": { "type": "string", "default": "center" },
+		"logoType": { "type": "string", "default": "text" },
+		"logoIcon": { "type": "string", "default": "🥑" },
+		"logoText": { "type": "string", "default": "My Avocado" },
+		"logoImage": { "type": "string", "default": "" },
+		"logoImageId": { "type": "number" },
+		"showSearchIcon": { "type": "boolean", "default": true },
+		"showCtaButton": { "type": "boolean", "default": true },
+		"ctaText": { "type": "string", "default": "Get In Touch" },
+		"ctaUrl": { "type": "string", "default": "#" },
+		"showCtaIcon": { "type": "boolean", "default": true },
+		"ctaIconType": { "type": "string", "default": "diagonal-arrow" },
+		"ctaBgColor": { "type": "string", "default": "#133a22" },
+		"ctaTextColor": { "type": "string", "default": "#ffffff" },
+		"ctaBorderRadius": { "type": "number", "default": 10 },
+		"boxShadow": { "type": "boolean", "default": true }
+	},
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": {
+			"isSticky": true,
+			"backgroundColor": "#ffffff",
+			"textColor": "#333333",
+			"hoverColor": "#4caf50",
+			"headerHeight": 80,
+			"containerMaxWidth": 1200,
+			"navAlignment": "center",
+			"logoType": "icon-text",
+			"logoIcon": "🥑",
+			"logoText": "My Avocado",
+			"showSearchIcon": true,
+			"showCtaButton": true,
+			"ctaText": "Get In Touch",
+			"ctaBgColor": "#133a22",
+			"showCtaIcon": true,
+			"ctaIconType": "diagonal-arrow"
+		},
+		"innerBlocks": [
+			{ "name": "twork/nav-item", "attributes": { "label": "Home", "url": "#" } },
+			{ "name": "twork/nav-item", "attributes": { "label": "About", "url": "#" } },
+			{ "name": "twork/nav-item", "attributes": { "label": "Services", "url": "#", "hasDropdown": true } },
+			{ "name": "twork/nav-item", "attributes": { "label": "Contact", "url": "#" } }
+		]
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./view.js"
+}

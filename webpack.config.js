@@ -3,8 +3,8 @@
  *
  * Extends the default @wordpress/scripts webpack config with custom settings.
  *
- * Note: Sass deprecation warnings are harmless and will be resolved when
- * @wordpress/scripts updates to the modern Sass API.
+ * Sass loader is configured for modern API + deprecation silencing so
+ * project builds stay clean while gradually migrating legacy Sass patterns.
  *
  * Memory: Terser runs with parallel: false to reduce peak heap during build.
  * Use NODE_OPTIONS=--max-old-space-size=8192 if the build still hits OOM.
@@ -18,8 +18,93 @@ const path = require( 'path' );
 const TerserPlugin = require( 'terser-webpack-plugin' );
 const defaultConfig = require( '@wordpress/scripts/config/webpack.config' );
 
+/**
+ * Single-emission global stylesheet (shared utility classes, etc.).
+ * Builds to `build/global.css` alongside block bundles.
+ *
+ * @wordpress/scripts uses `entry` as a *function* that returns entry points; merge must preserve that.
+ */
+const globalStyleEntry = path.resolve( __dirname, 'src/global.scss' );
+
+function mergeGlobalWebpackEntry( entry ) {
+	if ( typeof entry === 'function' ) {
+		return ( ...args ) => {
+			const points = entry( ...args );
+			if (
+				points &&
+				typeof points === 'object' &&
+				! Array.isArray( points )
+			) {
+				return { ...points, global: globalStyleEntry };
+			}
+			return points;
+		};
+	}
+	if ( entry && typeof entry === 'object' && ! Array.isArray( entry ) ) {
+		return { ...entry, global: globalStyleEntry };
+	}
+	return { global: globalStyleEntry };
+}
+
+function patchSassLoaderOptions( rules = [] ) {
+	return rules.map( ( rule ) => {
+		if ( rule && Array.isArray( rule.use ) ) {
+			return {
+				...rule,
+				use: rule.use.map( ( useEntry ) => {
+					if (
+						! useEntry ||
+						typeof useEntry !== 'object' ||
+						typeof useEntry.loader !== 'string' ||
+						! useEntry.loader.includes( 'sass-loader' )
+					) {
+						return useEntry;
+					}
+
+					return {
+						...useEntry,
+						options: {
+							...( useEntry.options || {} ),
+							implementation: require( 'sass' ),
+							api: 'modern',
+							sassOptions: {
+								...( useEntry.options &&
+								useEntry.options.sassOptions
+									? useEntry.options.sassOptions
+									: {} ),
+								silenceDeprecations: [
+									'legacy-js-api',
+									'import',
+								],
+							},
+						},
+					};
+				} ),
+			};
+		}
+
+		if ( rule && Array.isArray( rule.oneOf ) ) {
+			return {
+				...rule,
+				oneOf: patchSassLoaderOptions( rule.oneOf ),
+			};
+		}
+
+		return rule;
+	} );
+}
+
+const patchedModule = defaultConfig.module
+	? {
+			...defaultConfig.module,
+			rules: patchSassLoaderOptions( defaultConfig.module.rules || [] ),
+	  }
+	: defaultConfig.module;
+
 module.exports = {
 	...defaultConfig,
+	entry: mergeGlobalWebpackEntry( defaultConfig.entry ),
+	module: patchedModule,
 
 	resolve: {
 		...defaultConfig.resolve,

@@ -21,6 +21,7 @@ export default function save( { attributes } ) {
 		headerBorderColor,
 		gridGap,
 	} = attributes;
+	const statsGridGap = `${ gridGap }px`;
 
 	const blockProps = useBlockProps.save( {
 		className: 'twork-stats twork-stats-section',
@@ -28,7 +29,8 @@ export default function save( { attributes } ) {
 			backgroundColor,
 			paddingTop: `${ paddingTop }px`,
 			paddingBottom: `${ paddingBottom }px`,
-			'--twork-stats-grid-gap': `${ gridGap }px`,
+			'--twork-stats-grid-gap': statsGridGap,
+			'--wp--style--block-gap': statsGridGap,
 		},
 	} );
 
@@ -89,7 +91,10 @@ export default function save( { attributes } ) {
 
 				<div
 					className="twork-stats__grid"
-					style={ { gap: `${ gridGap }px` } }
+					style={ {
+						gap: statsGridGap,
+						'--twork-stats-grid-gap': statsGridGap,
+					} }
 				>
 					<InnerBlocks.Content />
 				</div>

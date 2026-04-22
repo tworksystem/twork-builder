@@ -1,26 +1,43 @@
 .editor-styles-wrapper .twork-stats-section-editor {
 	.twork-stats__grid-editor {
-		display: grid !important;
-		grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-		gap: var(--twork-stats-grid-gap, 2rem) !important;
 		width: 100% !important;
 
-		/* Force children (columns) to respect grid boundaries */
-		> .wp-block {
-			min-width: 0 !important;
-			display: flex !important;
-			flex-direction: column !important;
-			gap: 2rem !important;
-		}
+		> .block-editor-block-list__layout {
+			display: grid !important;
+			grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+			gap: var(--twork-stats-grid-gap, 2rem) !important;
+			width: 100% !important;
 
-		> .wp-block:nth-child(2) {
-			align-items: center !important;
+			/* Keep columns as vertical stacks in editor by default. */
+			> .wp-block.wp-block-twork-stats-column {
+				min-width: 0 !important;
+			}
+
+			/* Full-width CTA row when inserted directly into the section grid. */
+			> .wp-block.wp-block-twork-cta-block {
+				grid-column: 1 / -1 !important;
+				justify-self: center !important;
+				width: 100% !important;
+			}
+
+			> .wp-block.wp-block-twork-stats-column:nth-child(2) {
+				align-items: center !important;
+			}
 		}
 	}
 }
 @media (max-width: 1080px) {
-	.editor-styles-wrapper .twork-stats-section-editor .twork-stats__grid-editor {
+	.editor-styles-wrapper .twork-stats-section-editor .twork-stats__grid-editor > .block-editor-block-list__layout {
 		grid-template-columns: 1fr !important;
-		> .wp-block:nth-child(2) { align-items: flex-start !important; }
+
+		/* Flatten columns so CTA/stat-card children participate in section-level ordering on mobile. */
+		> .wp-block.wp-block-twork-stats-column,
+		> .wp-block.wp-block-twork-stats-column > .block-editor-block-list__layout {
+			display: contents !important;
+		}
+
+		> .wp-block.wp-block-twork-cta-block {
+			grid-column: 1 / -1 !important;
+		}
 	}
 }

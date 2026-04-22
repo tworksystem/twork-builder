@@ -9,6 +9,30 @@
 
 defined('ABSPATH') || exit;
 
+if (!function_exists('twork_posts_grid_icon_svg')) {
+    /**
+     * Inline SVG for posts grid CTA icons (parity with agrezer-team-card ICONS).
+     *
+     * @param string $type     Icon key: diagonal-arrow, arrow-right, external, plus.
+     * @param string $fallback Used when $type is unknown.
+     * @return string
+     */
+    function twork_posts_grid_icon_svg($type, $fallback = 'diagonal-arrow')
+    {
+        $icons = array(
+            'diagonal-arrow' => '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>',
+            'arrow-right'    => '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>',
+            'external'       => '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>',
+            'plus'           => '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>',
+        );
+        $type = is_string($type) ? $type : '';
+        if (!isset($icons[$type])) {
+            $type = isset($icons[$fallback]) ? $fallback : 'diagonal-arrow';
+        }
+        return $icons[$type] ?? $icons['diagonal-arrow'];
+    }
+}
+
 $attributes = (isset($attributes) && is_array($attributes)) ? $attributes : array();
 
 // Singular keys are not in block.json; support them only for legacy/migrated content.
@@ -26,7 +50,11 @@ $defaults = array(
     'tagIconAlt'        => '',
     'tagIconMime'       => 'image',
     'moreButtonUrl'     => '',
-    'moreButtonText'    => 'More News ↗',
+    'moreButtonText'    => 'More News',
+    'showMoreButtonIcon' => true,
+    'moreButtonIconType' => 'diagonal-arrow',
+    'showReadMoreIcon'  => true,
+    'readMoreIconType'  => 'arrow-right',
     'moreButtonNewTab'  => false,
     'readMoreText'      => 'Read More',
     'postsToShow'       => 3,
@@ -328,7 +356,10 @@ ob_start();
                     class="twork-blog__more-btn"
                     <?php echo $more_target ? 'target="_blank" rel="noopener noreferrer"' : ''; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
                 >
-                    <?php echo esc_html((string) $atts['moreButtonText']); ?>
+                    <span class="twork-blog__more-btn-label"><?php echo esc_html((string) $atts['moreButtonText']); ?></span>
+                    <?php if (!empty($atts['showMoreButtonIcon'])) : ?>
+                        <span class="twork-blog__more-btn-icon" aria-hidden="true"><?php echo twork_posts_grid_icon_svg((string) $atts['moreButtonIconType'], 'diagonal-arrow'); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></span>
+                    <?php endif; ?>
                 </a>
             </div>
         </div>
@@ -433,7 +464,9 @@ ob_start();
                             <div class="twork-blog-card__footer">
                                 <a href="<?php echo esc_url($permalink); ?>" class="twork-blog-card__read-btn">
                                     <?php echo esc_html((string) $atts['readMoreText']); ?>
-                                    <span class="icon-circle" aria-hidden="true">→</span>
+                                    <?php if (!empty($atts['showReadMoreIcon'])) : ?>
+                                        <span class="icon-circle" aria-hidden="true"><?php echo twork_posts_grid_icon_svg((string) $atts['readMoreIconType'], 'arrow-right'); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></span>
+                                    <?php endif; ?>
                                 </a>
                             </div>
                         </div>

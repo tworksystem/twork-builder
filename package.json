@@ -7,8 +7,8 @@
 	"homepage": "https://www.tworksystem.com/twork-builder",
 	"main": "index.js",
 	"scripts": {
-    "build": "cross-env NODE_OPTIONS=--max-old-space-size=8192 WP_COPY_PHP_FILES_TO_DIST=1 wp-scripts build",
-    "start": "cross-env NODE_OPTIONS=--max-old-space-size=8192 WP_COPY_PHP_FILES_TO_DIST=1 wp-scripts start",
+    "build": "cross-env NODE_OPTIONS=--max-old-space-size=8192 WP_COPY_PHP_FILES_TO_DIST=1 npm_config_devdir= NPM_CONFIG_DEVDIR= wp-scripts build",
+    "start": "cross-env NODE_OPTIONS=--max-old-space-size=8192 WP_COPY_PHP_FILES_TO_DIST=1 npm_config_devdir= NPM_CONFIG_DEVDIR= wp-scripts start",
 		"packages-update": "wp-scripts packages-update",
 		"lint:css": "wp-scripts lint-style",
 		"lint:js": "wp-scripts lint-js",

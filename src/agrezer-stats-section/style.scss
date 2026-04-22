@@ -1,9 +1,9 @@
-@import "../scss/typography";
+@use "../scss/typography";
 
 
 .twork-stats-section,
 .twork-stats-section-editor {
-    font-family: $font-secondary;
+    font-family: typography.$font-secondary;
 }
 
 .twork-stats {
@@ -50,15 +50,34 @@
         margin-top: 2.2rem;
         display: grid;
         grid-template-columns: repeat(3, 1fr);
+        row-gap: var(--twork-stats-grid-gap, 2rem);
+        column-gap: var(--twork-stats-grid-gap, 2rem);
         gap: var(--twork-stats-grid-gap, 2rem);
         align-items: start;
     }
 
+    // If CTA is inserted directly in the section grid, treat it as a full-width row.
+    .twork-stats__grid > .wp-block-twork-cta-block,
+    .twork-stats__grid > .twork-stats__btn-wrap {
+        grid-column: 1 / -1;
+        justify-self: center;
+        width: 100%;
+        margin-inline: auto;
+    }
+
+    // Grid full-width CTA clearance: when margin-bottom isn't explicitly set by block supports,
+    // provide a safe desktop bottom rhythm so the next row doesn't feel collapsed.
+    .twork-stats__grid > .wp-block-twork-cta-block:not(:last-child):not([style*="margin-bottom"]),
+    .twork-stats__grid > .twork-stats__btn-wrap:not(:last-child) {
+        margin-block-end: var(
+            --wp--style--block-gap,
+            var(--twork-stats-grid-gap, 1.5rem)
+        );
+    }
+
+    // All columns share flex stacking via `twork/stats-column` styles; only 2nd column alignment is special.
     .twork-stats__col:nth-child(2) {
-        display: flex;
-        flex-direction: column;
         align-items: center;
-        gap: 2rem;
     }
 
     .twork-stats__btn-wrap {
@@ -83,6 +102,20 @@
         &:hover {
             transform: translateY(-2px);
             box-shadow: 0 8px 20px rgba(27, 34, 22, 0.12);
+        }
+
+        .twork-stats__btn-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            color: inherit;
+
+            svg {
+                width: 1.125em;
+                height: 1.125em;
+                display: block;
+            }
         }
     }
 
@@ -141,6 +174,16 @@
 
         .twork-stats__grid {
             grid-template-columns: 1fr;
+        }
+
+        // Flatten columns so nested CTA/stat-card become direct grid items, enabling global order utility behavior.
+        .twork-stats__col {
+            display: contents;
+        }
+
+        .twork-stats__grid > .wp-block-twork-cta-block,
+        .twork-stats__grid > .twork-stats__btn-wrap {
+            grid-column: 1 / -1;
         }
 
         .twork-stats__col:nth-child(2) {
