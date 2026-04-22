@@ -1,9 +1,9 @@
-@import "../scss/typography";
+@use "../scss/typography";
 
 
 .twork-about-section,
 .twork-about-section-editor {
-    font-family: $font-secondary;
+    font-family: typography.$font-secondary;
 }
 
 .twork-about {
@@ -113,6 +113,20 @@
         font-weight: 700;
         white-space: nowrap;
         text-decoration: none;
+
+        .twork-about-card__overlay-btn-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            color: inherit;
+
+            svg {
+                width: 1.125em;
+                height: 1.125em;
+                display: block;
+            }
+        }
     }
 }
 
@@ -127,7 +141,7 @@
         font-size: 17px;
         font-weight: 600;
         line-height: 1.3;
-        font-family: $font-secondary;
+        font-family: typography.$font-secondary;
         letter-spacing: normal;
         text-transform: none;
         color: inherit;
@@ -137,7 +151,7 @@
         margin: 0;
         line-height: 1.12;
         letter-spacing: -0.02em;
-        font-family: $font-secondary;
+        font-family: typography.$font-secondary;
         font-style: normal;
         text-transform: none;
         color: inherit;

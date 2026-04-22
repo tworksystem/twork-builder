@@ -1,0 +1,11 @@
+// Every stats column (any grid position) is a flex column so CTA + inner blocks
+// participate in `order` utilities at the shared mobile breakpoint.
+.twork-stats__col,
+.wp-block-twork-stats-column,
+.wp-block-twork-stats-column.twork-stats__col {
+	min-width: 0;
+	display: flex !important;
+	flex-direction: column !important;
+	row-gap: var(--twork-stats-grid-gap, 2rem) !important;
+	gap: var(--twork-stats-grid-gap, 2rem) !important;
+}

@@ -1,0 +1,37 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/nav-item",
+	"version": "1.0.0",
+	"title": "Nav Item",
+	"category": "twork-builder",
+	"icon": "admin-links",
+	"description": "Single navigation item for the Header Template block.",
+	"parent": [ "twork/header" ],
+	"supports": {
+		"html": false,
+		"reusable": false
+	},
+	"attributes": {
+		"label": { "type": "string", "default": "Menu Item" },
+		"url": { "type": "string", "default": "#" },
+		"openInNewTab": { "type": "boolean", "default": false },
+		"hasDropdown": { "type": "boolean", "default": false },
+		"linkColor": { "type": "string", "default": "#333333" },
+		"linkHoverColor": { "type": "string", "default": "#4caf50" },
+		"fontSize": { "type": "number", "default": 16 },
+		"fontWeight": { "type": "string", "default": "500" }
+	},
+	"example": {
+		"attributes": {
+			"label": "Services",
+			"url": "#",
+			"hasDropdown": true,
+			"fontSize": 16,
+			"fontWeight": "500"
+		}
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
+}

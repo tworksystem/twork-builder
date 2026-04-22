@@ -1,9 +1,9 @@
-@import "../scss/typography";
+@use "../scss/typography";
 
 
 .twork-greener-section,
 .twork-greener-section-editor {
-    font-family: $font-secondary;
+    font-family: typography.$font-secondary;
 }
 
 .twork-greener {

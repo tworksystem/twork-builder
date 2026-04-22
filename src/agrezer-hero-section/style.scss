@@ -1,7 +1,12 @@
-@import "../scss/typography";
+@use "../scss/typography";
 
 /**
  * Hero section — theme-safe typography via deep compound selectors.
+ *
+ * Breakpoints (max-width):
+ * - 1024px — tablet / small laptop (single column, copy left; feature strip centered)
+ * - 768px — mobile landscape (mobile padding vars, wrapped features flow)
+ * - 480px — mobile portrait (full-width / column features when needed)
  */
 
 $twork-hero-green-light: #8fbd45;
@@ -13,7 +18,7 @@ $twork-hero-button-yellow: #d9ea57;
 	min-height: 760px;
 	padding: 154px 0 48px;
 	color: #fff;
-	font-family: $font-secondary;
+	font-family: typography.$font-secondary;
 	overflow: hidden;
 	background-size: cover;
 	background-position: center;
@@ -48,7 +53,7 @@ $twork-hero-button-yellow: #d9ea57;
 		z-index: 0;
 	}
 
-	/* Two columns: copy + feature strip; stacks when narrow (see <1000px). */
+	/* Desktop (>1024px): two columns — copy + feature strip. */
 	.twork-hero__container {
 		position: relative;
 		z-index: 1;
@@ -140,6 +145,20 @@ $twork-hero-button-yellow: #d9ea57;
 				color: inherit;
 			}
 
+			.twork-hero__btn-icon {
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				flex-shrink: 0;
+				color: inherit;
+
+				svg {
+					width: 1.2rem;
+					height: 1.2rem;
+					display: block;
+				}
+			}
+
 			.twork-hero__btn-media {
 				width: 1.2rem;
 				height: 1.2rem;
@@ -162,7 +181,7 @@ $twork-hero-button-yellow: #d9ea57;
 	/*
 	 * Outer shell: width + grid placement. Inner track holds the flex row.
 	 * Editor: unwrap only non-block wrappers (anything without .wp-block-twork-hero-feature)
-	 * so we never target block-editor-* class names. Serialized blocks always carry that class.
+	 * so InnerBlocks chrome does not break gap/flex; no block-editor-* class selectors.
 	 */
 	.twork-hero__features-wrapper {
 		justify-self: end;
@@ -211,7 +230,7 @@ body .twork-hero.twork-hero--bg.twork-hero--editor .twork-hero__content h1.twork
 	padding: 0;
 	width: 100%;
 	max-width: min(100%, 42rem);
-	font-family: $font-heading;
+	font-family: typography.$font-heading;
 	font-weight: 700;
 	letter-spacing: -0.02em;
 	white-space: pre-wrap;
@@ -222,12 +241,13 @@ body .twork-hero.twork-hero--bg.twork-hero--editor .twork-hero__content h1.twork
 	color: #ffffff !important;
 }
 
-@media (max-width: 1000px) {
+/* -------------------------------------------------------------------------
+ * Tablet: <= 1024px — single column; copy left-aligned; feature row centered.
+ * ------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
 	.twork-hero.twork-hero--bg.wp-block-twork-hero-section,
 	.twork-hero.twork-hero--bg.twork-hero--editor {
 		min-height: auto;
-		padding-top: var(--twork-padding-top-mobile, 92px);
-		padding-bottom: var(--twork-padding-bottom-mobile, 34px);
 
 		.twork-hero__container {
 			width: min(
@@ -235,35 +255,32 @@ body .twork-hero.twork-hero--bg.twork-hero--editor .twork-hero__content h1.twork
 				var(--twork-container-max-width, 1240px)
 			);
 			grid-template-columns: 1fr;
-			justify-items: center;
+			justify-items: start;
 			align-items: start;
 			row-gap: clamp(1.5rem, 4vw, 2rem);
 		}
 
 		.twork-hero__content {
-			align-items: center;
-			text-align: center;
+			align-items: flex-start;
+			text-align: left;
+			justify-self: stretch;
+			width: 100%;
 
 			.twork-hero__tagline {
-				justify-content: center;
-			}
-
-			p.twork-hero__desc {
-				margin-inline: auto;
-			}
-
-			a.twork-hero__btn {
-				margin-inline: auto;
+				justify-content: flex-start;
 			}
 		}
 
+		/* Feature strip: centered in the row; does not affect headline alignment. */
 		.twork-hero__features-wrapper {
 			justify-self: center;
 			max-width: min(100%, 36rem);
 			margin-inline: auto;
+			width: 100%;
 		}
 
 		.twork-hero__features-track {
+			flex-wrap: wrap;
 			justify-content: center;
 			align-items: center;
 		}
@@ -279,27 +296,67 @@ body .twork-hero.twork-hero--bg.twork-hero--editor .twork-hero__content h1.twork
 	}
 }
 
-@media (max-width: 700px) {
+/* -------------------------------------------------------------------------
+ * Mobile: <= 768px — block padding vars, natural multi-row wrap (no forced column).
+ * ------------------------------------------------------------------------- */
+@media (max-width: 768px) {
 	.twork-hero.twork-hero--bg.wp-block-twork-hero-section,
 	.twork-hero.twork-hero--bg.twork-hero--editor {
+		/* Section: prefer attribute-driven vars (set on the block root in editor/save). */
+		padding-top: var(--twork-padding-top-mobile, 92px);
+		padding-bottom: var(--twork-padding-bottom-mobile, 34px);
+
 		.twork-hero__features-wrapper {
 			max-width: 100%;
 		}
 
 		.twork-hero__features-track {
-			flex-direction: column;
-			flex-wrap: nowrap;
+			flex-wrap: wrap;
 			justify-content: center;
 			align-items: center;
-			row-gap: 1rem;
-			column-gap: var(--twork-features-gap, 2rem);
+			/* Slightly tighter rhythm on narrow screens; still uses --twork-features-gap as base. */
+			gap: clamp(0.75rem, 3vw, var(--twork-features-gap, 2rem));
+		}
+
+		.twork-hero__features-track .wp-block-twork-hero-feature {
+			flex: 1 1 auto;
+			min-width: min(100%, 160px);
+			max-width: 200px;
+			margin-inline: auto;
+		}
+
+		.twork-hero__content a.twork-hero__btn:hover {
+			transform: none;
+		}
+	}
+}
+
+/* CTA: no translate lift on touch / coarse pointers (any width). */
+@media (hover: none) {
+	.twork-hero.twork-hero--bg.wp-block-twork-hero-section .twork-hero__content a.twork-hero__btn:hover,
+	.twork-hero.twork-hero--bg.twork-hero--editor .twork-hero__content a.twork-hero__btn:hover {
+		transform: none;
+	}
+}
+
+/* -------------------------------------------------------------------------
+ * Small mobile: <= 480px — stack or full-width cards when space is tight.
+ * ------------------------------------------------------------------------- */
+@media (max-width: 480px) {
+	.twork-hero.twork-hero--bg.wp-block-twork-hero-section,
+	.twork-hero.twork-hero--bg.twork-hero--editor {
+		.twork-hero__features-track {
+			flex-direction: column;
+			flex-wrap: nowrap;
+			align-items: center;
+			justify-content: center;
+			row-gap: clamp(0.875rem, 4vw, 1.25rem);
 		}
 
 		.twork-hero__features-track .wp-block-twork-hero-feature {
 			flex: 0 1 auto;
-			max-width: 220px;
 			width: 100%;
-			margin-inline: auto;
+			max-width: min(280px, 100%);
 		}
 	}
 }

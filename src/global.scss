@@ -1,0 +1,5 @@
+/**
+ * Global plugin styles (single emission: shared across blocks, front + editor).
+ * Add shared partials here only — block-specific rules stay in block stylesheets.
+ */
+@use "./scss/responsive-utils";

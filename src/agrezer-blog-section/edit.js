@@ -35,6 +35,78 @@ const NOOP_POST_QUERY = {
 	per_page: 1,
 };
 
+const ICONS = {
+	'diagonal-arrow': (
+		<svg
+			width="20"
+			height="20"
+			viewBox="0 0 24 24"
+			fill="none"
+			stroke="currentColor"
+			strokeWidth="2.5"
+			strokeLinecap="round"
+			strokeLinejoin="round"
+			aria-hidden="true"
+			focusable="false"
+		>
+			<line x1="7" y1="17" x2="17" y2="7" />
+			<polyline points="7 7 17 7 17 17" />
+		</svg>
+	),
+	'arrow-right': (
+		<svg
+			width="20"
+			height="20"
+			viewBox="0 0 24 24"
+			fill="none"
+			stroke="currentColor"
+			strokeWidth="2.5"
+			strokeLinecap="round"
+			strokeLinejoin="round"
+			aria-hidden="true"
+			focusable="false"
+		>
+			<line x1="5" y1="12" x2="19" y2="12" />
+			<polyline points="12 5 19 12 12 19" />
+		</svg>
+	),
+	external: (
+		<svg
+			width="20"
+			height="20"
+			viewBox="0 0 24 24"
+			fill="none"
+			stroke="currentColor"
+			strokeWidth="2.5"
+			strokeLinecap="round"
+			strokeLinejoin="round"
+			aria-hidden="true"
+			focusable="false"
+		>
+			<path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+			<polyline points="15 3 21 3 21 9" />
+			<line x1="10" y1="14" x2="21" y2="3" />
+		</svg>
+	),
+	plus: (
+		<svg
+			width="20"
+			height="20"
+			viewBox="0 0 24 24"
+			fill="none"
+			stroke="currentColor"
+			strokeWidth="2.5"
+			strokeLinecap="round"
+			strokeLinejoin="round"
+			aria-hidden="true"
+			focusable="false"
+		>
+			<line x1="12" y1="5" x2="12" y2="19" />
+			<line x1="5" y1="12" x2="19" y2="12" />
+		</svg>
+	),
+};
+
 const IMAGE_SIZE_FALLBACK_ORDER = [
 	'large',
 	'medium_large',
@@ -160,7 +232,11 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 		moreButtonUrl,
 		moreButtonText,
 		moreButtonNewTab,
+		showMoreButtonIcon = true,
+		moreButtonIconType = 'diagonal-arrow',
 		readMoreText,
+		showReadMoreIcon = true,
+		readMoreIconType = 'arrow-right',
 		postsToShow,
 		columns,
 		orderBy,
@@ -227,6 +303,11 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 		imageOverlayHoverGradient,
 		tagIconMime,
 	} = attributes;
+
+	const moreButtonIcon =
+		ICONS[ moreButtonIconType ] || ICONS[ 'diagonal-arrow' ];
+	const readMoreIconEl =
+		ICONS[ readMoreIconType ] || ICONS[ 'arrow-right' ];
 
 	const [ categoryInputValue, setCategoryInputValue ] = useState( '' );
 	const [ excludePostInputValue, setExcludePostInputValue ] = useState( '' );
@@ -820,6 +901,54 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 							}
 						/>
 						<ToggleControl
+							label={ __(
+								'Show more button icon',
+								'twork-builder'
+							) }
+							checked={ showMoreButtonIcon }
+							onChange={ ( val ) =>
+								setAttributes( { showMoreButtonIcon: val } )
+							}
+						/>
+						<SelectControl
+							label={ __(
+								'More button icon type',
+								'twork-builder'
+							) }
+							value={ moreButtonIconType }
+							options={ [
+								{
+									label: __(
+										'Diagonal arrow',
+										'twork-builder'
+									),
+									value: 'diagonal-arrow',
+								},
+								{
+									label: __(
+										'Arrow right',
+										'twork-builder'
+									),
+									value: 'arrow-right',
+								},
+								{
+									label: __(
+										'External link',
+										'twork-builder'
+									),
+									value: 'external',
+								},
+								{
+									label: __( 'Plus', 'twork-builder' ),
+									value: 'plus',
+								},
+							] }
+							onChange={ ( val ) =>
+								setAttributes( { moreButtonIconType: val } )
+							}
+							disabled={ ! showMoreButtonIcon }
+						/>
+						<ToggleControl
 							label={ __( 'Open in new tab', 'twork-builder' ) }
 							checked={ moreButtonNewTab }
 							onChange={ ( val ) =>
@@ -842,6 +971,54 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 							onChange={ ( val ) =>
 								setAttributes( { readMoreText: val } )
 							}
+						/>
+						<ToggleControl
+							label={ __(
+								'Show read more icon',
+								'twork-builder'
+							) }
+							checked={ showReadMoreIcon }
+							onChange={ ( val ) =>
+								setAttributes( { showReadMoreIcon: val } )
+							}
+						/>
+						<SelectControl
+							label={ __(
+								'Read more icon type',
+								'twork-builder'
+							) }
+							value={ readMoreIconType }
+							options={ [
+								{
+									label: __(
+										'Diagonal arrow',
+										'twork-builder'
+									),
+									value: 'diagonal-arrow',
+								},
+								{
+									label: __(
+										'Arrow right',
+										'twork-builder'
+									),
+									value: 'arrow-right',
+								},
+								{
+									label: __(
+										'External link',
+										'twork-builder'
+									),
+									value: 'external',
+								},
+								{
+									label: __( 'Plus', 'twork-builder' ),
+									value: 'plus',
+								},
+							] }
+							onChange={ ( val ) =>
+								setAttributes( { readMoreIconType: val } )
+							}
+							disabled={ ! showReadMoreIcon }
 						/>
 					</PanelBody>
 
@@ -1283,7 +1460,18 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 									tabIndex={ -1 }
 									onClick={ ( e ) => e.preventDefault() }
 								>
-									{ moreButtonText || __( 'More News ↗', 'twork-builder' ) }
+									<span className="twork-blog__more-btn-label">
+										{ moreButtonText ||
+											__( 'More News', 'twork-builder' ) }
+									</span>
+									{ showMoreButtonIcon && (
+										<span
+											className="twork-blog__more-btn-icon"
+											aria-hidden="true"
+										>
+											{ moreButtonIcon }
+										</span>
+									) }
 								</a>
 							</div>
 						</div>
@@ -1423,10 +1611,16 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 														tabIndex={ -1 }
 														onClick={ ( e ) => e.preventDefault() }
 													>
-														{ readMoreText || __( 'Read More', 'twork-builder' ) }
-														<span className="icon-circle" aria-hidden="true">
-															→
-														</span>
+														{ readMoreText ||
+															__( 'Read More', 'twork-builder' ) }
+														{ showReadMoreIcon && (
+															<span
+																className="icon-circle"
+																aria-hidden="true"
+															>
+																{ readMoreIconEl }
+															</span>
+														) }
 													</a>
 												</div>
 											</div>

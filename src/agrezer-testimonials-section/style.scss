@@ -1,4 +1,4 @@
-@import "../scss/typography";
+@use "../scss/typography";
 
 /**
  * Agrezer testimonials — static layout + carousel (front) / stacked (editor).
@@ -138,7 +138,7 @@
 	font-size: 80px;
 	color: #8bc34a;
 	line-height: 0.8;
-	font-family: $font-serif;
+	font-family: typography.$font-serif;
 	font-weight: 900;
 	margin-top: -10px;
 	flex-shrink: 0;

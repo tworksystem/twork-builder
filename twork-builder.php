@@ -263,10 +263,165 @@ function twork_builder_enqueue_global_block_fonts()
 }
 add_action('enqueue_block_assets', 'twork_builder_enqueue_global_block_fonts');
 
+/**
+ * 2d. Global shared block CSS (single build entry: `src/global.scss` → `build/global.css`).
+ * - Block editor: always enqueued (see `twork_builder_enqueue_global_block_styles_editor`) so
+ *   utilities are available in the canvas/iframe.
+ * - Front end: enqueued only when the main queried singular content includes stats-related
+ *   blocks (see `twork_builder_should_enqueue_global_responsive_block_styles_on_front`) for performance.
+ */
+function twork_builder_enqueue_global_block_style_asset()
+{
+    static $done = false;
+    if ($done) {
+        return;
+    }
+
+    $file = TWORK_BUILDER_PATH . 'build/global.css';
+    if (!is_readable($file)) {
+        return;
+    }
+
+    $asset_path = TWORK_BUILDER_PATH . 'build/global.asset.php';
+    $asset = is_readable($asset_path) ? include $asset_path : array();
+    $version = is_array($asset) && !empty($asset['version']) ? $asset['version'] : TWORK_BUILDER_VERSION;
+
+    wp_enqueue_style(
+        'twork-builder-global',
+        TWORK_BUILDER_URL . 'build/global.css',
+        array(),
+        $version
+    );
+    // wp-scripts + RtlCssPlugin emit `build/global-rtl.css` for RTL locales.
+    wp_style_add_data('twork-builder-global', 'rtl', 'replace');
+
+    $done = true;
+}
+
+/**
+ * Resolve the post object used to test `has_block()` for conditional front-end global CSS.
+ * Defaults to the main singular queried post. Block themes and archives can use the filter
+ * `twork_builder_global_responsive_style_post` to supply a different `WP_Post` (or return null to skip).
+ *
+ * @return WP_Post|null
+ */
+function twork_builder_get_post_for_global_responsive_style_check()
+{
+    $post = null;
+    if (is_singular()) {
+        $queried = get_queried_object();
+        if ($queried instanceof WP_Post) {
+            $post = $queried;
+        }
+    }
+
+    $post = apply_filters('twork_builder_global_responsive_style_post', $post, $post);
+    if ($post instanceof WP_Post) {
+        return $post;
+    }
+    return null;
+}
+
+/**
+ * @param WP_Post $post The post to inspect.
+ * @return bool
+ */
+function twork_builder_post_needs_global_responsive_block_styles($post)
+{
+    if (!$post instanceof WP_Post) {
+        return false;
+    }
+
+    $block_names = array(
+        'twork/cta-block',
+        'twork/stats-column',
+        'twork/stats-section',
+        'twork/stat-card',
+    );
+
+    /**
+     * Filter which block names trigger `build/global.css` on the front end.
+     *
+     * @param string[] $block_names Block slugs to check with has_block().
+     * @param WP_Post  $post        Post used for the check.
+     */
+    $block_names = apply_filters('twork_builder_global_responsive_style_block_names', $block_names, $post);
+    if (!is_array($block_names)) {
+        $block_names = array();
+    }
+
+    foreach ($block_names as $name) {
+        if (!is_string($name) || $name === '') {
+            continue;
+        }
+        if (has_block($name, $post)) {
+            return true;
+        }
+    }
+
+    return false;
+}
+
+/**
+ * Whether to load global responsive CSS on the front (non-admin) for the current main view.
+ *
+ * @return bool
+ */
+function twork_builder_should_enqueue_global_responsive_block_styles_on_front()
+{
+    if (is_admin()) {
+        return false;
+    }
+
+    $post = twork_builder_get_post_for_global_responsive_style_check();
+
+    $override = apply_filters('twork_builder_enqueue_global_responsive_block_styles', null, $post);
+    if (is_bool($override)) {
+        return $override;
+    }
+    if (!$post instanceof WP_Post) {
+        return false;
+    }
+
+    if (!twork_builder_post_needs_global_responsive_block_styles($post)) {
+        return false;
+    }
+
+    return true;
+}
+
+/**
+ * Block editor: always load global shared CSS (includes responsive utility classes for stats blocks).
+ */
+function twork_builder_enqueue_global_block_styles_editor()
+{
+    twork_builder_enqueue_global_block_style_asset();
+}
+add_action('enqueue_block_editor_assets', 'twork_builder_enqueue_global_block_styles_editor', 3);
+
+/**
+ * Front end: load global shared CSS only when the main singular post (see
+ * `twork_builder_get_post_for_global_responsive_style_check`, filterable) contains stats-related
+ * blocks that use shared responsive utilities, or the filter forces loading.
+ */
+function twork_builder_enqueue_global_block_styles_frontend()
+{
+    if (!twork_builder_should_enqueue_global_responsive_block_styles_on_front()) {
+        return;
+    }
+    twork_builder_enqueue_global_block_style_asset();
+}
+add_action('wp_enqueue_scripts', 'twork_builder_enqueue_global_block_styles_frontend', 20);
+
 
 /**
  * 3. Initialize Blocks.
  * Registers all blocks from the /build directory with comprehensive error handling.
+ *
+ * Note on entry imports:
+ * Some blocks are also explicitly imported in src/index.js (for example twork/header
+ * and twork/nav-item) so they are guaranteed to be included in the compiled bundle.
+ * Runtime registration still happens here from build/* via register_block_type().
  */
 function twork_builder_init_blocks()
 {

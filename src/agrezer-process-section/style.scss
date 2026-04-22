@@ -1,9 +1,9 @@
-@import "../scss/typography";
+@use "../scss/typography";
 
 
 .twork-process-section,
 .twork-process-section-editor {
-    font-family: $font-secondary;
+    font-family: typography.$font-secondary;
 }
 
 .twork-process {
@@ -170,6 +170,20 @@
         &:hover {
             opacity: 0.92;
             transform: translateY(-1px);
+        }
+
+        .twork-process__btn-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            color: inherit;
+
+            svg {
+                width: 1.125em;
+                height: 1.125em;
+                display: block;
+            }
         }
     }
 }

@@ -1,11 +1,12 @@
-// Matches WordPress root class for `twork/cta-block` (flex wrapper = .twork-stats__btn-wrap).
 .wp-block-twork-cta-block {
 	min-width: 0;
 	display: flex;
 }
 
-// Mirror frontend fallback in editor preview:
-// only non-last CTA blocks without explicit margin-bottom get default rhythm.
+// Default CTA bottom rhythm:
+// - applies only when block supports didn't set an explicit margin-bottom inline
+// - applies only when CTA is not the last child in its container
+// - keeps Gutenberg/user spacing controls authoritative
 .wp-block-twork-cta-block:not(:last-child):not([style*="margin-bottom"]) {
 	margin-bottom: var(
 		--wp--style--block-gap,
@@ -13,7 +14,7 @@
 	);
 }
 
-// Interactive hover (editor canvas): .twork-stats__btn and --editor are spans.
+// Interactive hover (frontend): anchor button + icon nudge
 .wp-block-twork-cta-block .twork-stats__btn {
 	transition:
 		background-color 0.3s ease,
@@ -21,9 +22,9 @@
 		color 0.3s ease,
 		transform 0.3s ease,
 		filter 0.3s ease;
-	cursor: default;
 
-	&:hover {
+	&:hover,
+	&:focus-visible {
 		background: #c9db3f;
 		box-shadow: 0 10px 24px rgba(27, 34, 22, 0.14);
 		transform: translateY(-2px);
@@ -34,7 +35,8 @@
 		transition: transform 0.3s ease;
 	}
 
-	&:hover .twork-stats__btn-icon {
+	&:hover .twork-stats__btn-icon,
+	&:focus-visible .twork-stats__btn-icon {
 		transform: translate(4px, -3px);
 	}
 }

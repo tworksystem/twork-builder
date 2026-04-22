@@ -49,6 +49,14 @@
 			"type": "string",
 			"default": "image"
 		},
+		"showButtonIcon": {
+			"type": "boolean",
+			"default": true
+		},
+		"buttonIconType": {
+			"type": "string",
+			"default": "diagonal-arrow"
+		},
 		"buttonUrl": {
 			"type": "string",
 			"default": "#"
@@ -130,6 +138,8 @@
 			"buttonText": "Explore Our Programs",
 			"buttonMediaUrl": "",
 			"buttonMediaType": "image",
+			"showButtonIcon": true,
+			"buttonIconType": "diagonal-arrow",
 			"buttonUrl": "#",
 			"buttonLinkTarget": false,
 			"backgroundImage": "https://images.unsplash.com/photo-1625246333195-f8989295e467?auto=format&fit=crop&w=1920&q=80",
