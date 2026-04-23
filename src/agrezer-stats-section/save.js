@@ -20,8 +20,12 @@ export default function save( { attributes } ) {
 		descFontSize,
 		headerBorderColor,
 		gridGap,
+		gridGapTablet = 24,
+		gridGapMobile = 16,
 	} = attributes;
 	const statsGridGap = `${ gridGap }px`;
+	const statsGridGapTablet = `${ gridGapTablet }px`;
+	const statsGridGapMobile = `${ gridGapMobile }px`;
 
 	const blockProps = useBlockProps.save( {
 		className: 'twork-stats twork-stats-section',
@@ -30,6 +34,8 @@ export default function save( { attributes } ) {
 			paddingTop: `${ paddingTop }px`,
 			paddingBottom: `${ paddingBottom }px`,
 			'--twork-stats-grid-gap': statsGridGap,
+			'--twork-stats-grid-gap-tablet': statsGridGapTablet,
+			'--twork-stats-grid-gap-mobile': statsGridGapMobile,
 			'--wp--style--block-gap': statsGridGap,
 		},
 	} );
@@ -94,6 +100,8 @@ export default function save( { attributes } ) {
 					style={ {
 						gap: statsGridGap,
 						'--twork-stats-grid-gap': statsGridGap,
+						'--twork-stats-grid-gap-tablet': statsGridGapTablet,
+						'--twork-stats-grid-gap-mobile': statsGridGapMobile,
 					} }
 				>
 					<InnerBlocks.Content />
