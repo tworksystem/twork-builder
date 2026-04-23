@@ -75,8 +75,15 @@ const ICONS = {
 export default function save( { attributes } ) {
 	const {
 		variant,
-		image,
-		alt,
+		mediaType = 'image',
+		mediaUrl,
+		mediaAlt,
+		videoAutoplay = true,
+		videoLoop = true,
+		videoMuted = true,
+		videoControls = false,
+		backgroundColor = '#9db37a',
+		objectFit = 'cover',
 		overlayText,
 		overlayButtonText,
 		overlayButtonUrl,
@@ -87,16 +94,42 @@ export default function save( { attributes } ) {
 	const actionIcon = ICONS[ buttonIconType ] || ICONS[ 'diagonal-arrow' ];
 
 	const blockProps = useBlockProps.save( {
-		className:
-			variant === 'overlay'
-				? 'twork-about-card twork-about-card--overlay'
-				: 'twork-about-card',
+		className: [
+			'twork-about-card',
+			variant === 'overlay' ? 'twork-about-card--overlay' : '',
+			`is-media-${ mediaType }`,
+		]
+			.filter( Boolean )
+			.join( ' ' ),
 	} );
 
 	return (
 		<article { ...blockProps }>
-			{ image && <img src={ image } alt={ alt || '' } /> }
-			{ variant === 'overlay' && image && (
+			{ mediaType === 'image' && mediaUrl && (
+				<img src={ mediaUrl } alt={ mediaAlt || '' } style={ { objectFit } } />
+			) }
+
+			{ mediaType === 'video' && mediaUrl && (
+				<video
+					src={ mediaUrl }
+					autoPlay={ videoAutoplay }
+					loop={ videoLoop }
+					muted={ videoMuted }
+					controls={ videoControls }
+					playsInline
+					style={ { objectFit } }
+				/>
+			) }
+
+			{ mediaType === 'color' && (
+				<div
+					className="twork-about-card__color-bg"
+					style={ { backgroundColor } }
+					aria-hidden="true"
+				/>
+			) }
+
+			{ variant === 'overlay' && (
 				<div className="twork-about-card__overlay">
 					<RichText.Content
 						tagName="p"

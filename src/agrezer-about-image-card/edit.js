@@ -1,9 +1,11 @@
 import { __ } from '@wordpress/i18n';
-import { useStableBlockProps } from '@twork-builder/editor-utils';
 import {
 	InspectorControls,
+	BlockControls,
 	RichText,
 	MediaPlaceholder,
+	MediaReplaceFlow,
+	useBlockProps,
 } from '@wordpress/block-editor';
 import {
 	PanelBody,
@@ -11,6 +13,8 @@ import {
 	TextControl,
 	ToggleControl,
 	Button,
+	BaseControl,
+	ColorPalette,
 } from '@wordpress/components';
 
 const ICONS = {
@@ -88,8 +92,15 @@ const ICONS = {
 export default function Edit( { attributes, setAttributes, isSelected } ) {
 	const {
 		variant,
-		image,
-		alt,
+		mediaType = 'image',
+		mediaUrl,
+		mediaAlt,
+		videoAutoplay = true,
+		videoLoop = true,
+		videoMuted = true,
+		videoControls = false,
+		backgroundColor = '#9db37a',
+		objectFit = 'cover',
 		overlayText,
 		overlayButtonText,
 		overlayButtonUrl,
@@ -98,25 +109,75 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 	} = attributes;
 
 	const actionIcon = ICONS[ buttonIconType ] || ICONS[ 'diagonal-arrow' ];
+	const acceptsMedia = mediaType === 'image' || mediaType === 'video';
 
-	const blockProps = useStableBlockProps(
-		() => ( {
-			className:
-				variant === 'overlay'
-					? 'twork-about-card twork-about-card--overlay'
-					: 'twork-about-card',
-		} ),
-		[ variant ]
-	);
+	const handleMediaSelect = ( media ) => {
+		const nextType =
+			media?.type === 'video' || media?.mime?.startsWith( 'video/' )
+				? 'video'
+				: 'image';
+
+		setAttributes( {
+			mediaType: nextType,
+			mediaUrl: media?.url || '',
+			mediaId: media?.id || undefined,
+			mediaAlt: media?.alt || '',
+		} );
+	};
+
+	const blockProps = useBlockProps( {
+		className: [
+			'twork-about-card',
+			variant === 'overlay' ? 'twork-about-card--overlay' : '',
+			`is-media-${ mediaType }`,
+		]
+			.filter( Boolean )
+			.join( ' ' ),
+	} );
 
 	return (
 		<>
+			{ acceptsMedia && (
+				<BlockControls group="block">
+					<MediaReplaceFlow
+						mediaId={ attributes.mediaId }
+						mediaURL={ mediaUrl }
+						allowedTypes={ [ 'image', 'video' ] }
+						accept="image/*,video/*"
+						onSelect={ handleMediaSelect }
+						name={ __( 'Replace media', 'twork-builder' ) }
+					/>
+				</BlockControls>
+			) }
+
 			{ isSelected && (
 				<InspectorControls>
 					<PanelBody
-						title={ __( 'Card', 'twork-builder' ) }
+						title={ __( 'Media Settings', 'twork-builder' ) }
 						initialOpen={ true }
 					>
+						<SelectControl
+							label={ __( 'Media type', 'twork-builder' ) }
+							value={ mediaType }
+							options={ [
+								{
+									label: __( 'Image', 'twork-builder' ),
+									value: 'image',
+								},
+								{
+									label: __( 'Video', 'twork-builder' ),
+									value: 'video',
+								},
+								{
+									label: __( 'Solid color', 'twork-builder' ),
+									value: 'color',
+								},
+							] }
+							onChange={ ( val ) =>
+								setAttributes( { mediaType: val } )
+							}
+						/>
+
 						<SelectControl
 							label={ __( 'Layout', 'twork-builder' ) }
 							value={ variant }
@@ -139,13 +200,124 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 						/>
 
 						<TextControl
-							label={ __( 'Image alt text', 'twork-builder' ) }
-							value={ alt }
+							label={ __( 'Media alt text', 'twork-builder' ) }
+							value={ mediaAlt }
 							onChange={ ( val ) =>
-								setAttributes( { alt: val } )
+								setAttributes( { mediaAlt: val } )
 							}
 						/>
 
+						{ mediaType === 'color' && (
+							<BaseControl
+								label={ __(
+									'Background color',
+									'twork-builder'
+								) }
+							>
+								<ColorPalette
+									value={ backgroundColor }
+									onChange={ ( val ) =>
+										setAttributes( {
+											backgroundColor:
+												val || '#9db37a',
+										} )
+									}
+								/>
+							</BaseControl>
+						) }
+
+						{ acceptsMedia && (
+							<Button
+								isSecondary
+								onClick={ () =>
+									setAttributes( {
+										mediaUrl: '',
+										mediaId: undefined,
+										mediaAlt: '',
+									} )
+								}
+							>
+								{ __( 'Remove media', 'twork-builder' ) }
+							</Button>
+						) }
+					</PanelBody>
+
+					{ mediaType === 'video' && (
+						<PanelBody
+							title={ __( 'Video Options', 'twork-builder' ) }
+							initialOpen={ false }
+						>
+							<ToggleControl
+								label={ __( 'Autoplay', 'twork-builder' ) }
+								checked={ videoAutoplay }
+								onChange={ ( val ) =>
+									setAttributes( {
+										videoAutoplay: val,
+									} )
+								}
+							/>
+							<ToggleControl
+								label={ __( 'Loop', 'twork-builder' ) }
+								checked={ videoLoop }
+								onChange={ ( val ) =>
+									setAttributes( { videoLoop: val } )
+								}
+							/>
+							<ToggleControl
+								label={ __( 'Muted', 'twork-builder' ) }
+								checked={ videoMuted }
+								onChange={ ( val ) =>
+									setAttributes( { videoMuted: val } )
+								}
+							/>
+							<ToggleControl
+								label={ __( 'Show controls', 'twork-builder' ) }
+								checked={ videoControls }
+								onChange={ ( val ) =>
+									setAttributes( {
+										videoControls: val,
+									} )
+								}
+							/>
+						</PanelBody>
+					) }
+
+					<PanelBody
+						title={ __( 'Design Settings', 'twork-builder' ) }
+						initialOpen={ false }
+					>
+						{ acceptsMedia && (
+							<SelectControl
+								label={ __( 'Object fit', 'twork-builder' ) }
+								value={ objectFit }
+								options={ [
+									{
+										label: __( 'Cover', 'twork-builder' ),
+										value: 'cover',
+									},
+									{
+										label: __(
+											'Contain',
+											'twork-builder'
+										),
+										value: 'contain',
+									},
+									{
+										label: __( 'Fill', 'twork-builder' ),
+										value: 'fill',
+									},
+								] }
+								onChange={ ( val ) =>
+									setAttributes( { objectFit: val } )
+								}
+							/>
+						) }
+					</PanelBody>
+
+					<PanelBody
+						title={ __( 'Overlay Settings', 'twork-builder' ) }
+						initialOpen={ false }
+					>
 						{ variant === 'overlay' && (
 							<>
 								<TextControl
@@ -209,39 +381,48 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 			) }
 
 			<article { ...blockProps }>
-				{ ! image ? (
+				{ mediaType !== 'color' && ! mediaUrl ? (
 					<MediaPlaceholder
-						onSelect={ ( media ) =>
-							setAttributes( {
-								image: media.url,
-								imageId: media.id,
-								alt: media.alt || alt,
-							} )
-						}
-						allowedTypes={ [ 'image' ] }
+						onSelect={ handleMediaSelect }
+						allowedTypes={ [ 'image', 'video' ] }
+						accept="image/*,video/*"
 						multiple={ false }
 						labels={ {
-							title: __( 'Card image', 'twork-builder' ),
+							title: __(
+								'Card image or video',
+								'twork-builder'
+							),
 						} }
 						className="twork-about-card__placeholder"
 					/>
 				) : (
 					<>
-						<img src={ image } alt="" />
-						<div className="twork-about-card__editor-tools">
-							<Button
-								isSecondary
-								isSmall
-								onClick={ () =>
-									setAttributes( {
-										image: '',
-										imageId: null,
-									} )
-								}
-							>
-								{ __( 'Remove image', 'twork-builder' ) }
-							</Button>
-						</div>
+						{ mediaType === 'image' && mediaUrl && (
+							<img
+								src={ mediaUrl }
+								alt={ mediaAlt || '' }
+								style={ { objectFit } }
+							/>
+						) }
+						{ mediaType === 'video' && mediaUrl && (
+							<video
+								src={ mediaUrl }
+								autoPlay={ videoAutoplay }
+								loop={ videoLoop }
+								muted={ videoMuted }
+								controls={ videoControls }
+								playsInline
+								style={ { objectFit } }
+							/>
+						) }
+						{ mediaType === 'color' && (
+							<div
+								className="twork-about-card__color-bg"
+								style={ { backgroundColor } }
+								aria-hidden="true"
+							/>
+						) }
+
 						{ variant === 'overlay' && (
 							<div className="twork-about-card__overlay">
 								<RichText
