@@ -19,16 +19,46 @@
 			"type": "string",
 			"default": "simple"
 		},
-		"image": {
+		"mediaType": {
+			"type": "string",
+			"default": "image",
+			"enum": [ "image", "video", "color" ]
+		},
+		"mediaUrl": {
 			"type": "string",
 			"default": ""
 		},
-		"imageId": {
+		"mediaId": {
 			"type": "number"
 		},
-		"alt": {
+		"mediaAlt": {
 			"type": "string",
 			"default": ""
+		},
+		"videoAutoplay": {
+			"type": "boolean",
+			"default": true
+		},
+		"videoLoop": {
+			"type": "boolean",
+			"default": true
+		},
+		"videoMuted": {
+			"type": "boolean",
+			"default": true
+		},
+		"videoControls": {
+			"type": "boolean",
+			"default": false
+		},
+		"backgroundColor": {
+			"type": "string",
+			"default": "#9db37a"
+		},
+		"objectFit": {
+			"type": "string",
+			"default": "cover",
+			"enum": [ "cover", "contain", "fill" ]
 		},
 		"overlayText": {
 			"type": "string",
@@ -54,8 +84,10 @@
 	"example": {
 		"attributes": {
 			"variant": "overlay",
-			"image": "https://images.unsplash.com/photo-1472653431158-6364773b2a56?auto=format&fit=crop&w=1400&q=80",
-			"alt": "Farmer inspecting healthy crops",
+			"mediaType": "image",
+			"mediaUrl": "https://images.unsplash.com/photo-1472653431158-6364773b2a56?auto=format&fit=crop&w=1400&q=80",
+			"mediaAlt": "Farmer inspecting healthy crops",
+			"objectFit": "cover",
 			"overlayText": "Agriculture nurtures life through organic growth, sustainable farming, and careful stewardship of the land.",
 			"overlayButtonText": "About Us",
 			"overlayButtonUrl": "#",
