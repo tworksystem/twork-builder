@@ -7,8 +7,14 @@
 }
 
 .twork-stats {
-    // Fluid default gap that scales across viewport sizes unless overridden by block controls.
-    --twork-stats-grid-gap: var(--twork-stats-grid-gap, clamp(1rem, 3vw, 2.5rem));
+    // Effective desktop gap token.
+    // - honors explicit `--twork-stats-grid-gap` from block attributes
+    // - otherwise follows WP block gap if present
+    // - finally falls back to fluid clamp
+    --twork-stats-grid-gap-effective: var(
+        --twork-stats-grid-gap,
+        var(--wp--style--block-gap, clamp(1rem, 3vw, 2.5rem))
+    );
 
     .twork-stats__container {
         box-sizing: border-box;
@@ -53,9 +59,9 @@
         margin-top: 2.2rem;
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        row-gap: var(--twork-stats-grid-gap);
-        column-gap: var(--twork-stats-grid-gap);
-        gap: var(--twork-stats-grid-gap);
+        row-gap: var(--twork-stats-grid-gap-effective);
+        column-gap: var(--twork-stats-grid-gap-effective);
+        gap: var(--twork-stats-grid-gap-effective);
         align-items: start;
     }
 
@@ -71,7 +77,7 @@
     // Preserve grid rhythm for direct CTA rows when no explicit margin was chosen in block supports.
     .twork-stats__grid > .wp-block-twork-cta-block:not([style*="margin"]):not([class*="has-margin"]),
     .twork-stats__grid > .twork-stats__btn-wrap:not([style*="margin"]):not([class*="has-margin"]) {
-        margin-block-end: var(--twork-stats-grid-gap);
+        margin-block-end: var(--twork-stats-grid-gap-effective);
     }
 
     // All columns share flex stacking via `twork/stats-column` styles; only 2nd column alignment is special.
@@ -162,7 +168,10 @@
 @media (max-width: 1080px) {
     .twork-stats {
         // Tablet: moderate spacing.
-        --twork-stats-grid-gap: var(--twork-stats-grid-gap, clamp(0.875rem, 2.2vw, 1.5rem));
+        --twork-stats-grid-gap-effective: var(
+            --twork-stats-grid-gap-tablet,
+            var(--twork-stats-grid-gap, clamp(0.875rem, 2.2vw, 1.5rem))
+        );
 
         .twork-stats__header {
             flex-direction: column;
@@ -176,8 +185,8 @@
 
         .twork-stats__grid {
             grid-template-columns: 1fr;
-            row-gap: var(--twork-stats-grid-gap);
-            column-gap: var(--twork-stats-grid-gap);
+            row-gap: var(--twork-stats-grid-gap-effective);
+            column-gap: var(--twork-stats-grid-gap-effective);
         }
 
         // Flatten columns so nested CTA/stat-card become direct grid items, enabling global order utility behavior.
@@ -199,11 +208,14 @@
 @media (max-width: 768px) {
     .twork-stats {
         // Mobile: compact spacing.
-        --twork-stats-grid-gap: var(--twork-stats-grid-gap, clamp(0.75rem, 2vw, 1.125rem));
+        --twork-stats-grid-gap-effective: var(
+            --twork-stats-grid-gap-mobile,
+            var(--twork-stats-grid-gap-tablet, clamp(0.75rem, 2vw, 1.125rem))
+        );
 
         .twork-stats__grid {
-            row-gap: var(--twork-stats-grid-gap);
-            column-gap: var(--twork-stats-grid-gap);
+            row-gap: var(--twork-stats-grid-gap-effective);
+            column-gap: var(--twork-stats-grid-gap-effective);
         }
     }
 }

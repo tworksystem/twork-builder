@@ -93,8 +93,12 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 		descFontSize,
 		headerBorderColor,
 		gridGap,
+		gridGapTablet = 24,
+		gridGapMobile = 16,
 	} = attributes;
 	const statsGridGap = `${ gridGap }px`;
+	const statsGridGapTablet = `${ gridGapTablet }px`;
+	const statsGridGapMobile = `${ gridGapMobile }px`;
 
 	const blockProps = useBlockProps( {
 		className: 'twork-stats twork-stats-section-editor',
@@ -103,6 +107,8 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 			paddingTop: `${ paddingTop }px`,
 			paddingBottom: `${ paddingBottom }px`,
 			'--twork-stats-grid-gap': statsGridGap,
+			'--twork-stats-grid-gap-tablet': statsGridGapTablet,
+			'--twork-stats-grid-gap-mobile': statsGridGapMobile,
 			'--wp--style--block-gap': statsGridGap,
 		},
 	} );
@@ -113,6 +119,8 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 			style: {
 				gap: statsGridGap,
 				'--twork-stats-grid-gap': statsGridGap,
+				'--twork-stats-grid-gap-tablet': statsGridGapTablet,
+				'--twork-stats-grid-gap-mobile': statsGridGapMobile,
 			},
 		},
 		{
@@ -330,13 +338,35 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 						/>
 
 						<RangeControl
-							label={ __( 'Grid gap (px)', 'twork-builder' ) }
+							label={ __( 'Grid gap (desktop px)', 'twork-builder' ) }
 							value={ gridGap }
 							onChange={ ( val ) =>
 								setAttributes( { gridGap: val } )
 							}
 							min={ 12 }
 							max={ 48 }
+							step={ 2 }
+						/>
+
+						<RangeControl
+							label={ __( 'Grid gap (tablet px)', 'twork-builder' ) }
+							value={ gridGapTablet }
+							onChange={ ( val ) =>
+								setAttributes( { gridGapTablet: val } )
+							}
+							min={ 8 }
+							max={ 40 }
+							step={ 2 }
+						/>
+
+						<RangeControl
+							label={ __( 'Grid gap (mobile px)', 'twork-builder' ) }
+							value={ gridGapMobile }
+							onChange={ ( val ) =>
+								setAttributes( { gridGapMobile: val } )
+							}
+							min={ 6 }
+							max={ 32 }
 							step={ 2 }
 						/>
 					</PanelBody>

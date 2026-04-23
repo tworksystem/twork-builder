@@ -4,13 +4,24 @@
 	display: flex;
 }
 
-// Gutenberg canvas can apply stronger default block styles; use high-specificity selectors.
-.wp-block-twork-cta-block.twork-stats__btn-wrap {
-	margin-block-end: var(--twork-stats-grid-gap, 2rem) !important;
+// Default CTA bottom rhythm (editor):
+// - mirrors frontend fallback behavior exactly
+// - applies only when spacing was not explicitly set via block supports/classes
+// - avoids !important so responsive spacing utilities can still win
+.wp-block-twork-cta-block.twork-stats__btn-wrap:not([style*="margin"]):not([class*="has-margin"]) {
+	margin-block-end: var(--twork-stats-grid-gap, clamp(1rem, 3vw, 2.5rem));
 }
 
-.editor-styles-wrapper .wp-block-twork-cta-block.twork-stats__btn-wrap {
-	margin-block-end: var(--twork-stats-grid-gap, 2rem) !important;
+@media (max-width: 1080px) {
+	.wp-block-twork-cta-block.twork-stats__btn-wrap:not([style*="margin"]):not([class*="has-margin"]) {
+		margin-block-end: var(--twork-stats-grid-gap, clamp(0.875rem, 2.2vw, 1.5rem));
+	}
+}
+
+@media (max-width: 768px) {
+	.wp-block-twork-cta-block.twork-stats__btn-wrap:not([style*="margin"]):not([class*="has-margin"]) {
+		margin-block-end: var(--twork-stats-grid-gap, clamp(0.75rem, 2vw, 1.125rem));
+	}
 }
 
 // Interactive hover (editor canvas): .twork-stats__btn and --editor are spans.
