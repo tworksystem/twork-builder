@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>We'll Be Back Soon | My Avocado Website</title>
+  <style>
+    /* ===== CSS Custom Properties ===== */
+    :root {
+      --clr-avocado-dark:   #2d5016;
+      --clr-avocado-mid:    #4a7c2f;
+      --clr-avocado-light:  #6da832;
+      --clr-avocado-flesh:  #c8e6a0;
+      --clr-avocado-cream:  #f5f0e8;
+      --clr-avocado-pit:    #7b4f2e;
+      --clr-text-primary:   #1a2e0a;
+      --clr-text-secondary: #4a5568;
+      --clr-white:          #ffffff;
+      --font-primary: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      --transition: 0.3s ease;
+      --radius-lg: 1.5rem;
+      --radius-md: 0.75rem;
+    }
+
+    /* ===== Reset ===== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* ===== Base ===== */
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-primary);
+      background-color: var(--clr-avocado-cream);
+      color: var(--clr-text-primary);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* ===== Background Pattern ===== */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        radial-gradient(circle at 20% 20%, rgba(109, 168, 50, 0.12) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(45, 80, 22, 0.10) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(200, 230, 160, 0.15) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ===== Floating Leaf Shapes ===== */
+    .leaf-bg {
+      position: fixed;
+      border-radius: 50% 0 50% 0;
+      opacity: 0.06;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .leaf-bg:nth-child(1) {
+      width: 300px; height: 300px;
+      background: var(--clr-avocado-mid);
+      top: -80px; left: -80px;
+      transform: rotate(30deg);
+    }
+    .leaf-bg:nth-child(2) {
+      width: 200px; height: 200px;
+      background: var(--clr-avocado-light);
+      bottom: -60px; right: -60px;
+      transform: rotate(-20deg);
+    }
+    .leaf-bg:nth-child(3) {
+      width: 140px; height: 140px;
+      background: var(--clr-avocado-dark);
+      top: 60%; left: 5%;
+      transform: rotate(50deg);
+    }
+    .leaf-bg:nth-child(4) {
+      width: 180px; height: 180px;
+      background: var(--clr-avocado-light);
+      top: 10%; right: 8%;
+      transform: rotate(-40deg);
+    }
+
+    /* ===== Main Container ===== */
+    main {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 2rem 1.25rem;
+      width: 100%;
+      max-width: 680px;
+    }
+
+    /* ===== Avocado Icon ===== */
+    .avocado-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 2rem;
+      animation: bounce 2.4s ease-in-out infinite;
+    }
+
+    .avocado-svg {
+      width: 100px;
+      height: 120px;
+      filter: drop-shadow(0 8px 24px rgba(45,80,22,0.18));
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0);      }
+      30%       { transform: translateY(-14px);  }
+      60%       { transform: translateY(-6px);   }
+    }
+
+    /* ===== Branding ===== */
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--clr-avocado-mid);
+      color: var(--clr-white);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.35rem 1rem;
+      border-radius: 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    /* ===== Headline ===== */
+    h1 {
+      font-size: clamp(2rem, 6vw, 3.2rem);
+      font-weight: 800;
+      line-height: 1.15;
+      color: var(--clr-avocado-dark);
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+
+    h1 span {
+      color: var(--clr-avocado-light);
+    }
+
+    /* ===== Subtext ===== */
+    .subtitle {
+      font-size: clamp(0.95rem, 2.5vw, 1.15rem);
+      color: var(--clr-text-secondary);
+      line-height: 1.7;
+      max-width: 480px;
+      margin-bottom: 2.5rem;
+    }
+
+    /* ===== Progress / Status Card ===== */
+    .status-card {
+      background: var(--clr-white);
+      border: 1px solid rgba(109, 168, 50, 0.2);
+      border-radius: var(--radius-lg);
+      padding: 1.75rem 2rem;
+      width: 100%;
+      margin-bottom: 2.5rem;
+      box-shadow: 0 4px 32px rgba(45, 80, 22, 0.08);
+    }
+
+    .status-card h2 {
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--clr-avocado-mid);
+      margin-bottom: 1.25rem;
+    }
+
+    .progress-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+
+    .progress-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.9rem;
+      color: var(--clr-text-secondary);
+    }
+
+    .progress-icon {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 0.7rem;
+    }
+
+    .progress-icon.done {
+      background: var(--clr-avocado-flesh);
+      color: var(--clr-avocado-dark);
+    }
+
+    .progress-icon.in-progress {
+      background: #fff3cd;
+      color: #856404;
+      animation: spin 1.8s linear infinite;
+    }
+
+    .progress-icon.pending {
+      background: #f0f0f0;
+      color: #999;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .progress-bar-wrap {
+      margin-top: 1.5rem;
+    }
+
+    .progress-bar-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      color: var(--clr-text-secondary);
+      margin-bottom: 0.4rem;
+    }
+
+    .progress-bar {
+      height: 8px;
+      background: var(--clr-avocado-flesh);
+      border-radius: 99px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 0;
+      background: linear-gradient(90deg, var(--clr-avocado-light), var(--clr-avocado-mid));
+      border-radius: 99px;
+      transition: width 1.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* ===== Notify Form ===== */
+    .notify-section {
+      width: 100%;
+      margin-bottom: 2.5rem;
+    }
+
+    .notify-section p {
+      font-size: 0.9rem;
+      color: var(--clr-text-secondary);
+      margin-bottom: 0.85rem;
+    }
+
+    .notify-form {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .notify-form input[type="email"] {
+      flex: 1;
+      min-width: 200px;
+      padding: 0.75rem 1.1rem;
+      border: 1.5px solid rgba(109, 168, 50, 0.35);
+      border-radius: var(--radius-md);
+      background: var(--clr-white);
+      font-family: var(--font-primary);
+      font-size: 0.9rem;
+      color: var(--clr-text-primary);
+      outline: none;
+      transition: border-color var(--transition), box-shadow var(--transition);
+    }
+
+    .notify-form input[type="email"]:focus {
+      border-color: var(--clr-avocado-light);
+      box-shadow: 0 0 0 3px rgba(109, 168, 50, 0.15);
+    }
+
+    .notify-form input[type="email"]::placeholder {
+      color: #aab;
+    }
+
+    .btn-notify {
+      padding: 0.75rem 1.5rem;
+      background: var(--clr-avocado-mid);
+      color: var(--clr-white);
+      border: none;
+      border-radius: var(--radius-md);
+      font-family: var(--font-primary);
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background var(--transition), transform var(--transition);
+      white-space: nowrap;
+    }
+
+    .btn-notify:hover  { background: var(--clr-avocado-dark); transform: translateY(-1px); }
+    .btn-notify:active { transform: translateY(0); }
+
+    .notify-success {
+      display: none;
+      margin-top: 0.75rem;
+      padding: 0.6rem 1rem;
+      background: var(--clr-avocado-flesh);
+      border-radius: var(--radius-md);
+      color: var(--clr-avocado-dark);
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    /* ===== Social Links ===== */
+    .social-section {
+      margin-bottom: 2rem;
+    }
+
+    .social-section p {
+      font-size: 0.82rem;
+      color: var(--clr-text-secondary);
+      margin-bottom: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 600;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 0.75rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .social-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--clr-white);
+      border: 1.5px solid rgba(109, 168, 50, 0.25);
+      color: var(--clr-avocado-mid);
+      text-decoration: none;
+      transition: background var(--transition), color var(--transition),
+                  border-color var(--transition), transform var(--transition),
+                  box-shadow var(--transition);
+      box-shadow: 0 2px 8px rgba(45,80,22,0.06);
+    }
+
+    .social-link:hover {
+      background: var(--clr-avocado-mid);
+      color: var(--clr-white);
+      border-color: var(--clr-avocado-mid);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(74,124,47,0.25);
+    }
+
+    .social-link svg {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
+    }
+
+    /* ===== Contact Line ===== */
+    .contact-line {
+      font-size: 0.85rem;
+      color: var(--clr-text-secondary);
+      margin-bottom: 2rem;
+    }
+
+    .contact-line a {
+      color: var(--clr-avocado-mid);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .contact-line a:hover {
+      text-decoration: underline;
+    }
+
+    /* ===== Footer ===== */
+    footer {
+      position: relative;
+      z-index: 1;
+      font-size: 0.78rem;
+      color: var(--clr-text-secondary);
+      padding: 1.5rem 1rem;
+      text-align: center;
+    }
+
+    /* ===== Responsive ===== */
+    @media (min-width: 480px) {
+      .avocado-svg { width: 120px; height: 144px; }
+      .status-card { padding: 2rem 2.5rem; }
+    }
+
+    @media (min-width: 768px) {
+      main { padding: 3rem 2rem; }
+      .notify-form { flex-wrap: nowrap; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Background Leaf Shapes -->
+  <div class="leaf-bg" aria-hidden="true"></div>
+  <div class="leaf-bg" aria-hidden="true"></div>
+  <div class="leaf-bg" aria-hidden="true"></div>
+  <div class="leaf-bg" aria-hidden="true"></div>
+
+  <main role="main" aria-label="Site maintenance notice">
+
+    <!-- Avocado Icon -->
+    <div class="avocado-wrap" aria-hidden="true">
+      <svg class="avocado-svg" viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Avocado illustration">
+        <!-- Outer skin -->
+        <ellipse cx="50" cy="68" rx="36" ry="48" fill="#2d5016"/>
+        <!-- Flesh -->
+        <ellipse cx="50" cy="70" rx="28" ry="40" fill="#c8e6a0"/>
+        <!-- Pit -->
+        <ellipse cx="50" cy="78" rx="14" ry="18" fill="#7b4f2e"/>
+        <ellipse cx="50" cy="76" rx="10" ry="13" fill="#9b6b42"/>
+        <!-- Stem -->
+        <rect x="47" y="18" width="6" height="14" rx="3" fill="#2d5016"/>
+        <!-- Leaf -->
+        <ellipse cx="62" cy="21" rx="14" ry="7" fill="#4a7c2f" transform="rotate(-30 62 21)"/>
+        <line x1="54" y1="24" x2="68" y2="16" stroke="#2d5016" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+    </div>
+
+    <!-- Brand Badge -->
+    <span class="brand" aria-label="My Avocado Website">
+      <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" aria-hidden="true">
+        <circle cx="6" cy="6" r="5.5" stroke="currentColor" stroke-width="1" fill="none"/>
+        <circle cx="6" cy="6" r="2.5"/>
+      </svg>
+      My Avocado Website
+    </span>
+
+    <!-- Headline -->
+    <h1>We'll Be Back <span>Soon!</span></h1>
+
+    <!-- Subtitle -->
+    <p class="subtitle">
+      We're currently giving our website a fresh new look — like a perfectly ripe avocado.
+      Our team is working hard behind the scenes. Thank you for your patience!
+    </p>
+
+    <!-- Status Card -->
+    <div class="status-card" role="region" aria-label="Maintenance progress">
+      <h2>What we're working on</h2>
+      <ul class="progress-list" role="list">
+        <li class="progress-item">
+          <span class="progress-icon done" aria-label="Complete">&#10003;</span>
+          Design & UI refresh
+        </li>
+        <li class="progress-item">
+          <span class="progress-icon done" aria-label="Complete">&#10003;</span>
+          Performance optimisation
+        </li>
+        <li class="progress-item">
+          <span class="progress-icon in-progress" aria-label="In progress">&#9654;</span>
+          Content updates
+        </li>
+        <li class="progress-item">
+          <span class="progress-icon pending" aria-label="Pending">&#8212;</span>
+          Final QA &amp; launch
+        </li>
+      </ul>
+
+      <div class="progress-bar-wrap">
+        <div class="progress-bar-label">
+          <span>Overall Progress</span>
+          <span id="pct-label">0%</span>
+        </div>
+        <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" aria-label="70% complete">
+          <div class="progress-fill" id="progress-fill"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Notify Form -->
+    <section class="notify-section" aria-label="Get notified when we launch">
+      <p>Get notified when we go live &mdash; no spam, ever.</p>
+      <form class="notify-form" id="notify-form" novalidate>
+        <label for="email" class="sr-only">Email address</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="your@email.com"
+          autocomplete="email"
+          required
+          aria-required="true"
+          aria-describedby="notify-success"
+        />
+        <button type="submit" class="btn-notify">Notify Me</button>
+      </form>
+      <p class="notify-success" id="notify-success" role="status" aria-live="polite">
+        &#127803; You're on the list! We'll let you know when we launch.
+      </p>
+    </section>
+
+    <!-- Social Links -->
+    <div class="social-section" aria-label="Follow us on social media">
+      <p>Follow us</p>
+      <nav class="social-links" aria-label="Social media links">
+
+        <!-- Facebook -->
+        <a href="#" class="social-link" aria-label="Facebook" rel="noopener noreferrer" target="_blank">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+          </svg>
+        </a>
+
+        <!-- Instagram -->
+        <a href="#" class="social-link" aria-label="Instagram" rel="noopener noreferrer" target="_blank">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="2"/>
+            <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/>
+            <circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>
+          </svg>
+        </a>
+
+        <!-- Twitter / X -->
+        <a href="#" class="social-link" aria-label="Twitter / X" rel="noopener noreferrer" target="_blank">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+          </svg>
+        </a>
+
+        <!-- YouTube -->
+        <a href="#" class="social-link" aria-label="YouTube" rel="noopener noreferrer" target="_blank">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/>
+            <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="var(--clr-white)" style="fill:var(--clr-avocado-cream)"/>
+          </svg>
+        </a>
+
+        <!-- LinkedIn -->
+        <a href="#" class="social-link" aria-label="LinkedIn" rel="noopener noreferrer" target="_blank">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+            <rect x="2" y="9" width="4" height="12"/>
+            <circle cx="4" cy="4" r="2"/>
+          </svg>
+        </a>
+
+      </nav>
+    </div>
+
+    <!-- Contact -->
+    <p class="contact-line">
+      Urgent? Email us at
+      <a href="mailto:hello@avocadowebsite.com">hello@avocadowebsite.com</a>
+    </p>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; <span id="year"></span> My Avocado Website. All rights reserved.</p>
+  </footer>
+
+  <!-- Screen-reader utility -->
+  <style>.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}</style>
+
+  <script>
+    /* ===== Copyright Year ===== */
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    /* ===== Animated Progress Bar ===== */
+    (function () {
+      const TARGET = 70;
+      const fill   = document.getElementById('progress-fill');
+      const label  = document.getElementById('pct-label');
+
+      function animateBar() {
+        let current = 0;
+        const step  = TARGET / 60;
+        const timer = setInterval(function () {
+          current = Math.min(current + step, TARGET);
+          fill.style.width  = current + '%';
+          label.textContent = Math.round(current) + '%';
+          if (current >= TARGET) clearInterval(timer);
+        }, 18);
+      }
+
+      if ('IntersectionObserver' in window) {
+        const obs = new IntersectionObserver(function (entries) {
+          if (entries[0].isIntersecting) { animateBar(); obs.disconnect(); }
+        }, { threshold: 0.4 });
+        obs.observe(document.querySelector('.status-card'));
+      } else {
+        animateBar();
+      }
+    })();
+
+    /* ===== Notify Form ===== */
+    (function () {
+      const form    = document.getElementById('notify-form');
+      const success = document.getElementById('notify-success');
+      const input   = document.getElementById('email');
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const email = input.value.trim();
+        const valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+        if (!valid) {
+          input.focus();
+          input.setAttribute('aria-invalid', 'true');
+          input.style.borderColor = '#e53e3e';
+          return;
+        }
+
+        input.removeAttribute('aria-invalid');
+        input.style.borderColor = '';
+        form.style.display      = 'none';
+        success.style.display   = 'block';
+
+        /* Replace with your actual submission endpoint */
+        // fetch('/api/notify', { method:'POST', body: JSON.stringify({ email }), headers:{'Content-Type':'application/json'} });
+      });
+
+      input.addEventListener('input', function () {
+        input.removeAttribute('aria-invalid');
+        input.style.borderColor = '';
+      });
+    })();
+  </script>
+</body>
+</html>
