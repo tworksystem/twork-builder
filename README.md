@@ -84,7 +84,7 @@ Built with **ES6+**, **SCSS**, **@wordpress/scripts**, and **WordPress best prac
 ### 1️⃣ Clone the Repository
 
 ```bash
-git clone https://github.com/mawkunnmyat/twork-builder.git
+git clone https://github.com/tworksystem/twork-builder.git
 cd twork-builder
 ```
 
@@ -464,7 +464,7 @@ This project is licensed under the **GPL v2 or later** — see [LICENSE](LICENSE
 
 - 🌐 **Website:** [https://www.tworksystem.com](https://www.tworksystem.com)
 - 🔗 **Plugin URI:** [https://www.tworksystem.com/twork-builder](https://www.tworksystem.com/twork-builder)
-- 🐙 **GitHub:** [https://github.com/mawkunnmyat/twork-builder](https://github.com/mawkunnmyat/twork-builder)
+- 🐙 **GitHub:** [https://github.com/tworksystem/twork-builder](https://github.com/tworksystem/twork-builder)
 
 ### Author
 
