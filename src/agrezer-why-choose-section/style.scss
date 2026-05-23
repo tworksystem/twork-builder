@@ -81,22 +81,30 @@
     .twork-why-choose__stage {
         position: relative;
         margin-top: 2.2rem;
+        min-height: auto !important;
+        padding-bottom: 108px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.4rem;
     }
 
     .twork-why-choose__center-media-wrapper {
-        position: absolute;
-        bottom: var(--twork-image-bottom, 30px);
-        left: 0;
-        width: 100%;
+        position: relative;
+        bottom: auto;
+        left: auto;
+        width: auto;
         display: flex;
         justify-content: center;
         z-index: 2;
-        pointer-events: none;
+        pointer-events: auto;
+        margin-top: 0.8rem;
+        order: 0;
     }
 
     .twork-why-choose__center-media {
         width: 100%;
-        max-width: var(--twork-media-max-width-desk, 550px);
+        max-width: min(100%, var(--twork-media-max-width-mob, 520px));
         height: auto;
         object-fit: contain;
         pointer-events: auto;
@@ -149,11 +157,12 @@
     }
 
     .twork-why-choose__point {
-        position: absolute;
+        position: static;
         z-index: 10;
-        width: 180px;
+        width: min(100%, 240px);
         text-align: center;
-        transform: translateX(-50%);
+        transform: none;
+        order: 1;
     }
 
     .twork-why-choose__point-icon {
@@ -193,70 +202,63 @@
     .twork-why-choose__point-text {
         margin: 0;
         color: #fff;
-        font-size: 1.65rem;
+        font-size: clamp(1rem, 4.1vw, 1.2rem);
         line-height: 1.2;
         font-weight: 500;
         text-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
     }
 
-    .twork-why-choose__point--1 {
-        left: 15%;
-        top: 55%;
-    }
-
-    .twork-why-choose__point--2 {
-        left: 30%;
-        top: 25%;
-    }
-
     .twork-why-choose__point--3 {
-        left: 50%;
-        top: 10%;
-    }
-
-    .twork-why-choose__point--4 {
-        left: 70%;
-        top: 25%;
-    }
-
-    .twork-why-choose__point--5 {
-        left: 85%;
-        top: 55%;
+        /*
+         * Legacy mobile override (kept for rollback/debugging):
+         * order: -1;
+         */
+        order: 1;
     }
 }
 
-@media (max-width: 1100px) {
+@media (min-width: 861px) and (max-width: 1199px) {
     .twork-why-choose {
-        .twork-why-choose__center-media {
-            max-width: min(74%, 640px);
+        .twork-why-choose__stage {
+            margin-top: 2.6rem;
+            padding-bottom: 120px;
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            grid-template-areas:
+                "point1 point2"
+                "point3 point4"
+                "point5 point5";
+            justify-items: center;
+            align-items: start;
+            gap: 1.25rem 1rem;
         }
 
         .twork-why-choose__point {
-            width: 170px;
+            width: min(100%, 260px);
+            max-width: 260px;
+        }
+
+        .twork-why-choose__point--1 { grid-area: point1; }
+        .twork-why-choose__point--2 { grid-area: point2; }
+        .twork-why-choose__point--3 { grid-area: point3; order: 0; }
+        .twork-why-choose__point--4 { grid-area: point4; }
+        .twork-why-choose__point--5 { grid-area: point5; }
+
+        .twork-why-choose__center-media-wrapper {
+            grid-column: 1 / -1;
+            grid-row: 2 / 3;
+            align-self: center;
+            justify-self: center;
+            margin: 0.6rem 0 0;
+            z-index: 1;
+        }
+
+        .twork-why-choose__center-media {
+            max-width: min(72vw, var(--twork-media-max-width-desk, 550px));
         }
 
         .twork-why-choose__point-text {
             font-size: 1.2rem;
-        }
-
-        .twork-why-choose__point--1 {
-            left: 5%;
-            top: 50%;
-        }
-
-        .twork-why-choose__point--2 {
-            left: 20%;
-            top: 32%;
-        }
-
-        .twork-why-choose__point--4 {
-            left: 63%;
-            top: 32%;
-        }
-
-        .twork-why-choose__point--5 {
-            left: 79%;
-            top: 50%;
         }
     }
 }
@@ -338,44 +340,74 @@
     }
 }
 
+@media (min-width: 1200px) {
+    .twork-why-choose {
+        .twork-why-choose__stage {
+            margin-top: 2.2rem;
+            padding-bottom: 0;
+            display: block;
+        }
+
+        .twork-why-choose__point {
+            position: absolute;
+            width: clamp(140px, 15vw, 180px);
+            transform: translateX(-50%);
+        }
+
+        .twork-why-choose__center-media-wrapper {
+            position: absolute;
+            bottom: var(--twork-image-bottom, 30px);
+            left: 0;
+            width: 100%;
+            pointer-events: none;
+            margin-top: 0;
+            order: unset;
+        }
+
+        .twork-why-choose__center-media {
+            max-width: var(--twork-media-max-width-desk, 550px);
+        }
+
+        .twork-why-choose__point-text {
+            font-size: clamp(1.1rem, 1.3vw, 1.65rem);
+        }
+
+        .twork-why-choose__shape-divider {
+            height: var(--twork-wave-h-desk, 124px);
+            background-size: auto 100%;
+        }
+
+        .twork-why-choose__point--1 {
+            left: 15%;
+            top: 55%;
+        }
+
+        .twork-why-choose__point--2 {
+            left: 30%;
+            top: 25%;
+        }
+
+        .twork-why-choose__point--3 {
+            left: 50%;
+            top: 10%;
+        }
+
+        .twork-why-choose__point--4 {
+            left: 70%;
+            top: 25%;
+        }
+
+        .twork-why-choose__point--5 {
+            left: 85%;
+            top: 55%;
+        }
+    }
+}
+
 @media (max-width: 860px) {
     .twork-why-choose {
         padding-top: var(--twork-padding-top-mobile, 67px);
         padding-bottom: var(--twork-padding-bottom-mobile, 0px);
-
-        .twork-why-choose__stage {
-            min-height: auto !important;
-            margin-top: 2.8rem;
-            padding-bottom: 108px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1.4rem;
-        }
-
-        .twork-why-choose__point {
-            position: static;
-            width: min(100%, 240px);
-            transform: none;
-        }
-
-        .twork-why-choose__point--3 {
-            order: -1;
-        }
-
-        .twork-why-choose__center-media-wrapper {
-            position: relative;
-            bottom: auto;
-            left: auto;
-            width: auto;
-            justify-content: center;
-            margin-top: 0.8rem;
-            pointer-events: auto;
-        }
-
-        .twork-why-choose__center-media {
-            max-width: min(100%, var(--twork-media-max-width-mob, 520px));
-        }
 
         .twork-why-choose__shape-divider {
             height: var(--twork-wave-h-mob, 86px);
@@ -383,3 +415,25 @@
         }
     }
 }
+
+/*
+ * Legacy reference (absolute-first responsive logic).
+ * Kept for rollback/debugging during QA; do not remove until layout is signed off.
+ *
+ * .twork-why-choose__point--1 { left: 15%; top: 55%; }
+ * .twork-why-choose__point--2 { left: 30%; top: 25%; }
+ * .twork-why-choose__point--3 { left: 50%; top: 10%; }
+ * .twork-why-choose__point--4 { left: 70%; top: 25%; }
+ * .twork-why-choose__point--5 { left: 85%; top: 55%; }
+ *
+ * @media (max-width: 1100px) {
+ *   .twork-why-choose__point { width: 170px; }
+ *   .twork-why-choose__point-text { font-size: 1.2rem; }
+ * }
+ *
+ * @media (max-width: 860px) {
+ *   .twork-why-choose__stage { display:flex; flex-direction:column; }
+ *   .twork-why-choose__point { position:static; }
+ *   .twork-why-choose__center-media-wrapper { position:relative; }
+ * }
+ */

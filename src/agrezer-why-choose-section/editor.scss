@@ -25,6 +25,21 @@
 	/* Ensure inner children (the points) don't get trapped by layout constraints */
 	.twork-why-choose__stage-editor {
 		position: relative !important;
-		> .wp-block { position: absolute !important; }
+	}
+
+	/*
+	 * Legacy editor override kept for rollback/debugging:
+	 * @media (min-width: 861px) {
+	 *   .twork-why-choose__stage-editor > .wp-block {
+	 *     position: absolute !important;
+	 *   }
+	 * }
+	 */
+	@media (min-width: 1200px) {
+		.twork-why-choose__stage-editor {
+			> .wp-block {
+				position: absolute !important;
+			}
+		}
 	}
 }
