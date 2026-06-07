@@ -1,0 +1,88 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/faq-accordion-section",
+	"version": "1.0.0",
+	"title": "FAQ Accordion Section",
+	"category": "twork-builder",
+	"icon": "editor-help",
+	"description": "FAQ section with accordion items, contact link, and no-JS details/summary fallback.",
+	"keywords": [ "faq", "accordion", "questions", "shwe", "twork" ],
+	"attributes": {
+		"eyebrow": {
+			"type": "string",
+			"default": "USEFUL INFORMATION"
+		},
+		"title": {
+			"type": "string",
+			"default": "Frequently Asked Questions"
+		},
+		"contactText": {
+			"type": "string",
+			"default": "Still have more questions?"
+		},
+		"contactLinkLabel": {
+			"type": "string",
+			"default": "Contact us"
+		},
+		"contactHref": {
+			"type": "string",
+			"default": "/contact"
+		},
+		"backgroundColor": {
+			"type": "string",
+			"default": "#ffffff"
+		},
+		"padding": {
+			"type": "number",
+			"default": 80
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"align": [ "wide", "full" ]
+	},
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": {
+			"eyebrow": "USEFUL INFORMATION",
+			"title": "Frequently Asked Questions",
+			"contactText": "Still have more questions?",
+			"contactLinkLabel": "Contact us",
+			"contactHref": "/contact",
+			"backgroundColor": "#ffffff",
+			"padding": 80
+		},
+		"innerBlocks": [
+			{
+				"name": "twork/faq-accordion-item",
+				"attributes": {
+					"question": "What products does Shwe Myanmar Foodstuff Industry make?",
+					"answer": "We specialize in premium butter (ထောပတ်) and ghee under the Shwe Myanmar (ရွှေမြန်မာ) brand. Our flagship product is available in multiple sizes including the 10 Viss bulk pack (≈ 16.33 kg).",
+					"isOpenByDefault": true
+				}
+			},
+			{
+				"name": "twork/faq-accordion-item",
+				"attributes": {
+					"question": "What does '10 Viss' mean?",
+					"answer": "Viss is a traditional Burmese unit of weight. 10 Viss equals approximately 16.33 kg (36 lbs). Our 10 Viss pack is designed for wholesale, restaurants, and commercial kitchens.",
+					"isOpenByDefault": false
+				}
+			},
+			{
+				"name": "twork/faq-accordion-item",
+				"attributes": {
+					"question": "How can I place an order?",
+					"answer": "Contact us by phone: 095-2-55122, 095-2-55123, or 095-9-200 1227. Our team in Mandalay will assist with retail and wholesale orders.",
+					"isOpenByDefault": false
+				}
+			}
+		]
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"viewScript": "file:./view.js",
+	"style": "file:./style-index.css"
+}

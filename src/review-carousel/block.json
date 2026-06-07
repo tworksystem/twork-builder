@@ -1,0 +1,59 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/review-carousel",
+	"version": "1.0.0",
+	"title": "Review Carousel",
+	"category": "twork-builder",
+	"icon": "format-quote",
+	"description": "Customer reviews carousel with scroll navigation. Ports shweghee testimonials component.",
+	"keywords": [ "testimonials", "reviews", "carousel", "quotes", "twork" ],
+	"attributes": {
+		"eyebrow": {
+			"type": "string",
+			"default": "CUSTOMER REVIEWS"
+		},
+		"title": {
+			"type": "string",
+			"default": "What Our Customers Say."
+		},
+		"prevLabel": {
+			"type": "string",
+			"default": "Previous"
+		},
+		"nextLabel": {
+			"type": "string",
+			"default": "Next"
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"align": [ "wide", "full" ]
+	},
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": {
+			"eyebrow": "CUSTOMER REVIEWS",
+			"title": "What Our Customers Say.",
+			"prevLabel": "Previous",
+			"nextLabel": "Next"
+		},
+		"innerBlocks": [
+			{
+				"name": "twork/review-card",
+				"attributes": {
+					"text": "Shwe Myanmar butter has been our kitchen staple for years. The natural taste is unmatched — we use it for everything from curries to baking.",
+					"name": "Daw Khin M.",
+					"location": "Mandalay, Myanmar",
+					"avatarUrl": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&q=80",
+					"avatarAlt": "Daw Khin M."
+				}
+			}
+		]
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./view.js"
+}

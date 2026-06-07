@@ -1,0 +1,94 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/split-promo-section",
+	"version": "1.0.0",
+	"title": "Split Promo Section",
+	"category": "twork-builder",
+	"icon": "smartphone",
+	"description": "Split layout promo: image, eyebrow, title, feature list, and dual CTAs. Ports shweghee app-promo.",
+	"keywords": [ "promo", "app", "split", "cta", "shwe", "twork" ],
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"align": [ "wide", "full" ]
+	},
+	"attributes": {
+		"eyebrow": {
+			"type": "string",
+			"default": "ORDER SHWE MYANMAR"
+		},
+		"title": {
+			"type": "string",
+			"default": "Contact Us For Orders & Wholesale."
+		},
+		"features": {
+			"type": "array",
+			"default": [
+				"Call our Mandalay hotline: 095-2-55122",
+				"Bulk orders available in 10 Viss packs",
+				"Nationwide distribution across Myanmar",
+				"Premium butter and ghee for home & business"
+			]
+		},
+		"primaryCtaHref": {
+			"type": "string",
+			"default": "tel:095255122"
+		},
+		"primaryCtaLabel": {
+			"type": "string",
+			"default": "Call 095-2-55122"
+		},
+		"secondaryCtaHref": {
+			"type": "string",
+			"default": "tel:09592001227"
+		},
+		"secondaryCtaLabel": {
+			"type": "string",
+			"default": "Call 095-9-200 1227"
+		},
+		"imageUrl": {
+			"type": "string",
+			"default": "https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?w=560&h=480&fit=crop&q=80"
+		},
+		"imageId": {
+			"type": "number"
+		},
+		"imageAlt": {
+			"type": "string",
+			"default": "Shwe Myanmar butter products"
+		},
+		"backgroundColor": {
+			"type": "string",
+			"default": "#f7fcff"
+		},
+		"padding": {
+			"type": "number",
+			"default": 80
+		}
+	},
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": {
+			"eyebrow": "ORDER SHWE MYANMAR",
+			"title": "Contact Us For Orders & Wholesale.",
+			"features": [
+				"Call our Mandalay hotline: 095-2-55122",
+				"Bulk orders available in 10 Viss packs",
+				"Nationwide distribution across Myanmar",
+				"Premium butter and ghee for home & business"
+			],
+			"primaryCtaHref": "tel:095255122",
+			"primaryCtaLabel": "Call 095-2-55122",
+			"secondaryCtaHref": "tel:09592001227",
+			"secondaryCtaLabel": "Call 095-9-200 1227",
+			"imageUrl": "https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?w=560&h=480&fit=crop&q=80",
+			"imageAlt": "Shwe Myanmar butter products",
+			"backgroundColor": "#f7fcff",
+			"padding": 80
+		}
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
+}

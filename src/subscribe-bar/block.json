@@ -1,0 +1,52 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/subscribe-bar",
+	"version": "1.0.0",
+	"title": "Subscribe Bar",
+	"category": "twork-builder",
+	"icon": "email",
+	"description": "Newsletter subscribe banner with honeypot field and client-side validation.",
+	"keywords": [ "newsletter", "subscribe", "email", "shwe", "twork" ],
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"align": [ "wide", "full" ]
+	},
+	"attributes": {
+		"title": {
+			"type": "string",
+			"default": "Stay updated on Shwe Myanmar products, promotions, and news."
+		},
+		"placeholder": {
+			"type": "string",
+			"default": "Your email address"
+		},
+		"buttonLabel": {
+			"type": "string",
+			"default": "SUBSCRIBE"
+		},
+		"honeypotName": {
+			"type": "string",
+			"default": "website"
+		},
+		"backgroundColor": {
+			"type": "string",
+			"default": "#ffff00"
+		}
+	},
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": {
+			"title": "Stay updated on Shwe Myanmar products, promotions, and news.",
+			"placeholder": "Your email address",
+			"buttonLabel": "SUBSCRIBE",
+			"honeypotName": "website",
+			"backgroundColor": "#ffff00"
+		}
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"viewScript": "file:./view.js",
+	"style": "file:./style-index.css"
+}

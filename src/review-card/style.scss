@@ -1,0 +1,57 @@
+.twork-review-card-editor,
+.twork-review-carousel .testimonials__card {
+	flex: 0 0 min(100%, 420px);
+	scroll-snap-align: start;
+	background: #fff;
+	padding: 2rem;
+	border-radius: 8px;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+	min-width: 0;
+
+	@media (min-width: 900px) {
+		flex: 0 0 calc(50% - 0.75rem);
+	}
+
+	.testimonials__quote {
+		font-size: 3rem;
+		line-height: 1;
+		color: #ff7f00;
+		font-family: Georgia, serif;
+	}
+
+	.testimonials__text {
+		margin: 0.75rem 0 0;
+		font-size: 0.875rem;
+		color: #666666;
+		line-height: 1.7;
+		font-style: normal;
+	}
+
+	.testimonials__footer {
+		display: flex;
+		align-items: center;
+		gap: 0.75rem;
+		margin-top: 1.25rem;
+		font-style: normal;
+	}
+
+	.testimonials__avatar {
+		width: 48px;
+		height: 48px;
+		border-radius: 50%;
+		object-fit: cover;
+		flex-shrink: 0;
+	}
+
+	.testimonials__name {
+		font-weight: 700;
+		font-style: normal;
+		display: block;
+	}
+
+	.testimonials__location {
+		font-size: 0.75rem;
+		color: #999999;
+		margin: 0;
+	}
+}

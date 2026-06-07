@@ -1,0 +1,36 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/faq-accordion-item",
+	"title": "FAQ Accordion Item",
+	"parent": [ "twork/faq-accordion-section" ],
+	"category": "twork-builder",
+	"description": "Single FAQ accordion item with question, answer, and optional default open state.",
+	"keywords": [ "faq", "accordion", "question", "twork" ],
+	"attributes": {
+		"question": {
+			"type": "string",
+			"default": "What products does Shwe Myanmar Foodstuff Industry make?"
+		},
+		"answer": {
+			"type": "string",
+			"default": "We specialize in premium butter (ထောပတ်) and ghee under the Shwe Myanmar (ရွှေမြန်မာ) brand."
+		},
+		"isOpenByDefault": {
+			"type": "boolean",
+			"default": false
+		}
+	},
+	"supports": {
+		"html": false
+	},
+	"example": {
+		"attributes": {
+			"question": "What products does Shwe Myanmar Foodstuff Industry make?",
+			"answer": "We specialize in premium butter (ထောပတ်) and ghee under the Shwe Myanmar (ရွှေမြန်မာ) brand.",
+			"isOpenByDefault": true
+		}
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js"
+}

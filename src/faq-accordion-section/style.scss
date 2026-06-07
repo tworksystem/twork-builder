@@ -1,0 +1,125 @@
+.wp-block-twork-faq-accordion-section {
+	.l-section {
+		max-width: 1200px;
+		margin-inline: auto;
+		padding-inline: clamp(1rem, 4vw, 2rem);
+	}
+
+	.section-head {
+		text-align: center;
+		margin-bottom: 2rem;
+	}
+
+	.section-head__eyebrow {
+		font-size: 0.75rem;
+		font-weight: 600;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		color: #ff7f00;
+		margin: 0 0 0.5rem;
+	}
+
+	.section-head__title {
+		font-size: clamp(1.5rem, 2.8vw, 2.25rem);
+		font-weight: 700;
+		margin: 0;
+		color: #1a1a1a;
+	}
+
+	.faq__list {
+		max-width: 900px;
+		margin-inline: auto;
+		display: grid;
+		gap: 0.75rem;
+	}
+
+	.faq__item {
+		border: 1px solid #e8e8e8;
+		border-radius: 8px;
+		background: #fff;
+		transition: box-shadow 0.2s;
+	}
+
+	.faq__item.is-open,
+	.faq__item[open] {
+		box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+	}
+
+	.faq__trigger {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1rem;
+		padding: 1rem 1.25rem;
+		border: 0;
+		background: transparent;
+		text-align: left;
+		cursor: pointer;
+		font-weight: 700;
+		font-size: 0.875rem;
+		color: #1a1a1a;
+		list-style: none;
+	}
+
+	.faq__trigger::-webkit-details-marker {
+		display: none;
+	}
+
+	.faq__item.is-open .faq__trigger,
+	.faq__item[open] .faq__trigger {
+		color: #ff7f00;
+	}
+
+	.faq__icon {
+		flex-shrink: 0;
+		width: 28px;
+		height: 28px;
+		border-radius: 50%;
+		border: 2px solid #e8e8e8;
+	}
+
+	.faq__item.is-open .faq__icon,
+	.faq__item[open] .faq__icon {
+		background: #ff7f00;
+		border-color: #ff7f00;
+	}
+
+	.faq__panel {
+		padding: 0 1.25rem 1.25rem;
+		font-size: 0.875rem;
+		color: #666;
+		line-height: 1.7;
+	}
+
+	.faq__panel[hidden] {
+		display: none;
+	}
+
+	.faq__contact {
+		text-align: center;
+		margin-top: 2rem;
+		font-size: 0.875rem;
+		color: #666;
+	}
+
+	.faq__contact a {
+		color: #ff7f00;
+		font-weight: 600;
+		text-decoration: none;
+	}
+
+	.faq__contact a:hover {
+		text-decoration: underline;
+	}
+
+	/* No-JS: details/summary panels remain readable */
+	&:not(.is-accordion-enhanced) .faq__panel {
+		display: block;
+	}
+
+	&:not(.is-accordion-enhanced) .faq__item:not([open]) .faq__panel {
+		display: block;
+		padding-top: 0;
+	}
+}

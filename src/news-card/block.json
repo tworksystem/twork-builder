@@ -1,0 +1,72 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/news-card",
+	"title": "News Card",
+	"parent": [ "twork/news-card-grid" ],
+	"category": "twork-builder",
+	"description": "Single blog news card with image, meta, title, and excerpt.",
+	"keywords": [ "blog", "news", "post", "card", "twork" ],
+	"attributes": {
+		"author": {
+			"type": "string",
+			"default": "Shwe Myanmar"
+		},
+		"category": {
+			"type": "string",
+			"default": "Product"
+		},
+		"date": {
+			"type": "string",
+			"default": "March 15, 2026"
+		},
+		"dateIso": {
+			"type": "string",
+			"default": "2026-03-15"
+		},
+		"title": {
+			"type": "string",
+			"default": "Introducing Our 10 Viss Bulk Pack"
+		},
+		"excerpt": {
+			"type": "string",
+			"default": "Our flagship 10 Viss (≈ 16.33 kg) butter pack is now available for wholesale and commercial customers across Myanmar."
+		},
+		"href": {
+			"type": "string",
+			"default": "/pages/blog-single.html?id=post_1"
+		},
+		"imageUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"imageId": {
+			"type": "number",
+			"default": 0
+		},
+		"imageAlt": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"supports": {
+		"html": false,
+		"reusable": false
+	},
+	"example": {
+		"attributes": {
+			"author": "Shwe Myanmar",
+			"category": "Product",
+			"date": "March 15, 2026",
+			"dateIso": "2026-03-15",
+			"title": "Introducing Our 10 Viss Bulk Pack",
+			"excerpt": "Our flagship 10 Viss (≈ 16.33 kg) butter pack is now available for wholesale and commercial customers across Myanmar.",
+			"href": "/pages/blog-single.html?id=post_1",
+			"imageUrl": "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=600&h=400&fit=crop&q=80",
+			"imageAlt": "10 Viss Shwe Myanmar butter pack"
+		}
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
+}
