@@ -1,0 +1,38 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/brand-nav-item",
+	"version": "1.0.0",
+	"title": "Brand Nav Item",
+	"category": "twork-builder",
+	"icon": "admin-links",
+	"description": "Navigation link for the Brand Header block.",
+	"parent": [ "twork/brand-header" ],
+	"supports": {
+		"html": false,
+		"reusable": false
+	},
+	"attributes": {
+		"label": {
+			"type": "string",
+			"default": "Menu Item"
+		},
+		"url": {
+			"type": "string",
+			"default": "#"
+		},
+		"hasDropdown": {
+			"type": "boolean",
+			"default": false
+		}
+	},
+	"example": {
+		"attributes": {
+			"label": "Shop",
+			"url": "/shop",
+			"hasDropdown": false
+		}
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js"
+}

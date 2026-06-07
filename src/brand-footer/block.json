@@ -1,0 +1,153 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/brand-footer",
+	"version": "1.0.0",
+	"title": "Brand Footer",
+	"category": "twork-builder",
+	"icon": "admin-site-alt3",
+	"description": "Shwe Myanmar footer with info cards, brand column, link columns, and pasture image.",
+	"keywords": [ "footer", "brand", "shwe", "twork" ],
+	"supports": {
+		"html": false,
+		"align": [ "wide", "full" ]
+	},
+	"attributes": {
+		"brandPrefix": {
+			"type": "string",
+			"default": "Shwe"
+		},
+		"brandSuffix": {
+			"type": "string",
+			"default": "Myanmar"
+		},
+		"description": {
+			"type": "string",
+			"default": "Shwe Myanmar Foodstuff Industry — premium butter and ghee from Mandalay, Myanmar. Natural scent, natural taste (သဘာဝ အနံ့ သဘာဝ အရသာ)."
+		},
+		"copyright": {
+			"type": "string",
+			"default": "© 2026 Shwe Myanmar Foodstuff Industry. All rights reserved."
+		},
+		"pastureImageUrl": {
+			"type": "string",
+			"default": "https://images.unsplash.com/photo-1500595046743-cd271d694d30?w=1600&h=400&fit=crop&q=80"
+		},
+		"pastureImageId": {
+			"type": "number"
+		},
+		"pastureImageAlt": {
+			"type": "string",
+			"default": "Shwe Myanmar premium butter products"
+		},
+		"social": {
+			"type": "array",
+			"default": [
+				{ "id": "fb", "label": "Facebook", "href": "#" },
+				{ "id": "tw", "label": "Twitter", "href": "#" },
+				{ "id": "ig", "label": "Instagram", "href": "#" },
+				{ "id": "pt", "label": "Pinterest", "href": "#" }
+			]
+		},
+		"showBackToTop": {
+			"type": "boolean",
+			"default": true
+		},
+		"backgroundColor": {
+			"type": "string",
+			"default": "#f7fcff"
+		}
+	},
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": {
+			"brandPrefix": "Shwe",
+			"brandSuffix": "Myanmar",
+			"description": "Shwe Myanmar Foodstuff Industry — premium butter and ghee from Mandalay, Myanmar.",
+			"copyright": "© 2026 Shwe Myanmar Foodstuff Industry. All rights reserved.",
+			"pastureImageUrl": "https://images.unsplash.com/photo-1500595046743-cd271d694d30?w=1600&h=400&fit=crop&q=80",
+			"pastureImageAlt": "Shwe Myanmar premium butter products",
+			"showBackToTop": true,
+			"backgroundColor": "#f7fcff"
+		},
+		"innerBlocks": [
+			{
+				"name": "twork/brand-footer-info-card",
+				"attributes": {
+					"label": "CUSTOMER HOTLINE",
+					"lines": [ "095-2-55122", "095-2-55123", "095-9-200 1227" ],
+					"icon": "phone"
+				}
+			},
+			{
+				"name": "twork/brand-footer-info-card",
+				"attributes": {
+					"label": "OFFICE ADDRESS",
+					"lines": [
+						"Shwe Myanmar Foodstuff Industry",
+						"Mandalay, Myanmar"
+					],
+					"icon": "pin"
+				}
+			},
+			{
+				"name": "twork/brand-footer-info-card",
+				"attributes": {
+					"label": "BUSINESS HOURS",
+					"lines": [
+						"08:00 - 17:00, MMT (UTC+6:30)",
+						"Monday - Saturday"
+					],
+					"icon": "clock"
+				}
+			},
+			{
+				"name": "twork/brand-footer-column",
+				"attributes": {
+					"title": "Help & Info",
+					"links": [
+						{ "id": "l1", "label": "About Us", "href": "/about" },
+						{ "id": "l2", "label": "Contact Us", "href": "/contact" },
+						{ "id": "l3", "label": "Our Products", "href": "/shop" }
+					]
+				}
+			},
+			{
+				"name": "twork/brand-footer-column",
+				"attributes": {
+					"title": "Company",
+					"links": [
+						{
+							"id": "c1",
+							"label": "Become A Distributor",
+							"href": "/wholesale"
+						},
+						{
+							"id": "c3",
+							"label": "Our Story",
+							"href": "/about#story"
+						}
+					]
+				}
+			},
+			{
+				"name": "twork/brand-footer-column",
+				"attributes": {
+					"title": "Quick Links",
+					"links": [
+						{ "id": "q1", "label": "Shop", "href": "/shop" },
+						{
+							"id": "q4",
+							"label": "Where to Buy",
+							"href": "/where-to-buy"
+						}
+					]
+				}
+			}
+		]
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"viewScript": "file:./view.js",
+	"style": "file:./style-index.css"
+}

@@ -1,0 +1,82 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/brand-header",
+	"version": "1.0.0",
+	"title": "Brand Header",
+	"category": "twork-builder",
+	"icon": "menu",
+	"description": "Brand header with logo, navigation, hotline, and mobile menu. Works for retail, food, healthcare, and corporate sites.",
+	"keywords": [ "header", "navigation", "brand", "hotline", "menu", "twork" ],
+	"attributes": {
+		"logoImage": {
+			"type": "string",
+			"default": ""
+		},
+		"logoImageId": {
+			"type": "number"
+		},
+		"brandName": {
+			"type": "string",
+			"default": "Shwe Myanmar"
+		},
+		"homeUrl": {
+			"type": "string",
+			"default": "/"
+		},
+		"hotlineLabel": {
+			"type": "string",
+			"default": "CUSTOMER HOTLINE"
+		},
+		"phone": {
+			"type": "string",
+			"default": "095-2-55122"
+		},
+		"showSearch": {
+			"type": "boolean",
+			"default": true
+		},
+		"backgroundColor": {
+			"type": "string",
+			"default": "#ffffff"
+		},
+		"stickyHeader": {
+			"type": "boolean",
+			"default": true
+		}
+	},
+	"supports": {
+		"html": false,
+		"align": [ "full", "wide" ]
+	},
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": {
+			"brandName": "Shwe Myanmar",
+			"hotlineLabel": "CUSTOMER HOTLINE",
+			"phone": "095-2-55122",
+			"showSearch": true,
+			"backgroundColor": "#ffffff",
+			"stickyHeader": true,
+			"homeUrl": "/"
+		},
+		"innerBlocks": [
+			{
+				"name": "twork/brand-nav-item",
+				"attributes": { "label": "Home", "url": "/", "hasDropdown": false }
+			},
+			{
+				"name": "twork/brand-nav-item",
+				"attributes": { "label": "Shop", "url": "/shop", "hasDropdown": false }
+			},
+			{
+				"name": "twork/brand-nav-item",
+				"attributes": { "label": "About", "url": "/about", "hasDropdown": false }
+			}
+		]
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./view.js"
+}

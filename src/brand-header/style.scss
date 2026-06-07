@@ -1,0 +1,264 @@
+@import "../scss/typography";
+
+// Shweghee Brand Header – ported from shweghee/src/components/header/header.css
+
+.twork-brand-header {
+	--twork-brand-color: #00ccff;
+	--twork-brand-primary: #ff7f00;
+	--twork-brand-primary-dark: #e06800;
+	--twork-brand-text: #1a1a1a;
+	--twork-brand-text-muted: #666666;
+	--twork-brand-bg: var(--twork-brand-header-bg, #ffffff);
+	--twork-brand-border: #e8e8e8;
+	--twork-brand-header-height: 88px;
+	--twork-brand-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+	--twork-brand-shadow-md: 0 8px 24px rgba(0, 0, 0, 0.1);
+	--twork-brand-space-2: 0.5rem;
+	--twork-brand-space-3: 0.75rem;
+	--twork-brand-space-4: 1rem;
+	--twork-brand-space-5: 1.5rem;
+	--twork-brand-font-sm: 0.875rem;
+	--twork-brand-font-xs: 0.75rem;
+	--twork-brand-radius-sm: 4px;
+	--twork-brand-z-header: 200;
+
+	position: relative;
+	top: 0;
+	z-index: var(--twork-brand-z-header);
+	background: var(--twork-brand-bg);
+	transition: box-shadow 0.2s;
+	font-family: $font-primary;
+
+	&,
+	*,
+	*::before,
+	*::after {
+		box-sizing: border-box;
+	}
+
+	&--sticky {
+		position: sticky;
+	}
+
+	&--scrolled {
+		box-shadow: var(--twork-brand-shadow-sm);
+	}
+
+	&__inner {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: var(--twork-brand-space-4);
+		min-height: var(--twork-brand-header-height);
+		padding-block: var(--twork-brand-space-3);
+		max-width: 1200px;
+		margin-inline: auto;
+		padding-inline: var(--twork-brand-space-4);
+	}
+
+	&__brand {
+		display: inline-flex;
+		align-items: center;
+		text-decoration: none;
+		flex-shrink: 0;
+		color: inherit;
+	}
+
+	&__brand-logo {
+		display: block;
+		height: 64px;
+		width: auto;
+		max-width: min(260px, 50vw);
+		object-fit: contain;
+	}
+
+	&__brand-text {
+		font-weight: 700;
+		font-size: 1.25rem;
+	}
+
+	&__nav {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: center;
+		gap: var(--twork-brand-space-5);
+		flex: 1;
+
+		> .block-editor-inner-blocks,
+		> .block-editor-block-list__layout {
+			display: contents;
+		}
+	}
+
+	&__nav-link {
+		color: var(--twork-brand-text);
+		text-decoration: none;
+		font-size: var(--twork-brand-font-sm);
+		font-weight: 500;
+
+		&:hover,
+		&:focus-visible {
+			color: var(--twork-brand-primary);
+		}
+	}
+
+	&__actions {
+		display: flex;
+		align-items: center;
+		gap: var(--twork-brand-space-4);
+		flex-shrink: 0;
+	}
+
+	&__icon-btn {
+		border: 0;
+		background: transparent;
+		padding: var(--twork-brand-space-2);
+		cursor: pointer;
+		color: var(--twork-brand-text);
+	}
+
+	&__hotline {
+		display: flex;
+		align-items: center;
+		gap: var(--twork-brand-space-2);
+	}
+
+	&__hotline-label {
+		font-size: 0.65rem;
+		font-weight: 600;
+		letter-spacing: 0.06em;
+		color: var(--twork-brand-color);
+		text-transform: uppercase;
+		margin: 0;
+	}
+
+	&__hotline-phone {
+		display: block;
+		font-weight: 700;
+		font-size: var(--twork-brand-font-sm);
+		color: var(--twork-brand-text);
+		text-decoration: none;
+	}
+
+	&__toggle {
+		display: none;
+		flex-direction: column;
+		justify-content: center;
+		width: 44px;
+		height: 44px;
+		border: 1px solid var(--twork-brand-border);
+		background: #fff;
+		border-radius: var(--twork-brand-radius-sm);
+		cursor: pointer;
+	}
+
+	&__toggle-bar,
+	&__toggle-bar::before,
+	&__toggle-bar::after {
+		display: block;
+		width: 20px;
+		height: 2px;
+		background: var(--twork-brand-text);
+		margin-inline: auto;
+		position: relative;
+	}
+
+	&__toggle-bar::before,
+	&__toggle-bar::after {
+		content: "";
+		position: absolute;
+		left: 0;
+	}
+
+	&__toggle-bar::before {
+		top: -6px;
+	}
+
+	&__toggle-bar::after {
+		top: 6px;
+	}
+
+	.icon-chevron::after {
+		content: "▾";
+		font-size: 0.65em;
+		margin-left: 0.25em;
+		opacity: 0.6;
+	}
+
+	.u-hidden {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		padding: 0;
+		margin: -1px;
+		overflow: hidden;
+		clip: rect(0, 0, 0, 0);
+		white-space: nowrap;
+		border: 0;
+	}
+
+	@media (max-width: 1024px) {
+		&__hotline {
+			display: none;
+		}
+	}
+
+	@media (max-width: 768px) {
+		&__brand-logo {
+			height: 48px;
+			max-width: min(200px, 40vw);
+		}
+
+		&__toggle {
+			display: flex;
+		}
+
+		&__nav {
+			display: none;
+			position: absolute;
+			top: 100%;
+			left: 0;
+			right: 0;
+			flex-direction: column;
+			background: #fff;
+			padding: var(--twork-brand-space-4);
+			box-shadow: var(--twork-brand-shadow-md);
+			align-items: flex-start;
+		}
+
+		&--open &__nav {
+			display: flex;
+		}
+
+		&__main {
+			position: relative;
+		}
+	}
+}
+
+body.nav-open {
+	overflow: hidden;
+}
+
+// Editor layout helpers
+.editor-styles-wrapper,
+.block-editor-block-list__layout {
+	.twork-brand-header--editor {
+		.twork-brand-header__nav {
+			.block-editor-inner-blocks,
+			.block-editor-block-list__layout {
+				display: flex;
+				flex-wrap: wrap;
+				align-items: center;
+				justify-content: center;
+				gap: var(--twork-brand-space-5);
+				width: 100%;
+			}
+		}
+
+		.twork-brand-nav-item {
+			display: inline-flex;
+		}
+	}
+}

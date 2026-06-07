@@ -1,0 +1,36 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/brand-footer-info-card",
+	"title": "Footer Info Card",
+	"parent": [ "twork/brand-footer" ],
+	"category": "twork-builder",
+	"description": "Footer info card with label, lines, and icon.",
+	"attributes": {
+		"label": {
+			"type": "string",
+			"default": "CUSTOMER HOTLINE"
+		},
+		"lines": {
+			"type": "array",
+			"default": [ "095-2-55122", "095-2-55123", "095-9-200 1227" ]
+		},
+		"icon": {
+			"type": "string",
+			"default": "phone",
+			"enum": [ "phone", "pin", "clock" ]
+		}
+	},
+	"supports": {
+		"html": false
+	},
+	"example": {
+		"attributes": {
+			"label": "CUSTOMER HOTLINE",
+			"lines": [ "095-2-55122", "095-2-55123", "095-9-200 1227" ],
+			"icon": "phone"
+		}
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js"
+}
