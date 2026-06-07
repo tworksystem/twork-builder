@@ -1,0 +1,51 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/category-card",
+	"title": "Category Card",
+	"parent": [ "twork/category-card-grid" ],
+	"category": "twork-builder",
+	"description": "Single product category card with image, title, and count.",
+	"keywords": [ "category", "product", "card", "shop", "twork" ],
+	"attributes": {
+		"title": {
+			"type": "string",
+			"default": "Butter"
+		},
+		"count": {
+			"type": "string",
+			"default": "3 Sizes"
+		},
+		"href": {
+			"type": "string",
+			"default": "/pages/shop.html"
+		},
+		"imageUrl": {
+			"type": "string",
+			"default": "https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?w=400&h=400&fit=crop&q=75"
+		},
+		"imageId": {
+			"type": "number",
+			"default": 0
+		},
+		"imageAlt": {
+			"type": "string",
+			"default": "Shwe Myanmar Butter"
+		}
+	},
+	"supports": {
+		"html": false,
+		"reusable": false
+	},
+	"example": {
+		"attributes": {
+			"title": "Butter",
+			"count": "3 Sizes",
+			"href": "/pages/shop.html",
+			"imageUrl": "https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?w=400&h=400&fit=crop&q=75",
+			"imageAlt": "Shwe Myanmar Butter"
+		}
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js"
+}

@@ -1,0 +1,56 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/hero-banner-carousel",
+	"version": "1.0.0",
+	"title": "Hero Banner Carousel",
+	"category": "twork-builder",
+	"icon": "slides",
+	"description": "Shweghee hero carousel with fade slides, autoplay, arrows, and dots.",
+	"keywords": [ "hero", "banner", "carousel", "slider", "shweghee", "twork" ],
+	"attributes": {
+		"autoplayMs": {
+			"type": "number",
+			"default": 7000
+		},
+		"paddingTop": {
+			"type": "number",
+			"default": 0
+		},
+		"paddingBottom": {
+			"type": "number",
+			"default": 0
+		}
+	},
+	"supports": {
+		"html": false,
+		"align": [ "full", "wide" ]
+	},
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": {
+			"autoplayMs": 7000,
+			"paddingTop": 0,
+			"paddingBottom": 0
+		},
+		"innerBlocks": [
+			{
+				"name": "twork/hero-banner-slide",
+				"attributes": {
+					"eyebrow": "SHWE MYANMAR FOODSTUFF INDUSTRY",
+					"title": "သဘာဝ အနံ့ သဘာဝ အရသာ...",
+					"subtitle": "Natural scent, natural taste — premium butter and ghee crafted in Mandalay, Myanmar for families who value authentic quality.",
+					"ctaLabel": "VIEW PRODUCTS",
+					"ctaHref": "#categories",
+					"imageAlt": "Premium golden butter and ghee",
+					"imageUrl": "https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?w=1400&h=800&fit=crop&q=80",
+					"backgroundPosition": "right center"
+				}
+			}
+		]
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./view.js"
+}

@@ -1,0 +1,85 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/numbered-features-grid",
+	"version": "1.0.0",
+	"title": "Numbered Features Grid",
+	"category": "twork-builder",
+	"icon": "grid-view",
+	"description": "Why choose us grid with numbered feature items and icons.",
+	"keywords": [ "features", "why choose", "grid", "numbered", "twork" ],
+	"attributes": {
+		"sectionEyebrow": {
+			"type": "string",
+			"default": "WHY CHOOSE SHWE MYANMAR"
+		},
+		"sectionTitle": {
+			"type": "string",
+			"default": "Reasons To Choose Us."
+		},
+		"columns": {
+			"type": "number",
+			"default": 3
+		},
+		"padding": {
+			"type": "number",
+			"default": 80
+		},
+		"backgroundColor": {
+			"type": "string",
+			"default": "#ffffff"
+		},
+		"containerMaxWidth": {
+			"type": "number",
+			"default": 1200
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"align": [ "wide", "full" ]
+	},
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": {
+			"sectionEyebrow": "WHY CHOOSE SHWE MYANMAR",
+			"sectionTitle": "Reasons To Choose Us.",
+			"columns": 3,
+			"padding": 80,
+			"backgroundColor": "#ffffff",
+			"containerMaxWidth": 1200
+		},
+		"innerBlocks": [
+			{
+				"name": "twork/numbered-feature-item",
+				"attributes": {
+					"number": "01",
+					"title": "Natural Ingredients",
+					"text": "သဘာဝ အနံ့ သဘာဝ အရသာ — we use carefully selected natural ingredients to deliver authentic butter and ghee flavor.",
+					"iconKey": "cube"
+				}
+			},
+			{
+				"name": "twork/numbered-feature-item",
+				"attributes": {
+					"number": "02",
+					"title": "Consistent Quality",
+					"text": "Every batch from our Mandalay facility meets strict quality standards so your family gets the same great taste every time.",
+					"iconKey": "star"
+				}
+			},
+			{
+				"name": "twork/numbered-feature-item",
+				"attributes": {
+					"number": "03",
+					"title": "Trusted Brand",
+					"text": "Shwe Myanmar (ရွှေမြန်မာ) is a registered trademark — a name households across Myanmar recognize and trust.",
+					"iconKey": "truck"
+				}
+			}
+		]
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
+}

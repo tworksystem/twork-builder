@@ -1,0 +1,103 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/category-card-grid",
+	"version": "1.0.0",
+	"title": "Category Card Grid",
+	"category": "twork-builder",
+	"icon": "category",
+	"description": "Product categories grid with optional CTA card.",
+	"keywords": [ "categories", "products", "grid", "shop", "twork" ],
+	"attributes": {
+		"eyebrow": {
+			"type": "string",
+			"default": "OUR PRODUCT RANGE"
+		},
+		"title": {
+			"type": "string",
+			"default": "Shwe Myanmar Main Products."
+		},
+		"ctaLabel": {
+			"type": "string",
+			"default": "See all products"
+		},
+		"ctaHref": {
+			"type": "string",
+			"default": "/pages/shop.html"
+		},
+		"showCtaCard": {
+			"type": "boolean",
+			"default": true
+		},
+		"columns": {
+			"type": "number",
+			"default": 3
+		},
+		"padding": {
+			"type": "number",
+			"default": 80
+		},
+		"backgroundColor": {
+			"type": "string",
+			"default": "#ffffff"
+		},
+		"containerMaxWidth": {
+			"type": "number",
+			"default": 1200
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"align": [ "wide", "full" ]
+	},
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": {
+			"eyebrow": "OUR PRODUCT RANGE",
+			"title": "Shwe Myanmar Main Products.",
+			"ctaLabel": "See all products",
+			"ctaHref": "/pages/shop.html",
+			"showCtaCard": true,
+			"columns": 3,
+			"padding": 80,
+			"backgroundColor": "#ffffff",
+			"containerMaxWidth": 1200
+		},
+		"innerBlocks": [
+			{
+				"name": "twork/category-card",
+				"attributes": {
+					"title": "Butter",
+					"count": "3 Sizes",
+					"href": "/pages/shop.html",
+					"imageUrl": "https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?w=400&h=400&fit=crop&q=75",
+					"imageAlt": "Shwe Myanmar Butter"
+				}
+			},
+			{
+				"name": "twork/category-card",
+				"attributes": {
+					"title": "Ghee",
+					"count": "2 Sizes",
+					"href": "/pages/shop.html",
+					"imageUrl": "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=400&h=400&fit=crop&q=75",
+					"imageAlt": "Shwe Myanmar Ghee"
+				}
+			},
+			{
+				"name": "twork/category-card",
+				"attributes": {
+					"title": "Bulk (10 Viss)",
+					"count": "1 Item",
+					"href": "/pages/shop.html",
+					"imageUrl": "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=400&h=400&fit=crop&q=75",
+					"imageAlt": "10 Viss bulk butter pack"
+				}
+			}
+		]
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
+}

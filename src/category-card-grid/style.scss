@@ -1,0 +1,171 @@
+// Category Card Grid – ported from shweghee/product-categories
+
+:root {
+	--twork-color-brand: #00ccff;
+	--twork-color-primary: #ff7f00;
+	--twork-color-primary-dark: #e06800;
+	--twork-color-text-primary: #1a1a1a;
+	--twork-color-text-muted: #666666;
+	--twork-color-bg-page: #ffffff;
+	--twork-space-1: 0.25rem;
+	--twork-space-3: 0.75rem;
+	--twork-space-4: 1rem;
+	--twork-space-5: 1.5rem;
+	--twork-space-6: 2rem;
+	--twork-radius-md: 8px;
+	--twork-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+	--twork-shadow-card: 0 4px 20px rgba(0, 0, 0, 0.08);
+	--twork-font-size-xs: 0.75rem;
+	--twork-font-size-sm: 0.875rem;
+	--twork-font-size-md: 1rem;
+	--twork-font-size-section: clamp(1.5rem, 2.8vw, 2.25rem);
+}
+
+.twork-category-card-grid,
+.wp-block-twork-category-card-grid {
+	padding-block: var(--twork-space-6);
+	background-color: var(--twork-color-bg-page);
+	background-image: radial-gradient(
+		circle at 20% 30%,
+		rgba(0, 0, 0, 0.02) 1px,
+		transparent 1px
+	);
+	background-size: 24px 24px;
+}
+
+.section-head {
+	text-align: center;
+	margin-bottom: var(--twork-space-6);
+}
+
+.section-head__eyebrow {
+	color: var(--twork-color-brand);
+	font-size: var(--twork-font-size-xs);
+	font-weight: 600;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	margin-bottom: 0.5rem;
+}
+
+.section-head__title {
+	font-size: var(--twork-font-size-section);
+	font-weight: 700;
+	line-height: 1.2;
+	color: var(--twork-color-text-primary);
+	margin: 0;
+}
+
+.product-categories__grid {
+	display: grid;
+	grid-template-columns: repeat(var(--category-columns, 3), 1fr);
+	gap: var(--twork-space-4);
+}
+
+.product-categories__card {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: var(--twork-space-3);
+	padding: var(--twork-space-5);
+	background: #fff;
+	border-radius: var(--twork-radius-md);
+	box-shadow: var(--twork-shadow-sm);
+	text-decoration: none;
+	color: inherit;
+	min-height: 140px;
+	transition: box-shadow 0.2s, transform 0.2s;
+
+	&:hover {
+		box-shadow: var(--twork-shadow-card);
+		transform: translateY(-2px);
+	}
+}
+
+.product-categories__name {
+	font-size: var(--twork-font-size-md);
+	font-weight: 700;
+	margin: 0;
+}
+
+.product-categories__count {
+	margin-top: var(--twork-space-1);
+	font-size: var(--twork-font-size-sm);
+	color: var(--twork-color-text-muted);
+	margin-bottom: 0;
+}
+
+.product-categories__arrow {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 32px;
+	height: 32px;
+	margin-top: var(--twork-space-3);
+	border: 1px solid var(--twork-color-primary);
+	border-radius: 50%;
+	color: var(--twork-color-primary);
+	font-size: 0.85rem;
+}
+
+.product-categories__img {
+	width: 100px;
+	height: 100px;
+	object-fit: contain;
+	flex-shrink: 0;
+}
+
+.product-categories__img-placeholder {
+	width: 100px;
+	height: 100px;
+	flex-shrink: 0;
+	background: #f5f5f5;
+	border-radius: var(--twork-radius-md);
+}
+
+.product-categories__card--cta {
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	background: var(--twork-color-primary);
+	color: #fff;
+	font-weight: 600;
+
+	&:hover {
+		background: var(--twork-color-primary-dark);
+		color: #fff;
+	}
+}
+
+.product-categories__cta-arrow {
+	display: inline-flex;
+	width: 36px;
+	height: 36px;
+	margin-top: var(--twork-space-3);
+	align-items: center;
+	justify-content: center;
+	border: 1px solid #fff;
+	border-radius: 50%;
+}
+
+@media (max-width: 900px) {
+	.product-categories__grid {
+		grid-template-columns: repeat(2, 1fr) !important;
+	}
+}
+
+@media (max-width: 560px) {
+	.product-categories__grid {
+		grid-template-columns: 1fr !important;
+	}
+}
+
+.editor-styles-wrapper,
+.twork-category-card-grid-editor {
+	.product-categories__grid {
+		> .block-editor-inner-blocks,
+		> .block-editor-block-list__layout {
+			display: contents;
+		}
+	}
+}

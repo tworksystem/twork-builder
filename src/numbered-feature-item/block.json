@@ -1,0 +1,42 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/numbered-feature-item",
+	"title": "Numbered Feature Item",
+	"parent": [ "twork/numbered-features-grid" ],
+	"category": "twork-builder",
+	"description": "Single numbered feature with icon, title, and description.",
+	"keywords": [ "feature", "number", "icon", "why choose", "twork" ],
+	"attributes": {
+		"number": {
+			"type": "string",
+			"default": "01"
+		},
+		"title": {
+			"type": "string",
+			"default": "Natural Ingredients"
+		},
+		"text": {
+			"type": "string",
+			"default": "သဘာဝ အနံ့ သဘာဝ အရသာ — we use carefully selected natural ingredients to deliver authentic butter and ghee flavor."
+		},
+		"iconKey": {
+			"type": "string",
+			"default": "cube"
+		}
+	},
+	"supports": {
+		"html": false,
+		"reusable": false
+	},
+	"example": {
+		"attributes": {
+			"number": "01",
+			"title": "Natural Ingredients",
+			"text": "သဘာဝ အနံ့ သဘာဝ အရသာ — we use carefully selected natural ingredients to deliver authentic butter and ghee flavor.",
+			"iconKey": "cube"
+		}
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js"
+}

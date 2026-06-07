@@ -1,0 +1,99 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/image-card-carousel",
+	"version": "1.0.0",
+	"title": "Image Card Carousel",
+	"category": "twork-builder",
+	"icon": "images-alt2",
+	"description": "Services carousel with image cards, section header, and dot navigation.",
+	"keywords": [ "carousel", "services", "slider", "cards", "twork" ],
+	"attributes": {
+		"sectionEyebrow": {
+			"type": "string",
+			"default": "WHAT SHWE MYANMAR DOES"
+		},
+		"sectionTitle": {
+			"type": "string",
+			"default": "Our Core Services."
+		},
+		"autoplayMs": {
+			"type": "number",
+			"default": 6000
+		},
+		"padding": {
+			"type": "number",
+			"default": 80
+		},
+		"backgroundColor": {
+			"type": "string",
+			"default": "#ffffff"
+		},
+		"containerMaxWidth": {
+			"type": "number",
+			"default": 1200
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"align": [ "wide", "full" ]
+	},
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": {
+			"sectionEyebrow": "WHAT SHWE MYANMAR DOES",
+			"sectionTitle": "Our Core Services.",
+			"autoplayMs": 6000,
+			"padding": 80,
+			"backgroundColor": "#ffffff",
+			"containerMaxWidth": 1200
+		},
+		"innerBlocks": [
+			{
+				"name": "twork/image-card-slide",
+				"attributes": {
+					"title": "Butter & Ghee Production",
+					"ctaLabel": "Learn more",
+					"href": "#categories",
+					"imageUrl": "https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=600&h=400&fit=crop&q=80",
+					"imageAlt": "Premium butter production"
+				}
+			},
+			{
+				"name": "twork/image-card-slide",
+				"attributes": {
+					"title": "Quality Control",
+					"ctaLabel": "Learn more",
+					"href": "/pages/quality.html",
+					"imageUrl": "https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=600&h=400&fit=crop&q=80",
+					"imageAlt": "Quality inspection of dairy products"
+				}
+			},
+			{
+				"name": "twork/image-card-slide",
+				"attributes": {
+					"title": "Nationwide Distribution",
+					"ctaLabel": "Learn more",
+					"href": "/pages/where-to-buy.html",
+					"imageUrl": "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=600&h=400&fit=crop&q=80",
+					"imageAlt": "Product distribution and logistics"
+				}
+			},
+			{
+				"name": "twork/image-card-slide",
+				"attributes": {
+					"title": "Traditional Craft",
+					"ctaLabel": "Learn more",
+					"href": "/pages/about.html#story",
+					"imageUrl": "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?w=600&h=400&fit=crop&q=80",
+					"imageAlt": "Traditional butter making craft"
+				}
+			}
+		]
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"viewScript": "file:./view.js",
+	"style": "file:./style-index.css"
+}

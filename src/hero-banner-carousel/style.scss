@@ -1,0 +1,372 @@
+@import "../scss/typography";
+
+// Shweghee Hero Banner Carousel – ported from shweghee hero.css + utilities.css
+
+.twork-hero-banner-carousel {
+	--twork-hero-brand: #00ccff;
+	--twork-hero-primary: #ff7f00;
+	--twork-hero-primary-dark: #e06800;
+	--twork-hero-text: #1a1a1a;
+	--twork-hero-text-muted: #666666;
+	--twork-hero-bg-alt: #f7fcff;
+	--twork-hero-border: #e8e8e8;
+	--twork-hero-space-2: 0.5rem;
+	--twork-hero-space-3: 0.75rem;
+	--twork-hero-space-4: 1rem;
+	--twork-hero-space-5: 1.5rem;
+	--twork-hero-space-6: 2rem;
+	--twork-hero-space-7: 3rem;
+	--twork-hero-space-8: 4rem;
+	--twork-hero-font-xs: 0.75rem;
+	--twork-hero-font-sm: 0.875rem;
+	--twork-hero-font-hero: clamp(2rem, 4.2vw, 3.25rem);
+	--twork-hero-radius-sm: 4px;
+	--twork-hero-radius-md: 8px;
+	--twork-hero-radius-pill: 999px;
+
+	padding: 0;
+	font-family: $font-primary;
+
+	&__wrap {
+		position: relative;
+		min-height: clamp(440px, 58vh, 640px);
+		overflow: hidden;
+		background: var(--twork-hero-bg-alt);
+	}
+
+	&__track {
+		position: relative;
+		min-height: inherit;
+
+		> .block-editor-inner-blocks,
+		> .block-editor-block-list__layout {
+			display: contents;
+		}
+	}
+
+	&__slide {
+		position: absolute;
+		inset: 0;
+		background-color: var(--twork-hero-bg-alt);
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center right;
+		opacity: 0;
+		visibility: hidden;
+		transition: opacity 0.5s ease;
+
+		&:first-child,
+		&.is-active {
+			opacity: 1;
+			visibility: visible;
+			z-index: 1;
+		}
+	}
+
+	&__overlay {
+		display: flex;
+		align-items: center;
+		width: 100%;
+		min-height: inherit;
+		padding-block: var(--twork-hero-space-8);
+	}
+
+	&__inner {
+		width: 100%;
+		max-width: 1200px;
+		margin-inline: auto;
+		padding-inline: var(--twork-hero-space-4);
+	}
+
+	&__content {
+		max-width: 560px;
+		--hero-text-halo: 0 0 1px rgba(255, 255, 255, 0.95),
+			0 1px 3px rgba(255, 255, 255, 0.75);
+		--hero-text-depth: 0 1px 4px rgba(0, 0, 0, 0.28),
+			0 2px 12px rgba(0, 0, 0, 0.12);
+	}
+
+	&__eyebrow {
+		color: var(--twork-hero-brand);
+		font-size: var(--twork-hero-font-xs);
+		font-weight: 600;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+		text-shadow: var(--hero-text-halo), var(--hero-text-depth);
+		margin: 0;
+	}
+
+	&__title {
+		margin-top: var(--twork-hero-space-3);
+		font-size: var(--twork-hero-font-hero);
+		font-weight: 700;
+		line-height: 1.12;
+		color: var(--twork-hero-text);
+		overflow-wrap: break-word;
+		text-shadow: var(--hero-text-halo), var(--hero-text-depth);
+		margin-bottom: 0;
+	}
+
+	&__subtitle {
+		margin-top: var(--twork-hero-space-4);
+		color: var(--twork-hero-text-muted);
+		font-size: var(--twork-hero-font-sm);
+		line-height: 1.65;
+		max-width: 500px;
+		text-shadow: var(--hero-text-halo), 0 1px 3px rgba(0, 0, 0, 0.22);
+		margin-bottom: 0;
+	}
+
+	&__cta {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		min-height: 44px;
+		margin-top: var(--twork-hero-space-5);
+		gap: var(--twork-hero-space-2);
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		padding-inline: var(--twork-hero-space-6);
+		border-radius: var(--twork-hero-radius-md);
+		font-size: var(--twork-hero-font-xs);
+		border: 0;
+		background: var(--twork-hero-primary);
+		color: #fff;
+		font-weight: 600;
+		text-decoration: none;
+		cursor: pointer;
+		transition: background 0.2s;
+
+		&:hover {
+			background: var(--twork-hero-primary-dark);
+		}
+	}
+
+	&__cta-icon {
+		font-size: 1.1em;
+		line-height: 1;
+	}
+
+	&__arrow {
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		width: 48px;
+		height: 48px;
+		min-width: 44px;
+		min-height: 44px;
+		border-radius: 50%;
+		border: 0;
+		background: rgba(255, 255, 255, 0.85);
+		color: var(--twork-hero-text-muted);
+		font-size: 1.75rem;
+		cursor: pointer;
+		z-index: 2;
+		line-height: 1;
+
+		&:focus-visible {
+			outline: 2px solid var(--twork-hero-brand);
+			outline-offset: 2px;
+		}
+
+		&--prev {
+			left: var(--twork-hero-space-4);
+		}
+
+		&--next {
+			right: var(--twork-hero-space-4);
+		}
+	}
+
+	&__dots {
+		position: absolute;
+		bottom: var(--twork-hero-space-5);
+		left: 50%;
+		transform: translateX(-50%);
+		z-index: 2;
+		display: flex;
+		align-items: center;
+		gap: var(--twork-hero-space-2);
+
+		.carousel-dots__dot {
+			width: 8px;
+			height: 8px;
+			padding: 0;
+			border: 0;
+			border-radius: 50%;
+			background: var(--twork-hero-border);
+			cursor: pointer;
+
+			&.is-active {
+				width: 28px;
+				border-radius: var(--twork-hero-radius-pill);
+				background: var(--twork-hero-primary);
+			}
+
+			&:focus-visible {
+				outline: 2px solid var(--twork-hero-brand);
+				outline-offset: 2px;
+			}
+		}
+	}
+
+	.u-hidden {
+		display: none !important;
+	}
+
+	@media (max-width: 1024px) {
+		&__wrap {
+			min-height: clamp(420px, 52vh, 600px);
+		}
+
+		&__overlay {
+			padding-block: var(--twork-hero-space-6);
+		}
+
+		&__content {
+			max-width: min(520px, 58vw);
+			--hero-text-depth: 0 1px 5px rgba(0, 0, 0, 0.32),
+				0 2px 14px rgba(0, 0, 0, 0.16);
+		}
+
+		&__slide {
+			background-position: center 40%;
+		}
+
+		&__arrow {
+			width: 44px;
+			height: 44px;
+			font-size: 1.5rem;
+
+			&--prev {
+				left: var(--twork-hero-space-2);
+			}
+
+			&--next {
+				right: var(--twork-hero-space-2);
+			}
+		}
+	}
+
+	@media (max-width: 768px) {
+		&__wrap {
+			min-height: max(400px, min(72vh, 560px));
+		}
+
+		&__overlay {
+			align-items: flex-end;
+			padding-block: var(--twork-hero-space-6) var(--twork-hero-space-5);
+			padding-bottom: calc(
+				var(--twork-hero-space-7) + var(--twork-hero-space-6) +
+					env(safe-area-inset-bottom, 0px)
+			);
+			padding-inline: max(0px, env(safe-area-inset-left, 0px))
+				max(0px, env(safe-area-inset-right, 0px));
+		}
+
+		&__content {
+			max-width: 100%;
+			--hero-text-halo: 0 0 2px rgba(255, 255, 255, 0.98),
+				0 1px 4px rgba(255, 255, 255, 0.85);
+			--hero-text-depth: 0 1px 6px rgba(0, 0, 0, 0.38),
+				0 3px 16px rgba(0, 0, 0, 0.2);
+		}
+
+		&__subtitle {
+			max-width: none;
+		}
+
+		&__slide {
+			background-position: center 35%;
+		}
+
+		&__arrow {
+			display: none;
+		}
+
+		&__dots {
+			bottom: calc(
+				var(--twork-hero-space-5) + env(safe-area-inset-bottom, 0px)
+			);
+		}
+	}
+
+	@media (max-width: 768px) and (max-height: 500px) {
+		&__wrap {
+			min-height: max(360px, 85vh);
+		}
+
+		&__overlay {
+			align-items: center;
+			padding-block: var(--twork-hero-space-5);
+			padding-bottom: calc(
+				var(--twork-hero-space-6) + var(--twork-hero-space-5) +
+					env(safe-area-inset-bottom, 0px)
+			);
+		}
+
+		&__title {
+			font-size: clamp(1.5rem, 6vw, 2rem);
+		}
+
+		&__subtitle {
+			margin-top: var(--twork-hero-space-3);
+			font-size: var(--twork-hero-font-xs);
+			line-height: 1.5;
+		}
+
+		&__cta {
+			margin-top: var(--twork-hero-space-4);
+		}
+	}
+
+	@media (prefers-contrast: more) {
+		&__content {
+			padding: var(--twork-hero-space-4) var(--twork-hero-space-5);
+			border-radius: var(--twork-hero-radius-md);
+			background: rgba(255, 255, 255, 0.88);
+			box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+		}
+
+		&__eyebrow,
+		&__title,
+		&__subtitle {
+			text-shadow: none;
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		&__slide {
+			transition: none;
+		}
+	}
+}
+
+// Editor: stack slides for editing
+.twork-hero-banner-carousel--editor {
+	.twork-hero-banner-carousel__track {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+		min-height: auto;
+	}
+
+	.twork-hero-banner-carousel__slide,
+	.twork-hero-banner-slide-editor {
+		position: relative;
+		inset: auto;
+		opacity: 1 !important;
+		visibility: visible !important;
+		min-height: clamp(320px, 40vh, 480px);
+		border: 2px dashed #c3c4c7;
+
+		&.is-selected {
+			border-color: #2271b1;
+		}
+	}
+
+	.twork-hero-banner-carousel__arrow,
+	.twork-hero-banner-carousel__dots {
+		display: none;
+	}
+}

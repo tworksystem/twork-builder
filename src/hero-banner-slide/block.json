@@ -1,0 +1,71 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/hero-banner-slide",
+	"version": "1.0.0",
+	"title": "Hero Banner Slide",
+	"category": "twork-builder",
+	"icon": "format-image",
+	"description": "Single hero slide for the Hero Banner Carousel block.",
+	"parent": [ "twork/hero-banner-carousel" ],
+	"supports": {
+		"html": false,
+		"reusable": false
+	},
+	"attributes": {
+		"eyebrow": {
+			"type": "string",
+			"default": ""
+		},
+		"title": {
+			"type": "string",
+			"default": ""
+		},
+		"subtitle": {
+			"type": "string",
+			"default": ""
+		},
+		"ctaLabel": {
+			"type": "string",
+			"default": ""
+		},
+		"ctaHref": {
+			"type": "string",
+			"default": "#"
+		},
+		"imageUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"imageId": {
+			"type": "number"
+		},
+		"imageAlt": {
+			"type": "string",
+			"default": ""
+		},
+		"backgroundPosition": {
+			"type": "string",
+			"default": "center right"
+		},
+		"headingLevel": {
+			"type": "string",
+			"default": "h2",
+			"enum": [ "h1", "h2" ]
+		}
+	},
+	"example": {
+		"attributes": {
+			"eyebrow": "SHWE MYANMAR FOODSTUFF INDUSTRY",
+			"title": "သဘာဝ အနံ့ သဘာဝ အရသာ...",
+			"subtitle": "Natural scent, natural taste — premium butter and ghee crafted in Mandalay, Myanmar.",
+			"ctaLabel": "VIEW PRODUCTS",
+			"ctaHref": "#categories",
+			"imageAlt": "Premium golden butter and ghee",
+			"imageUrl": "https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?w=1400&h=800&fit=crop&q=80",
+			"backgroundPosition": "right center"
+		}
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js"
+}

@@ -1,0 +1,139 @@
+// Numbered Features Grid – ported from shweghee/why-choose-us
+
+:root {
+	--twork-color-brand: #00ccff;
+	--twork-color-primary: #ff7f00;
+	--twork-color-text-primary: #1a1a1a;
+	--twork-color-text-muted: #666666;
+	--twork-color-bg-page: #ffffff;
+	--twork-color-border-grid: #eeeeee;
+	--twork-color-number-bg: #f0f0f0;
+	--twork-space-3: 0.75rem;
+	--twork-space-4: 1rem;
+	--twork-space-5: 1.5rem;
+	--twork-space-6: 2rem;
+	--twork-font-size-xs: 0.75rem;
+	--twork-font-size-sm: 0.875rem;
+	--twork-font-size-md: 1rem;
+	--twork-font-size-section: clamp(1.5rem, 2.8vw, 2.25rem);
+}
+
+.twork-numbered-features-grid,
+.wp-block-twork-numbered-features-grid {
+	background: var(--twork-color-bg-page);
+}
+
+.section-head {
+	text-align: center;
+	margin-bottom: var(--twork-space-6);
+}
+
+.section-head__eyebrow {
+	color: var(--twork-color-brand);
+	font-size: var(--twork-font-size-xs);
+	font-weight: 600;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	margin-bottom: 0.5rem;
+}
+
+.section-head__title {
+	font-size: var(--twork-font-size-section);
+	font-weight: 700;
+	line-height: 1.2;
+	color: var(--twork-color-text-primary);
+	margin: 0;
+}
+
+.why-choose-us__grid {
+	display: grid;
+	grid-template-columns: repeat(var(--why-choose-columns, 3), 1fr);
+	border: 1px solid var(--twork-color-border-grid);
+}
+
+.why-choose-us__item {
+	position: relative;
+	padding: var(--twork-space-6) var(--twork-space-5);
+	border-right: 1px solid var(--twork-color-border-grid);
+	border-bottom: 1px solid var(--twork-color-border-grid);
+}
+
+.why-choose-us__grid .why-choose-us__item:nth-child(3n) {
+	border-right: 0;
+}
+
+.why-choose-us__grid .why-choose-us__item:nth-last-child(-n + 3) {
+	border-bottom: 0;
+}
+
+.why-choose-us__number {
+	position: absolute;
+	top: var(--twork-space-4);
+	right: var(--twork-space-4);
+	font-size: clamp(3rem, 6vw, 4.5rem);
+	font-weight: 700;
+	color: var(--twork-color-number-bg);
+	line-height: 1;
+	user-select: none;
+}
+
+.why-choose-us__icon {
+	color: var(--twork-color-primary);
+	margin-bottom: var(--twork-space-4);
+}
+
+.why-choose-us__title {
+	font-size: var(--twork-font-size-md);
+	font-weight: 700;
+	margin: 0 0 var(--twork-space-3);
+}
+
+.why-choose-us__text {
+	font-size: var(--twork-font-size-sm);
+	color: var(--twork-color-text-muted);
+	max-width: 320px;
+	margin: 0;
+}
+
+@media (max-width: 900px) {
+	.why-choose-us__grid {
+		grid-template-columns: repeat(2, 1fr) !important;
+	}
+
+	.why-choose-us__item {
+		border-right: 1px solid var(--twork-color-border-grid);
+		border-bottom: 1px solid var(--twork-color-border-grid);
+	}
+
+	.why-choose-us__grid .why-choose-us__item:nth-child(3n) {
+		border-right: 1px solid var(--twork-color-border-grid);
+	}
+
+	.why-choose-us__grid .why-choose-us__item:nth-child(2n) {
+		border-right: 0;
+	}
+}
+
+@media (max-width: 560px) {
+	.why-choose-us__grid {
+		grid-template-columns: 1fr !important;
+	}
+
+	.why-choose-us__item {
+		border-right: 0 !important;
+	}
+
+	.why-choose-us__grid .why-choose-us__item:last-child {
+		border-bottom: 0;
+	}
+}
+
+.editor-styles-wrapper,
+.twork-numbered-features-grid-editor {
+	.why-choose-us__grid {
+		> .block-editor-inner-blocks,
+		> .block-editor-block-list__layout {
+			display: contents;
+		}
+	}
+}

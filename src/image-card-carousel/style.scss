@@ -1,0 +1,164 @@
+// Image Card Carousel – ported from shweghee/services-carousel + section-head + carousel-dots
+
+:root {
+	--twork-color-brand: #00ccff;
+	--twork-color-primary: #ff7f00;
+	--twork-color-primary-dark: #e06800;
+	--twork-color-text-primary: #1a1a1a;
+	--twork-color-text-muted: #666666;
+	--twork-color-bg-page: #ffffff;
+	--twork-color-border: #e8e8e8;
+	--twork-space-2: 0.5rem;
+	--twork-space-3: 0.75rem;
+	--twork-space-4: 1rem;
+	--twork-space-5: 1.5rem;
+	--twork-space-6: 2rem;
+	--twork-radius-sm: 4px;
+	--twork-radius-md: 8px;
+	--twork-radius-pill: 999px;
+	--twork-shadow-card: 0 4px 20px rgba(0, 0, 0, 0.08);
+	--twork-font-size-xs: 0.75rem;
+	--twork-font-size-sm: 0.875rem;
+	--twork-font-size-md: 1rem;
+	--twork-font-size-section: clamp(1.5rem, 2.8vw, 2.25rem);
+}
+
+.twork-image-card-carousel,
+.wp-block-twork-image-card-carousel {
+	background: var(--twork-color-bg-page);
+}
+
+.section-head {
+	text-align: center;
+	margin-bottom: var(--twork-space-6);
+}
+
+.section-head__eyebrow {
+	color: var(--twork-color-brand);
+	font-size: var(--twork-font-size-xs);
+	font-weight: 600;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	margin-bottom: var(--twork-space-2);
+}
+
+.section-head__title {
+	font-size: var(--twork-font-size-section);
+	font-weight: 700;
+	line-height: 1.2;
+	color: var(--twork-color-text-primary);
+	margin: 0;
+}
+
+.image-card-carousel__stage {
+	position: relative;
+}
+
+.image-card-carousel__track {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: var(--twork-space-5);
+}
+
+.image-card-carousel__card {
+	position: relative;
+	display: none;
+
+	&.is-visible {
+		display: block;
+	}
+}
+
+.image-card-carousel__media img {
+	width: 100%;
+	aspect-ratio: 4 / 3;
+	object-fit: cover;
+	border-radius: var(--twork-radius-md);
+}
+
+.image-card-carousel__media-placeholder {
+	width: 100%;
+	aspect-ratio: 4 / 3;
+	background: #f0f0f0;
+	border-radius: var(--twork-radius-md);
+}
+
+.image-card-carousel__box {
+	position: relative;
+	margin: -2.5rem auto 0;
+	width: 85%;
+	background: #fff;
+	padding: var(--twork-space-4) var(--twork-space-5);
+	text-align: center;
+	box-shadow: var(--twork-shadow-card);
+	border-radius: var(--twork-radius-sm);
+}
+
+.image-card-carousel__card-title {
+	font-size: var(--twork-font-size-md);
+	font-weight: 700;
+	margin: 0 0 var(--twork-space-2);
+}
+
+.image-card-carousel__link {
+	display: inline-block;
+	margin-top: var(--twork-space-2);
+	color: var(--twork-color-primary);
+	font-size: var(--twork-font-size-sm);
+	font-weight: 600;
+	text-decoration: none;
+
+	&:hover {
+		text-decoration: underline;
+	}
+}
+
+.carousel-nav {
+	display: flex;
+	justify-content: center;
+	margin-top: var(--twork-space-4);
+}
+
+.carousel-dots {
+	display: flex;
+	align-items: center;
+	gap: var(--twork-space-2);
+}
+
+.carousel-dots__dot {
+	width: 8px;
+	height: 8px;
+	padding: 0;
+	border: 0;
+	border-radius: 50%;
+	background: var(--twork-color-border);
+	cursor: pointer;
+	transition: width 0.2s ease, background 0.2s ease;
+
+	&.is-active {
+		width: 28px;
+		border-radius: var(--twork-radius-pill);
+		background: var(--twork-color-primary);
+	}
+}
+
+@media (max-width: 1024px) {
+	.image-card-carousel__track {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media (max-width: 640px) {
+	.image-card-carousel__track {
+		grid-template-columns: 1fr;
+	}
+}
+
+// Editor: show all slides for editing
+.editor-styles-wrapper,
+.twork-image-card-carousel-editor {
+	.image-card-carousel__card,
+	.wp-block-twork-image-card-slide {
+		display: block !important;
+	}
+}

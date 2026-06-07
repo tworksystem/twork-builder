@@ -1,0 +1,82 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/logo-showcase-section",
+	"version": "1.0.0",
+	"title": "Logo Showcase Section",
+	"category": "twork-builder",
+	"icon": "groups",
+	"description": "Distribution network section with header copy and logo grid. Ports shweghee partners component.",
+	"keywords": [ "partners", "logos", "distribution", "shwe myanmar", "twork" ],
+	"attributes": {
+		"eyebrow": {
+			"type": "string",
+			"default": "DISTRIBUTION NETWORK"
+		},
+		"title": {
+			"type": "string",
+			"default": "Serving Customers Across Myanmar."
+		},
+		"descriptionBold": {
+			"type": "string",
+			"default": "From Mandalay to every region,"
+		},
+		"description": {
+			"type": "string",
+			"default": " Shwe Myanmar Foodstuff Industry works with distributors and retailers nationwide to bring premium butter and ghee to families and businesses."
+		},
+		"readMoreLabel": {
+			"type": "string",
+			"default": "Contact us"
+		},
+		"readMoreHref": {
+			"type": "string",
+			"default": "/pages/where-to-buy.html"
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"align": [ "wide", "full" ]
+	},
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": {
+			"eyebrow": "DISTRIBUTION NETWORK",
+			"title": "Serving Customers Across Myanmar.",
+			"descriptionBold": "From Mandalay to every region,",
+			"description": " Shwe Myanmar Foodstuff Industry works with distributors and retailers nationwide to bring premium butter and ghee to families and businesses.",
+			"readMoreLabel": "Contact us",
+			"readMoreHref": "/pages/where-to-buy.html"
+		},
+		"innerBlocks": [
+			{
+				"name": "twork/logo-showcase-item",
+				"attributes": {
+					"name": "Mandalay Region",
+					"imageUrl": "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?w=200&h=120&fit=crop&q=75",
+					"imageAlt": "Mandalay Region — Shwe Myanmar"
+				}
+			},
+			{
+				"name": "twork/logo-showcase-item",
+				"attributes": {
+					"name": "Yangon Region",
+					"imageUrl": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=200&h=120&fit=crop&q=75",
+					"imageAlt": "Yangon Region — Shwe Myanmar"
+				}
+			},
+			{
+				"name": "twork/logo-showcase-item",
+				"attributes": {
+					"name": "Sagaing Region",
+					"imageUrl": "https://images.unsplash.com/photo-1500595046743-cd271d694d30?w=200&h=120&fit=crop&q=75",
+					"imageAlt": "Sagaing Region — Shwe Myanmar"
+				}
+			}
+		]
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
+}
