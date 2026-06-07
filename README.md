@@ -19,6 +19,8 @@
 - [Quick Start](#-quick-start)
 - [Project Structure](#-project-structure)
 - [Block Catalog](#-block-catalog)
+- [Brand Page Blocks](#-brand-page-blocks-industry-agnostic)
+- [Shweghee Reference Site](#-shweghee-reference-site)
 - [Available Scripts](#-available-scripts)
 - [Development Workflow](#-development-workflow)
 - [Block Architecture](#-block-architecture)
@@ -35,12 +37,13 @@
 
 ## 🌟 Overview
 
-**Twork Builder** is a production-ready WordPress plugin that delivers **250+ custom Gutenberg blocks** for building modern, responsive websites within the Twork Ecosystem. It powers hospital portals, corporate marketing sites, pharmacy shops, CSR pages, and specialty department layouts — all editable through the native WordPress Block Editor.
+**Twork Builder** is a production-ready WordPress plugin that delivers **270+ custom Gutenberg blocks** for building modern, responsive websites within the Twork Ecosystem. It powers hospital portals, corporate marketing sites, pharmacy shops, CSR pages, food & retail brand sites, and specialty department layouts — all editable through the native WordPress Block Editor.
 
 Built with **ES6+**, **SCSS**, **@wordpress/scripts**, and **WordPress best practices**, the plugin is designed for:
 
 - 🏥 **Healthcare & hospital websites** — departments, doctors, health checks, emergency units
 - 🥑 **Agrezer / Avocado brand sites** — hero sections, stats, testimonials, shop grids
+- 🧈 **Food & retail brand sites** — Shweghee-style home pages with carousels, categories, and reviews
 - 🛒 **WooCommerce integration** — pharmacy categories, popular products, shop layouts
 - 🏢 **Corporate & CSR pages** — mission/vision, awards, events, initiatives
 - 📱 **Fully responsive layouts** — mobile-first SCSS with editor/frontend parity
@@ -51,7 +54,9 @@ Built with **ES6+**, **SCSS**, **@wordpress/scripts**, and **WordPress best prac
 
 | Feature | Description |
 |---------|-------------|
-| 🎨 **250+ Custom Blocks** | Pre-built sections, cards, grids, heroes, FAQs, timelines, and more |
+| 🎨 **270+ Custom Blocks** | Pre-built sections, cards, grids, heroes, FAQs, timelines, and more |
+| 🏪 **Brand Page Suite** | Industry-agnostic header, carousels, grids, FAQ, newsletter, and footer blocks |
+| 🧪 **Static-to-Block QA** | `shweghee/` reference site for visual parity before WordPress migration |
 | 🚀 **Modern Dev Stack** | ES6+, SCSS, Webpack via `@wordpress/scripts` |
 | 📦 **Production Builds** | Minified bundles, PHP copy to `build/`, plugin ZIP generator |
 | 🔧 **Developer Tooling** | Watch mode, linting, migration scripts, block validation gates |
@@ -149,8 +154,23 @@ twork-builder/
 │   ├── phy-*/                       # Physiotherapy blocks
 │   ├── ph-*/                        # Pharmacy / WooCommerce blocks
 │   ├── csr-*/                       # CSR & community blocks
+│   ├── brand-*/                     # Industry-agnostic brand page blocks
+│   ├── hero-banner-*/               # Hero carousel parent + slide child
+│   ├── image-card-*/                # Services / promo carousel blocks
+│   ├── category-card-*/             # Product category grid blocks
+│   ├── logo-showcase-*/             # Partner / certification logo strip
+│   ├── news-card-*/                 # Blog / news card grid blocks
+│   ├── review-*/                    # Testimonial carousel blocks
+│   ├── faq-accordion-*/             # Accessible FAQ accordion blocks
+│   ├── subscribe-bar/               # Newsletter / email subscribe strip
+│   ├── split-promo-section/         # App download / split CTA section
 │   ├── deprecated/                  # Legacy blocks (migration-safe)
 │   └── global.scss                  # Shared global stylesheet
+├── 📂 shweghee/                     # Static reference site (block migration QA)
+│   ├── src/components/              # One section per folder (HTML/CSS/JS)
+│   ├── src/pages/                   # Home, shop, about, blog, and more
+│   ├── src/scripts/data/            # Mock JSON content (future block attrs)
+│   └── docs/                        # Architecture + block mapping guides
 ├── 📂 build/                        # Compiled output (generated — do not edit)
 ├── 📂 assets/
 │   ├── images/                      # Static image assets
@@ -224,7 +244,113 @@ Containers, page heroes, timelines, story grids, feature sections, navigation, a
 container · page-hero · timeline · story-grid · features-section · twork-nav-item · …
 ```
 
+---
+
+## 🏪 Brand Page Blocks (Industry-Agnostic)
+
+A complete **home-page block suite** with sector-neutral naming (`twork/*`). Designed for food, retail, healthcare, and corporate brand sites — originally scaffolded from the **Shweghee / Shwe Myanmar** reference implementation.
+
+### 🧭 Navigation & Shell
+
+| Block | Slug | Description |
+|-------|------|-------------|
+| 🏷️ Brand Header | `twork/brand-header` | Logo, hotline, search toggle, sticky header, mobile menu |
+| 🔗 Brand Nav Item | `twork/brand-nav-item` | Child nav link with optional dropdown |
+| 🦶 Brand Footer | `twork/brand-footer` | Multi-column footer shell |
+| 📇 Footer Info Card | `twork/brand-footer-info-card` | Contact / address info card child |
+| 📂 Footer Column | `twork/brand-footer-column` | Link list column child |
+
+### 🎠 Hero & Carousels
+
+| Block | Slug | Description |
+|-------|------|-------------|
+| 🖼️ Hero Banner Carousel | `twork/hero-banner-carousel` | Fade hero slider with autoplay, arrows, and dots |
+| 🎞️ Hero Banner Slide | `twork/hero-banner-slide` | Single hero slide (eyebrow, title, CTA, image) |
+| 🃏 Image Card Carousel | `twork/image-card-carousel` | Services / features horizontal carousel |
+| 🃏 Image Card Slide | `twork/image-card-slide` | Individual carousel card child |
+
+### 📊 Content Grids & Social Proof
+
+| Block | Slug | Description |
+|-------|------|-------------|
+| 🔢 Numbered Features Grid | `twork/numbered-features-grid` | "Why choose us" numbered feature grid |
+| 🔢 Numbered Feature Item | `twork/numbered-feature-item` | Single numbered feature child |
+| 🗂️ Category Card Grid | `twork/category-card-grid` | Product / service category card grid |
+| 🗂️ Category Card | `twork/category-card` | Individual category card child |
+| 🏢 Logo Showcase Section | `twork/logo-showcase-section` | Partner / certification logo strip |
+| 🏢 Logo Showcase Item | `twork/logo-showcase-item` | Single logo child |
+| 📰 News Card Grid | `twork/news-card-grid` | Blog / news article card grid |
+| 📰 News Card | `twork/news-card` | Single news card child |
+| ⭐ Review Carousel | `twork/review-carousel` | Customer testimonial carousel |
+| ⭐ Review Card | `twork/review-card` | Single review card child |
+
+### 🎯 Conversion & Engagement
+
+| Block | Slug | Description |
+|-------|------|-------------|
+| 📱 Split Promo Section | `twork/split-promo-section` | App download / split-layout CTA with features |
+| ❓ FAQ Accordion Section | `twork/faq-accordion-section` | Accessible FAQ accordion with FAQPage schema |
+| ❓ FAQ Accordion Item | `twork/faq-accordion-item` | Single FAQ question/answer child |
+| ✉️ Subscribe Bar | `twork/subscribe-bar` | Email newsletter strip with honeypot anti-spam |
+
+### 🏠 Recommended Home Page Stack
+
+```
+brand-header → hero-banner-carousel → image-card-carousel → numbered-features-grid
+→ category-card-grid → logo-showcase-section → news-card-grid → review-carousel
+→ split-promo-section → faq-accordion-section → subscribe-bar → brand-footer
+```
+
 > 📌 **Tip:** Run `npm run add-block-examples` to scaffold block example metadata across the codebase.
+
+---
+
+## 🧈 Shweghee Reference Site
+
+The `shweghee/` directory is a **modular static HTML/CSS/JS reference site** used for design QA and WordPress block migration. It mirrors the Farmart Home Business Style 7 layout, adapted for **Shwe Myanmar Foodstuff Industry** branding.
+
+### 📄 Available Pages
+
+| Page | Path | Purpose |
+|------|------|---------|
+| 🏠 Home | `shweghee/src/pages/home.html` | Full home page section stack |
+| 🛒 Shop | `shweghee/src/pages/shop.html` | E-commerce listing layout |
+| ℹ️ About | `shweghee/src/pages/about.html` | Brand story page |
+| 📞 Contact | `shweghee/src/pages/contact.html` | Contact form layout |
+| 📰 Blog | `shweghee/src/pages/blog.html` | Article listing |
+| 📝 Blog Single | `shweghee/src/pages/blog-single.html` | Single article template |
+| 🛍️ Product | `shweghee/src/pages/product.html` | Product detail page |
+| ❓ FAQ | `shweghee/src/pages/faq.html` | FAQ page |
+| 💼 Careers | `shweghee/src/pages/careers.html` | Careers listing |
+| 🏭 Wholesale | `shweghee/src/pages/wholesale.html` | B2B inquiry page |
+| ✅ Quality | `shweghee/src/pages/quality.html` | Quality assurance page |
+| 📍 Where to Buy | `shweghee/src/pages/where-to-buy.html` | Store locator |
+| 🔒 Privacy | `shweghee/src/pages/privacy.html` | Privacy policy |
+| ♿ Accessibility | `shweghee/src/pages/accessibility.html` | Accessibility statement |
+| 🚫 404 | `shweghee/src/pages/404.html` | Not found page |
+
+### 🚀 Run Locally
+
+ES modules require a local server (do not open HTML via `file://`):
+
+```bash
+cd shweghee/src
+python3 -m http.server 8080
+# Home: http://localhost:8080/pages/home.html
+# Shop: http://localhost:8080/pages/shop.html
+```
+
+### 🔄 Static → Block Migration Workflow
+
+1. 🎨 **Design** — Build or refine section in `shweghee/src/components/<section>/`
+2. 📋 **Map** — Add row to `shweghee/docs/block-mapping.md` with `data-block` slug
+3. 🧱 **Scaffold** — Create matching block in `src/<block-name>/`
+4. 🎨 **Port styles** — Move `*.css` → block `style.scss`
+5. ⚡ **Port scripts** — Move `init*` logic → block `view.js`
+6. 📝 **Attributes** — Replace `*.mock.json` fields with `block.json` attributes
+7. ✅ **QA** — Visual compare static page vs. WordPress editor + frontend
+
+See `shweghee/docs/architecture.md` for component contracts and `data-*` attribute conventions.
 
 ---
 
@@ -434,9 +560,9 @@ This project follows **[Conventional Commits](https://www.conventionalcommits.or
 
 | Type | When to Use | Example |
 |------|-------------|---------|
-| `feat` | ✨ New feature or enhancement | `feat: 24052026 - add avocado-branded maintenance page template` |
-| `fix` | 🐛 Bug fix | `fix: 24052026 - restore why-choose responsive layout on tablet breakpoints` |
-| `docs` | 📚 Documentation only | `docs: 24052026 - expand README with block catalog and deployment guide` |
+| `feat` | ✨ New feature or enhancement | `feat: 07062026 - add brand page Gutenberg block suite for retail sites` |
+| `fix` | 🐛 Bug fix | `fix: 07062026 - restore FAQ accordion keyboard navigation on mobile` |
+| `docs` | 📚 Documentation only | `docs: 07062026 - expand README with brand blocks catalog and shweghee guide` |
 | `refactor` | ♻️ Code restructure (no behavior change) | `refactor: 24052026 - modernize stats section spacing architecture` |
 | `style` | 💅 Formatting / SCSS-only (no logic change) | `style: 24052026 - normalize hero section typography tokens` |
 | `chore` | 🔧 Tooling, deps, config | `chore: 24052026 - bump @wordpress/scripts to v27` |
