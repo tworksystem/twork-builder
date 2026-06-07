@@ -1,0 +1,871 @@
+{
+  "header": {
+    "utilityLinks": [
+      {
+        "id": "support",
+        "label": "Customer Support",
+        "href": "#footer"
+      },
+      {
+        "id": "tracking",
+        "label": "Order Inquiry",
+        "href": "tel:095255122"
+      }
+    ],
+    "language": "English",
+    "currency": "MMK",
+    "brandName": "Shwe Myanmar",
+    "logoSrc": "../assets/brand/shwe-myanmar-logo.png",
+    "brandPrefix": "Shwe",
+    "brandSuffix": "Myanmar",
+    "searchPlaceholder": "Search butter, ghee, dairy...",
+    "categories": [
+      {
+        "id": "all",
+        "label": "All Categories"
+      },
+      {
+        "id": "butter",
+        "label": "Butter"
+      },
+      {
+        "id": "ghee",
+        "label": "Ghee"
+      }
+    ],
+    "wishlistCount": 0,
+    "cartTotal": "0 MMK",
+    "menuItems": [
+      {
+        "id": "home",
+        "label": "Home",
+        "href": "/pages/home.html",
+        "hasDropdown": false
+      },
+      {
+        "id": "shop",
+        "label": "Shop",
+        "href": "/pages/shop.html",
+        "hasDropdown": false
+      },
+      {
+        "id": "about",
+        "label": "About",
+        "href": "/pages/about.html",
+        "hasDropdown": false
+      },
+      {
+        "id": "blog",
+        "label": "Blog",
+        "href": "/pages/blog.html",
+        "hasDropdown": false
+      },
+      {
+        "id": "wholesale",
+        "label": "Wholesale",
+        "href": "/pages/wholesale.html",
+        "hasDropdown": false
+      },
+      {
+        "id": "faq",
+        "label": "FAQ",
+        "href": "/pages/faq.html",
+        "hasDropdown": false
+      },
+      {
+        "id": "contact",
+        "label": "Contact",
+        "href": "/pages/contact.html",
+        "hasDropdown": false
+      }
+    ],
+    "recentLabel": "Recently Viewed"
+  },
+  "breadcrumb": {
+    "items": [
+      {
+        "id": "home",
+        "label": "Home",
+        "href": "/pages/home.html"
+      },
+      {
+        "id": "shop",
+        "label": "Shop",
+        "href": "/pages/shop.html"
+      }
+    ]
+  },
+  "hero": {
+    "slides": [
+      {
+        "id": "hero_1",
+        "eyebrow": "ရွှေမြန်မာ ထောပတ်",
+        "title": "Shwe Myanmar Butter",
+        "highlight": "10 Viss Pack.",
+        "subtitle": "Natural scent, natural taste — flagship bulk butter from Mandalay",
+        "ctaLabel": "Shop Now",
+        "ctaHref": "#products",
+        "imageUrl": "https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?w=1200&h=600&fit=crop&q=80",
+        "imageAlt": "Shwe Myanmar premium butter"
+      },
+      {
+        "id": "hero_2",
+        "eyebrow": "PREMIUM GHEE",
+        "title": "Shwe Myanmar Ghee",
+        "highlight": "New Arrival.",
+        "subtitle": "Traditional ghee for authentic Myanmar cooking",
+        "ctaLabel": "Shop Now",
+        "ctaHref": "#products",
+        "imageUrl": "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=1200&h=600&fit=crop&q=80",
+        "imageAlt": "Shwe Myanmar ghee products"
+      }
+    ]
+  },
+  "sidebar": {
+    "categoriesTitle": "PRODUCT CATEGORIES",
+    "categories": [
+      {
+        "id": "butter",
+        "label": "Butter & Ghee",
+        "href": "#",
+        "open": true,
+        "children": [
+          {
+            "id": "butter_10v",
+            "label": "Butter 10 Viss",
+            "href": "#"
+          },
+          {
+            "id": "butter_5v",
+            "label": "Butter 5 Viss",
+            "href": "#"
+          },
+          {
+            "id": "butter_1v",
+            "label": "Butter 1 Viss",
+            "href": "#"
+          },
+          {
+            "id": "ghee",
+            "label": "Ghee",
+            "href": "#"
+          }
+        ]
+      },
+      {
+        "id": "dairy",
+        "label": "Dairy Products",
+        "href": "#",
+        "open": false,
+        "children": [
+          {
+            "id": "fresh_milk",
+            "label": "Fresh Milk",
+            "href": "#"
+          },
+          {
+            "id": "yogurt",
+            "label": "Yogurt",
+            "href": "#"
+          }
+        ]
+      },
+      {
+        "id": "cooking",
+        "label": "Cooking Essentials",
+        "href": "#",
+        "open": false,
+        "children": []
+      },
+      {
+        "id": "wholesale",
+        "label": "Wholesale",
+        "href": "#footer",
+        "open": false,
+        "children": []
+      },
+      {
+        "id": "gift",
+        "label": "Gift Sets",
+        "href": "#",
+        "open": false,
+        "children": []
+      }
+    ],
+    "recommendationsTitle": "RECOMMENDATIONS",
+    "recommendationSlides": [
+      [
+        {
+          "id": "rec_1",
+          "title": "Shwe Myanmar Butter (10 Viss)",
+          "href": "#",
+          "image": "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=400&h=400&fit=crop&q=75",
+          "rating": 5,
+          "reviewCount": 12,
+          "price": 450000
+        },
+        {
+          "id": "rec_2",
+          "title": "Shwe Myanmar Ghee (5 Viss)",
+          "href": "#",
+          "image": "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=400&h=400&fit=crop&q=75",
+          "rating": 5,
+          "reviewCount": 8,
+          "price": 280000
+        },
+        {
+          "id": "rec_3",
+          "title": "Shwe Myanmar Butter (1 Viss)",
+          "href": "#",
+          "image": "https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?w=400&h=400&fit=crop&q=75",
+          "rating": 5,
+          "reviewCount": 24,
+          "price": 55000
+        },
+        {
+          "id": "rec_4",
+          "title": "Shwe Myanmar Butter (5 Viss)",
+          "href": "#",
+          "image": "https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?w=400&h=400&fit=crop&q=75",
+          "rating": 5,
+          "reviewCount": 15,
+          "price": 240000
+        }
+      ],
+      [
+        {
+          "id": "rec_5",
+          "title": "Shwe Myanmar Ghee (1 Viss)",
+          "href": "#",
+          "image": "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=400&h=400&fit=crop&q=75",
+          "rating": 5,
+          "reviewCount": 6,
+          "salePrice": 48000,
+          "price": 52000
+        },
+        {
+          "id": "rec_6",
+          "title": "Shwe Myanmar Cooking Butter (500g)",
+          "href": "#",
+          "image": "https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=400&h=400&fit=crop&q=75",
+          "rating": 5,
+          "reviewCount": 9,
+          "price": 28000
+        }
+      ]
+    ]
+  },
+  "featuredCategories": {
+    "title": "Top Featured Categories",
+    "viewAllHref": "#products",
+    "slides": [
+      [
+        {
+          "id": "cat_butter",
+          "title": "BUTTER",
+          "image": "https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?w=400&h=400&fit=crop&q=75",
+          "sublinks": [
+            {
+              "id": "s1",
+              "label": "10 Viss Bulk",
+              "href": "#"
+            },
+            {
+              "id": "s2",
+              "label": "5 Viss Pack",
+              "href": "#"
+            },
+            {
+              "id": "s3",
+              "label": "1 Viss Retail",
+              "href": "#"
+            },
+            {
+              "id": "s4",
+              "label": "View all",
+              "href": "#",
+              "highlight": true
+            }
+          ]
+        },
+        {
+          "id": "cat_ghee",
+          "title": "GHEE",
+          "image": "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=400&h=400&fit=crop&q=75",
+          "sublinks": [
+            {
+              "id": "s1",
+              "label": "Ghee 5 Viss",
+              "href": "#"
+            },
+            {
+              "id": "s2",
+              "label": "Ghee 1 Viss",
+              "href": "#"
+            },
+            {
+              "id": "s3",
+              "label": "Cooking Ghee",
+              "href": "#"
+            },
+            {
+              "id": "s4",
+              "label": "View all",
+              "href": "#",
+              "highlight": true
+            }
+          ]
+        },
+        {
+          "id": "cat_dairy",
+          "title": "DAIRY",
+          "image": "https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?w=400&h=400&fit=crop&q=75",
+          "sublinks": [
+            {
+              "id": "s1",
+              "label": "Fresh Milk",
+              "href": "#"
+            },
+            {
+              "id": "s2",
+              "label": "Yogurt",
+              "href": "#"
+            },
+            {
+              "id": "s3",
+              "label": "Cream",
+              "href": "#"
+            },
+            {
+              "id": "s4",
+              "label": "View all",
+              "href": "#",
+              "highlight": true
+            }
+          ]
+        },
+        {
+          "id": "cat_wholesale",
+          "title": "WHOLESALE",
+          "image": "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=400&h=400&fit=crop&q=75",
+          "sublinks": [
+            {
+              "id": "s1",
+              "label": "Bulk Orders",
+              "href": "#footer"
+            },
+            {
+              "id": "s2",
+              "label": "Distributors",
+              "href": "#footer"
+            },
+            {
+              "id": "s3",
+              "label": "Contact Us",
+              "href": "#footer"
+            },
+            {
+              "id": "s4",
+              "label": "View all",
+              "href": "#footer",
+              "highlight": true
+            }
+          ]
+        }
+      ]
+    ]
+  },
+  "dailyOffers": {
+    "title": "Shwe Myanmar Daily Offers",
+    "viewAllHref": "#products",
+    "slides": [
+      [
+        {
+          "id": "do_1",
+          "title": "Shwe Myanmar Butter (10 Viss)",
+          "href": "#",
+          "image": "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=400&h=400&fit=crop&q=75",
+          "rating": 5,
+          "reviewCount": 12,
+          "price": 450000
+        },
+        {
+          "id": "do_2",
+          "title": "Shwe Myanmar Ghee (5 Viss)",
+          "href": "#",
+          "image": "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=400&h=400&fit=crop&q=75",
+          "rating": 5,
+          "reviewCount": 8,
+          "salePrice": 260000,
+          "price": 280000,
+          "badge": {
+            "type": "sale",
+            "text": "7% off"
+          }
+        },
+        {
+          "id": "do_3",
+          "title": "Shwe Myanmar Butter (1 Viss)",
+          "href": "#",
+          "image": "https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?w=400&h=400&fit=crop&q=75",
+          "rating": 5,
+          "reviewCount": 24,
+          "price": 55000
+        },
+        {
+          "id": "do_4",
+          "title": "Shwe Myanmar Cooking Butter (500g)",
+          "href": "#",
+          "image": "https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=400&h=400&fit=crop&q=75",
+          "rating": 4,
+          "reviewCount": 5,
+          "price": 28000,
+          "badge": {
+            "type": "stock",
+            "text": "Limited Stock"
+          }
+        }
+      ],
+      [
+        {
+          "id": "do_5",
+          "title": "Shwe Myanmar Butter (5 Viss)",
+          "href": "#",
+          "image": "https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?w=400&h=400&fit=crop&q=75",
+          "rating": 5,
+          "reviewCount": 15,
+          "salePrice": 225000,
+          "price": 240000,
+          "badge": {
+            "type": "sale",
+            "text": "6% off"
+          }
+        },
+        {
+          "id": "do_6",
+          "title": "Shwe Myanmar Ghee (1 Viss)",
+          "href": "#",
+          "image": "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=400&h=400&fit=crop&q=75",
+          "rating": 5,
+          "reviewCount": 6,
+          "salePrice": 48000,
+          "price": 52000,
+          "badge": {
+            "type": "sale",
+            "text": "8% off"
+          }
+        },
+        {
+          "id": "do_7",
+          "title": "Shwe Myanmar Gift Set (Butter + Ghee)",
+          "href": "#",
+          "image": "https://images.unsplash.com/photo-1563636619-e9143da7973b?w=400&h=400&fit=crop&q=75",
+          "rating": 5,
+          "reviewCount": 3,
+          "price": 95000
+        },
+        {
+          "id": "do_8",
+          "title": "Shwe Myanmar Butter (3 Viss)",
+          "href": "#",
+          "image": "https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?w=400&h=400&fit=crop&q=75",
+          "rating": 5,
+          "reviewCount": 7,
+          "priceRange": [
+            150000,
+            165000
+          ]
+        }
+      ]
+    ]
+  },
+  "bestSellers": {
+    "title": "Monthly Best Sellers",
+    "viewAllHref": "#products",
+    "slides": [
+      [
+        {
+          "id": "bs_1",
+          "title": "Shwe Myanmar Butter (10 Viss)",
+          "href": "#",
+          "image": "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=400&h=400&fit=crop&q=75",
+          "rating": 5,
+          "reviewCount": 12,
+          "price": 450000,
+          "badge": {
+            "type": "sale",
+            "text": "Best Seller"
+          }
+        },
+        {
+          "id": "bs_2",
+          "title": "Shwe Myanmar Butter (1 Viss)",
+          "href": "#",
+          "image": "https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?w=400&h=400&fit=crop&q=75",
+          "rating": 5,
+          "reviewCount": 24,
+          "price": 55000,
+          "badge": {
+            "type": "sale",
+            "text": "Popular"
+          }
+        },
+        {
+          "id": "bs_3",
+          "title": "Shwe Myanmar Ghee (5 Viss)",
+          "href": "#",
+          "image": "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=400&h=400&fit=crop&q=75",
+          "rating": 5,
+          "reviewCount": 8,
+          "salePrice": 260000,
+          "price": 280000,
+          "badge": {
+            "type": "sale",
+            "text": "7% off"
+          }
+        },
+        {
+          "id": "bs_4",
+          "title": "Shwe Myanmar Butter (5 Viss)",
+          "href": "#",
+          "image": "https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?w=400&h=400&fit=crop&q=75",
+          "rating": 5,
+          "reviewCount": 15,
+          "salePrice": 225000,
+          "price": 240000,
+          "badge": {
+            "type": "sale",
+            "text": "6% off"
+          }
+        }
+      ]
+    ]
+  },
+  "toolbar": {
+    "sortOptions": [
+      {
+        "id": "default",
+        "label": "Default sorting"
+      },
+      {
+        "id": "popularity",
+        "label": "Sort by popularity"
+      },
+      {
+        "id": "rating",
+        "label": "Sort by average rating"
+      },
+      {
+        "id": "latest",
+        "label": "Sort by latest"
+      },
+      {
+        "id": "price-asc",
+        "label": "Sort by price: low to high"
+      },
+      {
+        "id": "price-desc",
+        "label": "Sort by price: high to low"
+      }
+    ],
+    "perPageOptions": [
+      12,
+      16,
+      20
+    ],
+    "defaultPerPage": 20,
+    "currentPage": 1,
+    "totalPages": 1
+  },
+  "products": [
+    {
+      "id": "p1",
+      "title": "Shwe Myanmar Butter (10 Viss)",
+      "href": "/pages/product.html?id=p1",
+      "image": "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=400&h=400&fit=crop&q=75",
+      "rating": 5,
+      "reviewCount": 12,
+      "price": 450000
+    },
+    {
+      "id": "p2",
+      "title": "Shwe Myanmar Butter (5 Viss)",
+      "href": "/pages/product.html?id=p2",
+      "image": "https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?w=400&h=400&fit=crop&q=75",
+      "rating": 5,
+      "reviewCount": 15,
+      "salePrice": 225000,
+      "price": 240000,
+      "badge": {
+        "type": "sale",
+        "text": "6% off"
+      }
+    },
+    {
+      "id": "p3",
+      "title": "Shwe Myanmar Butter (3 Viss)",
+      "href": "/pages/product.html?id=p3",
+      "image": "https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?w=400&h=400&fit=crop&q=75",
+      "rating": 5,
+      "reviewCount": 7,
+      "price": 150000
+    },
+    {
+      "id": "p4",
+      "title": "Shwe Myanmar Butter (1 Viss)",
+      "href": "/pages/product.html?id=p4",
+      "image": "https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?w=400&h=400&fit=crop&q=75",
+      "rating": 5,
+      "reviewCount": 24,
+      "price": 55000
+    },
+    {
+      "id": "p5",
+      "title": "Shwe Myanmar Ghee (5 Viss)",
+      "href": "/pages/product.html?id=p5",
+      "image": "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=400&h=400&fit=crop&q=75",
+      "rating": 5,
+      "reviewCount": 8,
+      "salePrice": 260000,
+      "price": 280000,
+      "badge": {
+        "type": "sale",
+        "text": "7% off"
+      }
+    },
+    {
+      "id": "p6",
+      "title": "Shwe Myanmar Ghee (1 Viss)",
+      "href": "/pages/product.html?id=p6",
+      "image": "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=400&h=400&fit=crop&q=75",
+      "rating": 5,
+      "reviewCount": 6,
+      "salePrice": 48000,
+      "price": 52000,
+      "badge": {
+        "type": "sale",
+        "text": "8% off"
+      }
+    },
+    {
+      "id": "p7",
+      "title": "Shwe Myanmar Cooking Butter (500g)",
+      "href": "/pages/product.html?id=p7",
+      "image": "https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=400&h=400&fit=crop&q=75",
+      "rating": 5,
+      "reviewCount": 9,
+      "price": 28000
+    },
+    {
+      "id": "p8",
+      "title": "Shwe Myanmar Cooking Butter (250g)",
+      "href": "/pages/product.html?id=p8",
+      "image": "https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=400&h=400&fit=crop&q=75",
+      "rating": 5,
+      "reviewCount": 11,
+      "salePrice": 14000,
+      "price": 16000,
+      "badge": {
+        "type": "sale",
+        "text": "13% off"
+      }
+    },
+    {
+      "id": "p9",
+      "title": "Shwe Myanmar Gift Set (Butter + Ghee)",
+      "href": "/pages/product.html?id=p9",
+      "image": "https://images.unsplash.com/photo-1563636619-e9143da7973b?w=400&h=400&fit=crop&q=75",
+      "rating": 5,
+      "reviewCount": 3,
+      "price": 95000
+    },
+    {
+      "id": "p10",
+      "title": "Shwe Myanmar Clarified Butter (2 Viss)",
+      "href": "/pages/product.html?id=p10",
+      "image": "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=400&h=400&fit=crop&q=75",
+      "rating": 5,
+      "reviewCount": 4,
+      "price": 98000
+    },
+    {
+      "id": "p11",
+      "title": "Shwe Myanmar Premium Ghee (3 Viss)",
+      "href": "/pages/product.html?id=p11",
+      "image": "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=400&h=400&fit=crop&q=75",
+      "rating": 5,
+      "reviewCount": 5,
+      "salePrice": 165000,
+      "price": 175000,
+      "badge": {
+        "type": "sale",
+        "text": "6% off"
+      }
+    },
+    {
+      "id": "p12",
+      "title": "Shwe Myanmar Butter Spread (400g)",
+      "href": "/pages/product.html?id=p12",
+      "image": "https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=400&h=400&fit=crop&q=75",
+      "rating": 4,
+      "reviewCount": 7,
+      "price": 22000
+    },
+    {
+      "id": "p13",
+      "title": "Shwe Myanmar Unsalted Butter (1 Viss)",
+      "href": "/pages/product.html?id=p13",
+      "image": "https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?w=400&h=400&fit=crop&q=75",
+      "rating": 5,
+      "reviewCount": 10,
+      "price": 58000
+    },
+    {
+      "id": "p14",
+      "title": "Shwe Myanmar Salted Butter (1 Viss)",
+      "href": "/pages/product.html?id=p14",
+      "image": "https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?w=400&h=400&fit=crop&q=75",
+      "rating": 5,
+      "reviewCount": 14,
+      "priceRange": [
+        52000,
+        58000
+      ]
+    },
+    {
+      "id": "p15",
+      "title": "Shwe Myanmar Ghee (10 Viss)",
+      "href": "/pages/product.html?id=p15",
+      "image": "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=400&h=400&fit=crop&q=75",
+      "rating": 5,
+      "reviewCount": 2,
+      "price": 520000
+    },
+    {
+      "id": "p16",
+      "title": "Shwe Myanmar Family Pack (Butter 2 Viss)",
+      "href": "/pages/product.html?id=p16",
+      "image": "https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?w=400&h=400&fit=crop&q=75",
+      "rating": 5,
+      "reviewCount": 8,
+      "salePrice": 98000,
+      "price": 105000,
+      "badge": {
+        "type": "sale",
+        "text": "7% off"
+      }
+    },
+    {
+      "id": "p17",
+      "title": "Shwe Myanmar Traditional Ghee (500g)",
+      "href": "/pages/product.html?id=p17",
+      "image": "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=400&h=400&fit=crop&q=75",
+      "rating": 5,
+      "reviewCount": 6,
+      "price": 32000
+    },
+    {
+      "id": "p18",
+      "title": "Shwe Myanmar Butter (Half Viss / 800g)",
+      "href": "/pages/product.html?id=p18",
+      "image": "https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?w=400&h=400&fit=crop&q=75",
+      "rating": 5,
+      "reviewCount": 18,
+      "price": 32000
+    },
+    {
+      "id": "p19",
+      "title": "Shwe Myanmar Wholesale Butter (20 Viss)",
+      "href": "/pages/product.html?id=p19",
+      "image": "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=400&h=400&fit=crop&q=75",
+      "rating": 5,
+      "reviewCount": 1,
+      "price": 850000
+    },
+    {
+      "id": "p20",
+      "title": "Shwe Myanmar Festival Gift Box",
+      "href": "/pages/product.html?id=p20",
+      "image": "https://images.unsplash.com/photo-1563636619-e9143da7973b?w=400&h=400&fit=crop&q=75",
+      "rating": 5,
+      "reviewCount": 2,
+      "price": 120000
+    }
+  ],
+  "footer": {
+    "brandPrefix": "Shwe",
+    "brandSuffix": "Myanmar",
+    "phone": "095-2-55122",
+    "email": "",
+    "address": "Shwe Myanmar Foodstuff Industry, Mandalay, Myanmar",
+    "columns": [
+      {
+        "id": "info",
+        "title": "Information",
+        "links": [
+          {
+            "id": "about",
+            "label": "About Us",
+            "href": "/pages/about.html"
+          },
+          {
+            "id": "products",
+            "label": "Our Products",
+            "href": "/pages/shop.html"
+          },
+          {
+            "id": "contact",
+            "label": "Contact",
+            "href": "/pages/contact.html"
+          },
+          {
+            "id": "wholesale",
+            "label": "Wholesale",
+            "href": "/pages/wholesale.html"
+          }
+        ]
+      },
+      {
+        "id": "account",
+        "title": "Quick Links",
+        "links": [
+          {
+            "id": "home",
+            "label": "Home",
+            "href": "/pages/home.html"
+          },
+          {
+            "id": "shop",
+            "label": "Shop",
+            "href": "/pages/shop.html"
+          },
+          {
+            "id": "faq",
+            "label": "FAQs",
+            "href": "/pages/faq.html"
+          }
+        ]
+      }
+    ],
+    "newsletterTitle": "Shwe Myanmar Newsletter",
+    "newsletterText": "Subscribe for product updates, promotions, and news from Mandalay.",
+    "newsletterPlaceholder": "Your email address",
+    "newsletterButton": "Subscribe",
+    "categoryLinks": [
+      "Butter",
+      "Ghee",
+      "Dairy",
+      "Cooking Essentials",
+      "Gift Sets",
+      "Wholesale",
+      "Bulk Packs"
+    ],
+    "copyright": "© 2026 Shwe Myanmar Foodstuff Industry. All rights reserved.",
+    "payments": [
+      "KBZ Pay",
+      "CB Pay",
+      "Wave Money",
+      "Cash"
+    ]
+  }
+}

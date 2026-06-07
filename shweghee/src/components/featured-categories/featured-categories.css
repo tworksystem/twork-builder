@@ -1,0 +1,106 @@
+.featured-categories__stage {
+  position: relative;
+}
+
+.featured-categories__slide,
+.daily-offers__track > .product-carousel__slide,
+.best-sellers__track > .product-carousel__slide,
+.shop-sidebar__rec-track > .product-carousel__slide {
+  display: none;
+}
+
+.featured-categories__slide.is-active,
+.daily-offers__track > .product-carousel__slide.is-active,
+.best-sellers__track > .product-carousel__slide.is-active,
+.shop-sidebar__rec-track > .product-carousel__slide.is-active {
+  display: block;
+}
+
+.featured-categories__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-5);
+}
+
+.featured-categories__card {
+  text-align: center;
+}
+
+.featured-categories__media img {
+  max-height: 140px;
+  width: auto;
+  margin-inline: auto;
+  object-fit: contain;
+}
+
+.featured-categories__name {
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  margin: var(--space-4) 0 var(--space-3);
+}
+
+.featured-categories__links {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  align-items: center;
+}
+
+.featured-categories__link {
+  font-size: var(--font-size-xs);
+  color: var(--shop-color-muted);
+  text-decoration: none;
+}
+
+.featured-categories__link--cta {
+  color: var(--shop-color-accent);
+  font-weight: 600;
+}
+
+.featured-categories__arrow {
+  position: absolute;
+  top: 40%;
+  transform: translateY(-50%);
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--shop-color-border);
+  background: #fff;
+  color: var(--shop-color-muted);
+  cursor: pointer;
+  z-index: 2;
+  font-size: 1.25rem;
+}
+
+.featured-categories__arrow--prev {
+  left: -12px;
+}
+
+.featured-categories__arrow--next {
+  right: -12px;
+}
+
+.featured-categories__dots {
+  justify-content: center;
+  margin-top: var(--space-4);
+}
+
+.featured-categories__dots .carousel-dots__dot.is-active {
+  background: var(--shop-color-accent);
+}
+
+@media (max-width: 1024px) {
+  .featured-categories__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .featured-categories__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .featured-categories__arrow {
+    display: none;
+  }
+}

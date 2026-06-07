@@ -1,0 +1,112 @@
+.partners {
+  padding-block: var(--space-section);
+  background: var(--color-bg-page);
+  position: relative;
+}
+
+.partners::before {
+  content: "";
+  position: absolute;
+  inset: 20% 10%;
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.03) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.partners__inner {
+  position: relative;
+}
+
+.partners__top {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-7);
+  margin-bottom: var(--space-7);
+  align-items: start;
+}
+
+.partners__head .section-head__title {
+  text-align: left;
+}
+
+.partners__desc {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+  line-height: 1.7;
+}
+
+.partners__desc a {
+  color: var(--color-primary);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.partners__more {
+  margin-top: var(--space-4);
+}
+
+.partners__logos {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  border: 1px solid var(--color-border);
+}
+
+.partners__logo-cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  padding: var(--space-6) var(--space-4);
+  border-left: 1px solid var(--color-border);
+}
+
+.partners__logo-img {
+  display: block;
+  width: auto;
+  max-width: 120px;
+  height: auto;
+  max-height: 48px;
+  object-fit: contain;
+}
+
+.partners__logo-name {
+  font-weight: 600;
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+  text-align: center;
+}
+
+.partners__logo-cell:first-child {
+  border-left: 0;
+}
+
+.partners__logo-text {
+  font-weight: 600;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-primary);
+}
+
+@media (max-width: 900px) {
+  .partners__top {
+    grid-template-columns: 1fr;
+  }
+
+  .partners__logos {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .partners__logo-cell {
+    border-left: 0;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .partners__logo-cell:nth-child(-n + 2) {
+    border-top: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .partners__logos {
+    grid-template-columns: 1fr;
+  }
+}

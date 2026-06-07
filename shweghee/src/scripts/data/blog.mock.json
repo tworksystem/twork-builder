@@ -1,0 +1,187 @@
+{
+  "header": {
+    "brandName": "Shwe Myanmar",
+    "logoSrc": "../assets/brand/shwe-myanmar-logo.png",
+    "brandPrefix": "Shwe",
+    "brandSuffix": "Myanmar",
+    "hotlineLabel": "CUSTOMER HOTLINE",
+    "phone": "095-2-55122",
+    "menuItems": [
+      { "id": "home", "label": "Home", "href": "/pages/home.html", "hasDropdown": false },
+      { "id": "shop", "label": "Shop", "href": "/pages/shop.html", "hasDropdown": false },
+      { "id": "about", "label": "About", "href": "/pages/about.html", "hasDropdown": false },
+      { "id": "blog", "label": "Blog", "href": "/pages/blog.html", "hasDropdown": false },
+      { "id": "wholesale", "label": "Wholesale", "href": "/pages/wholesale.html", "hasDropdown": false },
+      { "id": "faq", "label": "FAQ", "href": "/pages/faq.html", "hasDropdown": false },
+      { "id": "contact", "label": "Contact", "href": "/pages/contact.html", "hasDropdown": false }
+    ]
+  },
+  "footer": {
+    "infoCards": [
+      {
+        "id": "info_phone",
+        "label": "CUSTOMER HOTLINE",
+        "lines": ["095-2-55122", "095-2-55123", "095-9-200 1227"],
+        "icon": "phone"
+      },
+      {
+        "id": "info_address",
+        "label": "OFFICE ADDRESS",
+        "lines": ["Shwe Myanmar Foodstuff Industry", "Mandalay, Myanmar"],
+        "icon": "pin"
+      },
+      {
+        "id": "info_hours",
+        "label": "BUSINESS HOURS",
+        "lines": ["08:00 - 17:00, MMT (UTC+6:30)", "Monday - Saturday"],
+        "icon": "clock"
+      }
+    ],
+    "brandPrefix": "Shwe",
+    "brandSuffix": "Myanmar",
+    "description": "Shwe Myanmar Foodstuff Industry — premium butter and ghee from Mandalay, Myanmar.",
+    "social": [
+      { "id": "fb", "label": "Facebook", "href": "#" },
+      { "id": "ig", "label": "Instagram", "href": "#" }
+    ],
+    "columns": [
+      {
+        "id": "col_help",
+        "title": "Help & Info",
+        "links": [
+          { "id": "l1", "label": "About Us", "href": "/pages/about.html" },
+          { "id": "l2", "label": "Contact Us", "href": "/pages/contact.html" },
+          { "id": "l3", "label": "FAQs", "href": "/pages/faq.html" }
+        ]
+      }
+    ],
+    "copyright": "© 2026 Shwe Myanmar Foodstuff Industry. All rights reserved.",
+    "pastureImageUrl": "https://images.unsplash.com/photo-1500595046743-cd271d694d30?w=1600&h=400&fit=crop&q=80",
+    "pastureImageAlt": "Shwe Myanmar premium butter products"
+  },
+  "newsletter": {
+    "title": "Stay updated on Shwe Myanmar products, promotions, and news.",
+    "placeholder": "Your email address",
+    "buttonLabel": "SUBSCRIBE",
+    "honeypotName": "website"
+  },
+  "blogListing": {
+    "pageHero": {
+      "eyebrow": "NEWS & UPDATES",
+      "title": "Shwe Myanmar Blog",
+      "subtitle": "Product launches, quality insights, and company news from Mandalay."
+    },
+    "breadcrumb": {
+      "items": [
+        { "id": "home", "label": "Home", "href": "/pages/home.html" },
+        { "id": "blog", "label": "Blog", "href": "/pages/blog.html" }
+      ]
+    },
+    "blog": {
+      "posts": [
+        {
+          "id": "post_1",
+          "author": "Shwe Myanmar",
+          "category": "Product",
+          "date": "March 15, 2026",
+          "dateIso": "2026-03-15",
+          "title": "Introducing Our 10 Viss Bulk Pack",
+          "excerpt": "Our flagship 10 Viss (≈ 16.33 kg) butter pack is now available for wholesale and commercial customers across Myanmar.",
+          "href": "/pages/blog-single.html?id=post_1",
+          "imageUrl": "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=600&h=400&fit=crop&q=80",
+          "imageAlt": "10 Viss Shwe Myanmar butter pack",
+          "content": [
+            "We are proud to announce the launch of our flagship 10 Viss bulk butter pack — designed specifically for restaurants, food manufacturers, and wholesale distributors across Myanmar.",
+            "At approximately 16.33 kg (36 lbs), the 10 Viss pack offers exceptional value for commercial kitchens that use butter daily. Each pack maintains the same natural scent and natural taste (သဘာဝ အနံ့ သဘာဝ အရသာ) that households have trusted for years.",
+            "Wholesale pricing is available for qualified customers. Contact our Mandalay office at 095-2-55122 or visit our Wholesale page to submit an inquiry."
+          ]
+        },
+        {
+          "id": "post_2",
+          "author": "Shwe Myanmar",
+          "category": "Quality",
+          "date": "February 28, 2026",
+          "dateIso": "2026-02-28",
+          "title": "How We Maintain Natural Taste",
+          "excerpt": "Learn about our quality control process that ensures every pack delivers natural scent and natural taste.",
+          "href": "/pages/blog-single.html?id=post_2",
+          "imageUrl": "https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=600&h=400&fit=crop&q=80",
+          "imageAlt": "Quality control at Shwe Myanmar",
+          "content": [
+            "Quality is the foundation of everything we do at Shwe Myanmar Foodstuff Industry. From raw ingredient selection to final packaging, every step is monitored to ensure consistent results.",
+            "Our Mandalay production facility follows strict hygiene and quality standards. Each batch is tested for flavor, texture, and freshness before it reaches your kitchen.",
+            "This commitment to natural ingredients and careful processing is what gives Shwe Myanmar products their distinctive authentic taste that customers across Myanmar recognize and trust."
+          ]
+        },
+        {
+          "id": "post_3",
+          "author": "Shwe Myanmar",
+          "category": "News",
+          "date": "January 10, 2026",
+          "dateIso": "2026-01-10",
+          "title": "Mandalay Production Facility Update",
+          "excerpt": "Shwe Myanmar continues to invest in our Mandalay facility to meet growing demand for premium butter and ghee.",
+          "href": "/pages/blog-single.html?id=post_3",
+          "imageUrl": "https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=600&h=400&fit=crop&q=80",
+          "imageAlt": "Mandalay production facility",
+          "content": [
+            "Shwe Myanmar Foodstuff Industry is investing in capacity improvements at our Mandalay production facility to better serve the growing demand for premium butter and ghee across Myanmar.",
+            "These upgrades include enhanced quality control equipment and expanded packaging lines to support both retail and bulk product lines.",
+            "We remain committed to our Mandalay roots while expanding our reach to kitchens and businesses nationwide. Thank you for choosing Shwe Myanmar."
+          ]
+        },
+        {
+          "id": "post_4",
+          "author": "Shwe Myanmar",
+          "category": "Tips",
+          "date": "December 5, 2025",
+          "dateIso": "2025-12-05",
+          "title": "5 Ways to Use Shwe Myanmar Ghee",
+          "excerpt": "From traditional curries to modern baking — discover versatile uses for our premium ghee.",
+          "href": "/pages/blog-single.html?id=post_4",
+          "imageUrl": "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=600&h=400&fit=crop&q=80",
+          "imageAlt": "Cooking with Shwe Myanmar ghee",
+          "content": [
+            "Shwe Myanmar ghee is a versatile ingredient that enhances both traditional Myanmar dishes and modern recipes.",
+            "Use it for tempering spices in curries, sautéing vegetables, making paratha and naan, enriching rice dishes, or as a natural substitute for oil in baking.",
+            "The high smoke point and rich flavor of our ghee make it ideal for high-heat cooking while adding the authentic taste your family loves."
+          ]
+        },
+        {
+          "id": "post_5",
+          "author": "Shwe Myanmar",
+          "category": "Community",
+          "date": "November 20, 2025",
+          "dateIso": "2025-11-20",
+          "title": "Serving Families Across Myanmar",
+          "excerpt": "How Shwe Myanmar products reach kitchens from Mandalay to Yangon and beyond.",
+          "href": "/pages/blog-single.html?id=post_5",
+          "imageUrl": "https://images.unsplash.com/photo-1563636619-e9143da7973b?w=600&h=400&fit=crop&q=80",
+          "imageAlt": "Shwe Myanmar distribution",
+          "content": [
+            "From our home in Mandalay, Shwe Myanmar products travel to kitchens across Myanmar — through our distribution network and trusted retail partners.",
+            "Whether you are cooking for your family in Yangon or running a restaurant in Shan State, Shwe Myanmar delivers the same consistent quality in every pack.",
+            "We are grateful to the communities that have made Shwe Myanmar a household name. Your trust drives us to keep improving every day."
+          ]
+        },
+        {
+          "id": "post_6",
+          "author": "Shwe Myanmar",
+          "category": "Product",
+          "date": "October 8, 2025",
+          "dateIso": "2025-10-08",
+          "title": "Choosing the Right Pack Size",
+          "excerpt": "A guide to Shwe Myanmar pack sizes — from 1 Viss retail to 10 Viss bulk.",
+          "href": "/pages/blog-single.html?id=post_6",
+          "imageUrl": "https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?w=600&h=400&fit=crop&q=80",
+          "imageAlt": "Shwe Myanmar pack sizes",
+          "content": [
+            "Shwe Myanmar offers butter and ghee in multiple pack sizes to suit different needs. For home kitchens, our 1 Viss and smaller retail packs are convenient and fresh.",
+            "For larger families or small eateries, 3 Viss and 5 Viss packs offer better value. Commercial kitchens and wholesalers should consider our 10 Viss bulk pack.",
+            "Not sure which size is right for you? Call our hotline at 095-2-55122 and our team will help you choose the best option."
+          ]
+        }
+      ]
+    }
+  }
+}

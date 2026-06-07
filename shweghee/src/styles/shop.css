@@ -1,0 +1,27 @@
+@import "./core/fonts.css";
+@import "./core/reset.css";
+@import "./core/tokens.css";
+@import "./core/shop-tokens.css";
+@import "./core/utilities.css";
+@import "./layout/container.css";
+@import "./layout/shop-layout.css";
+
+@import "../components/product-card/product-card.css";
+@import "../components/shop-header/shop-header.css";
+@import "../components/breadcrumb/breadcrumb.css";
+@import "../components/shop-hero/shop-hero.css";
+@import "../components/shop-sidebar/shop-sidebar.css";
+@import "../components/featured-categories/featured-categories.css";
+@import "../components/daily-offers/daily-offers.css";
+@import "../components/best-sellers/best-sellers.css";
+@import "../components/shop-toolbar/shop-toolbar.css";
+@import "../components/product-grid/product-grid.css";
+@import "../components/shop-footer/shop-footer.css";
+
+.shop-page .l-section {
+  width: min(var(--shop-container-max), 94vw);
+}
+
+html {
+  scroll-padding-top: 120px;
+}

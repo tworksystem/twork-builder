@@ -1,0 +1,103 @@
+.blog-article {
+  padding-block: var(--space-section);
+}
+
+.blog-article__header {
+  max-width: 760px;
+  margin: 0 auto var(--space-6);
+  text-align: center;
+}
+
+.blog-article__meta {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-light);
+  margin-bottom: var(--space-3);
+}
+
+.blog-article__title {
+  font-size: var(--font-size-section);
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.blog-article__image {
+  width: 100%;
+  max-width: 800px;
+  height: auto;
+  margin: 0 auto var(--space-6);
+  display: block;
+  border-radius: var(--radius-lg);
+  object-fit: cover;
+}
+
+.blog-article__body {
+  max-width: 720px;
+  margin-inline: auto;
+}
+
+.blog-article__para {
+  color: var(--color-text-muted);
+  line-height: 1.8;
+  margin-bottom: var(--space-4);
+  font-size: var(--font-size-md);
+}
+
+.blog-article__related {
+  max-width: 720px;
+  margin: var(--space-8) auto 0;
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--color-border);
+}
+
+.blog-article__related-title {
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  margin-bottom: var(--space-4);
+}
+
+.blog-article__related-grid {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.blog-article__related-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  background: var(--color-bg-alt);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  color: inherit;
+}
+
+.blog-article__related-card:hover {
+  background: var(--color-brand-cyan-soft);
+}
+
+.blog-article__related-card h3 {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+}
+
+.blog-article__related-card span {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-light);
+  white-space: nowrap;
+}
+
+.blog-article__not-found {
+  text-align: center;
+  padding: var(--space-8);
+}
+
+.blog-article__not-found h1 {
+  font-size: var(--font-size-section);
+  margin-bottom: var(--space-3);
+}
+
+.blog-article__not-found p {
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-5);
+}

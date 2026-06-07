@@ -1,0 +1,114 @@
+.quality-section {
+  padding-block: var(--space-section);
+}
+
+.quality-section__intro {
+  display: grid;
+  gap: var(--space-6);
+  align-items: center;
+  margin-bottom: var(--space-8);
+}
+
+@media (min-width: 768px) {
+  .quality-section__intro {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.quality-section__para {
+  color: var(--color-text-muted);
+  line-height: 1.7;
+  margin-bottom: var(--space-4);
+}
+
+.quality-section__image {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-lg);
+  object-fit: cover;
+}
+
+.quality-section__process {
+  margin-bottom: var(--space-8);
+}
+
+.quality-section__steps {
+  display: grid;
+  gap: var(--space-4);
+}
+
+@media (min-width: 768px) {
+  .quality-section__steps {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.quality-section__step {
+  padding: var(--space-5);
+  background: var(--color-bg-alt);
+  border-radius: var(--radius-md);
+  border-top: 3px solid var(--color-primary);
+}
+
+.quality-section__step-num {
+  display: inline-block;
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: var(--space-2);
+}
+
+.quality-section__step-title {
+  font-size: var(--font-size-md);
+  font-weight: 600;
+  margin-bottom: var(--space-2);
+}
+
+.quality-section__step-text {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+  line-height: 1.6;
+}
+
+.quality-section__standards-grid {
+  display: grid;
+  gap: var(--space-4);
+}
+
+@media (min-width: 768px) {
+  .quality-section__standards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.quality-section__standard {
+  display: flex;
+  gap: var(--space-4);
+  padding: var(--space-5);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.quality-section__standard-icon {
+  flex-shrink: 0;
+  width: 2rem;
+  height: 2rem;
+  display: grid;
+  place-items: center;
+  background: var(--color-brand-cyan-soft);
+  color: var(--color-primary);
+  border-radius: 50%;
+  font-weight: 700;
+}
+
+.quality-section__standard-title {
+  font-size: var(--font-size-md);
+  font-weight: 600;
+  margin-bottom: var(--space-2);
+}
+
+.quality-section__standard-text {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+  line-height: 1.6;
+}

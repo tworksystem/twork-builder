@@ -1,0 +1,134 @@
+.where-to-buy {
+  padding-block: var(--space-section);
+}
+
+.where-to-buy__para {
+  color: var(--color-text-muted);
+  line-height: 1.7;
+  margin-bottom: var(--space-4);
+  max-width: 720px;
+}
+
+.where-to-buy__intro {
+  margin-bottom: var(--space-8);
+}
+
+.where-to-buy__regions {
+  margin-bottom: var(--space-8);
+}
+
+.where-to-buy__regions-grid {
+  display: grid;
+  gap: var(--space-4);
+}
+
+@media (min-width: 768px) {
+  .where-to-buy__regions-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .where-to-buy__regions-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.where-to-buy__region {
+  padding: var(--space-5);
+  background: var(--color-bg-alt);
+  border-radius: var(--radius-md);
+  border-left: 3px solid var(--color-primary);
+}
+
+.where-to-buy__region-title {
+  font-size: var(--font-size-md);
+  font-weight: 600;
+  margin-bottom: var(--space-2);
+}
+
+.where-to-buy__region-desc {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+  line-height: 1.6;
+  margin-bottom: var(--space-3);
+}
+
+.where-to-buy__region-outlets {
+  padding-left: var(--space-5);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}
+
+.where-to-buy__region-outlets li {
+  margin-bottom: var(--space-1);
+}
+
+.where-to-buy__tips {
+  margin-bottom: var(--space-8);
+}
+
+.where-to-buy__tips-grid {
+  display: grid;
+  gap: var(--space-4);
+}
+
+@media (min-width: 768px) {
+  .where-to-buy__tips-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.where-to-buy__tip {
+  padding: var(--space-5);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.where-to-buy__tip-num {
+  display: inline-block;
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: var(--space-2);
+}
+
+.where-to-buy__tip-title {
+  font-size: var(--font-size-md);
+  font-weight: 600;
+  margin-bottom: var(--space-2);
+}
+
+.where-to-buy__tip-text {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+  line-height: 1.6;
+}
+
+.where-to-buy__cta {
+  text-align: center;
+  padding: var(--space-8) var(--space-5);
+  background: var(--color-bg-alt);
+  border-radius: var(--radius-lg);
+}
+
+.where-to-buy__cta-title {
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  margin-bottom: var(--space-3);
+}
+
+.where-to-buy__cta-text {
+  color: var(--color-text-muted);
+  max-width: 560px;
+  margin-inline: auto;
+  margin-bottom: var(--space-5);
+  line-height: 1.7;
+}
+
+.where-to-buy__cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  justify-content: center;
+}

@@ -1,0 +1,112 @@
+.about-story {
+  padding-block: var(--space-section);
+}
+
+.about-story__intro {
+  display: grid;
+  gap: var(--space-6);
+  align-items: center;
+  margin-bottom: var(--space-8);
+}
+
+@media (min-width: 768px) {
+  .about-story__intro {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.about-story__para {
+  color: var(--color-text-muted);
+  line-height: 1.7;
+  margin-bottom: var(--space-4);
+}
+
+.about-story__image {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-lg);
+  object-fit: cover;
+}
+
+.about-story__timeline {
+  display: grid;
+  gap: var(--space-4);
+}
+
+@media (min-width: 768px) {
+  .about-story__timeline {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.about-story__milestone {
+  padding: var(--space-5);
+  background: var(--color-bg-alt);
+  border-radius: var(--radius-md);
+  border-left: 3px solid var(--color-primary);
+}
+
+.about-story__year {
+  display: inline-block;
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: var(--space-2);
+}
+
+.about-story__milestone-title {
+  font-size: var(--font-size-md);
+  font-weight: 600;
+  margin-bottom: var(--space-2);
+}
+
+.about-story__milestone-text {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+.about-story__values {
+  margin-top: var(--space-8);
+}
+
+.about-story__values-grid {
+  display: grid;
+  gap: var(--space-4);
+}
+
+@media (min-width: 768px) {
+  .about-story__values-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.about-story__value {
+  text-align: center;
+  padding: var(--space-5);
+}
+
+.about-story__value-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--color-brand-cyan-soft);
+  color: var(--color-brand-cyan-dark);
+  font-weight: 700;
+  margin-bottom: var(--space-3);
+}
+
+.about-story__value-title {
+  font-size: var(--font-size-md);
+  font-weight: 600;
+  margin-bottom: var(--space-2);
+}
+
+.about-story__value-text {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}

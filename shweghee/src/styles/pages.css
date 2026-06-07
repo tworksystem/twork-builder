@@ -1,0 +1,47 @@
+@import "./core/fonts.css";
+@import "./core/reset.css";
+@import "./core/tokens.css";
+@import "./core/utilities.css";
+@import "./layout/container.css";
+
+@import "../components/header/header.css";
+@import "../components/breadcrumb/breadcrumb.css";
+@import "../components/page-hero/page-hero.css";
+@import "../components/about-story/about-story.css";
+@import "../components/contact-form/contact-form.css";
+@import "../components/legal-content/legal-content.css";
+@import "../components/wholesale-section/wholesale-section.css";
+@import "../components/quality-section/quality-section.css";
+@import "../components/careers-section/careers-section.css";
+@import "../components/where-to-buy-section/where-to-buy-section.css";
+@import "../components/blog-list/blog-list.css";
+@import "../components/blog-article/blog-article.css";
+@import "../components/faq/faq.css";
+@import "../components/newsletter/newsletter.css";
+@import "../components/footer/footer.css";
+@import "../components/page-not-found/page-not-found.css";
+
+html {
+  scroll-padding-top: 100px;
+}
+
+.breadcrumb {
+  padding-block: var(--space-3);
+}
+
+.breadcrumb__item {
+  color: var(--color-text-muted);
+}
+
+.breadcrumb__item a {
+  color: var(--color-text-muted);
+}
+
+.breadcrumb__item a:hover {
+  color: var(--color-primary);
+}
+
+.breadcrumb__inner {
+  width: min(var(--container-max), 92vw);
+  margin-inline: auto;
+}

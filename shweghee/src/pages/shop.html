@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Shwe Myanmar Shop — premium butter, ghee, and dairy products from Mandalay, Myanmar."
+    />
+    <meta property="og:title" content="Shwe Myanmar | Shop" />
+    <meta property="og:description" content="Browse Shwe Myanmar butter, ghee, and daily offers." />
+    <meta property="og:type" content="website" />
+    <title>Shwe Myanmar | Shop</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../styles/shop.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://example.com/pages/home.html" },
+          { "@type": "ListItem", "position": 2, "name": "Shop", "item": "https://example.com/pages/shop.html" }
+        ]
+      }
+    </script>
+  </head>
+  <body class="shop-page">
+    <!-- Open via local server: python3 -m http.server 8080 (from src/) -->
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <header
+      class="shop-header"
+      data-block="farmart/shop-header"
+      data-version="1"
+      data-component="shop-header"
+    ></header>
+
+    <nav
+      class="breadcrumb"
+      data-block="farmart/breadcrumb"
+      data-version="1"
+      data-component="breadcrumb"
+      aria-label="Breadcrumb"
+    ></nav>
+
+    <section
+      class="shop-hero"
+      data-block="farmart/shop-hero-slider"
+      data-version="1"
+      data-component="shop-hero"
+      aria-label="Shop hero"
+    ></section>
+
+    <main id="main-content" class="l-page shop-page__main" data-page="shop">
+      <div class="shop-layout l-section">
+        <div
+          class="shop-sidebar"
+          data-block="farmart/shop-sidebar"
+          data-version="1"
+          data-component="shop-sidebar"
+        ></div>
+
+        <div class="shop-main">
+          <section
+            class="featured-categories"
+            data-block="farmart/featured-categories"
+            data-version="1"
+            data-component="featured-categories"
+            aria-label="Top featured categories"
+          ></section>
+
+          <section
+            class="daily-offers"
+            data-block="farmart/daily-offers"
+            data-version="1"
+            data-component="daily-offers"
+            aria-label="Daily offers"
+          ></section>
+
+          <section
+            class="best-sellers"
+            data-block="farmart/best-sellers"
+            data-version="1"
+            data-component="best-sellers"
+            aria-label="Monthly best sellers"
+          ></section>
+
+          <div class="shop-listing">
+            <div
+              class="shop-toolbar"
+              data-block="farmart/shop-toolbar"
+              data-version="1"
+              data-component="shop-toolbar"
+            ></div>
+
+            <section
+              class="product-grid"
+              data-block="farmart/product-grid"
+              data-version="1"
+              data-component="product-grid"
+              aria-label="Products"
+            ></section>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer
+      class="shop-footer"
+      data-block="farmart/shop-footer"
+      data-version="1"
+      data-component="shop-footer"
+    ></footer>
+
+    <script type="module" src="../scripts/shop-app.js"></script>
+  </body>
+</html>

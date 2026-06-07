@@ -1,0 +1,16 @@
+@import "./core/fonts.css";
+@import "./core/reset.css";
+@import "./core/tokens.css";
+@import "./core/shop-tokens.css";
+@import "./core/utilities.css";
+@import "./layout/container.css";
+
+@import "../components/product-card/product-card.css";
+@import "../components/shop-header/shop-header.css";
+@import "../components/breadcrumb/breadcrumb.css";
+@import "../components/product-detail/product-detail.css";
+@import "../components/shop-footer/shop-footer.css";
+
+html {
+  scroll-padding-top: 120px;
+}

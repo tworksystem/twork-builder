@@ -1,0 +1,10 @@
+.daily-offers__dots,
+.best-sellers__dots {
+  justify-content: center;
+  margin-top: var(--space-4);
+}
+
+.daily-offers__dots .carousel-dots__dot.is-active,
+.best-sellers__dots .carousel-dots__dot.is-active {
+  background: var(--shop-color-accent);
+}

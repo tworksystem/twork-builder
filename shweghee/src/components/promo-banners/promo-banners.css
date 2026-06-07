@@ -1,0 +1,30 @@
+.promo-banners__item {
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--space-2);
+}
+
+.promo-banners__item--warm {
+  background: linear-gradient(135deg, var(--color-brand-yellow-soft), var(--color-brand-orange-soft));
+}
+
+.promo-banners__item--cool {
+  background: linear-gradient(135deg, var(--color-brand-cyan-soft), #b3eeff);
+}
+
+.promo-banners__title {
+  font-size: var(--font-size-lg);
+}
+
+.promo-banners__subtitle {
+  color: var(--color-text-muted);
+}
+
+.promo-banners__cta {
+  align-self: flex-start;
+  margin-top: var(--space-2);
+}

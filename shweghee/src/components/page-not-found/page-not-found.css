@@ -1,0 +1,32 @@
+.page-not-found {
+  padding-block: clamp(4rem, 12vw, 8rem);
+  text-align: center;
+}
+
+.page-not-found__code {
+  font-size: clamp(4rem, 12vw, 8rem);
+  font-weight: 700;
+  color: var(--color-brand-cyan-soft);
+  line-height: 1;
+  margin-bottom: var(--space-4);
+}
+
+.page-not-found__title {
+  font-size: var(--font-size-section);
+  font-weight: 700;
+  margin-bottom: var(--space-3);
+}
+
+.page-not-found__text {
+  max-width: 480px;
+  margin: 0 auto var(--space-6);
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+.page-not-found__links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-3);
+}

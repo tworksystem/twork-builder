@@ -1,0 +1,20 @@
+:root {
+  --shop-color-header: #0099cc;
+  --shop-color-header-dark: #007a9e;
+  --shop-color-accent: #ff7f00;
+  --shop-color-accent-bright: #ffb84c;
+  --shop-color-search-btn: #ff7f00;
+  --shop-color-recent: #ffff00;
+  --shop-color-link: #0099cc;
+  --shop-color-price: #ff7f00;
+  --shop-color-sale: #e63900;
+  --shop-color-badge-sale: #ff7f00;
+  --shop-color-badge-stock: #1a1a1a;
+  --shop-color-star: #ffb84c;
+  --shop-color-toolbar-bg: #fff8b3;
+  --shop-color-border: #e8e8e8;
+  --shop-color-cta: #ff7f00;
+  --shop-color-muted: #666666;
+  --shop-container-max: 1320px;
+  --shop-sidebar-width: 280px;
+}

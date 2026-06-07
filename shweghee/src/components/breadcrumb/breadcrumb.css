@@ -1,0 +1,28 @@
+.breadcrumb {
+  padding-block: var(--space-4);
+  background: #fff;
+}
+
+.breadcrumb__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.breadcrumb__item {
+  font-size: var(--font-size-sm);
+  color: var(--shop-color-muted);
+}
+
+.breadcrumb__item a {
+  color: var(--shop-color-muted);
+  text-decoration: none;
+}
+
+.breadcrumb__item a:hover {
+  color: var(--shop-color-link);
+}
+
+.breadcrumb__current {
+  color: var(--color-text-primary);
+}
