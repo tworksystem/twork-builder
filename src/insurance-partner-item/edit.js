@@ -51,7 +51,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'twork-insurance-partner-item-editor insurance-card',
+			className: 'mk-insurance-partner-item-editor insurance-card',
 			style: {
 				borderRadius: `${ cardBorderRadius }px`,
 				minHeight: `${ cardMinHeight }px`,

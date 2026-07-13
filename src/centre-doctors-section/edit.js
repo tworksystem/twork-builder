@@ -109,7 +109,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 	} = attributes;
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'content-section fade-up twork-centre-doctors-editor',
+			className: 'content-section fade-up mk-centre-doctors-editor',
 			id: sectionId,
 		} ),
 		[ sectionId ]

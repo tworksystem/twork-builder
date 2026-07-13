@@ -7,7 +7,7 @@
 	"category": "twork-builder",
 	"icon": "layout",
 	"description": "Two-column split: left (label, title, description, list, CTA button), right (image + floating badge). Matches general-surgery laparoscopic block.",
-	"keywords": [ "split", "laparoscopy", "keyhole", "two-column", "twork" ],
+	"keywords": [ "split", "laparoscopy", "keyhole", "two-column", "mk" ],
 	"supports": {
 		"html": false,
 		"anchor": true,

@@ -6,6 +6,13 @@ import {
 	PanelColorSettings,
 } from '@wordpress/block-editor';
 import { PanelBody, RangeControl, TextControl } from '@wordpress/components';
+import {
+	DEFAULT_DEPARTMENTS,
+	DEFAULT_GENDERS,
+} from '@twork-builder/shared/doctor-filter-data';
+import FilterListsInspectorPanel from '@twork-builder/shared/filter-lists-inspector-panel';
+import { useDoctorFilterLists } from '@twork-builder/shared/use-doctor-filter-lists';
+import { DIRECTORY_BLOCK } from '@twork-builder/shared/doctor-filter-sync';
 
 const ALLOWED_BLOCKS = [ 'twork/doctor-card-item' ];
 const TEMPLATE = [
@@ -27,9 +34,11 @@ const DEFAULT_ATTS = {
 	containerPadding: 30,
 	noResultsHeading: 'No doctors found matching your criteria.',
 	noResultsMessage: 'Please try adjusting your filters or search term.',
+	departments: DEFAULT_DEPARTMENTS,
+	genders: DEFAULT_GENDERS,
 };
 
-export default function Edit( { attributes, setAttributes, isSelected } ) {
+export default function Edit( { attributes, setAttributes, clientId } ) {
 	const attrs = { ...DEFAULT_ATTS, ...attributes };
 	const {
 		backgroundColor,
@@ -45,9 +54,25 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 		noResultsMessage,
 	} = attrs;
 
+	const {
+		departments,
+		genders,
+		updateDepartment,
+		removeDepartment,
+		addDepartment,
+		updateGender,
+		removeGender,
+		addGender,
+	} = useDoctorFilterLists( {
+		attributes,
+		setAttributes,
+		clientId,
+		blockName: DIRECTORY_BLOCK,
+	} );
+
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'twork-doctor-directory-section-editor',
+			className: 'mk-doctor-directory-section-editor',
 			style: {
 				backgroundColor,
 				paddingTop: `${ paddingTop }px`,
@@ -76,172 +101,185 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	return (
 		<>
-			{ isSelected && (
-				<InspectorControls>
-					<PanelBody
-						title={ __( 'Section Background', 'twork-builder' ) }
-						initialOpen={ true }
-					>
-						<PanelColorSettings
-							title={ __( 'Background Color', 'twork-builder' ) }
-							colorSettings={ [
-								{
-									value: backgroundColor,
-									onChange: ( val ) =>
-										setAttributes( {
-											backgroundColor: val,
-										} ),
-									label: __(
-										'Background Color',
-										'twork-builder'
-									),
-								},
-							] }
-						/>
-					</PanelBody>
+			<InspectorControls>
+				<FilterListsInspectorPanel
+					departments={ departments }
+					genders={ genders }
+					updateDepartment={ updateDepartment }
+					removeDepartment={ removeDepartment }
+					addDepartment={ addDepartment }
+					updateGender={ updateGender }
+					removeGender={ removeGender }
+					addGender={ addGender }
+					introText={ __(
+						'Synced with Doctor Search Filter. Doctor cards use these department/gender slugs.',
+						'twork-builder'
+					) }
+				/>
 
-					<PanelBody
-						title={ __( 'Layout Settings', 'twork-builder' ) }
-						initialOpen={ false }
-					>
-						<RangeControl
-							label={ __( 'Columns (Desktop)', 'twork-builder' ) }
-							value={ columns }
-							onChange={ ( val ) =>
-								setAttributes( { columns: val } )
-							}
-							min={ 1 }
-							max={ 6 }
-							step={ 1 }
-							help={ __(
-								'Number of columns on desktop screens',
-								'twork-builder'
-							) }
-						/>
+				<PanelBody
+					title={ __( 'Section Background', 'twork-builder' ) }
+					initialOpen={ false }
+				>
+					<PanelColorSettings
+						title={ __( 'Background Color', 'twork-builder' ) }
+						colorSettings={ [
+							{
+								value: backgroundColor,
+								onChange: ( val ) =>
+									setAttributes( {
+										backgroundColor: val,
+									} ),
+								label: __(
+									'Background Color',
+									'twork-builder'
+								),
+							},
+						] }
+					/>
+				</PanelBody>
 
-						<RangeControl
-							label={ __( 'Columns (Tablet)', 'twork-builder' ) }
-							value={ columnsTablet }
-							onChange={ ( val ) =>
-								setAttributes( { columnsTablet: val } )
-							}
-							min={ 1 }
-							max={ 4 }
-							step={ 1 }
-						/>
+				<PanelBody
+					title={ __( 'Layout Settings', 'twork-builder' ) }
+					initialOpen={ false }
+				>
+					<RangeControl
+						label={ __( 'Columns (Desktop)', 'twork-builder' ) }
+						value={ columns }
+						onChange={ ( val ) =>
+							setAttributes( { columns: val } )
+						}
+						min={ 1 }
+						max={ 6 }
+						step={ 1 }
+						help={ __(
+							'Number of columns on desktop screens',
+							'twork-builder'
+						) }
+					/>
 
-						<RangeControl
-							label={ __( 'Columns (Mobile)', 'twork-builder' ) }
-							value={ columnsMobile }
-							onChange={ ( val ) =>
-								setAttributes( { columnsMobile: val } )
-							}
-							min={ 1 }
-							max={ 2 }
-							step={ 1 }
-						/>
+					<RangeControl
+						label={ __( 'Columns (Tablet)', 'twork-builder' ) }
+						value={ columnsTablet }
+						onChange={ ( val ) =>
+							setAttributes( { columnsTablet: val } )
+						}
+						min={ 1 }
+						max={ 4 }
+						step={ 1 }
+					/>
 
-						<RangeControl
-							label={ __(
-								'Gap Between Items (px)',
-								'twork-builder'
-							) }
-							value={ gap }
-							onChange={ ( val ) =>
-								setAttributes( { gap: val } )
-							}
-							min={ 0 }
-							max={ 60 }
-							step={ 5 }
-						/>
-					</PanelBody>
+					<RangeControl
+						label={ __( 'Columns (Mobile)', 'twork-builder' ) }
+						value={ columnsMobile }
+						onChange={ ( val ) =>
+							setAttributes( { columnsMobile: val } )
+						}
+						min={ 1 }
+						max={ 2 }
+						step={ 1 }
+					/>
 
-					<PanelBody
-						title={ __( 'Container Settings', 'twork-builder' ) }
-						initialOpen={ false }
-					>
-						<RangeControl
-							label={ __( 'Max Width (px)', 'twork-builder' ) }
-							value={ containerMaxWidth }
-							onChange={ ( val ) =>
-								setAttributes( { containerMaxWidth: val } )
-							}
-							min={ 800 }
-							max={ 1920 }
-							step={ 10 }
-						/>
+					<RangeControl
+						label={ __(
+							'Gap Between Items (px)',
+							'twork-builder'
+						) }
+						value={ gap }
+						onChange={ ( val ) =>
+							setAttributes( { gap: val } )
+						}
+						min={ 0 }
+						max={ 60 }
+						step={ 5 }
+					/>
+				</PanelBody>
 
-						<RangeControl
-							label={ __(
-								'Container Padding (px)',
-								'twork-builder'
-							) }
-							value={ containerPadding }
-							onChange={ ( val ) =>
-								setAttributes( { containerPadding: val } )
-							}
-							min={ 0 }
-							max={ 100 }
-							step={ 5 }
-						/>
+				<PanelBody
+					title={ __( 'Container Settings', 'twork-builder' ) }
+					initialOpen={ false }
+				>
+					<RangeControl
+						label={ __( 'Max Width (px)', 'twork-builder' ) }
+						value={ containerMaxWidth }
+						onChange={ ( val ) =>
+							setAttributes( { containerMaxWidth: val } )
+						}
+						min={ 800 }
+						max={ 1920 }
+						step={ 10 }
+					/>
 
-						<RangeControl
-							label={ __( 'Padding Top (px)', 'twork-builder' ) }
-							value={ paddingTop }
-							onChange={ ( val ) =>
-								setAttributes( { paddingTop: val } )
-							}
-							min={ 0 }
-							max={ 200 }
-							step={ 5 }
-						/>
+					<RangeControl
+						label={ __(
+							'Container Padding (px)',
+							'twork-builder'
+						) }
+						value={ containerPadding }
+						onChange={ ( val ) =>
+							setAttributes( { containerPadding: val } )
+						}
+						min={ 0 }
+						max={ 100 }
+						step={ 5 }
+					/>
 
-						<RangeControl
-							label={ __(
-								'Padding Bottom (px)',
-								'twork-builder'
-							) }
-							value={ paddingBottom }
-							onChange={ ( val ) =>
-								setAttributes( { paddingBottom: val } )
-							}
-							min={ 0 }
-							max={ 200 }
-							step={ 5 }
-						/>
-					</PanelBody>
+					<RangeControl
+						label={ __( 'Padding Top (px)', 'twork-builder' ) }
+						value={ paddingTop }
+						onChange={ ( val ) =>
+							setAttributes( { paddingTop: val } )
+						}
+						min={ 0 }
+						max={ 200 }
+						step={ 5 }
+					/>
 
-					<PanelBody
-						title={ __( 'No Results Message', 'twork-builder' ) }
-						initialOpen={ false }
-					>
-						<TextControl
-							label={ __( 'Heading', 'twork-builder' ) }
-							value={ noResultsHeading }
-							onChange={ ( val ) =>
-								setAttributes( { noResultsHeading: val } )
-							}
-							help={ __(
-								'Shown when no doctors match the current filters.',
-								'twork-builder'
-							) }
-						/>
+					<RangeControl
+						label={ __(
+							'Padding Bottom (px)',
+							'twork-builder'
+						) }
+						value={ paddingBottom }
+						onChange={ ( val ) =>
+							setAttributes( { paddingBottom: val } )
+						}
+						min={ 0 }
+						max={ 200 }
+						step={ 5 }
+					/>
+				</PanelBody>
 
-						<TextControl
-							label={ __( 'Message', 'twork-builder' ) }
-							value={ noResultsMessage }
-							onChange={ ( val ) =>
-								setAttributes( { noResultsMessage: val } )
-							}
-						/>
-					</PanelBody>
-				</InspectorControls>
-			) }
+				<PanelBody
+					title={ __( 'No Results Message', 'twork-builder' ) }
+					initialOpen={ false }
+				>
+					<TextControl
+						label={ __( 'Heading', 'twork-builder' ) }
+						value={ noResultsHeading }
+						onChange={ ( val ) =>
+							setAttributes( { noResultsHeading: val } )
+						}
+						help={ __(
+							'Shown when no doctors match the current filters.',
+							'twork-builder'
+						) }
+					/>
+
+					<TextControl
+						label={ __( 'Message', 'twork-builder' ) }
+						value={ noResultsMessage }
+						onChange={ ( val ) =>
+							setAttributes( { noResultsMessage: val } )
+						}
+					/>
+				</PanelBody>
+			</InspectorControls>
 
 			<div { ...blockProps }>
 				<div style={ containerStyle }>
 					<div
-						className="twork-doctor-directory-grid-container"
+						className="mk-doctor-directory-grid-container"
 						style={ gridStyle }
 						data-columns={ columns }
 					>

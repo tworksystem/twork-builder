@@ -7,7 +7,7 @@ export default function Edit( { attributes = {}, setAttributes, isSelected } ) {
 	const { imageUrl = '', imageId, caption = '' } = attributes;
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'tech-item twork-dept-tech-editor',
+			className: 'tech-item mk-dept-tech-editor',
 		} ),
 		[]
 	);

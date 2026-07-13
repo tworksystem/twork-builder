@@ -7,7 +7,7 @@
 	"category": "twork-builder",
 	"icon": "grid-view",
 	"description": "Section with header (label, title, description) and grid of surgical service cards. Matches general-surgery #services block.",
-	"keywords": [ "surgical", "services", "procedures", "doc-grid", "twork" ],
+	"keywords": [ "surgical", "services", "procedures", "doc-grid", "mk" ],
 	"supports": {
 		"html": false,
 		"anchor": true,

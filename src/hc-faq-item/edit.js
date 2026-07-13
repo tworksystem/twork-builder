@@ -8,7 +8,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'hc-faq-item twork-hc-faq-item-editor',
+			className: 'hc-faq-item mk-hc-faq-item-editor',
 		} ),
 		[]
 	);

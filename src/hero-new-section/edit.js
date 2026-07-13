@@ -100,18 +100,31 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'twork-hero-new-section-editor hero-new',
+			className: 'mk-hero-new-section-editor hero-new',
+			'data-animation': 'false',
+			'data-background-type': backgroundType || 'image',
 			style: {
 				position: 'relative',
 				minHeight: `${ minHeight }px`,
 				display: 'flex',
 				alignItems: 'center',
+				justifyContent: 'center',
 				overflow: 'hidden',
 				backgroundColor: '#050505',
 				color: '#fff',
+				width: '100%',
+				boxSizing: 'border-box',
+				'--hero-new-min-height': `${ minHeight }px`,
+				'--hero-new-min-height-tablet': `${ minHeightTablet }px`,
+				'--hero-new-min-height-mobile': `${ minHeightMobile }px`,
 			},
 		} ),
-		[ minHeight ]
+		[
+			minHeight,
+			minHeightTablet,
+			minHeightMobile,
+			backgroundType,
+		]
 	);
 
 	const overlayStyle = showOverlay
@@ -1749,17 +1762,26 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 						width: '100%',
 						maxWidth: `${ containerMaxWidth }px`,
 						margin: '0 auto',
-						padding: `0 ${ containerPadding }px`,
+						paddingLeft: `${ containerPadding }px`,
+						paddingRight: `${ containerPadding }px`,
 						display: 'flex',
 						justifyContent: 'space-between',
-						alignContent: 'center',
+						alignItems: 'center',
 						flexWrap: 'wrap',
+						boxSizing: 'border-box',
+						'--hero-content-max-width': `${ containerMaxWidth }px`,
+						'--hero-container-padding': `${ containerPadding }px`,
+						'--hero-container-padding-mobile': `${ Math.min(
+							containerPadding,
+							16
+						) }px`,
 					} }
 				>
 					<div
 						className="hero-text-col gsap-reveal"
 						style={ {
-							flex: 1,
+							flex: '1 1 320px',
+							minWidth: 0,
 							maxWidth: '650px',
 							color: '#fff',
 							paddingRight: '40px',
@@ -1767,8 +1789,28 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 							visibility: 'visible',
 						} }
 					>
-						<div className="top-tagline">
-							<span className="dot" />
+						<div
+							className="top-tagline"
+							style={ {
+								display: 'flex',
+								alignItems: 'center',
+								gap: '12px',
+								marginBottom: '24px',
+							} }
+						>
+							<span
+								className="dot"
+								aria-hidden="true"
+								style={ {
+									width: '6px',
+									height: '6px',
+									backgroundColor: '#f48b2a',
+									borderRadius: '50%',
+									boxShadow: '0 0 10px #f48b2a',
+									flexShrink: 0,
+									display: 'inline-block',
+								} }
+							/>
 							<span
 								dangerouslySetInnerHTML={ {
 									__html: taglineText || '',
@@ -1777,20 +1819,28 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 						</div>
 						<h1
 							className="main-heading"
-							style={ { margin: '0 0 30px 0' } }
+							style={ {
+								margin: '0 0 30px 0',
+								fontSize: 'clamp(2.25rem, 4vw, 4.5rem)',
+								fontWeight: 900,
+								lineHeight: 1.1,
+								color: '#fff',
+							} }
 						>
 							<RichText
 								tagName="span"
+								className="main-heading__line"
 								value={ headingLine1 }
 								onChange={ ( val ) =>
 									setAttributes( { headingLine1: val } )
 								}
 								placeholder={ __( 'Line 1', 'twork-builder' ) }
-								multiline={ false }
+								allowedFormats={ [] }
+								style={ { display: 'block' } }
 							/>
-							<br />
 							<RichText
 								tagName="span"
+								className="main-heading__line text-orange"
 								value={ headingHighlight }
 								onChange={ ( val ) =>
 									setAttributes( { headingHighlight: val } )
@@ -1799,18 +1849,23 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 									'Highlight',
 									'twork-builder'
 								) }
-								multiline={ false }
-								style={ { color: headingHighlightColor } }
-								className="text-orange"
-							/>{ ' ' }
+								allowedFormats={ [] }
+								style={ {
+									display: 'block',
+									color:
+										headingHighlightColor || '#f48b2a',
+								} }
+							/>
 							<RichText
 								tagName="span"
+								className="main-heading__line"
 								value={ headingLine2 }
 								onChange={ ( val ) =>
 									setAttributes( { headingLine2: val } )
 								}
 								placeholder={ __( 'Line 2', 'twork-builder' ) }
-								multiline={ false }
+								allowedFormats={ [] }
+								style={ { display: 'block' } }
 							/>
 						</h1>
 						<RichText
@@ -1824,6 +1879,15 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 								'twork-builder'
 							) }
 							className="hero-desc"
+							style={ {
+								borderLeft: '4px solid #f48b2a',
+								paddingLeft: '24px',
+								fontSize: '1.15rem',
+								lineHeight: 1.8,
+								margin: '0 0 45px 0',
+								color: 'rgba(255, 255, 255, 0.9)',
+								maxWidth: 'min(580px, 100%)',
+							} }
 						/>
 
 						{ ( showPrimaryButton || showSecondaryButton ) && (
@@ -1834,6 +1898,9 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 										className="jivaka-btn btn-primary hero-btn-primary"
 										style={ {
 											pointerEvents: 'none',
+											display: 'inline-flex',
+											alignItems: 'center',
+											gap: '10px',
 											...( primaryButtonBgColor && {
 												backgroundColor:
 													primaryButtonBgColor,
@@ -1919,6 +1986,9 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 										className="jivaka-btn btn-glass hero-btn-secondary"
 										style={ {
 											pointerEvents: 'none',
+											display: 'inline-flex',
+											alignItems: 'center',
+											gap: '10px',
 											...( secondaryButtonBgColor && {
 												backgroundColor:
 													secondaryButtonBgColor,
@@ -2003,17 +2073,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 					</div>
 
 					{ showGlassCard && (
-						<div
-							className="glass-card-col gsap-reveal"
-							style={ {
-								flex: '0 0 320px',
-								display: 'flex',
-								justifyContent: 'flex-end',
-								marginTop: '30px',
-								opacity: 1,
-								visibility: 'visible',
-							} }
-						>
+						<div className="glass-card-col gsap-reveal">
 							<div className="glass-card">
 								<RichText
 									tagName="h3"

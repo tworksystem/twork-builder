@@ -29,7 +29,7 @@ export default function save( { attributes } ) {
 
 	const blockProps = useBlockProps.save( {
 		className:
-			'twork-csr-partners-section section-padding csr-partners-section',
+			'mk-csr-partners-section section-padding csr-partners-section',
 		style: {
 			backgroundColor,
 			paddingTop: `${ paddingTop }px`,

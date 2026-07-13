@@ -3,7 +3,7 @@
 
 	function initRadDiagnosticTabs() {
 		var sections = document.querySelectorAll(
-			'.twork-rad-diagnostic-tabs.rad-section'
+			'.mk-rad-diagnostic-tabs.rad-section'
 		);
 
 		if ( ! sections || ! sections.length ) return;

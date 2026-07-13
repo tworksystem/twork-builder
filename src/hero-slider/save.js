@@ -22,7 +22,7 @@ import { useBlockProps } from '@wordpress/block-editor';
 export default function save( { attributes } ) {
 	const { slides, autoplayDelay, effect } = attributes;
 	const blockProps = useBlockProps.save( {
-		className: 'twork-hero-slider-section hero-section hero-slider',
+		className: 'mk-hero-slider-section hero-section hero-slider',
 		'data-effect': effect,
 		'data-autoplay-delay': autoplayDelay,
 	} );

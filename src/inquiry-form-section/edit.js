@@ -64,7 +64,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'twork-inquiry-form-section-editor',
+			className: 'mk-inquiry-form-section-editor',
 			style: {
 				paddingTop: `${ sectionPaddingTop }px`,
 				paddingBottom: `${ sectionPaddingBottom }px`,

@@ -16,11 +16,11 @@
 .editor-styles-wrapper,
 .block-editor-block-list__layout,
 .wp-block-twork-insurance-partners-section {
-    .twork-insurance-partners-section-editor {
+    .mk-insurance-partners-section-editor {
         position: relative;
         min-height: 300px;
 
-        .twork-insurance-partners-grid.insurance-grid {
+        .mk-insurance-partners-grid.insurance-grid {
             display: grid !important;
             grid-template-columns: repeat(var(--grid-columns, 4), 1fr) !important;
             gap: var(--grid-gap, 20px) !important;
@@ -60,7 +60,7 @@
 }
 
 // === FRONTEND STYLES ===
-.twork-insurance-partners-section {
+.mk-insurance-partners-section {
     font-family: $font-primary;
     position: relative;
     overflow: hidden;
@@ -146,7 +146,7 @@
 
 // === RESPONSIVE STYLES ===
 @media (max-width: 992px) {
-    .twork-insurance-partners-section {
+    .mk-insurance-partners-section {
         .insurance-grid {
             grid-template-columns: repeat(3, 1fr) !important;
         }
@@ -166,7 +166,7 @@
 }
 
 @media (max-width: 768px) {
-    .twork-insurance-partners-section {
+    .mk-insurance-partners-section {
         padding: 60px 0;
 
         .section-header {
@@ -201,7 +201,7 @@
 }
 
 // Use data attributes for responsive columns if set
-.twork-insurance-partners-section .insurance-grid {
+.mk-insurance-partners-section .insurance-grid {
     &[data-columns-tablet] {
         @media (max-width: 992px) {
             grid-template-columns: repeat(var(--columns-tablet, 3), 1fr) !important;

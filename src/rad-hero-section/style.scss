@@ -37,7 +37,7 @@
   }
 }
 
-.rad-hero.twork-rad-hero-section {
+.rad-hero.mk-rad-hero-section {
   position: relative;
   min-height: 600px;
   background: var(--rad-blue);
@@ -72,7 +72,22 @@
   align-items: center;
 }
 
-.rad-hero.twork-rad-hero-section h1 {
+.rad-hero-badge {
+  color: var(--rad-primary);
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* Backward compatibility for already-saved hero markup */
+.rad-hero.mk-rad-hero-section .rad-hero-copy > span:first-child {
+  color: var(--rad-primary);
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.rad-hero.mk-rad-hero-section .rad-hero-title {
   color: #fff;
   font-size: clamp(3rem, 5vw, 4.5rem);
   font-weight: 900;
@@ -80,7 +95,22 @@
   line-height: 1.1;
 }
 
-.rad-hero.twork-rad-hero-section p {
+.rad-hero.mk-rad-hero-section h1 {
+  color: #fff;
+  font-size: clamp(3rem, 5vw, 4.5rem);
+  font-weight: 900;
+  margin: 0 0 20px 0;
+  line-height: 1.1;
+}
+
+.rad-hero.mk-rad-hero-section .rad-hero-description {
+  font-size: 1.2rem;
+  opacity: 0.9;
+  margin: 0 0 30px 0;
+  max-width: 600px;
+}
+
+.rad-hero.mk-rad-hero-section .rad-hero-copy > p {
   font-size: 1.2rem;
   opacity: 0.9;
   margin: 0 0 30px 0;
@@ -93,7 +123,7 @@
     text-align: center;
   }
 
-  .rad-hero.twork-rad-hero-section {
+  .rad-hero.mk-rad-hero-section {
     clip-path: none;
     padding-bottom: 50px;
   }

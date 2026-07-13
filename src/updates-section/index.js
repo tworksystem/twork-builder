@@ -1,5 +1,5 @@
 /**
- * Twork Updates Section – Block registration
+ * Mk Updates Section – Block registration
  * Hospital News & Updates – displays WordPress posts. Dynamic block (PHP render).
  */
 import { registerBlockType } from '@wordpress/blocks';

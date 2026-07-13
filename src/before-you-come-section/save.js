@@ -29,7 +29,7 @@ export default function save( { attributes } ) {
 	} = attributes;
 
 	const blockProps = useBlockProps.save( {
-		className: 'twork-before-you-come-section',
+		className: 'mk-before-you-come-section',
 		style: {
 			backgroundColor,
 			paddingTop: `${ paddingTop }px`,

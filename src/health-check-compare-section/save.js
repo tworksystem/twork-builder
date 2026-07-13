@@ -20,7 +20,7 @@ export default function save( { attributes } ) {
 
 	const blockProps = useBlockProps.save( {
 		className:
-			'chk-section chk-compare-section twork-health-check-compare-section',
+			'chk-section chk-compare-section mk-health-check-compare-section',
 		style: {
 			backgroundColor: backgroundColor || '#f4f8fb',
 			paddingTop: `${ paddingTop }px`,

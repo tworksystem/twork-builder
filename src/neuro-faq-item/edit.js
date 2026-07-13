@@ -7,7 +7,7 @@ export default function Edit( { attributes = {}, setAttributes, isSelected } ) {
 	const { question = '', answer = '' } = attributes;
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'faq-item twork-neuro-faq-item-editor',
+			className: 'faq-item mk-neuro-faq-item-editor',
 		} ),
 		[]
 	);

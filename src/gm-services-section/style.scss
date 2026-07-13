@@ -1,13 +1,13 @@
 // GM Services Section – mirrors general-medicine.html cards
 
 // Editor: force 3 columns in a row for clearer preview
-.editor-styles-wrapper .twork-gm-services-section-editor .jivaka-gm-services-grid,
-.block-editor-block-list__block-edit .twork-gm-services-section-editor .jivaka-gm-services-grid {
+.editor-styles-wrapper .mk-gm-services-section-editor .jivaka-gm-services-grid,
+.block-editor-block-list__block-edit .mk-gm-services-section-editor .jivaka-gm-services-grid {
     display: grid !important;
     grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
 }
 
-.twork-gm-services-section {
+.mk-gm-services-section {
     // Container
     .jivaka-gm-container {
         max-width: 1200px;

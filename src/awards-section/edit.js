@@ -140,7 +140,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'twork-awards-section-editor awards-section',
+			className: 'mk-awards-section-editor awards-section',
 			style: {
 				backgroundColor: backgroundImage
 					? 'transparent'

@@ -7,7 +7,7 @@
 	"category": "twork-builder",
 	"icon": "location-alt",
 	"description": "Service Coverage Areas: dark section with title, subtitle and flex grid of area tags. Matches home-care.html.",
-	"keywords": [ "home care", "coverage", "area", "townships", "twork" ],
+	"keywords": [ "home care", "coverage", "area", "townships", "mk" ],
 	"attributes": {
 		"backgroundColor": {
 			"type": "string",

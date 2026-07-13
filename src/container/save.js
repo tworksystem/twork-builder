@@ -36,7 +36,7 @@ export default function save( { attributes } ) {
 	} = attributes;
 
 	const blockProps = useBlockProps.save( {
-		className: 'twork-container-section',
+		className: 'mk-container-section',
 		style: {
 			backgroundColor: backgroundImage ? 'transparent' : backgroundColor,
 			backgroundImage: backgroundImage
@@ -87,7 +87,7 @@ export default function save( { attributes } ) {
 			) }
 
 			<div
-				className="twork-container"
+				className="mk-container"
 				style={ {
 					maxWidth: `${ containerMaxWidth }px`,
 					margin: '0 auto',

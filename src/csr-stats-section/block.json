@@ -7,7 +7,7 @@
 	"category": "twork-builder",
 	"icon": "chart-bar",
 	"description": "CSR impact stats section with configurable stat items (number + label grid).",
-	"keywords": [ "csr", "stats", "impact", "grid", "twork" ],
+	"keywords": [ "csr", "stats", "impact", "grid", "mk" ],
 	"attributes": {
 		"backgroundColor": {
 			"type": "string",

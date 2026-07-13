@@ -41,7 +41,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'hc-testi-card twork-hc-testimonial-card-editor',
+			className: 'hc-testi-card mk-hc-testimonial-card-editor',
 		} ),
 		[]
 	);

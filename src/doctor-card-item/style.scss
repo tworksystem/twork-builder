@@ -1,0 +1,350 @@
+@import "../scss/typography";
+
+// Doctor Card Item – editor + frontend card and button styles
+
+:root {
+    --doc-primary-orange: #f48b2a;
+    --doc-brand-orange-hover: #e67a22;
+    --doc-dark-grey: #212121;
+    --doc-medium-grey: #666666;
+    --doc-white: #ffffff;
+    --doc-border: #e0e0e0;
+    --doc-card-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    --doc-card-shadow-hover: 0 14px 36px rgba(0, 0, 0, 0.12);
+}
+
+@mixin doctor-card-shell {
+    background: var(--doc-white);
+    border: 1px solid rgba(0, 0, 0, 0.07);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    opacity: 1;
+    box-shadow: var(--doc-card-shadow);
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+@mixin doctor-card-buttons {
+    .jivaka-btn {
+        display: inline-flex !important;
+        align-items: center;
+        justify-content: center;
+        padding: 11px 14px;
+        min-height: 40px;
+        border-radius: 6px;
+        font-weight: 600;
+        font-size: 0.75rem;
+        letter-spacing: 0.02em;
+        text-decoration: none !important;
+        transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+        cursor: pointer;
+        border: 1px solid transparent;
+        box-sizing: border-box;
+        line-height: 1.2;
+        pointer-events: none;
+        user-select: none;
+
+        &.btn-primary {
+            background: var(--doc-primary-orange) !important;
+            color: var(--doc-white) !important;
+            border-color: var(--doc-primary-orange) !important;
+            box-shadow: 0 4px 10px rgba(244, 139, 42, 0.28);
+        }
+
+        &.btn-outline {
+            background: transparent !important;
+            border-color: var(--doc-border) !important;
+            color: var(--doc-dark-grey) !important;
+        }
+    }
+}
+
+// === EDITOR STYLES ===
+.editor-styles-wrapper,
+.block-editor-block-list__layout,
+.wp-block-twork-doctor-card-item,
+.wp-block-twork-doctor-directory-section {
+    .mk-doctor-card-item-editor.doctor-card,
+    .wp-block-twork-doctor-card-item .doctor-card {
+        @include doctor-card-shell;
+        border: 2px dashed var(--doc-border);
+    }
+
+    .doctor-card--no-image .doc-content {
+        padding-top: 28px;
+    }
+
+    .doc-img-wrapper {
+        position: relative;
+        height: 260px;
+        overflow: hidden;
+        background: linear-gradient(180deg, #f5f5f5 0%, #ebebeb 100%);
+        flex-shrink: 0;
+    }
+
+    .doc-img-wrapper img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: top center;
+        display: block;
+    }
+
+    .doc-badge {
+        position: absolute;
+        top: 14px;
+        right: 14px;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 6px 12px;
+        border-radius: 20px;
+        font-size: 0.7rem;
+        font-weight: 700;
+        color: var(--doc-primary-orange);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        z-index: 2;
+        letter-spacing: 0.02em;
+    }
+
+    .doc-content {
+        padding: 22px 20px 20px;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .doc-dept {
+        color: var(--doc-primary-orange) !important;
+        font-size: 0.72rem;
+        text-transform: uppercase;
+        font-weight: 700;
+        margin-bottom: 8px;
+        display: inline-block;
+        letter-spacing: 0.08em;
+        line-height: 1.3;
+    }
+
+    .doc-name {
+        font-size: 1.125rem;
+        font-weight: 700;
+        margin: 0 0 8px;
+        color: var(--doc-dark-grey);
+        line-height: 1.35;
+        width: 100%;
+    }
+
+    .doc-qual {
+        font-size: 0.82rem;
+        color: var(--doc-medium-grey);
+        margin: 0;
+        line-height: 1.55;
+        width: 100%;
+    }
+
+    .doc-actions {
+        margin-top: auto;
+        display: flex;
+        gap: 12px;
+        justify-content: stretch;
+        align-items: center;
+        width: 100%;
+        padding-top: 18px;
+        margin-top: 18px;
+        border-top: 1px solid #f0f0f0;
+        box-sizing: border-box;
+
+        @include doctor-card-buttons;
+
+        .jivaka-btn {
+            flex: 1;
+        }
+    }
+
+    .doc-actions--single {
+        justify-content: center;
+
+        .jivaka-btn {
+            flex: 0 1 auto;
+            min-width: 148px;
+            max-width: 220px;
+            width: auto;
+        }
+    }
+
+    .doc-name[contenteditable="true"]:focus,
+    .doc-qual[contenteditable="true"]:focus {
+        outline: 1px dashed #2271b1;
+        outline-offset: 2px;
+    }
+}
+
+// === FRONTEND STYLES ===
+.doctor-card {
+    @include doctor-card-shell;
+
+    &:hover {
+        transform: translateY(-6px);
+        box-shadow: var(--doc-card-shadow-hover);
+        border-color: rgba(244, 139, 42, 0.35);
+    }
+}
+
+.doctor-card--no-image .doc-content {
+    padding-top: 28px;
+}
+
+.doctor-card .doc-img-wrapper {
+    position: relative;
+    height: 260px;
+    overflow: hidden;
+    background: linear-gradient(180deg, #f5f5f5 0%, #ebebeb 100%);
+    flex-shrink: 0;
+}
+
+.doctor-card .doc-img-wrapper::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 48px;
+    background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.04) 100%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.doctor-card .doc-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+    object-position: top center;
+    display: block;
+}
+
+.doctor-card:hover .doc-img-wrapper img {
+    transform: scale(1.04);
+}
+
+.doctor-card .doc-badge {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--doc-primary-orange);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+    letter-spacing: 0.02em;
+}
+
+.doctor-card .doc-content {
+    padding: 22px 20px 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.doctor-card .doc-dept {
+    color: var(--doc-primary-orange);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 8px;
+    display: inline-block;
+    letter-spacing: 0.08em;
+    line-height: 1.3;
+}
+
+.doctor-card .doc-name {
+    font-size: 1.125rem;
+    font-weight: 700;
+    margin: 0 0 8px;
+    color: var(--doc-dark-grey);
+    line-height: 1.35;
+    width: 100%;
+}
+
+.doctor-card .doc-qual {
+    font-size: 0.82rem;
+    color: var(--doc-medium-grey);
+    margin: 0;
+    line-height: 1.55;
+    width: 100%;
+}
+
+.doctor-card .doc-actions {
+    margin-top: auto;
+    display: flex;
+    gap: 12px;
+    justify-content: stretch;
+    align-items: center;
+    width: 100%;
+    padding-top: 18px;
+    margin-top: 18px;
+    border-top: 1px solid #f0f0f0;
+    box-sizing: border-box;
+
+    @include doctor-card-buttons;
+
+    .jivaka-btn {
+        flex: 1;
+        pointer-events: auto;
+        user-select: auto;
+    }
+
+    .jivaka-btn.btn-primary:hover {
+        background: var(--doc-brand-orange-hover) !important;
+        transform: translateY(-1px);
+    }
+
+    .jivaka-btn.btn-outline:hover {
+        border-color: var(--doc-primary-orange) !important;
+        color: var(--doc-primary-orange) !important;
+    }
+}
+
+.doctor-card .doc-actions--single {
+    justify-content: center;
+
+    .jivaka-btn {
+        flex: 0 1 auto;
+        min-width: 148px;
+        max-width: 220px;
+        width: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .doctor-card .doc-img-wrapper {
+        height: 240px;
+    }
+
+    .doctor-card .doc-name {
+        font-size: 1.05rem;
+    }
+
+    .doctor-card .doc-actions .jivaka-btn {
+        font-size: 0.72rem;
+        padding: 10px 12px;
+    }
+
+    .doctor-card .doc-actions--single .jivaka-btn {
+        min-width: 132px;
+    }
+}

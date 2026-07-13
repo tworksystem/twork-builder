@@ -1,6 +1,6 @@
 ( function () {
 	'use strict';
-	var section = document.querySelector( '.twork-hc-faq-section' );
+	var section = document.querySelector( '.mk-hc-faq-section' );
 	if ( ! section ) return;
 	section.querySelectorAll( '.hc-faq-q' ).forEach( function ( btn ) {
 		btn.addEventListener( 'click', function () {

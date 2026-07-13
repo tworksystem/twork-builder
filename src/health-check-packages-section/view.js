@@ -28,7 +28,7 @@
 
 	function run() {
 		document
-			.querySelectorAll( '.twork-health-check-packages-section' )
+			.querySelectorAll( '.mk-health-check-packages-section' )
 			.forEach( init );
 	}
 

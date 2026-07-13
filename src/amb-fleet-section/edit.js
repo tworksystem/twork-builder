@@ -67,7 +67,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'twork-amb-fleet-section-editor',
+			className: 'mk-amb-fleet-section-editor',
 			style: {
 				backgroundColor: backgroundImage
 					? 'transparent'
@@ -751,7 +751,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 					) }
 
 					<div
-						className="twork-amb-fleet-grid-container"
+						className="mk-amb-fleet-grid-container"
 						style={ gridStyle }
 						data-columns={ columns }
 					>

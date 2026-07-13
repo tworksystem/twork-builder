@@ -18,7 +18,7 @@ export default function save( { attributes } ) {
 	} = attributes;
 
 	const blockProps = useBlockProps.save( {
-		className: 'amb-tech-item twork-amb-tech-item',
+		className: 'amb-tech-item mk-amb-tech-item',
 	} );
 
 	return (

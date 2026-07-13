@@ -7,7 +7,7 @@
 	"category": "twork-builder",
 	"icon": "shield",
 	"description": "Radiology safety section with left image and right safety cards.",
-	"keywords": [ "radiology", "safety", "alara", "twork" ],
+	"keywords": [ "radiology", "safety", "alara", "mk" ],
 	"attributes": {
 		"backgroundColor": {
 			"type": "string",

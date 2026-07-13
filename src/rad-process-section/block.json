@@ -7,7 +7,7 @@
 	"category": "twork-builder",
 	"icon": "yes-alt",
 	"description": "Radiology visit workflow section with numbered process steps.",
-	"keywords": [ "radiology", "process", "workflow", "steps", "twork" ],
+	"keywords": [ "radiology", "process", "workflow", "steps", "mk" ],
 	"attributes": {
 		"backgroundColor": {
 			"type": "string",

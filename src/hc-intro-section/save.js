@@ -22,7 +22,7 @@ export default function save( { attributes } ) {
 	} = attributes;
 
 	const blockProps = useBlockProps.save( {
-		className: 'hc-section twork-hc-intro-section',
+		className: 'hc-section mk-hc-intro-section',
 		style: {
 			backgroundColor: backgroundColor || '#ffffff',
 			paddingTop: `${ paddingTop }px`,

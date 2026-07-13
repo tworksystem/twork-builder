@@ -56,7 +56,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'twork-banner-shape-editor',
+			className: 'mk-banner-shape-editor',
 			style: {
 				position: 'relative',
 				minHeight: `${ minHeight }px`,

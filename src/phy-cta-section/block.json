@@ -7,7 +7,7 @@
 	"category": "twork-builder",
 	"icon": "megaphone",
 	"description": "Full-width physio call-to-action card (Start Your Recovery Journey Today) with flexible background: color, image, video or GIF.",
-	"keywords": [ "physio", "cta", "call to action", "button", "twork" ],
+	"keywords": [ "physio", "cta", "call to action", "button", "mk" ],
 	"attributes": {
 		"backgroundMode": {
 			"type": "string",

@@ -1,6 +1,6 @@
 // Pharmacy "Shop by Category" – bento grid, matches pharmacy.html
 
-.twork-ph-shop-category-section.ph-section {
+.mk-ph-shop-category-section.ph-section {
   background: #ffffff;
 
   .ph-container {
@@ -11,14 +11,14 @@
 
   // Section header: high specificity so theme/global CSS cannot hide it on front-end
   .section-header,
-  .twork-ph-shop-category-section-header {
+  .mk-ph-shop-category-section-header {
     display: block;
     visibility: visible;
     text-align: left;
     margin-bottom: 30px;
 
     h2,
-    .twork-ph-shop-category-section-title {
+    .mk-ph-shop-category-section-title {
       display: block;
       visibility: visible;
       font-size: 2rem;
@@ -28,7 +28,7 @@
     }
 
     p,
-    .twork-ph-shop-category-section-subtitle {
+    .mk-ph-shop-category-section-subtitle {
       display: block;
       visibility: visible;
       margin: 0;
@@ -113,7 +113,7 @@
 }
 
 @media (max-width: 992px) {
-  .twork-ph-shop-category-section.ph-section {
+  .mk-ph-shop-category-section.ph-section {
     .ph-bento-grid {
       grid-template-columns: repeat(2, 1fr);
       grid-auto-rows: 220px;
@@ -122,7 +122,7 @@
 }
 
 @media (max-width: 600px) {
-  .twork-ph-shop-category-section.ph-section {
+  .mk-ph-shop-category-section.ph-section {
     .ph-bento-grid {
       grid-template-columns: 1fr;
       grid-auto-rows: 220px;

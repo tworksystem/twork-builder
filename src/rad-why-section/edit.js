@@ -78,7 +78,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'twork-rad-why-section-editor',
+			className: 'mk-rad-why-section-editor',
 			style: {
 				backgroundColor,
 				paddingTop: `${ paddingTop }px`,

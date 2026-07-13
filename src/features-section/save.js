@@ -21,7 +21,7 @@ export default function save( { attributes } ) {
 	return (
 		<section { ...blockProps }>
 			<div
-				className="features-grid twork-features-section-grid"
+				className="features-grid mk-features-section-grid"
 				style={ {
 					display: 'grid',
 					gridTemplateColumns: `repeat(auto-fit, minmax(${ gridMinItemWidth }px, 1fr))`,

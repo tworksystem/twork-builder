@@ -19,7 +19,7 @@
 .editor-styles-wrapper,
 .block-editor-block-list__layout,
 .wp-block-twork-contact-layout-section {
-    .twork-contact-layout-section-editor {
+    .mk-contact-layout-section-editor {
         .contact-layout-editor {
             display: grid !important;
             grid-template-columns: 1fr 1.2fr !important;
@@ -59,7 +59,7 @@
 }
 
 // === FRONTEND ===
-.twork-contact-layout-section {
+.mk-contact-layout-section {
     font-family: $font-primary;
     position: relative;
 
@@ -264,7 +264,7 @@
 
 // === RESPONSIVE ===
 @media (max-width: 992px) {
-    .twork-contact-layout-section {
+    .mk-contact-layout-section {
         .contact-layout {
             grid-template-columns: 1fr !important;
             gap: 50px !important;
@@ -277,7 +277,7 @@
 }
 
 @media (max-width: 768px) {
-    .twork-contact-layout-section {
+    .mk-contact-layout-section {
         .contact-details h2 {
             font-size: 1.6rem;
         }

@@ -21,6 +21,11 @@ export default function save( { attributes } ) {
 		featureUnavailableColor,
 		featureIconColor,
 		featureFontSize,
+		featureMarkerType,
+		featureMarkerImageUrl,
+		itemDisplayType,
+		itemImageUrl,
+		itemImageAlt,
 		showButton,
 		buttonText,
 		buttonUrl,
@@ -35,17 +40,33 @@ export default function save( { attributes } ) {
 		buttonFontWeight,
 	} = attributes;
 
+	const isImageDisplayType =
+		itemDisplayType === 'image' || itemDisplayType === 'image-only';
+	const shouldUseImageCard = isImageDisplayType && !! itemImageUrl;
+	const isImageOnly = itemDisplayType === 'image-only' && !! itemImageUrl;
+	const showHeader = ! isImageOnly;
+	const showFooterButton = showButton && ! isImageOnly;
+
 	const classes = [ 'package-card', 'lab-price-card', 'fade-up' ];
 
 	if ( isRecommended ) {
-		// Match both generic and lab "featured" styles
 		classes.push( 'recommended', 'featured' );
+	}
+
+	if ( shouldUseImageCard ) {
+		classes.push( 'is-image-card' );
+	}
+
+	if ( isImageOnly ) {
+		classes.push( 'is-image-only' );
 	}
 
 	const blockProps = useBlockProps.save( {
 		className: classes.join( ' ' ),
 		'data-category': category,
 	} );
+	const shouldUseImageMarker =
+		featureMarkerType === 'image' && !! featureMarkerImageUrl;
 
 	return (
 		<div { ...blockProps }>
@@ -53,79 +74,105 @@ export default function save( { attributes } ) {
 				<div className="ribbon">{ ribbonText }</div>
 			) }
 
-			{ /* Lab-style header: .lab-price-header / .lab-price-title / .lab-price-amount */ }
-			<div className="pkg-header lab-price-header">
-				<RichText.Content
-					tagName="span"
-					className="pkg-name lab-price-title"
-					value={ packageName }
-					style={ {
-						fontSize: `${ packageNameFontSize }rem`,
-						fontWeight: packageNameFontWeight,
-						color: packageNameColor,
-					} }
-				/>
-				<div className="pkg-price">
-					<div
-						className="lab-price-amount"
-						style={ {
-							color: priceColor,
-							fontSize: `${ amountFontSize }rem`,
-						} }
-					>
-						{ amount }
-					</div>
-					<span className="lab-price-currency">{ currency }</span>
-				</div>
-				{ description && (
+			{ showHeader && (
+				<div className="pkg-header lab-price-header">
 					<RichText.Content
-						tagName="p"
-						className="pkg-desc"
-						value={ description }
+						tagName="span"
+						className="pkg-name lab-price-title"
+						value={ packageName }
 						style={ {
-							fontSize: `${ descriptionFontSize }rem`,
-							color: descriptionColor,
+							fontSize: `${ packageNameFontSize }rem`,
+							fontWeight: packageNameFontWeight,
+							color: packageNameColor,
 						} }
 					/>
-				) }
-			</div>
+					<div className="pkg-price">
+						<div
+							className="lab-price-amount"
+							style={ {
+								color: priceColor,
+								fontSize: `${ amountFontSize }rem`,
+							} }
+						>
+							{ amount }
+						</div>
+						<span className="lab-price-currency">{ currency }</span>
+					</div>
+					{ description && (
+						<RichText.Content
+							tagName="p"
+							className="pkg-desc"
+							value={ description }
+							style={ {
+								fontSize: `${ descriptionFontSize }rem`,
+								color: descriptionColor,
+							} }
+						/>
+					) }
+				</div>
+			) }
 
-			{ /* Lab-style body: .lab-price-body / .lab-features */ }
 			<div className="pkg-body lab-price-body">
-				<ul className="pkg-features lab-features">
-					{ features &&
-						features.map( ( feat, index ) => (
-							<li
-								key={ index }
-								className={
-									feat.available ? '' : 'unavailable'
-								}
-								style={ {
-									fontSize: `${ featureFontSize }rem`,
-									color: feat.available
-										? featureTextColor
-										: featureUnavailableColor,
-								} }
-							>
-								<i
+				{ shouldUseImageCard ? (
+					<div className="pkg-display-image">
+						<img
+							src={ itemImageUrl }
+							alt={ itemImageAlt || packageName || '' }
+							loading="lazy"
+							decoding="async"
+						/>
+					</div>
+				) : (
+					<ul className="pkg-features lab-features">
+						{ features &&
+							features.map( ( feat, index ) => (
+								<li
+									key={ index }
 									className={
-										feat.available
-											? 'fas fa-check'
-											: 'fas fa-times'
+										feat.available ? '' : 'unavailable'
 									}
 									style={ {
+										fontSize: `${ featureFontSize }rem`,
 										color: feat.available
-											? featureIconColor
-											: '#ccc',
+											? featureTextColor
+											: featureUnavailableColor,
 									} }
-									aria-hidden
-								/>
-								{ feat.text }
-							</li>
-						) ) }
-				</ul>
+								>
+									{ shouldUseImageMarker ? (
+										<img
+											src={ featureMarkerImageUrl }
+											alt=""
+											style={ {
+												width: '18px',
+												height: '18px',
+												marginRight: '10px',
+												objectFit: 'contain',
+												flexShrink: 0,
+											} }
+											aria-hidden
+										/>
+									) : (
+										<i
+											className={
+												feat.available
+													? 'fas fa-check'
+													: 'fas fa-times'
+											}
+											style={ {
+												color: feat.available
+													? featureIconColor
+													: '#ccc',
+											} }
+											aria-hidden
+										/>
+									) }
+									{ feat.text }
+								</li>
+							) ) }
+					</ul>
+				) }
 
-				{ showButton && buttonText && (
+				{ showFooterButton && buttonText && (
 					<a
 						href={ buttonUrl || '#' }
 						className={ `jivaka-btn lab-btn ${

@@ -3,7 +3,7 @@
 // GM Split Section – Why Choose Jivaka (image + content, feature list, CTA)
 // Mirrors general-medicine.html .jivaka-gm-split and related styles
 
-.twork-gm-split-section {
+.mk-gm-split-section {
     --gm-orange: #f48b2a;
     --gm-orange-hover: #e67a22;
     --gm-dark: #212121;
@@ -99,7 +99,7 @@
     }
 
     // Editor: ensure split layout in block preview
-    &.twork-gm-split-section-editor .jivaka-gm-container.jivaka-gm-split {
+    &.mk-gm-split-section-editor .jivaka-gm-container.jivaka-gm-split {
         display: grid !important;
         grid-template-columns: 1fr 1fr !important;
         align-items: start !important;
@@ -112,7 +112,7 @@
 
 // Responsive: single column; image always first on small screens (regardless of desktop left/right)
 @media (max-width: 992px) {
-    .twork-gm-split-section .jivaka-gm-container.jivaka-gm-split {
+    .mk-gm-split-section .jivaka-gm-container.jivaka-gm-split {
         grid-template-columns: 1fr !important;
         gap: 40px !important;
         // Image column first on mobile/tablet (even when desktop layout is "image right")
@@ -126,7 +126,7 @@
 }
 
 @media (max-width: 768px) {
-    .twork-gm-split-section {
+    .mk-gm-split-section {
         h2 {
             font-size: 1.75rem;
         }

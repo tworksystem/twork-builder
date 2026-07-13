@@ -99,7 +99,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'twork-em-triage-section-editor',
+			className: 'mk-em-triage-section-editor',
 			style: {
 				backgroundColor,
 				paddingTop: `${ paddingTop }px`,

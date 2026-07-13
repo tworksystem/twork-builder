@@ -16,7 +16,7 @@
 		"neuro",
 		"heart",
 		"department",
-		"twork"
+		"mk"
 	],
 	"attributes": {
 		"sidebarHeader": {
@@ -292,5 +292,6 @@
 	},
 	"textdomain": "twork-builder",
 	"editorScript": "file:./index.js",
-	"style": "file:./style-index.css"
+	"style": "file:./style-index.css",
+	"editorStyle": "file:./style-index.css"
 }

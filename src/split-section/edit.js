@@ -52,7 +52,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'twork-split-section-editor',
+			className: 'mk-split-section-editor',
 		} ),
 		[]
 	);

@@ -75,7 +75,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'twork-timeline-wrapper-editor',
+			className: 'mk-timeline-wrapper-editor',
 			style: {
 				backgroundColor: backgroundImage
 					? 'transparent'
@@ -1028,7 +1028,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 					) }
 
 					<div
-						className="timeline-wrapper twork-timeline-wrapper"
+						className="timeline-wrapper mk-timeline-wrapper"
 						style={ {
 							position: 'relative',
 							padding: '40px 0',

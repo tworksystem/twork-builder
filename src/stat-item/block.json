@@ -3,10 +3,10 @@
 	"apiVersion": 3,
 	"name": "twork/stat-item",
 	"title": "Stat Item",
-	"parent": [ "twork/csr-stats-section" ],
+	"parent": [ "twork/csr-stats-section", "mk/csr-stats-section" ],
 	"category": "twork-builder",
 	"description": "Single stat item (number + label) for CSR Stats Section.",
-	"keywords": [ "stat", "number", "label", "csr", "twork" ],
+	"keywords": [ "stat", "number", "label", "csr", "mk" ],
 	"attributes": {
 		"statNumber": {
 			"type": "string",

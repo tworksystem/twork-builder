@@ -7,7 +7,7 @@
 	"category": "twork-builder",
 	"icon": "groups",
 	"description": "Emergency Specialists grid – section header with doctor cards (photo, role, name, specialty).",
-	"keywords": [ "emergency", "specialists", "doctors", "team", "twork" ],
+	"keywords": [ "emergency", "specialists", "doctors", "team", "mk" ],
 	"attributes": {
 		"backgroundColor": {
 			"type": "string",

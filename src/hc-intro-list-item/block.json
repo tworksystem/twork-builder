@@ -6,7 +6,7 @@
 	"parent": [ "twork/hc-intro-section" ],
 	"category": "twork-builder",
 	"description": "Single checklist item (icon + text) for the Home Care Intro section.",
-	"keywords": [ "home care", "intro", "list", "checklist", "twork" ],
+	"keywords": [ "home care", "intro", "list", "checklist", "mk" ],
 	"attributes": {
 		"iconClass": {
 			"type": "string",

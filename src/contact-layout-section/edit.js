@@ -54,7 +54,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'twork-contact-layout-section-editor',
+			className: 'mk-contact-layout-section-editor',
 			style: {
 				paddingBottom: `${ paddingBottom }px`,
 				'--contact-primary': primaryColor,

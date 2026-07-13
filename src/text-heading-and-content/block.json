@@ -3,7 +3,7 @@
 	"apiVersion": 3,
 	"name": "twork-builder/text-heading-and-content",
 	"version": "0.1.0",
-	"title": "TWork Text Heading And Content",
+	"title": "MK Text Heading And Content",
 	"category": "twork-builder",
 	"icon": "list-view",
 	"description": "Professional text heading and content section with responsive controls.",

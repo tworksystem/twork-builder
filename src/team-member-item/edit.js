@@ -126,7 +126,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'twork-team-member-item-editor',
+			className: 'mk-team-member-item-editor',
 			style: {
 				borderRadius: '8px',
 				overflow: 'hidden',

@@ -4,7 +4,7 @@
 	"name": "twork/award-item",
 	"title": "Award Item",
 	"description": "Single award card with image, year, title, and description. Editable via WordPress block editor.",
-	"keywords": [ "award", "recognition", "card", "image", "twork" ],
+	"keywords": [ "award", "recognition", "card", "image", "mk" ],
 	"attributes": {
 		"imageUrl": {
 			"type": "string",

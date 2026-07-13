@@ -7,7 +7,7 @@
 	"category": "twork-builder",
 	"icon": "download",
 	"description": "Single app store badge (image + link) for Jivaka Hero section.",
-	"keywords": [ "jivaka", "badge", "app", "store", "twork" ],
+	"keywords": [ "jivaka", "badge", "app", "store", "mk" ],
 	"attributes": {
 		"image": {
 			"type": "string",

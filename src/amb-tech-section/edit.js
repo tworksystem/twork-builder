@@ -84,7 +84,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'twork-amb-tech-section-editor',
+			className: 'mk-amb-tech-section-editor',
 			style: {
 				backgroundColor,
 				color: '#fff',
@@ -565,12 +565,13 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 					) }
 
 					<div
-						className="twork-amb-tech-grid-container amb-tech-grid"
+						className="mk-amb-tech-grid-container amb-tech-grid"
 						style={ gridStyle }
 					>
 						<InnerBlocks
 							allowedBlocks={ ALLOWED_BLOCKS }
 							template={ TEMPLATE }
+							templateLock={ false }
 							renderAppender={ InnerBlocks.ButtonBlockAppender }
 						/>
 					</div>

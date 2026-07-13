@@ -12,7 +12,7 @@
 .editor-styles-wrapper,
 .block-editor-block-list__layout,
 .wp-block-twork-csr-moments-gallery-section {
-    .twork-csr-moments-gallery-section-editor {
+    .mk-csr-moments-gallery-section-editor {
         position: relative;
 
         .moments-gallery-header {
@@ -22,7 +22,7 @@
             }
         }
 
-        .twork-csr-moments-gallery-grid {
+        .mk-csr-moments-gallery-grid {
             > .block-editor-inner-blocks {
                 display: contents !important;
 
@@ -47,7 +47,7 @@
 }
 
 // === FRONTEND STYLES ===
-.twork-csr-moments-gallery-section {
+.mk-csr-moments-gallery-section {
     font-family: $font-primary;
     position: relative;
 
@@ -140,7 +140,7 @@
 
 // === RESPONSIVE ===
 @media (max-width: 992px) {
-    .twork-csr-moments-gallery-section {
+    .mk-csr-moments-gallery-section {
         .gallery-grid {
             grid-template-columns: repeat(2, 1fr) !important;
             gap: var(--grid-gap, 15px) !important;
@@ -154,7 +154,7 @@
 }
 
 @media (max-width: 768px) {
-    .twork-csr-moments-gallery-section {
+    .mk-csr-moments-gallery-section {
         padding: 60px 0 !important;
 
         .moments-gallery-header {
@@ -180,7 +180,7 @@
 
 // === PRINT ===
 @media print {
-    .twork-csr-moments-gallery-section {
+    .mk-csr-moments-gallery-section {
         .moments-gallery-header a {
             display: none;
         }

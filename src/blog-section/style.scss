@@ -1,7 +1,7 @@
 @import "../scss/typography";
 
 // =============================================================================
-// Twork Blog Section – Editor, Front-end & Responsive
+// Mk Blog Section – Editor, Front-end & Responsive
 // Matches blog.html (.jivaka-blog-module) structure and design.
 // Root: .blog-section.wp-block-twork-blog-section (output by PHP render).
 // =============================================================================
@@ -9,19 +9,19 @@
 // Scope so styles apply to our block root in both editor and frontend
 .wp-block-twork-blog-section.blog-section,
 .blog-section.wp-block-twork-blog-section {
-    --twork-blog-primary: #f48b2a;
-    --twork-blog-primary-hover: #e67a22;
-    --twork-blog-dark: #212121;
-    --twork-blog-medium: #666;
-    --twork-blog-bg: #f8f9fa;
-    --twork-blog-white: #ffffff;
-    --twork-blog-border: #e0e0e0;
-    --twork-blog-shadow-sm: 0 5px 15px rgba(0, 0, 0, 0.05);
-    --twork-blog-shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.1);
-    --twork-blog-radius: 12px;
+    --mk-blog-primary: #f48b2a;
+    --mk-blog-primary-hover: #e67a22;
+    --mk-blog-dark: #212121;
+    --mk-blog-medium: #666;
+    --mk-blog-bg: #f8f9fa;
+    --mk-blog-white: #ffffff;
+    --mk-blog-border: #e0e0e0;
+    --mk-blog-shadow-sm: 0 5px 15px rgba(0, 0, 0, 0.05);
+    --mk-blog-shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.1);
+    --mk-blog-radius: 12px;
 
     font-family: $font-primary;
-    color: var(--twork-blog-dark);
+    color: var(--mk-blog-dark);
     line-height: 1.6;
     overflow-x: hidden;
     width: 100%;
@@ -77,17 +77,17 @@
         grid-column: 1 / -1;
         display: grid;
         grid-template-columns: 1.2fr 1fr;
-        background: var(--twork-blog-white);
-        border-radius: var(--twork-blog-radius);
+        background: var(--mk-blog-white);
+        border-radius: var(--mk-blog-radius);
         overflow: hidden;
-        box-shadow: var(--twork-blog-shadow-sm);
+        box-shadow: var(--mk-blog-shadow-sm);
         margin-bottom: 50px;
         transition: transform 0.3s, box-shadow 0.3s;
     }
 
     .featured-post:hover {
         transform: translateY(-5px);
-        box-shadow: var(--twork-blog-shadow-lg);
+        box-shadow: var(--mk-blog-shadow-lg);
     }
 
     .featured-img {
@@ -120,7 +120,7 @@
         padding: 5px 12px;
         border-radius: 20px;
         background: rgba(244, 139, 42, 0.1);
-        color: var(--twork-blog-primary);
+        color: var(--mk-blog-primary);
         font-size: 0.75rem;
         font-weight: 700;
         text-transform: uppercase;
@@ -141,7 +141,7 @@
         font-size: 2rem;
         line-height: 1.3;
         margin: 0 0 15px 0;
-        color: var(--twork-blog-dark);
+        color: var(--mk-blog-dark);
     }
 
     .featured-content h2 a {
@@ -149,11 +149,11 @@
     }
 
     .featured-content h2 a:hover {
-        color: var(--twork-blog-primary);
+        color: var(--mk-blog-primary);
     }
 
     .featured-content p {
-        color: var(--twork-blog-medium);
+        color: var(--mk-blog-medium);
         margin-bottom: 25px;
         display: -webkit-box;
         -webkit-line-clamp: 3;
@@ -163,7 +163,7 @@
 
     .jivaka-btn.btn-text {
         padding: 0;
-        color: var(--twork-blog-primary);
+        color: var(--mk-blog-primary);
         border-bottom: 2px solid transparent;
         background: transparent;
         font-weight: 700;
@@ -176,7 +176,7 @@
     }
 
     .jivaka-btn.btn-text:hover {
-        border-bottom-color: var(--twork-blog-primary);
+        border-bottom-color: var(--mk-blog-primary);
     }
 
     // -------------------------------------------------------------------------
@@ -190,10 +190,10 @@
     }
 
     .blog-card {
-        background: var(--twork-blog-white);
-        border-radius: var(--twork-blog-radius);
+        background: var(--mk-blog-white);
+        border-radius: var(--mk-blog-radius);
         overflow: hidden;
-        box-shadow: var(--twork-blog-shadow-sm);
+        box-shadow: var(--mk-blog-shadow-sm);
         display: flex;
         flex-direction: column;
         transition: transform 0.3s, box-shadow 0.3s;
@@ -201,7 +201,7 @@
 
     .blog-card:hover {
         transform: translateY(-10px);
-        box-shadow: var(--twork-blog-shadow-lg);
+        box-shadow: var(--mk-blog-shadow-lg);
     }
 
     .blog-img {
@@ -235,11 +235,11 @@
     }
 
     .blog-body h3 a {
-        color: var(--twork-blog-dark);
+        color: var(--mk-blog-dark);
     }
 
     .blog-body h3 a:hover {
-        color: var(--twork-blog-primary);
+        color: var(--mk-blog-primary);
     }
 
     .blog-meta {
@@ -268,7 +268,7 @@
         font-weight: 700;
         text-transform: uppercase;
         letter-spacing: 0.5px;
-        color: var(--twork-blog-primary);
+        color: var(--mk-blog-primary);
     }
 
     // -------------------------------------------------------------------------
@@ -291,9 +291,9 @@
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        background: var(--twork-blog-white);
+        background: var(--mk-blog-white);
         border-radius: 50%;
-        color: var(--twork-blog-dark);
+        color: var(--mk-blog-dark);
         font-weight: 700;
         font-size: 0.9rem;
         transition: 0.3s;
@@ -305,9 +305,9 @@
     .pagination a.page-numbers:hover,
     .pagination .page-link.active,
     .pagination span.page-numbers.current {
-        background: var(--twork-blog-primary);
-        color: var(--twork-blog-white);
-        border-color: var(--twork-blog-primary);
+        background: var(--mk-blog-primary);
+        color: var(--mk-blog-white);
+        border-color: var(--mk-blog-primary);
     }
 
     .pagination span.page-numbers.current {
@@ -325,10 +325,10 @@
     // Sidebar widgets
     // -------------------------------------------------------------------------
     .sidebar .widget {
-        background: var(--twork-blog-white);
+        background: var(--mk-blog-white);
         padding: 30px;
-        border-radius: var(--twork-blog-radius);
-        box-shadow: var(--twork-blog-shadow-sm);
+        border-radius: var(--mk-blog-radius);
+        box-shadow: var(--mk-blog-shadow-sm);
         margin-bottom: 30px;
     }
 
@@ -338,7 +338,7 @@
         padding-bottom: 15px;
         margin-bottom: 20px;
         position: relative;
-        color: var(--twork-blog-dark);
+        color: var(--mk-blog-dark);
         font-weight: 700;
     }
 
@@ -349,7 +349,7 @@
         left: 0;
         width: 50px;
         height: 2px;
-        background: var(--twork-blog-primary);
+        background: var(--mk-blog-primary);
     }
 
     .search-form {
@@ -363,12 +363,12 @@
         border-radius: 5px;
         outline: none;
         transition: 0.3s;
-        background: var(--twork-blog-white);
+        background: var(--mk-blog-white);
         font-size: 0.9rem;
     }
 
     .search-input:focus {
-        border-color: var(--twork-blog-primary);
+        border-color: var(--mk-blog-primary);
     }
 
     .search-btn {
@@ -381,7 +381,7 @@
         padding: 0;
         border: none;
         background: none;
-        color: var(--twork-blog-medium);
+        color: var(--mk-blog-medium);
         cursor: pointer;
         display: inline-flex;
         align-items: center;
@@ -389,7 +389,7 @@
     }
 
     .search-btn:hover {
-        color: var(--twork-blog-primary);
+        color: var(--mk-blog-primary);
     }
 
     .cat-list li {
@@ -405,12 +405,12 @@
     .cat-list a {
         display: flex;
         justify-content: space-between;
-        color: var(--twork-blog-medium);
+        color: var(--mk-blog-medium);
         font-size: 0.95rem;
     }
 
     .cat-list a:hover {
-        color: var(--twork-blog-primary);
+        color: var(--mk-blog-primary);
         padding-left: 5px;
     }
 
@@ -428,20 +428,20 @@
     }
 
     .tag-link {
-        background: var(--twork-blog-bg);
+        background: var(--mk-blog-bg);
         padding: 5px 12px;
         border-radius: 20px;
         font-size: 0.85rem;
-        color: var(--twork-blog-medium);
+        color: var(--mk-blog-medium);
         border: 1px solid #eee;
         transition: 0.3s;
         display: inline-block;
     }
 
     .tag-link:hover {
-        background: var(--twork-blog-primary);
-        color: var(--twork-blog-white);
-        border-color: var(--twork-blog-primary);
+        background: var(--mk-blog-primary);
+        color: var(--mk-blog-white);
+        border-color: var(--mk-blog-primary);
     }
 
     .recent-post-item {
@@ -469,7 +469,7 @@
     }
 
     .recent-post-item h5 a:hover {
-        color: var(--twork-blog-primary);
+        color: var(--mk-blog-primary);
     }
 
     // =========================================================================
@@ -556,7 +556,7 @@
 .blog-section.wp-block-twork-blog-section {
     padding-top: 80px;
     padding-bottom: 80px;
-    background-color: var(--twork-blog-bg);
+    background-color: var(--mk-blog-bg);
 }
 
 // Editor: make ServerSideRender preview use same styles (block is inside editor wrapper)
@@ -569,7 +569,7 @@
 }
 
 // Editor block wrapper (optional: give editor root min-height so placeholder is visible)
-.twork-blog-section-editor {
+.mk-blog-section-editor {
     min-height: 200px;
 
     // ServerSideRender iframe or div may need width

@@ -7,7 +7,7 @@
 	"parent": [ "twork/rad-safety-section" ],
 	"category": "twork-builder",
 	"description": "Single safety card (icon, title, description) for the Radiology Safety Section.",
-	"keywords": [ "radiology", "safety", "alara", "twork" ],
+	"keywords": [ "radiology", "safety", "alara", "mk" ],
 	"attributes": {
 		"iconClass": {
 			"type": "string",

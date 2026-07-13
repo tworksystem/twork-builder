@@ -7,7 +7,7 @@
 	"category": "twork-builder",
 	"icon": "format-image",
 	"description": "Radiology & Imaging hero section with slanted background, background image, headline, description, and CTA button.",
-	"keywords": [ "radiology", "imaging", "hero", "header", "twork" ],
+	"keywords": [ "radiology", "imaging", "hero", "header", "mk" ],
 	"attributes": {
 		"backgroundImage": {
 			"type": "string",

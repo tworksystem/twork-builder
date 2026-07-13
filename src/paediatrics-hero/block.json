@@ -7,7 +7,7 @@
 	"category": "twork-builder",
 	"icon": "cover-image",
 	"description": "Paediatrics centre hero section with background image, badge, title, subtitle, two CTAs, and side image. Matches paediatrics-centre.html.",
-	"keywords": [ "paediatrics", "hero", "centre", "twork" ],
+	"keywords": [ "paediatrics", "hero", "centre", "mk" ],
 	"attributes": {
 		"badge": {
 			"type": "string",

@@ -7,7 +7,7 @@
 	"category": "twork-builder",
 	"icon": "grid-view",
 	"description": "About section with a grid of feature cards (icon, title, description). Matches general-surgery about block.",
-	"keywords": [ "features", "about", "grid", "twork" ],
+	"keywords": [ "features", "about", "grid", "mk" ],
 	"supports": {
 		"html": false,
 		"anchor": true,

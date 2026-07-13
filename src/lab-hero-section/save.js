@@ -44,7 +44,7 @@ export default function save( { attributes = {} } ) {
 	} = attrs;
 
 	const blockProps = useBlockProps.save( {
-		className: 'lab-hero twork-lab-hero-section',
+		className: 'lab-hero mk-lab-hero-section',
 		style: {
 			minHeight: `${ Number( minHeight ) }px`,
 			display: 'flex',

@@ -72,7 +72,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'twork-services-grid-editor',
+			className: 'mk-services-grid-editor',
 			style: {
 				backgroundColor: backgroundImage
 					? 'transparent'
@@ -950,7 +950,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 					) }
 
 					<div
-						className="twork-services-grid-container"
+						className="mk-services-grid-container"
 						style={ gridStyle }
 						data-columns={ columns }
 					>

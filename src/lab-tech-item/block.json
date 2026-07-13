@@ -7,7 +7,7 @@
 	"category": "twork-builder",
 	"parent": [ "twork/lab-tech-section" ],
 	"description": "Single technology feature row with image, tag, title, description and bullet list.",
-	"keywords": [ "lab", "technology", "equipment", "feature", "twork" ],
+	"keywords": [ "lab", "technology", "equipment", "feature", "mk" ],
 	"attributes": {
 		"imageUrl": {
 			"type": "string",

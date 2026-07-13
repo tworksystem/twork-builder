@@ -8,7 +8,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'rad-stat-item twork-rad-stat-item-editor',
+			className: 'rad-stat-item mk-rad-stat-item-editor',
 			style: {
 				textAlign: 'center',
 			},

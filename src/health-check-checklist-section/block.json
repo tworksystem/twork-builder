@@ -7,7 +7,7 @@
 	"category": "twork-builder",
 	"icon": "yes-alt",
 	"description": "Two-column section: 'Are You Due for a Checkup?' checklist and image. Matches health-check-up.html.",
-	"keywords": [ "health", "checkup", "checklist", "chk", "twork" ],
+	"keywords": [ "health", "checkup", "checklist", "chk", "mk" ],
 	"attributes": {
 		"showSectionTitle": {
 			"type": "boolean",

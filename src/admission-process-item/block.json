@@ -5,7 +5,7 @@
 	"title": "Admission Process Item",
 	"parent": [ "twork/admission-process-section" ],
 	"description": "Single step card for the admission process (e.g. Registration, During Stay, Discharge).",
-	"keywords": [ "admission", "process", "step", "card", "twork" ],
+	"keywords": [ "admission", "process", "step", "card", "mk" ],
 	"attributes": {
 		"stepNumber": {
 			"type": "number",

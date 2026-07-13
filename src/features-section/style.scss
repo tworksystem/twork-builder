@@ -11,12 +11,12 @@ $feature-desc-color: #64748b;
 .editor-styles-wrapper,
 .block-editor-block-list__layout,
 .wp-block-twork-features-section {
-    .twork-features-section-editor {
+    .mk-features-section-editor {
         .editor-label {
             margin-bottom: 20px;
         }
 
-        .twork-features-grid-container.features-grid {
+        .mk-features-grid-container.features-grid {
             display: grid !important;
             grid-template-columns: repeat(auto-fit, minmax(var(--features-min-item, 260px), 1fr)) !important;
             gap: var(--features-gap, 30px) !important;
@@ -63,7 +63,7 @@ $feature-desc-color: #64748b;
             }
         }
 
-        .twork-feature-card-editor {
+        .mk-feature-card-editor {
             h4[contenteditable="true"],
             p[contenteditable="true"] {
                 &:focus {
@@ -76,9 +76,9 @@ $feature-desc-color: #64748b;
 }
 
 // === FRONTEND STYLES ===
-.twork-features-section-editor section.container,
+.mk-features-section-editor section.container,
 section.container[id],
-.twork-features-section-grid {
+.mk-features-section-grid {
     // Section may be targeted by theme .container
 }
 
@@ -191,13 +191,13 @@ section.container .features-grid {
 }
 
 // Data-attribute overrides for section (optional)
-.twork-features-section-grid[data-columns-tablet="1"] {
+.mk-features-section-grid[data-columns-tablet="1"] {
     @media (max-width: 992px) {
         grid-template-columns: 1fr;
     }
 }
 
-.twork-features-section-grid[data-columns-mobile="2"] {
+.mk-features-section-grid[data-columns-mobile="2"] {
     @media (max-width: 576px) {
         grid-template-columns: repeat(2, 1fr);
     }

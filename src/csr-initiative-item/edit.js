@@ -81,7 +81,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'twork-csr-initiative-item-editor',
+			className: 'mk-csr-initiative-item-editor',
 			style: {
 				flex: 1,
 				display: 'flex',

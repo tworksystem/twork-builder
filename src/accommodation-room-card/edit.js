@@ -55,7 +55,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'twork-accommodation-room-card-editor room-card fade-up',
+			className: 'mk-accommodation-room-card-editor room-card fade-up',
 			style: {
 				borderRadius: '12px',
 				overflow: 'hidden',

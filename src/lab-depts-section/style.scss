@@ -4,8 +4,8 @@
  */
 
 // Fallbacks when block attributes do not set custom colors
-.lab-section.twork-lab-depts-section,
-.lab-section.twork-lab-depts-section-editor {
+.lab-section.mk-lab-depts-section,
+.lab-section.mk-lab-depts-section-editor {
     --lab-primary: #f48b2a;
     --lab-text: #000000;
     --lab-text-muted: #666666;
@@ -17,8 +17,8 @@
     --lab-border-subtle: rgba(0, 0, 0, 0.08);
 }
 
-.lab-section.twork-lab-depts-section,
-.lab-section.twork-lab-depts-section-editor {
+.lab-section.mk-lab-depts-section,
+.lab-section.mk-lab-depts-section-editor {
     position: relative;
     width: 100%;
     box-sizing: border-box;
@@ -119,7 +119,7 @@
 // === EDITOR: grid layout with InnerBlocks ===
 .editor-styles-wrapper,
 .wp-block-twork-lab-depts-section {
-    .twork-lab-depts-section-editor {
+    .mk-lab-depts-section-editor {
         .lab-header h2,
         .lab-header p {
             &[contenteditable="true"]:focus {
@@ -168,8 +168,8 @@
 
 // === RESPONSIVE ===
 @media (max-width: 992px) {
-    .lab-section.twork-lab-depts-section,
-    .lab-section.twork-lab-depts-section-editor {
+    .lab-section.mk-lab-depts-section,
+    .lab-section.mk-lab-depts-section-editor {
         .lab-dept-grid {
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 24px;
@@ -190,8 +190,8 @@
 }
 
 @media (max-width: 768px) {
-    .lab-section.twork-lab-depts-section,
-    .lab-section.twork-lab-depts-section-editor {
+    .lab-section.mk-lab-depts-section,
+    .lab-section.mk-lab-depts-section-editor {
         .lab-container {
             padding-left: 16px;
             padding-right: 16px;

@@ -34,7 +34,7 @@ export default function Edit( { attributes = {}, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'em-hero twork-emergency-hero-editor',
+			className: 'em-hero mk-emergency-hero-editor',
 			style: {
 				position: 'relative',
 				height: `${ heroHeight || 600 }px`,

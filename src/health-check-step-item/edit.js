@@ -8,7 +8,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'chk-step-item stagger-up twork-chk-step-item-editor',
+			className: 'chk-step-item stagger-up mk-chk-step-item-editor',
 		} ),
 		[]
 	);

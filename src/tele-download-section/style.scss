@@ -10,7 +10,7 @@
 .editor-styles-wrapper,
 .block-editor-block-list__layout,
 .wp-block-twork-tele-download-section {
-    .twork-tele-download-section-editor {
+    .mk-tele-download-section-editor {
         position: relative;
 
         .tele-cta {
@@ -74,7 +74,7 @@
 }
 
 // === FRONTEND STYLES ===
-.twork-tele-download-section {
+.mk-tele-download-section {
     position: relative;
     font-family: $font-primary;
 
@@ -204,7 +204,7 @@
 
 // === RESPONSIVE ===
 @media (max-width: 768px) {
-    .twork-tele-download-section {
+    .mk-tele-download-section {
         .tele-cta {
             padding: 50px 20px !important;
 
@@ -216,7 +216,7 @@
 }
 
 @media (max-width: 600px) {
-    .twork-tele-download-section {
+    .mk-tele-download-section {
         .store-btns {
             flex-direction: column;
             align-items: stretch;

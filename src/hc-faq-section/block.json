@@ -7,7 +7,7 @@
 	"category": "twork-builder",
 	"icon": "editor-help",
 	"description": "Frequently Asked Questions: header + accordion list. Matches home-care.html.",
-	"keywords": [ "home care", "faq", "accordion", "questions", "twork" ],
+	"keywords": [ "home care", "faq", "accordion", "questions", "mk" ],
 	"attributes": {
 		"backgroundColor": {
 			"type": "string",

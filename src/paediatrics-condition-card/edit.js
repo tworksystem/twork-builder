@@ -9,7 +9,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 	const blockProps = useStableBlockProps(
 		() => ( {
 			className:
-				'paed-cond-card paed-stagger twork-paed-cond-card-editor',
+				'paed-cond-card paed-stagger mk-paed-cond-card-editor',
 		} ),
 		[]
 	);

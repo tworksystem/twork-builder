@@ -4,8 +4,8 @@
  */
 
 // --- Variables (align with 24/7 emergency theme) ---
-.twork-em-stats-section,
-.twork-em-stats-section-editor {
+.mk-em-stats-section,
+.mk-em-stats-section-editor {
     --em-primary: #f48b2a;
     --em-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 }
@@ -13,7 +13,7 @@
 // --- Editor: inner blocks layout ---
 .editor-styles-wrapper,
 .block-editor-block-list__layout {
-    .twork-em-stats-section-editor {
+    .mk-em-stats-section-editor {
         .em-container {
             position: relative;
         }
@@ -45,7 +45,7 @@
 }
 
 // --- Frontend: section & grid ---
-.twork-em-stats-section {
+.mk-em-stats-section {
     position: relative;
 
     .em-container {
@@ -91,6 +91,6 @@
 }
 
 // --- Fade-up animation (when used on frontend via JS) ---
-.twork-em-stats-section .em-stats.fade-up {
+.mk-em-stats-section .em-stats.fade-up {
     // Class present for JS scroll animation; base styles above
 }

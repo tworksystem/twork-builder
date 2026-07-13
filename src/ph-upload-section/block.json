@@ -7,7 +7,7 @@
 	"category": "twork-builder",
 	"icon": "upload",
 	"description": "Upload prescription CTA section for the pharmacy page.",
-	"keywords": [ "pharmacy", "upload", "prescription", "twork" ],
+	"keywords": [ "pharmacy", "upload", "prescription", "mk" ],
 	"attributes": {
 		"backgroundColor": {
 			"type": "string",

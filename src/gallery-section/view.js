@@ -1,7 +1,7 @@
 /**
  * Gallery Section – Tab filtering + Lightbox (vanilla JS, no external dependencies)
  *
- * @package TworkBuilder
+ * @package MkBuilder
  */
 
 ( function () {
@@ -16,25 +16,25 @@
 		create() {
 			if ( this.overlay ) return this.overlay;
 			const div = document.createElement( 'div' );
-			div.className = 'twork-gallery-lightbox';
+			div.className = 'mk-gallery-lightbox';
 			div.setAttribute( 'role', 'dialog' );
 			div.setAttribute( 'aria-modal', 'true' );
 			div.setAttribute( 'aria-label', 'View image' );
 			div.innerHTML = `
-                <div class="twork-gallery-lightbox-backdrop" aria-hidden="true"></div>
-                <div class="twork-gallery-lightbox-content">
-                    <button type="button" class="twork-gallery-lightbox-close" aria-label="Close">&times;</button>
-                    <img src="" alt="" class="twork-gallery-lightbox-img" />
+                <div class="mk-gallery-lightbox-backdrop" aria-hidden="true"></div>
+                <div class="mk-gallery-lightbox-content">
+                    <button type="button" class="mk-gallery-lightbox-close" aria-label="Close">&times;</button>
+                    <img src="" alt="" class="mk-gallery-lightbox-img" />
                 </div>
             `;
 			document.body.appendChild( div );
 			this.overlay = div;
 
 			div.querySelector(
-				'.twork-gallery-lightbox-backdrop'
+				'.mk-gallery-lightbox-backdrop'
 			).addEventListener( 'click', () => this.close() );
 			div.querySelector(
-				'.twork-gallery-lightbox-close'
+				'.mk-gallery-lightbox-close'
 			).addEventListener( 'click', () => this.close() );
 			document.addEventListener( 'keydown', ( e ) => {
 				if ( e.key === 'Escape' && div.classList.contains( 'is-open' ) )
@@ -46,14 +46,14 @@
 
 		open( imgSrc, imgAlt ) {
 			const el = this.create();
-			const img = el.querySelector( '.twork-gallery-lightbox-img' );
+			const img = el.querySelector( '.mk-gallery-lightbox-img' );
 			img.src = imgSrc || '';
 			img.alt = imgAlt || 'Gallery image';
 			el.classList.add( 'is-open' );
 			document.body.style.overflow = 'hidden';
 
 			// Focus trap: focus close button for accessibility
-			el.querySelector( '.twork-gallery-lightbox-close' ).focus();
+			el.querySelector( '.mk-gallery-lightbox-close' ).focus();
 		},
 
 		close() {
@@ -65,7 +65,7 @@
 
 	const initGallerySection = () => {
 		const sections = document.querySelectorAll(
-			'.twork-gallery-section, .gallery-section'
+			'.mk-gallery-section, .gallery-section'
 		);
 
 		if ( ! sections.length ) return;

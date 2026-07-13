@@ -1,6 +1,6 @@
 import { __ } from '@wordpress/i18n';
-import { useStableBlockProps } from '@twork-builder/editor-utils';
 import {
+	useBlockProps,
 	RichText,
 	InspectorControls,
 	PanelColorSettings,
@@ -11,6 +11,16 @@ import {
 	SelectControl,
 	__experimentalDivider as Divider,
 } from '@wordpress/components';
+
+const DEFAULT_TYPOGRAPHY = {
+	numberColor: '#f48b2a',
+	numberFontSize: 2.5,
+	numberFontWeight: 900,
+	labelColor: '#212121',
+	labelFontSize: 0.95,
+	labelFontWeight: 700,
+	labelTextTransform: 'uppercase',
+};
 
 export default function Edit( { attributes, setAttributes, isSelected } ) {
 	const {
@@ -35,32 +45,36 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 		statNumber ?? ( typeof iconTitle === 'string' ? iconTitle.split('%')[0] + '%' : undefined );
 	const derivedStatLabel =
 		statLabel ?? iconTitle ?? iconDescription ?? '';
-	const derivedNumberColor = numberColor ?? '#f48b2a';
-	const derivedLabelColor = labelColor ?? '#212121';
-	const derivedNumberFontSize = numberFontSize ?? 2.5;
-	const derivedNumberFontWeight = numberFontWeight ?? 900;
-	const derivedLabelFontSize = labelFontSize ?? 0.95;
-	const derivedLabelFontWeight = labelFontWeight ?? 700;
-	const derivedLabelTextTransform = labelTextTransform ?? 'uppercase';
+	const derivedNumberColor = numberColor ?? DEFAULT_TYPOGRAPHY.numberColor;
+	const derivedLabelColor = labelColor ?? DEFAULT_TYPOGRAPHY.labelColor;
+	const derivedNumberFontSize =
+		numberFontSize ?? DEFAULT_TYPOGRAPHY.numberFontSize;
+	const derivedNumberFontWeight =
+		numberFontWeight ?? DEFAULT_TYPOGRAPHY.numberFontWeight;
+	const derivedLabelFontSize =
+		labelFontSize ?? DEFAULT_TYPOGRAPHY.labelFontSize;
+	const derivedLabelFontWeight =
+		labelFontWeight ?? DEFAULT_TYPOGRAPHY.labelFontWeight;
+	const derivedLabelTextTransform =
+		labelTextTransform ?? DEFAULT_TYPOGRAPHY.labelTextTransform;
 
-	const blockProps = useStableBlockProps(
-		() => ( {
-			className: 'twork-stat-item-editor stat-item',
-			style: {
-				display: 'flex',
-				flexDirection: 'column',
-				alignItems: 'center',
-				justifyContent: 'center',
-				textAlign: 'center',
-			},
-		} ),
-		[]
-	);
+	const blockProps = useBlockProps( {
+		className: 'mk-stat-item-editor stat-item',
+		style: {
+			display: 'flex',
+			flexDirection: 'column',
+			alignItems: 'center',
+			justifyContent: 'center',
+			textAlign: 'center',
+			width: '100%',
+			minHeight: '80px',
+			cursor: 'text',
+		},
+	} );
 
 	return (
 		<>
-			{ isSelected && (
-				<InspectorControls>
+			<InspectorControls>
 					<PanelBody
 						title={ __( 'Stat Number', 'twork-builder' ) }
 						initialOpen={ true }
@@ -69,7 +83,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 							title={ __( 'Number Color', 'twork-builder' ) }
 							colorSettings={ [
 								{
-									value: numberColor,
+									value: derivedNumberColor,
 									onChange: ( val ) =>
 										setAttributes( { numberColor: val } ),
 									label: __(
@@ -82,7 +96,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 						<RangeControl
 							label={ __( 'Font Size (rem)', 'twork-builder' ) }
-							value={ numberFontSize }
+							value={ derivedNumberFontSize }
 							onChange={ ( val ) =>
 								setAttributes( { numberFontSize: val } )
 							}
@@ -93,7 +107,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 						<RangeControl
 							label={ __( 'Font Weight', 'twork-builder' ) }
-							value={ numberFontWeight }
+							value={ derivedNumberFontWeight }
 							onChange={ ( val ) =>
 								setAttributes( { numberFontWeight: val } )
 							}
@@ -111,7 +125,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 							title={ __( 'Label Color', 'twork-builder' ) }
 							colorSettings={ [
 								{
-									value: labelColor,
+									value: derivedLabelColor,
 									onChange: ( val ) =>
 										setAttributes( { labelColor: val } ),
 									label: __( 'Label Color', 'twork-builder' ),
@@ -121,7 +135,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 						<RangeControl
 							label={ __( 'Font Size (rem)', 'twork-builder' ) }
-							value={ labelFontSize }
+							value={ derivedLabelFontSize }
 							onChange={ ( val ) =>
 								setAttributes( { labelFontSize: val } )
 							}
@@ -132,7 +146,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 						<RangeControl
 							label={ __( 'Font Weight', 'twork-builder' ) }
-							value={ labelFontWeight }
+							value={ derivedLabelFontWeight }
 							onChange={ ( val ) =>
 								setAttributes( { labelFontWeight: val } )
 							}
@@ -143,7 +157,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 						<SelectControl
 							label={ __( 'Text Transform', 'twork-builder' ) }
-							value={ labelTextTransform }
+							value={ derivedLabelTextTransform }
 							options={ [
 								{
 									label: __( 'None', 'twork-builder' ),
@@ -168,12 +182,11 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 						/>
 					</PanelBody>
 				</InspectorControls>
-			) }
 
 			<div { ...blockProps }>
 				<RichText
 					tagName="h3"
-					value={ derivedStatNumber }
+					value={ statNumber ?? derivedStatNumber ?? '' }
 					onChange={ ( val ) => setAttributes( { statNumber: val } ) }
 					placeholder={ __( '50+', 'twork-builder' ) }
 					style={ {
@@ -188,7 +201,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 				<RichText
 					tagName="p"
-					value={ derivedStatLabel }
+					value={ statLabel ?? derivedStatLabel ?? '' }
 					onChange={ ( val ) => setAttributes( { statLabel: val } ) }
 					placeholder={ __( 'Rural Medical Camps', 'twork-builder' ) }
 					style={ {

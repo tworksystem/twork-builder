@@ -7,7 +7,7 @@
 	"category": "twork-builder",
 	"icon": "forms",
 	"description": "Conditions We Treat section: header + three condition columns, matching physiotherapy-rehab.html.",
-	"keywords": [ "physio", "conditions", "body map", "treat", "twork" ],
+	"keywords": [ "physio", "conditions", "body map", "treat", "mk" ],
 	"attributes": {
 		"backgroundColor": {
 			"type": "string",

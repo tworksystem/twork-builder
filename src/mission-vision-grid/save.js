@@ -23,7 +23,7 @@ export default function save( { attributes } ) {
 	} = attributes;
 
 	const blockProps = useBlockProps.save( {
-		className: 'twork-mv-section',
+		className: 'mk-mv-section',
 		style: {
 			backgroundColor,
 			paddingTop: `${ paddingTop }px`,

@@ -7,7 +7,7 @@
 	"category": "twork-builder",
 	"icon": "layout",
 	"description": "Contact page section: left column (department hotlines accordion + map), right column (contact form).",
-	"keywords": [ "contact", "accordion", "hotline", "map", "form", "twork" ],
+	"keywords": [ "contact", "accordion", "hotline", "map", "form", "mk" ],
 	"attributes": {
 		"accordionHeading": {
 			"type": "string",

@@ -48,7 +48,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'twork-rad-stats-section-editor rad-section',
+			className: 'mk-rad-stats-section-editor rad-section',
 		} ),
 		[]
 	);

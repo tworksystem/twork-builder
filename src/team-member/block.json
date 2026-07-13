@@ -6,7 +6,7 @@
 	"title": "Team Member",
 	"category": "twork-builder",
 	"icon": "businessperson",
-	"description": "Professional team member display with Twork standards.",
+	"description": "Professional team member display with Mk standards.",
 	"supports": {
 		"html": false,
 		"anchor": true,
@@ -23,7 +23,7 @@
 		"name": {
 			"type": "string",
 			"source": "html",
-			"selector": ".twork-team-member__name"
+			"selector": ".mk-team-member__name"
 		},
 		"role": {
 			"type": "string",

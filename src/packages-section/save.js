@@ -57,7 +57,7 @@ export default function save( { attributes } ) {
 	} = attributes;
 
 	const sectionClassName = [
-		'twork-packages-section',
+		'mk-packages-section',
 		layoutStyle === 'lab' ? 'lab-section lab-price-section' : null,
 		layoutStyle === 'lab' && showWaveDivider ? 'has-wave-divider' : null,
 	]

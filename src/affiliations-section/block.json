@@ -5,7 +5,7 @@
 	"title": "Logo Grid / Slider Section",
 	"category": "twork-builder",
 	"description": "Display partner/affiliation logos in a clean grid with customizable title and styling.",
-	"keywords": [ "affiliations", "partners", "logos", "grid", "twork" ],
+	"keywords": [ "affiliations", "partners", "logos", "grid", "mk" ],
 	"attributes": {
 		"backgroundColor": {
 			"type": "string",

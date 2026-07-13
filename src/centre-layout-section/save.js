@@ -87,7 +87,7 @@ export default function save( { attributes } ) {
 		: undefined;
 
 	const blockProps = useBlockProps.save( {
-		className: 'twork-centre-layout-section section-padding',
+		className: 'mk-centre-layout-section section-padding',
 		style: {
 			paddingTop: `${ paddingTop }px`,
 			paddingBottom: `${ paddingBottom }px`,
@@ -167,26 +167,27 @@ export default function save( { attributes } ) {
 								/>
 								<h3>{ contactTitle }</h3>
 								<p>{ contactText }</p>
-								<a
-									href={ contactPhoneUrl || 'tel:' }
-									className="jivaka-btn btn-primary"
-									style={ { width: '100%' } }
-								>
-									<CentreIconOutput
-										iconType={
-											contactPhoneIconType ||
-											'fontawesome'
-										}
-										faClass={
-											contactPhoneIcon || 'fas fa-phone'
-										}
-										dashicon={ contactPhoneDashicon }
-										imageUrl={ contactPhoneIconImageUrl }
-										videoUrl={ contactPhoneIconVideoUrl }
-										className="sidebar-contact-phone-icon"
-									/>{ ' ' }
-									{ contactPhone || 'Call' }
-								</a>
+								<div className="sidebar-contact-actions">
+									<a
+										href={ contactPhoneUrl || 'tel:' }
+										className="jivaka-btn btn-primary"
+									>
+										<CentreIconOutput
+											iconType={
+												contactPhoneIconType ||
+												'fontawesome'
+											}
+											faClass={
+												contactPhoneIcon || 'fas fa-phone'
+											}
+											dashicon={ contactPhoneDashicon }
+											imageUrl={ contactPhoneIconImageUrl }
+											videoUrl={ contactPhoneIconVideoUrl }
+											className="sidebar-contact-phone-icon"
+										/>{ ' ' }
+										{ contactPhone || 'Call' }
+									</a>
+								</div>
 							</div>
 						) }
 					</aside>
@@ -214,26 +215,27 @@ export default function save( { attributes } ) {
 								/>
 								<h3>{ contactTitle }</h3>
 								<p>{ contactText }</p>
-								<a
-									href={ contactPhoneUrl || 'tel:' }
-									className="jivaka-btn btn-primary"
-									style={ { width: '100%' } }
-								>
-									<CentreIconOutput
-										iconType={
-											contactPhoneIconType ||
-											'fontawesome'
-										}
-										faClass={
-											contactPhoneIcon || 'fas fa-phone'
-										}
-										dashicon={ contactPhoneDashicon }
-										imageUrl={ contactPhoneIconImageUrl }
-										videoUrl={ contactPhoneIconVideoUrl }
-										className="sidebar-contact-phone-icon"
-									/>{ ' ' }
-									{ contactPhone || 'Call' }
-								</a>
+								<div className="sidebar-contact-actions">
+									<a
+										href={ contactPhoneUrl || 'tel:' }
+										className="jivaka-btn btn-primary"
+									>
+										<CentreIconOutput
+											iconType={
+												contactPhoneIconType ||
+												'fontawesome'
+											}
+											faClass={
+												contactPhoneIcon || 'fas fa-phone'
+											}
+											dashicon={ contactPhoneDashicon }
+											imageUrl={ contactPhoneIconImageUrl }
+											videoUrl={ contactPhoneIconVideoUrl }
+											className="sidebar-contact-phone-icon"
+										/>{ ' ' }
+										{ contactPhone || 'Call' }
+									</a>
+								</div>
 							</div>
 						) }
 					</div>

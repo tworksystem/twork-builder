@@ -19,7 +19,7 @@ export default function save( { attributes } ) {
 	} = attributes;
 
 	const blockProps = useBlockProps.save( {
-		className: 'twork-gm-testimonials-section jivaka-gm-section',
+		className: 'mk-gm-testimonials-section jivaka-gm-section',
 		style: {
 			backgroundColor,
 			paddingTop: `${ paddingTop }px`,

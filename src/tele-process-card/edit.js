@@ -36,7 +36,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 	const blockProps = useStableBlockProps(
 		() => ( {
 			className:
-				'twork-tele-process-card-editor process-card stagger-card',
+				'mk-tele-process-card-editor process-card stagger-card',
 		} ),
 		[]
 	);

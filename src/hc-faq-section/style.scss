@@ -12,8 +12,8 @@
 .editor-styles-wrapper,
 .block-editor-block-list__layout,
 .wp-block-twork-hc-faq-section {
-    .twork-hc-faq-section-editor {
-        .twork-hc-faq-item-editor.hc-faq-item {
+    .mk-hc-faq-section-editor {
+        .mk-hc-faq-item-editor.hc-faq-item {
             border-bottom: 1px solid #eee;
             margin-bottom: 10px;
         }
@@ -28,7 +28,7 @@
 }
 
 // === FRONTEND STYLES ===
-.twork-hc-faq-section {
+.mk-hc-faq-section {
     font-family: $font-primary;
 
     .hc-container {

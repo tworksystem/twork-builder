@@ -30,7 +30,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 	const blockProps = useStableBlockProps(
 		() => ( {
 			className:
-				'service-card twork-surgical-service-card-editor stagger-up',
+				'service-card mk-surgical-service-card-editor stagger-up',
 		} ),
 		[]
 	);

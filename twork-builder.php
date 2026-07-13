@@ -4,7 +4,7 @@
  * Plugin Name:       Twork Builder
  * Plugin URI:        https://www.tworksystem.com/twork-builder
  * Description:       General Company Page Builder Blocks for Twork Ecosystem.
- * Version:           1.0.0
+ * Version:           1.0.8
  * Author:            T-Work System Co., Ltd.
  * Author URI:        https://www.tworksystem.com
  * Text Domain:       twork-builder
@@ -21,7 +21,7 @@ if (!defined('ABSPATH')) {
 }
 
 /** Define Constants */
-define('TWORK_BUILDER_VERSION', '1.0.0');
+define('TWORK_BUILDER_VERSION', '1.0.8');
 define('TWORK_BUILDER_PATH', plugin_dir_path(__FILE__));
 define('TWORK_BUILDER_URL', plugin_dir_url(__FILE__));
 
@@ -45,9 +45,6 @@ require_once TWORK_BUILDER_PATH . 'includes/class-twork-ph-shop-category-section
 
 /** Load Pharmacy Popular Products Section (WooCommerce products) render callback */
 require_once TWORK_BUILDER_PATH . 'includes/class-twork-ph-popular-products-section.php';
-
-/** Load Agrezer Shop Grid Section (WooCommerce shop layout) render callback */
-require_once TWORK_BUILDER_PATH . 'includes/class-twork-agrezer-shop-grid-section.php';
 
 /** Load Physio Facilities Section (Facilities cards from Posts) render callback */
 require_once TWORK_BUILDER_PATH . 'includes/class-twork-phy-facilities-section.php';
@@ -111,6 +108,7 @@ function twork_builder_register_frontend_scripts()
         'twork-neuro-centre-init'         => 'neuro-centre-init.js',
         'twork-benefits-init'             => 'benefits-init.js',
         'twork-job-openings-init'         => 'job-openings-init.js',
+        'twork-help-section-init'         => 'help-section-init.js',
     );
 
     foreach ($scripts as $handle => $file) {
@@ -196,6 +194,8 @@ function twork_builder_enqueue_assets()
         // Benefits / jobs
         'twork/benefits-section'              => array('twork-benefits-init'),
         'twork/job-openings-section'          => array('twork-job-openings-init'),
+        'twork/help-section'                  => array('twork-help-section-init'),
+        'twork/jivaka-header-section'           => array('twork-jivaka-header-init'),
 
         // Testimonials
         'twork/testimonial-section'           => array('twork-testimonial-init'),
@@ -217,7 +217,7 @@ function twork_builder_enqueue_assets()
             'twork-font-awesome',
             plugins_url('assets/vendor/fontawesome/css/all.min.css', __FILE__),
             array(),
-            '6.5.2'
+            '7.2.0'
         );
     }
 
@@ -228,27 +228,7 @@ function twork_builder_enqueue_assets()
 add_action('wp_enqueue_scripts', 'twork_builder_enqueue_assets', 5); // Priority 5 to load early
 
 /**
- * 2b. Enqueue Editor Assets
- * Enqueues Font Awesome and other assets needed in the Gutenberg editor.
- */
-function twork_builder_enqueue_editor_assets()
-{
-    // Font Awesome for icons in editor (optional - only if not already loaded)
-    if (!wp_style_is('twork-font-awesome', 'enqueued')) {
-        wp_enqueue_style(
-            'twork-font-awesome',
-            plugins_url('assets/vendor/fontawesome/css/all.min.css', __FILE__),
-            array(),
-            '6.5.2'
-        );
-    }
-}
-
-add_action('enqueue_block_editor_assets', 'twork_builder_enqueue_editor_assets');
-
-/**
- * 2c. Enqueue shared Google Fonts once for blocks.
- * Loads on both front-end and block editor via enqueue_block_assets.
+ * 2a-ii. Shared Google Fonts for block typography (editor + front end).
  */
 function twork_builder_enqueue_global_block_fonts()
 {
@@ -260,15 +240,35 @@ function twork_builder_enqueue_global_block_fonts()
             null
         );
     }
+
+    // Dashicons + Font Awesome must load via enqueue_block_assets so they
+    // appear inside the block editor canvas iframe (WP 6.3+), not only the admin shell.
+    wp_enqueue_style('dashicons');
+
+    if (!wp_style_is('twork-font-awesome', 'enqueued')) {
+        wp_enqueue_style(
+            'twork-font-awesome',
+            plugins_url('assets/vendor/fontawesome/css/all.min.css', __FILE__),
+            array(),
+            '7.2.0'
+        );
+    }
 }
 add_action('enqueue_block_assets', 'twork_builder_enqueue_global_block_fonts');
 
 /**
- * 2d. Global shared block CSS (single build entry: `src/global.scss` → `build/global.css`).
- * - Block editor: always enqueued (see `twork_builder_enqueue_global_block_styles_editor`) so
- *   utilities are available in the canvas/iframe.
- * - Front end: enqueued only when the main queried singular content includes stats-related
- *   blocks (see `twork_builder_should_enqueue_global_responsive_block_styles_on_front`) for performance.
+ * Header navigation must load in editor canvas + frontend (template parts).
+ */
+function twork_builder_enqueue_header_script_assets()
+{
+    if (wp_script_is('twork-jivaka-header-init', 'registered') && !wp_script_is('twork-jivaka-header-init', 'enqueued')) {
+        wp_enqueue_script('twork-jivaka-header-init');
+    }
+}
+add_action('enqueue_block_assets', 'twork_builder_enqueue_header_script_assets', 25);
+
+/**
+ * 2a-iii. Global shared block CSS (`build/global.css` from src/global.scss).
  */
 function twork_builder_enqueue_global_block_style_asset()
 {
@@ -283,8 +283,8 @@ function twork_builder_enqueue_global_block_style_asset()
     }
 
     $asset_path = TWORK_BUILDER_PATH . 'build/global.asset.php';
-    $asset = is_readable($asset_path) ? include $asset_path : array();
-    $version = is_array($asset) && !empty($asset['version']) ? $asset['version'] : TWORK_BUILDER_VERSION;
+    $asset      = is_readable($asset_path) ? include $asset_path : array();
+    $version    = is_array($asset) && !empty($asset['version']) ? $asset['version'] : TWORK_BUILDER_VERSION;
 
     wp_enqueue_style(
         'twork-builder-global',
@@ -292,21 +292,43 @@ function twork_builder_enqueue_global_block_style_asset()
         array(),
         $version
     );
-    // wp-scripts + RtlCssPlugin emit `build/global-rtl.css` for RTL locales.
     wp_style_add_data('twork-builder-global', 'rtl', 'replace');
 
     $done = true;
 }
 
 /**
- * Resolve the post object used to test `has_block()` for conditional front-end global CSS.
- * Defaults to the main singular queried post. Block themes and archives can use the filter
- * `twork_builder_global_responsive_style_post` to supply a different `WP_Post` (or return null to skip).
- *
- * @return WP_Post|null
+ * @param WP_Post|null $post Post to inspect.
+ * @return bool
  */
-function twork_builder_get_post_for_global_responsive_style_check()
+function twork_builder_post_has_twork_blocks($post)
 {
+    if (!$post instanceof WP_Post) {
+        return false;
+    }
+
+    return (bool) preg_match('/<!-- wp:twork(?:-builder)?\//', $post->post_content);
+}
+
+/**
+ * Editor canvas + front end: load shared global CSS via enqueue_block_assets
+ * so styles appear inside the block editor iframe (WP 6.3+).
+ */
+function twork_builder_enqueue_global_block_styles_shared()
+{
+    twork_builder_enqueue_global_block_style_asset();
+}
+add_action('enqueue_block_assets', 'twork_builder_enqueue_global_block_styles_shared', 3);
+
+/**
+ * Front end: load shared global CSS when the page contains Twork blocks.
+ */
+function twork_builder_enqueue_global_block_styles_frontend()
+{
+    if (is_admin()) {
+        return;
+    }
+
     $post = null;
     if (is_singular()) {
         $queried = get_queried_object();
@@ -315,113 +337,50 @@ function twork_builder_get_post_for_global_responsive_style_check()
         }
     }
 
-    $post = apply_filters('twork_builder_global_responsive_style_post', $post, $post);
-    if ($post instanceof WP_Post) {
-        return $post;
-    }
-    return null;
-}
-
-/**
- * @param WP_Post $post The post to inspect.
- * @return bool
- */
-function twork_builder_post_needs_global_responsive_block_styles($post)
-{
-    if (!$post instanceof WP_Post) {
-        return false;
-    }
-
-    $block_names = array(
-        'twork/cta-block',
-        'twork/stats-column',
-        'twork/stats-section',
-        'twork/stat-card',
-    );
-
-    /**
-     * Filter which block names trigger `build/global.css` on the front end.
-     *
-     * @param string[] $block_names Block slugs to check with has_block().
-     * @param WP_Post  $post        Post used for the check.
-     */
-    $block_names = apply_filters('twork_builder_global_responsive_style_block_names', $block_names, $post);
-    if (!is_array($block_names)) {
-        $block_names = array();
-    }
-
-    foreach ($block_names as $name) {
-        if (!is_string($name) || $name === '') {
-            continue;
-        }
-        if (has_block($name, $post)) {
-            return true;
-        }
-    }
-
-    return false;
-}
-
-/**
- * Whether to load global responsive CSS on the front (non-admin) for the current main view.
- *
- * @return bool
- */
-function twork_builder_should_enqueue_global_responsive_block_styles_on_front()
-{
-    if (is_admin()) {
-        return false;
-    }
-
-    $post = twork_builder_get_post_for_global_responsive_style_check();
-
-    $override = apply_filters('twork_builder_enqueue_global_responsive_block_styles', null, $post);
-    if (is_bool($override)) {
-        return $override;
-    }
-    if (!$post instanceof WP_Post) {
-        return false;
-    }
-
-    if (!twork_builder_post_needs_global_responsive_block_styles($post)) {
-        return false;
-    }
-
-    return true;
-}
-
-/**
- * Block editor: always load global shared CSS (includes responsive utility classes for stats blocks).
- */
-function twork_builder_enqueue_global_block_styles_editor()
-{
-    twork_builder_enqueue_global_block_style_asset();
-}
-add_action('enqueue_block_editor_assets', 'twork_builder_enqueue_global_block_styles_editor', 3);
-
-/**
- * Front end: load global shared CSS only when the main singular post (see
- * `twork_builder_get_post_for_global_responsive_style_check`, filterable) contains stats-related
- * blocks that use shared responsive utilities, or the filter forces loading.
- */
-function twork_builder_enqueue_global_block_styles_frontend()
-{
-    if (!twork_builder_should_enqueue_global_responsive_block_styles_on_front()) {
+    $post = apply_filters('twork_builder_global_style_post', $post, $post);
+    if (!$post instanceof WP_Post || !twork_builder_post_has_twork_blocks($post)) {
         return;
     }
+
     twork_builder_enqueue_global_block_style_asset();
 }
 add_action('wp_enqueue_scripts', 'twork_builder_enqueue_global_block_styles_frontend', 20);
+
+/**
+ * 2b. Enqueue Editor Assets
+ * Enqueues Font Awesome and other assets needed in the Gutenberg editor.
+ */
+function twork_builder_enqueue_editor_assets()
+{
+    // Font Awesome for icons in editor (optional - only if not already loaded)
+    if (!wp_style_is('twork-font-awesome', 'enqueued')) {
+        wp_enqueue_style(
+            'twork-font-awesome',
+            plugins_url('assets/vendor/fontawesome/css/all.min.css', __FILE__),
+            array(),
+            '7.2.0'
+        );
+    }
+
+    wp_enqueue_style('dashicons');
+
+    wp_add_inline_script(
+        'wp-blocks',
+        'window.tworkBuilderData = window.tworkBuilderData || ' . wp_json_encode(
+            array(
+                'pluginUrl' => TWORK_BUILDER_URL,
+            )
+        ) . ';',
+        'before'
+    );
+}
+
+add_action('enqueue_block_editor_assets', 'twork_builder_enqueue_editor_assets');
 
 
 /**
  * 3. Initialize Blocks.
  * Registers all blocks from the /build directory with comprehensive error handling.
- *
- * Note on entry imports:
- * Some blocks are also explicitly imported in src/index.js (for example twork/header
- * and twork/nav-item) so they are guaranteed to be included in the compiled bundle.
- * Runtime registration still happens here from build/* via register_block_type().
  */
 function twork_builder_init_blocks()
 {
@@ -464,24 +423,6 @@ function twork_builder_init_blocks()
 
     $registered_count = 0;
     $failed_count = 0;
-
-    /**
-     * Dynamic blocks that declare "render": "file:./render.php" in block.json (for example
-     * twork/posts-grid under build/agrezer-blog-section/) are registered automatically by this loop via
-     * register_block_type( $block_dir ). WordPress resolves render.php relative to that folder.
-     *
-     * Requirements:
-     * - Run `npm run build` so build/agrezer-blog-section/ contains block.json, index.js, and render.php.
-     * - Do not register the same block twice (no extra register_block_type for agrezer-blog-section here).
-     * - Do not set render_callback for twork/posts-grid unless overriding PHP output intentionally.
-     *
-     * Optional one-off registration (same as one loop iteration; use only if not using this loop):
-     * register_block_type( TWORK_BUILDER_PATH . 'build/agrezer-blog-section' );
-     * // or: register_block_type_from_metadata( TWORK_BUILDER_PATH . 'build/agrezer-blog-section' );
-     *
-     * Note: includes/class-twork-blog-section.php provides twork_render_blog_section for twork/blog-section
-     * only — it does not affect twork/posts-grid.
-     */
 
     foreach ($block_folders as $folder) {
         $block_dir = $blocks_path . $folder;
@@ -543,47 +484,50 @@ function twork_builder_init_blocks()
         // Register block with error suppression (to prevent one bad block from breaking all)
         try {
             $block_args = array();
-            // Requirement: explicitly register twork/posts-grid from its build folder.
-            // This ensures WordPress reads block.json + its `render: file:./render.php`
-            // from the same directory where webpack copies PHP.
-            if (isset($block_data['name']) && $block_data['name'] === 'twork/posts-grid') {
-                // Requirement: explicitly register from the build folder.
-                // This ensures WordPress loads `block.json` + `render: file:./render.php` correctly.
-                $result = register_block_type( __DIR__ . '/build/agrezer-blog-section' );
-            } else {
-                if (isset($block_data['name']) && $block_data['name'] === 'twork/awards-section') {
-                    $block_args['render_callback'] = 'twork_render_awards_section';
-                }
-                if (isset($block_data['name']) && $block_data['name'] === 'twork/csr-initiatives-section') {
-                    $block_args['render_callback'] = 'twork_render_csr_initiatives_section';
-                }
-                if (isset($block_data['name']) && $block_data['name'] === 'twork/updates-section') {
-                    $block_args['render_callback'] = 'twork_render_updates_section';
-                }
-                if (isset($block_data['name']) && $block_data['name'] === 'twork/blog-section') {
-                    $block_args['render_callback'] = 'twork_render_blog_section';
-                }
-                if (isset($block_data['name']) && $block_data['name'] === 'twork/em-units-section') {
-                    $block_args['render_callback'] = 'twork_render_em_units_section';
-                }
-                if (isset($block_data['name']) && $block_data['name'] === 'twork/ph-shop-category-section') {
-                    $block_args['render_callback'] = 'twork_render_ph_shop_category_section';
-                }
-                if (isset($block_data['name']) && $block_data['name'] === 'twork/ph-popular-products-section') {
-                    $block_args['render_callback'] = 'twork_render_ph_popular_products_section';
-                }
-                if (isset($block_data['name']) && in_array($block_data['name'], array('twork/agrezer-shop-grid-section', 'twork/products-grid'), true)) {
-                    $block_args['render_callback'] = 'twork_render_agrezer_shop_grid_section';
-                }
-                if (isset($block_data['name']) && $block_data['name'] === 'twork/phy-facilities-section') {
-                    $block_args['render_callback'] = 'twork_render_phy_facilities_section';
-                }
-
-                $result = register_block_type($block_dir, $block_args);
+            if (isset($block_data['name']) && $block_data['name'] === 'twork/awards-section') {
+                $block_args['render_callback'] = 'twork_render_awards_section';
             }
+            if (isset($block_data['name']) && $block_data['name'] === 'twork/csr-initiatives-section') {
+                $block_args['render_callback'] = 'twork_render_csr_initiatives_section';
+            }
+            if (isset($block_data['name']) && $block_data['name'] === 'twork/updates-section') {
+                $block_args['render_callback'] = 'twork_render_updates_section';
+            }
+            if (isset($block_data['name']) && $block_data['name'] === 'twork/blog-section') {
+                $block_args['render_callback'] = 'twork_render_blog_section';
+            }
+            if (isset($block_data['name']) && $block_data['name'] === 'twork/em-units-section') {
+                $block_args['render_callback'] = 'twork_render_em_units_section';
+            }
+            if (isset($block_data['name']) && $block_data['name'] === 'twork/ph-shop-category-section') {
+                $block_args['render_callback'] = 'twork_render_ph_shop_category_section';
+            }
+            if (isset($block_data['name']) && $block_data['name'] === 'twork/ph-popular-products-section') {
+                $block_args['render_callback'] = 'twork_render_ph_popular_products_section';
+            }
+            if (isset($block_data['name']) && $block_data['name'] === 'twork/phy-facilities-section') {
+                $block_args['render_callback'] = 'twork_render_phy_facilities_section';
+            }
+            $result = register_block_type($block_dir, $block_args);
             
             if ($result && !is_wp_error($result)) {
                 $registered_count++;
+
+                // Legacy mk/ namespace aliases — keeps pre-migration pages editable in the editor.
+                if (function_exists('register_block_type_from_metadata')) {
+                    $legacy_alias_map = array(
+                        'twork/stat-item' => array(
+                            'name' => 'mk/stat-item',
+                            'parent' => array('twork/csr-stats-section', 'mk/csr-stats-section'),
+                        ),
+                        'twork/csr-stats-section' => array(
+                            'name' => 'mk/csr-stats-section',
+                        ),
+                    );
+                    if (isset($legacy_alias_map[$block_data['name']])) {
+                        register_block_type_from_metadata($block_dir, $legacy_alias_map[$block_data['name']]);
+                    }
+                }
                 
                 if (defined('WP_DEBUG') && WP_DEBUG && WP_DEBUG_LOG) {
                     error_log('Twork Builder: Successfully registered block: ' . $block_data['name']);

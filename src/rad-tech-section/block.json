@@ -7,7 +7,7 @@
 	"category": "twork-builder",
 	"icon": "screenoptions",
 	"description": "Radiology \"Powered by World-Class Technology\" section with left content and right image.",
-	"keywords": [ "radiology", "technology", "tech", "imaging", "twork" ],
+	"keywords": [ "radiology", "technology", "tech", "imaging", "mk" ],
 	"attributes": {
 		"backgroundColor": {
 			"type": "string",

@@ -7,7 +7,7 @@
 	"category": "twork-builder",
 	"icon": "grid-view",
 	"description": "Care Packages section: header + grid of package cards. Matches home-care.html.",
-	"keywords": [ "home care", "packages", "pricing", "plans", "twork" ],
+	"keywords": [ "home care", "packages", "pricing", "plans", "mk" ],
 	"attributes": {
 		"backgroundColor": {
 			"type": "string",

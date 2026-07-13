@@ -1,5 +1,5 @@
 /**
- * Twork Testimonial Section – Save
+ * Mk Testimonial Section – Save
  * Matches home.html: testimonials-section, section-top-link, jivaka-section-title, testimonials-grid.
  */
 import { useBlockProps, InnerBlocks } from '@wordpress/block-editor';
@@ -62,7 +62,7 @@ export default function save( { attributes } ) {
 
 	const blockProps = useBlockProps.save( {
 		className:
-			'testimonials-section jivaka-section twork-testimonial-section',
+			'testimonials-section jivaka-section mk-testimonial-section',
 		style: {
 			backgroundColor: backgroundImage ? 'transparent' : backgroundColor,
 			...( backgroundImage && {

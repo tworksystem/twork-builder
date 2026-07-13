@@ -41,7 +41,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'twork-amb-fleet-card-item-editor',
+			className: 'mk-amb-fleet-card-item-editor',
 			style: {
 				position: 'relative',
 				borderRadius: '8px',

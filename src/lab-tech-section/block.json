@@ -7,7 +7,7 @@
 	"category": "twork-builder",
 	"icon": "flask",
 	"description": "Highlight cutting-edge lab or surgical technology with rich text and feature rows.",
-	"keywords": [ "lab", "technology", "equipment", "section", "twork" ],
+	"keywords": [ "lab", "technology", "equipment", "section", "mk" ],
 	"supports": {
 		"html": false,
 		"anchor": true,

@@ -1,5 +1,5 @@
 /**
- * Twork Updates Section – Editor component
+ * Mk Updates Section – Editor component
  * Hospital News & Updates – displays WordPress posts in a card grid.
  * Follows services-grid and awards-section patterns.
  */
@@ -142,7 +142,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'twork-updates-section-editor updates-section',
+			className: 'mk-updates-section-editor updates-section',
 			style: {
 				backgroundColor,
 				paddingTop: `${ paddingTop }px`,

@@ -25,7 +25,7 @@ export default function save( { attributes } ) {
 	} = attributes;
 
 	const blockProps = useBlockProps.save( {
-		className: 'em-section twork-em-doc-section',
+		className: 'em-section mk-em-doc-section',
 	} );
 
 	const sectionStyle = {

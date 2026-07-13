@@ -57,7 +57,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'twork-profile-tabs-section-editor',
+			className: 'mk-profile-tabs-section-editor',
 			style: {
 				paddingBottom: `${ sectionPaddingBottom }px`,
 				marginTop: `${ sectionMarginTop }px`,

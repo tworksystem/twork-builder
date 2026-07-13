@@ -4,7 +4,7 @@
  * This file only adds editor-specific or overrides if needed.
  */
 .wp-block-twork-package-item {
-    .twork-package-item-editor {
+    .mk-package-item-editor {
         .pkg-header,
         .pkg-body,
         .pkg-footer {
@@ -17,6 +17,31 @@
         .jivaka-btn {
             pointer-events: none;
             cursor: default;
+        }
+
+        &.is-image-card {
+            .pkg-body {
+                padding: 0;
+            }
+
+            .pkg-display-image {
+                width: 100%;
+                line-height: 0;
+
+                img {
+                    width: 100%;
+                    height: auto;
+                    display: block;
+                    object-fit: contain;
+                }
+            }
+
+            &.is-image-only {
+                .pkg-header,
+                .pkg-footer {
+                    display: none;
+                }
+            }
         }
     }
 }

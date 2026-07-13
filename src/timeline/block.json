@@ -7,7 +7,7 @@
 	"category": "twork-builder",
 	"icon": "networking",
 	"description": "Professional timeline section with accordion functionality for displaying milestones and events.",
-	"keywords": [ "timeline", "accordion", "milestones", "history", "twork" ],
+	"keywords": [ "timeline", "accordion", "milestones", "history", "mk" ],
 	"supports": {
 		"html": false,
 		"anchor": true,

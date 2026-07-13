@@ -116,7 +116,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 	const blockProps = useStableBlockProps(
 		() => ( {
 			className:
-				'lab-section twork-lab-steps-section-editor lab-steps-section-editor',
+				'lab-section mk-lab-steps-section-editor lab-steps-section-editor',
 			style: {
 				backgroundColor:
 					backgroundColor || DEFAULT_ATTRS.backgroundColor,

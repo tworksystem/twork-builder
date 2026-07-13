@@ -1,5 +1,5 @@
 /**
- * Twork Emergency Ambulance Section – Editor
+ * Mk Emergency Ambulance Section – Editor
  * Split section: image + content (title, description, feature list, CTA). Layout Left/Right, icon or image per feature.
  */
 import { __ } from '@wordpress/i18n';
@@ -79,7 +79,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'twork-em-amb-section-editor em-section',
+			className: 'mk-em-amb-section-editor em-section',
 			style: {
 				backgroundColor,
 				paddingTop: `${ paddingTop }px`,

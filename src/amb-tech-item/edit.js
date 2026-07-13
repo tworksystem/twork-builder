@@ -3,7 +3,7 @@ import { useStableBlockProps } from '@twork-builder/editor-utils';
 import { RichText, InspectorControls } from '@wordpress/block-editor';
 import {
 	PanelBody,
-	TextControl,
+	SelectControl,
 	RangeControl,
 	PanelColorSettings,
 } from '@wordpress/components';
@@ -40,7 +40,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'twork-amb-tech-item-editor amb-tech-item',
+			className: 'mk-amb-tech-item-editor amb-tech-item',
 			style: {
 				padding: `${ itemPadding }px`,
 				background: 'rgba(255, 255, 255, 0.05)',
@@ -60,19 +60,13 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 						title={ __( 'Icon', 'twork-builder' ) }
 						initialOpen={ true }
 					>
-						<TextControl
-							label={ __(
-								'Font Awesome Icon Class',
-								'twork-builder'
-							) }
+						<SelectControl
+							label={ __( 'Icon', 'twork-builder' ) }
 							value={ icon }
+							options={ ICON_OPTIONS }
 							onChange={ ( val ) =>
-								setAttributes( { icon: val || 'fa-circle' } )
+								setAttributes( { icon: val || 'fa-heartbeat' } )
 							}
-							help={ __(
-								'e.g. fa-heartbeat, fa-lungs, fa-first-aid',
-								'twork-builder'
-							) }
 						/>
 
 						<PanelColorSettings

@@ -29,7 +29,7 @@ export default function save( { attributes } ) {
 	} = attributes;
 
 	const blockProps = useBlockProps.save( {
-		className: 'twork-amb-tech-section amb-section amb-tech-section',
+		className: 'mk-amb-tech-section amb-section amb-tech-section',
 		style: {
 			backgroundColor,
 			color: '#fff',
@@ -97,7 +97,7 @@ export default function save( { attributes } ) {
 				) }
 
 				<div
-					className="amb-tech-grid twork-amb-tech-grid"
+					className="amb-tech-grid mk-amb-tech-grid"
 					style={ {
 						display: 'grid',
 						gridTemplateColumns: `repeat(auto-fit, minmax(${ gridMinWidth }px, 1fr))`,

@@ -7,7 +7,7 @@
 	"category": "twork-builder",
 	"icon": "excerpt-view",
 	"description": "Continue Healing at Home section with badge, title, description, bullet list, and image. Matches physiotherapy-rehab.html.",
-	"keywords": [ "physio", "home exercise", "wellness", "twork" ],
+	"keywords": [ "physio", "home exercise", "wellness", "mk" ],
 	"attributes": {
 		"backgroundColor": {
 			"type": "string",

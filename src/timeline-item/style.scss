@@ -6,7 +6,7 @@
 .editor-styles-wrapper,
 .block-editor-block-list__layout,
 .wp-block-twork-timeline-item {
-    .twork-timeline-item-editor {
+    .mk-timeline-item-editor {
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -120,7 +120,7 @@
 
 // IMPORTANT: Ensure editor styles don't leak to frontend
 // Explicitly reset any editor class styles that might appear
-.twork-timeline-item-editor {
+.mk-timeline-item-editor {
     // This class should NEVER appear on frontend, but if it does, hide it
     display: none !important;
     border: none !important;

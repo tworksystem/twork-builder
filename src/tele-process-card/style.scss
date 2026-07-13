@@ -1,28 +1,28 @@
 // Tele Process Card – child block (used inside tele-process-section)
 // Main card styles live in parent; this file adds wrapper if needed.
 
-.twork-tele-process-card-wrapper {
+.mk-tele-process-card-wrapper {
     min-width: 0;
 }
 
-.twork-tele-process-section .process-grid .twork-tele-process-card-wrapper .process-card {
+.mk-tele-process-section .process-grid .mk-tele-process-card-wrapper .process-card {
     display: flex;
     flex-direction: column;
     height: 100%;
 }
 
-.twork-tele-process-section .process-card h4 {
+.mk-tele-process-section .process-card h4 {
     margin: 0 0 12px 0;
 }
 
-.twork-tele-process-section .process-card p {
+.mk-tele-process-section .process-card p {
     margin: 0;
 }
 
 // Editor: ensure title/description are editable (clickable, no blocking)
 .editor-styles-wrapper,
 .block-editor-block-list__layout {
-    .twork-tele-process-card-editor.process-card {
+    .mk-tele-process-card-editor.process-card {
         h4[contenteditable="true"],
         p[contenteditable="true"] {
             pointer-events: auto;

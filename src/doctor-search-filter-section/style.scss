@@ -12,7 +12,7 @@
 // === EDITOR ===
 .editor-styles-wrapper,
 .wp-block-twork-doctor-search-filter-section {
-    .twork-doctor-search-filter-editor {
+    .mk-doctor-search-filter-editor {
         .search-box {
             .filter-input:disabled,
             .btn-reset:disabled {
@@ -28,14 +28,14 @@
 // Target both block wrapper (.wp-block-*) and inner class so margin applies on frontend
 // even when theme adds block spacing. !important overrides theme margin-block-start.
 .wp-block-twork-doctor-search-filter-section,
-.twork-doctor-search-filter-section {
+.mk-doctor-search-filter-section {
     font-family: $font-primary;
     position: relative;
     z-index: 10;
-    margin-top: var(--twork-search-section-margin-top, -80px) !important;
-    margin-block-start: var(--twork-search-section-margin-top, -80px) !important;
-    margin-bottom: var(--twork-search-section-margin-bottom, 60px) !important;
-    margin-block-end: var(--twork-search-section-margin-bottom, 60px) !important;
+    margin-top: var(--mk-search-section-margin-top, -80px) !important;
+    margin-block-start: var(--mk-search-section-margin-top, -80px) !important;
+    margin-bottom: var(--mk-search-section-margin-bottom, 60px) !important;
+    margin-block-end: var(--mk-search-section-margin-bottom, 60px) !important;
 
     .jivaka-container {
         position: relative;
@@ -46,15 +46,15 @@
     }
 
     .search-box {
-        background: var(--twork-search-box-bg, #fff);
-        padding: var(--twork-search-box-padding, 30px);
-        border-radius: var(--twork-search-box-radius, 8px);
+        background: var(--mk-search-box-bg, #fff);
+        padding: var(--mk-search-box-padding, 30px);
+        border-radius: var(--mk-search-box-radius, 8px);
         box-shadow: var(--shadow-md);
         display: flex;
         flex-wrap: wrap;
         gap: 20px;
         align-items: center;
-        border-top: var(--twork-search-box-top-border, 4px solid var(--primary-orange));
+        border-top: var(--mk-search-box-top-border, 4px solid var(--primary-orange));
     }
 
     .filter-group {
@@ -68,14 +68,14 @@
             font-size: 0.8rem;
             font-weight: 700;
             text-transform: uppercase;
-            color: var(--twork-search-label-color, var(--medium-grey));
+            color: var(--mk-search-label-color, var(--medium-grey));
         }
     }
 
     .filter-input {
         width: 100%;
         padding: 12px 15px;
-        border: 1px solid var(--twork-search-input-border, #ddd);
+        border: 1px solid var(--mk-search-input-border, #ddd);
         border-radius: 5px;
         font-size: 0.95rem;
         color: var(--dark-grey);
@@ -87,7 +87,7 @@
         -moz-appearance: none;
 
         &:focus {
-            border-color: var(--twork-search-input-focus-border, var(--primary-orange));
+            border-color: var(--mk-search-input-focus-border, var(--primary-orange));
         }
     }
 
@@ -104,8 +104,8 @@
     }
 
     .btn-reset {
-        background: var(--twork-search-reset-bg, #f0f0f0);
-        color: var(--twork-search-reset-color, var(--medium-grey));
+        background: var(--mk-search-reset-bg, #f0f0f0);
+        color: var(--mk-search-reset-color, var(--medium-grey));
         border: none;
         padding: 12px 20px;
         border-radius: 5px;
@@ -118,8 +118,8 @@
         font-size: 0.95rem;
 
         &:hover {
-            background: var(--twork-search-reset-hover-bg, #e0e0e0);
-            color: var(--twork-search-reset-hover-color, var(--dark-grey));
+            background: var(--mk-search-reset-hover-bg, #e0e0e0);
+            color: var(--mk-search-reset-hover-color, var(--dark-grey));
         }
 
         &:focus-visible {
@@ -133,10 +133,10 @@
 // Tablet & below: keep layout breathing but still overlap hero slightly if desired.
 @media (max-width: 992px) {
     .wp-block-twork-doctor-search-filter-section,
-    .twork-doctor-search-filter-section {
+    .mk-doctor-search-filter-section {
         // Soften the overlap on medium screens; still allow negative margin from attribute.
-        margin-top: max(var(--twork-search-section-margin-top, -60px), -60px) !important;
-        margin-block-start: max(var(--twork-search-section-margin-top, -60px), -60px) !important;
+        margin-top: max(var(--mk-search-section-margin-top, -60px), -60px) !important;
+        margin-block-start: max(var(--mk-search-section-margin-top, -60px), -60px) !important;
     }
 }
 
@@ -144,7 +144,7 @@
 // matching the behaviour in the standalone doctors.html page.
 @media (max-width: 768px) {
     .wp-block-twork-doctor-search-filter-section,
-    .twork-doctor-search-filter-section {
+    .mk-doctor-search-filter-section {
         margin-top: 0 !important;
         margin-block-start: 0 !important;
         margin-bottom: 40px !important;

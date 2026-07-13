@@ -159,7 +159,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'twork-key-service-item-editor key-service-item',
+			className: 'mk-key-service-item-editor key-service-item',
 			style: {
 				flex: 1,
 				padding: `${ itemPadding }px`,

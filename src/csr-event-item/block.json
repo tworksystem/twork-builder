@@ -6,7 +6,7 @@
 	"parent": [ "twork/csr-events-section" ],
 	"category": "twork-builder",
 	"description": "Single event card for Upcoming CSR Events section.",
-	"keywords": [ "csr", "event", "card", "upcoming", "twork" ],
+	"keywords": [ "csr", "event", "card", "upcoming", "mk" ],
 	"attributes": {
 		"dateDay": {
 			"type": "string",

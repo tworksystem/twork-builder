@@ -8,7 +8,7 @@
 	"category": "twork-builder",
 	"icon": "id",
 	"description": "Single Emergency Specialist card with photo, role, name, and specialty.",
-	"keywords": [ "doctor", "specialist", "emergency", "card", "twork" ],
+	"keywords": [ "doctor", "specialist", "emergency", "card", "mk" ],
 	"attributes": {
 		"imageUrl": {
 			"type": "string",

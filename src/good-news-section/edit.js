@@ -351,7 +351,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'twork-good-news-section-editor',
+			className: 'mk-good-news-section-editor',
 			style: {
 				backgroundColor: backgroundColor,
 				paddingTop: `${ paddingTop }px`,

@@ -7,7 +7,7 @@
 	"category": "twork-builder",
 	"icon": "star-filled",
 	"description": "Awards & Recognition grid - displays posts from WordPress. Select by category or pick specific posts.",
-	"keywords": [ "awards", "recognition", "gallery", "hospital", "twork" ],
+	"keywords": [ "awards", "recognition", "gallery", "hospital", "mk" ],
 	"attributes": {
 		"backgroundColor": {
 			"type": "string",

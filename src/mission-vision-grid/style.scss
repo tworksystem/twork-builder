@@ -7,7 +7,7 @@
 // but let the dynamic block attributes control vertical spacing so we don’t
 // get a huge extra top/bottom gap in the editor, and make sure InnerBlocks
 // render in a proper horizontal grid layout.
-.twork-mv-section-editor {
+.mk-mv-section-editor {
 	font-family: $font-primary;
 	box-sizing: border-box;
 	width: 100% !important;
@@ -127,7 +127,7 @@
 
 // Editor-specific responsive styles to ensure gap works at all breakpoints
 @media (max-width: 992px) {
-	.twork-mv-section-editor {
+	.mk-mv-section-editor {
 		.mv-grid {
 			.block-editor-block-list__layout {
 				grid-template-columns: repeat(
@@ -140,7 +140,7 @@
 }
 
 @media (max-width: 768px) {
-	.twork-mv-section-editor {
+	.mk-mv-section-editor {
 		.mv-grid {
 			.block-editor-block-list__layout {
 				grid-template-columns: repeat(var(--mv-columns-mobile, 1), 1fr) !important;
@@ -158,8 +158,8 @@
 	--border-color: #e0e0e0;
 }
 
-.twork-mv-section,
-.twork-mv-section-editor {
+.mk-mv-section,
+.mk-mv-section-editor {
 	font-family: $font-primary;
 	background: var(--light-grey-bg);
 
@@ -200,7 +200,7 @@
 		align-items: stretch;
 
 		// Ensure each item stretches to same height
-		> .twork-mv-item {
+		> .mk-mv-item {
 			height: 100%;
 		}
 	}
@@ -278,7 +278,7 @@
 
 // Responsive behaviour mirroring about.html
 @media (max-width: 992px) {
-	.twork-mv-section {
+	.mk-mv-section {
 		.jivaka-container {
 			padding: 0 20px;
 		}
@@ -291,7 +291,7 @@
 }
 
 @media (max-width: 768px) {
-	.twork-mv-section {
+	.mk-mv-section {
 		.mv-grid {
 			grid-template-columns: repeat(var(--mv-columns-mobile, 1), 1fr);
 			gap: 30px;

@@ -6,7 +6,7 @@
 	"category": "twork-builder",
 	"icon": "phone",
 	"description": "Responsive contact/info cards grid with accent icons and CTAs, matching contact.html design.",
-	"keywords": [ "contact", "info", "card", "cta", "twork" ],
+	"keywords": [ "contact", "info", "card", "cta", "mk" ],
 	"attributes": {
 		"showSectionHeader": {
 			"type": "boolean",

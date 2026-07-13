@@ -7,7 +7,7 @@
 	"category": "twork-builder",
 	"icon": "grid-view",
 	"description": "Laboratory departments grid with hex icons (Biochemistry, Hematology, Molecular Bio, etc.), matching laboratory-services.html.",
-	"keywords": [ "lab", "departments", "hex", "grid", "twork" ],
+	"keywords": [ "lab", "departments", "hex", "grid", "mk" ],
 	"attributes": {
 		"backgroundColor": {
 			"type": "string",

@@ -8,7 +8,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'rad-safety-card twork-rad-safety-card-editor',
+			className: 'rad-safety-card mk-rad-safety-card-editor',
 		} ),
 		[]
 	);

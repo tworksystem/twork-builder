@@ -25,7 +25,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 	const blockProps = useStableBlockProps(
 		() => ( {
 			className:
-				'twork-before-you-come-item-editor before-you-come-item-card',
+				'mk-before-you-come-item-editor before-you-come-item-card',
 			style: {
 				borderRadius: '8px',
 				border: '2px dashed #e0e0e0',

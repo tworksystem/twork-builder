@@ -40,7 +40,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'twork-nearby-accommodation-item-editor hotel-card',
+			className: 'mk-nearby-accommodation-item-editor hotel-card',
 			style: {
 				position: 'relative',
 				borderRadius: `${ cardBorderRadius }px`,

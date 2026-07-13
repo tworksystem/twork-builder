@@ -41,7 +41,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'twork-health-check-cta-section-editor',
+			className: 'mk-health-check-cta-section-editor',
 			style: {
 				marginBottom: `${ marginBottom }px`,
 			},

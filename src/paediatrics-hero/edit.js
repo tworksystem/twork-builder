@@ -42,7 +42,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'paed-hero twork-paediatrics-hero-editor',
+			className: 'paed-hero mk-paediatrics-hero-editor',
 			style: {
 				backgroundColor: '#000000',
 				paddingTop: `${ paddingTop }px`,

@@ -1,16 +1,16 @@
-.twork-team-member {
+.mk-team-member {
 	display: flex;
 	flex-direction: column;
 	gap: 0.25rem;
 }
 
-.twork-team-member__name {
+.mk-team-member__name {
 	margin: 0;
 	font-weight: 700;
-	color: var(--twork-team-member-accent, #f48b2a);
+	color: var(--mk-team-member-accent, #f48b2a);
 }
 
-.twork-team-member__role {
+.mk-team-member__role {
 	margin: 0;
 	color: #666;
 	font-size: 0.95em;

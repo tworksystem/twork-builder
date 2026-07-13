@@ -4,7 +4,7 @@
  * Follows services-grid-init.js and good-news-section patterns.
  *
  * @since 1.0.0
- * @author Twork Builder
+ * @author MK Builder
  */
 
 ( function () {
@@ -13,7 +13,7 @@
 	function initAccreditationSection() {
 		if ( ! ( 'IntersectionObserver' in window ) ) {
 			const sections = document.querySelectorAll(
-				'.twork-accreditation-section'
+				'.mk-accreditation-section'
 			);
 			sections.forEach( ( section ) => {
 				section.classList.add( 'is-visible' );
@@ -30,7 +30,7 @@
 		}
 
 		const sections = document.querySelectorAll(
-			'.twork-accreditation-section'
+			'.mk-accreditation-section'
 		);
 		if ( ! sections.length ) return;
 
@@ -93,7 +93,7 @@
 
 	window.addEventListener( 'load', initAccreditationSection );
 
-	window.TworkAccreditationSection = {
+	window.MkAccreditationSection = {
 		init: initAccreditationSection,
 		version: '1.0.0',
 	};

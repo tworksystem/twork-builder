@@ -23,7 +23,7 @@ export default function save( { attributes } ) {
 	} = attributes;
 
 	const blockProps = useBlockProps.save( {
-		className: 'rad-section twork-rad-prep-faq-section',
+		className: 'rad-section mk-rad-prep-faq-section',
 		style: {
 			backgroundColor,
 			paddingTop: `${ paddingTop }px`,

@@ -37,7 +37,7 @@ export default function save( { attributes = {} } ) {
 	} = attrs;
 
 	const blockProps = useBlockProps.save( {
-		className: 'phy-section twork-phy-therapies-section',
+		className: 'phy-section mk-phy-therapies-section',
 		style: {
 			backgroundColor,
 			paddingTop: `${ Number( paddingTop ) }px`,

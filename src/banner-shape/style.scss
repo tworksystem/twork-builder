@@ -11,7 +11,7 @@
 // === EDITOR STYLES ===
 .editor-styles-wrapper,
 .block-editor-block-list__layout {
-    .twork-banner-shape-editor {
+    .mk-banner-shape-editor {
         .banner-overlay {
             pointer-events: none;
         }
@@ -27,7 +27,7 @@
 }
 
 // === FRONTEND STYLES ===
-.twork-banner-shape-section {
+.mk-banner-shape-section {
     box-sizing: border-box;
     position: relative;
     width: 100%;
@@ -160,7 +160,7 @@
 
 // Tablet (max-width: 1200px)
 @media only screen and (max-width: 1200px) {
-    .twork-banner-shape-section {
+    .mk-banner-shape-section {
         .banner-title {
             font-size: 3rem;
         }
@@ -177,7 +177,7 @@
 
 // Mobile (max-width: 768px)
 @media only screen and (max-width: 768px) {
-    .twork-banner-shape-section {
+    .mk-banner-shape-section {
         .jivaka-container {
             padding: var(--mobile-padding, 40px) 20px;
         }
@@ -201,7 +201,7 @@
 
 // Small Mobile (max-width: 480px)
 @media only screen and (max-width: 480px) {
-    .twork-banner-shape-section {
+    .mk-banner-shape-section {
         .jivaka-container {
             padding: 30px 15px;
         }

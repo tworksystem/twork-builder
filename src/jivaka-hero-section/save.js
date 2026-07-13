@@ -27,7 +27,7 @@ export default function save( { attributes } ) {
 	} = attributes;
 
 	const blockProps = useBlockProps.save( {
-		className: 'jivaka-hero-section twork-jivaka-hero-section',
+		className: 'jivaka-hero-section mk-jivaka-hero-section',
 		style: {
 			background: `linear-gradient(${ gradientAngle }deg, ${ gradientStart }, ${ gradientEnd })`,
 			paddingTop: `${ paddingTop }px`,

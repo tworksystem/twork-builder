@@ -56,7 +56,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'twork-story-grid-editor',
+			className: 'mk-story-grid-editor',
 			style: {
 				backgroundColor: backgroundImage
 					? 'transparent'
@@ -736,7 +736,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 					) }
 
 					<div
-						className="twork-story-grid-container"
+						className="mk-story-grid-container"
 						style={ {
 							...gridStyle,
 							position: 'relative', // CRITICAL: Must be relative for absolute child positioning

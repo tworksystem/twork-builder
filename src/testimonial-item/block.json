@@ -5,7 +5,7 @@
 	"title": "Testimonial Item",
 	"parent": [ "twork/testimonial-section" ],
 	"description": "Single testimonial card with avatar, name, location and quote.",
-	"keywords": [ "testimonial", "quote", "patient", "review", "twork" ],
+	"keywords": [ "testimonial", "quote", "patient", "review", "mk" ],
 	"attributes": {
 		"image": {
 			"type": "string",

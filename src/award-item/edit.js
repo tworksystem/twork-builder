@@ -42,7 +42,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'twork-award-item-editor award-item stagger-up',
+			className: 'mk-award-item-editor award-item stagger-up',
 			style: {
 				borderRadius: `${ cardBorderRadius }px`,
 				overflow: 'hidden',

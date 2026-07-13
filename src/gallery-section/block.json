@@ -5,7 +5,7 @@
 	"title": "Gallery Section",
 	"category": "twork-builder",
 	"description": "Filterable gallery section with tabs and grid of gallery items for facilities.",
-	"keywords": [ "gallery", "photos", "filter", "facilities", "twork" ],
+	"keywords": [ "gallery", "photos", "filter", "facilities", "mk" ],
 	"icon": "format-gallery",
 	"attributes": {
 		"backgroundColor": {

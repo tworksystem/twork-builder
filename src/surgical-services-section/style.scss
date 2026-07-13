@@ -9,7 +9,7 @@ $surgical-list-color: #475569;
 .editor-styles-wrapper,
 .block-editor-block-list__layout,
 .wp-block-twork-surgical-services-section {
-    .twork-surgical-services-section-editor {
+    .mk-surgical-services-section-editor {
         .editor-label {
             margin-bottom: 20px;
         }
@@ -26,7 +26,7 @@ $surgical-list-color: #475569;
             }
         }
 
-        .doc-grid.twork-surgical-doc-grid {
+        .doc-grid.mk-surgical-doc-grid {
             display: grid !important;
             grid-template-columns: repeat(auto-fit, minmax(var(--surgical-min-width, 320px), 1fr)) !important;
             gap: var(--surgical-gap, 40px) !important;
@@ -79,7 +79,7 @@ $surgical-list-color: #475569;
 // === FRONTEND STYLES ===
 // Section header (text-center fade-up)
 .surgical-section-label,
-.twork-surgical-services-section-editor .text-center h4 {
+.mk-surgical-services-section-editor .text-center h4 {
     color: $surgical-primary !important;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -87,21 +87,21 @@ $surgical-list-color: #475569;
 }
 
 .surgical-section-title,
-.twork-surgical-services-section-editor .text-center h2 {
+.mk-surgical-services-section-editor .text-center h2 {
     font-size: 2.5rem;
     margin-top: 0;
     margin-bottom: 12px;
 }
 
 .surgical-section-description,
-.twork-surgical-services-section-editor .text-center p {
+.mk-surgical-services-section-editor .text-center p {
     color: $surgical-text-muted;
     margin: 0;
 }
 
 // doc-grid (service cards grid)
-.twork-surgical-doc-grid.doc-grid,
-.doc-grid.twork-surgical-doc-grid {
+.mk-surgical-doc-grid.doc-grid,
+.doc-grid.mk-surgical-doc-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 40px;
@@ -225,7 +225,7 @@ $surgical-list-color: #475569;
 
 // === RESPONSIVE ===
 @media (max-width: 992px) {
-    .doc-grid.twork-surgical-doc-grid {
+    .doc-grid.mk-surgical-doc-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 30px;
     }
@@ -237,11 +237,11 @@ $surgical-list-color: #475569;
 
 @media (max-width: 768px) {
     .surgical-section-title,
-    .twork-surgical-services-section-editor .text-center h2 {
+    .mk-surgical-services-section-editor .text-center h2 {
         font-size: 2rem;
     }
 
-    .doc-grid.twork-surgical-doc-grid {
+    .doc-grid.mk-surgical-doc-grid {
         grid-template-columns: 1fr;
         gap: 24px;
     }

@@ -7,7 +7,7 @@
 	"category": "twork-builder",
 	"icon": "email-alt",
 	"description": "Don't see the right fit? CV submission CTA for career page with title, description and Email Your CV button.",
-	"keywords": [ "career", "cta", "cv", "email", "job", "twork" ],
+	"keywords": [ "career", "cta", "cv", "email", "job", "mk" ],
 	"attributes": {
 		"ctaTitle": {
 			"type": "string",

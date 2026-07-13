@@ -48,7 +48,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'twork-job-category-item-editor job-category',
+			className: 'mk-job-category-item-editor job-category',
 			style: {
 				marginBottom: `${ categoryMarginBottom }px`,
 				border: '2px dashed #e0e0e0',

@@ -5,7 +5,7 @@
 	"title": "Story Grid",
 	"category": "twork-builder",
 	"description": "Professional story grid with content and image layout options",
-	"keywords": [ "story", "content", "image", "grid", "layout", "twork" ],
+	"keywords": [ "story", "content", "image", "grid", "layout", "mk" ],
 	"attributes": {
 		"backgroundColor": {
 			"type": "string",

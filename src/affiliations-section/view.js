@@ -14,7 +14,7 @@
 		if ( ! ( 'IntersectionObserver' in window ) ) {
 			document
 				.querySelectorAll(
-					'.twork-affiliations-section .logo-grid.fade-up'
+					'.mk-affiliations-section .logo-grid.fade-up'
 				)
 				.forEach( function ( el ) {
 					el.classList.add( 'is-visible' );
@@ -22,7 +22,7 @@
 			return;
 		}
 		var sections = document.querySelectorAll(
-			'.twork-affiliations-section[data-animation="true"]'
+			'.mk-affiliations-section[data-animation="true"]'
 		);
 		if ( ! sections.length ) return;
 		var observer = new IntersectionObserver(
@@ -44,7 +44,7 @@
 
 	// --- Slider (pure JS) ---
 	function getSlidesToShow( container ) {
-		var section = container.closest( '.twork-affiliations-section' );
+		var section = container.closest( '.mk-affiliations-section' );
 		if ( ! section ) return 4;
 		var w = window.innerWidth;
 		var tablet = section.getAttribute( 'data-slider-slides-tablet' );
@@ -73,7 +73,7 @@
 		var total = slides.length;
 		if ( total === 0 ) return;
 
-		var section = sliderEl.closest( '.twork-affiliations-section' );
+		var section = sliderEl.closest( '.mk-affiliations-section' );
 		var gapPx =
 			parseInt(
 				section
@@ -226,7 +226,7 @@
 
 	function initSliders() {
 		var sections = document.querySelectorAll(
-			'.twork-affiliations-section[data-layout="slider"]'
+			'.mk-affiliations-section[data-layout="slider"]'
 		);
 		sections.forEach( function ( section ) {
 			var slider = section.querySelector( '.affiliations-slider' );
@@ -249,7 +249,7 @@
 	}
 	window.addEventListener( 'load', init );
 
-	window.TworkAffiliationsSection = {
+	window.MkAffiliationsSection = {
 		init: init,
 		initSliders: initSliders,
 		version: '1.1.0',

@@ -53,7 +53,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'hc-section twork-hc-intro-section-editor',
+			className: 'hc-section mk-hc-intro-section-editor',
 			style: {
 				backgroundColor: backgroundColor || '#ffffff',
 				paddingTop: `${ paddingTop }px`,

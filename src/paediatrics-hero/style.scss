@@ -6,15 +6,15 @@
  */
 
 // Block-scoped variables (paediatrics-centre.html)
-.paed-hero.twork-paediatrics-hero,
-.paed-hero.twork-paediatrics-hero-editor {
+.paed-hero.mk-paediatrics-hero,
+.paed-hero.mk-paediatrics-hero-editor {
     --paed-primary: #f48b2a;
     --paed-hover: #e67a22;
     --paed-radius: 16px;
 }
 
-.paed-hero.twork-paediatrics-hero,
-.paed-hero.twork-paediatrics-hero-editor {
+.paed-hero.mk-paediatrics-hero,
+.paed-hero.mk-paediatrics-hero-editor {
     position: relative;
     display: flex;
     align-items: center;
@@ -158,7 +158,7 @@
 // Editor
 .editor-styles-wrapper .wp-block-twork-paediatrics-hero,
 .wp-block-twork-paediatrics-hero {
-    .twork-paediatrics-hero-editor {
+    .mk-paediatrics-hero-editor {
         .paed-hero-text .paed-title[contenteditable="true"],
         .paed-hero-text .paed-subtitle[contenteditable="true"] {
             &:focus {
@@ -171,8 +171,8 @@
 
 // Responsive (match paediatrics-centre.html)
 @media (max-width: 992px) {
-    .paed-hero.twork-paediatrics-hero,
-    .paed-hero.twork-paediatrics-hero-editor {
+    .paed-hero.mk-paediatrics-hero,
+    .paed-hero.mk-paediatrics-hero-editor {
         .paed-hero-layout {
             flex-direction: column;
             text-align: left;
@@ -195,8 +195,8 @@
 }
 
 @media (max-width: 768px) {
-    .paed-hero.twork-paediatrics-hero,
-    .paed-hero.twork-paediatrics-hero-editor {
+    .paed-hero.mk-paediatrics-hero,
+    .paed-hero.mk-paediatrics-hero-editor {
         .paed-title {
             font-size: 2.5rem;
         }

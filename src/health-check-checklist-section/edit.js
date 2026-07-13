@@ -58,7 +58,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 	const blockProps = useStableBlockProps(
 		() => ( {
 			className:
-				'twork-health-check-checklist-editor chk-section chk-checklist-section',
+				'mk-health-check-checklist-editor chk-section chk-checklist-section',
 			style: {
 				backgroundColor: backgroundImage
 					? 'transparent'

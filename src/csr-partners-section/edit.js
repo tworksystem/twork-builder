@@ -53,7 +53,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'twork-csr-partners-section-editor csr-partners-section',
+			className: 'mk-csr-partners-section-editor csr-partners-section',
 			style: {
 				backgroundColor,
 				paddingTop: `${ paddingTop }px`,
@@ -561,7 +561,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 					<div
 						className={ `logo-grid${
 							animationOnScroll ? ' fade-up' : ''
-						} twork-csr-partners-grid` }
+						} mk-csr-partners-grid` }
 						style={ gridStyle }
 					>
 						<InnerBlocks

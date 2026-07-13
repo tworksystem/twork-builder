@@ -80,7 +80,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'twork-profile-hero-editor',
+			className: 'mk-profile-hero-editor',
 			style: {
 				background: `linear-gradient(135deg, ${ backgroundGradientStart } 0%, ${ backgroundGradientEnd } 100%)`,
 				paddingTop: `${ paddingTop }px`,

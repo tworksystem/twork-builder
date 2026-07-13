@@ -1,7 +1,7 @@
 /**
  * Hero Slider – Editor & Frontend Styles
  * Follows services-grid / team-members-grid structure.
- * Editor styles scoped under .twork-hero-slider-editor; frontend under .twork-hero-slider-section.
+ * Editor styles scoped under .mk-hero-slider-editor; frontend under .mk-hero-slider-section.
  */
 
 // === EDITOR STYLES ===
@@ -16,7 +16,7 @@
 .editor-styles-wrapper,
 .block-editor-block-list__layout,
 .wp-block-twork-hero-slider {
-    .twork-hero-slider-editor {
+    .mk-hero-slider-editor {
         position: relative;
         width: 100%;
         max-width: 100%;
@@ -263,7 +263,7 @@
 }
 
 // === FRONTEND STYLES ===
-.twork-hero-slider-section,
+.mk-hero-slider-section,
 .wp-block-twork-hero-slider.hero-slider,
 .wp-block-twork-hero-slider.hero-section,
 section.wp-block-twork-hero-slider.hero-slider,
@@ -279,8 +279,8 @@ section.wp-block-twork-hero-slider.hero-section,
 }
 
 /* Full width support – section and block wrapper */
-.twork-hero-slider-section.alignfull,
-.twork-hero-slider-section.alignwide,
+.mk-hero-slider-section.alignfull,
+.mk-hero-slider-section.alignwide,
 .wp-block-twork-hero-slider.alignfull .hero-slider,
 .wp-block-twork-hero-slider.alignfull .hero-section,
 .wp-block-twork-hero-slider.alignwide .hero-slider,
@@ -290,13 +290,13 @@ section.wp-block-twork-hero-slider.hero-section,
 }
 
 .wp-block-twork-hero-slider.alignfull,
-.twork-hero-slider-section.alignfull {
+.mk-hero-slider-section.alignfull {
 	width: 100vw !important;
 	max-width: 100vw !important;
 }
 
 .wp-block-twork-hero-slider.alignfull section,
-.wp-block-twork-hero-slider.alignfull .twork-hero-slider-section {
+.wp-block-twork-hero-slider.alignfull .mk-hero-slider-section {
 	width: 100% !important;
 	max-width: 100% !important;
 }
@@ -308,7 +308,7 @@ section.wp-block-twork-hero-slider.hero-section,
    ============================================ */
 
 /* Match actual HTML: swiper-slide is direct child of section */
-.twork-hero-slider-section .swiper-slide,
+.mk-hero-slider-section .swiper-slide,
 .wp-block-twork-hero-slider.hero-slider .swiper-slide,
 .wp-block-twork-hero-slider.hero-section .swiper-slide,
 section.wp-block-twork-hero-slider.hero-slider .swiper-slide,
@@ -325,8 +325,8 @@ section.wp-block-twork-hero-slider.hero-section .swiper-slide,
 }
 
 /* Fallback background when no image */
-.twork-hero-slider-section .swiper-slide:not([style*="background-image"]),
-.twork-hero-slider-section .swiper-slide:not([style*="background-image"]),
+.mk-hero-slider-section .swiper-slide:not([style*="background-image"]),
+.mk-hero-slider-section .swiper-slide:not([style*="background-image"]),
 .wp-block-twork-hero-slider.hero-slider .swiper-slide:not([style*="background-image"]),
 .wp-block-twork-hero-slider.hero-section .swiper-slide:not([style*="background-image"]),
 section.wp-block-twork-hero-slider.hero-slider .swiper-slide:not([style*="background-image"]),
@@ -341,7 +341,7 @@ section.wp-block-twork-hero-slider.hero-section .swiper-slide:not([style*="backg
    ============================================ */
 
 /* Match actual HTML: jivaka-container is inside swiper-slide */
-.twork-hero-slider-section .jivaka-container,
+.mk-hero-slider-section .jivaka-container,
 .wp-block-twork-hero-slider.hero-slider .jivaka-container,
 .wp-block-twork-hero-slider.hero-section .jivaka-container,
 section.wp-block-twork-hero-slider.hero-slider .jivaka-container,
@@ -362,7 +362,7 @@ section.wp-block-twork-hero-slider.hero-section .jivaka-container,
    SCOPED: Only affects our block
    ============================================ */
 
-.twork-hero-slider-section .hero__meta-title,
+.mk-hero-slider-section .hero__meta-title,
 .wp-block-twork-hero-slider .hero__meta-title {
 	font-size: 0.75rem;
 	font-weight: 700;
@@ -381,7 +381,7 @@ section.wp-block-twork-hero-slider.hero-section .jivaka-container,
    SCOPED: Only affects our block
    ============================================ */
 
-.twork-hero-slider-section .hero__separator,
+.mk-hero-slider-section .hero__separator,
 .wp-block-twork-hero-slider .hero__separator {
 	height: 3px;
 	margin: 0 auto 20px;
@@ -400,7 +400,7 @@ section.wp-block-twork-hero-slider.hero-section .jivaka-container,
    ============================================ */
 
 /* Match actual HTML: h1 is inside jivaka-container */
-.twork-hero-slider-section h1,
+.mk-hero-slider-section h1,
 .wp-block-twork-hero-slider.hero-slider h1,
 .wp-block-twork-hero-slider.hero-section h1,
 section.wp-block-twork-hero-slider.hero-slider h1,
@@ -416,14 +416,14 @@ section.wp-block-twork-hero-slider.hero-section h1,
 	z-index: 3;
 }
 
-.twork-hero-slider-section h1 > span,
+.mk-hero-slider-section h1 > span,
 .wp-block-twork-hero-slider.hero-slider h1 > span,
 .wp-block-twork-hero-slider.hero-section h1 > span,
 .wp-block-twork-hero-slider h1 > span {
 	display: inline;
 }
 
-.twork-hero-slider-section h1 br,
+.mk-hero-slider-section h1 br,
 .wp-block-twork-hero-slider.hero-slider h1 br,
 .wp-block-twork-hero-slider.hero-section h1 br,
 .wp-block-twork-hero-slider h1 br {
@@ -438,7 +438,7 @@ section.wp-block-twork-hero-slider.hero-section h1,
    ============================================ */
 
 /* Match actual HTML: p is inside jivaka-container */
-.twork-hero-slider-section p:not(.hero__meta-title),
+.mk-hero-slider-section p:not(.hero__meta-title),
 .wp-block-twork-hero-slider.hero-slider p:not(.hero__meta-title),
 .wp-block-twork-hero-slider.hero-section p:not(.hero__meta-title),
 section.wp-block-twork-hero-slider.hero-slider p:not(.hero__meta-title),
@@ -459,7 +459,7 @@ section.wp-block-twork-hero-slider.hero-section p:not(.hero__meta-title),
    SCOPED: Only affects our block
    ============================================ */
 
-.twork-hero-slider-section .hero__buttons,
+.mk-hero-slider-section .hero__buttons,
 .wp-block-twork-hero-slider .hero__buttons {
 	display: flex;
 	flex-wrap: wrap;
@@ -475,7 +475,7 @@ section.wp-block-twork-hero-slider.hero-section p:not(.hero__meta-title),
    SCOPED: Only affects our block to prevent WordPress default button conflicts
    ============================================ */
 
-.twork-hero-slider-section .jivaka-btn,
+.mk-hero-slider-section .jivaka-btn,
 .wp-block-twork-hero-slider .jivaka-btn {
 	display: inline-block;
 	padding: 12px 28px;
@@ -490,38 +490,38 @@ section.wp-block-twork-hero-slider.hero-section p:not(.hero__meta-title),
 	box-sizing: border-box;
 }
 
-.twork-hero-slider-section .jivaka-btn-primary,
+.mk-hero-slider-section .jivaka-btn-primary,
 .wp-block-twork-hero-slider .jivaka-btn-primary {
 	background-color: #f48b2a;
 	color: #ffffff;
 }
 
-.twork-hero-slider-section .jivaka-btn-primary:hover,
+.mk-hero-slider-section .jivaka-btn-primary:hover,
 .wp-block-twork-hero-slider .jivaka-btn-primary:hover {
 	opacity: 0.9;
 }
 
-.twork-hero-slider-section .jivaka-btn-secondary,
+.mk-hero-slider-section .jivaka-btn-secondary,
 .wp-block-twork-hero-slider .jivaka-btn-secondary {
 	background-color: transparent;
 	color: #ffffff;
 	border: 2px solid #ffffff;
 }
 
-.twork-hero-slider-section .jivaka-btn-secondary:hover,
+.mk-hero-slider-section .jivaka-btn-secondary:hover,
 .wp-block-twork-hero-slider .jivaka-btn-secondary:hover {
 	background-color: #ffffff;
 	color: #2c3e50;
 }
 
-.twork-hero-slider-section .jivaka-btn,
+.mk-hero-slider-section .jivaka-btn,
 .wp-block-twork-hero-slider .hero-slider .jivaka-btn,
 .wp-block-twork-hero-slider .hero-section .jivaka-btn,
 .wp-block-twork-hero-slider .jivaka-btn {
 	margin-right: 15px;
 }
 
-.twork-hero-slider-section .jivaka-btn:last-child,
+.mk-hero-slider-section .jivaka-btn:last-child,
 .wp-block-twork-hero-slider .hero-slider .jivaka-btn:last-child,
 .wp-block-twork-hero-slider .hero-section .jivaka-btn:last-child,
 .wp-block-twork-hero-slider .jivaka-btn:last-child {
@@ -535,8 +535,8 @@ section.wp-block-twork-hero-slider.hero-section p:not(.hero__meta-title),
    ============================================ */
 
 /* Match actual HTML: navigation buttons are direct children of section */
-.twork-hero-slider-section .swiper-button-next,
-.twork-hero-slider-section .swiper-button-prev,
+.mk-hero-slider-section .swiper-button-next,
+.mk-hero-slider-section .swiper-button-prev,
 .wp-block-twork-hero-slider.hero-slider .swiper-button-next,
 .wp-block-twork-hero-slider.hero-slider .swiper-button-prev,
 .wp-block-twork-hero-slider.hero-section .swiper-button-next,
@@ -554,8 +554,8 @@ section.wp-block-twork-hero-slider.hero-section .swiper-button-prev,
 	transition: opacity 0.3s ease;
 }
 
-.twork-hero-slider-section .swiper-button-next:hover,
-.twork-hero-slider-section .swiper-button-prev:hover,
+.mk-hero-slider-section .swiper-button-next:hover,
+.mk-hero-slider-section .swiper-button-prev:hover,
 .wp-block-twork-hero-slider.hero-slider .swiper-button-next:hover,
 .wp-block-twork-hero-slider.hero-slider .swiper-button-prev:hover,
 .wp-block-twork-hero-slider.hero-section .swiper-button-next:hover,
@@ -578,7 +578,7 @@ section.wp-block-twork-hero-slider.hero-section .swiper-button-prev:hover,
    ============================================ */
 
 /* Match actual HTML: pagination is direct child of section */
-.twork-hero-slider-section .swiper-pagination,
+.mk-hero-slider-section .swiper-pagination,
 .wp-block-twork-hero-slider.hero-slider .swiper-pagination,
 .wp-block-twork-hero-slider.hero-section .swiper-pagination,
 section.wp-block-twork-hero-slider.hero-slider .swiper-pagination,
@@ -595,7 +595,7 @@ section.wp-block-twork-hero-slider.hero-section .swiper-pagination,
 	justify-content: center;
 }
 
-.twork-hero-slider-section .swiper-pagination-bullet,
+.mk-hero-slider-section .swiper-pagination-bullet,
 .wp-block-twork-hero-slider.hero-slider .swiper-pagination-bullet,
 .wp-block-twork-hero-slider.hero-section .swiper-pagination-bullet,
 section.wp-block-twork-hero-slider.hero-slider .swiper-pagination-bullet,
@@ -611,7 +611,7 @@ section.wp-block-twork-hero-slider.hero-section .swiper-pagination-bullet,
 	transition: all 0.3s ease;
 }
 
-.twork-hero-slider-section .swiper-pagination-bullet-active,
+.mk-hero-slider-section .swiper-pagination-bullet-active,
 .wp-block-twork-hero-slider.hero-slider .swiper-pagination-bullet-active,
 .wp-block-twork-hero-slider.hero-section .swiper-pagination-bullet-active,
 section.wp-block-twork-hero-slider.hero-slider .swiper-pagination-bullet-active,
@@ -629,7 +629,7 @@ section.wp-block-twork-hero-slider.hero-section .swiper-pagination-bullet-active
 
 /* Tablet - Override inline styles from block so responsive works */
 @media (max-width: 992px) {
-	.twork-hero-slider-section,
+	.mk-hero-slider-section,
 	.wp-block-twork-hero-slider.hero-slider,
 	.wp-block-twork-hero-slider.hero-section,
 	section.wp-block-twork-hero-slider.hero-slider,
@@ -639,7 +639,7 @@ section.wp-block-twork-hero-slider.hero-section .swiper-pagination-bullet-active
 		height: 600px !important;
 	}
 
-	.twork-hero-slider-section .jivaka-container,
+	.mk-hero-slider-section .jivaka-container,
 	.wp-block-twork-hero-slider.hero-slider .jivaka-container,
 	.wp-block-twork-hero-slider.hero-section .jivaka-container,
 	section.wp-block-twork-hero-slider .jivaka-container,
@@ -648,7 +648,7 @@ section.wp-block-twork-hero-slider.hero-section .swiper-pagination-bullet-active
 		padding: 0 20px !important;
 	}
 
-	.twork-hero-slider-section h1,
+	.mk-hero-slider-section h1,
 	.wp-block-twork-hero-slider.hero-slider h1,
 	.wp-block-twork-hero-slider.hero-section h1,
 	section.wp-block-twork-hero-slider.hero-slider h1,
@@ -658,7 +658,7 @@ section.wp-block-twork-hero-slider.hero-section .swiper-pagination-bullet-active
 		font-size: 3.5rem !important;
 	}
 
-	.twork-hero-slider-section p:not(.hero__meta-title),
+	.mk-hero-slider-section p:not(.hero__meta-title),
 	.wp-block-twork-hero-slider.hero-slider p:not(.hero__meta-title),
 	.wp-block-twork-hero-slider.hero-section p:not(.hero__meta-title),
 	section.wp-block-twork-hero-slider.hero-slider p:not(.hero__meta-title),
@@ -671,7 +671,7 @@ section.wp-block-twork-hero-slider.hero-section .swiper-pagination-bullet-active
 
 /* Mobile - Override inline styles from block */
 @media (max-width: 768px) {
-	.twork-hero-slider-section,
+	.mk-hero-slider-section,
 	.wp-block-twork-hero-slider.hero-slider,
 	.wp-block-twork-hero-slider.hero-section,
 	section.wp-block-twork-hero-slider.hero-slider,
@@ -681,7 +681,7 @@ section.wp-block-twork-hero-slider.hero-section .swiper-pagination-bullet-active
 		height: 500px !important;
 	}
 
-	.twork-hero-slider-section .jivaka-container,
+	.mk-hero-slider-section .jivaka-container,
 	.wp-block-twork-hero-slider.hero-slider .jivaka-container,
 	.wp-block-twork-hero-slider.hero-section .jivaka-container,
 	section.wp-block-twork-hero-slider .jivaka-container,
@@ -690,21 +690,21 @@ section.wp-block-twork-hero-slider.hero-section .swiper-pagination-bullet-active
 		padding: 0 15px !important;
 	}
 
-	.twork-hero-slider-section .hero__meta-title,
+	.mk-hero-slider-section .hero__meta-title,
 	.wp-block-twork-hero-slider .hero__meta-title {
 		font-size: 0.65rem !important;
 		letter-spacing: 2px !important;
 		margin-bottom: 12px !important;
 	}
 
-	.twork-hero-slider-section .hero__separator,
+	.mk-hero-slider-section .hero__separator,
 	.wp-block-twork-hero-slider .hero__separator {
 		width: 50px !important;
 		height: 2px !important;
 		margin-bottom: 15px !important;
 	}
 
-	.twork-hero-slider-section h1,
+	.mk-hero-slider-section h1,
 	.wp-block-twork-hero-slider.hero-slider h1,
 	.wp-block-twork-hero-slider.hero-section h1,
 	section.wp-block-twork-hero-slider.hero-slider h1,
@@ -715,7 +715,7 @@ section.wp-block-twork-hero-slider.hero-section .swiper-pagination-bullet-active
 		margin-bottom: 15px !important;
 	}
 
-	.twork-hero-slider-section p:not(.hero__meta-title),
+	.mk-hero-slider-section p:not(.hero__meta-title),
 	.wp-block-twork-hero-slider.hero-slider p:not(.hero__meta-title),
 	.wp-block-twork-hero-slider.hero-section p:not(.hero__meta-title),
 	section.wp-block-twork-hero-slider.hero-slider p:not(.hero__meta-title),
@@ -727,14 +727,14 @@ section.wp-block-twork-hero-slider.hero-section .swiper-pagination-bullet-active
 		max-width: 100% !important;
 	}
 
-	.twork-hero-slider-section .hero__buttons,
+	.mk-hero-slider-section .hero__buttons,
 	.wp-block-twork-hero-slider .hero__buttons {
 		flex-direction: column !important;
 		align-items: flex-start !important;
 		gap: 15px !important;
 	}
 
-	.twork-hero-slider-section .jivaka-btn,
+	.mk-hero-slider-section .jivaka-btn,
 	.wp-block-twork-hero-slider .jivaka-btn {
 		width: 100% !important;
 		max-width: 300px !important;
@@ -744,7 +744,7 @@ section.wp-block-twork-hero-slider.hero-section .swiper-pagination-bullet-active
 		font-size: 0.85rem !important;
 	}
 
-	.twork-hero-slider-section .swiper-pagination,
+	.mk-hero-slider-section .swiper-pagination,
 	.wp-block-twork-hero-slider.hero-slider .swiper-pagination,
 	.wp-block-twork-hero-slider.hero-section .swiper-pagination,
 	section.wp-block-twork-hero-slider.hero-slider .swiper-pagination,
@@ -757,7 +757,7 @@ section.wp-block-twork-hero-slider.hero-section .swiper-pagination-bullet-active
 
 /* Small Mobile - Override inline styles */
 @media (max-width: 480px) {
-	.twork-hero-slider-section,
+	.mk-hero-slider-section,
 	.wp-block-twork-hero-slider.hero-slider,
 	.wp-block-twork-hero-slider.hero-section,
 	section.wp-block-twork-hero-slider.hero-slider,
@@ -767,7 +767,7 @@ section.wp-block-twork-hero-slider.hero-section .swiper-pagination-bullet-active
 		height: 450px !important;
 	}
 
-	.twork-hero-slider-section h1,
+	.mk-hero-slider-section h1,
 	.wp-block-twork-hero-slider.hero-slider h1,
 	.wp-block-twork-hero-slider.hero-section h1,
 	section.wp-block-twork-hero-slider.hero-slider h1,
@@ -778,7 +778,7 @@ section.wp-block-twork-hero-slider.hero-section .swiper-pagination-bullet-active
 		line-height: 1.1 !important;
 	}
 
-	.twork-hero-slider-section p:not(.hero__meta-title),
+	.mk-hero-slider-section p:not(.hero__meta-title),
 	.wp-block-twork-hero-slider.hero-slider p:not(.hero__meta-title),
 	.wp-block-twork-hero-slider.hero-section p:not(.hero__meta-title),
 	section.wp-block-twork-hero-slider.hero-slider p:not(.hero__meta-title),
@@ -789,7 +789,7 @@ section.wp-block-twork-hero-slider.hero-section .swiper-pagination-bullet-active
 		line-height: 1.5 !important;
 	}
 
-	.twork-hero-slider-section .jivaka-btn,
+	.mk-hero-slider-section .jivaka-btn,
 	.wp-block-twork-hero-slider .jivaka-btn {
 		padding: 10px 20px !important;
 		font-size: 0.85rem !important;

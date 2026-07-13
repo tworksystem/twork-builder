@@ -47,8 +47,8 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 	const blockProps = useStableBlockProps(
 		() => ( {
 			className: [
-				'twork-gm-split-section',
-				'twork-gm-split-section-editor',
+				'mk-gm-split-section',
+				'mk-gm-split-section-editor',
 				'jivaka-gm-section',
 				imagePosition === 'left'
 					? 'gm-split-image-left'

@@ -23,7 +23,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'hc-pkg-card twork-hc-package-card-editor',
+			className: 'hc-pkg-card mk-hc-package-card-editor',
 		} ),
 		[]
 	);

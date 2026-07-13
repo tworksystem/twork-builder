@@ -4,9 +4,9 @@ export default function save( { attributes } ) {
 	const { name, role, accentColor } = attributes;
 
 	const blockProps = useBlockProps.save( {
-		className: 'twork-team-member',
+		className: 'mk-team-member',
 		style: {
-			'--twork-team-member-accent': accentColor || undefined,
+			'--mk-team-member-accent': accentColor || undefined,
 		},
 	} );
 
@@ -14,12 +14,12 @@ export default function save( { attributes } ) {
 		<div { ...blockProps }>
 			<RichText.Content
 				tagName="p"
-				className="twork-team-member__name"
+				className="mk-team-member__name"
 				value={ name }
 			/>
 			<RichText.Content
 				tagName="span"
-				className="twork-team-member__role"
+				className="mk-team-member__role"
 				value={ role }
 			/>
 		</div>

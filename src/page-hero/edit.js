@@ -81,7 +81,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: `twork-page-hero-editor ${
+			className: `mk-page-hero-editor ${
 				isEmergency ? 'em-hero page-hero-emergency' : ''
 			}`,
 

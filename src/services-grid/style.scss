@@ -16,7 +16,7 @@
 .editor-styles-wrapper,
 .block-editor-block-list__layout,
 .wp-block-twork-services-grid {
-    .twork-services-grid-editor {
+    .mk-services-grid-editor {
         position: relative;
         min-height: 400px;
 
@@ -35,7 +35,7 @@
             }
         }
 
-        .twork-services-grid-container {
+        .mk-services-grid-container {
             display: grid !important;
             grid-template-columns: repeat(var(--grid-columns, 4), 1fr) !important;
             gap: var(--grid-gap, 0px) !important;
@@ -113,7 +113,7 @@
 }
 
 // === FRONTEND STYLES ===
-.twork-services-section {
+.mk-services-section {
     font-family: $font-primary;
     position: relative;
     overflow: hidden;
@@ -360,7 +360,7 @@
 
 // === RESPONSIVE STYLES ===
 @media (max-width: 992px) {
-    .twork-services-section {
+    .mk-services-section {
         .services-grid {
             grid-template-columns: repeat(2, 1fr) !important;
         }
@@ -381,14 +381,14 @@
 
     // Editor responsive
     .editor-styles-wrapper {
-        .twork-services-grid-container {
+        .mk-services-grid-container {
             grid-template-columns: repeat(2, 1fr) !important;
         }
     }
 }
 
 @media (max-width: 768px) {
-    .twork-services-section {
+    .mk-services-section {
         padding: 60px 0;
 
         .section-header {
@@ -431,7 +431,7 @@
 
     // Editor responsive
     .editor-styles-wrapper {
-        .twork-services-grid-container {
+        .mk-services-grid-container {
             grid-template-columns: 1fr !important;
         }
     }
@@ -441,7 +441,7 @@
 // Ensure cards are always visible when JavaScript is disabled
 .no-js,
 noscript {
-    .twork-services-section {
+    .mk-services-section {
         .service-card {
             opacity: 1 !important;
             transform: none !important;
@@ -466,7 +466,7 @@ noscript {
 
 // === PRINT STYLES ===
 @media print {
-    .twork-services-section {
+    .mk-services-section {
         .service-card {
             page-break-inside: avoid;
             break-inside: avoid;
@@ -482,7 +482,7 @@ noscript {
 
 // === DARK MODE SUPPORT ===
 @media (prefers-color-scheme: dark) {
-    .twork-services-section {
+    .mk-services-section {
         .service-card {
             &:not(.style-primary):not(.style-dark) {
                 background: #1a1a1a;

@@ -14,7 +14,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'em-triage-card twork-em-triage-card-editor',
+			className: 'em-triage-card mk-em-triage-card-editor',
 			style: {
 				background: '#fff',
 				border: '1px solid #eee',

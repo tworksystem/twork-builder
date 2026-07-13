@@ -7,7 +7,7 @@
 	"category": "twork-builder",
 	"icon": "format-quote",
 	"description": "What Families Say: header + grid of testimonial cards. Matches home-care.html.",
-	"keywords": [ "home care", "testimonials", "reviews", "quotes", "twork" ],
+	"keywords": [ "home care", "testimonials", "reviews", "quotes", "mk" ],
 	"attributes": {
 		"backgroundColor": {
 			"type": "string",

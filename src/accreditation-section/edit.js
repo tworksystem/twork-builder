@@ -93,7 +93,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'twork-accreditation-section-editor',
+			className: 'mk-accreditation-section-editor',
 			style: {
 				backgroundColor: backgroundImage
 					? 'transparent'
@@ -849,7 +849,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 					) }
 
 					<div
-						className="twork-accreditation-grid-container"
+						className="mk-accreditation-grid-container"
 						style={ gridStyle }
 						data-columns={ columns }
 					>

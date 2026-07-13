@@ -6,7 +6,7 @@
 	"parent": [ "twork/hc-faq-section" ],
 	"category": "twork-builder",
 	"description": "Single FAQ: question and answer for the Home Care FAQ section.",
-	"keywords": [ "home care", "faq", "accordion", "question", "twork" ],
+	"keywords": [ "home care", "faq", "accordion", "question", "mk" ],
 	"attributes": {
 		"question": {
 			"type": "string",

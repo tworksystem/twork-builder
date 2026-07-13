@@ -77,7 +77,7 @@ export default function Edit( { attributes = {}, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'lab-hero twork-lab-hero-section-editor',
+			className: 'lab-hero mk-lab-hero-section-editor',
 			style: {
 				minHeight: `${ Number( minHeight ) }px`,
 				display: 'flex',

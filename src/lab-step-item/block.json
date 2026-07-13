@@ -8,7 +8,7 @@
 	"category": "twork-builder",
 	"icon": "minus",
 	"description": "Single step row (number + title and description) for Lab How It Works section.",
-	"keywords": [ "lab", "step", "process", "how it works", "twork" ],
+	"keywords": [ "lab", "step", "process", "how it works", "mk" ],
 	"attributes": {
 		"stepNumber": {
 			"type": "string",

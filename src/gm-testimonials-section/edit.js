@@ -67,7 +67,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 	const blockProps = useStableBlockProps(
 		() => ( {
 			className:
-				'twork-gm-testimonials-section twork-gm-testimonials-section-editor jivaka-gm-section',
+				'mk-gm-testimonials-section mk-gm-testimonials-section-editor jivaka-gm-section',
 			style: {
 				backgroundColor,
 				paddingTop: `${ paddingTop }px`,

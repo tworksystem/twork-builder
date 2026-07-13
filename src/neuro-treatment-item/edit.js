@@ -40,7 +40,7 @@ export default function Edit( { attributes = {}, setAttributes, isSelected } ) {
 	const blockProps = useStableBlockProps(
 		() => ( {
 			className:
-				'treatment-card stagger-card twork-neuro-treatment-item-editor',
+				'treatment-card stagger-card mk-neuro-treatment-item-editor',
 		} ),
 		[]
 	);

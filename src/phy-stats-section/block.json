@@ -7,7 +7,7 @@
 	"category": "twork-builder",
 	"icon": "chart-bar",
 	"description": "Stats grid with number + label cards (e.g. Happy Patients, Expert Therapists). Matches physiotherapy-rehab.html phy-stats-grid.",
-	"keywords": [ "physio", "stats", "grid", "numbers", "twork" ],
+	"keywords": [ "physio", "stats", "grid", "numbers", "mk" ],
 	"attributes": {
 		"backgroundColor": {
 			"type": "string",

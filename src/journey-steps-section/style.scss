@@ -14,13 +14,13 @@
 .editor-styles-wrapper,
 .block-editor-block-list__layout,
 .wp-block-twork-journey-steps-section {
-    .twork-journey-steps-section-editor {
+    .mk-journey-steps-section-editor {
         position: relative;
         min-height: 200px;
 
         // Ensure step cards in editor inherit section's box-shadow CSS variables
         .step-card,
-        .twork-journey-step-item-editor {
+        .mk-journey-step-item-editor {
             box-shadow: var(--card-shadow, var(--shadow-sm));
             transition: box-shadow 0.3s ease;
 
@@ -29,7 +29,7 @@
             }
         }
 
-        .twork-journey-steps-grid.steps-grid {
+        .mk-journey-steps-grid.steps-grid {
             display: grid !important;
             width: 100% !important;
 
@@ -61,7 +61,7 @@
 }
 
 // === FRONTEND STYLES ===
-.twork-journey-steps-section {
+.mk-journey-steps-section {
     font-family: $font-primary;
     position: relative;
     overflow: hidden;
@@ -154,7 +154,7 @@
 
 // === RESPONSIVE ===
 @media (max-width: 992px) {
-    .twork-journey-steps-section {
+    .mk-journey-steps-section {
         .steps-grid {
             grid-template-columns: repeat(var(--columns-tablet, 2), 1fr) !important;
             gap: var(--gap-mobile, 24px) !important;
@@ -163,7 +163,7 @@
 }
 
 @media (max-width: 768px) {
-    .twork-journey-steps-section {
+    .mk-journey-steps-section {
         padding-top: var(--padding-top-mobile, 60px) !important;
         padding-bottom: var(--padding-bottom-mobile, 60px) !important;
 
@@ -213,7 +213,7 @@
 
 // === PRINT STYLES ===
 @media print {
-    .twork-journey-steps-section {
+    .mk-journey-steps-section {
         .step-card {
             page-break-inside: avoid;
             break-inside: avoid;

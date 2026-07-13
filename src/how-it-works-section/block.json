@@ -7,7 +7,7 @@
 	"category": "twork-builder",
 	"icon": "editor-ol",
 	"description": "Process / How It Works steps section with numbered rows, ideal for lab tests, departments, or service flows.",
-	"keywords": [ "how it works", "process", "steps", "flow", "twork" ],
+	"keywords": [ "how it works", "process", "steps", "flow", "mk" ],
 	"attributes": {
 		"backgroundColor": {
 			"type": "string",

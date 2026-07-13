@@ -1,6 +1,6 @@
 // Physio Therapies Section – matches physiotherapy-rehab.html services (expandable cards)
 
-.phy-section.twork-phy-therapies-section {
+.phy-section.mk-phy-therapies-section {
     .phy-container {
         max-width: 1280px;
         margin: 0 auto;
@@ -76,7 +76,7 @@
 
 // Responsive – stack cards and always show descriptions on mobile
 @media (max-width: 768px) {
-    .phy-section.twork-phy-therapies-section {
+    .phy-section.mk-phy-therapies-section {
         .phy-services-grid {
             flex-direction: column;
         }
@@ -99,7 +99,7 @@
 // Editor helpers – basic styling for header focus
 .editor-styles-wrapper,
 .wp-block-twork-phy-therapies-section {
-    .twork-phy-therapies-section-editor {
+    .mk-phy-therapies-section-editor {
         .phy-header h2,
         .phy-header p {
             &[contenteditable='true']:focus {
@@ -114,7 +114,7 @@
 .editor-styles-wrapper,
 .block-editor-block-list__layout,
 .wp-block-twork-phy-therapies-section {
-    .twork-phy-therapies-section-editor {
+    .mk-phy-therapies-section-editor {
         .phy-services-grid-editor,
         .phy-services-grid {
             display: flex !important;

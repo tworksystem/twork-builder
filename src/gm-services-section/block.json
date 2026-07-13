@@ -7,7 +7,7 @@
 	"category": "twork-builder",
 	"icon": "grid-view",
 	"description": "General Medicine services grid with title, subtitle and responsive cards.",
-	"keywords": [ "general medicine", "services", "grid", "twork" ],
+	"keywords": [ "general medicine", "services", "grid", "mk" ],
 	"supports": {
 		"html": false,
 		"align": [ "wide", "full" ]

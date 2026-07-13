@@ -29,7 +29,7 @@ export default function save( { attributes } ) {
 	} = attributes;
 
 	const blockProps = useBlockProps.save( {
-		className: 'chk-section twork-health-check-steps-section',
+		className: 'chk-section mk-health-check-steps-section',
 		style: {
 			backgroundColor: backgroundColor || '#ffffff',
 			paddingTop: `${ paddingTop }px`,

@@ -31,7 +31,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'twork-benefit-item-editor benefit-card',
+			className: 'mk-benefit-item-editor benefit-card',
 			style: {
 				padding: `${ cardPadding }px 30px`,
 				background: '#fff',

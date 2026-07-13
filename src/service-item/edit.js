@@ -256,7 +256,7 @@ export default function Edit( {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: `twork-service-item twork-service-item-${ itemType }`,
+			className: `mk-service-item mk-service-item-${ itemType }`,
 			style: {
 				flex: 1,
 				display: 'flex',

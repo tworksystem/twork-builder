@@ -7,7 +7,7 @@
 	"category": "twork-builder",
 	"icon": "admin-post",
 	"description": "Blog layout with featured post, post grid, sidebar widgets, and pagination. Uses WordPress posts, categories, tags, and search.",
-	"keywords": [ "blog", "posts", "news", "layout", "twork" ],
+	"keywords": [ "blog", "posts", "news", "layout", "mk" ],
 	"attributes": {
 		"postsPerPage": {
 			"type": "number",

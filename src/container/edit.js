@@ -63,7 +63,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'twork-container-editor',
+			className: 'mk-container-editor',
 			style: {
 				backgroundColor: backgroundImage
 					? 'transparent'
@@ -892,7 +892,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 					/>
 				) }
 
-				<div className="twork-container" style={ containerStyle }>
+				<div className="mk-container" style={ containerStyle }>
 					<div
 						className="editor-label"
 						style={ {
@@ -908,7 +908,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 						} }
 					>
 						{ __(
-							'Twork Container (Editor View)',
+							'Mk Container (Editor View)',
 							'twork-builder'
 						) }
 					</div>

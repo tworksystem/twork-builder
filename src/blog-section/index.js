@@ -1,6 +1,6 @@
 /**
- * Twork Blog Section – Block registration
- * Dynamic block rendered in PHP (see twork_render_blog_section).
+ * Mk Blog Section – Block registration
+ * Dynamic block rendered in PHP (see mk_render_blog_section).
  */
 import { registerBlockType } from '@wordpress/blocks';
 import './style.scss';

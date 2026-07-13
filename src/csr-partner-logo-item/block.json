@@ -6,7 +6,7 @@
 	"parent": [ "twork/csr-partners-section" ],
 	"category": "twork-builder",
 	"description": "Single partner logo for In Collaboration With section.",
-	"keywords": [ "csr", "partner", "logo", "collaboration", "twork" ],
+	"keywords": [ "csr", "partner", "logo", "collaboration", "mk" ],
 	"attributes": {
 		"logoUrl": {
 			"type": "string",

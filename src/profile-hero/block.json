@@ -7,7 +7,7 @@
 	"category": "twork-builder",
 	"icon": "admin-users",
 	"description": "Doctor profile hero section with image, name, designation, specs, bio, and action buttons.",
-	"keywords": [ "profile", "doctor", "hero", "twork", "jivaka" ],
+	"keywords": [ "profile", "doctor", "hero", "mk", "jivaka" ],
 	"supports": {
 		"html": false,
 		"align": [ "full", "wide" ]

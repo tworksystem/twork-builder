@@ -3,8 +3,12 @@ import './style.scss';
 import Edit from './edit';
 import save from './save';
 import metadata from './block.json';
+import { attachLegacyBlockEditor } from '../shared/register-legacy-block-editors.js';
 
-registerBlockType( metadata.name, {
+const blockSettings = {
 	edit: Edit,
 	save,
-} );
+};
+
+registerBlockType( metadata.name, blockSettings );
+attachLegacyBlockEditor( 'mk/csr-stats-section', Edit, save );

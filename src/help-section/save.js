@@ -1,4 +1,8 @@
 import { useBlockProps, RichText } from '@wordpress/block-editor';
+import {
+	getMediaColumnStyle,
+	normalizeMediaSlides,
+} from './media-helpers';
 
 export default function save( { attributes } ) {
 	const {
@@ -15,6 +19,9 @@ export default function save( { attributes } ) {
 		selectOptions,
 		selectName,
 		selectAriaLabel,
+		showBookButton = true,
+		bookButtonText,
+		bookButtonOpenInNewTab,
 		backgroundColor,
 		paddingTop,
 		paddingBottom,
@@ -26,6 +33,19 @@ export default function save( { attributes } ) {
 		cardBorderColor,
 		cardPadding,
 		bookingTitleColor,
+		rightColumnMode = 'booking',
+		showDepartmentDropdown = true,
+		mediaType = 'image',
+		mediaImage,
+		mediaImageAlt,
+		slideshowImages = [],
+		slideshowInterval,
+		mediaVideoUrl,
+		videoPosterUrl,
+		videoLoop,
+		videoMuted,
+		videoAutoplay,
+		mediaBorderRadius,
 	} = attributes;
 
 	const blockProps = useBlockProps.save( {
@@ -36,6 +56,7 @@ export default function save( { attributes } ) {
 			paddingBottom:
 				paddingBottom != null ? `${ paddingBottom }px` : undefined,
 		},
+		'data-right-column-mode': rightColumnMode || 'booking',
 	} );
 
 	const containerStyle = {
@@ -44,12 +65,15 @@ export default function save( { attributes } ) {
 		margin: '0 auto',
 		padding:
 			containerPadding != null ? `0 ${ containerPadding }px` : undefined,
+		'--help-container-max':
+			containerMaxWidth != null ? `${ containerMaxWidth }px` : undefined,
+		'--help-container-padding':
+			containerPadding != null ? `${ containerPadding }px` : undefined,
 	};
 
 	const gridStyle = {
-		display: 'flex',
-		alignItems: 'center',
 		gap: gridGap != null ? `${ gridGap }px` : undefined,
+		'--help-grid-gap': gridGap != null ? `${ gridGap }px` : undefined,
 	};
 
 	const cardStyle = {
@@ -59,10 +83,23 @@ export default function save( { attributes } ) {
 		borderRadius: '5px',
 	};
 
+	const mediaColumnStyle = getMediaColumnStyle( mediaBorderRadius );
+
 	const options =
 		Array.isArray( selectOptions ) && selectOptions.length
 			? selectOptions
 			: [ { value: '', label: 'Select Department' } ];
+
+	const slides = normalizeMediaSlides( slideshowImages );
+	const isMediaMode = rightColumnMode === 'media';
+	const isImageMedia = ! mediaType || mediaType === 'image';
+	const isSlideshowMedia = mediaType === 'slideshow';
+	const isVideoMedia = mediaType === 'video';
+
+	const bookButtonTarget = bookButtonOpenInNewTab ? '_blank' : undefined;
+	const bookButtonRel = bookButtonOpenInNewTab
+		? 'noopener noreferrer'
+		: undefined;
 
 	return (
 		<section { ...blockProps }>
@@ -120,44 +157,121 @@ export default function save( { attributes } ) {
 						</p>
 					</div>
 
-					<div className="help-booking-card" style={ cardStyle }>
-						<RichText.Content
-							tagName="p"
-							className="meta-title"
-							value={ bookingMetaTitle }
-						/>
-						<RichText.Content
-							tagName="h3"
-							value={ bookingTitle }
-							style={
-								bookingTitleColor
-									? { color: bookingTitleColor }
-									: undefined
-							}
-						/>
-						<RichText.Content
-							tagName="p"
-							value={ bookingDescription }
-							className="help-booking-desc"
-						/>
-						<div className="custom-select-wrapper">
-							<select
-								name={ selectName || 'doctors' }
-								aria-label={
-									selectAriaLabel || 'Select Department'
-								}
-							>
-								{ options.map( ( opt, i ) => (
-									<option
-										key={ i }
-										value={ opt?.value ?? '' }
-									>
-										{ opt?.label ?? '' }
-									</option>
-								) ) }
-							</select>
+					{ isMediaMode ? (
+						<div
+							className="help-media-column"
+							style={ mediaColumnStyle }
+							data-media-type={ mediaType || 'image' }
+						>
+							{ isImageMedia && mediaImage && (
+								<img
+									src={ mediaImage }
+									alt={ mediaImageAlt || '' }
+									className="help-media-image"
+									decoding="async"
+								/>
+							) }
+
+							{ isSlideshowMedia && slides.length > 0 && (
+								<div
+									className="help-media-slideshow"
+									data-slideshow-interval={
+										Number( slideshowInterval ) || 5000
+									}
+									data-slideshow-count={ slides.length }
+								>
+									{ slides.map( ( img, index ) => (
+										<img
+											key={ index }
+											src={ img.url }
+											alt={ img.alt || '' }
+											className={
+												'help-media-slide' +
+												( index === 0
+													? ' is-active'
+													: '' )
+											}
+											decoding="async"
+										/>
+									) ) }
+								</div>
+							) }
+
+							{ isVideoMedia && mediaVideoUrl && (
+								<div className="help-media-video-wrap">
+									<video
+										className="help-media-video"
+										src={ mediaVideoUrl }
+										poster={ videoPosterUrl || undefined }
+										autoPlay={ videoAutoplay }
+										muted={ videoMuted }
+										loop={ videoLoop }
+										playsInline
+									/>
+								</div>
+							) }
 						</div>
-					</div>
+					) : (
+						<div className="help-booking-card" style={ cardStyle }>
+							<RichText.Content
+								tagName="p"
+								className="meta-title"
+								value={ bookingMetaTitle }
+							/>
+							<RichText.Content
+								tagName="h3"
+								value={ bookingTitle }
+								style={
+									bookingTitleColor
+										? { color: bookingTitleColor }
+										: undefined
+								}
+							/>
+							<RichText.Content
+								tagName="p"
+								value={ bookingDescription }
+								className="help-booking-desc"
+							/>
+							{ showDepartmentDropdown && (
+								<div className="custom-select-wrapper">
+									<select
+										className="help-dept-select"
+										name={ selectName || 'doctors' }
+										aria-label={
+											selectAriaLabel ||
+											'Select Department'
+										}
+									>
+										{ options.map( ( opt, i ) => (
+											<option
+												key={ i }
+												value={ opt?.value ?? '' }
+												data-book-url={
+													opt?.bookUrl || ''
+												}
+											>
+												{ opt?.label ?? '' }
+											</option>
+										) ) }
+									</select>
+								</div>
+							) }
+
+							{ showBookButton && (
+								<a
+									href="#"
+									className="jivaka-btn help-book-btn is-disabled"
+									data-help-book-btn="true"
+									target={ bookButtonTarget }
+									rel={ bookButtonRel }
+									aria-disabled="true"
+									tabIndex={ -1 }
+								>
+									{ bookButtonText || 'BOOK NOW' }
+								</a>
+							) }
+						</div>
+					) }
 				</div>
 			</div>
 		</section>

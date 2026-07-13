@@ -205,14 +205,13 @@ export default function save( { attributes } ) {
 					</div>
 					<h1 className="main-heading">
 						{ headingLine1 && (
-							<>
+							<span className="main-heading__line">
 								{ headingLine1 }
-								<br />
-							</>
+							</span>
 						) }
 						{ headingHighlight && (
 							<span
-								className="text-orange"
+								className="main-heading__line text-orange"
 								style={
 									headingHighlightColor
 										? { color: headingHighlightColor }
@@ -222,7 +221,11 @@ export default function save( { attributes } ) {
 								{ headingHighlight }
 							</span>
 						) }
-						{ headingLine2 && ` ${ headingLine2 }` }
+						{ headingLine2 && (
+							<span className="main-heading__line">
+								{ headingLine2 }
+							</span>
+						) }
 					</h1>
 					<RichText.Content
 						tagName="p"

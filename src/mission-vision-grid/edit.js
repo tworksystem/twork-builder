@@ -67,7 +67,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'twork-mv-section-editor',
+			className: 'mk-mv-section-editor',
 			style: {
 				backgroundColor,
 				paddingTop: `${ paddingTop }px`,

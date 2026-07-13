@@ -7,8 +7,8 @@ $em-radius: 16px;
 $em-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 $em-primary: #f48b2a;
 
-.twork-em-amb-section.em-section,
-.twork-em-amb-section-editor.em-section {
+.mk-em-amb-section.em-section,
+.mk-em-amb-section-editor.em-section {
     position: relative;
 
     .em-container {
@@ -133,20 +133,20 @@ $em-primary: #f48b2a;
 
 // Layout order: image left vs right is set via inline style order on .em-amb-col
 @media (max-width: 992px) {
-    .twork-em-amb-section.em-section .em-amb-wrapper,
-    .twork-em-amb-section-editor.em-section .em-amb-wrapper {
+    .mk-em-amb-section.em-section .em-amb-wrapper,
+    .mk-em-amb-section-editor.em-section .em-amb-wrapper {
         grid-template-columns: 1fr;
         gap: 40px;
     }
 
     // On mobile, always show image column first and content column second
-    .twork-em-amb-section .em-amb-col-image,
-    .twork-em-amb-section-editor .em-amb-col-image {
+    .mk-em-amb-section .em-amb-col-image,
+    .mk-em-amb-section-editor .em-amb-col-image {
         order: 1 !important;
     }
 
-    .twork-em-amb-section .em-amb-col-content,
-    .twork-em-amb-section-editor .em-amb-col-content {
+    .mk-em-amb-section .em-amb-col-content,
+    .mk-em-amb-section-editor .em-amb-col-content {
         order: 2 !important;
     }
 }

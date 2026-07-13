@@ -8,7 +8,7 @@
 	"parent": [ "twork/phy-stats-section" ],
 	"icon": "minus",
 	"description": "Single stat card: number + label (e.g. 5k+ Happy Patients). Use inside Physio Stats Section.",
-	"keywords": [ "physio", "stat", "card", "number", "twork" ],
+	"keywords": [ "physio", "stat", "card", "number", "mk" ],
 	"attributes": {
 		"statNumber": {
 			"type": "string",

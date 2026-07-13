@@ -20,7 +20,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 	} = attributes;
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'centre-cta fade-up twork-centre-cta-editor',
+			className: 'centre-cta fade-up mk-centre-cta-editor',
 			style: {
 				background: `linear-gradient(135deg, ${ gradientStart } 0%, ${ gradientEnd } 100%)`,
 				padding: `${ padding }px`,

@@ -8,7 +8,7 @@
 	"category": "twork-builder",
 	"icon": "controls-repeat",
 	"description": "Single process step (numbered circle, title, description) for the Emergency Process Section.",
-	"keywords": [ "step", "process", "emergency", "twork" ],
+	"keywords": [ "step", "process", "emergency", "mk" ],
 	"attributes": {
 		"stepNumber": {
 			"type": "string",

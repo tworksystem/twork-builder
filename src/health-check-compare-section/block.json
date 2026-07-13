@@ -7,7 +7,7 @@
 	"category": "twork-builder",
 	"icon": "editor-table",
 	"description": "Package comparison table with header and configurable columns/rows. Matches health-check-up.html.",
-	"keywords": [ "health", "checkup", "compare", "table", "chk", "twork" ],
+	"keywords": [ "health", "checkup", "compare", "table", "chk", "mk" ],
 	"attributes": {
 		"sectionTitle": {
 			"type": "string",

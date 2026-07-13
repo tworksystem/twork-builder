@@ -118,7 +118,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'twork-job-openings-section-editor',
+			className: 'mk-job-openings-section-editor',
 			style: {
 				backgroundColor,
 				paddingTop: `${ paddingTop }px`,
@@ -504,7 +504,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 						</div>
 					) }
 
-					<div className="twork-job-openings-categories">
+					<div className="mk-job-openings-categories">
 						<InnerBlocks
 							allowedBlocks={ ALLOWED_BLOCKS }
 							template={ TEMPLATE }

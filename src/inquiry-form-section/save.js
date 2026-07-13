@@ -53,7 +53,7 @@ export default function save( { attributes } ) {
 
 	const blockProps = useBlockProps.save( {
 		className:
-			'twork-inquiry-form-section inquiry-form-block section-padding services-section',
+			'mk-inquiry-form-section inquiry-form-block section-padding services-section',
 		style: {
 			'--section-padding-top': `${ sectionPaddingTop }px`,
 			'--section-padding-bottom': `${ sectionPaddingBottom }px`,

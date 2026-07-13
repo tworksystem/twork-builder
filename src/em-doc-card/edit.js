@@ -25,7 +25,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'em-doc-card twork-em-doc-card-editor',
+			className: 'em-doc-card mk-em-doc-card-editor',
 		} ),
 		[]
 	);

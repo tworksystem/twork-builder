@@ -5,7 +5,7 @@
 	"title": "Benefit Item",
 	"parent": [ "twork/benefits-section" ],
 	"description": "Single benefit card with icon, title and description for Why Choose section.",
-	"keywords": [ "benefit", "career", "icon", "card", "twork" ],
+	"keywords": [ "benefit", "career", "icon", "card", "mk" ],
 	"attributes": {
 		"icon": {
 			"type": "string",

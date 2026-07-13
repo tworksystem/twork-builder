@@ -334,7 +334,7 @@ export default function save( { attributes } ) {
 	} = attributes;
 
 	const blockProps = useBlockProps.save( {
-		className: 'good-news-section jivaka-section twork-good-news-section',
+		className: 'good-news-section jivaka-section mk-good-news-section',
 		style: {
 			backgroundColor: backgroundColor,
 			paddingTop: `${ paddingTop }px`,

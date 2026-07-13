@@ -7,7 +7,7 @@
 	"category": "twork-builder",
 	"icon": "megaphone",
 	"description": "Hospital News & Updates – displays WordPress posts in a card grid. Select by category or show latest posts.",
-	"keywords": [ "news", "updates", "posts", "blog", "hospital", "twork" ],
+	"keywords": [ "news", "updates", "posts", "blog", "hospital", "mk" ],
 	"attributes": {
 		"source": {
 			"type": "string",

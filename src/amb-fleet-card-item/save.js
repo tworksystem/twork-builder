@@ -23,7 +23,7 @@ export default function save( { attributes } ) {
 	} = attributes;
 
 	const blockProps = useBlockProps.save( {
-		className: 'amb-fleet-card twork-amb-fleet-card',
+		className: 'amb-fleet-card mk-amb-fleet-card',
 		style: { position: 'relative' },
 	} );
 

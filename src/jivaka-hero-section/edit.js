@@ -54,7 +54,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'twork-jivaka-hero-section-editor',
+			className: 'mk-jivaka-hero-section-editor',
 			style: {
 				background: `linear-gradient(${ gradientAngle }deg, ${ gradientStart }, ${ gradientEnd })`,
 				paddingTop: `${ paddingTop }px`,

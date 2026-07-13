@@ -44,7 +44,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 	const { sectionId, title, showSection } = attributes;
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'content-section fade-up twork-centre-conditions-editor',
+			className: 'content-section fade-up mk-centre-conditions-editor',
 			id: sectionId,
 		} ),
 		[ sectionId ]

@@ -135,7 +135,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: `twork-story-item-editor story-item layout-${ layout }`,
+			className: `mk-story-item-editor story-item layout-${ layout }`,
 			style: {
 				display: 'flex',
 				flexDirection:

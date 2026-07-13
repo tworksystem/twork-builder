@@ -7,7 +7,7 @@
 	"category": "twork-builder",
 	"icon": "welcome-widgets-menus",
 	"description": "Glass-morphism laboratory hero with badge, title, buttons and floating stats bubbles. Matches laboratory-services.html lab-hero.",
-	"keywords": [ "lab", "hero", "header", "jivaka", "twork" ],
+	"keywords": [ "lab", "hero", "header", "jivaka", "mk" ],
 	"attributes": {
 		"backgroundImageUrl": {
 			"type": "string",

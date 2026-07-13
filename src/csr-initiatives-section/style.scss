@@ -18,7 +18,7 @@
 .editor-styles-wrapper,
 .block-editor-block-list__layout,
 .wp-block-twork-csr-initiatives-section {
-    .twork-csr-initiatives-section-editor {
+    .mk-csr-initiatives-section-editor {
         position: relative;
         min-height: 300px;
 
@@ -37,7 +37,7 @@
 
         // ServerSideRender preview: ensure cards and grid are visible in the editor.
         // The PHP render already outputs .initiatives-grid + .initiative-card.
-        .twork-csr-initiatives-section {
+        .mk-csr-initiatives-section {
             .initiatives-grid {
                 display: grid !important;
                 grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)) !important;
@@ -61,7 +61,7 @@
 }
 
 // === FRONTEND STYLES ===
-.twork-csr-initiatives-section {
+.mk-csr-initiatives-section {
     font-family: $font-primary;
     position: relative;
     overflow: hidden;
@@ -263,7 +263,7 @@
 
 // === RESPONSIVE STYLES ===
 @media (max-width: 992px) {
-    .twork-csr-initiatives-section {
+    .mk-csr-initiatives-section {
         .initiatives-grid {
             grid-template-columns: repeat(2, 1fr) !important;
         }
@@ -273,13 +273,13 @@
         }
     }
 
-    .editor-styles-wrapper .twork-csr-initiatives-grid-container {
+    .editor-styles-wrapper .mk-csr-initiatives-grid-container {
         grid-template-columns: repeat(2, 1fr) !important;
     }
 }
 
 @media (max-width: 768px) {
-    .twork-csr-initiatives-section {
+    .mk-csr-initiatives-section {
         padding: 60px 0 !important;
 
         .intro-text {
@@ -316,7 +316,7 @@
         }
     }
 
-    .editor-styles-wrapper .twork-csr-initiatives-grid-container {
+    .editor-styles-wrapper .mk-csr-initiatives-grid-container {
         grid-template-columns: 1fr !important;
     }
 }
@@ -331,7 +331,7 @@
 
 // === PRINT STYLES ===
 @media print {
-    .twork-csr-initiatives-section {
+    .mk-csr-initiatives-section {
         .initiative-card {
             page-break-inside: avoid;
             break-inside: avoid;

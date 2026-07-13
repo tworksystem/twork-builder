@@ -29,7 +29,7 @@ export default function save( { attributes } ) {
 	} = attributes;
 
 	const blockProps = useBlockProps.save( {
-		className: 'section-padding twork-csr-moments-gallery-section',
+		className: 'section-padding mk-csr-moments-gallery-section',
 		style: {
 			backgroundColor,
 			paddingTop: `${ paddingTop }px`,

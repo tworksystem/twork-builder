@@ -14,7 +14,7 @@
 .editor-styles-wrapper,
 .block-editor-block-list__layout,
 .wp-block-twork-tour-section {
-    .twork-tour-section-editor {
+    .mk-tour-section-editor {
         position: relative;
         min-height: 200px;
 
@@ -22,7 +22,7 @@
             pointer-events: none;
         }
 
-        .twork-tour-section-inner,
+        .mk-tour-section-inner,
         .jivaka-container {
             position: relative;
             z-index: 2;
@@ -53,7 +53,7 @@
 }
 
 // === FRONTEND STYLES ===
-.twork-tour-section {
+.mk-tour-section {
     font-family: $font-primary;
     position: relative;
     overflow: hidden;
@@ -108,14 +108,14 @@
         cursor: pointer;
         border: 2px solid transparent;
         text-decoration: none;
-        background-color: var(--twork-tour-button-bg, var(--primary-orange));
-        color: var(--twork-tour-button-color, var(--white-color));
+        background-color: var(--mk-tour-button-bg, var(--primary-orange));
+        color: var(--mk-tour-button-color, var(--white-color));
     }
 
     .tour-section-btn:hover,
     .jivaka-btn.btn-primary:hover {
-        background-color: var(--twork-tour-button-hover-bg, var(--brand-orange-hover)) !important;
-        color: var(--twork-tour-button-color, var(--white-color)) !important;
+        background-color: var(--mk-tour-button-hover-bg, var(--brand-orange-hover)) !important;
+        color: var(--mk-tour-button-color, var(--white-color)) !important;
         transform: translateY(-2px);
         box-shadow: 0 4px 15px rgba(244, 139, 42, 0.3);
     }
@@ -123,35 +123,35 @@
 
 // === RESPONSIVE ===
 @media (max-width: 992px) {
-    .twork-tour-section {
+    .mk-tour-section {
         // Parallax can cause performance issues on tablet/mobile
         background-attachment: scroll !important;
     }
 }
 
 @media (max-width: 768px) {
-    .twork-tour-section {
-        padding-top: var(--twork-tour-padding-top-mobile, 80px) !important;
-        padding-bottom: var(--twork-tour-padding-bottom-mobile, 80px) !important;
+    .mk-tour-section {
+        padding-top: var(--mk-tour-padding-top-mobile, 80px) !important;
+        padding-bottom: var(--mk-tour-padding-bottom-mobile, 80px) !important;
 
         .tour-icon {
-            font-size: var(--twork-tour-icon-size-mobile, 3rem) !important;
+            font-size: var(--mk-tour-icon-size-mobile, 3rem) !important;
         }
 
         .tour-section-title,
         h2 {
-            font-size: var(--twork-tour-title-font-size-mobile, 2rem) !important;
+            font-size: var(--mk-tour-title-font-size-mobile, 2rem) !important;
         }
 
         .tour-section-subtitle,
         p {
-            font-size: var(--twork-tour-subtitle-font-size-mobile, 1.05rem) !important;
+            font-size: var(--mk-tour-subtitle-font-size-mobile, 1.05rem) !important;
         }
     }
 }
 
 // === ACCESSIBILITY ===
-.twork-tour-section {
+.mk-tour-section {
     .tour-section-btn:focus-visible,
     .jivaka-btn.btn-primary:focus-visible {
         outline: 3px solid var(--primary-orange);
@@ -166,7 +166,7 @@
 
 // === PRINT STYLES ===
 @media print {
-    .twork-tour-section {
+    .mk-tour-section {
         background-image: none !important;
         background-color: var(--dark-grey);
         padding: 40px 20px;
@@ -190,7 +190,7 @@
 
 // === REDUCED MOTION ===
 @media (prefers-reduced-motion: reduce) {
-    .twork-tour-section {
+    .mk-tour-section {
         .tour-icon,
         .tour-section-btn,
         .jivaka-btn.btn-primary {
@@ -210,7 +210,7 @@
 
 // === DARK MODE SUPPORT (optional) ===
 @media (prefers-color-scheme: dark) {
-    .twork-tour-section {
+    .mk-tour-section {
         // Section is already dark with overlay; ensure contrast is maintained
         .tour-section-title,
         h2 {

@@ -11,11 +11,11 @@
 .editor-styles-wrapper,
 .block-editor-block-list__layout,
 .wp-block-twork-gallery-section {
-    .twork-gallery-section-editor {
+    .mk-gallery-section-editor {
         position: relative;
         min-height: 200px;
 
-        .gallery-grid.twork-gallery-grid {
+        .gallery-grid.mk-gallery-grid {
             display: grid !important;
             width: 100% !important;
 
@@ -49,7 +49,7 @@
 }
 
 // === FRONTEND STYLES ===
-.twork-gallery-section {
+.mk-gallery-section {
     font-family: $font-primary;
     position: relative;
     overflow: hidden;
@@ -158,7 +158,7 @@
 
 // === RESPONSIVE ===
 @media (max-width: 992px) {
-    .twork-gallery-section {
+    .mk-gallery-section {
         padding-top: var(--padding-top-mobile, 60px) !important;
         padding-bottom: var(--padding-bottom-mobile, 60px) !important;
 
@@ -183,7 +183,7 @@
 }
 
 @media (max-width: 600px) {
-    .twork-gallery-section {
+    .mk-gallery-section {
         .gallery-grid {
             grid-template-columns: repeat(var(--grid-columns-mobile, 1), 1fr) !important;
             grid-auto-rows: 250px !important;
@@ -199,13 +199,13 @@
 }
 
 @media (max-width: 768px) {
-    .twork-gallery-section .section-header h2 {
+    .mk-gallery-section .section-header h2 {
         font-size: var(--title-font-size-mobile, 1.6rem) !important;
     }
 }
 
 // === LIGHTBOX ===
-.twork-gallery-lightbox {
+.mk-gallery-lightbox {
     position: fixed;
     inset: 0;
     z-index: 999999;
@@ -224,14 +224,14 @@
         pointer-events: auto;
     }
 
-    .twork-gallery-lightbox-backdrop {
+    .mk-gallery-lightbox-backdrop {
         position: absolute;
         inset: 0;
         background: rgba(0, 0, 0, 0.9);
         cursor: pointer;
     }
 
-    .twork-gallery-lightbox-content {
+    .mk-gallery-lightbox-content {
         position: relative;
         z-index: 2;
         max-width: 95vw;
@@ -241,7 +241,7 @@
         justify-content: center;
     }
 
-    .twork-gallery-lightbox-img {
+    .mk-gallery-lightbox-img {
         max-width: 100%;
         max-height: 90vh;
         width: auto;
@@ -251,7 +251,7 @@
         box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
     }
 
-    .twork-gallery-lightbox-close {
+    .mk-gallery-lightbox-close {
         position: absolute;
         top: -50px;
         right: 0;

@@ -17,7 +17,7 @@ export default function save( { attributes } ) {
 	} = attributes;
 
 	const blockProps = useBlockProps.save( {
-		className: 'ph-hero twork-ph-hero-section',
+		className: 'ph-hero mk-ph-hero-section',
 		style: {
 			minHeight: `${ minHeight }px`,
 		},

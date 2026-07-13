@@ -18,7 +18,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'jivaka-badge-item twork-jivaka-badge-item-editor',
+			className: 'jivaka-badge-item mk-jivaka-badge-item-editor',
 		} ),
 		[]
 	);

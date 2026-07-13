@@ -16,7 +16,7 @@
 .editor-styles-wrapper,
 .block-editor-block-list__layout,
 .wp-block-twork-csr-events-section {
-    .twork-csr-events-section-editor {
+    .mk-csr-events-section-editor {
         position: relative;
         min-height: 280px;
 
@@ -93,7 +93,7 @@
 }
 
 // === FRONTEND STYLES ===
-.twork-csr-events-section {
+.mk-csr-events-section {
     font-family: $font-primary;
     position: relative;
 
@@ -235,8 +235,8 @@
 // === RESPONSIVE ===
 // Tablet and below: stack event card vertically
 @media (max-width: 992px) {
-    .twork-csr-events-section,
-    .twork-csr-events-section-editor {
+    .mk-csr-events-section,
+    .mk-csr-events-section-editor {
         padding-top: var(--padding-top-mobile, 60px) !important;
         padding-bottom: var(--padding-bottom-mobile, 60px) !important;
 
@@ -293,8 +293,8 @@
 
 // Mobile: tighter spacing and container padding
 @media (max-width: 600px) {
-    .twork-csr-events-section,
-    .twork-csr-events-section-editor {
+    .mk-csr-events-section,
+    .mk-csr-events-section-editor {
         .jivaka-container {
             padding-left: max(var(--container-padding-mobile, 20px), env(safe-area-inset-left)) !important;
             padding-right: max(var(--container-padding-mobile, 20px), env(safe-area-inset-right)) !important;
@@ -339,7 +339,7 @@
 
 // === PRINT ===
 @media print {
-    .twork-csr-events-section {
+    .mk-csr-events-section {
         .event-card {
             break-inside: avoid;
         }

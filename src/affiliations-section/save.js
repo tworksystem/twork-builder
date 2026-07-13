@@ -40,7 +40,7 @@ export default function save( { attributes } ) {
 	const isSlider = layoutMode === 'slider';
 
 	const blockProps = useBlockProps.save( {
-		className: `twork-affiliations-section affiliations-section section-padding${
+		className: `mk-affiliations-section affiliations-section section-padding${
 			isSlider ? ' has-slider' : ''
 		}`,
 		style: {

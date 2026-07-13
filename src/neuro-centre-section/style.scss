@@ -11,7 +11,7 @@
     --radius: 12px;
 }
 
-.twork-neuro-centre-section {
+.mk-neuro-centre-section {
     font-family: $font-primary;
     background: #fff;
 
@@ -404,7 +404,7 @@
 .editor-styles-wrapper,
 .block-editor-block-list__layout,
 .wp-block-twork-neuro-centre-section {
-    .twork-neuro-centre-section {
+    .mk-neuro-centre-section {
         .sidebar--editor-note {
             .sidebar-header {
                 background: #2271b1;
@@ -490,7 +490,7 @@
 
 // === NEARBY ACCOMMODATION (InnerBlocks: nearby-accommodation-item) ===
 // Reuse hotel-grid / hotel-card layout when section is shown inside neuro-centre-section
-.twork-neuro-centre-section {
+.mk-neuro-centre-section {
     .nearby-accommodation-in-section {
         .section-title {
             margin: 0 0 20px 0;
@@ -550,7 +550,7 @@
 }
 
 @media (max-width: 768px) {
-    .twork-neuro-centre-section .nearby-accommodation-in-section {
+    .mk-neuro-centre-section .nearby-accommodation-in-section {
         .hotel-grid {
             grid-template-columns: 1fr;
             gap: 16px;

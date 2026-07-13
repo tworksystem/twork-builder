@@ -10,7 +10,7 @@
 .editor-styles-wrapper,
 .block-editor-block-list__layout,
 .wp-block-twork-csr-cta-section {
-    .twork-csr-cta-section-editor {
+    .mk-csr-cta-section-editor {
         position: relative;
 
         h2[contenteditable="true"],
@@ -30,7 +30,7 @@
 }
 
 // === FRONTEND STYLES ===
-.twork-csr-cta-section {
+.mk-csr-cta-section {
     font-family: $font-primary;
     position: relative;
 
@@ -122,7 +122,7 @@
 
 // === RESPONSIVE ===
 @media (max-width: 768px) {
-    .twork-csr-cta-section {
+    .mk-csr-cta-section {
         h2 {
             font-size: 1.5rem !important;
         }

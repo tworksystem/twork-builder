@@ -12,7 +12,7 @@
 // === EDITOR STYLES ===
 .editor-styles-wrapper,
 .wp-block-twork-job-openings-section {
-    .twork-job-openings-section-editor {
+    .mk-job-openings-section-editor {
         .section-header h2,
         .section-header p {
             &[contenteditable="true"]:focus {
@@ -67,7 +67,7 @@
 }
 
 // === FRONTEND STYLES ===
-.twork-job-openings-section {
+.mk-job-openings-section {
     font-family: $font-primary;
     position: relative;
 
@@ -200,7 +200,7 @@
 
 // === RESPONSIVE ===
 @media (max-width: 768px) {
-    .twork-job-openings-section {
+    .mk-job-openings-section {
         padding-top: var(--padding-top-mobile, 60px) !important;
         padding-bottom: var(--padding-bottom-mobile, 60px) !important;
 
@@ -237,7 +237,7 @@
 }
 
 // === ANIMATION (handled by job-openings-init.js) ===
-.twork-job-openings-section[data-animation="true"] {
+.mk-job-openings-section[data-animation="true"] {
     .fade-up,
     .stagger-job {
         opacity: 0;

@@ -1,5 +1,5 @@
 /**
- * Twork Emergency Ambulance Section – Save
+ * Mk Emergency Ambulance Section – Save
  */
 import { useBlockProps } from '@wordpress/block-editor';
 
@@ -86,7 +86,7 @@ export default function save( { attributes } ) {
 	} = attributes;
 
 	const blockProps = useBlockProps.save( {
-		className: 'em-section twork-em-amb-section',
+		className: 'em-section mk-em-amb-section',
 	} );
 
 	const sectionStyle = {

@@ -7,7 +7,7 @@
 	"category": "twork-builder",
 	"icon": "grid-view",
 	"description": "Health packages / pricing grid with filter tabs and customizable package cards.",
-	"keywords": [ "packages", "pricing", "health", "grid", "filter", "twork" ],
+	"keywords": [ "packages", "pricing", "health", "grid", "filter", "mk" ],
 	"supports": {
 		"html": false,
 		"anchor": true,

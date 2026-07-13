@@ -80,7 +80,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'twork-tele-specialty-section-editor',
+			className: 'mk-tele-specialty-section-editor',
 			style: {
 				paddingTop: `${ sectionPaddingTop }px`,
 				paddingBottom: `${ sectionPaddingBottom }px`,

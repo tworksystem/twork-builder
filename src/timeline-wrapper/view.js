@@ -174,7 +174,7 @@
 	 * @param {HTMLElement} timeline - Timeline wrapper element
 	 */
 	function initItemAnimations( timeline ) {
-		const wrapper = timeline.closest( '.twork-timeline-wrapper-section' );
+		const wrapper = timeline.closest( '.mk-timeline-wrapper-section' );
 		if ( ! wrapper ) {
 			// If no wrapper found, ensure items are visible anyway
 			const items = timeline.querySelectorAll( '.timeline-item' );
@@ -278,10 +278,10 @@
 	function initTimelines() {
 		// Try multiple selectors to find timeline wrappers
 		const timelineSections = document.querySelectorAll(
-			'.twork-timeline-wrapper-section'
+			'.mk-timeline-wrapper-section'
 		);
 		const timelineWrappers = document.querySelectorAll(
-			'.twork-timeline-wrapper-section .twork-timeline-wrapper, .twork-timeline-wrapper-section .timeline-wrapper'
+			'.mk-timeline-wrapper-section .mk-timeline-wrapper, .mk-timeline-wrapper-section .timeline-wrapper'
 		);
 
 		// If no wrappers found, try alternative selectors
@@ -289,7 +289,7 @@
 			// Look for timeline-wrapper directly in sections
 			timelineSections.forEach( ( section ) => {
 				const wrapper =
-					section.querySelector( '.twork-timeline-wrapper' ) ||
+					section.querySelector( '.mk-timeline-wrapper' ) ||
 					section.querySelector( '.timeline-wrapper' );
 				if ( wrapper ) {
 					processTimeline( wrapper );
@@ -320,7 +320,7 @@
 	function processTimeline( timeline ) {
 		if ( ! timeline ) return;
 
-		const wrapper = timeline.closest( '.twork-timeline-wrapper-section' );
+		const wrapper = timeline.closest( '.mk-timeline-wrapper-section' );
 		const animationEnabled =
 			wrapper && wrapper.getAttribute( 'data-animation' ) === 'true';
 		const animationType = wrapper
@@ -333,7 +333,7 @@
 		items.forEach( ( item ) => {
 			// Remove any editor classes that might have leaked
 			item.classList.remove(
-				'twork-timeline-item-editor',
+				'mk-timeline-item-editor',
 				'wp-block-twork-timeline-item'
 			);
 
@@ -420,9 +420,9 @@
 		// Enable animation CSS only after we've marked in-viewport items visible (avoids flicker)
 		if ( wrapper ) {
 			if ( animationEnabled ) {
-				wrapper.classList.add( 'twork-animation-ready' );
+				wrapper.classList.add( 'mk-animation-ready' );
 			} else {
-				wrapper.classList.remove( 'twork-animation-ready' );
+				wrapper.classList.remove( 'mk-animation-ready' );
 			}
 		}
 
@@ -494,7 +494,7 @@
 							if (
 								node.classList &&
 								( node.classList.contains(
-									'twork-timeline-wrapper'
+									'mk-timeline-wrapper'
 								) ||
 									node.classList.contains(
 										'timeline-wrapper'
@@ -506,11 +506,11 @@
 							if (
 								node.classList &&
 								node.classList.contains(
-									'twork-timeline-wrapper-section'
+									'mk-timeline-wrapper-section'
 								)
 							) {
 								const timelines = node.querySelectorAll(
-									'.twork-timeline-wrapper, .timeline-wrapper'
+									'.mk-timeline-wrapper, .timeline-wrapper'
 								);
 								timelines.forEach( ( timeline ) => {
 									processTimeline( timeline );
@@ -520,7 +520,7 @@
 							const timelines =
 								node.querySelectorAll &&
 								node.querySelectorAll(
-									'.twork-timeline-wrapper, .timeline-wrapper'
+									'.mk-timeline-wrapper, .timeline-wrapper'
 								);
 							if ( timelines && timelines.length > 0 ) {
 								timelines.forEach( ( timeline ) => {
@@ -544,6 +544,6 @@
 
 	// Expose cleanup function for manual cleanup if needed
 	if ( typeof window !== 'undefined' ) {
-		window.tworkTimelineCleanup = cleanup;
+		window.mkTimelineCleanup = cleanup;
 	}
 } )();

@@ -8,7 +8,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'em-stat-item twork-em-stat-item-editor',
+			className: 'em-stat-item mk-em-stat-item-editor',
 			style: {
 				display: 'flex',
 				flexDirection: 'column',

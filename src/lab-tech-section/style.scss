@@ -5,8 +5,8 @@
  * All colors overridable via block "Colors" panel (CSS vars from attributes).
  */
 
-.lab-section.twork-lab-tech-section,
-.lab-section.twork-lab-tech-section-editor,
+.lab-section.mk-lab-tech-section,
+.lab-section.mk-lab-tech-section-editor,
 .lab-section.lab-tech-section-editor {
     --lab-primary: #f48b2a;
     --lab-item-tag-bg: #f0f4f8;
@@ -19,8 +19,8 @@
     --lab-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
 }
 
-.lab-section.twork-lab-tech-section,
-.lab-section.twork-lab-tech-section-editor,
+.lab-section.mk-lab-tech-section,
+.lab-section.mk-lab-tech-section-editor,
 .lab-section.lab-tech-section-editor {
     position: relative;
     width: 100%;
@@ -78,7 +78,7 @@
 .editor-styles-wrapper,
 .wp-block-twork-lab-tech-section {
     .lab-tech-section-editor,
-    .twork-lab-tech-section-editor {
+    .mk-lab-tech-section-editor {
         position: relative;
         width: 100%;
         box-sizing: border-box;
@@ -118,8 +118,8 @@
 
 // === RESPONSIVE (section + editor) ===
 @media (max-width: 992px) {
-    .lab-section.twork-lab-tech-section,
-    .lab-section.twork-lab-tech-section-editor,
+    .lab-section.mk-lab-tech-section,
+    .lab-section.mk-lab-tech-section-editor,
     .lab-section.lab-tech-section-editor {
         .lab-container > .lab-tech-row,
         .lab-container > .lab-tech-row:nth-child(even),
@@ -137,8 +137,8 @@
 }
 
 @media (max-width: 768px) {
-    .lab-section.twork-lab-tech-section,
-    .lab-section.twork-lab-tech-section-editor,
+    .lab-section.mk-lab-tech-section,
+    .lab-section.mk-lab-tech-section-editor,
     .lab-section.lab-tech-section-editor {
         .lab-container {
             padding-left: 16px;

@@ -7,7 +7,7 @@
 	"category": "twork-builder",
 	"icon": "cart",
 	"description": "Pharmacy hero section with search box and floating pills.",
-	"keywords": [ "pharmacy", "hero", "search", "twork" ],
+	"keywords": [ "pharmacy", "hero", "search", "mk" ],
 	"attributes": {
 		"backgroundImage": {
 			"type": "string",

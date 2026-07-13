@@ -7,7 +7,7 @@
 	"category": "twork-builder",
 	"icon": "cover-image",
 	"description": "Two-column hero for Health Check-up page: badge, headline with gradient text, description, CTA, image and floating badge.",
-	"keywords": [ "health", "checkup", "hero", "chk", "twork" ],
+	"keywords": [ "health", "checkup", "hero", "chk", "mk" ],
 	"attributes": {
 		"badgeText": {
 			"type": "string",

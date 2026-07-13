@@ -5,7 +5,7 @@
 	"title": "Job Category",
 	"parent": [ "twork/job-openings-section" ],
 	"description": "Job category group with title and job cards (e.g. Medical & Nursing, Administration & Support).",
-	"keywords": [ "job", "category", "career", "group", "twork" ],
+	"keywords": [ "job", "category", "career", "group", "mk" ],
 	"attributes": {
 		"categoryTitle": {
 			"type": "string",

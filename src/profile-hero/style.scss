@@ -1,6 +1,6 @@
 @import "../scss/typography";
 
-// Variables (aligned with doctor-profile.html and Twork design system)
+// Variables (aligned with doctor-profile.html and Mk design system)
 :root {
     --primary-orange: #f48b2a;
     --brand-orange-hover: #e67a22;
@@ -15,7 +15,7 @@
 .editor-styles-wrapper,
 .block-editor-block-list__layout,
 .wp-block-twork-profile-hero {
-    .twork-profile-hero-editor {
+    .mk-profile-hero-editor {
         position: relative;
         min-height: 200px;
 

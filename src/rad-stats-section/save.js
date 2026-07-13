@@ -18,7 +18,7 @@ export default function save( { attributes } ) {
 	} = attributes;
 
 	const blockProps = useBlockProps.save( {
-		className: 'rad-section twork-rad-stats-section',
+		className: 'rad-section mk-rad-stats-section',
 		style: {
 			'--rad-stats-margin-top': `${ marginTop }px`,
 			'--rad-stats-columns-desktop': columns,

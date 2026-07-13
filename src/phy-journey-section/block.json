@@ -7,7 +7,7 @@
 	"category": "twork-builder",
 	"icon": "schedule",
 	"description": "Patient journey vertical timeline section: header + list of steps, matching physiotherapy-rehab.html.",
-	"keywords": [ "physio", "journey", "timeline", "steps", "twork" ],
+	"keywords": [ "physio", "journey", "timeline", "steps", "mk" ],
 	"attributes": {
 		"backgroundColor": {
 			"type": "string",

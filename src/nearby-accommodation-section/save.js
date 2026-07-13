@@ -37,7 +37,7 @@ export default function save( { attributes } ) {
 
 	const blockProps = useBlockProps.save( {
 		className:
-			'twork-nearby-accommodation-section section-padding services-section',
+			'mk-nearby-accommodation-section section-padding services-section',
 		style: {
 			backgroundColor: backgroundImage ? 'transparent' : backgroundColor,
 			backgroundImage: backgroundImage

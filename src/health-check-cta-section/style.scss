@@ -3,7 +3,7 @@
 // Health Check CTA Section – "Book Your Slot Today"
 // Matches health-check-up.html: chk-container > fade-up box with title, subtitle, chk-btn
 
-.twork-health-check-cta-section {
+.mk-health-check-cta-section {
     --chk-secondary: #005f73;
     --chk-primary: #f48b2a;
     font-family: $font-primary;
@@ -60,7 +60,7 @@
 // === EDITOR STYLES ===
 .editor-styles-wrapper .wp-block-twork-health-check-cta-section,
 .wp-block-twork-health-check-cta-section {
-    .twork-health-check-cta-section-editor {
+    .mk-health-check-cta-section-editor {
         overflow: visible;
 
         .chk-container {
@@ -91,7 +91,7 @@
 
 // === RESPONSIVE ===
 @media (max-width: 768px) {
-    .twork-health-check-cta-section .chk-cta-box {
+    .mk-health-check-cta-section .chk-cta-box {
         padding: 40px 24px !important;
 
         h2 {

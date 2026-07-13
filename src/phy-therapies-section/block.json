@@ -7,7 +7,7 @@
 	"category": "twork-builder",
 	"icon": "grid-view",
 	"description": "Our Therapies section: header + expandable therapy cards, matching physiotherapy-rehab.html.",
-	"keywords": [ "physio", "therapies", "services", "cards", "twork" ],
+	"keywords": [ "physio", "therapies", "services", "cards", "mk" ],
 	"attributes": {
 		"backgroundColor": {
 			"type": "string",

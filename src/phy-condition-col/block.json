@@ -8,7 +8,7 @@
 	"parent": [ "twork/phy-conditions-section" ],
 	"icon": "list-view",
 	"description": "Single condition column (icon + heading + list of conditions) for the Physio Conditions section.",
-	"keywords": [ "physio", "condition", "list", "treat", "twork" ],
+	"keywords": [ "physio", "condition", "list", "treat", "mk" ],
 	"attributes": {
 		"iconClass": {
 			"type": "string",

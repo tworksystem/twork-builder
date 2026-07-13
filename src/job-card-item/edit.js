@@ -36,7 +36,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'twork-job-card-item-editor job-card',
+			className: 'mk-job-card-item-editor job-card',
 			style: {
 				padding: `${ cardPadding }px 30px`,
 				background: '#fff',

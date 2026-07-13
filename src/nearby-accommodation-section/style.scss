@@ -15,11 +15,11 @@
 .editor-styles-wrapper,
 .block-editor-block-list__layout,
 .wp-block-twork-nearby-accommodation-section {
-    .twork-nearby-accommodation-section-editor {
+    .mk-nearby-accommodation-section-editor {
         position: relative;
         min-height: 200px;
 
-        .twork-hotel-grid.hotel-grid {
+        .mk-hotel-grid.hotel-grid {
             display: grid !important;
             width: 100% !important;
 
@@ -48,7 +48,7 @@
 }
 
 // === FRONTEND STYLES ===
-.twork-nearby-accommodation-section {
+.mk-nearby-accommodation-section {
     font-family: $font-primary;
     position: relative;
     overflow: hidden;
@@ -134,7 +134,7 @@
 
 // === RESPONSIVE ===
 @media (max-width: 992px) {
-    .twork-nearby-accommodation-section {
+    .mk-nearby-accommodation-section {
         .hotel-grid {
             grid-template-columns: repeat(var(--columns-tablet, 2), 1fr) !important;
             gap: var(--gap-mobile, 16px) !important;
@@ -143,7 +143,7 @@
 }
 
 @media (max-width: 768px) {
-    .twork-nearby-accommodation-section {
+    .mk-nearby-accommodation-section {
         padding-top: var(--padding-top-mobile, 60px) !important;
         padding-bottom: var(--padding-bottom-mobile, 60px) !important;
 
@@ -186,7 +186,7 @@
 
 // === PRINT STYLES ===
 @media print {
-    .twork-nearby-accommodation-section {
+    .mk-nearby-accommodation-section {
         .hotel-card {
             page-break-inside: avoid;
             break-inside: avoid;

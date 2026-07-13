@@ -34,7 +34,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'ph-section twork-ph-popular-products-section',
+			className: 'ph-section mk-ph-popular-products-section',
 			style: {
 				backgroundColor,
 				paddingTop: `${ paddingTop }px`,

@@ -42,7 +42,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'twork-text-heading-and-content-editor',
+			className: 'mk-text-heading-and-content-editor',
 			style: {
 				backgroundColor,
 				paddingTop: `${ paddingTop }px`,

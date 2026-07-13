@@ -20,7 +20,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'twork-tele-store-btn-editor',
+			className: 'mk-tele-store-btn-editor',
 		} ),
 		[]
 	);

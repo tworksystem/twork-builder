@@ -15,36 +15,28 @@ import {
 	__experimentalDivider as ExperimentalDivider,
 	Divider as StableDivider,
 } from '@wordpress/components';
+import { useDoctorCardFilterOptions } from '@twork-builder/shared/use-doctor-card-filter-options';
+import {
+	getDepartmentLabelFromList,
+	toSelectOptions,
+} from '@twork-builder/shared/doctor-filter-data';
 
 const Divider = StableDivider || ExperimentalDivider;
 
-const DEPARTMENT_OPTIONS = [
-	{ label: __( 'Heart Centre', 'twork-builder' ), value: 'heart' },
-	{ label: __( 'Neuro Centre', 'twork-builder' ), value: 'neuro' },
-	{ label: __( 'Cancer Centre', 'twork-builder' ), value: 'cancer' },
-	{ label: __( 'Paediatrics', 'twork-builder' ), value: 'peds' },
-	{ label: __( 'General Medicine', 'twork-builder' ), value: 'general' },
-	{ label: __( 'ENT', 'twork-builder' ), value: 'ent' },
-	{ label: __( 'Dental', 'twork-builder' ), value: 'dental' },
-];
-
-const GENDER_OPTIONS = [
-	{ label: __( 'Male', 'twork-builder' ), value: 'male' },
-	{ label: __( 'Female', 'twork-builder' ), value: 'female' },
-];
-
-const getDepartmentLabel = ( slug ) => {
-	const found = DEPARTMENT_OPTIONS.find( ( o ) => o.value === slug );
-	return found ? found.label : slug;
-};
-
-export default function Edit( { attributes, setAttributes, isSelected } ) {
+export default function Edit( {
+	attributes,
+	setAttributes,
+	isSelected,
+	context,
+	clientId,
+} ) {
 	const {
 		doctorImage,
 		doctorImageId,
 		imageHeight,
 		imageObjectFit,
 		imageObjectPosition,
+		showImage = true,
 		showBadge,
 		badgeText,
 		departmentSlug,
@@ -58,23 +50,48 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 		bookOpenInNewTab,
 		profileButtonText,
 		bookButtonText,
+		showButtons = true,
+		showProfileButton = true,
+		showBookButton = true,
 	} = attributes;
+
+	const { departments, genders } = useDoctorCardFilterOptions(
+		clientId,
+		context
+	);
+	const departmentOptions = toSelectOptions( departments );
+	const genderOptions = toSelectOptions( genders );
+
+	const showProfile = showButtons && showProfileButton;
+	const showBook = showButtons && showBookButton;
+	const hasActions = showProfile || showBook;
+	const isSingleAction = hasActions && showProfile !== showBook;
+
+	const cardClassName = [
+		'mk-doctor-card-item-editor',
+		'doctor-card',
+		showImage ? '' : 'doctor-card--no-image',
+	]
+		.filter( Boolean )
+		.join( ' ' );
+
+	const actionsClassName = [
+		'doc-actions',
+		isSingleAction ? 'doc-actions--single' : '',
+	]
+		.filter( Boolean )
+		.join( ' ' );
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'twork-doctor-card-item-editor',
-			style: {
-				borderRadius: '10px',
-				overflow: 'hidden',
-				border: '2px dashed #e0e0e0',
-				background: '#fafafa',
-			},
+			className: cardClassName,
 		} ),
-		[]
+		[ cardClassName ]
 	);
 
 	const displayDeptLabel =
-		departmentLabel || getDepartmentLabel( departmentSlug );
+		departmentLabel ||
+		getDepartmentLabelFromList( departmentSlug, departments );
 
 	return (
 		<>
@@ -84,117 +101,167 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 						title={ __( 'Doctor Image', 'twork-builder' ) }
 						initialOpen={ true }
 					>
-						{ ! doctorImage ? (
-							<MediaPlaceholder
-								onSelect={ ( media ) =>
-									setAttributes( {
-										doctorImage: media.url,
-										doctorImageId: media.id,
-									} )
-								}
-								allowedTypes={ [ 'image' ] }
-								multiple={ false }
-								labels={ {
-									title: __(
-										'Doctor Photo',
+						<ToggleControl
+							label={ __( 'Show Image', 'twork-builder' ) }
+							checked={ showImage }
+							onChange={ ( val ) =>
+								setAttributes( { showImage: val } )
+							}
+						/>
+
+						{ showImage && (
+							<>
+								{ ! doctorImage ? (
+									<MediaPlaceholder
+										onSelect={ ( media ) =>
+											setAttributes( {
+												doctorImage: media.url,
+												doctorImageId: media.id,
+											} )
+										}
+										allowedTypes={ [ 'image' ] }
+										multiple={ false }
+										labels={ {
+											title: __(
+												'Doctor Photo',
+												'twork-builder'
+											),
+										} }
+									/>
+								) : (
+									<div>
+										<img
+											src={ doctorImage }
+											alt=""
+											style={ {
+												width: '100%',
+												height: 'auto',
+												marginBottom: '10px',
+												display: 'block',
+												borderRadius: '6px',
+											} }
+										/>
+
+										<Button
+											isSecondary
+											isSmall
+											onClick={ () =>
+												setAttributes( {
+													doctorImage: '',
+													doctorImageId: null,
+												} )
+											}
+										>
+											{ __(
+												'Remove Image',
+												'twork-builder'
+											) }
+										</Button>
+									</div>
+								) }
+								<Divider />
+								<BaseControl
+									label={ __(
+										'Image Height (px)',
 										'twork-builder'
-									),
-								} }
-							/>
-						) : (
-							<div>
-								<img
-									src={ doctorImage }
-									alt=""
-									style={ {
-										width: '100%',
-										height: 'auto',
-										marginBottom: '10px',
-										display: 'block',
-									} }
+									) }
+								>
+									<input
+										type="number"
+										min={ 200 }
+										max={ 400 }
+										step={ 10 }
+										value={ imageHeight }
+										onChange={ ( e ) =>
+											setAttributes( {
+												imageHeight:
+													parseInt(
+														e.target.value,
+														10
+													) || 260,
+											} )
+										}
+										className="components-text-control__input"
+									/>
+								</BaseControl>
+								<SelectControl
+									label={ __(
+										'Object Fit',
+										'twork-builder'
+									) }
+									value={ imageObjectFit }
+									options={ [
+										{
+											label: __(
+												'Cover',
+												'twork-builder'
+											),
+											value: 'cover',
+										},
+										{
+											label: __(
+												'Contain',
+												'twork-builder'
+											),
+											value: 'contain',
+										},
+										{
+											label: __(
+												'Fill',
+												'twork-builder'
+											),
+											value: 'fill',
+										},
+									] }
+									onChange={ ( val ) =>
+										setAttributes( { imageObjectFit: val } )
+									}
 								/>
 
-								<Button
-									isSecondary
-									isSmall
-									onClick={ () =>
+								<SelectControl
+									label={ __(
+										'Object Position',
+										'twork-builder'
+									) }
+									value={ imageObjectPosition }
+									options={ [
+										{
+											label: __(
+												'Top Center',
+												'twork-builder'
+											),
+											value: 'top center',
+										},
+										{
+											label: __(
+												'Center',
+												'twork-builder'
+											),
+											value: 'center',
+										},
+										{
+											label: __(
+												'Top',
+												'twork-builder'
+											),
+											value: 'top',
+										},
+										{
+											label: __(
+												'Bottom',
+												'twork-builder'
+											),
+											value: 'bottom',
+										},
+									] }
+									onChange={ ( val ) =>
 										setAttributes( {
-											doctorImage: '',
-											doctorImageId: null,
+											imageObjectPosition: val,
 										} )
 									}
-								>
-									{ __( 'Remove Image', 'twork-builder' ) }
-								</Button>
-							</div>
+								/>
+							</>
 						) }
-						<Divider />
-						<BaseControl
-							label={ __( 'Image Height (px)', 'twork-builder' ) }
-						>
-							<input
-								type="number"
-								min={ 200 }
-								max={ 400 }
-								step={ 10 }
-								value={ imageHeight }
-								onChange={ ( e ) =>
-									setAttributes( {
-										imageHeight:
-											parseInt( e.target.value, 10 ) ||
-											260,
-									} )
-								}
-								className="components-text-control__input"
-							/>
-						</BaseControl>
-						<SelectControl
-							label={ __( 'Object Fit', 'twork-builder' ) }
-							value={ imageObjectFit }
-							options={ [
-								{
-									label: __( 'Cover', 'twork-builder' ),
-									value: 'cover',
-								},
-								{
-									label: __( 'Contain', 'twork-builder' ),
-									value: 'contain',
-								},
-								{
-									label: __( 'Fill', 'twork-builder' ),
-									value: 'fill',
-								},
-							] }
-							onChange={ ( val ) =>
-								setAttributes( { imageObjectFit: val } )
-							}
-						/>
-
-						<SelectControl
-							label={ __( 'Object Position', 'twork-builder' ) }
-							value={ imageObjectPosition }
-							options={ [
-								{
-									label: __( 'Top Center', 'twork-builder' ),
-									value: 'top center',
-								},
-								{
-									label: __( 'Center', 'twork-builder' ),
-									value: 'center',
-								},
-								{
-									label: __( 'Top', 'twork-builder' ),
-									value: 'top',
-								},
-								{
-									label: __( 'Bottom', 'twork-builder' ),
-									value: 'bottom',
-								},
-							] }
-							onChange={ ( val ) =>
-								setAttributes( { imageObjectPosition: val } )
-							}
-						/>
 					</PanelBody>
 
 					<PanelBody
@@ -230,11 +297,14 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 						<SelectControl
 							label={ __( 'Department (slug)', 'twork-builder' ) }
 							value={ departmentSlug }
-							options={ DEPARTMENT_OPTIONS }
+							options={ departmentOptions }
 							onChange={ ( val ) =>
 								setAttributes( {
 									departmentSlug: val,
-									departmentLabel: getDepartmentLabel( val ),
+									departmentLabel: getDepartmentLabelFromList(
+										val,
+										departments
+									),
 								} )
 							}
 							help={ __(
@@ -261,7 +331,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 						<SelectControl
 							label={ __( 'Gender', 'twork-builder' ) }
 							value={ gender }
-							options={ GENDER_OPTIONS }
+							options={ genderOptions }
 							onChange={ ( val ) =>
 								setAttributes( { gender: val } )
 							}
@@ -295,148 +365,200 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 					</PanelBody>
 
 					<PanelBody
+						title={ __( 'Action Buttons', 'twork-builder' ) }
+						initialOpen={ true }
+					>
+						<ToggleControl
+							label={ __(
+								'Show Action Buttons',
+								'twork-builder'
+							) }
+							checked={ showButtons }
+							onChange={ ( val ) =>
+								setAttributes( { showButtons: val } )
+							}
+							help={ __(
+								'Turn off to hide all buttons on this card.',
+								'twork-builder'
+							) }
+						/>
+
+						{ showButtons && (
+							<>
+								<ToggleControl
+									label={ __(
+										'Show Profile Button',
+										'twork-builder'
+									) }
+									checked={ showProfileButton }
+									onChange={ ( val ) =>
+										setAttributes( {
+											showProfileButton: val,
+										} )
+									}
+								/>
+
+								<ToggleControl
+									label={ __(
+										'Show Book Button',
+										'twork-builder'
+									) }
+									checked={ showBookButton }
+									onChange={ ( val ) =>
+										setAttributes( {
+											showBookButton: val,
+										} )
+									}
+								/>
+							</>
+						) }
+					</PanelBody>
+
+					<PanelBody
 						title={ __( 'Links', 'twork-builder' ) }
 						initialOpen={ false }
 					>
-						<TextControl
-							label={ __( 'Profile URL', 'twork-builder' ) }
-							value={ profileUrl }
-							onChange={ ( val ) =>
-								setAttributes( { profileUrl: val } )
-							}
-							type="url"
-						/>
+						{ showButtons && showProfileButton && (
+							<>
+								<TextControl
+									label={ __(
+										'Profile URL',
+										'twork-builder'
+									) }
+									value={ profileUrl }
+									onChange={ ( val ) =>
+										setAttributes( { profileUrl: val } )
+									}
+									type="url"
+								/>
 
-						<ToggleControl
-							label={ __(
-								'Profile: Open in new tab',
-								'twork-builder'
-							) }
-							checked={ profileOpenInNewTab }
-							onChange={ ( val ) =>
-								setAttributes( { profileOpenInNewTab: val } )
-							}
-						/>
+								<ToggleControl
+									label={ __(
+										'Profile: Open in new tab',
+										'twork-builder'
+									) }
+									checked={ profileOpenInNewTab }
+									onChange={ ( val ) =>
+										setAttributes( {
+											profileOpenInNewTab: val,
+										} )
+									}
+								/>
 
-						<TextControl
-							label={ __(
-								'Profile Button Text',
-								'twork-builder'
-							) }
-							value={ profileButtonText }
-							onChange={ ( val ) =>
-								setAttributes( { profileButtonText: val } )
-							}
-						/>
+								<TextControl
+									label={ __(
+										'Profile Button Text',
+										'twork-builder'
+									) }
+									value={ profileButtonText }
+									onChange={ ( val ) =>
+										setAttributes( {
+											profileButtonText: val,
+										} )
+									}
+								/>
 
-						<Divider />
-						<TextControl
-							label={ __( 'Book URL', 'twork-builder' ) }
-							value={ bookUrl }
-							onChange={ ( val ) =>
-								setAttributes( { bookUrl: val } )
-							}
-							type="url"
-						/>
+								<Divider />
+							</>
+						) }
 
-						<ToggleControl
-							label={ __(
-								'Book: Open in new tab',
-								'twork-builder'
-							) }
-							checked={ bookOpenInNewTab }
-							onChange={ ( val ) =>
-								setAttributes( { bookOpenInNewTab: val } )
-							}
-						/>
+						{ showButtons && showBookButton && (
+							<>
+								<TextControl
+									label={ __( 'Book URL', 'twork-builder' ) }
+									value={ bookUrl }
+									onChange={ ( val ) =>
+										setAttributes( { bookUrl: val } )
+									}
+									type="url"
+								/>
 
-						<TextControl
-							label={ __( 'Book Button Text', 'twork-builder' ) }
-							value={ bookButtonText }
-							onChange={ ( val ) =>
-								setAttributes( { bookButtonText: val } )
-							}
-						/>
+								<ToggleControl
+									label={ __(
+										'Book: Open in new tab',
+										'twork-builder'
+									) }
+									checked={ bookOpenInNewTab }
+									onChange={ ( val ) =>
+										setAttributes( {
+											bookOpenInNewTab: val,
+										} )
+									}
+								/>
+
+								<TextControl
+									label={ __(
+										'Book Button Text',
+										'twork-builder'
+									) }
+									value={ bookButtonText }
+									onChange={ ( val ) =>
+										setAttributes( {
+											bookButtonText: val,
+										} )
+									}
+								/>
+							</>
+						) }
+
+						{ ! showButtons && (
+							<p style={ { margin: 0, color: '#757575' } }>
+								{ __(
+									'Enable action buttons to edit link settings.',
+									'twork-builder'
+								) }
+							</p>
+						) }
 					</PanelBody>
 				</InspectorControls>
 			) }
 
 			<div { ...blockProps }>
-				{ doctorImage ? (
+				{ showImage && (
 					<div
 						className="doc-img-wrapper"
 						style={ {
 							position: 'relative',
 							height: `${ imageHeight }px`,
 							overflow: 'hidden',
-							background: '#f0f0f0',
 						} }
 					>
-						<img
-							src={ doctorImage }
-							alt={ doctorName }
-							style={ {
-								width: '100%',
-								height: '100%',
-								objectFit: imageObjectFit,
-								objectPosition: imageObjectPosition,
-								display: 'block',
-							} }
-						/>
-
-						{ showBadge && badgeText && (
-							<span
-								className="doc-badge"
+						{ doctorImage ? (
+							<img
+								src={ doctorImage }
+								alt={ doctorName }
 								style={ {
-									position: 'absolute',
-									top: 15,
-									right: 15,
-									background: 'rgba(255,255,255,0.9)',
-									padding: '5px 10px',
-									borderRadius: 20,
-									fontSize: '0.7rem',
-									fontWeight: 700,
-									color: 'var(--primary-orange, #f48b2a)',
+									width: '100%',
+									height: '100%',
+									objectFit: imageObjectFit,
+									objectPosition: imageObjectPosition,
+									display: 'block',
+								} }
+							/>
+						) : (
+							<div
+								style={ {
+									width: '100%',
+									height: '100%',
+									display: 'flex',
+									alignItems: 'center',
+									justifyContent: 'center',
+									color: '#999',
+									fontSize: '14px',
 								} }
 							>
-								{ badgeText }
-							</span>
+								{ __( 'Doctor photo', 'twork-builder' ) }
+							</div>
 						) }
-					</div>
-				) : (
-					<div
-						className="doc-img-wrapper"
-						style={ {
-							height: `${ imageHeight }px`,
-							background: '#eee',
-							display: 'flex',
-							alignItems: 'center',
-							justifyContent: 'center',
-							color: '#999',
-							fontSize: '14px',
-						} }
-					>
-						{ __( 'Doctor photo', 'twork-builder' ) }
+
+						{ showBadge && badgeText && (
+							<span className="doc-badge">{ badgeText }</span>
+						) }
 					</div>
 				) }
 
-				<div
-					className="doc-content"
-					style={ { padding: 20, textAlign: 'center' } }
-				>
-					<span
-						className="doc-dept"
-						style={ {
-							color: 'var(--primary-orange, #f48b2a)',
-							fontSize: '0.75rem',
-							textTransform: 'uppercase',
-							fontWeight: 700,
-							display: 'block',
-							marginBottom: 5,
-						} }
-					>
-						{ displayDeptLabel }
-					</span>
+				<div className="doc-content">
+					<span className="doc-dept">{ displayDeptLabel }</span>
 					<RichText
 						tagName="h4"
 						value={ doctorName }
@@ -445,12 +567,6 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 						}
 						placeholder={ __( 'Doctor name…', 'twork-builder' ) }
 						className="doc-name"
-						style={ {
-							fontSize: '1.1rem',
-							fontWeight: 700,
-							margin: '0 0 5px',
-							color: '#212121',
-						} }
 					/>
 
 					<RichText
@@ -461,51 +577,32 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 						}
 						placeholder={ __( 'Qualifications…', 'twork-builder' ) }
 						className="doc-qual"
-						style={ {
-							fontSize: '0.8rem',
-							color: '#666',
-							marginBottom: 15,
-						} }
 					/>
 
-					<div
-						className="doc-actions"
-						style={ {
-							marginTop: 'auto',
-							display: 'flex',
-							gap: 10,
-							justifyContent: 'center',
-							paddingTop: 15,
-							borderTop: '1px dashed #eee',
-						} }
-					>
-						<a
-							href={ profileUrl || '#' }
-							className="jivaka-btn btn-outline"
-							style={ {
-								flex: 1,
-								fontSize: '0.7rem',
-								padding: 10,
-								pointerEvents: 'none',
-							} }
-							onClick={ ( e ) => e.preventDefault() }
-						>
-							{ profileButtonText }
-						</a>
-						<a
-							href={ bookUrl || '#' }
-							className="jivaka-btn btn-primary"
-							style={ {
-								flex: 1,
-								fontSize: '0.7rem',
-								padding: 10,
-								pointerEvents: 'none',
-							} }
-							onClick={ ( e ) => e.preventDefault() }
-						>
-							{ bookButtonText }
-						</a>
-					</div>
+					{ hasActions && (
+						<div className={ actionsClassName }>
+							{ showProfile && (
+								<a
+									href={ profileUrl || '#' }
+									className="jivaka-btn btn-outline"
+									style={ { pointerEvents: 'none' } }
+									onClick={ ( e ) => e.preventDefault() }
+								>
+									{ profileButtonText }
+								</a>
+							) }
+							{ showBook && (
+								<a
+									href={ bookUrl || '#' }
+									className="jivaka-btn btn-primary"
+									style={ { pointerEvents: 'none' } }
+									onClick={ ( e ) => e.preventDefault() }
+								>
+									{ bookButtonText }
+								</a>
+							) }
+						</div>
+					) }
 				</div>
 			</div>
 		</>

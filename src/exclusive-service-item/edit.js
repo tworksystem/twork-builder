@@ -31,7 +31,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'twork-exclusive-service-item-editor svc-card',
+			className: 'mk-exclusive-service-item-editor svc-card',
 			style: {
 				display: 'flex',
 				alignItems: 'flex-start',
