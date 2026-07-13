@@ -38,7 +38,7 @@ export default function save( { attributes } ) {
 	} = attributes;
 
 	const blockProps = useBlockProps.save( {
-		className: 'twork-accommodation-options-section section-padding',
+		className: 'mk-accommodation-options-section section-padding',
 		style: {
 			backgroundColor: backgroundImage ? 'transparent' : backgroundColor,
 			backgroundImage: backgroundImage

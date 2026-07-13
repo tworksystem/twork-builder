@@ -8,7 +8,7 @@
 	"parent": [ "twork/phy-therapies-section" ],
 	"icon": "screenoptions",
 	"description": "Single therapy card with background image, title and description for the Physio Therapies section.",
-	"keywords": [ "physio", "therapy", "service", "card", "twork" ],
+	"keywords": [ "physio", "therapy", "service", "card", "mk" ],
 	"attributes": {
 		"imageUrl": {
 			"type": "string",

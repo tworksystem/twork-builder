@@ -7,7 +7,7 @@
 	"category": "twork-builder",
 	"icon": "list-view",
 	"description": "When to Visit Emergency? triage section with header and triage cards (icon, title, list).",
-	"keywords": [ "emergency", "triage", "when to visit", "grid", "twork" ],
+	"keywords": [ "emergency", "triage", "when to visit", "grid", "mk" ],
 	"attributes": {
 		"backgroundColor": {
 			"type": "string",

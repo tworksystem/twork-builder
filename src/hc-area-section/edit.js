@@ -44,7 +44,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 	const blockProps = useStableBlockProps(
 		() => ( {
 			className:
-				'hc-section hc-area-section twork-hc-area-section-editor',
+				'hc-section hc-area-section mk-hc-area-section-editor',
 			style: {
 				backgroundColor: backgroundColor || '#212121',
 				color: '#fff',

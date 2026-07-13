@@ -1,5 +1,5 @@
 /**
- * Twork Testimonial Item – Editor
+ * Mk Testimonial Item – Editor
  * Matches home.html: testimonial-image-wrapper (img + quote-icon), blockquote, p.name, p.procedure.
  */
 import { __ } from '@wordpress/i18n';
@@ -48,7 +48,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'twork-testimonial-item-editor testimonial-card',
+			className: 'mk-testimonial-item-editor testimonial-card',
 			style: {
 				padding: '24px',
 				borderRadius: '8px',

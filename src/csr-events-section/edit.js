@@ -69,7 +69,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'twork-csr-events-section-editor',
+			className: 'mk-csr-events-section-editor',
 			style: {
 				backgroundColor,
 				paddingTop: `${ paddingTop }px`,

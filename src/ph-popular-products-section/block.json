@@ -7,7 +7,7 @@
 	"category": "twork-builder",
 	"icon": "products",
 	"description": "Popular products slider/grid for the pharmacy page, powered by WooCommerce products.",
-	"keywords": [ "pharmacy", "products", "woocommerce", "popular", "twork" ],
+	"keywords": [ "pharmacy", "products", "woocommerce", "popular", "mk" ],
 	"attributes": {
 		"source": {
 			"type": "string",

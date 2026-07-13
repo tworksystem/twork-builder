@@ -6,7 +6,7 @@
 	"parent": [ "twork/hc-testimonials-section" ],
 	"category": "twork-builder",
 	"description": "Single testimonial card: stars, quote, client photo, name and location.",
-	"keywords": [ "home care", "testimonial", "review", "quote", "twork" ],
+	"keywords": [ "home care", "testimonial", "review", "quote", "mk" ],
 	"attributes": {
 		"starRating": {
 			"type": "number",

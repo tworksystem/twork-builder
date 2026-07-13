@@ -5,7 +5,7 @@
 	"title": "Job Card Item",
 	"parent": [ "twork/job-category-item" ],
 	"description": "Single job listing card with title, meta (location, type, department) and Apply button.",
-	"keywords": [ "job", "career", "listing", "apply", "twork" ],
+	"keywords": [ "job", "career", "listing", "apply", "mk" ],
 	"attributes": {
 		"jobTitle": {
 			"type": "string",

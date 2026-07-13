@@ -2,7 +2,7 @@
 	'use strict';
 	document
 		.querySelectorAll(
-			'.twork-dept-layout-section .faq-question, .dept-layout .faq-question'
+			'.mk-dept-layout-section .faq-question, .dept-layout .faq-question'
 		)
 		.forEach( function ( btn ) {
 			btn.addEventListener( 'click', function () {

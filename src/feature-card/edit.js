@@ -18,7 +18,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 	const { iconClass, title, description } = attributes;
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'feature-card twork-feature-card-editor stagger-up',
+			className: 'feature-card mk-feature-card-editor stagger-up',
 		} ),
 		[]
 	);

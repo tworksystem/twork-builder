@@ -16,7 +16,7 @@
 .editor-styles-wrapper,
 .block-editor-block-list__layout,
 .wp-block-twork-awards-section {
-    .twork-awards-section-editor {
+    .mk-awards-section-editor {
         position: relative;
         min-height: 300px;
 
@@ -30,7 +30,7 @@
         }
 
         // ServerSideRender output: force visible - view.js doesn't run in editor
-        .twork-awards-section {
+        .mk-awards-section {
             .intro-text.fade-up,
             .award-item.stagger-up {
                 opacity: 1 !important;
@@ -40,7 +40,7 @@
             }
         }
 
-        .twork-awards-grid-container {
+        .mk-awards-grid-container {
             display: grid !important;
             grid-template-columns: repeat(auto-fill, minmax(var(--grid-min-width, 280px), 1fr)) !important;
             gap: var(--grid-gap, 30px) !important;
@@ -69,7 +69,7 @@
 }
 
 // === FRONTEND STYLES ===
-.twork-awards-section {
+.mk-awards-section {
     font-family: $font-primary;
     position: relative;
     overflow: hidden;
@@ -201,13 +201,13 @@
 
 // === RESPONSIVE ===
 @media (max-width: 992px) {
-    .twork-awards-section .awards-grid {
+    .mk-awards-section .awards-grid {
         grid-template-columns: repeat(2, 1fr) !important;
     }
 }
 
 @media (max-width: 768px) {
-    .twork-awards-section {
+    .mk-awards-section {
         padding: 60px 0 !important;
 
         .intro-text h2 {
@@ -229,7 +229,7 @@
 
 // === PRINT ===
 @media print {
-    .twork-awards-section .award-item {
+    .mk-awards-section .award-item {
         page-break-inside: avoid;
         break-inside: avoid;
     }

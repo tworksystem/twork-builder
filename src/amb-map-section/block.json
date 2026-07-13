@@ -7,7 +7,7 @@
 	"category": "twork-builder",
 	"icon": "location-alt",
 	"description": "Coverage section with icon, title, description and township/location tags.",
-	"keywords": [ "ambulance", "map", "coverage", "townships", "twork" ],
+	"keywords": [ "ambulance", "map", "coverage", "townships", "mk" ],
 	"attributes": {
 		"sectionPaddingTop": {
 			"type": "number",

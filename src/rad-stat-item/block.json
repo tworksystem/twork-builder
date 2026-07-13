@@ -7,7 +7,7 @@
 	"parent": [ "twork/rad-stats-section" ],
 	"category": "twork-builder",
 	"description": "Single statistic item (number + label) for the Radiology Stats Strip.",
-	"keywords": [ "radiology", "stat", "number", "label", "twork" ],
+	"keywords": [ "radiology", "stat", "number", "label", "mk" ],
 	"attributes": {
 		"statNumber": {
 			"type": "string",

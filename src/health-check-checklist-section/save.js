@@ -38,7 +38,7 @@ export default function save( { attributes } ) {
 
 	const blockProps = useBlockProps.save( {
 		className:
-			'chk-section chk-checklist-section twork-health-check-checklist-section',
+			'chk-section chk-checklist-section mk-health-check-checklist-section',
 		style: {
 			backgroundColor: backgroundImage
 				? 'transparent'

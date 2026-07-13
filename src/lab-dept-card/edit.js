@@ -8,7 +8,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'lab-dept-card twork-lab-dept-card-editor',
+			className: 'lab-dept-card mk-lab-dept-card-editor',
 		} ),
 		[]
 	);

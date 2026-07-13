@@ -44,7 +44,7 @@ export default function save( { attributes } ) {
 		( backgroundType === 'video' && backgroundVideoUrl );
 
 	const blockProps = useBlockProps.save( {
-		className: 'twork-csr-cta-section csr-cta-section',
+		className: 'mk-csr-cta-section csr-cta-section',
 		style: {
 			backgroundColor:
 				backgroundType === 'color' || ! hasMedia

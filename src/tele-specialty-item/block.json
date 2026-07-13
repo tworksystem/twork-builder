@@ -7,7 +7,7 @@
 	"category": "twork-builder",
 	"icon": "admin-generic",
 	"description": "Single specialty card (icon + title) for Tele Specialty section.",
-	"keywords": [ "specialty", "telemedicine", "card", "icon", "twork" ],
+	"keywords": [ "specialty", "telemedicine", "card", "icon", "mk" ],
 	"attributes": {
 		"iconClass": {
 			"type": "string",

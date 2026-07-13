@@ -8,7 +8,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'lab-step-row stagger-up twork-lab-step-item-editor',
+			className: 'lab-step-row stagger-up mk-lab-step-item-editor',
 		} ),
 		[]
 	);

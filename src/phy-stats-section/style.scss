@@ -12,7 +12,7 @@
 .editor-styles-wrapper,
 .block-editor-block-list__layout,
 .wp-block-twork-phy-stats-section {
-    .twork-phy-stats-section-editor {
+    .mk-phy-stats-section-editor {
         position: relative;
         min-height: 80px;
 
@@ -75,7 +75,7 @@
 }
 
 // === FRONTEND STYLES ===
-.twork-phy-stats-section {
+.mk-phy-stats-section {
     font-family: $font-primary;
     position: relative;
     overflow: hidden;
@@ -129,7 +129,7 @@
 
 // === RESPONSIVE ===
 @media (max-width: 768px) {
-    .twork-phy-stats-section {
+    .mk-phy-stats-section {
         .phy-stats-grid {
             grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
             gap: 20px;

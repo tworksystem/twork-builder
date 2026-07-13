@@ -12,7 +12,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 		attributes;
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'content-section fade-up twork-centre-overview-editor',
+			className: 'content-section fade-up mk-centre-overview-editor',
 		} ),
 		[]
 	);

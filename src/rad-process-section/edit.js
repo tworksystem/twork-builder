@@ -94,7 +94,7 @@ export default function Edit( {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'twork-rad-process-section-editor rad-section',
+			className: 'mk-rad-process-section-editor rad-section',
 			style: {
 				backgroundColor,
 				paddingTop: `${ paddingTop }px`,

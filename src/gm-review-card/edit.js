@@ -9,7 +9,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 	const blockProps = useStableBlockProps(
 		() => ( {
 			className:
-				'jivaka-gm-review-card gm-anim-stagger twork-gm-review-card-editor',
+				'jivaka-gm-review-card gm-anim-stagger mk-gm-review-card-editor',
 			style: {
 				border: '2px dashed #e0e0e0',
 				background: '#fafafa',

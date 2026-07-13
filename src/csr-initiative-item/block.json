@@ -5,7 +5,7 @@
 	"title": "Initiative Item",
 	"category": "twork-builder",
 	"description": "Single initiative card - image, icon, title, description. Use standalone or the CSR Initiatives Section block for dynamic posts.",
-	"keywords": [ "csr", "initiative", "card", "charity", "twork" ],
+	"keywords": [ "csr", "initiative", "card", "charity", "mk" ],
 	"attributes": {
 		"image": {
 			"type": "string",

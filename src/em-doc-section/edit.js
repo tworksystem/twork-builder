@@ -86,7 +86,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'twork-em-doc-section-editor em-section',
+			className: 'mk-em-doc-section-editor em-section',
 			style: {
 				backgroundColor,
 				paddingTop: `${ paddingTop }px`,
@@ -472,7 +472,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 						</div>
 					) }
 					<div
-						className="em-doc-grid twork-em-doc-grid-container"
+						className="em-doc-grid mk-em-doc-grid-container"
 						style={ gridStyle }
 						data-columns={ 3 }
 					>

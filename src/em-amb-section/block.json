@@ -7,7 +7,7 @@
 	"category": "twork-builder",
 	"icon": "car",
 	"description": "Mobile ICU / Ambulance split section: image + content with feature list and CTA. Layout and icon/image per feature configurable.",
-	"keywords": [ "emergency", "ambulance", "mobile icu", "split", "twork" ],
+	"keywords": [ "emergency", "ambulance", "mobile icu", "split", "mk" ],
 	"attributes": {
 		"layout": {
 			"type": "string",

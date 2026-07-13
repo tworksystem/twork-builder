@@ -7,7 +7,7 @@
 	"category": "twork-builder",
 	"icon": "awards",
 	"description": "Radiology & Imaging “Why Choose Jivaka Imaging?” section with icon grid cards.",
-	"keywords": [ "radiology", "imaging", "why choose", "icons", "twork" ],
+	"keywords": [ "radiology", "imaging", "why choose", "icons", "mk" ],
 	"attributes": {
 		"backgroundColor": {
 			"type": "string",

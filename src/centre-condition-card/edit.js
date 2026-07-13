@@ -88,7 +88,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 	} = attributes;
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'condition-card twork-centre-condition-card-editor',
+			className: 'condition-card mk-centre-condition-card-editor',
 		} ),
 		[]
 	);

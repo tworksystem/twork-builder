@@ -7,7 +7,7 @@
 	"category": "twork-builder",
 	"icon": "cover-image",
 	"description": "Two-column hero with background image, tagline, heading with highlight, description, CTA buttons, and glass card (e.g. Heart Centre / Centres of Excellence).",
-	"keywords": [ "hero", "banner", "page", "glass", "centres", "twork" ],
+	"keywords": [ "hero", "banner", "page", "glass", "centres", "mk" ],
 	"attributes": {
 		"backgroundType": {
 			"type": "string",
@@ -373,5 +373,6 @@
 	},
 	"textdomain": "twork-builder",
 	"editorScript": "file:./index.js",
+	"editorStyle": [ "file:./style-index.css", "file:./index.css" ],
 	"style": "file:./style-index.css"
 }

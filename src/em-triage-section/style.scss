@@ -13,7 +13,7 @@ $em-alert: #dc3545;
 .editor-styles-wrapper,
 .block-editor-block-list__layout,
 .wp-block-twork-em-triage-section {
-    .twork-em-triage-section-editor {
+    .mk-em-triage-section-editor {
         .em-triage-grid {
             display: grid !important;
             grid-template-columns: repeat(3, 1fr) !important;
@@ -46,7 +46,7 @@ $em-alert: #dc3545;
 }
 
 // --- Frontend: section ---
-.twork-em-triage-section.em-section {
+.mk-em-triage-section.em-section {
     position: relative;
 
     .em-container {

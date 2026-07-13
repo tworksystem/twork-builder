@@ -4,7 +4,7 @@
 .editor-styles-wrapper,
 .block-editor-block-list__layout,
 .wp-block-twork-gm-testimonials-section {
-    .twork-gm-testimonials-section-editor {
+    .mk-gm-testimonials-section-editor {
         .jivaka-gm-testimonials {
             display: grid !important;
             grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
@@ -27,7 +27,7 @@
     }
 }
 
-.twork-gm-testimonials-section {
+.mk-gm-testimonials-section {
     --gm-orange: #f48b2a;
     --gm-dark: #212121;
     --gm-grey: #555555;
@@ -103,7 +103,7 @@
 }
 
 @media (max-width: 768px) {
-    .twork-gm-testimonials-section {
+    .mk-gm-testimonials-section {
         .jivaka-gm-header-center {
             margin-bottom: 40px;
         }

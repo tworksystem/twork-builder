@@ -12,7 +12,7 @@ export default function save( { attributes } ) {
 	} = attributes;
 
 	const blockProps = useBlockProps.save( {
-		className: 'rad-hero twork-rad-hero-section',
+		className: 'rad-hero mk-rad-hero-section',
 	} );
 
 	const headerStyle = {
@@ -28,21 +28,25 @@ export default function save( { attributes } ) {
 				<div className="rad-hero-grid">
 					<div className="rad-hero-copy fade-up">
 						{ badgeText && (
-							<span
-								style={ {
-									color: 'var(--rad-primary)',
-									fontWeight: 700,
-									letterSpacing: '2px',
-									textTransform: 'uppercase',
-								} }
-							>
+							<span className="rad-hero-badge">
 								{ badgeText }
 							</span>
 						) }
-						<RichText.Content tagName="h1" value={ title } />
-						<RichText.Content tagName="p" value={ description } />
+						<RichText.Content
+							tagName="h1"
+							className="rad-hero-title"
+							value={ title }
+						/>
+						<RichText.Content
+							tagName="p"
+							className="rad-hero-description"
+							value={ description }
+						/>
 						{ buttonText && (
-							<a href={ buttonUrl || '#' } className="rad-btn">
+							<a
+								href={ buttonUrl || '#' }
+								className="rad-btn rad-hero-cta"
+							>
 								{ buttonText }
 							</a>
 						) }

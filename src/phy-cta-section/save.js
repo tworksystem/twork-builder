@@ -58,7 +58,7 @@ export default function save( { attributes = {} } ) {
 		backgroundMode === 'image' || backgroundMode === 'video';
 
 	const blockProps = useBlockProps.save( {
-		className: 'twork-phy-cta-section',
+		className: 'mk-phy-cta-section',
 		style: {
 			marginBottom: `${ Number( marginBottom ) }px`,
 		},

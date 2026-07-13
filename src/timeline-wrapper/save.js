@@ -47,7 +47,7 @@ export default function save( { attributes } ) {
 	} = attributes;
 
 	const blockProps = useBlockProps.save( {
-		className: 'twork-timeline-wrapper-section',
+		className: 'mk-timeline-wrapper-section',
 		style: {
 			backgroundColor: backgroundImage ? 'transparent' : backgroundColor,
 			backgroundImage: backgroundImage
@@ -153,7 +153,7 @@ export default function save( { attributes } ) {
 				) }
 
 				<div
-					className="timeline-wrapper twork-timeline-wrapper"
+					className="timeline-wrapper mk-timeline-wrapper"
 					style={ {
 						position: 'relative',
 						padding: '40px 0',

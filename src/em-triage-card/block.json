@@ -7,7 +7,7 @@
 	"parent": [ "twork/em-triage-section" ],
 	"category": "twork-builder",
 	"description": "Single triage card with icon, title and bullet list for Emergency Triage Section.",
-	"keywords": [ "emergency", "triage", "card", "list", "twork" ],
+	"keywords": [ "emergency", "triage", "card", "list", "mk" ],
 	"attributes": {
 		"iconClass": {
 			"type": "string",

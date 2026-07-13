@@ -7,7 +7,7 @@
 	"category": "twork-builder",
 	"icon": "car",
 	"description": "Ambulance fleet section with header and fleet cards grid (e.g. ALS/BLS).",
-	"keywords": [ "ambulance", "fleet", "vehicle", "emergency", "twork" ],
+	"keywords": [ "ambulance", "fleet", "vehicle", "emergency", "mk" ],
 	"attributes": {
 		"backgroundColor": {
 			"type": "string",

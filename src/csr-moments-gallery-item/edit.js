@@ -14,7 +14,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: `twork-csr-moments-gallery-item-editor gallery-item stagger-img ${
+			className: `mk-csr-moments-gallery-item-editor gallery-item stagger-img ${
 				spanTwoColumns ? 'span-two' : ''
 			}`,
 

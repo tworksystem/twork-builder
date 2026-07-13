@@ -1,5 +1,5 @@
 /**
- * Shared editor performance helpers for Twork blocks.
+ * Shared editor performance helpers for Mk blocks.
  *
  * Patterns for hundreds of blocks on one canvas:
  * - useStableBlockProps: avoid new object identity to useBlockProps every render.

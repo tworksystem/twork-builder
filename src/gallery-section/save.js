@@ -31,7 +31,7 @@ export default function save( { attributes } ) {
 	} = attributes;
 
 	const blockProps = useBlockProps.save( {
-		className: 'twork-gallery-section section-padding gallery-section',
+		className: 'mk-gallery-section section-padding gallery-section',
 		style: {
 			backgroundColor,
 			paddingTop: `${ paddingTop }px`,

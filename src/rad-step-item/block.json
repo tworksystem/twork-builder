@@ -7,7 +7,7 @@
 	"parent": [ "twork/rad-process-section" ],
 	"category": "twork-builder",
 	"description": "Single workflow step (icon, title, description) for the Radiology Process Section.",
-	"keywords": [ "radiology", "process", "step", "twork" ],
+	"keywords": [ "radiology", "process", "step", "mk" ],
 	"attributes": {
 		"iconClass": {
 			"type": "string",

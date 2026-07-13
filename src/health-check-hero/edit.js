@@ -50,7 +50,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'chk-hero twork-health-check-hero-editor',
+			className: 'chk-hero mk-health-check-hero-editor',
 			style: {
 				minHeight: `${ Math.max( minHeight || 600, 500 ) }px`,
 				position: 'relative',

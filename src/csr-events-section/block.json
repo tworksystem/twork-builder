@@ -7,7 +7,7 @@
 	"category": "twork-builder",
 	"icon": "calendar-alt",
 	"description": "Upcoming CSR Events section with event cards - date, title, location, time, and CTA button.",
-	"keywords": [ "csr", "events", "upcoming", "calendar", "twork" ],
+	"keywords": [ "csr", "events", "upcoming", "calendar", "mk" ],
 	"attributes": {
 		"backgroundColor": {
 			"type": "string",

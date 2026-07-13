@@ -19,7 +19,7 @@ export default function save( { attributes } ) {
 	} = attributes;
 
 	const blockProps = useBlockProps.save( {
-		className: 'twork-career-cta-section',
+		className: 'mk-career-cta-section',
 		style: {
 			paddingTop: `${ paddingTop }px`,
 			paddingBottom: `${ paddingBottom }px`,

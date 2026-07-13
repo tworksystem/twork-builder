@@ -20,7 +20,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'twork-gallery-item-editor gallery-item fade-up',
+			className: 'mk-gallery-item-editor gallery-item fade-up',
 			style: {
 				position: 'relative',
 				borderRadius: '8px',

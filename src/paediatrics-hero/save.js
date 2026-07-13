@@ -24,7 +24,7 @@ export default function save( { attributes } ) {
 	} = attributes;
 
 	const blockProps = useBlockProps.save( {
-		className: 'paed-hero twork-paediatrics-hero',
+		className: 'paed-hero mk-paediatrics-hero',
 		style: {
 			paddingTop: `${ Number( paddingTop ) }px`,
 			paddingBottom: `${ Number( paddingBottom ) }px`,

@@ -4,17 +4,17 @@
 // `order` / `justify-content` apply whenever the section is in "mobile" column layout.
 
 @media (max-width: 1080px) {
-	.twork-stats__grid .wp-block-twork-cta-block.is-order-first-mobile,
+	.mk-stats__grid .wp-block-twork-cta-block.is-order-first-mobile,
 	.wp-block-twork-stats-column .wp-block-twork-cta-block.is-order-first-mobile {
 		order: -1 !important;
 	}
 
-	.twork-stats__grid .wp-block-twork-cta-block.is-order-last-mobile,
+	.mk-stats__grid .wp-block-twork-cta-block.is-order-last-mobile,
 	.wp-block-twork-stats-column .wp-block-twork-cta-block.is-order-last-mobile {
 		order: 999 !important;
 	}
 
-	.twork-stats__grid .wp-block-twork-cta-block.is-hidden-mobile,
+	.mk-stats__grid .wp-block-twork-cta-block.is-hidden-mobile,
 	.wp-block-twork-stats-column .wp-block-twork-cta-block.is-hidden-mobile {
 		display: none !important;
 	}

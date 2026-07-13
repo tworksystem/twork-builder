@@ -1,8 +1,8 @@
 @import "../scss/typography";
 
 // Health Check Compare Section – matches health-check-up.html
-.twork-health-check-compare-section.chk-section.chk-compare-section,
-.chk-section.chk-compare-section.twork-health-check-compare-section {
+.mk-health-check-compare-section.chk-section.chk-compare-section,
+.chk-section.chk-compare-section.mk-health-check-compare-section {
     --chk-secondary: #005f73;
     --chk-radius: 20px;
     --chk-shadow: 0 15px 40px rgba(0, 95, 115, 0.1);
@@ -81,7 +81,7 @@
     overflow: visible !important;
 }
 
-.twork-health-check-compare-editor {
+.mk-health-check-compare-editor {
     overflow: visible !important;
     min-height: 280px;
     width: 100%;
@@ -108,8 +108,8 @@
 }
 
 @media (max-width: 768px) {
-    .twork-health-check-compare-section.chk-section.chk-compare-section,
-    .chk-section.chk-compare-section.twork-health-check-compare-section {
+    .mk-health-check-compare-section.chk-section.chk-compare-section,
+    .chk-section.chk-compare-section.mk-health-check-compare-section {
         .chk-header h2 {
             font-size: 2rem;
         }

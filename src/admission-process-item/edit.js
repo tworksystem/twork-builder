@@ -37,7 +37,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'twork-admission-process-item-editor process-card',
+			className: 'mk-admission-process-item-editor process-card',
 			style: {
 				padding: `${ cardPadding }px 30px`,
 				borderRadius: '12px',

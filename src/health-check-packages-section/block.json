@@ -7,7 +7,7 @@
 	"category": "twork-builder",
 	"icon": "grid-view",
 	"description": "Our Packages section with tab filters and package cards. Matches health-check-up.html.",
-	"keywords": [ "health", "checkup", "packages", "tabs", "chk", "twork" ],
+	"keywords": [ "health", "checkup", "packages", "tabs", "chk", "mk" ],
 	"attributes": {
 		"sectionTitle": {
 			"type": "string",

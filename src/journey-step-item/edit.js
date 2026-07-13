@@ -30,7 +30,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'twork-journey-step-item-editor step-card',
+			className: 'mk-journey-step-item-editor step-card',
 			style: {
 				padding: `${ cardPadding }px`,
 				borderRadius: 'var(--radius, 12px)',

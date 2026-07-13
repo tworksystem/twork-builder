@@ -7,7 +7,7 @@
 	"category": "twork-builder",
 	"icon": "portfolio",
 	"description": "Current openings section with job categories and listings for career page.",
-	"keywords": [ "job", "openings", "career", " listings", "apply", "twork" ],
+	"keywords": [ "job", "openings", "career", " listings", "apply", "mk" ],
 	"attributes": {
 		"backgroundColor": {
 			"type": "string",

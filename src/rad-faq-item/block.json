@@ -7,7 +7,7 @@
 	"parent": [ "twork/rad-prep-faq-section" ],
 	"category": "twork-builder",
 	"description": "Single FAQ item (question + answer) for the Radiology Preparation FAQ section.",
-	"keywords": [ "radiology", "faq", "question", "answer", "twork" ],
+	"keywords": [ "radiology", "faq", "question", "answer", "mk" ],
 	"attributes": {
 		"question": {
 			"type": "string",

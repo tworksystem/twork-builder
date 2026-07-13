@@ -4,6 +4,7 @@ import {
 	RichText,
 	InspectorControls,
 	PanelColorSettings,
+	MediaPlaceholder,
 } from '@wordpress/block-editor';
 import {
 	PanelBody,
@@ -11,8 +12,14 @@ import {
 	TextControl,
 	Button,
 	BaseControl,
+	SelectControl,
+	ToggleControl,
 	__experimentalDivider as Divider,
 } from '@wordpress/components';
+import {
+	getMediaColumnStyle,
+	normalizeMediaSlides,
+} from './media-helpers';
 
 const DEFAULT_OPTION = {
 	value: '',
@@ -34,6 +41,9 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 		selectOptions,
 		selectName,
 		selectAriaLabel,
+		showBookButton = true,
+		bookButtonText,
+		bookButtonOpenInNewTab,
 		backgroundColor,
 		paddingTop,
 		paddingBottom,
@@ -45,11 +55,34 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 		cardBorderColor,
 		cardPadding,
 		bookingTitleColor,
+		rightColumnMode = 'booking',
+		showDepartmentDropdown = true,
+		mediaType = 'image',
+		mediaImage,
+		mediaImageId,
+		mediaImageAlt,
+		slideshowImages = [],
+		slideshowInterval,
+		mediaVideoUrl,
+		mediaVideoId,
+		videoPosterUrl,
+		videoLoop,
+		videoMuted,
+		videoAutoplay,
+		mediaBorderRadius,
 	} = attributes;
+
+	const isBookingMode = ! rightColumnMode || rightColumnMode === 'booking';
+	const isMediaMode = rightColumnMode === 'media';
+	const isImageMedia = ! mediaType || mediaType === 'image';
+	const isSlideshowMedia = mediaType === 'slideshow';
+	const isVideoMedia = mediaType === 'video';
+	const mediaSlides = normalizeMediaSlides( slideshowImages );
+	const mediaColumnStyle = getMediaColumnStyle( mediaBorderRadius );
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'twork-help-section-editor help-section jivaka-section',
+			className: 'mk-help-section-editor help-section jivaka-section',
 			style: {
 				backgroundColor,
 				paddingTop: `${ paddingTop }px`,
@@ -67,15 +100,13 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 		padding: `0 ${ containerPadding }px`,
 		width: '100%',
 		boxSizing: 'border-box',
+		'--help-container-max': `${ containerMaxWidth }px`,
+		'--help-container-padding': `${ containerPadding }px`,
 	};
 
 	const gridStyle = {
-		display: 'flex',
-		flexWrap: 'nowrap',
-		alignItems: 'center',
 		gap: `${ gridGap }px`,
-		width: '100%',
-		boxSizing: 'border-box',
+		'--help-grid-gap': `${ gridGap }px`,
 	};
 
 	const leftColumnStyle = {
@@ -102,6 +133,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 		next.push( {
 			value: `opt-${ Date.now() }`,
 			label: __( 'New option', 'twork-builder' ),
+			bookUrl: '',
 		} );
 		setAttributes( { selectOptions: next } );
 	};
@@ -202,9 +234,398 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 					</PanelBody>
 
 					<PanelBody
+						title={ __( 'Right column', 'twork-builder' ) }
+						initialOpen={ true }
+					>
+						<SelectControl
+							label={ __( 'Column content', 'twork-builder' ) }
+							value={ rightColumnMode || 'booking' }
+							options={ [
+								{
+									label: __(
+										'Easy Access (Booking card)',
+										'twork-builder'
+									),
+									value: 'booking',
+								},
+								{
+									label: __(
+										'Media (Image / GIF / Slider / Video)',
+										'twork-builder'
+									),
+									value: 'media',
+								},
+							] }
+							onChange={ ( val ) =>
+								setAttributes( {
+									rightColumnMode: val || 'booking',
+								} )
+							}
+						/>
+
+						{ isMediaMode && (
+							<>
+								<SelectControl
+									label={ __( 'Media type', 'twork-builder' ) }
+									value={ mediaType || 'image' }
+									options={ [
+										{
+											label: __(
+												'Single Image / GIF',
+												'twork-builder'
+											),
+											value: 'image',
+										},
+										{
+											label: __(
+												'Image Slideshow',
+												'twork-builder'
+											),
+											value: 'slideshow',
+										},
+										{
+											label: __( 'Video', 'twork-builder' ),
+											value: 'video',
+										},
+									] }
+									onChange={ ( val ) =>
+										setAttributes( {
+											mediaType: val || 'image',
+										} )
+									}
+								/>
+
+								{ isImageMedia && (
+									<BaseControl
+										label={ __(
+											'Image / GIF',
+											'twork-builder'
+										) }
+									>
+										{ ! mediaImage ? (
+											<MediaPlaceholder
+												onSelect={ ( media ) =>
+													setAttributes( {
+														mediaImage: media.url,
+														mediaImageId: media.id,
+														mediaImageAlt:
+															media.alt || '',
+													} )
+												}
+												allowedTypes={ [ 'image' ] }
+												multiple={ false }
+												labels={ {
+													title: __(
+														'Upload image or GIF',
+														'twork-builder'
+													),
+												} }
+											/>
+										) : (
+											<div>
+												<img
+													src={ mediaImage }
+													alt=""
+													style={ {
+														width: '100%',
+														height: 'auto',
+														marginBottom: 10,
+														borderRadius: 8,
+													} }
+												/>
+												<TextControl
+													label={ __(
+														'Alt text',
+														'twork-builder'
+													) }
+													value={ mediaImageAlt }
+													onChange={ ( val ) =>
+														setAttributes( {
+															mediaImageAlt: val,
+														} )
+													}
+												/>
+												<Button
+													isSecondary
+													isSmall
+													onClick={ () =>
+														setAttributes( {
+															mediaImage: '',
+															mediaImageId: null,
+															mediaImageAlt: '',
+														} )
+													}
+												>
+													{ __(
+														'Remove image',
+														'twork-builder'
+													) }
+												</Button>
+											</div>
+										) }
+									</BaseControl>
+								) }
+
+								{ isSlideshowMedia && (
+									<BaseControl
+										label={ __(
+											'Slideshow images / GIFs',
+											'twork-builder'
+										) }
+									>
+										{ ! slideshowImages?.length ? (
+											<MediaPlaceholder
+												onSelect={ ( media ) => {
+													const items = Array.isArray(
+														media
+													)
+														? media
+														: [ media ];
+													setAttributes( {
+														slideshowImages:
+															items.map(
+																( m ) => ( {
+																	url: m.url,
+																	id: m.id,
+																	alt:
+																		m.alt ||
+																		'',
+																} )
+															),
+													} );
+												} }
+												allowedTypes={ [ 'image' ] }
+												multiple
+												labels={ {
+													title: __(
+														'Select slideshow images',
+														'twork-builder'
+													),
+												} }
+											/>
+										) : (
+											<div>
+												<div
+													style={ {
+														display: 'flex',
+														gap: 8,
+														flexWrap: 'wrap',
+														marginBottom: 8,
+													} }
+												>
+													{ slideshowImages.map(
+														( img, index ) => (
+															<img
+																key={ index }
+																src={ img.url }
+																alt={
+																	img.alt ||
+																	''
+																}
+																style={ {
+																	width: 72,
+																	height: 48,
+																	objectFit:
+																		'cover',
+																	borderRadius: 4,
+																} }
+															/>
+														)
+													) }
+												</div>
+												<Button
+													isSecondary
+													isSmall
+													onClick={ () =>
+														setAttributes( {
+															slideshowImages: [],
+														} )
+													}
+												>
+													{ __(
+														'Clear slideshow',
+														'twork-builder'
+													) }
+												</Button>
+											</div>
+										) }
+									</BaseControl>
+								) }
+
+								{ isSlideshowMedia &&
+									slideshowImages?.length > 0 && (
+										<RangeControl
+											label={ __(
+												'Slide duration (ms)',
+												'twork-builder'
+											) }
+											value={ slideshowInterval }
+											onChange={ ( val ) =>
+												setAttributes( {
+													slideshowInterval: val,
+												} )
+											}
+											min={ 2000 }
+											max={ 15000 }
+											step={ 500 }
+										/>
+									) }
+
+								{ isVideoMedia && (
+									<BaseControl
+										label={ __( 'Video', 'twork-builder' ) }
+									>
+										{ ! mediaVideoUrl ? (
+											<MediaPlaceholder
+												onSelect={ ( media ) =>
+													setAttributes( {
+														mediaVideoUrl:
+															media.url,
+														mediaVideoId: media.id,
+														videoPosterUrl:
+															media.image?.src ||
+															videoPosterUrl ||
+															'',
+													} )
+												}
+												allowedTypes={ [ 'video' ] }
+												multiple={ false }
+												labels={ {
+													title: __(
+														'Upload video',
+														'twork-builder'
+													),
+												} }
+											/>
+										) : (
+											<div>
+												<video
+													src={ mediaVideoUrl }
+													muted
+													playsInline
+													style={ {
+														width: '100%',
+														maxHeight: 180,
+														objectFit: 'cover',
+														borderRadius: 8,
+														marginBottom: 10,
+													} }
+												/>
+												<Button
+													isSecondary
+													isSmall
+													onClick={ () =>
+														setAttributes( {
+															mediaVideoUrl: '',
+															mediaVideoId: null,
+															videoPosterUrl: '',
+														} )
+													}
+												>
+													{ __(
+														'Remove video',
+														'twork-builder'
+													) }
+												</Button>
+											</div>
+										) }
+									</BaseControl>
+								) }
+
+								{ isVideoMedia && mediaVideoUrl && (
+									<>
+										<ToggleControl
+											label={ __(
+												'Loop',
+												'twork-builder'
+											) }
+											checked={ videoLoop }
+											onChange={ ( val ) =>
+												setAttributes( {
+													videoLoop: val,
+												} )
+											}
+										/>
+										<ToggleControl
+											label={ __(
+												'Muted',
+												'twork-builder'
+											) }
+											checked={ videoMuted }
+											onChange={ ( val ) =>
+												setAttributes( {
+													videoMuted: val,
+												} )
+											}
+										/>
+										<ToggleControl
+											label={ __(
+												'Autoplay',
+												'twork-builder'
+											) }
+											checked={ videoAutoplay }
+											onChange={ ( val ) =>
+												setAttributes( {
+													videoAutoplay: val,
+												} )
+											}
+										/>
+									</>
+								) }
+
+								<RangeControl
+									label={ __(
+										'Media border radius (px)',
+										'twork-builder'
+									) }
+									value={ mediaBorderRadius }
+									onChange={ ( val ) =>
+										setAttributes( {
+											mediaBorderRadius: val,
+										} )
+									}
+									min={ 0 }
+									max={ 40 }
+									step={ 1 }
+								/>
+							</>
+						) }
+					</PanelBody>
+
+					<PanelBody
 						title={ __( 'Booking card', 'twork-builder' ) }
 						initialOpen={ true }
 					>
+						{ isBookingMode && (
+							<ToggleControl
+								label={ __(
+									'Show department dropdown',
+									'twork-builder'
+								) }
+								checked={ showDepartmentDropdown }
+								onChange={ ( val ) =>
+									setAttributes( {
+										showDepartmentDropdown: val,
+									} )
+								}
+								help={ __(
+									'Toggle the department select on/off in the booking card.',
+									'twork-builder'
+								) }
+							/>
+						) }
+
+						{ ! isBookingMode && (
+							<p style={ { marginTop: 0, color: '#757575' } }>
+								{ __(
+									'Switch column content to “Easy Access (Booking card)” to edit booking fields.',
+									'twork-builder'
+								) }
+							</p>
+						) }
+
+						{ isBookingMode && (
+							<>
 						<TextControl
 							label={ __( 'Card meta title', 'twork-builder' ) }
 							value={ bookingMetaTitle }
@@ -238,7 +659,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 								'twork-builder'
 							) }
 							help={ __(
-								'First option is used as placeholder. Value is submitted; label is shown.',
+								'First option is placeholder. Set Value, Label, and Book link per department.',
 								'twork-builder'
 							) }
 						>
@@ -298,6 +719,26 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 											updateSelectOption( i, 'label', v )
 										}
 									/>
+									{ ( opt?.value ?? '' ) !== '' && (
+										<TextControl
+											label={ __(
+												'Book link URL',
+												'twork-builder'
+											) }
+											value={ opt?.bookUrl ?? '' }
+											onChange={ ( v ) =>
+												updateSelectOption(
+													i,
+													'bookUrl',
+													v
+												)
+											}
+											help={ __(
+												'Use {value} for department value. Empty = auto ?name=value.',
+												'twork-builder'
+											) }
+										/>
+									) }
 								</div>
 							) ) }
 							<Button
@@ -329,6 +770,47 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 							}
 						/>
 
+						<Divider />
+						<ToggleControl
+							label={ __(
+								'Show book button',
+								'twork-builder'
+							) }
+							checked={ showBookButton }
+							onChange={ ( val ) =>
+								setAttributes( { showBookButton: val } )
+							}
+						/>
+
+						{ showBookButton && (
+							<>
+								<TextControl
+									label={ __(
+										'Book button text',
+										'twork-builder'
+									) }
+									value={ bookButtonText }
+									onChange={ ( val ) =>
+										setAttributes( {
+											bookButtonText: val,
+										} )
+									}
+								/>
+								<ToggleControl
+									label={ __(
+										'Open book link in new tab',
+										'twork-builder'
+									) }
+									checked={ bookButtonOpenInNewTab }
+									onChange={ ( val ) =>
+										setAttributes( {
+											bookButtonOpenInNewTab: val,
+										} )
+									}
+								/>
+							</>
+						) }
+
 						<PanelColorSettings
 							title={ __( 'Card title color', 'twork-builder' ) }
 							colorSettings={ [
@@ -345,6 +827,8 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 								},
 							] }
 						/>
+							</>
+						) }
 					</PanelBody>
 
 					<PanelBody
@@ -591,75 +1075,248 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 							</p>
 						</div>
 
-						<div
-							className="help-booking-card"
-							style={ { ...cardStyle, ...rightColumnStyle } }
-						>
-							<RichText
-								tagName="p"
-								className="meta-title"
-								value={ bookingMetaTitle }
-								onChange={ ( v ) =>
-									setAttributes( { bookingMetaTitle: v } )
-								}
-								placeholder={ __(
-									'Card meta title…',
-									'twork-builder'
-								) }
-							/>
-
-							<RichText
-								tagName="h3"
-								value={ bookingTitle }
-								onChange={ ( v ) =>
-									setAttributes( { bookingTitle: v } )
-								}
-								placeholder={ __(
-									'Book an Appointment',
-									'twork-builder'
-								) }
+						{ isMediaMode ? (
+							<div
+								className="help-media-column"
 								style={ {
-									color: bookingTitleColor,
-									marginTop: 0,
-									marginBottom: 15,
+									...mediaColumnStyle,
+									...rightColumnStyle,
 								} }
-							/>
-
-							<RichText
-								tagName="p"
-								value={ bookingDescription }
-								onChange={ ( v ) =>
-									setAttributes( { bookingDescription: v } )
-								}
-								placeholder={ __(
-									'Card description…',
-									'twork-builder'
+								data-media-type={ mediaType || 'image' }
+							>
+								{ isImageMedia && mediaImage && (
+									<img
+										src={ mediaImage }
+										alt={ mediaImageAlt || '' }
+										className="help-media-image"
+										style={ {
+											width: '100%',
+											height: 'auto',
+											display: 'block',
+										} }
+									/>
 								) }
-								style={ { marginBottom: 30 } }
-							/>
 
-							<div className="custom-select-wrapper">
-								<select
-									name={ selectName }
-									aria-label={ selectAriaLabel }
-									disabled
-									style={ {
-										width: '100%',
-										padding: '15px 20px',
-										borderRadius: 30,
-									} }
-								>
-									{ ( options || [] ).map( ( opt, i ) => (
-										<option
-											key={ i }
-											value={ opt?.value ?? '' }
-										>
-											{ opt?.label ?? '' }
-										</option>
-									) ) }
-								</select>
+								{ isImageMedia && ! mediaImage && (
+									<MediaPlaceholder
+										onSelect={ ( media ) =>
+											setAttributes( {
+												mediaImage: media.url,
+												mediaImageId: media.id,
+												mediaImageAlt: media.alt || '',
+											} )
+										}
+										allowedTypes={ [ 'image' ] }
+										multiple={ false }
+										labels={ {
+											title: __(
+												'Upload image or GIF',
+												'twork-builder'
+											),
+										} }
+									/>
+								) }
+
+								{ isSlideshowMedia &&
+									mediaSlides.length > 0 && (
+										<div className="help-media-slideshow">
+											<img
+												src={ mediaSlides[ 0 ].url }
+												alt={ mediaSlides[ 0 ].alt || '' }
+												className="help-media-slide is-active"
+												style={ {
+													width: '100%',
+													height: 'auto',
+													display: 'block',
+												} }
+											/>
+										</div>
+									) }
+
+								{ isSlideshowMedia &&
+									! mediaSlides.length && (
+										<MediaPlaceholder
+											onSelect={ ( media ) => {
+												const items = Array.isArray(
+													media
+												)
+													? media
+													: [ media ];
+												setAttributes( {
+													slideshowImages:
+														items.map( ( m ) => ( {
+															url: m.url,
+															id: m.id,
+															alt: m.alt || '',
+														} ) ),
+												} );
+											} }
+											allowedTypes={ [ 'image' ] }
+											multiple
+											labels={ {
+												title: __(
+													'Select slideshow images',
+													'twork-builder'
+												),
+											} }
+										/>
+									) }
+
+								{ isVideoMedia && mediaVideoUrl && (
+									<video
+										className="help-media-video"
+										src={ mediaVideoUrl }
+										poster={ videoPosterUrl || undefined }
+										muted={ videoMuted }
+										playsInline
+										autoPlay={ videoAutoplay }
+										loop={ videoLoop }
+										style={ {
+											width: '100%',
+											height: 'auto',
+											display: 'block',
+										} }
+									/>
+								) }
+
+								{ isVideoMedia && ! mediaVideoUrl && (
+									<MediaPlaceholder
+										onSelect={ ( media ) =>
+											setAttributes( {
+												mediaVideoUrl: media.url,
+												mediaVideoId: media.id,
+												videoPosterUrl:
+													media.image?.src ||
+													videoPosterUrl ||
+													'',
+											} )
+										}
+										allowedTypes={ [ 'video' ] }
+										multiple={ false }
+										labels={ {
+											title: __(
+												'Upload video',
+												'twork-builder'
+											),
+										} }
+									/>
+								) }
 							</div>
-						</div>
+						) : (
+							<div
+								className="help-booking-card"
+								style={ { ...cardStyle, ...rightColumnStyle } }
+							>
+								<RichText
+									tagName="p"
+									className="meta-title"
+									value={ bookingMetaTitle }
+									onChange={ ( v ) =>
+										setAttributes( { bookingMetaTitle: v } )
+									}
+									placeholder={ __(
+										'Card meta title…',
+										'twork-builder'
+									) }
+								/>
+
+								<RichText
+									tagName="h3"
+									value={ bookingTitle }
+									onChange={ ( v ) =>
+										setAttributes( { bookingTitle: v } )
+									}
+									placeholder={ __(
+										'Book an Appointment',
+										'twork-builder'
+									) }
+									style={ {
+										color: bookingTitleColor,
+										marginTop: 0,
+										marginBottom: 15,
+									} }
+								/>
+
+								<RichText
+									tagName="p"
+									value={ bookingDescription }
+									onChange={ ( v ) =>
+										setAttributes( {
+											bookingDescription: v,
+										} )
+									}
+									placeholder={ __(
+										'Card description…',
+										'twork-builder'
+									) }
+									style={ {
+										marginBottom: showDepartmentDropdown
+											? 30
+											: 0,
+									} }
+								/>
+
+								{ showDepartmentDropdown && (
+									<div className="custom-select-wrapper">
+										<select
+											className="help-dept-select"
+											name={ selectName }
+											aria-label={ selectAriaLabel }
+											disabled
+											style={ {
+												width: '100%',
+												padding: '15px 20px',
+												borderRadius: 30,
+											} }
+										>
+											{ ( options || [] ).map(
+												( opt, i ) => (
+													<option
+														key={ i }
+														value={
+															opt?.value ?? ''
+														}
+														data-book-url={
+															opt?.bookUrl || ''
+														}
+													>
+														{ opt?.label ?? '' }
+													</option>
+												)
+											) }
+										</select>
+									</div>
+								) }
+
+								{ showBookButton && (
+									<a
+										href="#"
+										className="jivaka-btn help-book-btn is-disabled"
+										style={ {
+											pointerEvents: 'none',
+											marginTop:
+												showDepartmentDropdown ||
+												! showDepartmentDropdown
+													? 20
+													: 0,
+										} }
+										target={
+											bookButtonOpenInNewTab
+												? '_blank'
+												: undefined
+										}
+										rel={
+											bookButtonOpenInNewTab
+												? 'noopener noreferrer'
+												: undefined
+										}
+										aria-disabled="true"
+									>
+										{ bookButtonText || 'BOOK NOW' }
+									</a>
+								) }
+							</div>
+						) }
 					</div>
 				</div>
 			</section>

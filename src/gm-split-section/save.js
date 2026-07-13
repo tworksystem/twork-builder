@@ -25,7 +25,7 @@ export default function save( { attributes } ) {
 
 	const blockProps = useBlockProps.save( {
 		className: [
-			'twork-gm-split-section',
+			'mk-gm-split-section',
 			'jivaka-gm-section',
 			imagePosition === 'left'
 				? 'gm-split-image-left'

@@ -1,6 +1,6 @@
 @import "../scss/typography";
 
-// Variables (aligned with doctor-profile.html and Twork design system)
+// Variables (aligned with doctor-profile.html and Mk design system)
 :root {
     --primary-orange: #f48b2a;
     --dark-grey: #212121;
@@ -14,7 +14,7 @@
 .editor-styles-wrapper,
 .block-editor-block-list__layout,
 .wp-block-twork-profile-tabs-section {
-    .twork-profile-tabs-section-editor {
+    .mk-profile-tabs-section-editor {
         position: relative;
         min-height: 200px;
 
@@ -293,8 +293,8 @@
 
 // Editor: match frontend responsive layout
 @media (max-width: 992px) {
-    .editor-styles-wrapper .twork-profile-tabs-section-editor,
-    .block-editor-block-list__layout .twork-profile-tabs-section-editor {
+    .editor-styles-wrapper .mk-profile-tabs-section-editor,
+    .block-editor-block-list__layout .mk-profile-tabs-section-editor {
         .profile-grid {
             grid-template-columns: 1fr !important;
             gap: 30px !important;

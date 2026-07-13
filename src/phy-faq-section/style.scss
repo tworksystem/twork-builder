@@ -1,6 +1,6 @@
 // Physio FAQ Section – accordion styles from physiotherapy-rehab.html
 
-.phy-section.twork-phy-faq-section {
+.phy-section.mk-phy-faq-section {
     .phy-container {
         max-width: 1280px;
         margin: 0 auto;
@@ -52,7 +52,7 @@
 // Editor helpers – focus outline on section title
 .editor-styles-wrapper,
 .wp-block-twork-phy-faq-section {
-    .twork-phy-faq-section-editor {
+    .mk-phy-faq-section-editor {
         .phy-header h2[contenteditable='true'] {
             &:focus {
                 outline: 1px dashed #2271b1;

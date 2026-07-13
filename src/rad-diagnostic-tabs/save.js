@@ -12,7 +12,7 @@ export default function save( { attributes } ) {
 	} = attributes;
 
 	const blockProps = useBlockProps.save( {
-		className: 'rad-section twork-rad-diagnostic-tabs',
+		className: 'rad-section mk-rad-diagnostic-tabs',
 		style: {
 			background: sectionBackground,
 			paddingTop,

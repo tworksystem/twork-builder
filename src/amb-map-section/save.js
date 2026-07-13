@@ -38,7 +38,7 @@ export default function save( { attributes } ) {
 	} = attributes;
 
 	const blockProps = useBlockProps.save( {
-		className: 'twork-amb-map-section amb-section',
+		className: 'mk-amb-map-section amb-section',
 		style: {
 			paddingTop: `${ sectionPaddingTop }px`,
 			paddingBottom: `${ sectionPaddingBottom }px`,
@@ -57,7 +57,7 @@ export default function save( { attributes } ) {
 				} }
 			>
 				<div
-					className="amb-map-box twork-amb-map-box"
+					className="amb-map-box mk-amb-map-box"
 					style={ {
 						backgroundColor: boxBackgroundColor,
 						padding: `${ boxPadding }px`,

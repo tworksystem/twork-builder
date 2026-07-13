@@ -95,7 +95,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'twork-csr-moments-gallery-section-editor',
+			className: 'mk-csr-moments-gallery-section-editor',
 			style: {
 				backgroundColor,
 				paddingTop: `${ paddingTop }px`,
@@ -534,7 +534,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 					) }
 
 					<div
-						className="gallery-grid twork-csr-moments-gallery-grid"
+						className="gallery-grid mk-csr-moments-gallery-grid"
 						style={ gridStyle }
 						data-columns={ gridColumns }
 						data-columns-tablet={ gridColumnsTablet }

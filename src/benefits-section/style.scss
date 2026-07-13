@@ -16,8 +16,8 @@
 .editor-styles-wrapper,
 .block-editor-block-list__layout,
 .wp-block-twork-benefits-section {
-    .twork-benefits-section-editor {
-        .twork-benefits-grid.benefits-grid {
+    .mk-benefits-section-editor {
+        .mk-benefits-grid.benefits-grid {
             display: grid !important;
 
             > .block-editor-inner-blocks > .block-editor-block-list__layout {
@@ -36,7 +36,7 @@
 }
 
 // === FRONTEND STYLES ===
-.twork-benefits-section {
+.mk-benefits-section {
     font-family: $font-primary;
     position: relative;
     background: var(--light-grey-bg);
@@ -128,7 +128,7 @@
 
 // === RESPONSIVE ===
 @media (max-width: 768px) {
-    .twork-benefits-section {
+    .mk-benefits-section {
         padding-top: var(--padding-top-mobile, 60px) !important;
         padding-bottom: var(--padding-bottom-mobile, 60px) !important;
 

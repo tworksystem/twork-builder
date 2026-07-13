@@ -61,7 +61,7 @@ export default function save( { attributes } ) {
 	} = attrs;
 
 	const blockProps = useBlockProps.save( {
-		className: 'lab-section twork-lab-steps-section',
+		className: 'lab-section mk-lab-steps-section',
 		style: {
 			backgroundColor: backgroundColor || DEFAULT_ATTRS.backgroundColor,
 			paddingTop: `${ Number( paddingTop ) }px`,

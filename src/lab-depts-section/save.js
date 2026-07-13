@@ -45,7 +45,7 @@ export default function save( { attributes = {} } ) {
 	} = attrs;
 
 	const blockProps = useBlockProps.save( {
-		className: 'lab-section twork-lab-depts-section',
+		className: 'lab-section mk-lab-depts-section',
 		style: {
 			backgroundColor,
 			paddingTop: `${ Number( paddingTop ) }px`,

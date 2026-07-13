@@ -7,7 +7,7 @@
 	"category": "twork-builder",
 	"icon": "chart-bar",
 	"description": "Radiology & Imaging quick stats strip below the hero section.",
-	"keywords": [ "radiology", "imaging", "stats", "strip", "twork" ],
+	"keywords": [ "radiology", "imaging", "stats", "strip", "mk" ],
 	"attributes": {
 		"backgroundColor": {
 			"type": "string",

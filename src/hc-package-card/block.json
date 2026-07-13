@@ -6,7 +6,7 @@
 	"parent": [ "twork/hc-packages-section" ],
 	"category": "twork-builder",
 	"description": "Single care package card: title, price, feature list, and CTA button.",
-	"keywords": [ "home care", "package", "pricing", "card", "twork" ],
+	"keywords": [ "home care", "package", "pricing", "card", "mk" ],
 	"attributes": {
 		"title": {
 			"type": "string",

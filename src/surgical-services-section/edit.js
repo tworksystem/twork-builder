@@ -58,7 +58,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'twork-surgical-services-section-editor',
+			className: 'mk-surgical-services-section-editor',
 		} ),
 		[]
 	);
@@ -242,7 +242,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 						/>
 					</div>
 					<div
-						className="doc-grid twork-surgical-doc-grid"
+						className="doc-grid mk-surgical-doc-grid"
 						style={ gridStyle }
 						data-min-width={ gridMinItemWidth }
 					>

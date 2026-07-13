@@ -31,7 +31,7 @@ export default function save( { attributes } ) {
 	} = attributes;
 
 	const blockProps = useBlockProps.save( {
-		className: 'twork-benefits-section section-padding benefits-section',
+		className: 'mk-benefits-section section-padding benefits-section',
 		style: {
 			backgroundColor,
 			paddingTop: `${ paddingTop }px`,

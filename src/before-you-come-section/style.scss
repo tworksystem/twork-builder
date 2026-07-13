@@ -12,10 +12,10 @@
 .editor-styles-wrapper,
 .block-editor-block-list__layout,
 .wp-block-twork-before-you-come-section {
-    .twork-before-you-come-section-editor {
+    .mk-before-you-come-section-editor {
         position: relative;
 
-        .twork-before-you-come-grid {
+        .mk-before-you-come-grid {
             display: grid !important;
             width: 100% !important;
 
@@ -62,7 +62,7 @@
 }
 
 // === FRONTEND STYLES ===
-.twork-before-you-come-section {
+.mk-before-you-come-section {
     font-family: $font-primary;
     position: relative;
 
@@ -133,7 +133,7 @@
 
 // === RESPONSIVE ===
 @media (max-width: 768px) {
-    .twork-before-you-come-section {
+    .mk-before-you-come-section {
         .before-you-come-title {
             font-size: 1.75rem !important;
             margin-bottom: 30px !important;
@@ -160,7 +160,7 @@
 
 // === PRINT ===
 @media print {
-    .twork-before-you-come-section {
+    .mk-before-you-come-section {
         .before-you-come-item-card {
             page-break-inside: avoid;
             break-inside: avoid;

@@ -66,7 +66,7 @@ export default function save( { attributes } ) {
 
 	const blockProps = useBlockProps.save( {
 		className:
-			'key-services-section jivaka-section twork-key-services-section',
+			'key-services-section jivaka-section mk-key-services-section',
 		style: {
 			backgroundColor: backgroundImage ? 'transparent' : backgroundColor,
 			backgroundImage: backgroundImage
@@ -193,7 +193,7 @@ export default function save( { attributes } ) {
 				) }
 
 				<div
-					className="key-services-grid twork-key-services-grid"
+					className="key-services-grid mk-key-services-grid"
 					style={ {
 						'--grid-columns': columns,
 						'--grid-columns-tablet': columnsTablet,

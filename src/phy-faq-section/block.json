@@ -7,7 +7,7 @@
 	"category": "twork-builder",
 	"icon": "editor-help",
 	"description": "Common Questions section with accordion items, matching physiotherapy-rehab.html.",
-	"keywords": [ "physio", "faq", "questions", "accordion", "twork" ],
+	"keywords": [ "physio", "faq", "questions", "accordion", "mk" ],
 	"attributes": {
 		"backgroundColor": {
 			"type": "string",

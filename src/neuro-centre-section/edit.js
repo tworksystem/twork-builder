@@ -56,7 +56,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'twork-neuro-centre-section',
+			className: 'mk-neuro-centre-section',
 			style: {
 				paddingTop: `${ paddingTop }px`,
 				paddingBottom: `${ paddingBottom }px`,
@@ -190,7 +190,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 								} )
 							}
 							help={ __(
-								'Add hotel/accommodation cards below CTA. Use "+" to add Twork Nearby Accommodation Item blocks.',
+								'Add hotel/accommodation cards below CTA. Use "+" to add Mk Nearby Accommodation Item blocks.',
 								'twork-builder'
 							) }
 						/>

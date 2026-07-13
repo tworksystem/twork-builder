@@ -125,7 +125,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'twork-journey-steps-section-editor',
+			className: 'mk-journey-steps-section-editor',
 			style: {
 				backgroundColor: backgroundImage
 					? 'transparent'
@@ -1127,7 +1127,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 					) }
 
 					<div
-						className="twork-journey-steps-grid steps-grid"
+						className="mk-journey-steps-grid steps-grid"
 						style={ gridStyle }
 						data-columns={ columns }
 					>

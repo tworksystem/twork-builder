@@ -42,7 +42,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'twork-tele-specialty-item-editor',
+			className: 'mk-tele-specialty-item-editor',
 		} ),
 		[]
 	);

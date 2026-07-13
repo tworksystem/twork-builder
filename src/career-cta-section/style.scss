@@ -10,7 +10,7 @@
 // === EDITOR STYLES ===
 .editor-styles-wrapper,
 .wp-block-twork-career-cta-section {
-    .twork-career-cta-section-editor {
+    .mk-career-cta-section-editor {
         .career-cta h2,
         .career-cta p {
             &[contenteditable="true"]:focus {
@@ -46,7 +46,7 @@
 }
 
 // === FRONTEND STYLES ===
-.twork-career-cta-section {
+.mk-career-cta-section {
     font-family: $font-primary;
 
     .career-cta {
@@ -119,7 +119,7 @@
 
 // === RESPONSIVE ===
 @media (max-width: 768px) {
-    .twork-career-cta-section {
+    .mk-career-cta-section {
         padding-top: var(--padding-top-mobile, 40px) !important;
         padding-bottom: var(--padding-bottom-mobile, 40px) !important;
 

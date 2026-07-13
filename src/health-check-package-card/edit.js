@@ -23,7 +23,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: `chk-pkg-card stagger-up twork-chk-pkg-card-editor ${
+			className: `chk-pkg-card stagger-up mk-chk-pkg-card-editor ${
 				isPopular ? 'popular' : ''
 			}`,
 

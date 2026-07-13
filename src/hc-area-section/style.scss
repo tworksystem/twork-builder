@@ -7,7 +7,7 @@
 .editor-styles-wrapper,
 .block-editor-block-list__layout,
 .wp-block-twork-hc-area-section {
-    .twork-hc-area-section-editor {
+    .mk-hc-area-section-editor {
         .hc-area-grid {
             display: flex !important;
             flex-wrap: wrap;
@@ -29,7 +29,7 @@
             }
         }
 
-        .twork-hc-area-tag-editor.hc-area-tag {
+        .mk-hc-area-tag-editor.hc-area-tag {
             border: 1px dashed rgba(255, 255, 255, 0.4);
             border-radius: 30px;
             padding: 10px 20px;
@@ -48,7 +48,7 @@
 }
 
 // === FRONTEND STYLES ===
-.twork-hc-area-section {
+.mk-hc-area-section {
     font-family: $font-primary;
     text-align: center;
 

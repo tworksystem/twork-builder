@@ -21,7 +21,7 @@ export default function save( { attributes } ) {
 	} = attributes;
 
 	const blockProps = useBlockProps.save( {
-		className: 'twork-tele-specialty-section section-padding',
+		className: 'mk-tele-specialty-section section-padding',
 		style: {
 			paddingTop: `${ sectionPaddingTop }px`,
 			paddingBottom: `${ sectionPaddingBottom }px`,

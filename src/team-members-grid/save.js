@@ -33,7 +33,7 @@ export default function save( { attributes } ) {
 	} = attributes;
 
 	const blockProps = useBlockProps.save( {
-		className: 'twork-team-members-section',
+		className: 'mk-team-members-section',
 		style: {
 			backgroundColor: backgroundImage ? 'transparent' : backgroundColor,
 			backgroundImage: backgroundImage

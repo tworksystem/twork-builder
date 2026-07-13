@@ -7,7 +7,7 @@
 	"category": "twork-builder",
 	"icon": "external",
 	"description": "Single app store download button (image + link) for Telemedicine Download section.",
-	"keywords": [ "store", "button", "app", "download", "image", "twork" ],
+	"keywords": [ "store", "button", "app", "download", "image", "mk" ],
 	"attributes": {
 		"image": {
 			"type": "string",

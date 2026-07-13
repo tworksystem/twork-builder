@@ -122,7 +122,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 	} = attributes;
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'tech-item twork-centre-technology-item-editor',
+			className: 'tech-item mk-centre-technology-item-editor',
 		} ),
 		[]
 	);

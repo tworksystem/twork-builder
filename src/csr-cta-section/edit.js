@@ -65,7 +65,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'twork-csr-cta-section-editor',
+			className: 'mk-csr-cta-section-editor',
 			style: {
 				backgroundColor:
 					backgroundType === 'color' || ! hasMedia

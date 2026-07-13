@@ -1,6 +1,6 @@
 // Physio Conditions Section – matches physiotherapy-rehab.html .phy-cond-section
 
-.phy-section.phy-cond-section.twork-phy-conditions-section {
+.phy-section.phy-cond-section.mk-phy-conditions-section {
     .phy-container {
         max-width: 1280px;
         margin: 0 auto;
@@ -58,7 +58,7 @@
 // Editor helpers – outlines on editable header fields
 .editor-styles-wrapper,
 .wp-block-twork-phy-conditions-section {
-    .twork-phy-conditions-section-editor {
+    .mk-phy-conditions-section-editor {
         .phy-header h2,
         .phy-header p {
             &[contenteditable='true']:focus {

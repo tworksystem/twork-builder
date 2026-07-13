@@ -1,6 +1,6 @@
 // Physio Journey Section – vertical timeline, matches physiotherapy-rehab.html
 
-.phy-section.twork-phy-journey-section {
+.phy-section.mk-phy-journey-section {
     .phy-container {
         max-width: 1280px;
         margin: 0 auto;
@@ -60,7 +60,7 @@
 // Editor helpers – focus outlines for header fields
 .editor-styles-wrapper,
 .wp-block-twork-phy-journey-section {
-    .twork-phy-journey-section-editor {
+    .mk-phy-journey-section-editor {
         .phy-header h2,
         .phy-header p {
             &[contenteditable='true']:focus {

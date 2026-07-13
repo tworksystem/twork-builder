@@ -12,7 +12,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'phy-service-card twork-phy-therapy-card-editor',
+			className: 'phy-service-card mk-phy-therapy-card-editor',
 			style: {
 				position: 'relative',
 				overflow: 'hidden',

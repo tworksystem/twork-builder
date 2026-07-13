@@ -4,7 +4,7 @@ export default function save( { attributes } ) {
 	const { stepNumber, iconClass, title, description } = attributes;
 
 	const blockProps = useBlockProps.save( {
-		className: 'twork-tele-process-card-wrapper',
+		className: 'mk-tele-process-card-wrapper',
 	} );
 
 	const titleValue = title ?? '';

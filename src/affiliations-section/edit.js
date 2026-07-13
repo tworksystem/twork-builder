@@ -62,7 +62,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'twork-affiliations-section-editor affiliations-section',
+			className: 'mk-affiliations-section-editor affiliations-section',
 			style: {
 				backgroundColor,
 				paddingTop: `${ paddingTop }px`,
@@ -733,7 +733,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 					) }
 					{ isSlider ? (
 						<div
-							className="affiliations-slider twork-affiliations-slider-editor"
+							className="affiliations-slider mk-affiliations-slider-editor"
 							style={ {
 								width: '100%',
 								minHeight: 140,
@@ -778,7 +778,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 						<div
 							className={ `logo-grid${
 								animationOnScroll ? ' fade-up' : ''
-							} twork-affiliations-grid` }
+							} mk-affiliations-grid` }
 							style={ {
 								...gridStyle,
 								'--logo-max-width': `${ logoMaxWidth }px`,

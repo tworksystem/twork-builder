@@ -11,7 +11,7 @@
 .editor-styles-wrapper,
 .block-editor-block-list__layout,
 .wp-block-twork-tele-specialty-section {
-    .twork-tele-specialty-section-editor {
+    .mk-tele-specialty-section-editor {
         position: relative;
 
         .section-header {
@@ -47,7 +47,7 @@
 }
 
 // === FRONTEND STYLES ===
-.twork-tele-specialty-section {
+.mk-tele-specialty-section {
     position: relative;
     font-family: $font-primary;
 
@@ -125,7 +125,7 @@
 
 // === RESPONSIVE ===
 @media (max-width: 768px) {
-    .twork-tele-specialty-section {
+    .mk-tele-specialty-section {
         .section-header {
             margin-bottom: 40px;
 

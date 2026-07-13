@@ -96,6 +96,32 @@
 			"type": "number",
 			"default": 0.95
 		},
+		"featureMarkerType": {
+			"type": "string",
+			"default": "bullet"
+		},
+		"featureMarkerImageUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"featureMarkerImageId": {
+			"type": "number"
+		},
+		"itemDisplayType": {
+			"type": "string",
+			"default": "bullet"
+		},
+		"itemImageUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"itemImageId": {
+			"type": "number"
+		},
+		"itemImageAlt": {
+			"type": "string",
+			"default": ""
+		},
 		"showButton": {
 			"type": "boolean",
 			"default": true
@@ -181,6 +207,11 @@
 			"featureUnavailableColor": "#999999",
 			"featureIconColor": "#2ecc71",
 			"featureFontSize": 0.95,
+			"featureMarkerType": "bullet",
+			"featureMarkerImageUrl": "",
+			"itemDisplayType": "bullet",
+			"itemImageUrl": "",
+			"itemImageAlt": "",
 			"showButton": true,
 			"buttonText": "Choose Plan",
 			"buttonUrl": "#",

@@ -3,6 +3,8 @@ import { useStableBlockProps } from '@twork-builder/editor-utils';
 import {
 	InspectorControls,
 	MediaPlaceholder,
+	MediaUpload,
+	MediaUploadCheck,
 	RichText,
 } from '@wordpress/block-editor';
 import {
@@ -28,7 +30,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'rad-section twork-rad-diagnostic-tabs',
+			className: 'rad-section mk-rad-diagnostic-tabs',
 			style: {
 				background: sectionBackground,
 				paddingTop,
@@ -67,6 +69,44 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 		newTabs[ tabIndex ] = {
 			...newTabs[ tabIndex ],
 			features: existingFeatures,
+		};
+		updateTabs( newTabs );
+	};
+
+	const updateTabImage = ( index, media ) => {
+		if ( ! media ) return;
+		const newTabs = [ ...tabs ];
+		const currentTab = newTabs[ index ] || {};
+		const nextUrl = media.url || currentTab.imageUrl || '';
+
+		newTabs[ index ] = {
+			...currentTab,
+			imageUrl: nextUrl,
+			imageId: media.id || 0,
+			imageAlt: media.alt || media.title || currentTab.imageAlt || '',
+		};
+		updateTabs( newTabs );
+	};
+
+	const updateTabImageByUrl = ( index, url ) => {
+		const newTabs = [ ...tabs ];
+		const currentTab = newTabs[ index ] || {};
+		newTabs[ index ] = {
+			...currentTab,
+			imageUrl: url || '',
+			imageId: 0,
+		};
+		updateTabs( newTabs );
+	};
+
+	const removeTabImage = ( index ) => {
+		const newTabs = [ ...tabs ];
+		const currentTab = newTabs[ index ] || {};
+		newTabs[ index ] = {
+			...currentTab,
+			imageUrl: '',
+			imageId: 0,
+			imageAlt: '',
 		};
 		updateTabs( newTabs );
 	};
@@ -180,7 +220,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 										__( 'Tab %d', 'twork-builder' ),
 										index + 1
 									) }
-									className="twork-rad-tabs-tab-panel"
+									className="mk-rad-tabs-tab-panel"
 								>
 									<TextControl
 										label={ __(
@@ -275,45 +315,85 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 											'twork-builder'
 										) }
 									>
-										<MediaPlaceholder
-											onSelect={ ( media ) => {
-												if ( ! media ) return;
-												updateTabField(
-													index,
-													'imageUrl',
-													media.url || ''
-												);
-												updateTabField(
-													index,
-													'imageId',
-													media.id || 0
-												);
-												updateTabField(
-													index,
-													'imageAlt',
-													media.alt ||
-														media.title ||
-														''
-												);
-											} }
-											onSelectURL={ ( url ) =>
-												updateTabField(
-													index,
-													'imageUrl',
-													url || ''
-												)
-											}
-											accept="image/*"
-											allowedTypes={ [ 'image' ] }
-											mediaId={ tab.imageId }
-											mediaURL={ tab.imageUrl }
-											labels={ {
-												title: __(
-													'Select or upload tab image',
-													'twork-builder'
-												),
-											} }
-										/>
+										{ tab.imageUrl ? (
+											<div>
+												<img
+													src={ tab.imageUrl }
+													alt={ tab.imageAlt || '' }
+													style={ {
+														display: 'block',
+														width: '100%',
+														height: 'auto',
+														maxWidth: '260px',
+														marginBottom: '8px',
+													} }
+												/>
+												<MediaUploadCheck>
+													<MediaUpload
+														onSelect={ ( media ) =>
+															updateTabImage(
+																index,
+																media
+															)
+														}
+														allowedTypes={ [
+															'image',
+														] }
+														value={ tab.imageId }
+														render={ ( {
+															open,
+														} ) => (
+															<Button
+																variant="secondary"
+																onClick={ open }
+															>
+																{ __(
+																	'Replace image',
+																	'twork-builder'
+																) }
+															</Button>
+														) }
+													/>
+												</MediaUploadCheck>
+												<Button
+													variant="link"
+													isDestructive
+													onClick={ () =>
+														removeTabImage( index )
+													}
+												>
+													{ __(
+														'Remove image',
+														'twork-builder'
+													) }
+												</Button>
+											</div>
+										) : (
+											<MediaPlaceholder
+												onSelect={ ( media ) =>
+													updateTabImage(
+														index,
+														media
+													)
+												}
+												onSelectURL={ ( url ) =>
+													updateTabImageByUrl(
+														index,
+														url
+													)
+												}
+												accept="image/*"
+												allowedTypes={ [ 'image' ] }
+												mediaId={ tab.imageId }
+												mediaURL={ tab.imageUrl }
+												labels={ {
+													title: __(
+														'Select or upload tab image',
+														'twork-builder'
+													),
+												} }
+											/>
+										) }
 									</BaseControl>
 
 									<BaseControl

@@ -44,7 +44,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 	const { slides, autoplayDelay, effect } = attributes;
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'twork-hero-slider-editor hero-section hero-slider',
+			className: 'mk-hero-slider-editor hero-section hero-slider',
 		} ),
 		[]
 	);

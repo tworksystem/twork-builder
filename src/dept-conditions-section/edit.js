@@ -37,7 +37,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 	const { sectionId, title } = attributes;
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'content-section twork-dept-conditions-editor',
+			className: 'content-section mk-dept-conditions-editor',
 		} ),
 		[]
 	);

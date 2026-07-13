@@ -115,7 +115,7 @@ export default function Edit( { attributes = {}, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'phy-section twork-phy-therapies-section-editor',
+			className: 'phy-section mk-phy-therapies-section-editor',
 			style: {
 				backgroundColor,
 				paddingTop: `${ Number( paddingTop ) }px`,

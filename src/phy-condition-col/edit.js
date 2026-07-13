@@ -8,7 +8,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'phy-cond-col twork-phy-condition-col-editor',
+			className: 'phy-cond-col mk-phy-condition-col-editor',
 		} ),
 		[]
 	);

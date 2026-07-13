@@ -106,7 +106,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'twork-timeline-item-editor',
+			className: 'mk-timeline-item-editor',
 			style: {
 				borderRadius: '8px',
 				overflow: 'visible',

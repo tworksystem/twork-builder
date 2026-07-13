@@ -4,7 +4,7 @@
  * Follows team-members-grid / services-grid standards.
  *
  * @since 1.0.0
- * @author Twork Builder
+ * @author MK Builder
  */
 
 ( function () {
@@ -17,7 +17,7 @@
 	function initGoodNewsSection() {
 		if ( ! ( 'IntersectionObserver' in window ) ) {
 			const sections = document.querySelectorAll(
-				'.good-news-section[data-animation="true"], .twork-good-news-section[data-animation="true"]'
+				'.good-news-section[data-animation="true"], .mk-good-news-section[data-animation="true"]'
 			);
 			sections.forEach( ( el ) => {
 				el.classList.add( 'is-visible' );
@@ -26,7 +26,7 @@
 		}
 
 		const sections = document.querySelectorAll(
-			'.good-news-section[data-animation="true"], .twork-good-news-section[data-animation="true"]'
+			'.good-news-section[data-animation="true"], .mk-good-news-section[data-animation="true"]'
 		);
 		if ( ! sections.length ) return;
 
@@ -67,7 +67,7 @@
 	window.addEventListener( 'load', initGoodNewsSection );
 	window.addEventListener( 'resize', debounce( initGoodNewsSection, 250 ) );
 
-	window.TworkGoodNewsSection = {
+	window.MkGoodNewsSection = {
 		init: initGoodNewsSection,
 		version: '1.0.0',
 	};

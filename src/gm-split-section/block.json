@@ -7,7 +7,7 @@
 	"category": "twork-builder",
 	"icon": "layout",
 	"description": "Why Choose Jivaka split layout: image + title, description, feature list, CTA button.",
-	"keywords": [ "general medicine", "split", "why choose", "twork" ],
+	"keywords": [ "general medicine", "split", "why choose", "mk" ],
 	"supports": {
 		"html": false,
 		"anchor": true,

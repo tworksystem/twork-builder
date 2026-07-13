@@ -6,7 +6,7 @@
 	"parent": [ "twork/amb-tech-section" ],
 	"category": "twork-builder",
 	"description": "Single tech/equipment item with icon, title and description.",
-	"keywords": [ "ambulance", "tech", "icon", "equipment", "twork" ],
+	"keywords": [ "ambulance", "tech", "icon", "equipment", "mk" ],
 	"attributes": {
 		"icon": {
 			"type": "string",

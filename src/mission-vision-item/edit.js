@@ -31,7 +31,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'twork-mv-item-editor',
+			className: 'mk-mv-item-editor',
 		} ),
 		[]
 	);

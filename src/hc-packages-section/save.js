@@ -18,7 +18,7 @@ export default function save( { attributes } ) {
 	} = attributes;
 
 	const blockProps = useBlockProps.save( {
-		className: 'hc-section twork-hc-packages-section',
+		className: 'hc-section mk-hc-packages-section',
 		style: {
 			backgroundColor: backgroundColor || '#ffffff',
 			paddingTop: `${ paddingTop }px`,

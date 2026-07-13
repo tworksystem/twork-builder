@@ -38,7 +38,7 @@ export default function save( { attributes } ) {
 
 	const blockProps = useBlockProps.save( {
 		className:
-			'twork-exclusive-services-section section-padding services-section',
+			'mk-exclusive-services-section section-padding services-section',
 		style: {
 			backgroundColor: backgroundImage ? 'transparent' : backgroundColor,
 			backgroundImage: backgroundImage

@@ -120,7 +120,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'twork-exclusive-services-section-editor',
+			className: 'mk-exclusive-services-section-editor',
 			style: {
 				backgroundColor: backgroundImage
 					? 'transparent'
@@ -803,7 +803,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 					) }
 
 					<div
-						className="twork-exclusive-services-grid svc-grid"
+						className="mk-exclusive-services-grid svc-grid"
 						style={ gridStyle }
 						data-columns={ columns }
 						data-columns-tablet={ columnsTablet }

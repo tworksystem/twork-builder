@@ -16,11 +16,11 @@
 .editor-styles-wrapper,
 .block-editor-block-list__layout,
 .wp-block-twork-team-members-grid {
-    .twork-team-members-grid-editor {
+    .mk-team-members-grid-editor {
         position: relative;
         min-height: 400px;
 
-        .twork-team-members-grid-container {
+        .mk-team-members-grid-container {
             display: grid !important;
             grid-template-columns: repeat(var(--grid-columns, 4), 1fr) !important;
             gap: var(--grid-gap, 30px) !important;
@@ -62,7 +62,7 @@
 
 // Team Member Item Editor Styles
 .editor-styles-wrapper {
-    .twork-team-member-item-editor {
+    .mk-team-member-item-editor {
         .member-content {
             h3, p {
                 &[contenteditable="true"]:focus {
@@ -91,7 +91,7 @@
 }
 
 // === FRONTEND STYLES ===
-.twork-team-members-section {
+.mk-team-members-section {
     font-family: $font-primary;
     position: relative;
     overflow: hidden;
@@ -297,7 +297,7 @@
 
 // === RESPONSIVE STYLES ===
 @media (max-width: 992px) {
-    .twork-team-members-section {
+    .mk-team-members-section {
         .team-members-grid {
             grid-template-columns: repeat(2, 1fr) !important;
         }
@@ -318,7 +318,7 @@
 }
 
 @media (max-width: 768px) {
-    .twork-team-members-section {
+    .mk-team-members-section {
         padding: 60px 0;
 
         .section-header {
@@ -394,7 +394,7 @@
 
 // === PRINT STYLES ===
 @media print {
-    .twork-team-members-section {
+    .mk-team-members-section {
         .team-member-card {
             page-break-inside: avoid;
             break-inside: avoid;
@@ -411,7 +411,7 @@
 
 // === DARK MODE SUPPORT ===
 @media (prefers-color-scheme: dark) {
-    .twork-team-members-section {
+    .mk-team-members-section {
         .team-member-card {
             background: #1a1a1a;
             color: #e0e0e0;

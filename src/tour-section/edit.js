@@ -67,7 +67,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'twork-tour-section-editor',
+			className: 'mk-tour-section-editor',
 			style: {
 				position: 'relative',
 				paddingTop: `${ paddingTop }px`,
@@ -818,7 +818,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 				) }
 
 				<div
-					className="twork-tour-section-inner jivaka-container fade-up"
+					className="mk-tour-section-inner jivaka-container fade-up"
 					style={ containerStyle }
 				>
 					<div

@@ -8,7 +8,7 @@
 	"parent": [ "twork/phy-faq-section" ],
 	"icon": "editor-help",
 	"description": "Single FAQ item (question + answer) for the Physio FAQ section.",
-	"keywords": [ "physio", "faq", "question", "answer", "accordion", "twork" ],
+	"keywords": [ "physio", "faq", "question", "answer", "accordion", "mk" ],
 	"attributes": {
 		"question": {
 			"type": "string",

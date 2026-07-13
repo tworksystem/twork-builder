@@ -7,7 +7,7 @@ export default function Edit( { attributes = {}, setAttributes, isSelected } ) {
 	const { question = '', answer = '' } = attributes;
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'faq-item twork-dept-faq-editor',
+			className: 'faq-item mk-dept-faq-editor',
 		} ),
 		[]
 	);

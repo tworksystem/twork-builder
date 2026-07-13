@@ -17,7 +17,7 @@ export default function save( { attributes } ) {
 	} = attributes;
 
 	const blockProps = useBlockProps.save( {
-		className: 'twork-ph-upload-section',
+		className: 'mk-ph-upload-section',
 		style: {
 			backgroundColor,
 			paddingTop: `${ paddingY }px`,

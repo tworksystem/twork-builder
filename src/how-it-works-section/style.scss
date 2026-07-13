@@ -15,7 +15,7 @@
 .editor-styles-wrapper,
 .block-editor-block-list__layout,
 .wp-block-twork-how-it-works-section {
-    .twork-how-it-works-section-editor {
+    .mk-how-it-works-section-editor {
         position: relative;
         min-height: 160px;
 
@@ -35,7 +35,7 @@
             }
         }
 
-        .twork-how-it-works-steps.steps-grid {
+        .mk-how-it-works-steps.steps-grid {
             display: grid !important;
             width: 100% !important;
 
@@ -74,7 +74,7 @@
 }
 
 // === FRONTEND STYLES ===
-.twork-how-it-works-section {
+.mk-how-it-works-section {
     font-family: $font-primary;
     position: relative;
     background-color: var(--howit-bg);
@@ -183,7 +183,7 @@
 
 // === RESPONSIVE ===
 @media (max-width: 992px) {
-    .twork-how-it-works-section {
+    .mk-how-it-works-section {
         .how-it-works-steps.steps-grid {
             grid-template-columns: repeat(var(--columns-tablet, 1), minmax(0, 1fr)) !important;
         }
@@ -191,7 +191,7 @@
 }
 
 @media (max-width: 768px) {
-    .twork-how-it-works-section {
+    .mk-how-it-works-section {
         .section-header.lab-header {
             text-align: left;
         }
@@ -215,7 +215,7 @@
 }
 
 // === ACCESSIBILITY & PRINT ===
-.twork-how-it-works-section {
+.mk-how-it-works-section {
     .step-card {
         &:focus-visible {
             outline: 3px solid var(--howit-primary);

@@ -1,5 +1,5 @@
 /**
- * Twork Testimonial Item – Save
+ * Mk Testimonial Item – Save
  * Output matches home.html: testimonial-card > testimonial-image-wrapper (img + quote-icon), blockquote, p.name, p.procedure.
  * Styling is handled by parent section CSS; no inline styles for consistency with static markup.
  */

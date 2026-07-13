@@ -4,7 +4,7 @@ export default function save( { attributes } ) {
 	const { iconClass, title } = attributes;
 
 	const blockProps = useBlockProps.save( {
-		className: 'twork-tele-specialty-item-wrapper',
+		className: 'mk-tele-specialty-item-wrapper',
 	} );
 
 	return (

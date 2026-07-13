@@ -21,7 +21,7 @@ export default function save( { attributes } ) {
 
 	const blockProps = useBlockProps.save( {
 		className:
-			'paed-section paed-conditions-section twork-paed-conditions-section',
+			'paed-section paed-conditions-section mk-paed-conditions-section',
 		style: {
 			backgroundColor: backgroundColor || '#ffffff',
 			paddingTop: `${ Number( paddingTop ) }px`,

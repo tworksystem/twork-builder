@@ -5,7 +5,7 @@
 	"title": "Accommodation Options Section",
 	"category": "twork-builder",
 	"description": "Accommodation options section with room cards (image, price, amenities, CTA) for facilities.",
-	"keywords": [ "accommodation", "rooms", "facilities", "hospital", "twork" ],
+	"keywords": [ "accommodation", "rooms", "facilities", "hospital", "mk" ],
 	"icon": "admin-home",
 	"attributes": {
 		"backgroundColor": {

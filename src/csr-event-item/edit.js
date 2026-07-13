@@ -31,7 +31,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'twork-csr-event-item-editor event-card stagger-event',
+			className: 'mk-csr-event-item-editor event-card stagger-event',
 			style: {
 				display: 'flex',
 				flexDirection: 'row',

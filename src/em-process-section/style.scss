@@ -11,7 +11,7 @@ $em-alert: #dc3545;
 .editor-styles-wrapper,
 .block-editor-block-list__layout,
 .wp-block-twork-em-process-section {
-  .twork-em-process-section-editor.em-section {
+  .mk-em-process-section-editor.em-section {
     position: relative;
     min-height: 200px;
 
@@ -72,8 +72,8 @@ $em-alert: #dc3545;
       }
     }
 
-    .twork-em-process-step-editor.em-step,
-    .em-step.twork-em-process-step-editor {
+    .mk-em-process-step-editor.em-step,
+    .em-step.mk-em-process-step-editor {
       position: relative;
       z-index: 1;
       border: 2px dashed #e0e0e0;
@@ -121,8 +121,8 @@ $em-alert: #dc3545;
 }
 
 // === FRONTEND STYLES ===
-.twork-em-process-section.em-section,
-.twork-em-process-section-editor.em-section {
+.mk-em-process-section.em-section,
+.mk-em-process-section-editor.em-section {
   position: relative;
 
   .em-container {
@@ -192,8 +192,8 @@ $em-alert: #dc3545;
 }
 
 @media (max-width: 992px) {
-  .twork-em-process-section .em-process-grid,
-  .twork-em-process-section-editor .em-process-grid {
+  .mk-em-process-section .em-process-grid,
+  .mk-em-process-section-editor .em-process-grid {
     grid-template-columns: 1fr !important;
     gap: 50px;
 

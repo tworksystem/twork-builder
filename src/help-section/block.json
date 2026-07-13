@@ -7,7 +7,7 @@
 	"category": "twork-builder",
 	"icon": "editor-help",
 	"description": "How can we Care for you? Two-column section with intro text and booking card with department select.",
-	"keywords": [ "help", "care", "booking", "appointment", "jivaka", "twork" ],
+	"keywords": [ "help", "care", "booking", "appointment", "jivaka", "mk" ],
 	"attributes": {
 		"metaTitle": {
 			"type": "string",
@@ -98,6 +98,18 @@
 			"type": "string",
 			"default": "Select Department"
 		},
+		"showBookButton": {
+			"type": "boolean",
+			"default": true
+		},
+		"bookButtonText": {
+			"type": "string",
+			"default": "BOOK NOW"
+		},
+		"bookButtonOpenInNewTab": {
+			"type": "boolean",
+			"default": false
+		},
 		"backgroundColor": {
 			"type": "string",
 			"default": "#ffffff"
@@ -141,6 +153,72 @@
 		"bookingTitleColor": {
 			"type": "string",
 			"default": "#f48b2a"
+		},
+		"rightColumnMode": {
+			"type": "string",
+			"default": "booking"
+		},
+		"showDepartmentDropdown": {
+			"type": "boolean",
+			"default": true
+		},
+		"mediaType": {
+			"type": "string",
+			"default": "image"
+		},
+		"mediaImage": {
+			"type": "string",
+			"default": ""
+		},
+		"mediaImageId": {
+			"type": "number"
+		},
+		"mediaImageAlt": {
+			"type": "string",
+			"default": ""
+		},
+		"slideshowImages": {
+			"type": "array",
+			"default": [],
+			"items": {
+				"type": "object",
+				"properties": {
+					"url": { "type": "string" },
+					"id": { "type": "number" },
+					"alt": { "type": "string" }
+				}
+			}
+		},
+		"slideshowInterval": {
+			"type": "number",
+			"default": 5000
+		},
+		"mediaVideoUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"mediaVideoId": {
+			"type": "number"
+		},
+		"videoPosterUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"videoLoop": {
+			"type": "boolean",
+			"default": true
+		},
+		"videoMuted": {
+			"type": "boolean",
+			"default": true
+		},
+		"videoAutoplay": {
+			"type": "boolean",
+			"default": true
+		},
+		"mediaBorderRadius": {
+			"type": "number",
+			"default": 8
 		}
 	},
 	"supports": {

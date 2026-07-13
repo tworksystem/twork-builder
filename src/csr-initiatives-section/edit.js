@@ -143,7 +143,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'twork-csr-initiatives-section-editor',
+			className: 'mk-csr-initiatives-section-editor',
 			style: {
 				backgroundColor: backgroundImage
 					? 'transparent'

@@ -11,11 +11,11 @@ $em-radius: 16px;
 .editor-styles-wrapper,
 .block-editor-block-list__layout,
 .wp-block-twork-em-doc-section {
-  .twork-em-doc-section-editor {
+  .mk-em-doc-section-editor {
     position: relative;
     min-height: 200px;
 
-    .em-doc-grid.twork-em-doc-grid-container {
+    .em-doc-grid.mk-em-doc-grid-container {
       // Base grid setup on the editor container (for modern editors)
       display: grid !important;
       grid-template-columns: repeat(var(--grid-columns, 3), 1fr) !important;
@@ -76,8 +76,8 @@ $em-radius: 16px;
 }
 
 // === FRONTEND & SHARED ===
-.twork-em-doc-section.em-section,
-.twork-em-doc-section-editor.em-section {
+.mk-em-doc-section.em-section,
+.mk-em-doc-section-editor.em-section {
   position: relative;
 
   .em-container {

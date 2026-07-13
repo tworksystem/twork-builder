@@ -34,7 +34,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 	const blockProps = useStableBlockProps(
 		() => ( {
 			className:
-				'chk-section chk-compare-section twork-health-check-compare-editor',
+				'chk-section chk-compare-section mk-health-check-compare-editor',
 			style: {
 				backgroundColor: backgroundColor || '#f4f8fb',
 				paddingTop: `${ paddingTop }px`,

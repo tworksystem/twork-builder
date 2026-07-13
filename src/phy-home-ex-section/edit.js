@@ -69,7 +69,7 @@ export default function Edit( { attributes = {}, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'phy-section twork-phy-home-ex-section-editor',
+			className: 'phy-section mk-phy-home-ex-section-editor',
 			style: {
 				backgroundColor,
 				paddingTop: `${ Number( paddingTop ) }px`,

@@ -159,7 +159,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'twork-centre-layout-section twork-centre-layout-editor',
+			className: 'mk-centre-layout-section mk-centre-layout-editor',
 			style: {
 				paddingTop: `${ paddingTop }px`,
 				paddingBottom: `${ paddingBottom }px`,
@@ -1135,45 +1135,46 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 									<h3>{ contactTitle }</h3>
 									<p>{ contactText }</p>
-									<a
-										href={ contactPhoneUrl || 'tel:' }
-										className="jivaka-btn btn-primary centre-editor-phone-btn"
-										style={ { width: '100%' } }
-										onClick={ ( e ) => e.preventDefault() }
-										role="presentation"
-										aria-label={
-											contactPhone
-												? undefined
-												: __(
-														'Emergency phone – set in block settings',
-														'twork-builder'
-												  )
-										}
-									>
-										<CentreIconRender
-											iconType={
-												contactPhoneIconType ||
-												'fontawesome'
+									<div className="sidebar-contact-actions">
+										<a
+											href={ contactPhoneUrl || 'tel:' }
+											className="jivaka-btn btn-primary centre-editor-phone-btn"
+											onClick={ ( e ) => e.preventDefault() }
+											role="presentation"
+											aria-label={
+												contactPhone
+													? undefined
+													: __(
+															'Emergency phone – set in block settings',
+															'twork-builder'
+													  )
 											}
-											faClass={
-												contactPhoneIcon ||
-												'fas fa-phone'
-											}
-											dashicon={ contactPhoneDashicon }
-											imageUrl={
-												contactPhoneIconImageUrl
-											}
-											videoUrl={
-												contactPhoneIconVideoUrl
-											}
-											className="sidebar-contact-phone-icon"
-										/>{ ' ' }
-										{ contactPhone ||
-											__(
-												'Phone number',
-												'twork-builder'
-											) }
-									</a>
+										>
+											<CentreIconRender
+												iconType={
+													contactPhoneIconType ||
+													'fontawesome'
+												}
+												faClass={
+													contactPhoneIcon ||
+													'fas fa-phone'
+												}
+												dashicon={ contactPhoneDashicon }
+												imageUrl={
+													contactPhoneIconImageUrl
+												}
+												videoUrl={
+													contactPhoneIconVideoUrl
+												}
+												className="sidebar-contact-phone-icon"
+											/>{ ' ' }
+											{ contactPhone ||
+												__(
+													'Phone number',
+													'twork-builder'
+												) }
+										</a>
+									</div>
 								</div>
 							) : (
 								<div

@@ -13,7 +13,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 	const { sectionId, title, intro } = attributes;
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'content-section twork-dept-technology-editor',
+			className: 'content-section mk-dept-technology-editor',
 		} ),
 		[]
 	);

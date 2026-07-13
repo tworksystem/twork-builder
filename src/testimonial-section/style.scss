@@ -1,7 +1,7 @@
 @import "../scss/typography";
 
 /**
- * Twork Testimonial Section – Patient Testimonials
+ * Mk Testimonial Section – Patient Testimonials
  * Matches home.html: testimonials-section, section-top-link, jivaka-section-title, testimonials-grid.
  * Responsive: CSS custom properties + media queries (no inline overrides).
  */
@@ -17,12 +17,12 @@
 .editor-styles-wrapper,
 .block-editor-block-list__layout,
 .wp-block-twork-testimonial-section {
-    .twork-testimonial-section-editor {
+    .mk-testimonial-section-editor {
         font-family: $font-primary;
         position: relative;
         min-height: 200px;
 
-        .twork-testimonial-grid.testimonials-grid,
+        .mk-testimonial-grid.testimonials-grid,
         .testimonials-grid {
             display: grid !important;
             width: 100% !important;
@@ -45,8 +45,8 @@
         }
 
         // Ensure testimonial-item content is visible in editor (readable on light card)
-        .twork-testimonial-item-editor.testimonial-card,
-        .testimonial-card.twork-testimonial-item-editor {
+        .mk-testimonial-item-editor.testimonial-card,
+        .testimonial-card.mk-testimonial-item-editor {
             visibility: visible !important;
             opacity: 1 !important;
 
@@ -86,7 +86,7 @@
 
 // === FRONTEND (Desktop base – matches home.html) ===
 .testimonials-section,
-.twork-testimonial-section,
+.mk-testimonial-section,
 .wp-block-twork-testimonial-section {
     font-family: $font-primary !important;
     color: var(--white-color) !important;
@@ -262,7 +262,7 @@
 // Desktop >1200px uses base styles; below 1200px apply tablet overrides
 @media (max-width: 1200px) {
     .testimonials-section,
-    .twork-testimonial-section,
+    .mk-testimonial-section,
     .wp-block-twork-testimonial-section {
         .testimonials-grid {
             grid-template-columns: repeat(var(--columns-tablet, 3), 1fr) !important;
@@ -293,7 +293,7 @@
 // === RESPONSIVE – SMALL TABLET (≤992px) ===
 @media (max-width: 992px) {
     .testimonials-section,
-    .twork-testimonial-section,
+    .mk-testimonial-section,
     .wp-block-twork-testimonial-section {
         .testimonials-grid {
             grid-template-columns: repeat(2, 1fr) !important;
@@ -308,7 +308,7 @@
 // === RESPONSIVE – MOBILE (≤768px) ===
 @media (max-width: 768px) {
     .testimonials-section,
-    .twork-testimonial-section,
+    .mk-testimonial-section,
     .wp-block-twork-testimonial-section {
         padding-top: var(--padding-top-mobile, 60px) !important;
         padding-bottom: var(--padding-bottom-mobile, 60px) !important;
@@ -381,7 +381,7 @@
 // === RESPONSIVE – SMALL MOBILE (≤480px) ===
 @media (max-width: 480px) {
     .testimonials-section,
-    .twork-testimonial-section,
+    .mk-testimonial-section,
     .wp-block-twork-testimonial-section {
         .section-top-link a {
             font-size: 0.7rem;

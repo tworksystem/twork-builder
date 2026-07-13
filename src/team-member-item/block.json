@@ -5,7 +5,7 @@
 	"title": "Team Member Item",
 	"parent": [ "twork/team-members-grid" ],
 	"description": "Single team member card with image, name, position, bio, specializations, contact, social links, and CTA button.",
-	"keywords": [ "team", "member", "specialist", "doctor", "twork" ],
+	"keywords": [ "team", "member", "specialist", "doctor", "mk" ],
 	"attributes": {
 		"memberImage": {
 			"type": "string",

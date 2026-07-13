@@ -7,7 +7,7 @@
 	"category": "twork-builder",
 	"icon": "awards",
 	"description": "Why Choose section with benefit cards (icon, title, description) for career/benefits.",
-	"keywords": [ "benefits", "career", "why choose", "icon", "card", "twork" ],
+	"keywords": [ "benefits", "career", "why choose", "icon", "card", "mk" ],
 	"attributes": {
 		"backgroundColor": {
 			"type": "string",

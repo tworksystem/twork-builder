@@ -57,7 +57,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'twork-phy-stats-section-editor',
+			className: 'mk-phy-stats-section-editor',
 			style: {
 				backgroundColor: backgroundColor || 'transparent',
 				paddingTop: `${ Number( paddingTop ) }px`,

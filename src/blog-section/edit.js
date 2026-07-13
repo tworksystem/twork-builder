@@ -1,5 +1,5 @@
 /**
- * Twork Blog Section – Editor
+ * Mk Blog Section – Editor
  * Blog layout with featured post, grid, sidebar widgets, and pagination.
  * Uses dynamic PHP render (ServerSideRender), similar to updates-section.
  */
@@ -52,7 +52,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'twork-blog-section-editor',
+			className: 'mk-blog-section-editor',
 		} ),
 		[]
 	);

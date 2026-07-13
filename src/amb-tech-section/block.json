@@ -7,7 +7,7 @@
 	"category": "twork-builder",
 	"icon": "admin-tools",
 	"description": "ICU on Wheels – dark section with technology/equipment grid (icon, title, description per item).",
-	"keywords": [ "ambulance", "tech", "ICU", "equipment", "twork" ],
+	"keywords": [ "ambulance", "tech", "ICU", "equipment", "mk" ],
 	"attributes": {
 		"backgroundColor": {
 			"type": "string",

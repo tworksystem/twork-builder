@@ -31,7 +31,7 @@ export default function save( { attributes } ) {
 	} = attrs;
 
 	const blockProps = useBlockProps.save( {
-		className: 'doctor-directory twork-doctor-directory-section',
+		className: 'doctor-directory mk-doctor-directory-section',
 		style: {
 			backgroundColor: backgroundColor ?? undefined,
 			paddingTop: `${ Number( paddingTop ) }px`,

@@ -9,7 +9,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 	const blockProps = useStableBlockProps(
 		() => ( {
 			className:
-				'paed-service-card paed-stagger twork-paed-service-card-editor',
+				'paed-service-card paed-stagger mk-paed-service-card-editor',
 		} ),
 		[]
 	);

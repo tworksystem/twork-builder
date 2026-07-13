@@ -8,7 +8,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'em-step twork-em-process-step-editor',
+			className: 'em-step mk-em-process-step-editor',
 		} ),
 		[]
 	);

@@ -37,7 +37,7 @@ export default function save( { attributes } ) {
 	} = attrs;
 
 	const blockProps = useBlockProps.save( {
-		className: 'twork-phy-stats-section',
+		className: 'mk-phy-stats-section',
 		style: {
 			backgroundColor: backgroundColor || 'transparent',
 			paddingTop: `${ Number( paddingTop ) }px`,

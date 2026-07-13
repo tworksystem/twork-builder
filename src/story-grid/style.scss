@@ -92,7 +92,7 @@
 .editor-styles-wrapper,
 .block-editor-block-list__layout,
 .wp-block-twork-story-grid {
-    .twork-story-grid-editor {
+    .mk-story-grid-editor {
         position: relative !important; // CRITICAL: Must be relative for absolute child positioning
         min-height: 400px;
         // Ensure CSS variables are available in editor
@@ -115,7 +115,7 @@
             }
         }
 
-        .twork-story-grid-container {
+        .mk-story-grid-container {
             display: grid !important;
             grid-template-columns: 1fr !important;
             gap: var(--story-grid-gap, 60px) !important;
@@ -322,7 +322,7 @@
 }
 
 // === FRONTEND STYLES ===
-.twork-story-section {
+.mk-story-section {
     font-family: $font-primary;
     position: relative;
     overflow: hidden;
@@ -488,7 +488,7 @@
 
 // === RESPONSIVE STYLES ===
 @media (max-width: 992px) {
-    .twork-story-section {
+    .mk-story-section {
         .jivaka-container.story-grid {
             gap: var(--story-grid-gap-tablet, 40px) !important;
         }
@@ -501,7 +501,7 @@
     // Editor responsive
     .editor-styles-wrapper,
     .block-editor-block-list__layout {
-        .twork-story-grid-container {
+        .mk-story-grid-container {
             gap: var(--story-grid-gap-tablet, 40px) !important;
 
             > .block-editor-inner-blocks {
@@ -518,7 +518,7 @@
 }
 
 @media (max-width: 768px) {
-    .twork-story-section {
+    .mk-story-section {
         padding: 60px 0;
 
         .jivaka-container.story-grid {
@@ -562,7 +562,7 @@
 
     // Editor responsive
     .editor-styles-wrapper {
-        .twork-story-grid-container {
+        .mk-story-grid-container {
             grid-template-columns: 1fr !important;
             gap: var(--story-grid-gap-mobile, 30px) !important;
 
@@ -589,7 +589,7 @@
 // Ensure items are always visible when JavaScript is disabled
 .no-js,
 noscript {
-    .twork-story-section {
+    .mk-story-section {
         .story-item {
             opacity: 1 !important;
             transform: none !important;
@@ -607,7 +607,7 @@ noscript {
 
 // === PRINT STYLES ===
 @media print {
-    .twork-story-section {
+    .mk-story-section {
         .story-item {
             page-break-inside: avoid;
             break-inside: avoid;
@@ -617,7 +617,7 @@ noscript {
 
 // === DARK MODE SUPPORT ===
 @media (prefers-color-scheme: dark) {
-    .twork-story-section {
+    .mk-story-section {
         .story-item {
             .story-content {
                 color: #e0e0e0;

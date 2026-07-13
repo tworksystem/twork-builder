@@ -16,7 +16,7 @@
 .editor-styles-wrapper,
 .block-editor-block-list__layout,
 .wp-block-twork-timeline-wrapper {
-    .twork-timeline-wrapper-editor {
+    .mk-timeline-wrapper-editor {
         position: relative;
         min-height: 400px;
 
@@ -36,7 +36,7 @@
         }
 
         .timeline-wrapper,
-        .twork-timeline-wrapper {
+        .mk-timeline-wrapper {
             position: relative;
             padding: 40px 0;
             min-height: 300px;
@@ -190,9 +190,9 @@
 [data-type="twork/timeline-item"],
 .wp-block[data-type="twork/timeline-item"],
 .block-editor-block-list__block[data-type="twork/timeline-item"],
-.twork-timeline-wrapper-section .wp-block-twork-timeline-item,
-.twork-timeline-wrapper-section [class*="wp-block-twork-timeline-item"],
-.twork-timeline-wrapper-section [data-type="twork/timeline-item"] {
+.mk-timeline-wrapper-section .wp-block-twork-timeline-item,
+.mk-timeline-wrapper-section [class*="wp-block-twork-timeline-item"],
+.mk-timeline-wrapper-section [data-type="twork/timeline-item"] {
     border: none !important;
     border-width: 0 !important;
     border-style: none !important;
@@ -210,7 +210,7 @@
     margin: 0 !important;
 }
 
-.twork-timeline-wrapper-section {
+.mk-timeline-wrapper-section {
     font-family: $font-primary;
     position: relative;
     overflow: hidden;
@@ -293,7 +293,7 @@
     }
 
     .timeline-wrapper,
-    .twork-timeline-wrapper {
+    .mk-timeline-wrapper {
         position: relative;
         padding: 40px 0;
         // Prevent global `.timeline-wrapper { border: ... }` collisions (common in themes/plugins)
@@ -524,8 +524,8 @@
 
     // Scroll animations (progressive enhancement)
     // - Timeline items are visible by default (no-JS safe)
-    // - JS adds `.twork-animation-ready` to enable these states
-    &.twork-animation-ready[data-animation="true"] {
+    // - JS adds `.mk-animation-ready` to enable these states
+    &.mk-animation-ready[data-animation="true"] {
         .timeline-item {
             opacity: 0;
             transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
@@ -594,9 +594,9 @@
 // === RESPONSIVE STYLES ===
 // Matching about.html breakpoint at 992px
 @media (max-width: 992px) {
-    .twork-timeline-wrapper-section {
+    .mk-timeline-wrapper-section {
         .timeline-wrapper,
-        .twork-timeline-wrapper {
+        .mk-timeline-wrapper {
             .timeline-line {
                 // Override any legacy inline styles saved in post content
                 left: 20px !important;
@@ -714,7 +714,7 @@
 }
 
 @media (max-width: 768px) {
-    .twork-timeline-wrapper-section {
+    .mk-timeline-wrapper-section {
         padding: 60px 0;
 
         .section-header {
@@ -730,7 +730,7 @@
         }
 
         .timeline-wrapper,
-        .twork-timeline-wrapper {
+        .mk-timeline-wrapper {
             padding: 30px 0;
 
             .timeline-line {
@@ -856,9 +856,9 @@
 
 // Additional breakpoint for very small mobile devices
 @media (max-width: 480px) {
-    .twork-timeline-wrapper-section {
+    .mk-timeline-wrapper-section {
         .timeline-wrapper,
-        .twork-timeline-wrapper {
+        .mk-timeline-wrapper {
             .timeline-item {
                 // Reduced spacing for very small screens to prevent cramped layout
                 margin-bottom: 40px !important;
@@ -904,7 +904,7 @@
 // Progressive Enhancement: Works without JavaScript
 .no-js,
 noscript {
-    .twork-timeline-wrapper-section {
+    .mk-timeline-wrapper-section {
         .timeline-item {
             opacity: 1 !important;
             transform: none !important;
@@ -920,7 +920,7 @@ noscript {
 
 // Reduced motion support for accessibility
 @media (prefers-reduced-motion: reduce) {
-    .twork-timeline-wrapper-section {
+    .mk-timeline-wrapper-section {
         .timeline-item {
             transition: none !important;
             animation: none !important;
@@ -930,7 +930,7 @@ noscript {
             transition: none !important;
         }
 
-        &.twork-animation-ready[data-animation="true"] .timeline-item {
+        &.mk-animation-ready[data-animation="true"] .timeline-item {
             opacity: 1 !important;
             transform: none !important;
         }
@@ -938,19 +938,19 @@ noscript {
 }
 
 // === ACCESSIBILITY ===
-.twork-timeline-wrapper-section .timeline-item:focus-visible {
+.mk-timeline-wrapper-section .timeline-item:focus-visible {
     outline: 3px solid var(--primary-orange);
     outline-offset: 2px;
 }
 
-.twork-timeline-wrapper-section .timeline-content:focus-visible {
+.mk-timeline-wrapper-section .timeline-content:focus-visible {
     outline: 3px solid var(--primary-orange);
     outline-offset: 2px;
 }
 
 // === PRINT STYLES ===
 @media print {
-    .twork-timeline-wrapper-section {
+    .mk-timeline-wrapper-section {
         .timeline-wrapper {
             .timeline-line,
             .timeline-progress {
@@ -983,7 +983,7 @@ noscript {
 
 // === DARK MODE SUPPORT ===
 @media (prefers-color-scheme: dark) {
-    .twork-timeline-wrapper-section {
+    .mk-timeline-wrapper-section {
         .timeline-wrapper {
             .timeline-item {
                 .timeline-content {
@@ -1016,7 +1016,7 @@ noscript {
 }
 
 // === UTILITY CLASSES ===
-.twork-timeline-wrapper-section .timeline-item {
+.mk-timeline-wrapper-section .timeline-item {
     // Border utilities
     &.has-border {
         .timeline-content {

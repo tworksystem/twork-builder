@@ -32,7 +32,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'twork-ph-upload-section',
+			className: 'mk-ph-upload-section',
 			style: {
 				backgroundColor,
 				paddingTop: `${ paddingY }px`,

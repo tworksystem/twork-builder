@@ -73,7 +73,7 @@ export default function save( { attributes } ) {
 	} = attributes;
 
 	const blockProps = useBlockProps.save( {
-		className: 'key-service-item animate-on-scroll twork-key-service-item',
+		className: 'key-service-item animate-on-scroll mk-key-service-item',
 		style: {
 			padding: `${ itemPadding }px`,
 			textAlign: itemAlignment,

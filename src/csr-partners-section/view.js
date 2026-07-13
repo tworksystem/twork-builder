@@ -3,7 +3,7 @@
  * Uses Intersection Observer API - no GSAP dependency.
  *
  * @since 1.0.0
- * @author Twork Builder
+ * @author MK Builder
  */
 
 ( function () {
@@ -12,14 +12,14 @@
 	function initCsrPartnersSection() {
 		if ( ! ( 'IntersectionObserver' in window ) ) {
 			const grids = document.querySelectorAll(
-				'.twork-csr-partners-section .logo-grid.fade-up'
+				'.mk-csr-partners-section .logo-grid.fade-up'
 			);
 			grids.forEach( ( el ) => el.classList.add( 'is-visible' ) );
 			return;
 		}
 
 		const sections = document.querySelectorAll(
-			'.twork-csr-partners-section[data-animation="true"]'
+			'.mk-csr-partners-section[data-animation="true"]'
 		);
 		if ( ! sections.length ) return;
 
@@ -50,7 +50,7 @@
 	}
 
 	window.addEventListener( 'load', initCsrPartnersSection );
-	window.TworkCsrPartnersSection = {
+	window.MkCsrPartnersSection = {
 		init: initCsrPartnersSection,
 		version: '1.0.0',
 	};

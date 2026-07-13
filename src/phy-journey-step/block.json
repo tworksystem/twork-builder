@@ -8,7 +8,7 @@
 	"parent": [ "twork/phy-journey-section" ],
 	"icon": "excerpt-view",
 	"description": "Single journey item (step) for the Physio Journey section.",
-	"keywords": [ "physio", "journey", "step", "timeline", "twork" ],
+	"keywords": [ "physio", "journey", "step", "timeline", "mk" ],
 	"attributes": {
 		"title": {
 			"type": "string",

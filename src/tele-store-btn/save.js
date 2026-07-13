@@ -9,7 +9,7 @@ export default function save( { attributes } ) {
 	}
 
 	const blockProps = useBlockProps.save( {
-		className: 'twork-tele-store-btn-wrapper',
+		className: 'mk-tele-store-btn-wrapper',
 	} );
 
 	const href = url || '#';

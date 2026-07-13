@@ -11,7 +11,7 @@
 	 */
 	function initScrollAnimations() {
 		const storySections = document.querySelectorAll(
-			'.twork-story-section[data-animation="true"]'
+			'.mk-story-section[data-animation="true"]'
 		);
 
 		if ( storySections.length === 0 ) return;

@@ -1,5 +1,5 @@
 /**
- * Twork Emergency Units Section – Block registration
+ * Mk Emergency Units Section – Block registration
  * Specialized Emergency Units – displays WordPress posts as unit cards. Dynamic block (PHP render).
  */
 import { registerBlockType } from '@wordpress/blocks';

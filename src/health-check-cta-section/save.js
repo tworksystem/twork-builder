@@ -24,7 +24,7 @@ export default function save( { attributes } ) {
 	} = attributes;
 
 	const blockProps = useBlockProps.save( {
-		className: 'twork-health-check-cta-section',
+		className: 'mk-health-check-cta-section',
 		style: {
 			marginBottom: `${ marginBottom }px`,
 		},

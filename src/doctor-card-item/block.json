@@ -5,7 +5,7 @@
 	"title": "Doctor Card Item",
 	"parent": [ "twork/doctor-directory-section" ],
 	"description": "Single doctor card for the Doctor Directory. Used inside Doctor Directory Section.",
-	"keywords": [ "doctor", "card", "profile", "twork" ],
+	"keywords": [ "doctor", "card", "profile", "mk" ],
 	"attributes": {
 		"doctorImage": {
 			"type": "string",
@@ -25,6 +25,10 @@
 		"imageObjectPosition": {
 			"type": "string",
 			"default": "top center"
+		},
+		"showImage": {
+			"type": "boolean",
+			"default": true
 		},
 		"showBadge": {
 			"type": "boolean",
@@ -77,17 +81,31 @@
 		"bookButtonText": {
 			"type": "string",
 			"default": "Book"
+		},
+		"showButtons": {
+			"type": "boolean",
+			"default": true
+		},
+		"showProfileButton": {
+			"type": "boolean",
+			"default": true
+		},
+		"showBookButton": {
+			"type": "boolean",
+			"default": true
 		}
 	},
 	"supports": {
 		"html": false
 	},
+	"usesContext": [ "twork/departments", "twork/genders" ],
 	"example": {
 		"attributes": {
 			"doctorImage": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?auto=format&fit=crop&w=1200&q=80",
 			"imageHeight": 260,
 			"imageObjectFit": "cover",
 			"imageObjectPosition": "top center",
+			"showImage": true,
 			"showBadge": false,
 			"badgeText": "Available Today",
 			"departmentSlug": "heart",
@@ -100,9 +118,14 @@
 			"bookUrl": "#",
 			"bookOpenInNewTab": false,
 			"profileButtonText": "Profile",
-			"bookButtonText": "Book"
+			"bookButtonText": "Book",
+			"showButtons": true,
+			"showProfileButton": true,
+			"showBookButton": true
 		}
 	},
 	"textdomain": "twork-builder",
-	"editorScript": "file:./index.js"
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css",
+	"editorStyle": "file:./style-index.css"
 }

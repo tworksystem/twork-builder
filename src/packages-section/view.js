@@ -7,7 +7,7 @@
 	'use strict';
 
 	const initPackagesSection = () => {
-		const sections = document.querySelectorAll( '.twork-packages-section' );
+		const sections = document.querySelectorAll( '.mk-packages-section' );
 		if ( ! sections.length ) return;
 
 		sections.forEach( ( section ) => {

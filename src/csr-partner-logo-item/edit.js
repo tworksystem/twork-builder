@@ -26,7 +26,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 	const blockProps = useStableBlockProps(
 		() => ( {
 			className:
-				'twork-csr-partner-logo-item-editor partner-logo-wrap csr-partner-logo-wrap',
+				'mk-csr-partner-logo-item-editor partner-logo-wrap csr-partner-logo-wrap',
 			style: {
 				display: 'flex',
 				alignItems: 'center',

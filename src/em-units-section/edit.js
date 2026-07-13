@@ -1,5 +1,5 @@
 /**
- * Twork Emergency Units Section – Editor
+ * Mk Emergency Units Section – Editor
  * Specialized Emergency Units – content from WordPress Posts. Dynamic block (PHP render).
  */
 import { __ } from '@wordpress/i18n';
@@ -132,7 +132,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'twork-em-units-section-editor',
+			className: 'mk-em-units-section-editor',
 			style: {
 				backgroundColor,
 				paddingTop: `${ paddingTop }px`,

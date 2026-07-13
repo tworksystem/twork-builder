@@ -8,9 +8,9 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'twork-team-member',
+			className: 'mk-team-member',
 			style: {
-				'--twork-team-member-accent': accentColor || undefined,
+				'--mk-team-member-accent': accentColor || undefined,
 			},
 		} ),
 		[ accentColor ]
@@ -54,7 +54,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 			<div { ...blockProps }>
 				<RichText
 					tagName="p"
-					className="twork-team-member__name"
+					className="mk-team-member__name"
 					value={ name }
 					onChange={ ( val ) => setAttributes( { name: val } ) }
 					placeholder={ __( 'Name', 'twork-builder' ) }
@@ -62,7 +62,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 				/>
 				<RichText
 					tagName="span"
-					className="twork-team-member__role"
+					className="mk-team-member__role"
 					value={ role }
 					onChange={ ( val ) => setAttributes( { role: val } ) }
 					placeholder={ __( 'Role', 'twork-builder' ) }

@@ -5,7 +5,7 @@
 	"title": "Accommodation Room Card",
 	"parent": [ "twork/accommodation-options-section" ],
 	"description": "Single room card with image, price, amenities and CTA button.",
-	"keywords": [ "accommodation", "room", "facilities", "card", "twork" ],
+	"keywords": [ "accommodation", "room", "facilities", "card", "mk" ],
 	"attributes": {
 		"title": {
 			"type": "string",

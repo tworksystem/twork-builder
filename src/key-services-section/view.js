@@ -3,7 +3,7 @@
  * No GSAP dependency - uses Intersection Observer API and CSS transitions
  *
  * @since 1.0.0
- * @author Twork Builder
+ * @author MK Builder
  * @follows WordPress Coding Standards (WPCS)
  */
 
@@ -20,11 +20,11 @@
 		// Early return if IntersectionObserver is not supported
 		if ( ! ( 'IntersectionObserver' in window ) ) {
 			console.warn(
-				'Twork Key Services: IntersectionObserver not supported. Animations disabled.'
+				'Mk Key Services: IntersectionObserver not supported. Animations disabled.'
 			);
 			// Make all items visible immediately
 			const allItems = document.querySelectorAll(
-				'.key-service-item, .twork-key-service-item'
+				'.key-service-item, .mk-key-service-item'
 			);
 			allItems.forEach( ( item ) => {
 				item.style.opacity = '1';
@@ -36,18 +36,18 @@
 
 		// Get all key services sections
 		const keyServicesSections = document.querySelectorAll(
-			'.key-services-section, .twork-key-services-section'
+			'.key-services-section, .mk-key-services-section'
 		);
 
 		if ( keyServicesSections.length === 0 ) {
 			console.log(
-				'Twork Key Services: No key services sections found.'
+				'Mk Key Services: No key services sections found.'
 			);
 			return;
 		}
 
 		console.log(
-			`Twork Key Services: Initializing ${ keyServicesSections.length } section(s).`
+			`Mk Key Services: Initializing ${ keyServicesSections.length } section(s).`
 		);
 
 		keyServicesSections.forEach( ( section, sectionIndex ) => {
@@ -63,7 +63,7 @@
 
 			// Get all key service items
 			const serviceItems = section.querySelectorAll(
-				'.key-service-item, .twork-key-service-item'
+				'.key-service-item, .mk-key-service-item'
 			);
 
 			console.log(
@@ -211,7 +211,7 @@
 	 * This ensures animations work with lazy-loaded content
 	 */
 	window.addEventListener( 'load', () => {
-		console.log( 'Twork Key Services: Window loaded, re-initializing...' );
+		console.log( 'Mk Key Services: Window loaded, re-initializing...' );
 		initKeyServicesSection();
 	} );
 
@@ -223,15 +223,15 @@
 		'resize',
 		debounce( () => {
 			console.log(
-				'Twork Key Services: Window resized, checking visibility...'
+				'Mk Key Services: Window resized, checking visibility...'
 			);
 			// Only check visibility, don't re-initialize everything
 			const allItems = document.querySelectorAll(
-				'.key-service-item, .twork-key-service-item'
+				'.key-service-item, .mk-key-service-item'
 			);
 			allItems.forEach( ( item ) => {
 				const section = item.closest(
-					'.key-services-section, .twork-key-services-section'
+					'.key-services-section, .mk-key-services-section'
 				);
 				if ( section && section.dataset.animation !== 'true' ) {
 					item.style.opacity = '1';
@@ -246,10 +246,10 @@
 	 * Expose initialization function globally for manual re-initialization
 	 * Useful for AJAX-loaded content or dynamic page builders
 	 */
-	window.TworkKeyServices = {
+	window.MkKeyServices = {
 		init: initKeyServicesSection,
 		version: '1.0.0',
 	};
 
-	console.log( 'Twork Key Services: Script loaded successfully.' );
+	console.log( 'Mk Key Services: Script loaded successfully.' );
 } )();

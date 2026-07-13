@@ -18,7 +18,7 @@
 .editor-styles-wrapper,
 .block-editor-block-list__layout,
 .wp-block-twork-packages-section {
-    .twork-packages-section-editor {
+    .mk-packages-section-editor {
         position: relative;
         min-height: 200px;
 
@@ -35,7 +35,7 @@
             }
         }
 
-        .twork-packages-grid-container {
+        .mk-packages-grid-container {
             display: grid !important;
             grid-template-columns: repeat(var(--grid-columns, 3), 1fr) !important;
             gap: var(--grid-gap, 30px) !important;
@@ -74,7 +74,7 @@
 }
 
 // === FRONTEND STYLES ===
-.twork-packages-section {
+.mk-packages-section {
     font-family: $font-primary;
     position: relative;
     overflow: hidden;
@@ -303,6 +303,31 @@
                 }
             }
         }
+
+        &.is-image-card {
+            .pkg-body {
+                padding: 0;
+            }
+
+            .pkg-display-image {
+                width: 100%;
+                line-height: 0;
+
+                img {
+                    width: 100%;
+                    height: auto;
+                    display: block;
+                    object-fit: contain;
+                }
+            }
+
+            &.is-image-only {
+                .pkg-header,
+                .pkg-footer {
+                    display: none;
+                }
+            }
+        }
     }
 
     // Hover translate from data attribute (set by view.js or inline)
@@ -314,8 +339,8 @@
 }
 
 // === LAB PRICING STYLE VARIANT (front + editor) ===
-.twork-packages-section.lab-price-section,
-.twork-packages-section-editor.lab-price-section {
+.mk-packages-section.lab-price-section,
+.mk-packages-section-editor.lab-price-section {
     // Lab palette fallbacks (section sets --lab-* from Colors panel)
     --lab-light: #f0f9ff;
     --lab-radius: 20px;
@@ -496,7 +521,7 @@
 }
 
 // Scroll animation
-.twork-packages-section[data-animation="true"] {
+.mk-packages-section[data-animation="true"] {
     .package-card.animate-on-scroll {
         opacity: 0;
         transform: translateY(50px);
@@ -511,8 +536,8 @@
 
 // === RESPONSIVE ===
 @media (max-width: 992px) {
-    .twork-packages-section,
-    .twork-packages-section-editor {
+    .mk-packages-section,
+    .mk-packages-section-editor {
         .packages-grid,
         .lab-price-grid {
             grid-template-columns: repeat(2, 1fr) !important;
@@ -530,8 +555,8 @@
 }
 
 @media (max-width: 768px) {
-    .twork-packages-section,
-    .twork-packages-section-editor {
+    .mk-packages-section,
+    .mk-packages-section-editor {
         .packages-grid,
         .lab-price-grid {
             grid-template-columns: 1fr !important;
@@ -560,7 +585,7 @@
 
 // === PRINT ===
 @media print {
-    .twork-packages-section {
+    .mk-packages-section {
         .filter-section {
             display: none;
         }

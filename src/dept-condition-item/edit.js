@@ -16,7 +16,7 @@ export default function Edit( { attributes = {}, setAttributes, isSelected } ) {
 	const { icon = 'fa-heart-broken', title = '' } = attributes;
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'condition-card twork-dept-condition-editor',
+			className: 'condition-card mk-dept-condition-editor',
 		} ),
 		[]
 	);

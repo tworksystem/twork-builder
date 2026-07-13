@@ -1,13 +1,13 @@
 // Tele Store Button – image + link only (used inside tele-download-section)
 
-.twork-tele-store-btn-wrapper {
+.mk-tele-store-btn-wrapper {
     display: flex;
     align-items: center;
     min-width: 0;
 }
 
 // Image-only store button: link wraps image, no min-width
-.twork-tele-download-section .store-btns .twork-tele-store-btn-wrapper .store-btn.store-btn-image {
+.mk-tele-download-section .store-btns .mk-tele-store-btn-wrapper .store-btn.store-btn-image {
     display: inline-block;
     padding: 0;
     min-width: 0;

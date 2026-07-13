@@ -217,6 +217,11 @@
     line-height: 1.1;
     margin: 0 0 30px 0;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    color: #fff;
+}
+
+.wp-block-twork-hero-new-section .main-heading__line {
+    display: block;
 }
 
 .wp-block-twork-hero-new-section .main-heading .text-orange {
@@ -491,23 +496,18 @@
 }
 
 // === EDITOR ===
-.editor-styles-wrapper .wp-block-twork-hero-new-section.twork-hero-new-section-editor {
-    .hero-text-col {
+// See editor.scss for canvas-specific overrides (loaded via block.json editorStyle).
+
+// Front-end fallback when init script is delayed or blocked
+@keyframes hero-content-reveal-fallback {
+    to {
         opacity: 1;
         visibility: visible;
+        transform: none;
     }
+}
 
-    .glass-card-col {
-        opacity: 1;
-        visibility: visible;
-    }
-
-    .top-tagline [contenteditable="true"]:focus,
-    .main-heading [contenteditable="true"]:focus,
-    .hero-desc[contenteditable="true"]:focus,
-    .glass-card h3[contenteditable="true"]:focus,
-    .glass-card p[contenteditable="true"]:focus {
-        outline: 1px dashed #2271b1;
-        outline-offset: 2px;
-    }
+.wp-block-twork-hero-new-section[data-animation='true']:not(.is-revealed) .hero-text-col.gsap-reveal,
+.wp-block-twork-hero-new-section[data-animation='true']:not(.is-revealed) .glass-card-col.gsap-reveal {
+    animation: hero-content-reveal-fallback 0.001s 0.6s forwards;
 }

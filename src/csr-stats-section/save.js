@@ -1,12 +1,48 @@
 import { useBlockProps, InnerBlocks } from '@wordpress/block-editor';
 
+const DEFAULT_ATTS = {
+	backgroundColor: '#f8f9fa',
+	paddingTop: 40,
+	paddingBottom: 40,
+	paddingHorizontal: 40,
+	columns: 4,
+	columnsTablet: 2,
+	columnsMobile: 1,
+	gap: 30,
+	borderRadius: 12,
+	boxShadow: true,
+	boxShadowColor: 'rgba(0, 0, 0, 0.08)',
+	boxShadowBlur: 30,
+	boxShadowSpread: 0,
+	boxShadowOffsetX: 0,
+	boxShadowOffsetY: 10,
+	sectionMaxWidth: 1100,
+	marginTop: -60,
+	containerMaxWidth: 1200,
+	containerPadding: 20,
+	animationOnScroll: true,
+	animationType: 'fadeInUp',
+	animationDelay: 100,
+};
+
+const ANIMATION_CLASS_MAP = {
+	fadeInUp: 'fade-up',
+	fadeIn: 'fade-in',
+	slideInLeft: 'slide-in-left',
+	slideInRight: 'slide-in-right',
+	zoomIn: 'zoom-in',
+};
+
 export default function save( { attributes } ) {
+	const attrs = { ...DEFAULT_ATTS, ...attributes };
 	const {
 		backgroundColor,
 		paddingTop,
 		paddingBottom,
 		paddingHorizontal,
 		columns,
+		columnsTablet,
+		columnsMobile,
 		gap,
 		borderRadius,
 		boxShadow,
@@ -22,10 +58,15 @@ export default function save( { attributes } ) {
 		animationOnScroll,
 		animationType,
 		animationDelay,
-	} = attributes;
+	} = attrs;
+
+	const animationClass =
+		animationOnScroll && animationType
+			? ANIMATION_CLASS_MAP[ animationType ] || 'fade-up'
+			: '';
 
 	const blockProps = useBlockProps.save( {
-		className: 'twork-csr-stats-section',
+		className: 'mk-csr-stats-section',
 	} );
 
 	const sectionStyle = {
@@ -55,11 +96,16 @@ export default function save( { attributes } ) {
 				} }
 			>
 				<div
-					className="stats-section fade-up"
+					className={ `stats-section${
+						animationClass ? ` ${ animationClass }` : ''
+					}` }
 					style={ sectionStyle }
 					data-animation={ animationOnScroll }
 					data-animation-type={ animationType }
 					data-animation-delay={ animationDelay }
+					data-columns={ columns }
+					data-columns-tablet={ columnsTablet }
+					data-columns-mobile={ columnsMobile }
 				>
 					<div
 						className="stats-grid"
@@ -68,6 +114,9 @@ export default function save( { attributes } ) {
 							gridTemplateColumns: `repeat(${ columns }, 1fr)`,
 							gap: `${ gap }px`,
 							textAlign: 'center',
+							'--csr-stats-columns': columns,
+							'--csr-stats-columns-tablet': columnsTablet,
+							'--csr-stats-columns-mobile': columnsMobile,
 						} }
 					>
 						<InnerBlocks.Content />

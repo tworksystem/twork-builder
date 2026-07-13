@@ -70,7 +70,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'twork-team-members-grid-editor',
+			className: 'mk-team-members-grid-editor',
 			style: {
 				backgroundColor: backgroundImage
 					? 'transparent'
@@ -882,7 +882,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 					) }
 
 					<div
-						className="twork-team-members-grid-container"
+						className="mk-team-members-grid-container"
 						style={ gridStyle }
 						data-columns={ columns }
 					>

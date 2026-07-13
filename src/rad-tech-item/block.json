@@ -7,7 +7,7 @@
 	"parent": [ "twork/rad-tech-section" ],
 	"category": "twork-builder",
 	"description": "Single technology feature item (icon, title, description) for the Radiology Tech Section.",
-	"keywords": [ "radiology", "technology", "feature", "twork" ],
+	"keywords": [ "radiology", "technology", "feature", "mk" ],
 	"attributes": {
 		"iconClass": {
 			"type": "string",

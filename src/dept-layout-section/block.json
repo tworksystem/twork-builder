@@ -7,7 +7,7 @@
 	"category": "twork-builder",
 	"icon": "layout",
 	"description": "Department page layout with sidebar nav, widget CTA, and content area (Overview, Conditions, Specialists, Technology, FAQ).",
-	"keywords": [ "department", "layout", "sidebar", "nav", "twork" ],
+	"keywords": [ "department", "layout", "sidebar", "nav", "mk" ],
 	"attributes": {
 		"navItems": {
 			"type": "array",

@@ -174,7 +174,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'chk-section twork-health-check-packages-section-editor',
+			className: 'chk-section mk-health-check-packages-section-editor',
 			style: {
 				backgroundColor: backgroundColor || '#fff',
 				paddingTop: `${ paddingTop }px`,
@@ -496,7 +496,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 						) ) }
 					</div>
 					<div
-						className="chk-pkg-grid twork-chk-pkg-grid-editor"
+						className="chk-pkg-grid mk-chk-pkg-grid-editor"
 						data-active="basic"
 						style={ {
 							display: 'grid',

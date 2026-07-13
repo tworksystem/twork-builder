@@ -115,7 +115,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'twork-admission-process-section-editor',
+			className: 'mk-admission-process-section-editor',
 			style: {
 				backgroundColor: backgroundImage
 					? 'transparent'
@@ -973,7 +973,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 					) }
 
 					<div
-						className="twork-admission-process-grid process-grid"
+						className="mk-admission-process-grid process-grid"
 						style={ gridStyle }
 						data-columns={ columns }
 					>

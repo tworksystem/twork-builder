@@ -8,7 +8,7 @@
 	"parent": [ "twork/lab-depts-section" ],
 	"icon": "screenoptions",
 	"description": "Single laboratory department card with hex icon and title (e.g. Biochemistry, Hematology).",
-	"keywords": [ "lab", "department", "hex", "card", "twork" ],
+	"keywords": [ "lab", "department", "hex", "card", "mk" ],
 	"attributes": {
 		"iconClass": {
 			"type": "string",

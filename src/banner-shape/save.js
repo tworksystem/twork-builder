@@ -36,7 +36,7 @@ export default function save( { attributes } ) {
 	} = attributes;
 
 	const blockProps = useBlockProps.save( {
-		className: 'twork-banner-shape-section',
+		className: 'mk-banner-shape-section',
 		style: {
 			position: 'relative',
 			minHeight: `${ minHeight }px`,

@@ -8,7 +8,7 @@
 	"category": "twork-builder",
 	"icon": "minus",
 	"description": "Single step (icon, title, description) for Health Check How to Prepare section.",
-	"keywords": [ "health", "check", "step", "prepare", "chk", "twork" ],
+	"keywords": [ "health", "check", "step", "prepare", "chk", "mk" ],
 	"attributes": {
 		"icon": {
 			"type": "string",

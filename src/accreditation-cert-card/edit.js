@@ -66,7 +66,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 	const blockProps = useStableBlockProps(
 		() => ( {
 			className:
-				'twork-accreditation-cert-card-editor cert-card stagger-up',
+				'mk-accreditation-cert-card-editor cert-card stagger-up',
 			style: {
 				padding: `${ cardPadding }px ${ cardPaddingHorizontal }px`,
 				borderRadius: `${ cardBorderRadius }px`,

@@ -5,7 +5,7 @@
 	"title": "Logo Item",
 	"parent": [ "twork/affiliations-section" ],
 	"description": "Single partner/affiliation logo for the affiliations section.",
-	"keywords": [ "affiliation", "partner", "logo", "twork" ],
+	"keywords": [ "affiliation", "partner", "logo", "mk" ],
 	"attributes": {
 		"logoUrl": {
 			"type": "string",

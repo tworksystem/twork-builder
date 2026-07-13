@@ -41,7 +41,7 @@ export default function save( { attributes } ) {
 	} = attributes;
 
 	const blockProps = useBlockProps.save( {
-		className: 'twork-neuro-centre-section',
+		className: 'mk-neuro-centre-section',
 		style: {
 			paddingTop: `${ paddingTop }px`,
 			paddingBottom: `${ paddingBottom }px`,
@@ -315,7 +315,7 @@ export function saveWithLegacyFaq( { attributes } ) {
 		faq2Answer: attributes.faq2Answer || '',
 	};
 	const blockProps = useBlockProps.save( {
-		className: 'twork-neuro-centre-section',
+		className: 'mk-neuro-centre-section',
 		style: {
 			paddingTop: `${ legacyAttrs.paddingTop ?? 80 }px`,
 			paddingBottom: `${ legacyAttrs.paddingBottom ?? 80 }px`,

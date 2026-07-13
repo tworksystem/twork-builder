@@ -31,7 +31,7 @@ export default function save( { attributes } ) {
 	} = attributes;
 
 	const blockProps = useBlockProps.save( {
-		className: 'chk-hero twork-health-check-hero',
+		className: 'chk-hero mk-health-check-hero',
 		style: {
 			minHeight: `${ minHeight }px`,
 			'--chk-primary': primaryColor || '#f48b2a',

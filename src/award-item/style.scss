@@ -8,7 +8,7 @@
 // === EDITOR STYLES ===
 .editor-styles-wrapper,
 .block-editor-block-list__layout {
-    .twork-award-item-editor {
+    .mk-award-item-editor {
         // Ensure card is always visible in editor (standalone use)
         opacity: 1 !important;
         visibility: visible !important;
@@ -34,7 +34,7 @@
 }
 
 // === FRONTEND - nested under awards-section ===
-.twork-awards-section .award-item {
+.mk-awards-section .award-item {
     background: var(--card-bg, #fff);
     border-radius: 12px;
     overflow: hidden;
@@ -43,11 +43,11 @@
     display: flex;
     flex-direction: column;
 
-    .twork-awards-section[data-hover-effect="true"] &:hover {
+    .mk-awards-section[data-hover-effect="true"] &:hover {
         box-shadow: var(--shadow-md);
     }
 
-    .twork-awards-section[data-image-zoom="true"] &:hover .award-img-wrap img {
+    .mk-awards-section[data-image-zoom="true"] &:hover .award-img-wrap img {
         transform: scale(1.1);
     }
 

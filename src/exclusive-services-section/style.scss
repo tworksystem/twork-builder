@@ -17,11 +17,11 @@
 .editor-styles-wrapper,
 .block-editor-block-list__layout,
 .wp-block-twork-exclusive-services-section {
-    .twork-exclusive-services-section-editor {
+    .mk-exclusive-services-section-editor {
         position: relative;
         min-height: 200px;
 
-        .twork-exclusive-services-grid.svc-grid {
+        .mk-exclusive-services-grid.svc-grid {
             display: grid !important;
             width: 100% !important;
 
@@ -50,7 +50,7 @@
 }
 
 // === FRONTEND STYLES ===
-.twork-exclusive-services-section {
+.mk-exclusive-services-section {
     font-family: $font-primary;
     position: relative;
     overflow: hidden;
@@ -135,7 +135,7 @@
 
 // === RESPONSIVE ===
 @media (max-width: 992px) {
-    .twork-exclusive-services-section {
+    .mk-exclusive-services-section {
         .svc-grid {
             grid-template-columns: repeat(var(--columns-tablet, 2), 1fr) !important;
             gap: var(--gap-mobile, 20px) !important;
@@ -144,7 +144,7 @@
 }
 
 @media (max-width: 768px) {
-    .twork-exclusive-services-section {
+    .mk-exclusive-services-section {
         padding-top: var(--padding-top-mobile, 60px) !important;
         padding-bottom: var(--padding-bottom-mobile, 60px) !important;
 
@@ -189,7 +189,7 @@
 
 // === PRINT STYLES ===
 @media print {
-    .twork-exclusive-services-section {
+    .mk-exclusive-services-section {
         .svc-card {
             page-break-inside: avoid;
             break-inside: avoid;

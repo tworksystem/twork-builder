@@ -27,7 +27,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'rad-hero twork-rad-hero-section',
+			className: 'rad-hero mk-rad-hero-section',
 			style: {
 				minHeight: `${ minHeight }px`,
 			},
@@ -160,19 +160,13 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 					<div className="rad-hero-grid">
 						<div className="rad-hero-copy fade-up">
 							{ badgeText && (
-								<span
-									style={ {
-										color: 'var(--rad-primary)',
-										fontWeight: 700,
-										letterSpacing: '2px',
-										textTransform: 'uppercase',
-									} }
-								>
+								<span className="rad-hero-badge">
 									{ badgeText }
 								</span>
 							) }
 							<RichText
 								tagName="h1"
+								className="rad-hero-title"
 								value={ title }
 								onChange={ ( val ) =>
 									setAttributes( { title: val } )
@@ -185,6 +179,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 							<RichText
 								tagName="p"
+								className="rad-hero-description"
 								value={ description }
 								onChange={ ( val ) =>
 									setAttributes( { description: val } )
@@ -198,7 +193,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 							{ buttonText && (
 								<a
 									href={ buttonUrl || '#' }
-									className="rad-btn"
+									className="rad-btn rad-hero-cta"
 									onClick={ ( e ) => e.preventDefault() }
 								>
 									{ buttonText }

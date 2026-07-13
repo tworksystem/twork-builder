@@ -7,7 +7,7 @@
 	"category": "twork-builder",
 	"icon": "grid-view",
 	"description": "Shop by Category section for the pharmacy page, displaying WooCommerce product categories in a bento grid.",
-	"keywords": [ "pharmacy", "shop", "category", "woocommerce", "twork" ],
+	"keywords": [ "pharmacy", "shop", "category", "woocommerce", "mk" ],
 	"attributes": {
 		"source": {
 			"type": "string",

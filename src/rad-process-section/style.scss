@@ -18,7 +18,7 @@
 .editor-styles-wrapper,
 .block-editor-block-list__layout,
 .wp-block-twork-rad-process-section {
-  .twork-rad-process-section-editor {
+  .mk-rad-process-section-editor {
     position: relative;
 
     .rad-container {
@@ -52,7 +52,7 @@
       }
     }
 
-    .twork-rad-step-item-editor.rad-step {
+    .mk-rad-step-item-editor.rad-step {
       h3,
       p {
         &[contenteditable='true']:focus {
@@ -65,7 +65,7 @@
 }
 
 // === FRONTEND STYLES ===
-.twork-rad-process-section {
+.mk-rad-process-section {
   font-family: $font-primary;
 
   .rad-container {
@@ -121,7 +121,7 @@
 
 // === RESPONSIVE ===
 @media (max-width: 992px) {
-  .twork-rad-process-section {
+  .mk-rad-process-section {
     .rad-process-grid {
       grid-template-columns: repeat(var(--rad-process-columns-tablet, 2), 1fr);
     }
@@ -129,7 +129,7 @@
 }
 
 @media (max-width: 768px) {
-  .twork-rad-process-section {
+  .mk-rad-process-section {
     .rad-process-grid {
       grid-template-columns: repeat(var(--rad-process-columns-mobile, 1), 1fr);
     }

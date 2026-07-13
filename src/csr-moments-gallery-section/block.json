@@ -7,7 +7,7 @@
 	"category": "twork-builder",
 	"icon": "format-gallery",
 	"description": "Moments of Care gallery section for CSR pages - title with View All link and image grid.",
-	"keywords": [ "gallery", "moments", "photos", "csr", "care", "twork" ],
+	"keywords": [ "gallery", "moments", "photos", "csr", "care", "mk" ],
 	"attributes": {
 		"backgroundColor": {
 			"type": "string",

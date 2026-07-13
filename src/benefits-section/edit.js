@@ -109,7 +109,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'twork-benefits-section-editor',
+			className: 'mk-benefits-section-editor',
 			style: {
 				backgroundColor,
 				paddingTop: `${ paddingTop }px`,
@@ -515,7 +515,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 					) }
 
 					<div
-						className="twork-benefits-grid benefits-grid"
+						className="mk-benefits-grid benefits-grid"
 						style={ gridStyle }
 						data-min-column-width={ minColumnWidth }
 						data-gap={ gap }

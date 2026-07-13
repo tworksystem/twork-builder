@@ -1,5 +1,5 @@
 /**
- * Twork Testimonial Section – Editor
+ * Mk Testimonial Section – Editor
  * Matches home.html: section-top-link, meta-title, h2 with highlight, subtitle, testimonials-grid.
  */
 import { __ } from '@wordpress/i18n';
@@ -125,7 +125,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 	const blockProps = useStableBlockProps(
 		() => ( {
 			className:
-				'twork-testimonial-section-editor testimonials-section jivaka-section',
+				'mk-testimonial-section-editor testimonials-section jivaka-section',
 			style: {
 				backgroundColor: backgroundImage
 					? 'transparent'
@@ -1099,7 +1099,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 						</div>
 					) }
 
-					<div className="twork-testimonial-grid testimonials-grid">
+					<div className="mk-testimonial-grid testimonials-grid">
 						<InnerBlocks
 							allowedBlocks={ ALLOWED_BLOCKS }
 							template={ TEMPLATE }

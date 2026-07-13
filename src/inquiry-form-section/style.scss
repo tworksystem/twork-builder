@@ -14,7 +14,7 @@
 .editor-styles-wrapper,
 .block-editor-block-list__layout,
 .wp-block-twork-inquiry-form-section {
-    .twork-inquiry-form-section-editor {
+    .mk-inquiry-form-section-editor {
         .inquiry-img {
             position: relative;
             min-height: 300px;
@@ -32,8 +32,8 @@
 
 // === FRONTEND STYLES ===
 // Target both block class and WordPress wrapper for max compatibility
-.twork-inquiry-form-section,
-.wp-block-twork-inquiry-form-section .twork-inquiry-form-section {
+.mk-inquiry-form-section,
+.wp-block-twork-inquiry-form-section .mk-inquiry-form-section {
     font-family: $font-primary;
     position: relative;
     padding-top: var(--section-padding-top, 80px);
@@ -144,8 +144,8 @@
 // === RESPONSIVE ===
 // Use !important to override theme .section-padding, .jivaka-container
 @media (max-width: 992px) {
-    .twork-inquiry-form-section,
-    .wp-block-twork-inquiry-form-section .twork-inquiry-form-section,
+    .mk-inquiry-form-section,
+    .wp-block-twork-inquiry-form-section .mk-inquiry-form-section,
     .wp-block-twork-inquiry-form-section {
         .inquiry-wrapper {
             grid-template-columns: 1fr !important;
@@ -167,8 +167,8 @@
 }
 
 @media (max-width: 768px) {
-    .twork-inquiry-form-section,
-    .wp-block-twork-inquiry-form-section .twork-inquiry-form-section,
+    .mk-inquiry-form-section,
+    .wp-block-twork-inquiry-form-section .mk-inquiry-form-section,
     .wp-block-twork-inquiry-form-section {
         padding-top: var(--section-padding-top-mobile, 60px) !important;
         padding-bottom: var(--section-padding-bottom-mobile, 60px) !important;
@@ -199,8 +199,8 @@
 }
 
 @media (max-width: 480px) {
-    .twork-inquiry-form-section,
-    .wp-block-twork-inquiry-form-section .twork-inquiry-form-section {
+    .mk-inquiry-form-section,
+    .wp-block-twork-inquiry-form-section .mk-inquiry-form-section {
         .jivaka-container {
             padding-left: 16px !important;
             padding-right: 16px !important;
@@ -222,7 +222,7 @@
 }
 
 // === ACCESSIBILITY ===
-.twork-inquiry-form-section {
+.mk-inquiry-form-section {
     .form-control:focus-visible,
     .jivaka-btn:focus-visible {
         outline: 3px solid var(--primary-orange);

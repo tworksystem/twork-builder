@@ -8,7 +8,7 @@ export default function save( { attributes } ) {
 	}
 
 	const blockProps = useBlockProps.save( {
-		className: 'jivaka-badge-item twork-jivaka-badge-item',
+		className: 'jivaka-badge-item mk-jivaka-badge-item',
 	} );
 
 	return (

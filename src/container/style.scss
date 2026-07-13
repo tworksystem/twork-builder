@@ -16,7 +16,7 @@
 .editor-styles-wrapper,
 .block-editor-block-list__layout,
 .wp-block-twork-container {
-    .twork-container-editor {
+    .mk-container-editor {
         position: relative;
         min-height: 200px;
         box-sizing: border-box;
@@ -30,7 +30,7 @@
             pointer-events: none;
         }
 
-        .twork-container {
+        .mk-container {
             position: relative;
             z-index: 2;
             box-sizing: border-box;
@@ -48,7 +48,7 @@
 }
 
 // === FRONTEND STYLES ===
-.twork-container-section {
+.mk-container-section {
     font-family: $font-primary;
     position: relative;
     box-sizing: border-box;
@@ -65,7 +65,7 @@
         pointer-events: none;
     }
 
-    .twork-container {
+    .mk-container {
         position: relative;
         z-index: 2;
         width: 100%;
@@ -152,8 +152,8 @@
 
 // === RESPONSIVE STYLES ===
 @media (max-width: 992px) {
-    .twork-container-section {
-        .twork-container {
+    .mk-container-section {
+        .mk-container {
             // Adjust container padding on tablet
             padding-left: 20px;
             padding-right: 20px;
@@ -162,8 +162,8 @@
 
     // Editor responsive
     .editor-styles-wrapper {
-        .twork-container-editor {
-            .twork-container {
+        .mk-container-editor {
+            .mk-container {
                 padding-left: 20px;
                 padding-right: 20px;
             }
@@ -172,12 +172,12 @@
 }
 
 @media (max-width: 768px) {
-    .twork-container-section {
+    .mk-container-section {
         // Reduce padding on mobile
         padding-left: 15px !important;
         padding-right: 15px !important;
 
-        .twork-container {
+        .mk-container {
             padding-left: 15px !important;
             padding-right: 15px !important;
         }
@@ -185,11 +185,11 @@
 
     // Editor responsive
     .editor-styles-wrapper {
-        .twork-container-editor {
+        .mk-container-editor {
             padding-left: 15px !important;
             padding-right: 15px !important;
 
-            .twork-container {
+            .mk-container {
                 padding-left: 15px !important;
                 padding-right: 15px !important;
             }
@@ -201,7 +201,7 @@
 // Ensure content is always visible when JavaScript is disabled
 .no-js,
 noscript {
-    .twork-container-section {
+    .mk-container-section {
         .animate-on-scroll {
             opacity: 1 !important;
             transform: none !important;
@@ -210,7 +210,7 @@ noscript {
 }
 
 // === ACCESSIBILITY ===
-.twork-container-section {
+.mk-container-section {
     // Focus styles for interactive elements
     &:focus-visible {
         outline: 3px solid var(--primary-orange);
@@ -229,7 +229,7 @@ noscript {
 
 // === PRINT STYLES ===
 @media print {
-    .twork-container-section {
+    .mk-container-section {
         // Remove background images and overlays for print
         background-image: none !important;
         background-color: #ffffff !important;
@@ -245,7 +245,7 @@ noscript {
         page-break-inside: avoid;
         break-inside: avoid;
 
-        .twork-container {
+        .mk-container {
             max-width: 100% !important;
             padding: 0 !important;
         }
@@ -254,13 +254,13 @@ noscript {
 
 // === DARK MODE SUPPORT ===
 @media (prefers-color-scheme: dark) {
-    .twork-container-section {
+    .mk-container-section {
         // Only apply dark mode if no explicit background is set
         &:not([style*="background-color"]):not([style*="background-image"]) {
             background-color: #1a1a1a;
             color: #e0e0e0;
 
-            .twork-container {
+            .mk-container {
                 color: #e0e0e0;
             }
         }
@@ -268,10 +268,10 @@ noscript {
 }
 
 // === UTILITY CLASSES ===
-.twork-container-section {
+.mk-container-section {
     // Full width utility
     &.is-full-width {
-        .twork-container {
+        .mk-container {
             max-width: 100% !important;
             padding-left: 0 !important;
             padding-right: 0 !important;
@@ -280,7 +280,7 @@ noscript {
 
     // Centered content utility
     &.is-centered {
-        .twork-container {
+        .mk-container {
             text-align: center;
         }
     }
@@ -295,7 +295,7 @@ noscript {
 }
 
 // === PERFORMANCE OPTIMIZATIONS ===
-.twork-container-section {
+.mk-container-section {
     // Use GPU acceleration for transforms
     &[data-animation="true"] {
         will-change: transform, opacity;
@@ -309,17 +309,17 @@ noscript {
 
 // === BROWSER COMPATIBILITY ===
 // Ensure proper rendering in older browsers
-.twork-container-section {
+.mk-container-section {
     // Fallback for browsers that don't support CSS Grid
     display: block;
 
-    .twork-container {
+    .mk-container {
         display: block;
     }
 }
 
 // === CLEARFIX UTILITY ===
-.twork-container-section {
+.mk-container-section {
     &::after {
         content: "";
         display: table;

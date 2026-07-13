@@ -15,7 +15,7 @@
 .editor-styles-wrapper,
 .block-editor-block-list__layout,
 .wp-block-twork-hc-packages-section {
-    .twork-hc-packages-section-editor {
+    .mk-hc-packages-section-editor {
         .hc-container {
             max-width: 1200px;
             margin: 0 auto;
@@ -82,8 +82,8 @@
         }
 
         // Card appearance in editor (match front-end so content is visible)
-        .twork-hc-package-card-editor.hc-pkg-card,
-        .hc-pkg-card.twork-hc-package-card-editor {
+        .mk-hc-package-card-editor.hc-pkg-card,
+        .hc-pkg-card.mk-hc-package-card-editor {
             border: 2px dashed #e0e0e0;
             border-radius: var(--hc-radius);
             overflow: hidden;
@@ -186,7 +186,7 @@
 }
 
 // === FRONTEND STYLES ===
-.twork-hc-packages-section {
+.mk-hc-packages-section {
     font-family: $font-primary;
 
     .hc-container {

@@ -4,6 +4,8 @@ import {
 	RichText,
 	InspectorControls,
 	PanelColorSettings,
+	MediaUpload,
+	MediaUploadCheck,
 } from '@wordpress/block-editor';
 import {
 	PanelBody,
@@ -37,6 +39,13 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 		featureUnavailableColor,
 		featureIconColor,
 		featureFontSize,
+		featureMarkerType,
+		featureMarkerImageUrl,
+		featureMarkerImageId,
+		itemDisplayType,
+		itemImageUrl,
+		itemImageId,
+		itemImageAlt,
 		showButton,
 		buttonText,
 		buttonUrl,
@@ -51,11 +60,24 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 		buttonFontWeight,
 	} = attributes;
 
+	const isImageDisplayType =
+		itemDisplayType === 'image' || itemDisplayType === 'image-only';
+	const shouldUseImageCard = isImageDisplayType && !! itemImageUrl;
+	const isImageOnly = itemDisplayType === 'image-only' && !! itemImageUrl;
+	const showHeader = ! isImageOnly;
+	const showFooterButton = showButton && ! isImageOnly;
+
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: `twork-package-item-editor package-card ${
-				isRecommended ? 'recommended' : ''
-			}`,
+			className: [
+				'mk-package-item-editor',
+				'package-card',
+				isRecommended ? 'recommended' : '',
+				shouldUseImageCard ? 'is-image-card' : '',
+				isImageOnly ? 'is-image-only' : '',
+			]
+				.filter( Boolean )
+				.join( ' ' ),
 
 			'data-category': category,
 			style: {
@@ -67,7 +89,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 				flexDirection: 'column',
 			},
 		} ),
-		[ category, isRecommended ]
+		[ category, isRecommended, shouldUseImageCard, isImageOnly ]
 	);
 
 	const addFeature = () => {
@@ -89,6 +111,9 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 		const filtered = features.filter( ( _, i ) => i !== index );
 		setAttributes( { features: filtered } );
 	};
+
+	const shouldUseImageMarker =
+		featureMarkerType === 'image' && !! featureMarkerImageUrl;
 
 	return (
 		<>
@@ -133,6 +158,98 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 									setAttributes( { ribbonText: val } )
 								}
 							/>
+						) }
+						<Divider />
+						<SelectControl
+							label={ __( 'Package Display Type', 'twork-builder' ) }
+							value={ itemDisplayType }
+							options={ [
+								{
+									label: __( 'Bullet List Card', 'twork-builder' ),
+									value: 'bullet',
+								},
+								{
+									label: __( 'Image Card', 'twork-builder' ),
+									value: 'image',
+								},
+								{
+									label: __( 'Image Only', 'twork-builder' ),
+									value: 'image-only',
+								},
+							] }
+							onChange={ ( val ) =>
+								setAttributes( { itemDisplayType: val } )
+							}
+						/>
+						{ isImageDisplayType && (
+							<BaseControl
+								label={ __( 'Package Image', 'twork-builder' ) }
+							>
+								<MediaUploadCheck>
+									<MediaUpload
+										onSelect={ ( media ) =>
+											setAttributes( {
+												itemImageUrl: media?.url || '',
+												itemImageId:
+													media?.id || undefined,
+												itemImageAlt:
+													media?.alt || '',
+											} )
+										}
+										allowedTypes={ [ 'image' ] }
+										value={ itemImageId }
+										render={ ( { open } ) => (
+											<Button
+												isSecondary
+												isSmall
+												onClick={ open }
+											>
+												{ itemImageUrl
+													? __(
+															'Replace Package Image',
+															'twork-builder'
+													  )
+													: __(
+															'Select Package Image',
+															'twork-builder'
+													  ) }
+											</Button>
+										) }
+									/>
+								</MediaUploadCheck>
+								{ itemImageUrl && (
+									<div style={ { marginTop: '10px' } }>
+										<img
+											src={ itemImageUrl }
+											alt={ itemImageAlt || '' }
+											style={ {
+												width: '100%',
+												maxWidth: '220px',
+												height: 'auto',
+												display: 'block',
+												marginBottom: '8px',
+												borderRadius: '6px',
+											} }
+										/>
+										<Button
+											isDestructive
+											isSmall
+											onClick={ () =>
+												setAttributes( {
+													itemImageUrl: '',
+													itemImageId: undefined,
+													itemImageAlt: '',
+												} )
+											}
+										>
+											{ __(
+												'Remove Package Image',
+												'twork-builder'
+											) }
+										</Button>
+									</div>
+								) }
+							</BaseControl>
 						) }
 					</PanelBody>
 
@@ -258,6 +375,99 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 						title={ __( 'Features List', 'twork-builder' ) }
 						initialOpen={ false }
 					>
+						<SelectControl
+							label={ __( 'Feature Marker Style', 'twork-builder' ) }
+							value={ featureMarkerType }
+							options={ [
+								{
+									label: __(
+										'Bullet (Default Icons)',
+										'twork-builder'
+									),
+									value: 'bullet',
+								},
+								{
+									label: __( 'Image', 'twork-builder' ),
+									value: 'image',
+								},
+							] }
+							onChange={ ( val ) =>
+								setAttributes( { featureMarkerType: val } )
+							}
+						/>
+
+						{ featureMarkerType === 'image' && (
+							<BaseControl
+								label={ __( 'Feature Marker Image', 'twork-builder' ) }
+							>
+								<MediaUploadCheck>
+									<MediaUpload
+										onSelect={ ( media ) =>
+											setAttributes( {
+												featureMarkerImageUrl:
+													media?.url || '',
+												featureMarkerImageId:
+													media?.id || undefined,
+											} )
+										}
+										allowedTypes={ [ 'image' ] }
+										value={ featureMarkerImageId }
+										render={ ( { open } ) => (
+											<Button
+												isSecondary
+												isSmall
+												onClick={ open }
+											>
+												{ featureMarkerImageUrl
+													? __(
+															'Replace Marker Image',
+															'twork-builder'
+													  )
+													: __(
+															'Select Marker Image',
+															'twork-builder'
+													  ) }
+											</Button>
+										) }
+									/>
+								</MediaUploadCheck>
+								{ featureMarkerImageUrl && (
+									<div style={ { marginTop: '10px' } }>
+										<img
+											src={ featureMarkerImageUrl }
+											alt={ __(
+												'Feature marker preview',
+												'twork-builder'
+											) }
+											style={ {
+												width: '24px',
+												height: '24px',
+												objectFit: 'contain',
+												display: 'block',
+												marginBottom: '8px',
+											} }
+										/>
+										<Button
+											isDestructive
+											isSmall
+											onClick={ () =>
+												setAttributes( {
+													featureMarkerImageUrl: '',
+													featureMarkerImageId:
+														undefined,
+												} )
+											}
+										>
+											{ __(
+												'Remove Marker Image',
+												'twork-builder'
+											) }
+										</Button>
+									</div>
+								) }
+							</BaseControl>
+						) }
+						<Divider />
 						<BaseControl
 							label={ __( 'Features', 'twork-builder' ) }
 						>
@@ -555,6 +765,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 						{ ribbonText }
 					</div>
 				) }
+				{ showHeader && (
 				<div
 					className="pkg-header"
 					style={ {
@@ -631,57 +842,88 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 						} }
 					/>
 				</div>
+				) }
 				<div
 					className="pkg-body"
-					style={ { padding: 30, flexGrow: 1 } }
+					style={ {
+						padding: shouldUseImageCard ? 0 : 30,
+						flexGrow: 1,
+					} }
 				>
-					<ul
-						className="pkg-features"
-						style={ { listStyle: 'none', padding: 0, margin: 0 } }
-					>
-						{ features.map( ( feat, index ) => (
-							<li
-								key={ index }
-								className={
-									feat.available ? '' : 'unavailable'
-								}
-								style={ {
-									display: 'flex',
-									alignItems: 'flex-start',
-									marginBottom: 15,
-									fontSize: `${ featureFontSize }rem`,
-									color: feat.available
-										? featureTextColor
-										: featureUnavailableColor,
-									textDecoration: feat.available
-										? 'none'
-										: 'line-through',
-								} }
-							>
-								<i
+					{ shouldUseImageCard ? (
+						<div className="pkg-display-image">
+							<img
+								src={ itemImageUrl }
+								alt={ itemImageAlt || packageName || '' }
+								loading="lazy"
+								decoding="async"
+							/>
+						</div>
+					) : (
+						<ul
+							className="pkg-features"
+							style={ { listStyle: 'none', padding: 0, margin: 0 } }
+						>
+							{ features.map( ( feat, index ) => (
+								<li
+									key={ index }
 									className={
-										feat.available
-											? 'fas fa-check-circle'
-											: 'fas fa-times-circle'
+										feat.available ? '' : 'unavailable'
 									}
 									style={ {
+										display: 'flex',
+										alignItems: 'flex-start',
+										marginBottom: 15,
+										fontSize: `${ featureFontSize }rem`,
 										color: feat.available
-											? featureIconColor
-											: '#ccc',
-										marginRight: 12,
-										marginTop: 4,
-										fontSize: '1rem',
-										flexShrink: 0,
+											? featureTextColor
+											: featureUnavailableColor,
+										textDecoration: feat.available
+											? 'none'
+											: 'line-through',
 									} }
-									aria-hidden
-								/>
+								>
+									{ shouldUseImageMarker ? (
+										<img
+											src={ featureMarkerImageUrl }
+											alt=""
+											style={ {
+												width: '18px',
+												height: '18px',
+												marginRight: 12,
+												marginTop: 2,
+												objectFit: 'contain',
+												flexShrink: 0,
+											} }
+											aria-hidden
+										/>
+									) : (
+										<i
+											className={
+												feat.available
+													? 'fas fa-check-circle'
+													: 'fas fa-times-circle'
+											}
+											style={ {
+												color: feat.available
+													? featureIconColor
+													: '#ccc',
+												marginRight: 12,
+												marginTop: 4,
+												fontSize: '1rem',
+												flexShrink: 0,
+											} }
+											aria-hidden
+										/>
+									) }
 
-								<span>{ feat.text }</span>
-							</li>
-						) ) }
-					</ul>
+									<span>{ feat.text }</span>
+								</li>
+							) ) }
+						</ul>
+					) }
 				</div>
-				{ showButton && (
+				{ showFooterButton && (
 					<div
 						className="pkg-footer"
 						style={ {

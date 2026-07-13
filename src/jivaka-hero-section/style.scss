@@ -15,7 +15,7 @@
 .editor-styles-wrapper,
 .block-editor-block-list__layout,
 .wp-block-twork-jivaka-hero-section {
-    .twork-jivaka-hero-section-editor {
+    .mk-jivaka-hero-section-editor {
         position: relative;
         min-height: 400px;
         box-sizing: border-box;
@@ -67,7 +67,7 @@
 
 // === FRONTEND STYLES ===
 .jivaka-hero-section,
-.twork-jivaka-hero-section {
+.mk-jivaka-hero-section {
     font-family: $font-ui;
     margin-left: calc(50% - 50vw);
     width: 100vw;
@@ -110,7 +110,7 @@
         justify-content: flex-start;
 
         .jivaka-badge-item,
-        .twork-jivaka-badge-item {
+        .mk-jivaka-badge-item {
             flex: 0 0 auto;
         }
 
@@ -167,7 +167,7 @@
 // === RESPONSIVE ===
 @media (max-width: 960px) {
     .jivaka-hero-section,
-    .twork-jivaka-hero-section {
+    .mk-jivaka-hero-section {
         padding-top: 60px !important;
         padding-bottom: 60px !important;
         min-height: auto !important;
@@ -194,7 +194,7 @@
 
 @media (max-width: 480px) {
     .jivaka-hero-section,
-    .twork-jivaka-hero-section {
+    .mk-jivaka-hero-section {
         .jivaka-hero-title {
             font-size: 2rem;
         }
@@ -215,7 +215,7 @@
 
 // === ACCESSIBILITY ===
 .jivaka-hero-section .jivaka-badge-link,
-.twork-jivaka-hero-section .jivaka-badge-link {
+.mk-jivaka-hero-section .jivaka-badge-link {
     &:focus-visible {
         outline: 3px solid rgba(255, 255, 255, 0.9);
         outline-offset: 2px;
@@ -225,7 +225,7 @@
 // === PRINT ===
 @media print {
     .jivaka-hero-section,
-    .twork-jivaka-hero-section {
+    .mk-jivaka-hero-section {
         min-height: auto !important;
         padding: 20px 0 !important;
 

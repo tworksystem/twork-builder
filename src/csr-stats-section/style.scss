@@ -17,12 +17,15 @@
 .editor-styles-wrapper,
 .block-editor-block-list__layout,
 .wp-block-twork-csr-stats-section {
-    .twork-csr-stats-section-editor {
+    .mk-csr-stats-section-editor {
         position: relative;
         min-height: 80px;
+        z-index: 10;
+        isolation: isolate;
+        pointer-events: auto;
 
         .stats-section {
-            .twork-csr-stats-grid-container {
+            .mk-csr-stats-grid-container {
                 display: block;
                 width: 100%;
             }
@@ -32,13 +35,26 @@
                 width: 100% !important;
 
                 > .block-editor-inner-blocks {
-                    display: contents !important;
+                    display: grid !important;
+                    grid-template-columns: repeat(
+                        var(--csr-stats-columns, 4),
+                        minmax(0, 1fr)
+                    ) !important;
+                    gap: var(--csr-stat-gap, 30px) !important;
+                    width: 100% !important;
 
                     > .block-editor-block-list__layout {
-                        display: contents !important;
+                        display: grid !important;
+                        grid-template-columns: repeat(
+                            var(--csr-stats-columns, 4),
+                            minmax(0, 1fr)
+                        ) !important;
+                        gap: var(--csr-stat-gap, 30px) !important;
+                        width: 100% !important;
 
                         > .wp-block,
-                        > [data-type="twork/stat-item"] {
+                        > [data-type="twork/stat-item"],
+                        > [data-type="mk/stat-item"] {
                             display: flex !important;
                             flex-direction: column !important;
                             align-items: center !important;
@@ -49,6 +65,15 @@
                             border-radius: 8px;
                             background: rgba(255, 255, 255, 0.5);
                             transition: all 0.2s ease;
+                            pointer-events: auto;
+
+                            h3,
+                            p {
+                                &[contenteditable="true"]:focus {
+                                    outline: 1px dashed #2271b1;
+                                    outline-offset: 2px;
+                                }
+                            }
 
                             &:hover {
                                 border-color: #2271b1;
@@ -68,7 +93,7 @@
 }
 
 // === FRONTEND STYLES ===
-.twork-csr-stats-section {
+.mk-csr-stats-section {
     font-family: $font-primary;
     position: relative;
 
@@ -81,7 +106,11 @@
         position: relative;
         overflow: hidden;
 
-        &.fade-up {
+        &.fade-up,
+        &.fade-in,
+        &.slide-in-left,
+        &.slide-in-right,
+        &.zoom-in {
             // GSAP/JS may add transform/opacity; class reserved for scroll animation
         }
     }
@@ -89,6 +118,7 @@
     .stats-grid {
         display: grid;
         width: 100%;
+        grid-template-columns: repeat(var(--csr-stats-columns, 4), 1fr);
     }
 
     .stat-item {
@@ -133,7 +163,7 @@
 
 // === RESPONSIVE STYLES ===
 @media (max-width: 992px) {
-    .twork-csr-stats-section {
+    .mk-csr-stats-section {
         .stats-section {
             margin-top: 0 !important;
             border-radius: 0;
@@ -141,7 +171,10 @@
         }
 
         .stats-grid {
-            grid-template-columns: repeat(2, 1fr) !important;
+            grid-template-columns: repeat(
+                var(--csr-stats-columns-tablet, 2),
+                1fr
+            ) !important;
         }
 
         .stat-item h3 {
@@ -155,13 +188,16 @@
 }
 
 @media (max-width: 768px) {
-    .twork-csr-stats-section {
+    .mk-csr-stats-section {
         .stats-section {
             padding: 40px 20px !important;
         }
 
         .stats-grid {
-            grid-template-columns: 1fr !important;
+            grid-template-columns: repeat(
+                var(--csr-stats-columns-mobile, 1),
+                1fr
+            ) !important;
             gap: 24px !important;
         }
 
@@ -176,7 +212,7 @@
 }
 
 // === ACCESSIBILITY ===
-.twork-csr-stats-section .stat-item {
+.mk-csr-stats-section .stat-item {
     &:focus-visible {
         outline: 2px solid var(--primary-orange);
         outline-offset: 2px;
@@ -185,7 +221,7 @@
 
 // === PRINT STYLES ===
 @media print {
-    .twork-csr-stats-section {
+    .mk-csr-stats-section {
         .stats-section {
             box-shadow: none;
             border: 1px solid var(--border-color);

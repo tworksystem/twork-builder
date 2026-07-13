@@ -89,7 +89,7 @@ export default function Edit( { attributes = {}, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'twork-phy-cta-section-editor',
+			className: 'mk-phy-cta-section-editor',
 			style: {
 				marginBottom: `${ Number( marginBottom ) }px`,
 			},

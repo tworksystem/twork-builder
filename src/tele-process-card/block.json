@@ -7,7 +7,7 @@
 	"category": "twork-builder",
 	"icon": "admin-generic",
 	"description": "Single process step card (step number, icon, title, description) for Tele Process section.",
-	"keywords": [ "process", "step", "telemedicine", "card", "twork" ],
+	"keywords": [ "process", "step", "telemedicine", "card", "mk" ],
 	"attributes": {
 		"stepNumber": {
 			"type": "number",

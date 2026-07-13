@@ -7,7 +7,7 @@
 	"category": "twork-builder",
 	"icon": "list-view",
 	"description": "Single package card (title, price, list, CTA) for Health Check Packages section. Use category to assign to a tab.",
-	"keywords": [ "health", "checkup", "package", "card", "chk", "twork" ],
+	"keywords": [ "health", "checkup", "package", "card", "chk", "mk" ],
 	"parent": [ "twork/health-check-packages-section" ],
 	"attributes": {
 		"category": {

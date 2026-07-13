@@ -1,16 +1,26 @@
 import { useBlockProps, RichText } from '@wordpress/block-editor';
 
+const DEFAULT_TYPOGRAPHY = {
+	numberColor: '#f48b2a',
+	numberFontSize: 2.5,
+	numberFontWeight: 900,
+	labelColor: '#212121',
+	labelFontSize: 0.95,
+	labelFontWeight: 700,
+	labelTextTransform: 'uppercase',
+};
+
 export default function save( { attributes } ) {
 	const {
 		statNumber,
 		statLabel,
-		numberColor,
-		numberFontSize,
-		numberFontWeight,
-		labelColor,
-		labelFontSize,
-		labelFontWeight,
-		labelTextTransform,
+		numberColor = DEFAULT_TYPOGRAPHY.numberColor,
+		numberFontSize = DEFAULT_TYPOGRAPHY.numberFontSize,
+		numberFontWeight = DEFAULT_TYPOGRAPHY.numberFontWeight,
+		labelColor = DEFAULT_TYPOGRAPHY.labelColor,
+		labelFontSize = DEFAULT_TYPOGRAPHY.labelFontSize,
+		labelFontWeight = DEFAULT_TYPOGRAPHY.labelFontWeight,
+		labelTextTransform = DEFAULT_TYPOGRAPHY.labelTextTransform,
 	} = attributes;
 
 	const blockProps = useBlockProps.save( {

@@ -8,7 +8,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'hc-area-tag twork-hc-area-tag-editor',
+			className: 'hc-area-tag mk-hc-area-tag-editor',
 		} ),
 		[]
 	);

@@ -7,7 +7,7 @@
 	"category": "twork-builder",
 	"icon": "index-card",
 	"description": "Radiology diagnostic services section with tabbed content for different modalities.",
-	"keywords": [ "radiology", "diagnostic", "tabs", "services", "twork" ],
+	"keywords": [ "radiology", "diagnostic", "tabs", "services", "mk" ],
 	"attributes": {
 		"sectionBackground": {
 			"type": "string",

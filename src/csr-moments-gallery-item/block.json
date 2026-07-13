@@ -6,7 +6,7 @@
 	"parent": [ "twork/csr-moments-gallery-section" ],
 	"category": "twork-builder",
 	"description": "Single gallery image for Moments of Care section.",
-	"keywords": [ "gallery", "image", "photo", "moments", "csr", "twork" ],
+	"keywords": [ "gallery", "image", "photo", "moments", "csr", "mk" ],
 	"attributes": {
 		"imageUrl": {
 			"type": "string",

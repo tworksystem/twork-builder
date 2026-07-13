@@ -5,7 +5,7 @@
 	"title": "Team Members Grid",
 	"category": "twork-builder",
 	"description": "Professional team members grid with comprehensive customization options",
-	"keywords": [ "team", "members", "staff", "doctors", "grid", "twork" ],
+	"keywords": [ "team", "members", "staff", "doctors", "grid", "mk" ],
 	"attributes": {
 		"backgroundColor": {
 			"type": "string",

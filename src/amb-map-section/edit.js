@@ -50,7 +50,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'twork-amb-map-section-editor',
+			className: 'mk-amb-map-section-editor',
 			style: {
 				paddingTop: `${ sectionPaddingTop }px`,
 				paddingBottom: `${ sectionPaddingBottom }px`,
@@ -609,7 +609,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 					</div>
 
 					<div
-						className="amb-map-box twork-amb-map-box"
+						className="amb-map-box mk-amb-map-box"
 						style={ boxStyle }
 					>
 						{ showIcon && icon && (

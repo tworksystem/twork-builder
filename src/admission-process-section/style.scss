@@ -14,11 +14,11 @@
 .editor-styles-wrapper,
 .block-editor-block-list__layout,
 .wp-block-twork-admission-process-section {
-    .twork-admission-process-section-editor {
+    .mk-admission-process-section-editor {
         position: relative;
         min-height: 200px;
 
-        .twork-admission-process-grid.process-grid {
+        .mk-admission-process-grid.process-grid {
             display: grid !important;
             width: 100% !important;
 
@@ -50,7 +50,7 @@
 }
 
 // === FRONTEND STYLES ===
-.twork-admission-process-section {
+.mk-admission-process-section {
     font-family: $font-primary;
     position: relative;
     overflow: hidden;
@@ -173,7 +173,7 @@
 
 // === RESPONSIVE ===
 @media (max-width: 992px) {
-    .twork-admission-process-section {
+    .mk-admission-process-section {
         .process-grid {
             grid-template-columns: repeat(var(--columns-tablet, 2), 1fr) !important;
             gap: var(--gap-mobile, 24px) !important;
@@ -182,7 +182,7 @@
 }
 
 @media (max-width: 768px) {
-    .twork-admission-process-section {
+    .mk-admission-process-section {
         padding-top: var(--padding-top-mobile, 60px) !important;
         padding-bottom: var(--padding-bottom-mobile, 60px) !important;
 

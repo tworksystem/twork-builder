@@ -18,7 +18,7 @@
 .editor-styles-wrapper,
 .block-editor-block-list__layout,
 .wp-block-twork-accreditation-section {
-    .twork-accreditation-section-editor {
+    .mk-accreditation-section-editor {
         position: relative;
         min-height: 300px;
 
@@ -36,7 +36,7 @@
             }
         }
 
-        .twork-accreditation-grid-container {
+        .mk-accreditation-grid-container {
             display: grid !important;
             grid-template-columns: repeat(var(--grid-columns, 3), 1fr) !important;
             gap: var(--grid-gap, 30px) !important;
@@ -67,7 +67,7 @@
 }
 
 // === FRONTEND STYLES ===
-.twork-accreditation-section {
+.mk-accreditation-section {
     font-family: $font-primary;
     position: relative;
     overflow: hidden;
@@ -139,7 +139,7 @@
         }
 
         // Hover from parent data attributes
-        .twork-accreditation-section[data-hover-effect="true"] & {
+        .mk-accreditation-section[data-hover-effect="true"] & {
             &:hover {
                 border-color: var(--primary-orange);
                 box-shadow: var(--shadow-md);
@@ -172,21 +172,21 @@
 
 // === RESPONSIVE ===
 @media (max-width: 992px) {
-    .twork-accreditation-section {
+    .mk-accreditation-section {
         .accreditation-grid {
             grid-template-columns: repeat(2, 1fr) !important;
         }
     }
 
     .editor-styles-wrapper {
-        .twork-accreditation-grid-container {
+        .mk-accreditation-grid-container {
             grid-template-columns: repeat(2, 1fr) !important;
         }
     }
 }
 
 @media (max-width: 768px) {
-    .twork-accreditation-section {
+    .mk-accreditation-section {
         padding: 60px 0 !important;
 
         .intro-text {
@@ -212,7 +212,7 @@
     }
 
     .editor-styles-wrapper {
-        .twork-accreditation-grid-container {
+        .mk-accreditation-grid-container {
             grid-template-columns: 1fr !important;
         }
     }
@@ -228,7 +228,7 @@
 
 // === PRINT ===
 @media print {
-    .twork-accreditation-section {
+    .mk-accreditation-section {
         .cert-card {
             page-break-inside: avoid;
             break-inside: avoid;

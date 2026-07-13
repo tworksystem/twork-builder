@@ -50,7 +50,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: `twork-features-section-editor ${ (
+			className: `mk-features-section-editor ${ (
 				containerClass || 'container'
 			).trim() }`.trim(),
 			id: sectionId || undefined,
@@ -218,7 +218,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 				</div>
 				<div style={ containerStyle }>
 					<div
-						className="twork-features-grid-container features-grid"
+						className="mk-features-grid-container features-grid"
 						style={ gridStyle }
 						data-columns={ columns }
 					>

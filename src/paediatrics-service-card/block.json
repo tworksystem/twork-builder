@@ -7,7 +7,7 @@
 	"category": "twork-builder",
 	"icon": "list-view",
 	"description": "Single service card (icon, title, description, list) for Paediatrics Our Services section.",
-	"keywords": [ "paediatrics", "service", "card", "twork" ],
+	"keywords": [ "paediatrics", "service", "card", "mk" ],
 	"parent": [ "twork/paediatrics-services-section" ],
 	"attributes": {
 		"iconClass": {

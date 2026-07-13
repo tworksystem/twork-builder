@@ -7,7 +7,7 @@
 	"category": "twork-builder",
 	"icon": "editor-alignleft",
 	"description": "Two-column intro section: image left, content right with badge, title, description and checklist. Matches home-care.html “Why Jivaka Home Care?”.",
-	"keywords": [ "home care", "intro", "why", "two column", "twork" ],
+	"keywords": [ "home care", "intro", "why", "two column", "mk" ],
 	"attributes": {
 		"backgroundColor": {
 			"type": "string",

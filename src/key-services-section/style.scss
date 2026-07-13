@@ -9,7 +9,7 @@
 
 // UNIVERSAL: Hide ALL borders on ALL key-services elements by default
 *[class*="key-services-section"],
-*[class*="twork-key-services-section"],
+*[class*="mk-key-services-section"],
 *[class*="jivaka-section"] {
     border: none !important;
     border-width: 0 !important;
@@ -24,12 +24,12 @@
 // UNIVERSAL: Hide ALL pseudo-elements by default
 *[class*="key-services-section"] *[class*="key-service-item"]::after,
 *[class*="key-services-section"] *[class*="key-service-item"]::before,
-*[class*="twork-key-services-section"] *[class*="key-service-item"]::after,
-*[class*="twork-key-services-section"] *[class*="key-service-item"]::before,
+*[class*="mk-key-services-section"] *[class*="key-service-item"]::after,
+*[class*="mk-key-services-section"] *[class*="key-service-item"]::before,
 *[class*="key-service-item"]::after,
 *[class*="key-service-item"]::before,
-*[class*="twork-key-service-item"]::after,
-*[class*="twork-key-service-item"]::before {
+*[class*="mk-key-service-item"]::after,
+*[class*="mk-key-service-item"]::before {
     content: none !important;
     display: none !important;
     visibility: hidden !important;
@@ -47,26 +47,26 @@
 // Target ALL possible class combinations and pseudo-elements
 
 // Section borders - COMPLETELY HIDDEN BY DEFAULT
-.wp-block-twork-key-services-section.key-services-section.jivaka-section.twork-key-services-section,
+.wp-block-twork-key-services-section.key-services-section.jivaka-section.mk-key-services-section,
 .wp-block-twork-key-services-section.key-services-section.jivaka-section,
-.wp-block-twork-key-services-section.key-services-section.twork-key-services-section,
-.wp-block-twork-key-services-section.jivaka-section.twork-key-services-section,
+.wp-block-twork-key-services-section.key-services-section.mk-key-services-section,
+.wp-block-twork-key-services-section.jivaka-section.mk-key-services-section,
 .wp-block-twork-key-services-section.key-services-section,
 .wp-block-twork-key-services-section.jivaka-section,
-.wp-block-twork-key-services-section.twork-key-services-section,
+.wp-block-twork-key-services-section.mk-key-services-section,
 .wp-block-twork-key-services-section,
 section.wp-block-twork-key-services-section,
 section.wp-block-twork-key-services-section.key-services-section,
 section.wp-block-twork-key-services-section.jivaka-section,
-section.wp-block-twork-key-services-section.twork-key-services-section,
+section.wp-block-twork-key-services-section.mk-key-services-section,
 section.key-services-section,
-section.twork-key-services-section,
+section.mk-key-services-section,
 section.jivaka-section,
-.key-services-section.jivaka-section.twork-key-services-section,
-.key-services-section.twork-key-services-section,
+.key-services-section.jivaka-section.mk-key-services-section,
+.key-services-section.mk-key-services-section,
 .key-services-section.jivaka-section,
 .key-services-section,
-.twork-key-services-section,
+.mk-key-services-section,
 .jivaka-section {
     border: none !important;
     border-width: 0 !important;
@@ -83,23 +83,23 @@ section.jivaka-section,
 // Item border pseudo-elements - COMPLETELY HIDDEN BY DEFAULT
 // Target ALL possible selector combinations
 .key-services-section .key-services-grid .key-service-item:not(:last-child)::after,
-.key-services-section .key-services-grid .twork-key-service-item:not(:last-child)::after,
-.key-services-section .twork-key-services-grid .key-service-item:not(:last-child)::after,
-.key-services-section .twork-key-services-grid .twork-key-service-item:not(:last-child)::after,
-.twork-key-services-section .key-services-grid .key-service-item:not(:last-child)::after,
-.twork-key-services-section .key-services-grid .twork-key-service-item:not(:last-child)::after,
-.twork-key-services-section .twork-key-services-grid .key-service-item:not(:last-child)::after,
-.twork-key-services-section .twork-key-services-grid .twork-key-service-item:not(:last-child)::after,
+.key-services-section .key-services-grid .mk-key-service-item:not(:last-child)::after,
+.key-services-section .mk-key-services-grid .key-service-item:not(:last-child)::after,
+.key-services-section .mk-key-services-grid .mk-key-service-item:not(:last-child)::after,
+.mk-key-services-section .key-services-grid .key-service-item:not(:last-child)::after,
+.mk-key-services-section .key-services-grid .mk-key-service-item:not(:last-child)::after,
+.mk-key-services-section .mk-key-services-grid .key-service-item:not(:last-child)::after,
+.mk-key-services-section .mk-key-services-grid .mk-key-service-item:not(:last-child)::after,
 .wp-block-twork-key-services-section .key-services-grid .key-service-item:not(:last-child)::after,
-.wp-block-twork-key-services-section .key-services-grid .twork-key-service-item:not(:last-child)::after,
-.wp-block-twork-key-services-section .twork-key-services-grid .key-service-item:not(:last-child)::after,
-.wp-block-twork-key-services-section .twork-key-services-grid .twork-key-service-item:not(:last-child)::after,
+.wp-block-twork-key-services-section .key-services-grid .mk-key-service-item:not(:last-child)::after,
+.wp-block-twork-key-services-section .mk-key-services-grid .key-service-item:not(:last-child)::after,
+.wp-block-twork-key-services-section .mk-key-services-grid .mk-key-service-item:not(:last-child)::after,
 .wp-block-twork-key-services-section.key-services-section .key-services-grid .key-service-item:not(:last-child)::after,
-.wp-block-twork-key-services-section.key-services-section .key-services-grid .twork-key-service-item:not(:last-child)::after,
-.wp-block-twork-key-services-section.key-services-section .twork-key-services-grid .key-service-item:not(:last-child)::after,
-.wp-block-twork-key-services-section.key-services-section .twork-key-services-grid .twork-key-service-item:not(:last-child)::after,
+.wp-block-twork-key-services-section.key-services-section .key-services-grid .mk-key-service-item:not(:last-child)::after,
+.wp-block-twork-key-services-section.key-services-section .mk-key-services-grid .key-service-item:not(:last-child)::after,
+.wp-block-twork-key-services-section.key-services-section .mk-key-services-grid .mk-key-service-item:not(:last-child)::after,
 .key-service-item:not(:last-child)::after,
-.twork-key-service-item:not(:last-child)::after {
+.mk-key-service-item:not(:last-child)::after {
     content: none !important;
     display: none !important;
     visibility: hidden !important;
@@ -125,23 +125,23 @@ section.jivaka-section,
 }
 
 .key-services-section .key-services-grid .key-service-item::before,
-.key-services-section .key-services-grid .twork-key-service-item::before,
-.key-services-section .twork-key-services-grid .key-service-item::before,
-.key-services-section .twork-key-services-grid .twork-key-service-item::before,
-.twork-key-services-section .key-services-grid .key-service-item::before,
-.twork-key-services-section .key-services-grid .twork-key-service-item::before,
-.twork-key-services-section .twork-key-services-grid .key-service-item::before,
-.twork-key-services-section .twork-key-services-grid .twork-key-service-item::before,
+.key-services-section .key-services-grid .mk-key-service-item::before,
+.key-services-section .mk-key-services-grid .key-service-item::before,
+.key-services-section .mk-key-services-grid .mk-key-service-item::before,
+.mk-key-services-section .key-services-grid .key-service-item::before,
+.mk-key-services-section .key-services-grid .mk-key-service-item::before,
+.mk-key-services-section .mk-key-services-grid .key-service-item::before,
+.mk-key-services-section .mk-key-services-grid .mk-key-service-item::before,
 .wp-block-twork-key-services-section .key-services-grid .key-service-item::before,
-.wp-block-twork-key-services-section .key-services-grid .twork-key-service-item::before,
-.wp-block-twork-key-services-section .twork-key-services-grid .key-service-item::before,
-.wp-block-twork-key-services-section .twork-key-services-grid .twork-key-service-item::before,
+.wp-block-twork-key-services-section .key-services-grid .mk-key-service-item::before,
+.wp-block-twork-key-services-section .mk-key-services-grid .key-service-item::before,
+.wp-block-twork-key-services-section .mk-key-services-grid .mk-key-service-item::before,
 .wp-block-twork-key-services-section.key-services-section .key-services-grid .key-service-item::before,
-.wp-block-twork-key-services-section.key-services-section .key-services-grid .twork-key-service-item::before,
-.wp-block-twork-key-services-section.key-services-section .twork-key-services-grid .key-service-item::before,
-.wp-block-twork-key-services-section.key-services-section .twork-key-services-grid .twork-key-service-item::before,
+.wp-block-twork-key-services-section.key-services-section .key-services-grid .mk-key-service-item::before,
+.wp-block-twork-key-services-section.key-services-section .mk-key-services-grid .key-service-item::before,
+.wp-block-twork-key-services-section.key-services-section .mk-key-services-grid .mk-key-service-item::before,
 .key-service-item::before,
-.twork-key-service-item::before {
+.mk-key-service-item::before {
     content: none !important;
     display: none !important;
     visibility: hidden !important;
@@ -174,7 +174,7 @@ section.jivaka-section,
 .editor-styles-wrapper,
 .block-editor-block-list__layout,
 .wp-block-twork-key-services-section {
-    .twork-key-services-section-editor {
+    .mk-key-services-section-editor {
         position: relative;
         min-height: 300px;
 
@@ -193,7 +193,7 @@ section.jivaka-section,
             }
         }
 
-        .twork-key-services-grid-container {
+        .mk-key-services-grid-container {
             display: grid !important;
             grid-template-columns: repeat(var(--grid-columns, 3), 1fr) !important;
             gap: var(--grid-gap, 0px) !important;
@@ -258,26 +258,26 @@ section.jivaka-section,
 // GLOBAL OVERRIDE: Ensure ALL key-services-section elements have NO borders by default
 // This must be at the top level to override any WordPress core CSS
 // Target the EXACT class combination the user mentioned with maximum specificity
-.wp-block-twork-key-services-section.key-services-section.jivaka-section.twork-key-services-section,
+.wp-block-twork-key-services-section.key-services-section.jivaka-section.mk-key-services-section,
 .wp-block-twork-key-services-section.key-services-section.jivaka-section,
-.wp-block-twork-key-services-section.key-services-section.twork-key-services-section,
-.wp-block-twork-key-services-section.jivaka-section.twork-key-services-section,
+.wp-block-twork-key-services-section.key-services-section.mk-key-services-section,
+.wp-block-twork-key-services-section.jivaka-section.mk-key-services-section,
 .wp-block-twork-key-services-section.key-services-section,
 .wp-block-twork-key-services-section.jivaka-section,
-.wp-block-twork-key-services-section.twork-key-services-section,
+.wp-block-twork-key-services-section.mk-key-services-section,
 .wp-block-twork-key-services-section,
 section.wp-block-twork-key-services-section,
 section.wp-block-twork-key-services-section.key-services-section,
 section.wp-block-twork-key-services-section.jivaka-section,
-section.wp-block-twork-key-services-section.twork-key-services-section,
+section.wp-block-twork-key-services-section.mk-key-services-section,
 section.key-services-section,
-section.twork-key-services-section,
+section.mk-key-services-section,
 section.jivaka-section,
-.key-services-section.jivaka-section.twork-key-services-section,
-.key-services-section.twork-key-services-section,
+.key-services-section.jivaka-section.mk-key-services-section,
+.key-services-section.mk-key-services-section,
 .key-services-section.jivaka-section,
 .key-services-section,
-.twork-key-services-section,
+.mk-key-services-section,
 .jivaka-section {
     // Override WordPress core CSS - ensure no unwanted borders with maximum specificity
     border: none !important;
@@ -333,7 +333,7 @@ section.jivaka-section,
 }
 
 .key-services-section,
-.twork-key-services-section {
+.mk-key-services-section {
     position: relative;
     overflow: hidden;
 
@@ -365,14 +365,14 @@ section.jivaka-section,
     }
 
     .key-services-grid,
-    .twork-key-services-grid {
+    .mk-key-services-grid {
         display: grid;
         grid-template-columns: repeat(var(--grid-columns, 3), 1fr);
         gap: var(--grid-gap, 30px);
         width: 100%;
 
         .key-service-item,
-        .twork-key-service-item {
+        .mk-key-service-item {
             position: relative;
             transition: all 0.3s ease;
             box-sizing: border-box;
@@ -383,29 +383,29 @@ section.jivaka-section,
 // Additional override for items with no-borders class and sections
 // CRITICAL: These rules must have maximum specificity
 .key-service-item.no-borders::after,
-.twork-key-service-item.no-borders::after,
+.mk-key-service-item.no-borders::after,
 .key-service-item.no-borders::before,
-.twork-key-service-item.no-borders::before,
+.mk-key-service-item.no-borders::before,
 .no-borders::after,
 .no-borders::before,
 .no-item-borders .key-service-item::after,
-.no-item-borders .twork-key-service-item::after,
+.no-item-borders .mk-key-service-item::after,
 .no-item-borders .key-service-item::before,
-.no-item-borders .twork-key-service-item::before,
+.no-item-borders .mk-key-service-item::before,
 .no-item-borders .key-service-item:not(:last-child)::after,
-.no-item-borders .twork-key-service-item:not(:last-child)::after,
+.no-item-borders .mk-key-service-item:not(:last-child)::after,
 .key-services-section.no-item-borders .key-service-item::after,
-.key-services-section.no-item-borders .twork-key-service-item::after,
+.key-services-section.no-item-borders .mk-key-service-item::after,
 .key-services-section.no-item-borders .key-service-item::before,
-.key-services-section.no-item-borders .twork-key-service-item::before,
-.twork-key-services-section.no-item-borders .key-service-item::after,
-.twork-key-services-section.no-item-borders .twork-key-service-item::after,
-.twork-key-services-section.no-item-borders .key-service-item::before,
-.twork-key-services-section.no-item-borders .twork-key-service-item::before,
+.key-services-section.no-item-borders .mk-key-service-item::before,
+.mk-key-services-section.no-item-borders .key-service-item::after,
+.mk-key-services-section.no-item-borders .mk-key-service-item::after,
+.mk-key-services-section.no-item-borders .key-service-item::before,
+.mk-key-services-section.no-item-borders .mk-key-service-item::before,
 .wp-block-twork-key-services-section.no-item-borders .key-service-item::after,
-.wp-block-twork-key-services-section.no-item-borders .twork-key-service-item::after,
+.wp-block-twork-key-services-section.no-item-borders .mk-key-service-item::after,
 .wp-block-twork-key-services-section.no-item-borders .key-service-item::before,
-.wp-block-twork-key-services-section.no-item-borders .twork-key-service-item::before {
+.wp-block-twork-key-services-section.no-item-borders .mk-key-service-item::before {
     content: none !important;
     display: none !important;
     visibility: hidden !important;
@@ -426,7 +426,7 @@ section.jivaka-section,
 .no-section-borders,
 .wp-block-twork-key-services-section.no-section-borders,
 .key-services-section.no-section-borders,
-.twork-key-services-section.no-section-borders,
+.mk-key-services-section.no-section-borders,
 .jivaka-section.no-section-borders {
     border: none !important;
     border-width: 0 !important;
@@ -450,19 +450,19 @@ section.jivaka-section,
 }
 
 .key-services-section .key-services-grid .key-service-item::before,
-.key-services-section .key-services-grid .twork-key-service-item::before,
-.key-services-section .twork-key-services-grid .key-service-item::before,
-.key-services-section .twork-key-services-grid .twork-key-service-item::before,
-.twork-key-services-section .key-services-grid .key-service-item::before,
-.twork-key-services-section .key-services-grid .twork-key-service-item::before,
-.twork-key-services-section .twork-key-services-grid .key-service-item::before,
-.twork-key-services-section .twork-key-services-grid .twork-key-service-item::before,
+.key-services-section .key-services-grid .mk-key-service-item::before,
+.key-services-section .mk-key-services-grid .key-service-item::before,
+.key-services-section .mk-key-services-grid .mk-key-service-item::before,
+.mk-key-services-section .key-services-grid .key-service-item::before,
+.mk-key-services-section .key-services-grid .mk-key-service-item::before,
+.mk-key-services-section .mk-key-services-grid .key-service-item::before,
+.mk-key-services-section .mk-key-services-grid .mk-key-service-item::before,
 .wp-block-twork-key-services-section .key-services-grid .key-service-item::before,
-.wp-block-twork-key-services-section .key-services-grid .twork-key-service-item::before,
-.wp-block-twork-key-services-section .twork-key-services-grid .key-service-item::before,
-.wp-block-twork-key-services-section .twork-key-services-grid .twork-key-service-item::before,
+.wp-block-twork-key-services-section .key-services-grid .mk-key-service-item::before,
+.wp-block-twork-key-services-section .mk-key-services-grid .key-service-item::before,
+.wp-block-twork-key-services-section .mk-key-services-grid .mk-key-service-item::before,
 .key-service-item::before,
-.twork-key-service-item::before {
+.mk-key-service-item::before {
     // CRITICAL: Hide ALL horizontal borders by default
     // This is the DEFAULT state - borders are hidden unless explicitly enabled
     content: none !important;
@@ -484,11 +484,11 @@ section.jivaka-section,
 }
 
 .key-services-section,
-.twork-key-services-section {
+.mk-key-services-section {
     .key-services-grid,
-    .twork-key-services-grid {
+    .mk-key-services-grid {
         .key-service-item,
-        .twork-key-service-item {
+        .mk-key-service-item {
 
             // Icon hover effect
             i {
@@ -508,7 +508,7 @@ section.jivaka-section,
 
             // Hover effects
             .key-services-section[data-hover-effect="true"] &,
-            .twork-key-services-section[data-hover-effect="true"] & {
+            .mk-key-services-section[data-hover-effect="true"] & {
                 &:hover {
                     transform: translateY(var(--hover-translate-y, -5px)) scale(var(--hover-scale, 1.05));
 
@@ -551,13 +551,13 @@ section.jivaka-section,
         // Hide ALL item border pseudo-elements with maximum specificity
         // Target ALL possible selector combinations
         .key-services-grid .key-service-item::after,
-        .twork-key-services-grid .twork-key-service-item::after,
+        .mk-key-services-grid .mk-key-service-item::after,
         .key-services-grid .key-service-item::before,
-        .twork-key-services-grid .twork-key-service-item::before,
+        .mk-key-services-grid .mk-key-service-item::before,
         .key-services-grid .key-service-item:not(:last-child)::after,
-        .twork-key-services-grid .twork-key-service-item:not(:last-child)::after,
+        .mk-key-services-grid .mk-key-service-item:not(:last-child)::after,
         .key-services-grid .key-service-item:last-child::after,
-        .twork-key-services-grid .twork-key-service-item:last-child::after {
+        .mk-key-services-grid .mk-key-service-item:last-child::after {
             content: none !important;
             display: none !important;
             visibility: hidden !important;
@@ -592,7 +592,7 @@ section.jivaka-section,
             &[data-show-border-desktop="true"],
             &:not([data-show-border-desktop]) {
                 .key-services-grid .key-service-item:not(:last-child)::after,
-                .twork-key-services-grid .twork-key-service-item:not(:last-child)::after {
+                .mk-key-services-grid .mk-key-service-item:not(:last-child)::after {
                     content: '' !important;
                     display: block !important;
                     visibility: visible !important;
@@ -615,7 +615,7 @@ section.jivaka-section,
             &[data-show-border-desktop="true"],
             &:not([data-show-border-desktop]) {
                 .key-services-grid .key-service-item::before,
-                .twork-key-services-grid .twork-key-service-item::before {
+                .mk-key-services-grid .mk-key-service-item::before {
                     content: '' !important;
                     display: block !important;
                     visibility: visible !important;
@@ -635,9 +635,9 @@ section.jivaka-section,
         // Hide borders on desktop if explicitly disabled
         &[data-show-border-desktop="false"] {
             .key-services-grid .key-service-item:not(:last-child)::after,
-            .twork-key-services-grid .twork-key-service-item:not(:last-child)::after,
+            .mk-key-services-grid .mk-key-service-item:not(:last-child)::after,
             .key-services-grid .key-service-item::before,
-            .twork-key-services-grid .twork-key-service-item::before {
+            .mk-key-services-grid .mk-key-service-item::before {
                 content: none !important;
                 display: none !important;
                 visibility: hidden !important;
@@ -649,7 +649,7 @@ section.jivaka-section,
 
         // Border hover effects
         .key-services-grid .key-service-item:hover,
-        .twork-key-services-grid .twork-key-service-item:hover {
+        .mk-key-services-grid .mk-key-service-item:hover {
             &::after,
             &::before {
                 background-color: var(--border-color-hover, var(--border-color, #e0e0e0)) !important;
@@ -741,22 +741,22 @@ section.jivaka-section,
 
 // Tablet (768px - 991px)
 @media (max-width: 991px) {
-    .twork-key-services-section {
+    .mk-key-services-section {
         .key-services-grid,
-        .twork-key-services-grid {
+        .mk-key-services-grid {
             grid-template-columns: repeat(var(--grid-columns-tablet, 2), 1fr) !important;
         }
     }
 
     // Editor responsive
     .editor-styles-wrapper {
-        .twork-key-services-grid-container {
+        .mk-key-services-grid-container {
             grid-template-columns: repeat(var(--grid-columns-tablet, 2), 1fr) !important;
         }
     }
 
     .key-services-section,
-    .twork-key-services-section {
+    .mk-key-services-section {
         &[data-padding-top-mobile],
         &[data-padding-bottom-mobile] {
             padding-top: var(--padding-top-mobile, 60px) !important;
@@ -779,20 +779,20 @@ section.jivaka-section,
         }
 
         .key-services-grid,
-        .twork-key-services-grid {
+        .mk-key-services-grid {
             grid-template-columns: repeat(var(--grid-columns-tablet, 2), 1fr) !important;
             gap: var(--gap-mobile, 30px) !important;
             width: 100% !important;
 
             .key-service-item,
-            .twork-key-service-item {
+            .mk-key-service-item {
                 box-sizing: border-box !important;
 
                 // Border visibility control for tablet - HIDDEN BY DEFAULT
                 .key-services-section[data-show-border-tablet="false"] &,
-                .twork-key-services-section[data-show-border-tablet="false"] &,
+                .mk-key-services-section[data-show-border-tablet="false"] &,
                 .key-services-section:not([data-show-border="true"]) &,
-                .twork-key-services-section:not([data-show-border="true"]) & {
+                .mk-key-services-section:not([data-show-border="true"]) & {
                     &:not(:last-child)::after,
                     &::before {
                         display: none !important;
@@ -811,7 +811,7 @@ section.jivaka-section,
             &[data-border-position="vertical"],
             &[data-border-position="both"] {
                 .key-services-grid .key-service-item:not(:last-child)::after,
-                .twork-key-services-grid .twork-key-service-item:not(:last-child)::after {
+                .mk-key-services-grid .mk-key-service-item:not(:last-child)::after {
                     display: block !important;
                     visibility: visible !important;
                     opacity: var(--border-opacity, 1) !important;
@@ -823,7 +823,7 @@ section.jivaka-section,
             &[data-border-position="horizontal"],
             &[data-border-position="both"] {
                 .key-services-grid .key-service-item::before,
-                .twork-key-services-grid .twork-key-service-item::before {
+                .mk-key-services-grid .mk-key-service-item::before {
                     display: block !important;
                     visibility: visible !important;
                     opacity: var(--border-opacity, 1) !important;
@@ -837,9 +837,9 @@ section.jivaka-section,
         &[data-show-border="true"][data-show-border-tablet="false"],
         &:not([data-show-border="true"]) {
             .key-services-grid .key-service-item:not(:last-child)::after,
-            .twork-key-services-grid .twork-key-service-item:not(:last-child)::after,
+            .mk-key-services-grid .mk-key-service-item:not(:last-child)::after,
             .key-services-grid .key-service-item::before,
-            .twork-key-services-grid .twork-key-service-item::before {
+            .mk-key-services-grid .mk-key-service-item::before {
                 display: none !important;
                 visibility: hidden !important;
                 opacity: 0 !important;
@@ -853,22 +853,22 @@ section.jivaka-section,
 
 // Mobile (<768px)
 @media (max-width: 767px) {
-    .twork-key-services-section {
+    .mk-key-services-section {
         .key-services-grid,
-        .twork-key-services-grid {
+        .mk-key-services-grid {
             grid-template-columns: repeat(var(--grid-columns-mobile, 1), 1fr) !important;
         }
     }
 
     // Editor responsive
     .editor-styles-wrapper {
-        .twork-key-services-grid-container {
+        .mk-key-services-grid-container {
             grid-template-columns: repeat(var(--grid-columns-mobile, 1), 1fr) !important;
         }
     }
 
     .key-services-section,
-    .twork-key-services-section {
+    .mk-key-services-section {
         &[data-padding-top-mobile],
         &[data-padding-bottom-mobile] {
             padding-top: var(--padding-top-mobile, 60px) !important;
@@ -891,22 +891,22 @@ section.jivaka-section,
         }
 
         .key-services-grid,
-        .twork-key-services-grid {
+        .mk-key-services-grid {
             grid-template-columns: repeat(var(--grid-columns-mobile, 1), 1fr) !important;
             gap: var(--gap-mobile, 30px) !important;
             width: 100% !important;
 
             .key-service-item,
-            .twork-key-service-item {
+            .mk-key-service-item {
                 width: 100% !important;
                 max-width: 100% !important;
                 box-sizing: border-box !important;
 
                 // Border visibility control for mobile - HIDDEN BY DEFAULT
                 .key-services-section[data-show-border-mobile="false"] &,
-                .twork-key-services-section[data-show-border-mobile="false"] &,
+                .mk-key-services-section[data-show-border-mobile="false"] &,
                 .key-services-section:not([data-show-border="true"]) &,
-                .twork-key-services-section:not([data-show-border="true"]) & {
+                .mk-key-services-section:not([data-show-border="true"]) & {
                     &:not(:last-child)::after,
                     &::before {
                         display: none !important;
@@ -924,7 +924,7 @@ section.jivaka-section,
         &[data-show-border="true"][data-show-border-mobile="true"]:not([data-disable-all-borders="true"]) {
             // Remove vertical borders on mobile (stacked layout)
             .key-services-grid .key-service-item:not(:last-child)::after,
-            .twork-key-services-grid .twork-key-service-item:not(:last-child)::after {
+            .mk-key-services-grid .mk-key-service-item:not(:last-child)::after {
                 display: none !important;
                 visibility: hidden !important;
                 opacity: 0 !important;
@@ -937,7 +937,7 @@ section.jivaka-section,
             &[data-border-position="horizontal"],
             &[data-border-position="both"] {
                 .key-services-grid .key-service-item:not(:last-child)::before,
-                .twork-key-services-grid .twork-key-service-item:not(:last-child)::before {
+                .mk-key-services-grid .mk-key-service-item:not(:last-child)::before {
                     display: block !important;
                     visibility: visible !important;
                     opacity: var(--border-opacity, 1) !important;
@@ -951,9 +951,9 @@ section.jivaka-section,
         &[data-show-border="true"][data-show-border-mobile="false"],
         &:not([data-show-border="true"]) {
             .key-services-grid .key-service-item:not(:last-child)::after,
-            .twork-key-services-grid .twork-key-service-item:not(:last-child)::after,
+            .mk-key-services-grid .mk-key-service-item:not(:last-child)::after,
             .key-services-grid .key-service-item::before,
-            .twork-key-services-grid .twork-key-service-item::before {
+            .mk-key-services-grid .mk-key-service-item::before {
                 display: none !important;
                 visibility: hidden !important;
                 opacity: 0 !important;
@@ -967,7 +967,7 @@ section.jivaka-section,
 
 // === ACCESSIBILITY ===
 .key-services-section,
-.twork-key-services-section {
+.mk-key-services-section {
     &:focus-within {
         outline: 2px solid var(--primary-orange, #f48b2a);
         outline-offset: 2px;
@@ -984,7 +984,7 @@ section.jivaka-section,
 // === PRINT STYLES ===
 @media print {
     .key-services-section,
-    .twork-key-services-section {
+    .mk-key-services-section {
         .key-service-item {
             break-inside: avoid;
             page-break-inside: avoid;
@@ -995,7 +995,7 @@ section.jivaka-section,
 // === DARK MODE SUPPORT ===
 @media (prefers-color-scheme: dark) {
     .key-services-section,
-    .twork-key-services-section {
+    .mk-key-services-section {
         .key-service-item {
             &:not([data-background-color-hover]) {
                 &:hover {
@@ -1014,26 +1014,26 @@ section.jivaka-section,
 
 // Section borders - FINAL OVERRIDE
 // CRITICAL: Hide ALL borders when disableAllBorders is true OR showBorder is false
-.wp-block-twork-key-services-section.key-services-section.jivaka-section.twork-key-services-section[data-disable-all-borders="true"],
+.wp-block-twork-key-services-section.key-services-section.jivaka-section.mk-key-services-section[data-disable-all-borders="true"],
 .wp-block-twork-key-services-section.key-services-section.jivaka-section[data-disable-all-borders="true"],
-.wp-block-twork-key-services-section.key-services-section.twork-key-services-section[data-disable-all-borders="true"],
-.wp-block-twork-key-services-section.jivaka-section.twork-key-services-section[data-disable-all-borders="true"],
+.wp-block-twork-key-services-section.key-services-section.mk-key-services-section[data-disable-all-borders="true"],
+.wp-block-twork-key-services-section.jivaka-section.mk-key-services-section[data-disable-all-borders="true"],
 .wp-block-twork-key-services-section.key-services-section[data-disable-all-borders="true"],
 .wp-block-twork-key-services-section.jivaka-section[data-disable-all-borders="true"],
-.wp-block-twork-key-services-section.twork-key-services-section[data-disable-all-borders="true"],
+.wp-block-twork-key-services-section.mk-key-services-section[data-disable-all-borders="true"],
 .wp-block-twork-key-services-section[data-disable-all-borders="true"],
-.wp-block-twork-key-services-section.key-services-section.jivaka-section.twork-key-services-section:not([data-show-border="true"]),
+.wp-block-twork-key-services-section.key-services-section.jivaka-section.mk-key-services-section:not([data-show-border="true"]),
 .wp-block-twork-key-services-section.key-services-section.jivaka-section:not([data-show-border="true"]),
-.wp-block-twork-key-services-section.key-services-section.twork-key-services-section:not([data-show-border="true"]),
-.wp-block-twork-key-services-section.jivaka-section.twork-key-services-section:not([data-show-border="true"]),
+.wp-block-twork-key-services-section.key-services-section.mk-key-services-section:not([data-show-border="true"]),
+.wp-block-twork-key-services-section.jivaka-section.mk-key-services-section:not([data-show-border="true"]),
 .wp-block-twork-key-services-section.key-services-section:not([data-show-border="true"]),
 .wp-block-twork-key-services-section.jivaka-section:not([data-show-border="true"]),
-.wp-block-twork-key-services-section.twork-key-services-section:not([data-show-border="true"]),
+.wp-block-twork-key-services-section.mk-key-services-section:not([data-show-border="true"]),
 .wp-block-twork-key-services-section:not([data-show-border="true"]),
 .key-services-section[data-disable-all-borders="true"],
 .key-services-section:not([data-show-border="true"]),
-.twork-key-services-section[data-disable-all-borders="true"],
-.twork-key-services-section:not([data-show-border="true"]),
+.mk-key-services-section[data-disable-all-borders="true"],
+.mk-key-services-section:not([data-show-border="true"]),
 .jivaka-section[data-disable-all-borders="true"],
 .jivaka-section:not([data-show-border="true"]) {
     border: none !important;
@@ -1045,25 +1045,25 @@ section.jivaka-section,
 // Item border pseudo-elements - FINAL OVERRIDE
 // Target ALL possible combinations with disableAllBorders OR :not([data-show-border="true"])
 .key-services-section[data-disable-all-borders="true"] .key-services-grid .key-service-item:not(:last-child)::after,
-.key-services-section[data-disable-all-borders="true"] .key-services-grid .twork-key-service-item:not(:last-child)::after,
+.key-services-section[data-disable-all-borders="true"] .key-services-grid .mk-key-service-item:not(:last-child)::after,
 .key-services-section:not([data-show-border="true"]) .key-services-grid .key-service-item:not(:last-child)::after,
-.key-services-section:not([data-show-border="true"]) .key-services-grid .twork-key-service-item:not(:last-child)::after,
-.key-services-section:not([data-show-border="true"]) .twork-key-services-grid .key-service-item:not(:last-child)::after,
-.key-services-section:not([data-show-border="true"]) .twork-key-services-grid .twork-key-service-item:not(:last-child)::after,
-.twork-key-services-section[data-disable-all-borders="true"] .key-services-grid .key-service-item:not(:last-child)::after,
-.twork-key-services-section[data-disable-all-borders="true"] .key-services-grid .twork-key-service-item:not(:last-child)::after,
-.twork-key-services-section:not([data-show-border="true"]) .key-services-grid .key-service-item:not(:last-child)::after,
-.twork-key-services-section:not([data-show-border="true"]) .key-services-grid .twork-key-service-item:not(:last-child)::after,
-.twork-key-services-section:not([data-show-border="true"]) .twork-key-services-grid .key-service-item:not(:last-child)::after,
-.twork-key-services-section:not([data-show-border="true"]) .twork-key-services-grid .twork-key-service-item:not(:last-child)::after,
+.key-services-section:not([data-show-border="true"]) .key-services-grid .mk-key-service-item:not(:last-child)::after,
+.key-services-section:not([data-show-border="true"]) .mk-key-services-grid .key-service-item:not(:last-child)::after,
+.key-services-section:not([data-show-border="true"]) .mk-key-services-grid .mk-key-service-item:not(:last-child)::after,
+.mk-key-services-section[data-disable-all-borders="true"] .key-services-grid .key-service-item:not(:last-child)::after,
+.mk-key-services-section[data-disable-all-borders="true"] .key-services-grid .mk-key-service-item:not(:last-child)::after,
+.mk-key-services-section:not([data-show-border="true"]) .key-services-grid .key-service-item:not(:last-child)::after,
+.mk-key-services-section:not([data-show-border="true"]) .key-services-grid .mk-key-service-item:not(:last-child)::after,
+.mk-key-services-section:not([data-show-border="true"]) .mk-key-services-grid .key-service-item:not(:last-child)::after,
+.mk-key-services-section:not([data-show-border="true"]) .mk-key-services-grid .mk-key-service-item:not(:last-child)::after,
 .wp-block-twork-key-services-section:not([data-show-border="true"]) .key-services-grid .key-service-item:not(:last-child)::after,
-.wp-block-twork-key-services-section:not([data-show-border="true"]) .key-services-grid .twork-key-service-item:not(:last-child)::after,
-.wp-block-twork-key-services-section:not([data-show-border="true"]) .twork-key-services-grid .key-service-item:not(:last-child)::after,
-.wp-block-twork-key-services-section:not([data-show-border="true"]) .twork-key-services-grid .twork-key-service-item:not(:last-child)::after,
+.wp-block-twork-key-services-section:not([data-show-border="true"]) .key-services-grid .mk-key-service-item:not(:last-child)::after,
+.wp-block-twork-key-services-section:not([data-show-border="true"]) .mk-key-services-grid .key-service-item:not(:last-child)::after,
+.wp-block-twork-key-services-section:not([data-show-border="true"]) .mk-key-services-grid .mk-key-service-item:not(:last-child)::after,
 .wp-block-twork-key-services-section.key-services-section:not([data-show-border="true"]) .key-services-grid .key-service-item:not(:last-child)::after,
-.wp-block-twork-key-services-section.key-services-section:not([data-show-border="true"]) .key-services-grid .twork-key-service-item:not(:last-child)::after,
-.wp-block-twork-key-services-section.key-services-section:not([data-show-border="true"]) .twork-key-services-grid .key-service-item:not(:last-child)::after,
-.wp-block-twork-key-services-section.key-services-section:not([data-show-border="true"]) .twork-key-services-grid .twork-key-service-item:not(:last-child)::after {
+.wp-block-twork-key-services-section.key-services-section:not([data-show-border="true"]) .key-services-grid .mk-key-service-item:not(:last-child)::after,
+.wp-block-twork-key-services-section.key-services-section:not([data-show-border="true"]) .mk-key-services-grid .key-service-item:not(:last-child)::after,
+.wp-block-twork-key-services-section.key-services-section:not([data-show-border="true"]) .mk-key-services-grid .mk-key-service-item:not(:last-child)::after {
     // FINAL OVERRIDE: Hide ALL borders when showBorder is not true
     content: none !important;
     display: none !important;
@@ -1091,21 +1091,21 @@ section.jivaka-section,
 
 .key-services-section[data-disable-all-borders="true"] .key-services-grid .key-service-item::before,
 .key-services-section[data-disable-all-borders="true"] .key-services-grid .key-service-item::before,
-.key-services-section[data-disable-all-borders="true"] .key-services-grid .twork-key-service-item::before,
+.key-services-section[data-disable-all-borders="true"] .key-services-grid .mk-key-service-item::before,
 .key-services-section:not([data-show-border="true"]) .key-services-grid .key-service-item::before,
-.key-services-section:not([data-show-border="true"]) .key-services-grid .twork-key-service-item::before,
-.key-services-section:not([data-show-border="true"]) .twork-key-services-grid .key-service-item::before,
-.key-services-section:not([data-show-border="true"]) .twork-key-services-grid .twork-key-service-item::before,
-.twork-key-services-section[data-disable-all-borders="true"] .key-services-grid .key-service-item::before,
-.twork-key-services-section[data-disable-all-borders="true"] .key-services-grid .twork-key-service-item::before,
-.twork-key-services-section:not([data-show-border="true"]) .key-services-grid .key-service-item::before,
-.twork-key-services-section:not([data-show-border="true"]) .key-services-grid .twork-key-service-item::before,
-.twork-key-services-section:not([data-show-border="true"]) .twork-key-services-grid .key-service-item::before,
-.twork-key-services-section:not([data-show-border="true"]) .twork-key-services-grid .twork-key-service-item::before,
+.key-services-section:not([data-show-border="true"]) .key-services-grid .mk-key-service-item::before,
+.key-services-section:not([data-show-border="true"]) .mk-key-services-grid .key-service-item::before,
+.key-services-section:not([data-show-border="true"]) .mk-key-services-grid .mk-key-service-item::before,
+.mk-key-services-section[data-disable-all-borders="true"] .key-services-grid .key-service-item::before,
+.mk-key-services-section[data-disable-all-borders="true"] .key-services-grid .mk-key-service-item::before,
+.mk-key-services-section:not([data-show-border="true"]) .key-services-grid .key-service-item::before,
+.mk-key-services-section:not([data-show-border="true"]) .key-services-grid .mk-key-service-item::before,
+.mk-key-services-section:not([data-show-border="true"]) .mk-key-services-grid .key-service-item::before,
+.mk-key-services-section:not([data-show-border="true"]) .mk-key-services-grid .mk-key-service-item::before,
 .wp-block-twork-key-services-section:not([data-show-border="true"]) .key-services-grid .key-service-item::before,
-.wp-block-twork-key-services-section:not([data-show-border="true"]) .key-services-grid .twork-key-service-item::before,
-.wp-block-twork-key-services-section:not([data-show-border="true"]) .twork-key-services-grid .key-service-item::before,
-.wp-block-twork-key-services-section:not([data-show-border="true"]) .twork-key-services-grid .twork-key-service-item::before {
+.wp-block-twork-key-services-section:not([data-show-border="true"]) .key-services-grid .mk-key-service-item::before,
+.wp-block-twork-key-services-section:not([data-show-border="true"]) .mk-key-services-grid .key-service-item::before,
+.wp-block-twork-key-services-section:not([data-show-border="true"]) .mk-key-services-grid .mk-key-service-item::before {
     // FINAL OVERRIDE: Hide ALL horizontal borders when showBorder is not true
     content: none !important;
     display: none !important;

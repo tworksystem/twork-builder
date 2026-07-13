@@ -6,7 +6,7 @@
 	"parent": [ "twork/hc-area-section" ],
 	"category": "twork-builder",
 	"description": "Single coverage area tag (e.g. township name) for the Home Care Area section.",
-	"keywords": [ "home care", "area", "coverage", "tag", "twork" ],
+	"keywords": [ "home care", "area", "coverage", "tag", "mk" ],
 	"attributes": {
 		"label": {
 			"type": "string",

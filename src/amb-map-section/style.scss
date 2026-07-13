@@ -12,10 +12,10 @@
 .editor-styles-wrapper,
 .block-editor-block-list__layout,
 .wp-block-twork-amb-map-section {
-    .twork-amb-map-section-editor {
+    .mk-amb-map-section-editor {
         position: relative;
 
-        .amb-map-box.twork-amb-map-box {
+        .amb-map-box.mk-amb-map-box {
             h2,
             p {
                 &[contenteditable="true"]:focus {
@@ -32,7 +32,7 @@
 }
 
 // === FRONTEND STYLES ===
-.twork-amb-map-section.amb-section {
+.mk-amb-map-section.amb-section {
     font-family: $font-primary;
     position: relative;
 
@@ -40,7 +40,7 @@
         position: relative;
     }
 
-    .amb-map-box.twork-amb-map-box {
+    .amb-map-box.mk-amb-map-box {
         background: var(--amb-light);
         border-radius: var(--amb-radius);
         padding: 60px;
@@ -89,7 +89,7 @@
     }
 
     // Scroll animation when data-animation="true"
-    &[data-animation="true"] .amb-map-box.twork-amb-map-box {
+    &[data-animation="true"] .amb-map-box.mk-amb-map-box {
         opacity: 0;
         transform: translateY(24px);
         transition: opacity 0.6s ease-out, transform 0.6s ease-out;
@@ -103,8 +103,8 @@
 
 // === RESPONSIVE ===
 @media (max-width: 768px) {
-    .twork-amb-map-section.amb-section {
-        .amb-map-box.twork-amb-map-box {
+    .mk-amb-map-section.amb-section {
+        .amb-map-box.mk-amb-map-box {
             padding: 40px 24px;
 
             h2 {
@@ -129,15 +129,15 @@
 }
 
 // === ACCESSIBILITY ===
-.twork-amb-map-section .amb-township:focus-visible {
+.mk-amb-map-section .amb-township:focus-visible {
     outline: 3px solid var(--amb-primary);
     outline-offset: 2px;
 }
 
 // === PRINT ===
 @media print {
-    .twork-amb-map-section.amb-section {
-        .amb-map-box.twork-amb-map-box {
+    .mk-amb-map-section.amb-section {
+        .amb-map-box.mk-amb-map-box {
             border: 1px solid #ccc;
             box-shadow: none;
         }

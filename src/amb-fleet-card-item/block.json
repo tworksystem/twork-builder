@@ -6,7 +6,7 @@
 	"parent": [ "twork/amb-fleet-section" ],
 	"category": "twork-builder",
 	"description": "Single fleet card with badge, image, title, description and feature list.",
-	"keywords": [ "ambulance", "fleet", "card", "ALS", "BLS", "twork" ],
+	"keywords": [ "ambulance", "fleet", "card", "ALS", "BLS", "mk" ],
 	"attributes": {
 		"badgeText": {
 			"type": "string",

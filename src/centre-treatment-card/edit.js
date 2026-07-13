@@ -92,7 +92,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 	const blockProps = useStableBlockProps(
 		() => ( {
 			className:
-				'treatment-card stagger-card twork-centre-treatment-card-editor',
+				'treatment-card stagger-card mk-centre-treatment-card-editor',
 		} ),
 		[]
 	);

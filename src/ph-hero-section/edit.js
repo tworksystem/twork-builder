@@ -32,7 +32,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'ph-hero twork-ph-hero-section',
+			className: 'ph-hero mk-ph-hero-section',
 			style: {
 				minHeight: `${ minHeight }px`,
 			},

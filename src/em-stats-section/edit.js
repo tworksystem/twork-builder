@@ -74,7 +74,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'twork-em-stats-section-editor',
+			className: 'mk-em-stats-section-editor',
 			style: {
 				position: 'relative',
 			},

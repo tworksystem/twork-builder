@@ -16,7 +16,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 	const blockProps = useStableBlockProps(
 		() => ( {
 			className:
-				'doctor-card-mini stagger-doc twork-centre-doctor-card-editor',
+				'doctor-card-mini stagger-doc mk-centre-doctor-card-editor',
 		} ),
 		[]
 	);

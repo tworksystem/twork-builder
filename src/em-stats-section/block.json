@@ -7,7 +7,7 @@
 	"category": "twork-builder",
 	"icon": "chart-bar",
 	"description": "24/7 emergency quick stats bar with icon, value and label items (em-stats).",
-	"keywords": [ "emergency", "stats", "24/7", "grid", "twork" ],
+	"keywords": [ "emergency", "stats", "24/7", "grid", "mk" ],
 	"attributes": {
 		"backgroundColor": {
 			"type": "string",

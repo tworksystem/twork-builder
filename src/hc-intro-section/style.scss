@@ -15,7 +15,7 @@
 .editor-styles-wrapper,
 .block-editor-block-list__layout,
 .wp-block-twork-hc-intro-section {
-    .twork-hc-intro-section-editor {
+    .mk-hc-intro-section-editor {
         .hc-intro-grid {
             display: grid !important;
             grid-template-columns: 1fr 1fr;
@@ -71,7 +71,7 @@
 }
 
 // === FRONTEND STYLES ===
-.twork-hc-intro-section {
+.mk-hc-intro-section {
     font-family: $font-primary;
 
     .hc-container {
@@ -120,8 +120,8 @@
 
 // === RESPONSIVE ===
 @media (max-width: 992px) {
-    .twork-hc-intro-section .hc-intro-grid,
-    .twork-hc-intro-section-editor .hc-intro-grid {
+    .mk-hc-intro-section .hc-intro-grid,
+    .mk-hc-intro-section-editor .hc-intro-grid {
         grid-template-columns: 1fr;
     }
 }

@@ -48,7 +48,7 @@ export default function save( { attributes } ) {
 	} = attributes;
 
 	const blockProps = useBlockProps.save( {
-		className: 'twork-tour-section tour-section',
+		className: 'mk-tour-section tour-section',
 		style: {
 			paddingTop: `${ paddingTop }px`,
 			paddingBottom: `${ paddingBottom }px`,
@@ -65,14 +65,14 @@ export default function save( { attributes } ) {
 			backgroundAttachment:
 				backgroundAttachment === 'fixed' ? 'fixed' : 'scroll',
 			// CSS custom properties for responsive and button theming
-			'--twork-tour-padding-top-mobile': `${ paddingTopMobile }px`,
-			'--twork-tour-padding-bottom-mobile': `${ paddingBottomMobile }px`,
-			'--twork-tour-title-font-size-mobile': `${ titleFontSizeMobile }rem`,
-			'--twork-tour-subtitle-font-size-mobile': `${ subtitleFontSizeMobile }rem`,
-			'--twork-tour-icon-size-mobile': `${ iconSizeMobile }rem`,
-			'--twork-tour-button-bg': buttonBgColor,
-			'--twork-tour-button-color': buttonTextColor,
-			'--twork-tour-button-hover-bg': buttonHoverBgColor || buttonBgColor,
+			'--mk-tour-padding-top-mobile': `${ paddingTopMobile }px`,
+			'--mk-tour-padding-bottom-mobile': `${ paddingBottomMobile }px`,
+			'--mk-tour-title-font-size-mobile': `${ titleFontSizeMobile }rem`,
+			'--mk-tour-subtitle-font-size-mobile': `${ subtitleFontSizeMobile }rem`,
+			'--mk-tour-icon-size-mobile': `${ iconSizeMobile }rem`,
+			'--mk-tour-button-bg': buttonBgColor,
+			'--mk-tour-button-color': buttonTextColor,
+			'--mk-tour-button-hover-bg': buttonHoverBgColor || buttonBgColor,
 		},
 	} );
 

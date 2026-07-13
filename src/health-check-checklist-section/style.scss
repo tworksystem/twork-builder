@@ -20,7 +20,7 @@
 .editor-styles-wrapper,
 .block-editor-block-list__layout,
 .wp-block-twork-health-check-checklist-section {
-    .twork-health-check-checklist-editor {
+    .mk-health-check-checklist-editor {
         position: relative;
         min-height: 320px;
         overflow: visible !important;
@@ -72,8 +72,8 @@
 }
 
 // === FRONTEND STYLES ===
-.twork-health-check-checklist-section.chk-section.chk-checklist-section,
-.chk-section.chk-checklist-section.twork-health-check-checklist-section {
+.mk-health-check-checklist-section.chk-section.chk-checklist-section,
+.chk-section.chk-checklist-section.mk-health-check-checklist-section {
     font-family: $font-primary;
     position: relative;
     overflow: hidden;
@@ -146,8 +146,8 @@
 
 // === RESPONSIVE (match health-check-up.html breakpoints) ===
 @media (max-width: 992px) {
-    .twork-health-check-checklist-section.chk-section.chk-checklist-section,
-    .chk-section.chk-checklist-section.twork-health-check-checklist-section {
+    .mk-health-check-checklist-section.chk-section.chk-checklist-section,
+    .chk-section.chk-checklist-section.mk-health-check-checklist-section {
         .chk-checklist-grid {
             grid-template-columns: 1fr !important;
         }
@@ -161,8 +161,8 @@
 }
 
 @media (max-width: 768px) {
-    .twork-health-check-checklist-section.chk-section.chk-checklist-section,
-    .chk-section.chk-checklist-section.twork-health-check-checklist-section {
+    .mk-health-check-checklist-section.chk-section.chk-checklist-section,
+    .chk-section.chk-checklist-section.mk-health-check-checklist-section {
         .section-header {
             .section-title {
                 font-size: 2rem !important;
@@ -195,8 +195,8 @@
 
 // === PRINT STYLES ===
 @media print {
-    .twork-health-check-checklist-section.chk-section.chk-checklist-section,
-    .chk-section.chk-checklist-section.twork-health-check-checklist-section {
+    .mk-health-check-checklist-section.chk-section.chk-checklist-section,
+    .chk-section.chk-checklist-section.mk-health-check-checklist-section {
         .chk-checklist-box {
             box-shadow: none;
             border: 1px solid #e0e0e0;

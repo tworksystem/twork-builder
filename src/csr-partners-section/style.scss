@@ -10,11 +10,11 @@
 .editor-styles-wrapper,
 .block-editor-block-list__layout,
 .wp-block-twork-csr-partners-section {
-    .twork-csr-partners-section-editor {
+    .mk-csr-partners-section-editor {
         position: relative;
         min-height: 120px;
 
-        .twork-csr-partners-grid {
+        .mk-csr-partners-grid {
             width: 100%;
             min-height: 100px;
 
@@ -49,7 +49,7 @@
 }
 
 // === FRONTEND STYLES ===
-.twork-csr-partners-section {
+.mk-csr-partners-section {
     font-family: $font-primary;
     position: relative;
 
@@ -108,7 +108,7 @@
 
 // === RESPONSIVE ===
 @media (max-width: 768px) {
-    .twork-csr-partners-section {
+    .mk-csr-partners-section {
         .csr-partners-title {
             font-size: 0.95rem !important;
         }

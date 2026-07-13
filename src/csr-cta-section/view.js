@@ -3,7 +3,7 @@
  * Uses Intersection Observer API.
  *
  * @since 1.0.0
- * @author Twork Builder
+ * @author MK Builder
  */
 
 ( function () {
@@ -12,14 +12,14 @@
 	function initCsrCtaSection() {
 		if ( ! ( 'IntersectionObserver' in window ) ) {
 			const containers = document.querySelectorAll(
-				'.twork-csr-cta-section .jivaka-container.fade-up'
+				'.mk-csr-cta-section .jivaka-container.fade-up'
 			);
 			containers.forEach( ( el ) => el.classList.add( 'is-visible' ) );
 			return;
 		}
 
 		const sections = document.querySelectorAll(
-			'.twork-csr-cta-section[data-animation="true"]'
+			'.mk-csr-cta-section[data-animation="true"]'
 		);
 		if ( ! sections.length ) return;
 
@@ -52,5 +52,5 @@
 	}
 
 	window.addEventListener( 'load', initCsrCtaSection );
-	window.TworkCsrCtaSection = { init: initCsrCtaSection, version: '1.0.0' };
+	window.MkCsrCtaSection = { init: initCsrCtaSection, version: '1.0.0' };
 } )();

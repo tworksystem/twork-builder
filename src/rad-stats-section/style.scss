@@ -15,7 +15,7 @@
 .editor-styles-wrapper,
 .block-editor-block-list__layout,
 .wp-block-twork-rad-stats-section {
-  .twork-rad-stats-section-editor {
+  .mk-rad-stats-section-editor {
     position: relative;
 
     .rad-container {
@@ -70,7 +70,7 @@
 }
 
 // === FRONTEND STYLES ===
-.twork-rad-stats-section {
+.mk-rad-stats-section {
   font-family: $font-primary;
   position: relative;
 
@@ -126,7 +126,7 @@
 
 // === RESPONSIVE ===
 @media (max-width: 992px) {
-  .twork-rad-stats-section {
+  .mk-rad-stats-section {
     .rad-stats-box {
       grid-template-columns: repeat(
         var(--rad-stats-columns-tablet, 2),
@@ -137,7 +137,7 @@
 }
 
 @media (max-width: 600px) {
-  .twork-rad-stats-section {
+  .mk-rad-stats-section {
     .rad-stats-box {
       grid-template-columns: repeat(
         var(--rad-stats-columns-mobile, 1),

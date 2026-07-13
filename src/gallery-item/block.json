@@ -5,7 +5,7 @@
 	"title": "Gallery Item",
 	"parent": [ "twork/gallery-section" ],
 	"description": "Single gallery image with category for filtering and overlay icon.",
-	"keywords": [ "gallery", "image", "photo", "filter", "twork" ],
+	"keywords": [ "gallery", "image", "photo", "filter", "mk" ],
 	"attributes": {
 		"imageUrl": {
 			"type": "string",

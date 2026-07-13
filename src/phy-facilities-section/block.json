@@ -7,7 +7,7 @@
 	"category": "twork-builder",
 	"icon": "images-alt2",
 	"description": "Physiotherapy facilities slider – cards loaded from WordPress posts (featured image, title, excerpt). Matches physiotherapy-rehab.html facilities section.",
-	"keywords": [ "physio", "facilities", "slider", "gym", "twork" ],
+	"keywords": [ "physio", "facilities", "slider", "gym", "mk" ],
 	"attributes": {
 		"source": {
 			"type": "string",

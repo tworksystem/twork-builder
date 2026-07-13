@@ -5,14 +5,14 @@
  * Supports: fade, slide, cube effects; autoplay; pagination; prev/next; touch swipe.
  *
  * @since 1.0.0
- * @author Twork Builder
+ * @author MK Builder
  */
 
 ( function () {
 	'use strict';
 
 	const SLIDER_SELECTOR =
-		'.twork-hero-slider-section, .wp-block-twork-hero-slider.hero-slider, .wp-block-twork-hero-slider.hero-section, section.hero-slider, section.hero-section';
+		'.mk-hero-slider-section, .wp-block-twork-hero-slider.hero-slider, .wp-block-twork-hero-slider.hero-section, section.hero-slider, section.hero-section';
 	const WRAPPER_CLASS = 'swiper-wrapper';
 	const SLIDE_CLASS = 'swiper-slide';
 	const PAGINATION_CLASS = 'swiper-pagination';
@@ -195,7 +195,7 @@
 
 	window.addEventListener( 'load', onReady );
 
-	if ( typeof window.TworkHeroSlider === 'undefined' ) {
-		window.TworkHeroSlider = { init: initAll, version: '1.0.0' };
+	if ( typeof window.MkHeroSlider === 'undefined' ) {
+		window.MkHeroSlider = { init: initAll, version: '1.0.0' };
 	}
 } )();

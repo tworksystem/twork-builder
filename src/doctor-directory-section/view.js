@@ -4,7 +4,7 @@
  * Cards must have data-dept, data-gender, data-name for filtering.
  *
  * @since 1.0.0
- * @package TworkBuilder
+ * @package MkBuilder
  */
 
 ( function () {
@@ -16,7 +16,7 @@
 	 */
 	function getFilterElements() {
 		const filterSection =
-			document.querySelector( '.twork-doctor-search-filter-section' ) ||
+			document.querySelector( '.mk-doctor-search-filter-section' ) ||
 			document;
 		return {
 			searchInput: filterSection.querySelector( '#searchInput' ),
@@ -28,7 +28,7 @@
 
 	/**
 	 * Run filter logic for a single section.
-	 * @param {HTMLElement} section - .doctor-directory or .twork-doctor-directory-section
+	 * @param {HTMLElement} section - .doctor-directory or .mk-doctor-directory-section
 	 */
 	function filterDoctorsInSection( section ) {
 		const grid = section.querySelector( '#doctorsGrid, .doctors-grid' );
@@ -99,7 +99,7 @@
 	 */
 	function initDoctorDirectorySections() {
 		const sections = document.querySelectorAll(
-			'.doctor-directory.twork-doctor-directory-section, .twork-doctor-directory-section'
+			'.doctor-directory.mk-doctor-directory-section, .mk-doctor-directory-section'
 		);
 		if ( ! sections.length ) return;
 
@@ -139,7 +139,7 @@
 		initDoctorDirectorySections();
 	}
 
-	window.TworkDoctorDirectorySection = {
+	window.MkDoctorDirectorySection = {
 		init: initDoctorDirectorySections,
 		version: '1.0.0',
 	};

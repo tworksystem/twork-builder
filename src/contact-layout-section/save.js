@@ -21,7 +21,7 @@ export default function save( { attributes } ) {
 	} = attributes;
 
 	const blockProps = useBlockProps.save( {
-		className: 'twork-contact-layout-section',
+		className: 'mk-contact-layout-section',
 		style: {
 			paddingBottom: `${ paddingBottom }px`,
 			'--contact-primary': primaryColor,

@@ -8,7 +8,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'phy-journey-item twork-phy-journey-step-editor',
+			className: 'phy-journey-item mk-phy-journey-step-editor',
 		} ),
 		[]
 	);

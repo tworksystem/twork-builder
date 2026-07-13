@@ -104,7 +104,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 	const blockProps = useStableBlockProps(
 		() => ( {
 			className: [
-				'twork-packages-section-editor',
+				'mk-packages-section-editor',
 				layoutStyle === 'lab'
 					? 'lab-section lab-price-section is-lab-style'
 					: '',
@@ -1318,7 +1318,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 							</div>
 						) }
 					<div
-						className={ `twork-packages-grid-container packages-grid${
+						className={ `mk-packages-grid-container packages-grid${
 							layoutStyle === 'lab' ? ' lab-price-grid' : ''
 						}` }
 						style={ gridStyle }

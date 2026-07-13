@@ -7,7 +7,7 @@
 	"category": "twork-builder",
 	"icon": "editor-help",
 	"description": "Radiology patient preparation guide with image and FAQ accordion.",
-	"keywords": [ "radiology", "preparation", "faq", "guide", "twork" ],
+	"keywords": [ "radiology", "preparation", "faq", "guide", "mk" ],
 	"attributes": {
 		"backgroundColor": {
 			"type": "string",

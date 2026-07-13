@@ -7,7 +7,7 @@
 	"category": "twork-builder",
 	"icon": "grid-view",
 	"description": "Doctor directory section with filterable doctor cards grid. Add Doctor Card items as children.",
-	"keywords": [ "doctor", "directory", "grid", "find a doctor", "twork" ],
+	"keywords": [ "doctor", "directory", "grid", "find a doctor", "mk" ],
 	"attributes": {
 		"backgroundColor": {
 			"type": "string",
@@ -52,7 +52,44 @@
 		"noResultsMessage": {
 			"type": "string",
 			"default": "Please try adjusting your filters or search term."
+		},
+		"departments": {
+			"type": "array",
+			"default": [
+				{ "value": "heart", "label": "Heart Centre" },
+				{ "value": "neuro", "label": "Neuro Centre" },
+				{ "value": "cancer", "label": "Cancer Centre" },
+				{ "value": "peds", "label": "Paediatrics" },
+				{ "value": "general", "label": "General Medicine" },
+				{ "value": "ent", "label": "ENT" },
+				{ "value": "dental", "label": "Dental" }
+			],
+			"items": {
+				"type": "object",
+				"properties": {
+					"value": { "type": "string" },
+					"label": { "type": "string" }
+				}
+			}
+		},
+		"genders": {
+			"type": "array",
+			"default": [
+				{ "value": "male", "label": "Male" },
+				{ "value": "female", "label": "Female" }
+			],
+			"items": {
+				"type": "object",
+				"properties": {
+					"value": { "type": "string" },
+					"label": { "type": "string" }
+				}
+			}
 		}
+	},
+	"providesContext": {
+		"twork/departments": "departments",
+		"twork/genders": "genders"
 	},
 	"supports": {
 		"html": false,
@@ -72,7 +109,20 @@
 			"containerMaxWidth": 1200,
 			"containerPadding": 30,
 			"noResultsHeading": "No doctors found matching your criteria.",
-			"noResultsMessage": "Please try adjusting your filters or search term."
+			"noResultsMessage": "Please try adjusting your filters or search term.",
+			"departments": [
+				{ "value": "heart", "label": "Heart Centre" },
+				{ "value": "neuro", "label": "Neuro Centre" },
+				{ "value": "cancer", "label": "Cancer Centre" },
+				{ "value": "peds", "label": "Paediatrics" },
+				{ "value": "general", "label": "General Medicine" },
+				{ "value": "ent", "label": "ENT" },
+				{ "value": "dental", "label": "Dental" }
+			],
+			"genders": [
+				{ "value": "male", "label": "Male" },
+				{ "value": "female", "label": "Female" }
+			]
 		},
 		"innerBlocks": [
 			{
@@ -96,5 +146,6 @@
 	"textdomain": "twork-builder",
 	"editorScript": "file:./index.js",
 	"viewScript": "file:./view.js",
-	"style": "file:./style-index.css"
+	"style": "file:./style-index.css",
+	"editorStyle": "file:./style-index.css"
 }

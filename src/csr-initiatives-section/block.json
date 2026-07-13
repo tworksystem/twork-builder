@@ -7,7 +7,7 @@
 	"category": "twork-builder",
 	"icon": "heart",
 	"description": "Our Core Initiatives section - displays posts from WordPress. Select by category or pick specific posts. Use csr_icon_class meta for Font Awesome icon.",
-	"keywords": [ "csr", "initiatives", "core", "charity", "grid", "twork" ],
+	"keywords": [ "csr", "initiatives", "core", "charity", "grid", "mk" ],
 	"attributes": {
 		"backgroundColor": {
 			"type": "string",

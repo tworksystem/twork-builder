@@ -9,7 +9,7 @@
 
 // === EDITOR STYLES ===
 .editor-styles-wrapper {
-    .twork-accreditation-cert-card-editor {
+    .mk-accreditation-cert-card-editor {
         .cert-icon,
         h3,
         span,
@@ -23,7 +23,7 @@
 }
 
 // === FRONTEND STYLES (nested under parent) ===
-.twork-accreditation-section .cert-card {
+.mk-accreditation-section .cert-card {
     // Card base - uses inline --card-bg from save
     background: var(--card-bg, #fff);
     border: 1px solid var(--border-color, #eee);
@@ -52,7 +52,7 @@
     }
 
     // Hover translate from parent
-    .twork-accreditation-section[data-hover-effect="true"] &:hover {
+    .mk-accreditation-section[data-hover-effect="true"] &:hover {
         transform: translateY(var(--hover-translate-y, -10px));
     }
 

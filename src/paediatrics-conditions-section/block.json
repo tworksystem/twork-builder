@@ -7,7 +7,7 @@
 	"category": "twork-builder",
 	"icon": "grid-view",
 	"description": "Conditions We Treat section with header and grid of condition cards. Matches paediatrics-centre.html.",
-	"keywords": [ "paediatrics", "conditions", "grid", "twork" ],
+	"keywords": [ "paediatrics", "conditions", "grid", "mk" ],
 	"attributes": {
 		"backgroundColor": {
 			"type": "string",

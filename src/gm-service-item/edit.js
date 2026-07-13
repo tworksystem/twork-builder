@@ -44,7 +44,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'jivaka-gm-service-card twork-gm-service-item-editor',
+			className: 'jivaka-gm-service-card mk-gm-service-item-editor',
 		} ),
 		[]
 	);

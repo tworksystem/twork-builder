@@ -23,7 +23,7 @@ export default function save( { attributes } ) {
 	} = attributes;
 
 	const blockProps = useBlockProps.save( {
-		className: 'twork-tele-process-section process-section',
+		className: 'mk-tele-process-section process-section',
 		id: sectionAnchor || undefined,
 		style: {
 			paddingTop: `${ sectionPaddingTop }px`,

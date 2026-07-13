@@ -7,7 +7,7 @@
 	"category": "twork-builder",
 	"icon": "list-view",
 	"description": "How It Works process section with step cards (icon, title, description).",
-	"keywords": [ "telemedicine", "process", "how it works", "steps", "twork" ],
+	"keywords": [ "telemedicine", "process", "how it works", "steps", "mk" ],
 	"attributes": {
 		"sectionPaddingTop": {
 			"type": "number",

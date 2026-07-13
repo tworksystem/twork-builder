@@ -1,5 +1,5 @@
 /**
- * Twork Updates Section – Scroll Animation
+ * Mk Updates Section – Scroll Animation
  * Pure JavaScript – no GSAP. Follows awards-section pattern.
  */
 ( function () {
@@ -9,7 +9,7 @@
 		if ( ! ( 'IntersectionObserver' in window ) ) {
 			document
 				.querySelectorAll(
-					'.twork-updates-section .update-post.stagger-up'
+					'.mk-updates-section .update-post.stagger-up'
 				)
 				.forEach( ( el ) => {
 					el.classList.add( 'is-visible' );
@@ -17,7 +17,7 @@
 			return;
 		}
 
-		const sections = document.querySelectorAll( '.twork-updates-section' );
+		const sections = document.querySelectorAll( '.mk-updates-section' );
 		if ( ! sections.length ) return;
 
 		const observerOptions = {

@@ -95,7 +95,7 @@ export default function Edit( { attributes = {}, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'phy-section twork-phy-facilities-section-editor',
+			className: 'phy-section mk-phy-facilities-section-editor',
 			style: {
 				backgroundColor,
 				paddingTop: `${ Number( paddingTop ) }px`,
@@ -446,7 +446,7 @@ export default function Edit( { attributes = {}, setAttributes, isSelected } ) {
 					) }
 
 					<div
-						className="phy-facility-slider twork-phy-facility-slider-preview"
+						className="phy-facility-slider mk-phy-facility-slider-preview"
 						style={ {
 							display: 'block',
 						} }

@@ -3,7 +3,7 @@
  * Uses Intersection Observer API - no GSAP dependency.
  *
  * @since 1.0.0
- * @author Twork Builder
+ * @author MK Builder
  */
 
 ( function () {
@@ -12,7 +12,7 @@
 	function initAwardsSection() {
 		if ( ! ( 'IntersectionObserver' in window ) ) {
 			const sections = document.querySelectorAll(
-				'.twork-awards-section'
+				'.mk-awards-section'
 			);
 			sections.forEach( ( section ) => {
 				section.classList.add( 'is-visible' );
@@ -28,7 +28,7 @@
 			return;
 		}
 
-		const sections = document.querySelectorAll( '.twork-awards-section' );
+		const sections = document.querySelectorAll( '.mk-awards-section' );
 		if ( ! sections.length ) return;
 
 		const observerOptions = {
@@ -84,5 +84,5 @@
 	}
 
 	window.addEventListener( 'load', initAwardsSection );
-	window.TworkAwardsSection = { init: initAwardsSection, version: '1.0.0' };
+	window.MkAwardsSection = { init: initAwardsSection, version: '1.0.0' };
 } )();

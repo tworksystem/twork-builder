@@ -1,7 +1,7 @@
 @import "../scss/typography";
 
 // Health Check Packages Section – matches health-check-up.html
-.twork-health-check-packages-section.chk-section {
+.mk-health-check-packages-section.chk-section {
     --chk-primary: #f48b2a;
     --chk-secondary: #005f73;
     --chk-radius: 20px;
@@ -208,8 +208,8 @@
     overflow: visible !important;
 }
 
-.editor-styles-wrapper .twork-health-check-packages-section-editor,
-.wp-block-twork-health-check-packages-section .twork-health-check-packages-section-editor {
+.editor-styles-wrapper .mk-health-check-packages-section-editor,
+.wp-block-twork-health-check-packages-section .mk-health-check-packages-section-editor {
     overflow: visible !important;
     min-height: 400px;
     width: 100%;
@@ -219,7 +219,7 @@
         overflow: visible;
     }
 
-    .twork-chk-pkg-grid-editor {
+    .mk-chk-pkg-grid-editor {
         overflow: visible;
         min-height: 320px;
 
@@ -240,7 +240,7 @@
 }
 
 @media (max-width: 768px) {
-    .twork-health-check-packages-section.chk-section {
+    .mk-health-check-packages-section.chk-section {
         .chk-header h2 {
             font-size: 2rem;
         }

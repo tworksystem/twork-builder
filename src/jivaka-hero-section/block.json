@@ -7,7 +7,7 @@
 	"category": "twork-builder",
 	"icon": "smartphone",
 	"description": "Jivaka Care app hero section with title, subtitle, app store badges, and phone mockup.",
-	"keywords": [ "jivaka", "hero", "app", "mobile", "twork" ],
+	"keywords": [ "jivaka", "hero", "app", "mobile", "mk" ],
 	"attributes": {
 		"title": {
 			"type": "string",

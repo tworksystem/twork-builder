@@ -7,7 +7,7 @@
 	"category": "twork-builder",
 	"icon": "cover-image",
 	"description": "Professional banner with customizable background, overlay, and shape decoration using Jivaka theme colors.",
-	"keywords": [ "banner", "hero", "header", "shape", "twork" ],
+	"keywords": [ "banner", "hero", "header", "shape", "mk" ],
 	"supports": {
 		"html": false,
 		"anchor": true,

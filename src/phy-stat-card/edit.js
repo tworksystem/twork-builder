@@ -8,7 +8,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'phy-stat-card twork-phy-stat-card-editor',
+			className: 'phy-stat-card mk-phy-stat-card-editor',
 			style: {
 				padding: '30px',
 				textAlign: 'center',

@@ -7,7 +7,7 @@
 	"category": "twork-builder",
 	"icon": "clock",
 	"description": "Individual timeline item with year, heading, description, and optional image.",
-	"keywords": [ "timeline", "item", "milestone", "history", "twork" ],
+	"keywords": [ "timeline", "item", "milestone", "history", "mk" ],
 	"attributes": {
 		"year": {
 			"type": "string",

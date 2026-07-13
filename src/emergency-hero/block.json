@@ -6,7 +6,7 @@
 	"category": "twork-builder",
 	"icon": "emergency",
 	"description": "24/7 Emergency hero section with background image, badge, title, description and two CTA buttons (toggle on/off).",
-	"keywords": [ "emergency", "hero", "24/7", "twork" ],
+	"keywords": [ "emergency", "hero", "24/7", "mk" ],
 	"attributes": {
 		"backgroundImage": {
 			"type": "string",

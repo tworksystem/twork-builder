@@ -13,7 +13,7 @@
     overflow: visible !important;
 }
 
-.twork-health-check-steps-section-editor {
+.mk-health-check-steps-section-editor {
     overflow: visible !important;
     min-height: 200px;
     width: 100%;
@@ -35,7 +35,7 @@
         }
     }
 
-    .twork-chk-steps-grid-editor {
+    .mk-chk-steps-grid-editor {
         overflow: visible;
         width: 100%;
 
@@ -55,7 +55,7 @@
 }
 
 // === FRONTEND STYLES ===
-.twork-health-check-steps-section.chk-section {
+.mk-health-check-steps-section.chk-section {
     font-family: $font-primary;
     position: relative;
 
@@ -135,7 +135,7 @@
 
 // Responsive (match health-check-up.html breakpoints)
 @media (max-width: 992px) {
-    .twork-health-check-steps-section.chk-section {
+    .mk-health-check-steps-section.chk-section {
         .chk-steps-grid {
             grid-template-columns: repeat(2, 1fr) !important;
             gap: 40px;
@@ -146,19 +146,19 @@
         }
     }
 
-    .twork-health-check-steps-section.chk-section[data-columns-tablet="1"] .chk-steps-grid {
+    .mk-health-check-steps-section.chk-section[data-columns-tablet="1"] .chk-steps-grid {
         grid-template-columns: 1fr !important;
     }
-    .twork-health-check-steps-section.chk-section[data-columns-tablet="3"] .chk-steps-grid {
+    .mk-health-check-steps-section.chk-section[data-columns-tablet="3"] .chk-steps-grid {
         grid-template-columns: repeat(3, 1fr) !important;
     }
-    .twork-health-check-steps-section.chk-section[data-columns-tablet="4"] .chk-steps-grid {
+    .mk-health-check-steps-section.chk-section[data-columns-tablet="4"] .chk-steps-grid {
         grid-template-columns: repeat(4, 1fr) !important;
     }
 }
 
 @media (max-width: 768px) {
-    .twork-health-check-steps-section.chk-section {
+    .mk-health-check-steps-section.chk-section {
         .chk-header h2 {
             font-size: 2rem;
         }
@@ -169,7 +169,7 @@
         }
     }
 
-    .twork-health-check-steps-section.chk-section[data-columns-mobile="2"] .chk-steps-grid {
+    .mk-health-check-steps-section.chk-section[data-columns-mobile="2"] .chk-steps-grid {
         grid-template-columns: repeat(2, 1fr) !important;
     }
 }

@@ -7,7 +7,7 @@
 	"parent": [ "twork/em-stats-section" ],
 	"category": "twork-builder",
 	"description": "Single stat item (icon, value, label) for Emergency Stats Section.",
-	"keywords": [ "emergency", "stat", "icon", "twork" ],
+	"keywords": [ "emergency", "stat", "icon", "mk" ],
 	"attributes": {
 		"iconClass": {
 			"type": "string",

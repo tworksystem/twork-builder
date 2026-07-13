@@ -105,7 +105,7 @@ export default function Edit( { attributes = {}, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'phy-section twork-phy-journey-section-editor',
+			className: 'phy-section mk-phy-journey-section-editor',
 			style: {
 				backgroundColor,
 				paddingTop: `${ Number( paddingTop ) }px`,

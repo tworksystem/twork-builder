@@ -8,7 +8,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'rad-tech-item twork-rad-tech-item-editor',
+			className: 'rad-tech-item mk-rad-tech-item-editor',
 		} ),
 		[]
 	);

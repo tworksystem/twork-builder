@@ -7,7 +7,7 @@
 	"category": "twork-builder",
 	"icon": "grid-view",
 	"description": "Our Services section with header and grid of service cards. Matches paediatrics-centre.html.",
-	"keywords": [ "paediatrics", "services", "grid", "twork" ],
+	"keywords": [ "paediatrics", "services", "grid", "mk" ],
 	"attributes": {
 		"backgroundColor": {
 			"type": "string",

@@ -54,7 +54,7 @@ export default function save( { attributes } ) {
 					/>
 				</div>
 				<div
-					className="doc-grid twork-surgical-doc-grid"
+					className="doc-grid mk-surgical-doc-grid"
 					style={ {
 						display: 'grid',
 						gridTemplateColumns: `repeat(auto-fit, minmax(${ gridMinItemWidth }px, 1fr))`,

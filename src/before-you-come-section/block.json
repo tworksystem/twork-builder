@@ -7,7 +7,7 @@
 	"category": "twork-builder",
 	"icon": "list-view",
 	"description": "Info section with optional title and a grid of tip cards (e.g. Fasting, Reports, Appointment).",
-	"keywords": [ "before", "info", "tips", "grid", "twork" ],
+	"keywords": [ "before", "info", "tips", "grid", "mk" ],
 	"supports": {
 		"html": false,
 		"anchor": true,
