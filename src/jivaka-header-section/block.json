@@ -1,0 +1,159 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/jivaka-header-section",
+	"version": "1.0.0",
+	"title": "Jivaka Header",
+	"category": "twork-builder",
+	"icon": "menu",
+	"description": "Jivaka Hospital site header with desktop mega menu and mobile navigation.",
+	"keywords": [ "header", "navigation", "jivaka", "menu", "mk" ],
+	"attributes": {
+		"logoUrl": {
+			"type": "string",
+			"default": "/"
+		},
+		"logoImage": {
+			"type": "string",
+			"default": "https://jivakahospital.com/wp-content/uploads/2025/12/0-02-06-a90eb79c273489ee9c9d50c8cd87cd8185f0ff16619e0905d2055889329a1c5a_2231d085a20.jpg"
+		},
+		"logoImageId": {
+			"type": "number"
+		},
+		"logoAlt": {
+			"type": "string",
+			"default": "Jivaka Hospital Logo"
+		},
+		"ctaText": {
+			"type": "string",
+			"default": "Book Now"
+		},
+		"ctaUrl": {
+			"type": "string",
+			"default": "/appointment/"
+		},
+		"mobileCtaText": {
+			"type": "string",
+			"default": "Book Appointment"
+		},
+		"hotlineText": {
+			"type": "string",
+			"default": "09-789 101 101"
+		},
+		"navItems": {
+			"type": "array",
+			"default": [
+				{
+					"label": "Home",
+					"url": "home",
+					"type": "link"
+				},
+				{
+					"label": "About Jivaka",
+					"url": "#",
+					"type": "dropdown",
+					"children": [
+						{ "label": "About Us", "url": "/about/" },
+						{ "label": "Mission & Vision", "url": "/about/#mission" },
+						{ "label": "Management Team", "url": "/about/#team" },
+						{ "label": "Facilities & Gallery", "url": "/facilities/" },
+						{ "label": "Accreditations & Awards", "url": "accreditations-awards" },
+						{ "label": "Corporate Social Responsibility", "url": "csr" },
+						{ "label": "Careers", "url": "career" }
+					]
+				},
+				{
+					"label": "Clinical Departments",
+					"url": "#",
+					"type": "mega",
+					"children": [
+						{
+							"groupTitle": "Centres of Excellence",
+							"links": [
+								{ "label": "Heart Centre", "url": "heart-centre" },
+								{ "label": "Neuro Centre", "url": "neuro-centre" },
+								{ "label": "OG", "url": "og" }
+							]
+						},
+						{
+							"groupTitle": "Medical Specialties",
+							"links": [
+								{ "label": "General Medicine", "url": "general-medicine" },
+								{ "label": "Orthopaedic Centre", "url": "orthopaedic-centre" },
+								{ "label": "Urology Centre", "url": "urology-centre" }
+							]
+						},
+						{
+							"groupTitle": "Surgical Specialties",
+							"links": [
+								{ "label": "General Surgery", "url": "general-surgery" },
+								{ "label": "Health Check-up", "url": "health-check-up" },
+								{ "label": "Ambulance Service", "url": "ambulance-service" }
+							]
+						},
+						{
+							"groupTitle": "Support Services",
+							"links": [
+								{ "label": "24/7 Emergency", "url": "24-7-emergency" },
+								{ "label": "Radiology & Imaging", "url": "radiology-imaging" },
+								{ "label": "Laboratory Services", "url": "laboratory-services" },
+								{ "label": "Pharmacy", "url": "pharmacy" }
+							]
+						}
+					]
+				},
+				{
+					"label": "Doctors",
+					"url": "/doctors/",
+					"type": "link"
+				},
+				{
+					"label": "Patient Info",
+					"url": "#",
+					"type": "dropdown",
+					"children": [
+						{ "label": "Health Packages", "url": "packages" },
+						{ "label": "Inpatient Guide", "url": "patient-guide" },
+						{ "label": "Visitor Policy", "url": "patient-guide/#visiting" },
+						{ "label": "Insurance Partners", "url": "patient-guide/#insurance" },
+						{ "label": "Health Blog & News", "url": "blog" },
+						{ "label": "International Patients", "url": "international-patients" },
+						{ "label": "TeleConsultation", "url": "teleconsultation" }
+					]
+				},
+				{
+					"label": "Contact",
+					"url": "/contact/",
+					"type": "link"
+				}
+			]
+		},
+		"containerMaxWidth": {
+			"type": "number",
+			"default": 1200
+		},
+		"containerPadding": {
+			"type": "number",
+			"default": 30
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"align": [ "wide", "full" ],
+		"multiple": false
+	},
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": {
+			"logoUrl": "/",
+			"ctaText": "Book Now",
+			"ctaUrl": "/appointment/",
+			"hotlineText": "09-789 101 101"
+		}
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"viewScript": "file:./view.js",
+	"style": "file:./style-index.css"
+}

@@ -1,0 +1,171 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/social-qr-section",
+	"title": "Social QR Section",
+	"category": "twork-builder",
+	"description": "Social media QR code cards grid with platform badges and toggleable action buttons.",
+	"keywords": [
+		"social",
+		"qr",
+		"facebook",
+		"instagram",
+		"tiktok",
+		"viber",
+		"telegram",
+		"jivaka",
+		"mk"
+	],
+	"icon": "share",
+	"attributes": {
+		"sectionBgColor": {
+			"type": "string",
+			"default": "#ffffff"
+		},
+		"paddingTop": {
+			"type": "number",
+			"default": 60
+		},
+		"paddingBottom": {
+			"type": "number",
+			"default": 60
+		},
+		"columns": {
+			"type": "number",
+			"default": 5
+		},
+		"columnsTablet": {
+			"type": "number",
+			"default": 3
+		},
+		"columnsMobile": {
+			"type": "number",
+			"default": 2
+		},
+		"gap": {
+			"type": "number",
+			"default": 24
+		},
+		"gridMarginTop": {
+			"type": "number",
+			"default": 0
+		},
+		"showSectionTitle": {
+			"type": "boolean",
+			"default": false
+		},
+		"sectionTitle": {
+			"type": "string",
+			"default": "Connect With Us"
+		},
+		"sectionTitleColor": {
+			"type": "string",
+			"default": "#212121"
+		},
+		"sectionTitleFontSize": {
+			"type": "number",
+			"default": 2.2
+		},
+		"sectionTitleFontWeight": {
+			"type": "number",
+			"default": 700
+		},
+		"sectionTitleAlignment": {
+			"type": "string",
+			"default": "center"
+		},
+		"showSectionSubtitle": {
+			"type": "boolean",
+			"default": false
+		},
+		"sectionSubtitle": {
+			"type": "string",
+			"default": "Scan the QR codes to follow Jivaka Hospital on your favourite platforms."
+		},
+		"sectionSubtitleColor": {
+			"type": "string",
+			"default": "#666666"
+		},
+		"sectionSubtitleFontSize": {
+			"type": "number",
+			"default": 1.05
+		},
+		"sectionHeaderMaxWidth": {
+			"type": "number",
+			"default": 700
+		},
+		"sectionHeaderMarginBottom": {
+			"type": "number",
+			"default": 30
+		},
+		"containerMaxWidth": {
+			"type": "number",
+			"default": 1200
+		},
+		"containerPadding": {
+			"type": "number",
+			"default": 20
+		},
+		"showHospitalLogo": {
+			"type": "boolean",
+			"default": true
+		},
+		"hospitalLogoUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"hospitalLogoId": {
+			"type": "number"
+		},
+		"cardWatermarkUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"cardWatermarkId": {
+			"type": "number"
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"align": [ "wide", "full" ]
+	},
+	"example": {
+		"viewportWidth": 1200,
+		"innerBlocks": [
+			{
+				"name": "twork/social-qr-item",
+				"attributes": {
+					"platform": "facebook"
+				}
+			},
+			{
+				"name": "twork/social-qr-item",
+				"attributes": {
+					"platform": "instagram"
+				}
+			},
+			{
+				"name": "twork/social-qr-item",
+				"attributes": {
+					"platform": "tiktok"
+				}
+			},
+			{
+				"name": "twork/social-qr-item",
+				"attributes": {
+					"platform": "viber"
+				}
+			},
+			{
+				"name": "twork/social-qr-item",
+				"attributes": {
+					"platform": "telegram"
+				}
+			}
+		]
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
+}
