@@ -548,8 +548,7 @@ This project is licensed under the **GPL v2 or later** — see [LICENSE](LICENSE
 
 ### Author
 
-**Maw Kunn Myat** — [@mawkunnmyat](https://github.com/mawkunnmyat)  
-📧 mapoeeiphyu2017.miitinternship@gmail.com
+**Maw Kunn Myat** — [@mawkunnmyat](https://github.com/mawkunnmyat)
 
 ---
 
