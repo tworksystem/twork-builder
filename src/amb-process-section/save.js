@@ -26,7 +26,7 @@ export default function save( { attributes } ) {
 	} = attributes;
 
 	const blockProps = useBlockProps.save( {
-		className: 'twork-amb-process-section amb-section amb-process-section',
+		className: 'mk-amb-process-section amb-section amb-process-section',
 		style: {
 			backgroundColor,
 			paddingTop: `${ paddingTop }px`,
@@ -81,7 +81,7 @@ export default function save( { attributes } ) {
 					</div>
 				) }
 
-				<div className="amb-steps twork-amb-steps">
+				<div className="amb-steps mk-amb-steps">
 					<InnerBlocks.Content />
 				</div>
 			</div>

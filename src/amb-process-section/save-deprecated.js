@@ -34,7 +34,7 @@ export default function saveDeprecated( { attributes } ) {
 	} = attributes;
 
 	const blockProps = useBlockProps.save( {
-		className: 'twork-amb-process-section amb-section amb-process-section',
+		className: 'mk-amb-process-section amb-section amb-process-section',
 		style: {
 			backgroundColor,
 			paddingTop: `${ paddingTop }px`,
@@ -87,7 +87,7 @@ export default function saveDeprecated( { attributes } ) {
 				) }
 
 				<div
-					className="amb-steps twork-amb-steps"
+					className="amb-steps mk-amb-steps"
 					style={ {
 						display: 'grid',
 						gridTemplateColumns: `repeat(${ columns ?? 4 }, 1fr)`,

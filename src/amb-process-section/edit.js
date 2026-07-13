@@ -6,6 +6,7 @@ import {
 	PanelColorSettings,
 	RichText,
 } from '@wordpress/block-editor';
+import { useSelect } from '@wordpress/data';
 import {
 	PanelBody,
 	RangeControl,
@@ -13,7 +14,12 @@ import {
 	SelectControl,
 } from '@wordpress/components';
 
-export default function Edit( { attributes, setAttributes, isSelected } ) {
+export default function Edit( {
+	attributes,
+	setAttributes,
+	clientId,
+	isSelected,
+} ) {
 	const {
 		backgroundColor,
 		paddingTop,
@@ -75,9 +81,19 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 		],
 	];
 
+	const innerBlockCount = useSelect(
+		( select ) => select( 'core/block-editor' ).getBlockCount( clientId ),
+		[ clientId ]
+	);
+
+	const columnsToUse = Math.min(
+		columns,
+		Math.max( 1, innerBlockCount || TEMPLATE.length )
+	);
+
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'twork-amb-process-section-editor',
+			className: 'mk-amb-process-section-editor',
 			style: {
 				backgroundColor,
 				paddingTop: `${ paddingTop }px`,
@@ -106,7 +122,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const gridStyle = {
 		display: 'grid',
-		gridTemplateColumns: `repeat(${ columns }, 1fr)`,
+		gridTemplateColumns: `repeat(${ columnsToUse }, 1fr)`,
 		gap: `${ gap }px`,
 		textAlign: 'center',
 	};
@@ -490,7 +506,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 					) }
 
 					<div
-						className="twork-amb-steps-container amb-steps"
+						className="mk-amb-steps-container amb-steps"
 						style={ gridStyle }
 						data-columns={ columns }
 						data-connector={ showConnectorLine }
@@ -498,6 +514,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 						<InnerBlocks
 							allowedBlocks={ ALLOWED_BLOCKS }
 							template={ TEMPLATE }
+							templateLock={ false }
 							renderAppender={ InnerBlocks.ButtonBlockAppender }
 						/>
 					</div>
