@@ -22,6 +22,12 @@ export default function save( { attributes } ) {
 		sectionTitleFontSizeMobile,
 		sectionTitleFontWeight,
 		sectionTitleAlignment,
+		showSectionSubtitle,
+		sectionSubtitle,
+		sectionSubtitleColor,
+		sectionSubtitleFontSize,
+		sectionSubtitleFontSizeMobile,
+		sectionHeaderMaxWidth,
 		sectionHeaderMarginBottom,
 		containerMaxWidth,
 		containerPadding,
@@ -32,7 +38,7 @@ export default function save( { attributes } ) {
 	} = attributes;
 
 	const blockProps = useBlockProps.save( {
-		className: 'twork-visitor-guidelines-section section-padding',
+		className: 'mk-visitor-guidelines-section section-padding',
 		style: {
 			backgroundColor: backgroundImage ? 'transparent' : backgroundColor,
 			backgroundImage: backgroundImage
@@ -49,6 +55,7 @@ export default function save( { attributes } ) {
 			'--padding-bottom-mobile': `${ paddingBottomMobile }px`,
 			'--container-padding-mobile': `${ containerPaddingMobile }px`,
 			'--title-font-size-mobile': `${ sectionTitleFontSizeMobile }rem`,
+			'--subtitle-font-size-mobile': `${ sectionSubtitleFontSizeMobile }rem`,
 		},
 		'data-columns': columns,
 		'data-columns-mobile': columnsMobile,
@@ -58,6 +65,7 @@ export default function save( { attributes } ) {
 		'data-animation-type': animationType,
 		'data-animation-delay': animationDelay,
 		'data-title-font-size-mobile': sectionTitleFontSizeMobile,
+		'data-subtitle-font-size-mobile': sectionSubtitleFontSizeMobile,
 	} );
 
 	return (
@@ -88,24 +96,42 @@ export default function save( { attributes } ) {
 					zIndex: 2,
 				} }
 			>
-				{ showSectionTitle && (
+				{ ( showSectionTitle || showSectionSubtitle ) && (
 					<div
 						className="section-header fade-up"
 						style={ {
 							textAlign: sectionTitleAlignment,
-							marginBottom: `${ sectionHeaderMarginBottom }px`,
+							maxWidth: `${ sectionHeaderMaxWidth }px`,
+							margin: `0 auto ${ sectionHeaderMarginBottom }px`,
 						} }
 					>
-						<RichText.Content
-							tagName="h2"
-							value={ sectionTitle }
-							style={ {
-								fontSize: `${ sectionTitleFontSize }rem`,
-								fontWeight: sectionTitleFontWeight,
-								color: sectionTitleColor,
-								margin: 0,
-							} }
-						/>
+						{ showSectionTitle && (
+							<RichText.Content
+								tagName="h2"
+								value={ sectionTitle }
+								className="section-title"
+								style={ {
+									fontSize: `${ sectionTitleFontSize }rem`,
+									fontWeight: sectionTitleFontWeight,
+									color: sectionTitleColor,
+									marginBottom: showSectionSubtitle
+										? '15px'
+										: '0',
+								} }
+							/>
+						) }
+						{ showSectionSubtitle && (
+							<RichText.Content
+								tagName="p"
+								value={ sectionSubtitle }
+								className="section-subtitle"
+								style={ {
+									fontSize: `${ sectionSubtitleFontSize }rem`,
+									color: sectionSubtitleColor,
+									margin: 0,
+								} }
+							/>
+						) }
 					</div>
 				) }
 

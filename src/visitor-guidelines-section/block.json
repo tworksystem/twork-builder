@@ -12,7 +12,7 @@
 		"donts",
 		"patient",
 		"guide",
-		"twork"
+		"mk"
 	],
 	"icon": "list-view",
 	"attributes": {
@@ -99,6 +99,30 @@
 			"type": "string",
 			"default": "center"
 		},
+		"showSectionSubtitle": {
+			"type": "boolean",
+			"default": false
+		},
+		"sectionSubtitle": {
+			"type": "string",
+			"default": "Please follow these guidelines to ensure a comfortable visit for everyone."
+		},
+		"sectionSubtitleColor": {
+			"type": "string",
+			"default": "#666666"
+		},
+		"sectionSubtitleFontSize": {
+			"type": "number",
+			"default": 1.05
+		},
+		"sectionSubtitleFontSizeMobile": {
+			"type": "number",
+			"default": 0.95
+		},
+		"sectionHeaderMaxWidth": {
+			"type": "number",
+			"default": 700
+		},
 		"sectionHeaderMarginBottom": {
 			"type": "number",
 			"default": 50
@@ -156,6 +180,12 @@
 			"sectionTitleFontSizeMobile": 1.6,
 			"sectionTitleFontWeight": 700,
 			"sectionTitleAlignment": "center",
+			"showSectionSubtitle": false,
+			"sectionSubtitle": "Please follow these guidelines to ensure a comfortable visit for everyone.",
+			"sectionSubtitleColor": "#666666",
+			"sectionSubtitleFontSize": 1.05,
+			"sectionSubtitleFontSizeMobile": 0.95,
+			"sectionHeaderMaxWidth": 700,
 			"sectionHeaderMarginBottom": 50,
 			"containerMaxWidth": 1200,
 			"containerPadding": 20,

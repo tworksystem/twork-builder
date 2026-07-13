@@ -48,16 +48,27 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: `twork-visitor-guidelines-column-editor guide-col col-${ columnType } fade-up`,
+			className: `mk-visitor-guidelines-column-editor guide-col col-${ columnType } fade-up`,
 			style: {
 				padding: `${ columnPadding }px`,
+				backgroundColor: effectiveBg,
+				border: `1px solid ${ effectiveBorder }`,
+				borderTop: `4px solid ${ effectiveTitleColor }`,
 				borderRadius: '12px',
-				border: '2px dashed #e0e0e0',
-				background: effectiveBg,
-				borderColor: effectiveBorder,
+				'--col-accent': effectiveTitleColor,
+				'--col-icon-color': effectiveIconColor,
+				'--column-padding-mobile': `${ columnPaddingMobile }px`,
 			},
 		} ),
-		[ columnPadding, columnType, effectiveBg, effectiveBorder ]
+		[
+			columnPadding,
+			columnType,
+			effectiveBg,
+			effectiveBorder,
+			effectiveTitleColor,
+			effectiveIconColor,
+			columnPaddingMobile,
+		]
 	);
 
 	const addListItem = () => {
@@ -360,21 +371,19 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 						fontSize: `${ titleFontSize }rem`,
 						fontWeight: titleFontWeight,
 						color: effectiveTitleColor,
-						marginBottom: '20px',
-						display: 'flex',
-						alignItems: 'center',
-						gap: '10px',
 					} }
 				>
 					{ titleIcon && (
-						<i
-							className={ titleIcon }
-							style={ { color: effectiveIconColor } }
-							aria-hidden="true"
-						/>
+						<span className="guide-title-icon" aria-hidden="true">
+							<i
+								className={ titleIcon }
+								style={ { color: effectiveIconColor } }
+							/>
+						</span>
 					) }
 					<RichText
 						tagName="span"
+						className="guide-title-text"
 						value={ title }
 						onChange={ ( val ) => setAttributes( { title: val } ) }
 						placeholder={ __( 'Column title...', 'twork-builder' ) }
@@ -382,34 +391,31 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 				</div>
 
 				{ listItems.length > 0 && (
-					<ul
-						className="guide-list"
-						style={ { padding: 0, margin: 0, listStyle: 'none' } }
-					>
+					<ul className="guide-list">
 						{ listItems.map( ( item ) => (
-							<li
-								key={ item.id }
-								style={ {
-									marginBottom: '15px',
-									display: 'flex',
-									alignItems: 'flex-start',
-									gap: '15px',
-									fontSize: `${ listItemFontSize }rem`,
-									color: listItemColor || undefined,
-								} }
-							>
+							<li key={ item.id }>
 								{ itemIcon && (
-									<i
-										className={ itemIcon }
-										style={ {
-											color: effectiveIconColor,
-											marginTop: '4px',
-											flexShrink: 0,
-										} }
+									<span
+										className="guide-list-icon"
 										aria-hidden="true"
-									/>
+									>
+										<i
+											className={ itemIcon }
+											style={ {
+												color: effectiveIconColor,
+											} }
+										/>
+									</span>
 								) }
-								<span>{ item.text }</span>
+								<span
+									className="guide-list-text"
+									style={ {
+										fontSize: `${ listItemFontSize }rem`,
+										color: listItemColor || undefined,
+									} }
+								>
+									{ item.text }
+								</span>
 							</li>
 						) ) }
 					</ul>

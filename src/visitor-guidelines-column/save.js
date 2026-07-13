@@ -41,7 +41,10 @@ export default function save( { attributes } ) {
 			padding: `${ columnPadding }px`,
 			backgroundColor: effectiveBg,
 			border: `1px solid ${ effectiveBorder }`,
+			borderTop: `4px solid ${ effectiveTitleColor }`,
 			borderRadius: '12px',
+			'--col-accent': effectiveTitleColor,
+			'--col-icon-color': effectiveIconColor,
 			'--column-padding-mobile': `${ columnPaddingMobile }px`,
 		},
 	} );
@@ -54,51 +57,47 @@ export default function save( { attributes } ) {
 					fontSize: `${ titleFontSize }rem`,
 					fontWeight: titleFontWeight,
 					color: effectiveTitleColor,
-					marginBottom: '20px',
-					display: 'flex',
-					alignItems: 'center',
-					gap: '10px',
 				} }
 			>
 				{ titleIcon && (
-					<i
-						className={ titleIcon }
-						style={ { color: effectiveIconColor } }
-						aria-hidden="true"
-					/>
+					<span className="guide-title-icon" aria-hidden="true">
+						<i
+							className={ titleIcon }
+							style={ { color: effectiveIconColor } }
+						/>
+					</span>
 				) }
-				<RichText.Content tagName="span" value={ title } />
+				<RichText.Content
+					tagName="span"
+					value={ title }
+					className="guide-title-text"
+				/>
 			</div>
 
 			{ listItems && listItems.length > 0 && (
-				<ul
-					className="guide-list"
-					style={ { padding: 0, margin: 0, listStyle: 'none' } }
-				>
+				<ul className="guide-list">
 					{ listItems.map( ( item ) => (
-						<li
-							key={ item.id }
-							style={ {
-								marginBottom: '15px',
-								display: 'flex',
-								alignItems: 'flex-start',
-								gap: '15px',
-								fontSize: `${ listItemFontSize }rem`,
-								color: listItemColor || undefined,
-							} }
-						>
+						<li key={ item.id }>
 							{ itemIcon && (
-								<i
-									className={ itemIcon }
-									style={ {
-										color: effectiveIconColor,
-										marginTop: '4px',
-										flexShrink: 0,
-									} }
+								<span
+									className="guide-list-icon"
 									aria-hidden="true"
-								/>
+								>
+									<i
+										className={ itemIcon }
+										style={ { color: effectiveIconColor } }
+									/>
+								</span>
 							) }
-							<span>{ item.text }</span>
+							<span
+								className="guide-list-text"
+								style={ {
+									fontSize: `${ listItemFontSize }rem`,
+									color: listItemColor || undefined,
+								} }
+							>
+								{ item.text }
+							</span>
 						</li>
 					) ) }
 				</ul>

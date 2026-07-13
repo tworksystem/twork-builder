@@ -1,23 +1,25 @@
 @import "../scss/typography";
 
-// Visitor Guidelines Section – variables & shared with column
 :root {
     --primary-orange: #f48b2a;
     --dark-grey: #212121;
+    --medium-grey: #666;
+    --white-color: #ffffff;
+    --shadow-sm: 0 5px 15px rgba(0, 0, 0, 0.05);
+    --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.1);
     --radius: 12px;
     --dos-green: #27ae60;
     --donts-red: #c0392b;
 }
 
-// === EDITOR STYLES ===
 .editor-styles-wrapper,
 .block-editor-block-list__layout,
 .wp-block-twork-visitor-guidelines-section {
-    .twork-visitor-guidelines-section-editor {
+    .mk-visitor-guidelines-section-editor {
         position: relative;
         min-height: 200px;
 
-        .guidelines-grid.twork-visitor-guidelines-grid {
+        .guidelines-grid.mk-visitor-guidelines-grid {
             display: grid !important;
             width: 100% !important;
 
@@ -37,7 +39,8 @@
         }
 
         .section-header {
-            h2 {
+            h2,
+            p {
                 &[contenteditable="true"]:focus {
                     outline: 1px dashed #2271b1;
                     outline-offset: 2px;
@@ -47,8 +50,8 @@
     }
 }
 
-// === FRONTEND STYLES ===
-.twork-visitor-guidelines-section {
+.mk-visitor-guidelines-section,
+.mk-visitor-guidelines-section-editor {
     font-family: $font-primary;
     position: relative;
     overflow: hidden;
@@ -63,9 +66,15 @@
     }
 
     .section-header {
-        h2 {
-            margin: 0;
+        .section-title {
+            margin: 0 0 15px 0;
             line-height: 1.2;
+        }
+
+        .section-subtitle {
+            margin: 0;
+            line-height: 1.6;
+            color: var(--medium-grey, #666);
         }
     }
 
@@ -77,74 +86,136 @@
     .guide-col {
         padding: 30px;
         border-radius: var(--radius);
+        box-shadow: var(--shadow-sm);
+        border: 1px solid transparent;
+        border-top-width: 4px;
+        border-top-style: solid;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+
+        &:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
     }
 
     .guide-col.col-dos {
         background: #e8f8f5;
-        border: 1px solid #d1f2eb;
+        border-color: #d1f2eb;
+        border-top-color: var(--col-accent, var(--dos-green));
     }
 
     .guide-col.col-donts {
         background: #fdedec;
-        border: 1px solid #fadbd8;
+        border-color: #fadbd8;
+        border-top-color: var(--col-accent, var(--donts-red));
     }
 
     .guide-title {
         font-size: 1.5rem;
         font-weight: 900;
-        margin-bottom: 20px;
+        margin-bottom: 24px;
         display: flex;
         align-items: center;
-        gap: 10px;
+        gap: 12px;
+        line-height: 1.2;
+    }
+
+    .guide-title-text {
+        flex: 1;
+        min-width: 0;
     }
 
     .col-dos .guide-title {
-        color: var(--dos-green, #27ae60);
-    }
-
-    .col-dos .guide-title i {
-        color: var(--dos-green, #27ae60);
+        color: var(--col-accent, var(--dos-green));
     }
 
     .col-donts .guide-title {
-        color: var(--donts-red, #c0392b);
+        color: var(--col-accent, var(--donts-red));
     }
 
-    .col-donts .guide-title i {
-        color: var(--donts-red, #c0392b);
+    .guide-title-icon {
+        flex-shrink: 0;
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.25rem;
+        color: var(--col-icon-color, var(--col-accent, var(--dos-green)));
+        background: color-mix(
+            in srgb,
+            var(--col-icon-color, var(--col-accent, var(--dos-green))) 15%,
+            transparent
+        );
     }
 
     .guide-list {
         padding: 0;
         margin: 0;
         list-style: none;
+        flex: 1;
     }
 
     .guide-list li {
-        margin-bottom: 15px;
+        margin-bottom: 14px;
         display: flex;
         align-items: flex-start;
-        gap: 15px;
+        gap: 14px;
         font-size: 1rem;
+        line-height: 1.6;
     }
 
-    .guide-list li i {
-        margin-top: 4px;
+    .guide-list li:last-child {
+        margin-bottom: 0;
+    }
+
+    .guide-list-icon {
         flex-shrink: 0;
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.75rem;
+        margin-top: 2px;
+        color: var(--col-icon-color, var(--col-accent, var(--dos-green)));
+        background: color-mix(
+            in srgb,
+            var(--col-icon-color, var(--col-accent, var(--dos-green))) 12%,
+            transparent
+        );
     }
 
-    .col-dos .guide-list li i {
-        color: var(--dos-green, #27ae60);
-    }
-
-    .col-donts .guide-list li i {
-        color: var(--donts-red, #c0392b);
+    .guide-list-text {
+        flex: 1;
+        min-width: 0;
     }
 }
 
-// === RESPONSIVE ===
+.mk-visitor-guidelines-section {
+    .fade-up {
+        opacity: 1;
+        transform: translateY(0);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    &[data-animation="true"] {
+        .fade-up:not(.is-visible),
+        .fade-up.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+}
+
 @media (max-width: 992px) {
-    .twork-visitor-guidelines-section {
+    .mk-visitor-guidelines-section,
+    .mk-visitor-guidelines-section-editor {
         .guidelines-grid {
             grid-template-columns: repeat(var(--columns-mobile, 1), 1fr) !important;
             gap: var(--gap-mobile, 30px) !important;
@@ -153,34 +224,55 @@
 }
 
 @media (max-width: 768px) {
-    .twork-visitor-guidelines-section {
-        padding-top: var(--padding-top-mobile, 60px) !important;
-        padding-bottom: var(--padding-bottom-mobile, 60px) !important;
-
+    .mk-visitor-guidelines-section,
+    .mk-visitor-guidelines-section-editor {
         .jivaka-container {
             padding-left: var(--container-padding-mobile, 20px) !important;
             padding-right: var(--container-padding-mobile, 20px) !important;
         }
 
-        .section-header h2 {
-            font-size: var(--title-font-size-mobile, 1.6rem) !important;
+        .section-header {
+            .section-title {
+                font-size: var(--title-font-size-mobile, 1.6rem) !important;
+            }
+
+            .section-subtitle {
+                font-size: var(--subtitle-font-size-mobile, 0.95rem) !important;
+            }
         }
 
         .guide-col {
-            padding: 24px;
+            padding: var(--column-padding-mobile, 24px);
         }
 
         .guide-title {
             font-size: 1.3rem;
+            margin-bottom: 20px;
+        }
+
+        .guide-title-icon {
+            width: 40px;
+            height: 40px;
+            font-size: 1.1rem;
         }
 
         .guide-list li {
             font-size: 0.95rem;
+            gap: 12px;
         }
+
+        .guide-list-icon {
+            width: 26px;
+            height: 26px;
+        }
+    }
+
+    .mk-visitor-guidelines-section {
+        padding-top: var(--padding-top-mobile, 60px) !important;
+        padding-bottom: var(--padding-bottom-mobile, 60px) !important;
     }
 }
 
-// === ACCESSIBILITY ===
 .guide-col:focus-visible {
     outline: 3px solid var(--primary-orange);
     outline-offset: 2px;
