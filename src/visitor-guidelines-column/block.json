@@ -5,7 +5,7 @@
 	"title": "Visitor Guidelines Column",
 	"parent": [ "twork/visitor-guidelines-section" ],
 	"description": "Single column for Do's or Don'ts with title and list items.",
-	"keywords": [ "visitor", "guidelines", "dos", "donts", "column", "twork" ],
+	"keywords": [ "visitor", "guidelines", "dos", "donts", "column", "mk" ],
 	"attributes": {
 		"columnType": {
 			"type": "string",
