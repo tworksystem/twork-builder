@@ -1,0 +1,135 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/social-qr-item",
+	"title": "Social QR Item",
+	"parent": [ "twork/social-qr-section" ],
+	"description": "Single social media QR card with platform badge, QR image, footer label, and toggleable button.",
+	"keywords": [
+		"social",
+		"qr",
+		"facebook",
+		"instagram",
+		"tiktok",
+		"viber",
+		"telegram",
+		"mk"
+	],
+	"attributes": {
+		"platform": {
+			"type": "string",
+			"default": "facebook"
+		},
+		"platformLabel": {
+			"type": "string",
+			"default": ""
+		},
+		"showPlatformBadge": {
+			"type": "boolean",
+			"default": true
+		},
+		"qrImage": {
+			"type": "string",
+			"default": ""
+		},
+		"qrImageId": {
+			"type": "number"
+		},
+		"qrImageAlt": {
+			"type": "string",
+			"default": ""
+		},
+		"qrImageObjectFit": {
+			"type": "string",
+			"default": "contain"
+		},
+		"qrImageFocalPreset": {
+			"type": "string",
+			"default": "center"
+		},
+		"qrImagePositionX": {
+			"type": "number",
+			"default": 50
+		},
+		"qrImagePositionY": {
+			"type": "number",
+			"default": 50
+		},
+		"qrImageScale": {
+			"type": "number",
+			"default": 1
+		},
+		"footerLabel": {
+			"type": "string",
+			"default": "https://www.facebook.com/jivakahospital"
+		},
+		"showFooterLabel": {
+			"type": "boolean",
+			"default": true
+		},
+		"showButton": {
+			"type": "boolean",
+			"default": true
+		},
+		"buttonText": {
+			"type": "string",
+			"default": "Visit Facebook"
+		},
+		"buttonUrl": {
+			"type": "string",
+			"default": "https://www.facebook.com/jivakahospital"
+		},
+		"buttonTarget": {
+			"type": "boolean",
+			"default": true
+		},
+		"buttonBgColor": {
+			"type": "string",
+			"default": "#f48b2a"
+		},
+		"buttonTextColor": {
+			"type": "string",
+			"default": "#ffffff"
+		},
+		"buttonHoverBgColor": {
+			"type": "string",
+			"default": "#d96f2d"
+		},
+		"buttonFontSize": {
+			"type": "number",
+			"default": 0.85
+		},
+		"buttonFontWeight": {
+			"type": "number",
+			"default": 600
+		},
+		"buttonPaddingVertical": {
+			"type": "number",
+			"default": 10
+		},
+		"buttonPaddingHorizontal": {
+			"type": "number",
+			"default": 20
+		},
+		"buttonBorderRadius": {
+			"type": "number",
+			"default": 6
+		},
+		"buttonMarginTop": {
+			"type": "number",
+			"default": 14
+		}
+	},
+	"example": {
+		"attributes": {
+			"platform": "facebook",
+			"footerLabel": "https://www.facebook.com/jivakahospital",
+			"showButton": true,
+			"buttonText": "Visit Facebook",
+			"buttonUrl": "https://www.facebook.com/jivakahospital"
+		}
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
+}

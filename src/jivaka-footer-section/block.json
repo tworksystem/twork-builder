@@ -1,0 +1,291 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/jivaka-footer-section",
+	"version": "1.0.0",
+	"title": "Jivaka Footer",
+	"category": "twork-builder",
+	"icon": "admin-site-alt3",
+	"description": "Jivaka Hospital site footer with floating CTA, link columns, contact info, and bottom bar.",
+	"keywords": [ "footer", "jivaka", "hospital", "contact", "mk", "Jivaka Footer" ],
+	"attributes": {
+		"showCtaSection": {
+			"type": "boolean",
+			"default": true
+		},
+		"showCtaTitle": {
+			"type": "boolean",
+			"default": true
+		},
+		"ctaTitle": {
+			"type": "string",
+			"default": "Need Emergency Care?"
+		},
+		"showCtaDesc": {
+			"type": "boolean",
+			"default": true
+		},
+		"ctaDesc": {
+			"type": "string",
+			"default": "Our Ambulance and Emergency Department is available 24/7."
+		},
+		"showCallButton": {
+			"type": "boolean",
+			"default": true
+		},
+		"callButtonText": {
+			"type": "string",
+			"default": "Call 09-789 101 101"
+		},
+		"callButtonUrl": {
+			"type": "string",
+			"default": "tel:09789101101"
+		},
+		"showAppointmentButton": {
+			"type": "boolean",
+			"default": true
+		},
+		"appointmentButtonText": {
+			"type": "string",
+			"default": "Book Appointment"
+		},
+		"appointmentButtonUrl": {
+			"type": "string",
+			"default": "appointment"
+		},
+		"showBrandColumn": {
+			"type": "boolean",
+			"default": true
+		},
+		"showLogo": {
+			"type": "boolean",
+			"default": true
+		},
+		"logoUrl": {
+			"type": "string",
+			"default": "index.html"
+		},
+		"logoImage": {
+			"type": "string",
+			"default": "https://jivakahospital.com/wp-content/uploads/2026/07/0-02-06-a32e7501b38cad92550a0eec9cf96d13cc709cc316160f9f1064bb232fa6d251_226837de68a.png"
+		},
+		"logoImageId": {
+			"type": "number"
+		},
+		"logoAlt": {
+			"type": "string",
+			"default": "Jivaka Logo"
+		},
+		"showBrandText": {
+			"type": "boolean",
+			"default": true
+		},
+		"brandText": {
+			"type": "string",
+			"default": "Jivaka Hospital is committed to providing world-class healthcare with compassion. We combine advanced technology with expert care."
+		},
+		"showSocialLinks": {
+			"type": "boolean",
+			"default": true
+		},
+		"socialLinks": {
+			"type": "array",
+			"default": [
+				{
+					"platform": "facebook",
+					"url": "https://www.facebook.com/jivakahospital",
+					"iconClass": "fab fa-facebook-f",
+					"ariaLabel": "Facebook",
+					"enabled": true
+				},
+				{
+					"platform": "instagram",
+					"url": "https://www.instagram.com/jivakahospital/",
+					"iconClass": "fab fa-instagram",
+					"ariaLabel": "Instagram",
+					"enabled": true
+				},
+				{
+					"platform": "tiktok",
+					"url": "https://www.tiktok.com/@jivaka.hospital",
+					"iconClass": "fab fa-tiktok",
+					"ariaLabel": "TikTok",
+					"enabled": true
+				},
+				{
+					"platform": "telegram",
+					"url": "https://t.me/jivakahospital",
+					"iconClass": "fab fa-telegram-plane",
+					"ariaLabel": "Telegram",
+					"enabled": true
+				},
+				{
+					"platform": "viber",
+					"url": "https://chats.viber.com/jivakahospital",
+					"iconClass": "fab fa-viber",
+					"ariaLabel": "Viber",
+					"enabled": true
+				}
+			]
+		},
+		"showQuickLinksColumn": {
+			"type": "boolean",
+			"default": true
+		},
+		"quickLinksHeading": {
+			"type": "string",
+			"default": "Quick Links"
+		},
+		"quickLinks": {
+			"type": "array",
+			"default": [
+				{ "label": "About Us", "url": "about", "enabled": true },
+				{ "label": "Find a Doctor", "url": "doctors", "enabled": true },
+				{ "label": "Health Packages", "url": "packages", "enabled": true },
+				{ "label": "Patient Guide", "url": "patient-guide", "enabled": true },
+				{ "label": "Contact Us", "url": "contact", "enabled": true }
+			]
+		},
+		"showDepartmentsColumn": {
+			"type": "boolean",
+			"default": true
+		},
+		"departmentsHeading": {
+			"type": "string",
+			"default": "Departments"
+		},
+		"departmentLinks": {
+			"type": "array",
+			"default": [
+				{ "label": "Heart Centre", "url": "heart-centre", "enabled": true },
+				{ "label": "Neuro Centre", "url": "neuro-centre", "enabled": true },
+				{ "label": "Orthopaedics", "url": "orthopaedic-centre", "enabled": true }
+			]
+		},
+		"showContactColumn": {
+			"type": "boolean",
+			"default": true
+		},
+		"contactHeading": {
+			"type": "string",
+			"default": "Contact Us"
+		},
+		"showAddress": {
+			"type": "boolean",
+			"default": true
+		},
+		"addressLabel": {
+			"type": "string",
+			"default": "Address"
+		},
+		"addressValue": {
+			"type": "string",
+			"default": "Corner of 101st Street & 57th St, Mandalay."
+		},
+		"showEmergencyPhone": {
+			"type": "boolean",
+			"default": true
+		},
+		"emergencyLabel": {
+			"type": "string",
+			"default": "Emergency (24/7)"
+		},
+		"emergencyPhone": {
+			"type": "string",
+			"default": "09-789 101 101"
+		},
+		"showEmail": {
+			"type": "boolean",
+			"default": true
+		},
+		"emailLabel": {
+			"type": "string",
+			"default": "Email Us"
+		},
+		"emailValue": {
+			"type": "string",
+			"default": "hello@jivakahospital.com"
+		},
+		"showBottomBar": {
+			"type": "boolean",
+			"default": true
+		},
+		"showCopyright": {
+			"type": "boolean",
+			"default": true
+		},
+		"copyrightText": {
+			"type": "string",
+			"default": "© 2025 Jivaka Hospital. All Rights Reserved."
+		},
+		"legalLinks": {
+			"type": "array",
+			"default": [
+				{ "label": "Privacy Policy", "url": "#", "enabled": true },
+				{ "label": "Terms of Service", "url": "#", "enabled": true },
+				{ "label": "Sitemap", "url": "#", "enabled": true }
+			]
+		},
+		"containerMaxWidth": {
+			"type": "number",
+			"default": 1200
+		},
+		"footerMarginTop": {
+			"type": "number",
+			"default": 100
+		},
+		"footerPaddingTop": {
+			"type": "number",
+			"default": 100
+		},
+		"primaryColor": {
+			"type": "string",
+			"default": "#f6892e"
+		},
+		"sectionOrder": {
+			"type": "array",
+			"default": [ "cta", "main", "bottom" ]
+		},
+		"columnOrder": {
+			"type": "array",
+			"default": [ "brand", "quickLinks", "departments", "contact" ]
+		},
+		"contactItemOrder": {
+			"type": "array",
+			"default": [ "address", "emergency", "email" ]
+		},
+		"ctaButtonOrder": {
+			"type": "array",
+			"default": [ "call", "appointment" ]
+		},
+		"brandBlockOrder": {
+			"type": "array",
+			"default": [ "logo", "text", "social" ]
+		},
+		"bottomBarOrder": {
+			"type": "array",
+			"default": [ "copyright", "legal" ]
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"align": [ "wide", "full" ],
+		"multiple": false
+	},
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": {
+			"showCtaSection": true,
+			"ctaTitle": "Need Emergency Care?",
+			"showBrandColumn": true,
+			"showQuickLinksColumn": true,
+			"showDepartmentsColumn": true,
+			"showContactColumn": true,
+			"showBottomBar": true
+		}
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
+}

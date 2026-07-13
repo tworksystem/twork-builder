@@ -1,0 +1,518 @@
+@import "../scss/typography";
+
+.jivaka-footer-section-block,
+.wp-block-twork-jivaka-footer-section {
+	--jf-primary: #f6892e;
+	--jf-primary-hover: #e67a22;
+	--jf-dark: #1a1a1a;
+	--jf-darker: #111111;
+	--jf-text: #b0b0b0;
+	--jf-white: #ffffff;
+	--jf-container-max-width: 1200px;
+
+	width: 100% !important;
+	max-width: none !important;
+	margin-left: 0 !important;
+	margin-right: 0 !important;
+	box-sizing: border-box;
+	font-family: $font-primary, "Roboto", sans-serif;
+}
+
+.jivaka-footer-section-block .jivaka-footer,
+.wp-block-twork-jivaka-footer-section .jivaka-footer {
+	position: relative;
+	background-color: var(--jf-dark);
+	color: var(--jf-text);
+	padding-top: 100px;
+	font-family: inherit;
+	font-size: 15px;
+	line-height: 1.6;
+	margin-top: 100px;
+}
+
+.jivaka-footer-section-block .jivaka-footer__cta-wrapper,
+.wp-block-twork-jivaka-footer-section .jivaka-footer__cta-wrapper {
+	position: absolute;
+	top: -80px;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 90%;
+	max-width: 1100px;
+	z-index: 10;
+}
+
+.jivaka-footer-section-block .jivaka-footer__cta,
+.wp-block-twork-jivaka-footer-section .jivaka-footer__cta {
+	background: linear-gradient(135deg, var(--jf-primary), #f6892e);
+	border-radius: 16px;
+	padding: 35px 40px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	box-shadow: 0 15px 30px rgba(244, 139, 42, 0.25);
+	color: var(--jf-white);
+	flex-wrap: wrap;
+	gap: 20px;
+}
+
+.jivaka-footer-section-block .jivaka-footer__cta-title,
+.wp-block-twork-jivaka-footer-section .jivaka-footer__cta-title {
+	margin: 0 0 5px;
+	font-size: 1.6rem;
+	font-weight: 700;
+	color: var(--jf-white);
+	line-height: 1.2;
+}
+
+.jivaka-footer-section-block .jivaka-footer__cta-desc,
+.wp-block-twork-jivaka-footer-section .jivaka-footer__cta-desc {
+	margin: 0;
+	font-weight: 400;
+	opacity: 0.95;
+	font-size: 1.05rem;
+	color: var(--jf-white);
+}
+
+.jivaka-footer-section-block .jivaka-footer__cta-actions,
+.wp-block-twork-jivaka-footer-section .jivaka-footer__cta-actions {
+	display: flex;
+	gap: 15px;
+}
+
+.jivaka-footer-section-block .jivaka-btn,
+.wp-block-twork-jivaka-footer-section .jivaka-btn {
+	display: inline-block;
+	padding: 12px 25px;
+	border-radius: 50px;
+	font-weight: 600;
+	text-decoration: none;
+	transition: all 0.3s ease;
+	border: 2px solid transparent;
+	text-align: center;
+}
+
+.jivaka-footer-section-block .jivaka-btn--white,
+.wp-block-twork-jivaka-footer-section .jivaka-btn--white {
+	background: var(--jf-white);
+	color: var(--jf-primary);
+	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.jivaka-footer-section-block .jivaka-btn--white:hover,
+.wp-block-twork-jivaka-footer-section .jivaka-btn--white:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+	background: var(--jf-white);
+	color: var(--jf-primary-hover);
+}
+
+.jivaka-footer-section-block .jivaka-btn--outline,
+.wp-block-twork-jivaka-footer-section .jivaka-btn--outline {
+	background: transparent;
+	border-color: rgba(255, 255, 255, 0.7);
+	color: var(--jf-white);
+}
+
+.jivaka-footer-section-block .jivaka-btn--outline:hover,
+.wp-block-twork-jivaka-footer-section .jivaka-btn--outline:hover {
+	background: rgba(255, 255, 255, 0.1);
+	border-color: var(--jf-white);
+	color: var(--jf-white);
+}
+
+.jivaka-footer-section-block .jivaka-footer__main,
+.wp-block-twork-jivaka-footer-section .jivaka-footer__main {
+	max-width: var(--jf-container-max-width);
+	margin: 0 auto;
+	padding: 80px 20px 40px;
+}
+
+.jivaka-footer-section-block .jivaka-footer__grid,
+.wp-block-twork-jivaka-footer-section .jivaka-footer__grid {
+	display: grid;
+	grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+	gap: 30px;
+}
+
+.jivaka-footer-section-block .jivaka-footer__heading,
+.wp-block-twork-jivaka-footer-section .jivaka-footer__heading {
+	color: var(--jf-white);
+	font-size: 1.1rem;
+	text-transform: uppercase;
+	margin: 0 0 25px;
+	padding-bottom: 15px;
+	position: relative;
+	letter-spacing: 1px;
+	text-align: left;
+}
+
+.jivaka-footer-section-block .jivaka-footer__heading::after,
+.wp-block-twork-jivaka-footer-section .jivaka-footer__heading::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 40px;
+	height: 3px;
+	background-color: var(--jf-primary);
+}
+
+.jivaka-footer-section-block .jivaka-footer__logo,
+.wp-block-twork-jivaka-footer-section .jivaka-footer__logo {
+	max-width: 160px;
+	margin-bottom: 20px;
+	display: block;
+}
+
+.jivaka-footer-section-block .jivaka-footer__text,
+.wp-block-twork-jivaka-footer-section .jivaka-footer__text {
+	margin-bottom: 25px;
+	color: #ccc;
+	text-align: left;
+}
+
+.jivaka-footer-section-block .jivaka-footer__social,
+.wp-block-twork-jivaka-footer-section .jivaka-footer__social {
+	display: flex;
+	gap: 15px;
+	justify-content: flex-start;
+}
+
+.jivaka-footer-section-block .jivaka-footer__social-link,
+.wp-block-twork-jivaka-footer-section .jivaka-footer__social-link {
+	width: 36px;
+	height: 36px;
+	background: rgba(255, 255, 255, 0.08);
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: var(--jf-white);
+	text-decoration: none;
+	transition: 0.3s;
+}
+
+.jivaka-footer-section-block .jivaka-footer__social-link:hover,
+.wp-block-twork-jivaka-footer-section .jivaka-footer__social-link:hover {
+	background: var(--jf-primary);
+	transform: translateY(-3px);
+	color: #fff;
+}
+
+.jivaka-footer-section-block .jivaka-footer__list,
+.jivaka-footer-section-block .jivaka-footer__contact,
+.wp-block-twork-jivaka-footer-section .jivaka-footer__list,
+.wp-block-twork-jivaka-footer-section .jivaka-footer__contact {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	text-align: left;
+}
+
+.jivaka-footer-section-block .jivaka-footer__list li,
+.wp-block-twork-jivaka-footer-section .jivaka-footer__list li {
+	margin-bottom: 12px;
+}
+
+.jivaka-footer-section-block .jivaka-footer__link,
+.wp-block-twork-jivaka-footer-section .jivaka-footer__link {
+	color: var(--jf-text);
+	text-decoration: none;
+	transition: 0.3s;
+	display: inline-flex;
+	align-items: center;
+}
+
+.jivaka-footer-section-block .jivaka-footer__link i,
+.wp-block-twork-jivaka-footer-section .jivaka-footer__link i {
+	font-size: 0.7rem;
+	margin-right: 10px;
+	color: var(--jf-primary);
+	opacity: 0.7;
+	transition: 0.3s;
+}
+
+.jivaka-footer-section-block .jivaka-footer__link:hover,
+.wp-block-twork-jivaka-footer-section .jivaka-footer__link:hover {
+	color: var(--jf-white);
+	padding-left: 5px;
+}
+
+.jivaka-footer-section-block .jivaka-footer__link:hover i,
+.wp-block-twork-jivaka-footer-section .jivaka-footer__link:hover i {
+	opacity: 1;
+	margin-right: 15px;
+}
+
+.jivaka-footer-section-block .jivaka-footer__contact-item,
+.wp-block-twork-jivaka-footer-section .jivaka-footer__contact-item {
+	display: flex;
+	align-items: flex-start;
+	margin-bottom: 20px;
+	gap: 15px;
+	justify-content: flex-start;
+}
+
+.jivaka-footer-section-block .jivaka-footer__contact-item i,
+.wp-block-twork-jivaka-footer-section .jivaka-footer__contact-item i {
+	color: var(--jf-primary);
+	font-size: 1.2rem;
+	margin-top: 4px;
+	min-width: 20px;
+}
+
+.jivaka-footer-section-block .jivaka-footer__contact-label,
+.wp-block-twork-jivaka-footer-section .jivaka-footer__contact-label {
+	display: block;
+	color: var(--jf-white);
+	font-weight: 500;
+	margin-bottom: 4px;
+}
+
+.jivaka-footer-section-block .jivaka-footer__contact-value,
+.wp-block-twork-jivaka-footer-section .jivaka-footer__contact-value {
+	margin: 0;
+	font-size: 0.95rem;
+	line-height: 1.5;
+}
+
+.jivaka-footer-section-block .jivaka-footer__bottom,
+.wp-block-twork-jivaka-footer-section .jivaka-footer__bottom {
+	background-color: var(--jf-darker);
+	padding: 25px 0;
+	border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.jivaka-footer-section-block .jivaka-footer__bottom-container,
+.wp-block-twork-jivaka-footer-section .jivaka-footer__bottom-container {
+	max-width: var(--jf-container-max-width);
+	margin: 0 auto;
+	padding: 0 20px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 15px;
+}
+
+.jivaka-footer-section-block .jivaka-footer__copyright,
+.wp-block-twork-jivaka-footer-section .jivaka-footer__copyright {
+	color: #888;
+	font-size: 0.85rem;
+	text-align: left;
+}
+
+.jivaka-footer-section-block .jivaka-footer__legal,
+.wp-block-twork-jivaka-footer-section .jivaka-footer__legal {
+	display: flex;
+	gap: 20px;
+	flex-wrap: wrap;
+}
+
+.jivaka-footer-section-block .jivaka-footer__legal-link,
+.wp-block-twork-jivaka-footer-section .jivaka-footer__legal-link {
+	color: #888;
+	text-decoration: none;
+	font-size: 0.85rem;
+	transition: 0.3s;
+}
+
+.jivaka-footer-section-block .jivaka-footer__legal-link:hover,
+.wp-block-twork-jivaka-footer-section .jivaka-footer__legal-link:hover {
+	color: var(--jf-primary);
+}
+
+@media (max-width: 992px) {
+	.jivaka-footer-section-block .jivaka-footer,
+	.wp-block-twork-jivaka-footer-section .jivaka-footer {
+		margin-top: 140px;
+		padding-top: 140px;
+	}
+
+	.jivaka-footer-section-block .jivaka-footer__cta,
+	.wp-block-twork-jivaka-footer-section .jivaka-footer__cta {
+		flex-direction: column;
+		text-align: center;
+		gap: 20px;
+		align-items: center;
+	}
+
+	.jivaka-footer-section-block .jivaka-footer__grid,
+	.wp-block-twork-jivaka-footer-section .jivaka-footer__grid {
+		grid-template-columns: 1fr 1fr;
+	}
+}
+
+@media (max-width: 768px) {
+	.jivaka-footer-section-block .jivaka-footer,
+	.wp-block-twork-jivaka-footer-section .jivaka-footer {
+		margin-top: 160px;
+		padding-top: 160px;
+	}
+
+	.jivaka-footer-section-block .jivaka-footer__cta-wrapper,
+	.wp-block-twork-jivaka-footer-section .jivaka-footer__cta-wrapper {
+		width: 95%;
+		top: -120px;
+	}
+
+	.jivaka-footer-section-block .jivaka-footer__cta,
+	.wp-block-twork-jivaka-footer-section .jivaka-footer__cta {
+		padding: 30px 20px;
+		text-align: center;
+		align-items: center;
+	}
+
+	.jivaka-footer-section-block .jivaka-footer__cta-actions,
+	.wp-block-twork-jivaka-footer-section .jivaka-footer__cta-actions {
+		flex-direction: column;
+		width: 100%;
+		gap: 10px;
+	}
+
+	.jivaka-footer-section-block .jivaka-btn,
+	.wp-block-twork-jivaka-footer-section .jivaka-btn {
+		width: 100%;
+		box-sizing: border-box;
+		text-align: center;
+		display: block;
+	}
+
+	.jivaka-footer-section-block .jivaka-footer__grid,
+	.wp-block-twork-jivaka-footer-section .jivaka-footer__grid {
+		grid-template-columns: 1fr;
+		gap: 40px;
+		text-align: left;
+	}
+
+	.jivaka-footer-section-block .jivaka-footer__heading::after,
+	.wp-block-twork-jivaka-footer-section .jivaka-footer__heading::after {
+		left: 0;
+		transform: none;
+	}
+
+	.jivaka-footer-section-block .jivaka-footer__social,
+	.jivaka-footer-section-block .jivaka-footer__contact-item,
+	.jivaka-footer-section-block .jivaka-footer__link,
+	.jivaka-footer-section-block .jivaka-footer__legal,
+	.wp-block-twork-jivaka-footer-section .jivaka-footer__social,
+	.wp-block-twork-jivaka-footer-section .jivaka-footer__contact-item,
+	.wp-block-twork-jivaka-footer-section .jivaka-footer__link,
+	.wp-block-twork-jivaka-footer-section .jivaka-footer__legal {
+		justify-content: flex-start;
+	}
+
+	.jivaka-footer-section-block .jivaka-footer__bottom-container,
+	.wp-block-twork-jivaka-footer-section .jivaka-footer__bottom-container {
+		flex-direction: column;
+		align-items: flex-start;
+		text-align: left;
+	}
+}
+
+.editor-styles-wrapper,
+.block-editor-block-list__layout {
+	.jivaka-footer-section-block.mk-jivaka-footer-editor {
+		overflow: visible !important;
+
+		.rich-text {
+			cursor: text;
+		}
+
+		.jivaka-footer--editor {
+			.jivaka-footer__draggable {
+				position: relative;
+			}
+
+			.jivaka-footer__drag-handle {
+				position: absolute;
+				top: 8px;
+				left: 8px;
+				z-index: 2;
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				width: 24px;
+				height: 24px;
+				padding: 0;
+				border: 1px dashed rgba(255, 255, 255, 0.35);
+				border-radius: 4px;
+				background: rgba(0, 0, 0, 0.35);
+				color: #fff;
+				cursor: grab;
+			}
+
+			.jivaka-footer__draggable.is-drag-over {
+				outline: 2px dashed var(--jf-primary, #f6892e);
+				outline-offset: 4px;
+			}
+
+			.jivaka-footer__draggable-content {
+				min-width: 0;
+			}
+
+			.jivaka-footer__cta-wrapper.jivaka-footer__draggable,
+			.jivaka-footer__main-wrap.jivaka-footer__draggable,
+			.jivaka-footer__bottom-wrap.jivaka-footer__draggable {
+				padding-top: 28px;
+			}
+
+			.jivaka-footer__col.jivaka-footer__draggable {
+				padding-top: 34px;
+				padding-left: 8px;
+				min-height: 80px;
+			}
+
+			.jivaka-footer__list-item.jivaka-footer__draggable,
+			.jivaka-footer__draggable-contact.jivaka-footer__draggable,
+			.jivaka-footer__legal-item.jivaka-footer__draggable,
+			.jivaka-footer__social-item.jivaka-footer__draggable,
+			.jivaka-footer__brand-block.jivaka-footer__draggable,
+			.jivaka-footer__cta-button-wrap.jivaka-footer__draggable,
+			.jivaka-footer__bottom-item.jivaka-footer__draggable {
+				position: relative;
+				padding-left: 34px;
+			}
+
+			.jivaka-footer__draggable-contact .jivaka-footer__draggable-content {
+				display: flex;
+				align-items: flex-start;
+				gap: 15px;
+				width: 100%;
+			}
+
+			.jivaka-footer__social {
+				flex-wrap: wrap;
+			}
+
+			.jivaka-footer__legal {
+				flex-wrap: wrap;
+				gap: 12px;
+			}
+		}
+
+		.jivaka-footer__text.rich-text,
+		.jivaka-footer__text.rich-text:focus {
+			min-height: 1.6em;
+			color: #ccc;
+		}
+
+		.jivaka-footer__cta-title.rich-text:focus,
+		.jivaka-footer__cta-desc.rich-text:focus,
+		.jivaka-footer__heading.rich-text:focus,
+		.jivaka-footer__contact-label.rich-text:focus,
+		.jivaka-footer__contact-value.rich-text:focus,
+		.jivaka-footer__copyright.rich-text:focus,
+		.jivaka-footer__link .rich-text:focus,
+		.jivaka-footer__legal-link .rich-text:focus,
+		.jivaka-btn .rich-text:focus {
+			outline: 1px dashed rgba(255, 255, 255, 0.45);
+			outline-offset: 2px;
+		}
+
+		.jivaka-footer__link,
+		.jivaka-footer__legal-link {
+			cursor: text;
+		}
+	}
+}

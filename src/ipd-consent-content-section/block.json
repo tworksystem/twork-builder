@@ -1,0 +1,221 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/ipd-consent-content-section",
+	"title": "IPD Consent Document Section",
+	"category": "twork-builder",
+	"description": "Full inpatient consent document with patient form, terms clauses, signatures, and original PDF page previews.",
+	"keywords": [
+		"ipd",
+		"consent",
+		"terms",
+		"inpatient",
+		"document",
+		"patient",
+		"guide",
+		"mk"
+	],
+	"icon": "media-text",
+	"attributes": {
+		"backgroundColor": {
+			"type": "string",
+			"default": "#f4f6f8"
+		},
+		"paddingTop": {
+			"type": "number",
+			"default": 80
+		},
+		"paddingBottom": {
+			"type": "number",
+			"default": 80
+		},
+		"paddingTopMobile": {
+			"type": "number",
+			"default": 60
+		},
+		"paddingBottomMobile": {
+			"type": "number",
+			"default": 60
+		},
+		"containerMaxWidth": {
+			"type": "number",
+			"default": 1100
+		},
+		"containerPadding": {
+			"type": "number",
+			"default": 20
+		},
+		"sectionAnchor": {
+			"type": "string",
+			"default": "ipd-consent"
+		},
+		"logoUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"logoId": {
+			"type": "number"
+		},
+		"logoAlt": {
+			"type": "string",
+			"default": "Jivaka Hospital"
+		},
+		"tagline": {
+			"type": "string",
+			"default": "Caring with Compassion"
+		},
+		"formSectionTitle": {
+			"type": "string",
+			"default": "လူနာ ကိုယ်ရေးရာဇဝင် အကျဉ်း"
+		},
+		"termsMainTitle": {
+			"type": "string",
+			"default": "ဇီဝက ဆေးရုံတွင် အတွင်းလူနာအဖြစ် ကျန်းမာရေးစောင့်ရှောက်မှု ခံယူမည့်သူများမ ဝန်ဆောင်မှုအတွက် သဘောတူညီချက်"
+		},
+		"formFields": {
+			"type": "array",
+			"default": []
+		},
+		"referralQuestion": {
+			"type": "string",
+			"default": "ဇီဝက ဆေးရုံကို မည်သည့်နေရာမှ သိရှိပြီး လာပြဖြစ်တာပါဝါလဲ။"
+		},
+		"referralOptions": {
+			"type": "array",
+			"default": []
+		},
+		"signatureSectionTitle": {
+			"type": "string",
+			"default": "လက်မှတ်ရေးထိုးရန်"
+		},
+		"patientSignatureFields": {
+			"type": "array",
+			"default": []
+		},
+		"witnessSignatureFields": {
+			"type": "array",
+			"default": []
+		},
+		"liabilityText": {
+			"type": "string",
+			"default": ""
+		},
+		"consentClosingText": {
+			"type": "string",
+			"default": ""
+		},
+		"footerNote": {
+			"type": "string",
+			"default": ""
+		},
+		"pageImages": {
+			"type": "array",
+			"default": []
+		},
+		"showOriginalPages": {
+			"type": "boolean",
+			"default": true
+		},
+		"showDocumentHeader": {
+			"type": "boolean",
+			"default": true
+		},
+		"showFormSection": {
+			"type": "boolean",
+			"default": true
+		},
+		"showReferralSection": {
+			"type": "boolean",
+			"default": true
+		},
+		"showTermsSection": {
+			"type": "boolean",
+			"default": true
+		},
+		"showSignatureSection": {
+			"type": "boolean",
+			"default": true
+		},
+		"showLiabilitySection": {
+			"type": "boolean",
+			"default": true
+		},
+		"showClosingSection": {
+			"type": "boolean",
+			"default": true
+		},
+		"showFooterNoteSection": {
+			"type": "boolean",
+			"default": true
+		},
+		"showFooterContactSection": {
+			"type": "boolean",
+			"default": true
+		},
+		"pdfUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"pdfId": {
+			"type": "number"
+		},
+		"pdfFileName": {
+			"type": "string",
+			"default": "Inpatient Terms & Conditions (IPD)"
+		},
+		"pdfDownloadLabel": {
+			"type": "string",
+			"default": "Download PDF"
+		},
+		"pdfViewLabel": {
+			"type": "string",
+			"default": "View PDF"
+		},
+		"showPdfDownload": {
+			"type": "boolean",
+			"default": true
+		},
+		"defaultView": {
+			"type": "string",
+			"default": "digital"
+		},
+		"footerAddress": {
+			"type": "string",
+			"default": "Corner of 57th Street and 101st Street, Mahaaungmyay Township, Mandalay Region, Myanmar."
+		},
+		"footerPhone": {
+			"type": "string",
+			"default": "09 789 101 101"
+		},
+		"footerEmail": {
+			"type": "string",
+			"default": "hello@jivakahospital.com"
+		},
+		"footerWebsite": {
+			"type": "string",
+			"default": "www.jivakahospital.com"
+		},
+		"animationOnScroll": {
+			"type": "boolean",
+			"default": true
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"align": [ "wide", "full" ]
+	},
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": {
+			"formSectionTitle": "လူနာ ကိုယ်ရေးရာဇဝင် အကျဉ်း",
+			"termsMainTitle": "ဇီဝက ဆေးရုံတွင် အတွင်းလူနာအဖြစ် ကျန်းမာရေးစောင့်ရှောက်မှု ခံယူမည့်သူများမ ဝန်ဆောင်မှုအတွက် သဘောတူညီချက်",
+			"sectionAnchor": "ipd-consent"
+		}
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css",
+	"editorStyle": "file:./style-index.css",
+	"viewScript": "file:./view.js"
+}

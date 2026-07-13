@@ -1,0 +1,181 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/ipd-terms-section",
+	"title": "IPD Terms & Conditions Section",
+	"category": "twork-builder",
+	"description": "Inpatient terms and conditions PDF section with view and download buttons for patient guide.",
+	"keywords": [
+		"terms",
+		"conditions",
+		"inpatient",
+		"ipd",
+		"pdf",
+		"patient",
+		"guide",
+		"hospital",
+		"mk"
+	],
+	"icon": "media-document",
+	"attributes": {
+		"backgroundColor": {
+			"type": "string",
+			"default": "#f8f9fa"
+		},
+		"paddingTop": {
+			"type": "number",
+			"default": 80
+		},
+		"paddingBottom": {
+			"type": "number",
+			"default": 80
+		},
+		"paddingTopMobile": {
+			"type": "number",
+			"default": 60
+		},
+		"paddingBottomMobile": {
+			"type": "number",
+			"default": 60
+		},
+		"showSectionTitle": {
+			"type": "boolean",
+			"default": true
+		},
+		"sectionTitle": {
+			"type": "string",
+			"default": "Inpatient Terms & Conditions"
+		},
+		"sectionTitleColor": {
+			"type": "string",
+			"default": "#212121"
+		},
+		"sectionTitleFontSize": {
+			"type": "number",
+			"default": 2.2
+		},
+		"sectionTitleFontSizeMobile": {
+			"type": "number",
+			"default": 1.8
+		},
+		"sectionTitleFontWeight": {
+			"type": "number",
+			"default": 700
+		},
+		"sectionTitleAlignment": {
+			"type": "string",
+			"default": "center"
+		},
+		"showSectionSubtitle": {
+			"type": "boolean",
+			"default": true
+		},
+		"sectionSubtitle": {
+			"type": "string",
+			"default": "Please read and download the inpatient consent and terms document before admission."
+		},
+		"sectionSubtitleColor": {
+			"type": "string",
+			"default": "#666666"
+		},
+		"sectionSubtitleFontSize": {
+			"type": "number",
+			"default": 1.05
+		},
+		"sectionSubtitleFontSizeMobile": {
+			"type": "number",
+			"default": 0.95
+		},
+		"sectionHeaderMaxWidth": {
+			"type": "number",
+			"default": 700
+		},
+		"sectionHeaderMarginBottom": {
+			"type": "number",
+			"default": 50
+		},
+		"containerMaxWidth": {
+			"type": "number",
+			"default": 1200
+		},
+		"containerPadding": {
+			"type": "number",
+			"default": 20
+		},
+		"containerPaddingMobile": {
+			"type": "number",
+			"default": 20
+		},
+		"pdfUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"pdfId": {
+			"type": "number"
+		},
+		"pdfFileName": {
+			"type": "string",
+			"default": "Inpatient Terms & Conditions"
+		},
+		"viewButtonLabel": {
+			"type": "string",
+			"default": "View PDF"
+		},
+		"downloadButtonLabel": {
+			"type": "string",
+			"default": "Download PDF"
+		},
+		"sectionAnchor": {
+			"type": "string",
+			"default": "terms"
+		},
+		"cardBgColor": {
+			"type": "string",
+			"default": "#ffffff"
+		},
+		"cardBorderRadius": {
+			"type": "number",
+			"default": 12
+		},
+		"cardPadding": {
+			"type": "number",
+			"default": 40
+		},
+		"primaryButtonColor": {
+			"type": "string",
+			"default": "#f48b2a"
+		},
+		"primaryButtonHoverColor": {
+			"type": "string",
+			"default": "#e67a22"
+		},
+		"animationOnScroll": {
+			"type": "boolean",
+			"default": true
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"align": [ "wide", "full" ]
+	},
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": {
+			"backgroundColor": "#f8f9fa",
+			"paddingTop": 80,
+			"paddingBottom": 80,
+			"showSectionTitle": true,
+			"sectionTitle": "Inpatient Terms & Conditions",
+			"showSectionSubtitle": true,
+			"sectionSubtitle": "Please read and download the inpatient consent and terms document before admission.",
+			"pdfFileName": "Inpatient Terms & Conditions (IPD)",
+			"viewButtonLabel": "View PDF",
+			"downloadButtonLabel": "Download PDF",
+			"sectionAnchor": "terms"
+		}
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
+}

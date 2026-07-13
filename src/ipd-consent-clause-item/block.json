@@ -1,0 +1,39 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/ipd-consent-clause-item",
+	"title": "IPD Consent Clause",
+	"category": "twork-builder",
+	"parent": [ "twork/ipd-consent-content-section" ],
+	"description": "Single numbered clause for the inpatient consent document.",
+	"keywords": [ "ipd", "consent", "clause", "terms", "mk" ],
+	"icon": "editor-ol",
+	"attributes": {
+		"clauseNumber": {
+			"type": "string",
+			"default": "၁"
+		},
+		"clauseTitle": {
+			"type": "string",
+			"default": ""
+		},
+		"clauseParagraphs": {
+			"type": "array",
+			"default": []
+		},
+		"clauseItems": {
+			"type": "array",
+			"default": []
+		},
+		"showClause": {
+			"type": "boolean",
+			"default": true
+		}
+	},
+	"supports": {
+		"html": false,
+		"reusable": false
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js"
+}

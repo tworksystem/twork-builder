@@ -1,0 +1,99 @@
+@import "../scss/typography";
+
+:root {
+	--social-qr-orange: #f48b2a;
+	--social-qr-orange-dark: #e8813c;
+	--social-qr-orange-darker: #d96f2d;
+}
+
+.editor-styles-wrapper,
+.block-editor-block-list__layout,
+.wp-block-twork-social-qr-section {
+	.mk-social-qr-section-editor {
+		.mk-social-qr-grid.social-qr-grid {
+			display: grid !important;
+			grid-template-columns: repeat(
+				var(--grid-columns, 5),
+				minmax(0, 1fr)
+			) !important;
+			gap: var(--grid-gap, 24px) !important;
+			width: 100% !important;
+			align-items: start;
+
+			> .block-editor-inner-blocks {
+				display: contents !important;
+
+				> .block-editor-block-list__layout {
+					display: contents !important;
+
+					> .wp-block,
+					> [data-type="twork/social-qr-item"] {
+						display: flex !important;
+						flex-direction: column !important;
+						min-width: 0 !important;
+						width: 100% !important;
+					}
+				}
+			}
+		}
+
+		.section-header {
+			h2,
+			p {
+				&[contenteditable="true"]:focus {
+					outline: 1px dashed #2271b1;
+					outline-offset: 2px;
+				}
+			}
+		}
+	}
+}
+
+.mk-social-qr-section {
+	font-family: $font-primary;
+	position: relative;
+
+	.jivaka-container {
+		position: relative;
+	}
+
+	.section-header {
+		.section-title {
+			margin: 0 0 10px 0;
+			line-height: 1.2;
+		}
+
+		.section-subtitle {
+			margin: 0;
+			line-height: 1.6;
+		}
+	}
+
+	.social-qr-grid {
+		display: grid;
+		width: 100%;
+		grid-template-columns: repeat(
+			var(--columns, 5),
+			minmax(0, 1fr)
+		);
+		align-items: start;
+
+		&[data-show-hospital-logo="true"] .social-qr-card::after {
+			content: "";
+			display: block;
+		}
+	}
+}
+
+@media (max-width: 992px) {
+	.mk-social-qr-section .social-qr-grid {
+		grid-template-columns: repeat(var(--columns-tablet, 3), 1fr) !important;
+	}
+}
+
+@media (max-width: 768px) {
+	.mk-social-qr-section .social-qr-grid {
+		grid-template-columns: repeat(var(--columns-mobile, 2), 1fr) !important;
+		gap: 16px !important;
+	}
+}

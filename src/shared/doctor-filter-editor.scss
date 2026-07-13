@@ -1,0 +1,88 @@
+.editor-styles-wrapper,
+.wp-block-twork-doctor-search-filter-section,
+.wp-block-twork-doctor-directory-section,
+.interface-interface-skeleton__sidebar {
+    .mk-filter-option-table {
+        margin-bottom: 16px;
+
+        &__intro {
+            margin: 0 0 12px;
+            color: #646970;
+            font-size: 12px;
+            line-height: 1.45;
+        }
+
+        &__section-title {
+            margin: 0 0 8px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            color: #1d2327;
+        }
+
+        &__head,
+        &__row {
+            display: grid;
+            grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.9fr) 32px;
+            gap: 6px;
+            align-items: center;
+        }
+
+        &__head {
+            margin-bottom: 6px;
+            padding: 0 2px;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: #787c82;
+        }
+
+        &__row {
+            margin-bottom: 4px;
+        }
+
+        &__input {
+            width: 100%;
+            min-height: 32px;
+            margin: 0;
+            padding: 6px 8px;
+            border: 1px solid #dcdcde;
+            border-radius: 4px;
+            background: #fff;
+            color: #1d2327;
+            font-size: 12px;
+            line-height: 1.3;
+
+            &:focus {
+                border-color: #f48b2a;
+                box-shadow: 0 0 0 1px #f48b2a;
+                outline: none;
+            }
+        }
+
+        &__delete {
+            min-width: 32px;
+            height: 32px;
+            padding: 0;
+            justify-self: end;
+        }
+
+        &__footer {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 8px;
+            margin-top: 8px;
+        }
+
+        &__hint {
+            margin: 0;
+            flex: 1 1 100%;
+            color: #787c82;
+            font-size: 11px;
+            line-height: 1.35;
+        }
+    }
+}
