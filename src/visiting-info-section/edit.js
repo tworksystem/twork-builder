@@ -102,7 +102,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'twork-visiting-info-section-editor',
+			className: 'mk-visiting-info-section-editor',
 			style: {
 				backgroundColor: backgroundImage
 					? 'transparent'

@@ -17,7 +17,7 @@
 .editor-styles-wrapper,
 .block-editor-block-list__layout,
 .wp-block-twork-visiting-info-section {
-    .twork-visiting-info-section-editor {
+    .mk-visiting-info-section-editor {
         position: relative;
         min-height: 200px;
 
@@ -73,7 +73,7 @@
 }
 
 // === FRONTEND STYLES ===
-.twork-visiting-info-section {
+.mk-visiting-info-section {
     font-family: $font-primary;
     position: relative;
     overflow: hidden;
@@ -176,7 +176,7 @@
 
 // === RESPONSIVE STYLES ===
 @media (max-width: 992px) {
-    .twork-visiting-info-section {
+    .mk-visiting-info-section {
         .info-layout {
             gap: 40px;
         }
@@ -188,7 +188,7 @@
 }
 
 @media (max-width: 768px) {
-    .twork-visiting-info-section {
+    .mk-visiting-info-section {
         padding-top: var(--padding-top-mobile, 60px) !important;
         padding-bottom: var(--padding-bottom-mobile, 60px) !important;
 
@@ -236,7 +236,7 @@
 // === ANIMATION (fade-up) ===
 // Content is visible by default. When view script adds .is-visible on scroll, animation plays.
 // Without view script, content stays visible (no opacity:0 to avoid invisible content).
-.twork-visiting-info-section {
+.mk-visiting-info-section {
     .fade-up {
         opacity: 1;
         transform: translateY(0);

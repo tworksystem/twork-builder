@@ -5,7 +5,7 @@
 	"title": "Visiting Hours Row",
 	"parent": [ "twork/visiting-info-section" ],
 	"description": "Single row for visiting hours (ward name + icon + time slot).",
-	"keywords": [ "visiting", "hours", "ward", "time", "twork" ],
+	"keywords": [ "visiting", "hours", "ward", "time", "mk" ],
 	"attributes": {
 		"wardName": {
 			"type": "string",

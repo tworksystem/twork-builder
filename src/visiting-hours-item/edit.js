@@ -29,7 +29,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const blockProps = useStableBlockProps(
 		() => ( {
-			className: 'twork-visiting-hours-item-editor hours-row',
+			className: 'mk-visiting-hours-item-editor hours-row',
 			style: {
 				display: 'flex',
 				justifyContent: 'space-between',
