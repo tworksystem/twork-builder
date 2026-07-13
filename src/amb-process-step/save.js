@@ -14,7 +14,7 @@ export default function save( { attributes } ) {
 	} = attributes;
 
 	const blockProps = useBlockProps.save( {
-		className: 'amb-step twork-amb-process-step',
+		className: 'amb-step mk-amb-process-step',
 	} );
 
 	return (
