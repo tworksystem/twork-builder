@@ -1,0 +1,12 @@
+{
+  "exclude": [
+    "woocommerce-import/",
+    "languages/"
+  ],
+  "deprioritize": [
+    "shweghee/",
+    "templates/",
+    "scripts/",
+    ".agents/"
+  ]
+}
