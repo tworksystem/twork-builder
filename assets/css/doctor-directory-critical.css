@@ -1,0 +1,173 @@
+/* Critical Doctor Directory frontend overrides (not wiped by sync-src). */
+.doctor-card,
+.wp-block-twork-doctor-card-item.doctor-card,
+.wp-block-twork-doctor-card-item {
+	background: #fff !important;
+	border: 1px solid rgba(0, 0, 0, 0.07) !important;
+	border-style: solid !important;
+	border-radius: 12px !important;
+	box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06) !important;
+	box-sizing: border-box !important;
+	display: flex !important;
+	flex-direction: column !important;
+	height: 100% !important;
+	overflow: hidden !important;
+	position: relative !important;
+	width: 100% !important;
+}
+
+.doctor-card .doc-content,
+.wp-block-twork-doctor-card-item .doc-content {
+	align-items: center !important;
+	box-sizing: border-box !important;
+	display: flex !important;
+	flex-direction: column !important;
+	flex-grow: 1 !important;
+	padding: 22px 20px 20px !important;
+	text-align: center !important;
+	width: 100% !important;
+}
+
+.doctor-card.doctor-card--no-image .doc-content,
+.wp-block-twork-doctor-card-item.doctor-card--no-image .doc-content {
+	min-height: 160px !important;
+	padding-top: 28px !important;
+}
+
+.doctor-card .doc-body,
+.wp-block-twork-doctor-card-item .doc-body {
+	align-items: center !important;
+	box-sizing: border-box !important;
+	display: flex !important;
+	flex: 1 1 auto !important;
+	flex-direction: column !important;
+	justify-content: flex-start !important;
+	text-align: center !important;
+	width: 100% !important;
+}
+
+.doctor-card .doc-dept,
+.wp-block-twork-doctor-card-item .doc-dept {
+	color: #f48b2a !important;
+	display: inline-block !important;
+	font-size: 0.72rem !important;
+	font-weight: 700 !important;
+	letter-spacing: 0.08em !important;
+	line-height: 1.3 !important;
+	margin-bottom: 8px !important;
+	text-transform: uppercase !important;
+}
+
+.doctor-card .doc-name,
+.wp-block-twork-doctor-card-item .doc-name {
+	color: #212121 !important;
+	font-size: 1.125rem !important;
+	font-weight: 700 !important;
+	line-height: 1.35 !important;
+	margin: 0 0 8px !important;
+	width: 100% !important;
+}
+
+.doctor-card .doc-qual,
+.wp-block-twork-doctor-card-item .doc-qual {
+	color: #666 !important;
+	font-size: 0.82rem !important;
+	line-height: 1.55 !important;
+	margin: 0 !important;
+	width: 100% !important;
+}
+
+.doctor-card .doc-actions,
+.wp-block-twork-doctor-card-item .doc-actions {
+	align-items: center !important;
+	border-top: 1px solid #f0f0f0 !important;
+	box-sizing: border-box !important;
+	display: flex !important;
+	gap: 12px !important;
+	justify-content: stretch !important;
+	margin-top: auto !important;
+	padding-top: 18px !important;
+	width: 100% !important;
+}
+
+.wp-block-twork-doctor-directory-section,
+.doctor-directory.mk-doctor-directory-section {
+	overflow: visible !important;
+	position: relative !important;
+	z-index: 1 !important;
+}
+
+.wp-block-twork-doctor-directory-section .doctors-grid,
+.doctor-directory.mk-doctor-directory-section .doctors-grid {
+	display: grid !important;
+	padding-top: 12px !important;
+	width: 100% !important;
+}
+
+.wp-block-twork-doctor-directory-section .doctors-grid > .wp-block-twork-doctor-card-item,
+.doctor-directory.mk-doctor-directory-section .doctors-grid > .wp-block-twork-doctor-card-item {
+	display: flex !important;
+	flex-direction: column !important;
+	height: 100% !important;
+	margin: 0 !important;
+	min-width: 0 !important;
+}
+
+/* Filter JS sets [hidden] — must beat display:flex !important above. */
+.doctor-card[hidden],
+.wp-block-twork-doctor-card-item.doctor-card[hidden],
+.wp-block-twork-doctor-directory-section .doctors-grid > .wp-block-twork-doctor-card-item[hidden],
+.doctor-directory.mk-doctor-directory-section .doctors-grid > .wp-block-twork-doctor-card-item[hidden] {
+	display: none !important;
+}
+
+.wp-block-twork-doctor-search-filter-section,
+.mk-doctor-search-filter-section {
+	position: relative !important;
+}
+
+.wp-block-twork-doctor-search-filter-section .search-section,
+.mk-doctor-search-filter-section .search-section {
+	margin-bottom: var(--mk-search-section-margin-bottom, 60px) !important;
+	margin-top: var(--mk-search-section-margin-top, -40px) !important;
+	position: relative !important;
+	z-index: 10 !important;
+}
+
+.wp-block-twork-doctor-search-filter-section .search-box,
+.mk-doctor-search-filter-section .search-box {
+	align-items: center !important;
+	background: #fff !important;
+	border-radius: 8px !important;
+	border-top: 4px solid #f48b2a !important;
+	box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1) !important;
+	box-sizing: border-box !important;
+	display: flex !important;
+	flex-wrap: wrap !important;
+	gap: 20px !important;
+}
+
+.wp-block-twork-doctor-search-filter-section .filter-group,
+.mk-doctor-search-filter-section .filter-group {
+	display: flex !important;
+	flex: 1 !important;
+	flex-direction: column !important;
+	gap: 8px !important;
+	min-width: 200px !important;
+}
+
+.wp-block-twork-doctor-search-filter-section .filter-input,
+.mk-doctor-search-filter-section .filter-input,
+.wp-block-twork-doctor-search-filter-section .btn-reset,
+.mk-doctor-search-filter-section .btn-reset {
+	box-sizing: border-box !important;
+}
+
+@media (max-width: 768px) {
+
+	.wp-block-twork-doctor-search-filter-section .search-section,
+	.mk-doctor-search-filter-section .search-section {
+		margin-bottom: 40px !important;
+		margin-top: 0 !important;
+	}
+}

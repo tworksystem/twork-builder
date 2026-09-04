@@ -49,7 +49,7 @@
 		},
 		"backgroundImage": {
 			"type": "string",
-			"default": "https://www.transparenttextures.com/patterns/cubes.png"
+			"default": ""
 		},
 		"backgroundImageId": {
 			"type": "number"
@@ -112,7 +112,7 @@
 			"buttonUrl": "appointment.html",
 			"openInNewTab": false,
 			"backgroundColor": "#005f73",
-			"backgroundImage": "https://www.transparenttextures.com/patterns/cubes.png",
+			"backgroundImage": "",
 			"padding": 60,
 			"borderRadius": 30,
 			"textAlign": "center",

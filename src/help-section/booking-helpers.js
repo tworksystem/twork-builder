@@ -1,8 +1,8 @@
 /**
  * Resolve booking button URL from department option settings.
  *
- * @param {string} bookUrl  Per-option URL from inspector (supports `{value}` placeholder).
- * @param {string} value    Selected department value.
+ * @param {string} bookUrl    Per-option URL from inspector (supports `{value}` placeholder).
+ * @param {string} value      Selected department value.
  * @param {string} selectName Form/select name used as query param key.
  * @return {string}
  */
@@ -24,16 +24,23 @@ export function resolveBookUrl( bookUrl, value, selectName ) {
 			if ( ! url.searchParams.has( paramKey ) ) {
 				url.searchParams.set( paramKey, value );
 			}
-			if ( bookUrl.startsWith( 'http://' ) || bookUrl.startsWith( 'https://' ) ) {
+			if (
+				bookUrl.startsWith( 'http://' ) ||
+				bookUrl.startsWith( 'https://' )
+			) {
 				return url.toString();
 			}
 			if ( bookUrl.startsWith( '/' ) ) {
 				return `${ url.pathname }${ url.search }${ url.hash }`;
 			}
-			return `${ url.pathname.replace( /^\//, '' ) }${ url.search }${ url.hash }`;
+			return `${ url.pathname.replace( /^\//, '' ) }${ url.search }${
+				url.hash
+			}`;
 		} catch ( e ) {
 			const separator = bookUrl.includes( '?' ) ? '&' : '?';
-			return `${ bookUrl }${ separator }${ encodeURIComponent( paramKey ) }=${ encodedValue }`;
+			return `${ bookUrl }${ separator }${ encodeURIComponent(
+				paramKey
+			) }=${ encodedValue }`;
 		}
 	}
 
@@ -42,7 +49,7 @@ export function resolveBookUrl( bookUrl, value, selectName ) {
 
 /**
  * @param {Array<{value?: string, bookUrl?: string}>} options
- * @param {string} selectName
+ * @param {string}                                    selectName
  * @return {string}
  */
 export function getInitialBookHref( options, selectName ) {

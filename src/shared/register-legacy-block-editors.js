@@ -5,7 +5,7 @@
  */
 import { addFilter } from '@wordpress/hooks';
 
-export function attachLegacyBlockEditor( legacyName, edit, save ) {
+export function attachLegacyBlockEditor( legacyName, edit, save, extras = {} ) {
 	addFilter(
 		'blocks.registerBlockType',
 		`twork-builder/legacy-editor-${ legacyName.replace( '/', '-' ) }`,
@@ -15,6 +15,7 @@ export function attachLegacyBlockEditor( legacyName, edit, save ) {
 					...settings,
 					edit,
 					save,
+					...extras,
 				};
 			}
 			return settings;

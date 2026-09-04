@@ -104,7 +104,9 @@ export default function save( { attributes } ) {
 	const slides = Array.isArray( slideshowImages )
 		? slideshowImages
 				.map( ( item ) => {
-					if ( ! item ) return null;
+					if ( ! item ) {
+						return null;
+					}
 					const url =
 						typeof item === 'string'
 							? item

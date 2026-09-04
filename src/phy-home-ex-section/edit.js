@@ -47,7 +47,7 @@ const DEFAULT_ATTRS = {
 	],
 
 	imageUrl:
-		'https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=800&q=80',
+		'',
 	imageAlt: 'Home Exercise',
 };
 

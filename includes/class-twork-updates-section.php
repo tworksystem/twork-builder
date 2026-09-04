@@ -162,8 +162,8 @@ function twork_render_updates_section($attributes, $content, $block)
     <section
         class="updates-section jivaka-section twork-updates-section wp-block-twork-updates-section"
         style="<?php echo esc_attr($section_style); ?>"
-        data-hover-effect="<?php echo $atts['hoverEffect'] ? 'true' : 'false'; ?>"
-        data-animation="<?php echo $atts['animationOnScroll'] ? 'true' : 'false'; ?>"
+        data-hover-effect="<?php echo esc_attr( $atts['hoverEffect'] ? 'true' : 'false' ); ?>"
+        data-animation="<?php echo esc_attr( $atts['animationOnScroll'] ? 'true' : 'false' ); ?>"
         data-animation-type="<?php echo esc_attr($atts['animationType']); ?>"
         data-animation-delay="<?php echo absint($atts['animationDelay']); ?>"
     >
@@ -201,7 +201,7 @@ function twork_render_updates_section($attributes, $content, $block)
                         $idx++;
                         $stagger = $atts['animationOnScroll'] ? ' stagger-up' : '';
                         ?>
-                        <article class="update-post<?php echo esc_attr($stagger); ?>" style="<?php echo $atts['animationOnScroll'] ? 'transition-delay:' . (($idx - 1) * $atts['animationDelay'] / 1000) . 's;' : ''; ?>">
+                        <article class="update-post<?php echo esc_attr( $stagger ); ?>" style="<?php echo esc_attr( $atts['animationOnScroll'] ? 'transition-delay:' . ( ( $idx - 1 ) * $atts['animationDelay'] / 1000 ) . 's;' : '' ); ?>">
                             <a href="<?php echo esc_url($permalink); ?>" aria-hidden="true" tabindex="-1">
                                 <?php if ($image_url) : ?>
                                     <img
@@ -222,7 +222,10 @@ function twork_render_updates_section($attributes, $content, $block)
                                     <a href="<?php echo esc_url($permalink); ?>" rel="bookmark"><?php echo esc_html($title); ?></a>
                                 </h3>
                                 <p><?php echo esc_html($excerpt); ?></p>
-                                <a href="<?php echo esc_url($permalink); ?>" class="update-read-more" rel="bookmark" aria-label="<?php echo esc_attr(sprintf(__('Read more about %s', 'twork-builder'), $title)); ?>">
+                                <a href="<?php echo esc_url($permalink); ?>" class="update-read-more" rel="bookmark" aria-label="<?php
+                                /* translators: %s: post title. */
+                                echo esc_attr(sprintf(__('Read more about %s', 'twork-builder'), $title));
+                                ?>">
                                     <?php echo esc_html($read_more_label); ?>
                                 </a>
                             </div>

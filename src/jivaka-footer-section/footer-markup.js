@@ -133,7 +133,10 @@ function FooterLinkList( {
 										),
 									} )
 								}
-								placeholder={ __( 'Link label', 'twork-builder' ) }
+								placeholder={ __(
+									'Link label',
+									'twork-builder'
+								) }
 								allowedFormats={ [] }
 								disableInteractiveFormatting
 							/>
@@ -209,14 +212,23 @@ export default function FooterMarkup( props ) {
 		bottomBarOrder,
 	} = props;
 
-	const resolvedQuickLinks = resolveLinkList( quickLinks, DEFAULT_QUICK_LINKS );
+	const resolvedQuickLinks = resolveLinkList(
+		quickLinks,
+		DEFAULT_QUICK_LINKS
+	);
 	const resolvedDepartmentLinks = resolveLinkList(
 		departmentLinks,
 		DEFAULT_DEPARTMENT_LINKS
 	);
-	const resolvedLegalLinks = resolveLinkList( legalLinks, DEFAULT_LEGAL_LINKS );
+	const resolvedLegalLinks = resolveLinkList(
+		legalLinks,
+		DEFAULT_LEGAL_LINKS
+	);
 	const sourceLegalLinks = getSourceLinks( legalLinks, DEFAULT_LEGAL_LINKS );
-	const sourceSocialLinks = getSourceLinks( socialLinks, resolveSocialLinks( socialLinks ) );
+	const sourceSocialLinks = getSourceLinks(
+		socialLinks,
+		resolveSocialLinks( socialLinks )
+	);
 
 	const orderedSections = resolveOrder( sectionOrder, DEFAULT_SECTION_ORDER );
 	const orderedColumns = resolveOrder( columnOrder, DEFAULT_COLUMN_ORDER );
@@ -246,8 +258,7 @@ export default function FooterMarkup( props ) {
 	const showCtaActions =
 		showCallButton !== false || showAppointmentButton !== false;
 
-	const showCtaContent =
-		showCtaTitle !== false || showCtaDesc !== false;
+	const showCtaContent = showCtaTitle !== false || showCtaDesc !== false;
 
 	const footerStyle = {
 		marginTop:
@@ -485,7 +496,7 @@ export default function FooterMarkup( props ) {
 									} )
 								}
 								placeholder={ __(
-									'Call 09-789 101 101',
+									'Call 09–789 101 101',
 									'twork-builder'
 								) }
 								allowedFormats={ [] }
@@ -721,10 +732,7 @@ export default function FooterMarkup( props ) {
 					saveClassName="jivaka-footer__contact-item"
 					label={ __( 'Drag address item', 'twork-builder' ) }
 				>
-					<i
-						className="fas fa-map-marker-alt"
-						aria-hidden="true"
-					></i>
+					<i className="fas fa-map-marker-alt" aria-hidden="true"></i>
 					<div>
 						<EditableText
 							tagName="span"
@@ -789,7 +797,10 @@ export default function FooterMarkup( props ) {
 							attribute="emergencyPhone"
 							setAttributes={ setAttributes }
 							isEditor={ isEditor }
-							placeholder={ __( '09-789 101 101', 'twork-builder' ) }
+							placeholder={ __(
+								'09–789 101 101',
+								'twork-builder'
+							) }
 						/>
 					</div>
 				</FooterShell>
@@ -940,8 +951,8 @@ export default function FooterMarkup( props ) {
 		}
 
 		if ( id === 'contact' && showContactColumn !== false ) {
-			const visibleContactItems = orderedContactItems.filter( ( itemId ) =>
-				isContactItemVisible( itemId )
+			const visibleContactItems = orderedContactItems.filter(
+				( itemId ) => isContactItemVisible( itemId )
 			);
 
 			return (
@@ -1142,8 +1153,9 @@ export default function FooterMarkup( props ) {
 						) : null }
 						{ showCtaActions ? (
 							<div className="jivaka-footer__cta-actions">
-								{ visibleButtons.map( ( buttonId, buttonIndex ) =>
-									renderCtaButton( buttonId, buttonIndex )
+								{ visibleButtons.map(
+									( buttonId, buttonIndex ) =>
+										renderCtaButton( buttonId, buttonIndex )
 								) }
 							</div>
 						) : null }
@@ -1181,8 +1193,8 @@ export default function FooterMarkup( props ) {
 		}
 
 		if ( id === 'bottom' && showBottomBar !== false ) {
-			const visibleBottomItems = orderedBottomBarItems.filter( ( itemId ) =>
-				isBottomBarItemVisible( itemId )
+			const visibleBottomItems = orderedBottomBarItems.filter(
+				( itemId ) => isBottomBarItemVisible( itemId )
 			);
 
 			return (

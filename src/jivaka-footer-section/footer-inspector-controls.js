@@ -6,10 +6,7 @@ import {
 	Button,
 	RangeControl,
 } from '@wordpress/components';
-import {
-	MediaUpload,
-	MediaUploadCheck,
-} from '@wordpress/block-editor';
+import { MediaUpload, MediaUploadCheck } from '@wordpress/block-editor';
 import { cloneLinkList, createFooterLink } from './footer-data';
 import {
 	DraggableInspectorCard,
@@ -41,13 +38,7 @@ function rowStyle() {
 	};
 }
 
-function LinkListInspector( {
-	title,
-	items,
-	onChange,
-	addLabel,
-	dragType,
-} ) {
+function LinkListInspector( { title, items, onChange, addLabel, dragType } ) {
 	const links = cloneLinkList( items );
 
 	function updateLink( index, patch ) {
@@ -214,7 +205,13 @@ function OrderListInspector( {
 		<div style={ { marginTop: '12px' } }>
 			<strong>{ title }</strong>
 			{ help ? (
-				<p style={ { margin: '8px 0', color: '#666', fontSize: '12px' } }>
+				<p
+					style={ {
+						margin: '8px 0',
+						color: '#666',
+						fontSize: '12px',
+					} }
+				>
 					{ help }
 				</p>
 			) : null }
@@ -329,7 +326,9 @@ export default function FooterInspectorControls( {
 					order={ sectionOrder }
 					defaultOrder={ DEFAULT_SECTION_ORDER }
 					labels={ SECTION_LABELS }
-					onChange={ ( value ) => setAttributes( { sectionOrder: value } ) }
+					onChange={ ( value ) =>
+						setAttributes( { sectionOrder: value } )
+					}
 					dragType="footer-inspector-section"
 				/>
 				<OrderListInspector
@@ -337,7 +336,9 @@ export default function FooterInspectorControls( {
 					order={ columnOrder }
 					defaultOrder={ DEFAULT_COLUMN_ORDER }
 					labels={ COLUMN_LABELS }
-					onChange={ ( value ) => setAttributes( { columnOrder: value } ) }
+					onChange={ ( value ) =>
+						setAttributes( { columnOrder: value } )
+					}
 					dragType="footer-inspector-column"
 				/>
 			</PanelBody>
@@ -380,7 +381,10 @@ export default function FooterInspectorControls( {
 						/>
 						{ showCtaDesc !== false ? (
 							<TextControl
-								label={ __( 'CTA Description', 'twork-builder' ) }
+								label={ __(
+									'CTA Description',
+									'twork-builder'
+								) }
 								value={ ctaDesc }
 								onChange={ ( value ) =>
 									setAttributes( { ctaDesc: value } )
@@ -397,26 +401,41 @@ export default function FooterInspectorControls( {
 						{ showCallButton !== false ? (
 							<>
 								<TextControl
-									label={ __( 'Call Button Text', 'twork-builder' ) }
+									label={ __(
+										'Call Button Text',
+										'twork-builder'
+									) }
 									value={ callButtonText }
 									onChange={ ( value ) =>
-										setAttributes( { callButtonText: value } )
+										setAttributes( {
+											callButtonText: value,
+										} )
 									}
 								/>
 								<TextControl
-									label={ __( 'Call Button URL', 'twork-builder' ) }
+									label={ __(
+										'Call Button URL',
+										'twork-builder'
+									) }
 									value={ callButtonUrl }
 									onChange={ ( value ) =>
-										setAttributes( { callButtonUrl: value } )
+										setAttributes( {
+											callButtonUrl: value,
+										} )
 									}
 								/>
 							</>
 						) : null }
 						<ToggleControl
-							label={ __( 'Show Appointment Button', 'twork-builder' ) }
+							label={ __(
+								'Show Appointment Button',
+								'twork-builder'
+							) }
 							checked={ showAppointmentButton !== false }
 							onChange={ ( value ) =>
-								setAttributes( { showAppointmentButton: value } )
+								setAttributes( {
+									showAppointmentButton: value,
+								} )
 							}
 						/>
 						{ showAppointmentButton !== false ? (
@@ -474,14 +493,20 @@ export default function FooterInspectorControls( {
 						{ showLogo !== false ? (
 							<>
 								<TextControl
-									label={ __( 'Logo Link URL', 'twork-builder' ) }
+									label={ __(
+										'Logo Link URL',
+										'twork-builder'
+									) }
 									value={ logoUrl }
 									onChange={ ( value ) =>
 										setAttributes( { logoUrl: value } )
 									}
 								/>
 								<TextControl
-									label={ __( 'Logo Alt Text', 'twork-builder' ) }
+									label={ __(
+										'Logo Alt Text',
+										'twork-builder'
+									) }
 									value={ logoAlt }
 									onChange={ ( value ) =>
 										setAttributes( { logoAlt: value } )
@@ -493,14 +518,17 @@ export default function FooterInspectorControls( {
 										allowedTypes={ [ 'image' ] }
 										value={ logoImageId }
 										render={ ( { open } ) => (
-											<div style={ { marginTop: '12px' } }>
+											<div
+												style={ { marginTop: '12px' } }
+											>
 												{ logoImage ? (
 													<img
 														src={ logoImage }
 														alt={ logoAlt }
 														style={ {
 															maxWidth: '160px',
-															marginBottom: '12px',
+															marginBottom:
+																'12px',
 															display: 'block',
 														} }
 													/>
@@ -524,7 +552,9 @@ export default function FooterInspectorControls( {
 														<Button
 															variant="link"
 															isDestructive
-															onClick={ onRemoveLogo }
+															onClick={
+																onRemoveLogo
+															}
 														>
 															{ __(
 																'Remove Logo',
@@ -548,7 +578,10 @@ export default function FooterInspectorControls( {
 						/>
 						{ showBrandText !== false ? (
 							<TextControl
-								label={ __( 'Brand Description', 'twork-builder' ) }
+								label={ __(
+									'Brand Description',
+									'twork-builder'
+								) }
 								value={ brandText }
 								onChange={ ( value ) =>
 									setAttributes( { brandText: value } )
@@ -627,7 +660,10 @@ export default function FooterInspectorControls( {
 							}
 						/>
 						<LinkListInspector
-							title={ __( 'Department Link Items', 'twork-builder' ) }
+							title={ __(
+								'Department Link Items',
+								'twork-builder'
+							) }
 							items={ departmentLinks }
 							onChange={ ( value ) =>
 								setAttributes( { departmentLinks: value } )
@@ -668,7 +704,10 @@ export default function FooterInspectorControls( {
 						{ showAddress !== false ? (
 							<>
 								<TextControl
-									label={ __( 'Address Label', 'twork-builder' ) }
+									label={ __(
+										'Address Label',
+										'twork-builder'
+									) }
 									value={ addressLabel }
 									onChange={ ( value ) =>
 										setAttributes( { addressLabel: value } )
@@ -684,7 +723,10 @@ export default function FooterInspectorControls( {
 							</>
 						) : null }
 						<ToggleControl
-							label={ __( 'Show Emergency Phone', 'twork-builder' ) }
+							label={ __(
+								'Show Emergency Phone',
+								'twork-builder'
+							) }
 							checked={ showEmergencyPhone !== false }
 							onChange={ ( value ) =>
 								setAttributes( { showEmergencyPhone: value } )
@@ -693,17 +735,27 @@ export default function FooterInspectorControls( {
 						{ showEmergencyPhone !== false ? (
 							<>
 								<TextControl
-									label={ __( 'Emergency Label', 'twork-builder' ) }
+									label={ __(
+										'Emergency Label',
+										'twork-builder'
+									) }
 									value={ emergencyLabel }
 									onChange={ ( value ) =>
-										setAttributes( { emergencyLabel: value } )
+										setAttributes( {
+											emergencyLabel: value,
+										} )
 									}
 								/>
 								<TextControl
-									label={ __( 'Emergency Phone', 'twork-builder' ) }
+									label={ __(
+										'Emergency Phone',
+										'twork-builder'
+									) }
 									value={ emergencyPhone }
 									onChange={ ( value ) =>
-										setAttributes( { emergencyPhone: value } )
+										setAttributes( {
+											emergencyPhone: value,
+										} )
 									}
 								/>
 							</>
@@ -718,14 +770,20 @@ export default function FooterInspectorControls( {
 						{ showEmail !== false ? (
 							<>
 								<TextControl
-									label={ __( 'Email Label', 'twork-builder' ) }
+									label={ __(
+										'Email Label',
+										'twork-builder'
+									) }
 									value={ emailLabel }
 									onChange={ ( value ) =>
 										setAttributes( { emailLabel: value } )
 									}
 								/>
 								<TextControl
-									label={ __( 'Email Address', 'twork-builder' ) }
+									label={ __(
+										'Email Address',
+										'twork-builder'
+									) }
 									value={ emailValue }
 									onChange={ ( value ) =>
 										setAttributes( { emailValue: value } )
@@ -759,7 +817,10 @@ export default function FooterInspectorControls( {
 						/>
 						{ showCopyright !== false ? (
 							<TextControl
-								label={ __( 'Copyright Text', 'twork-builder' ) }
+								label={ __(
+									'Copyright Text',
+									'twork-builder'
+								) }
 								value={ copyrightText }
 								onChange={ ( value ) =>
 									setAttributes( { copyrightText: value } )

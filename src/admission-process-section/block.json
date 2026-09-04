@@ -195,7 +195,7 @@
 		"viewportWidth": 1200,
 		"attributes": {
 			"backgroundColor": "#ffffff",
-			"backgroundImage": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?auto=format&fit=crop&w=1200&q=80",
+			"backgroundImage": "",
 			"backgroundOverlay": false,
 			"backgroundOverlayColor": "rgba(0, 0, 0, 0.5)",
 			"backgroundOverlayOpacity": 0.5,

@@ -186,9 +186,7 @@ export default function Edit( { attributes, setAttributes, clientId } ) {
 							'twork-builder'
 						) }
 						value={ gap }
-						onChange={ ( val ) =>
-							setAttributes( { gap: val } )
-						}
+						onChange={ ( val ) => setAttributes( { gap: val } ) }
 						min={ 0 }
 						max={ 60 }
 						step={ 5 }
@@ -236,10 +234,7 @@ export default function Edit( { attributes, setAttributes, clientId } ) {
 					/>
 
 					<RangeControl
-						label={ __(
-							'Padding Bottom (px)',
-							'twork-builder'
-						) }
+						label={ __( 'Padding Bottom (px)', 'twork-builder' ) }
 						value={ paddingBottom }
 						onChange={ ( val ) =>
 							setAttributes( { paddingBottom: val } )

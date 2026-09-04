@@ -386,7 +386,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 						className="guide-title-text"
 						value={ title }
 						onChange={ ( val ) => setAttributes( { title: val } ) }
-						placeholder={ __( 'Column title...', 'twork-builder' ) }
+						placeholder={ __( 'Column title…', 'twork-builder' ) }
 					/>
 				</div>
 

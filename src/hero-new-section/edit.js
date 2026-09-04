@@ -119,12 +119,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 				'--hero-new-min-height-mobile': `${ minHeightMobile }px`,
 			},
 		} ),
-		[
-			minHeight,
-			minHeightTablet,
-			minHeightMobile,
-			backgroundType,
-		]
+		[ minHeight, minHeightTablet, minHeightMobile, backgroundType ]
 	);
 
 	const overlayStyle = showOverlay
@@ -1852,8 +1847,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 								allowedFormats={ [] }
 								style={ {
 									display: 'block',
-									color:
-										headingHighlightColor || '#f48b2a',
+									color: headingHighlightColor || '#f48b2a',
 								} }
 							/>
 							<RichText
@@ -1875,7 +1869,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 								setAttributes( { description: val } )
 							}
 							placeholder={ __(
-								'Description...',
+								'Description…',
 								'twork-builder'
 							) }
 							className="hero-desc"
@@ -2096,7 +2090,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 										} )
 									}
 									placeholder={ __(
-										'Card description...',
+										'Card description…',
 										'twork-builder'
 									) }
 								/>

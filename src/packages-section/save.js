@@ -1,4 +1,8 @@
 import { useBlockProps, InnerBlocks, RichText } from '@wordpress/block-editor';
+import {
+	pickPrep,
+	CheckupPrepSavedBody,
+} from '@twork-builder/shared/checkup-prep-panel';
 
 export default function save( { attributes } ) {
 	const {
@@ -54,6 +58,8 @@ export default function save( { attributes } ) {
 		labFeatureIconColor,
 		labButtonBgColor,
 		labButtonTextColor,
+		showPrepPanel,
+		prepMarginBottom,
 	} = attributes;
 
 	const sectionClassName = [
@@ -182,6 +188,14 @@ export default function save( { attributes } ) {
 							} }
 						/>
 					</div>
+				) }
+				{ showPrepPanel && (
+					<CheckupPrepSavedBody
+						prep={ pickPrep( attributes, 'prep' ) }
+						wrapperStyle={ {
+							marginBottom: `${ prepMarginBottom }px`,
+						} }
+					/>
 				) }
 				{ showFilterSection && filterTabs && filterTabs.length > 0 && (
 					<div

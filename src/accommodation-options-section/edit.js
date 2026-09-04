@@ -63,7 +63,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 			{
 				title: 'Standard Ward',
 				imageUrl:
-					'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=800',
+					'',
 				imageAlt: 'Standard Ward',
 				priceText: '30,000 MMK / Night',
 				amenities: [
@@ -87,7 +87,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 			{
 				title: 'Private Room',
 				imageUrl:
-					'https://images.unsplash.com/photo-1596541223130-5d31a73fb6c6?auto=format&fit=crop&q=80&w=800',
+					'',
 				imageAlt: 'Private Room',
 				priceText: '65,000 MMK / Night',
 				amenities: [
@@ -107,7 +107,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 			{
 				title: 'VIP Suite',
 				imageUrl:
-					'https://images.unsplash.com/photo-1578683010236-d716f9a3f461?auto=format&fit=crop&q=80&w=800',
+					'',
 				imageAlt: 'VIP Suite',
 				priceText: '120,000 MMK / Night',
 				titleColor: '#f48b2a',

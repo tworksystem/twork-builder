@@ -258,7 +258,7 @@
 			"statLabelFontSize": 0.85,
 			"statLabelFontWeight": 700,
 			"statLabelTextTransform": "uppercase",
-			"image": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?auto=format&fit=crop&w=1200&q=80",
+			"image": "",
 			"imageHeight": 400,
 			"imageObjectFit": "cover",
 			"imageObjectPosition": "center",

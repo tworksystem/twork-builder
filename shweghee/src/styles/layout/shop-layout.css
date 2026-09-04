@@ -1,72 +1,73 @@
 .shop-page {
-  background: var(--color-bg-page);
+	background: var(--color-bg-page);
 }
 
 .shop-layout {
-  display: grid;
-  grid-template-columns: minmax(240px, var(--shop-sidebar-width)) 1fr;
-  gap: var(--space-6);
-  align-items: start;
-  padding-block: var(--space-5);
+	display: grid;
+	grid-template-columns: minmax(240px, var(--shop-sidebar-width)) 1fr;
+	gap: var(--space-6);
+	align-items: start;
+	padding-block: var(--space-5);
 }
 
 .shop-main {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-6);
-  min-width: 0;
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-6);
+	min-width: 0;
 }
 
 .shop-listing {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-4);
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-4);
 }
 
 .shop-panel {
-  border: 1px solid var(--shop-color-border);
-  border-radius: var(--radius-md);
-  background: var(--color-bg-surface);
-  padding: var(--space-5);
+	border: 1px solid var(--shop-color-border);
+	border-radius: var(--radius-md);
+	background: var(--color-bg-surface);
+	padding: var(--space-5);
 }
 
 .shop-panel__head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--space-4);
-  margin-bottom: var(--space-5);
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: var(--space-4);
+	margin-bottom: var(--space-5);
 }
 
 .shop-panel__title-wrap {
-  display: flex;
-  align-items: center;
-  gap: var(--space-3);
+	display: flex;
+	align-items: center;
+	gap: var(--space-3);
 }
 
 .shop-panel__icon {
-  display: inline-flex;
-  color: var(--shop-color-accent);
+	display: inline-flex;
+	color: var(--shop-color-accent);
 }
 
 .shop-panel__title {
-  font-size: var(--font-size-md);
-  font-weight: 700;
-  color: var(--color-text-primary);
+	font-size: var(--font-size-md);
+	font-weight: 700;
+	color: var(--color-text-primary);
 }
 
 .shop-panel__view-all {
-  font-size: var(--font-size-sm);
-  color: var(--shop-color-muted);
-  text-decoration: none;
+	font-size: var(--font-size-sm);
+	color: var(--shop-color-muted);
+	text-decoration: none;
 }
 
 .shop-panel__view-all:hover {
-  color: var(--shop-color-accent);
+	color: var(--shop-color-accent);
 }
 
 @media (max-width: 1024px) {
-  .shop-layout {
-    grid-template-columns: 1fr;
-  }
+
+	.shop-layout {
+		grid-template-columns: 1fr;
+	}
 }

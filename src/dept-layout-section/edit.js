@@ -54,7 +54,9 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const updateNavItem = ( index, field, value ) => {
 		const next = [ ...( navItems || [] ) ];
-		if ( ! next[ index ] ) next[ index ] = { label: '', href: '#' };
+		if ( ! next[ index ] ) {
+			next[ index ] = { label: '', href: '#' };
+		}
 		next[ index ] = { ...next[ index ], [ field ]: value };
 		setAttributes( { navItems: next } );
 	};

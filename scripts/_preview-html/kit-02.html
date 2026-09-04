@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Kit 2 Preview</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; width: 1280px; height: 720px; overflow: hidden;
+    font-family: "Poppins", "Segoe UI", system-ui, sans-serif;
+    background: #f8fafc; color: #0f172a;
+  }
+  .top {
+    height: 64px; display: flex; align-items: center; justify-content: space-between;
+    padding: 0 40px; background: #0c4a6e; color: #fff;
+  }
+  .brand { font-weight: 700; font-size: 20px; letter-spacing: -0.02em; }
+  .brand span { color: #0ea5e9; }
+  .nav { display: flex; gap: 22px; font-size: 13px; opacity: 0.9; }
+  .hero {
+    height: 320px; padding: 56px 40px 40px;
+    background: linear-gradient(125deg, #0c4a6e 0%, #0369a1 55%, #0ea5e9 120%);
+    color: #fff; position: relative;
+  }
+  .hero h1 {
+    margin: 0 0 12px; font-size: 44px; line-height: 1.15; max-width: 720px;
+    font-weight: 700; letter-spacing: -0.03em;
+  }
+  .hero p { margin: 0; font-size: 16px; opacity: 0.92; max-width: 560px; }
+  .cta {
+    display: inline-flex; margin-top: 22px; padding: 12px 22px; border-radius: 8px;
+    background: #0ea5e9; color: #0a1628; font-weight: 700; font-size: 14px;
+  }
+  .badge {
+    position: absolute; top: 24px; right: 40px; padding: 6px 12px; border-radius: 999px;
+    background: rgba(255,255,255,0.18); font-size: 12px; font-weight: 600;
+  }
+  .grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px;
+    padding: 28px 40px 18px; margin-top: -36px; position: relative; z-index: 2;
+  }
+  .card {
+    background: #fff; border-radius: 14px; padding: 20px 18px;
+    box-shadow: 0 10px 30px rgba(15,23,42,0.12); border: 1px solid #e2e8f0;
+    min-height: 110px;
+  }
+  .card-kicker {
+    display: block; font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em;
+    color: #0369a1; margin-bottom: 8px; font-weight: 600;
+  }
+  .card strong { font-size: 18px; }
+  .strip {
+    margin: 8px 40px 0; padding: 18px 22px; border-radius: 12px;
+    background: #fff; border: 1px solid #e2e8f0;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .strip strong { font-size: 15px; }
+  .strip span { font-size: 13px; color: #64748b; }
+  .dots { display: flex; gap: 8px; }
+  .dots i { width: 10px; height: 10px; border-radius: 50%; background: #0ea5e9; opacity: 0.35; display: block; }
+  .dots i:first-child { opacity: 1; }
+</style>
+</head>
+<body>
+  <header class="top">
+    <div class="brand">Hospital <span>Core</span></div>
+    <nav class="nav"><span>Home</span><span>Services</span><span>About</span><span>Contact</span></nav>
+  </header>
+  <section class="hero">
+    <div class="badge">Template 2 · Live page preview</div>
+    <h1>Compassionate Care. Modern Medicine.</h1>
+    <p>Doctors · Packages · Patient Guide · Contact</p>
+    <div class="cta">View page layout</div>
+  </section>
+  <div class="grid"><div class="card"><span class="card-kicker">Section</span><strong>Updates</strong></div><div class="card"><span class="card-kicker">Section</span><strong>Health Packages</strong></div><div class="card"><span class="card-kicker">Section</span><strong>Find a Doctor</strong></div></div>
+  <div class="strip">
+    <div>
+      <strong>Trusted hospital care for every family</strong>
+      <div><span>Frontend-accurate kit preview — not a wireframe</span></div>
+    </div>
+    <div class="dots"><i></i><i></i><i></i></div>
+  </div>
+</body>
+</html>

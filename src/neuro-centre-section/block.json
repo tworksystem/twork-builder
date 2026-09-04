@@ -66,7 +66,7 @@
 		},
 		"overviewImageUrl": {
 			"type": "string",
-			"default": "https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=1200&q=80"
+			"default": ""
 		},
 		"overviewImageId": {
 			"type": "number"
@@ -101,7 +101,7 @@
 		},
 		"doctor1ImageUrl": {
 			"type": "string",
-			"default": "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=400&q=80"
+			"default": ""
 		},
 		"doctor1ProfileUrl": {
 			"type": "string",
@@ -117,7 +117,7 @@
 		},
 		"doctor2ImageUrl": {
 			"type": "string",
-			"default": "https://i.pravatar.cc/400?img=49"
+			"default": ""
 		},
 		"doctor2ProfileUrl": {
 			"type": "string",
@@ -133,7 +133,7 @@
 		},
 		"doctor3ImageUrl": {
 			"type": "string",
-			"default": "https://i.pravatar.cc/400?img=12"
+			"default": ""
 		},
 		"doctor3ProfileUrl": {
 			"type": "string",
@@ -190,7 +190,7 @@
 			"overviewTitle": "Overview",
 			"overviewLead": "The Jivaka Neuro Centre offers world-class expertise in the diagnosis and treatment of neurological disorders. From chronic headaches to complex brain tumors and spinal injuries, we provide comprehensive care.",
 			"overviewBody": "Our multidisciplinary team of neurologists, neurosurgeons, and rehabilitation specialists work together to deliver personalized treatment plans. We are equipped with high-precision MRI (1.5 Tesla), CT Scans, and specialized Microscopes for delicate surgeries.",
-			"overviewImageUrl": "https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=1200&q=80",
+			"overviewImageUrl": "",
 			"treatmentsTitle": "Treatments & Services",
 			"treatmentsIntro": "We specialize in minimally invasive spine surgery and stroke management.",
 			"specialistsTitle": "Our Neuro Specialists",
@@ -198,15 +198,15 @@
 			"specialistsViewAllUrl": "/doctors/",
 			"doctor1Name": "Dr. Susan May",
 			"doctor1Role": "Neurosurgeon",
-			"doctor1ImageUrl": "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=400&q=80",
+			"doctor1ImageUrl": "",
 			"doctor1ProfileUrl": "/doctor-profile/",
 			"doctor2Name": "Dr. Nilar",
 			"doctor2Role": "Neurologist",
-			"doctor2ImageUrl": "https://i.pravatar.cc/400?img=49",
+			"doctor2ImageUrl": "",
 			"doctor2ProfileUrl": "/doctor-profile/",
 			"doctor3Name": "Dr. Zaw Win",
 			"doctor3Role": "Spine Surgeon",
-			"doctor3ImageUrl": "https://i.pravatar.cc/400?img=12",
+			"doctor3ImageUrl": "",
 			"doctor3ProfileUrl": "/doctor-profile/",
 			"faqTitle": "Common Questions",
 			"ctaTitle": "Expert Neurological Care",

@@ -39,24 +39,16 @@ export default function save( { attributes } ) {
 	const departmentOptions = normalizeDepartments( departments );
 	const genderOptions = normalizeGenders( genders );
 
-	const marginTopPx = sectionMarginTop !== undefined ? sectionMarginTop : -80;
+	const marginTopPx = sectionMarginTop !== undefined ? sectionMarginTop : -40;
+	const marginBottomPx =
+		sectionMarginBottom !== undefined ? sectionMarginBottom : 60;
+
 	const blockProps = useBlockProps.save( {
 		className: 'mk-doctor-search-filter-section',
 		style: {
-			// Use only physical margin properties so the serialized HTML
-			// from the editor matches exactly what save() generates.
-			marginTop: `${ marginTopPx }px`,
-			marginBottom:
-				sectionMarginBottom !== undefined
-					? `${ sectionMarginBottom }px`
-					: undefined,
 			position: 'relative',
-			zIndex: 10,
 			'--mk-search-section-margin-top': `${ marginTopPx }px`,
-			'--mk-search-section-margin-bottom':
-				sectionMarginBottom !== undefined
-					? `${ sectionMarginBottom }px`
-					: undefined,
+			'--mk-search-section-margin-bottom': `${ marginBottomPx }px`,
 			'--mk-search-label-color': labelColor || undefined,
 			'--mk-search-input-border': inputBorderColor || undefined,
 			'--mk-search-input-focus-border':
@@ -64,8 +56,7 @@ export default function save( { attributes } ) {
 			'--mk-search-reset-bg': resetButtonBg || undefined,
 			'--mk-search-reset-color': resetButtonColor || undefined,
 			'--mk-search-reset-hover-bg': resetButtonHoverBg || undefined,
-			'--mk-search-reset-hover-color':
-				resetButtonHoverColor || undefined,
+			'--mk-search-reset-hover-color': resetButtonHoverColor || undefined,
 		},
 	} );
 
@@ -91,6 +82,20 @@ export default function save( { attributes } ) {
 					boxBorderTopColor || '#f48b2a'
 			  }`
 			: undefined,
+		// doctors.html: flex row, vertically centered controls.
+		boxShadow: '0 15px 30px rgba(0, 0, 0, 0.1)',
+		display: 'flex',
+		flexWrap: 'wrap',
+		gap: '20px',
+		alignItems: 'center',
+		boxSizing: 'border-box',
+	};
+
+	const searchSectionStyle = {
+		marginTop: `${ marginTopPx }px`,
+		marginBottom: `${ marginBottomPx }px`,
+		position: 'relative',
+		zIndex: 10,
 	};
 
 	const sectionClass = addAnimationClass
@@ -100,7 +105,7 @@ export default function save( { attributes } ) {
 	return (
 		<div { ...blockProps }>
 			<div className="jivaka-container" style={ containerStyle }>
-				<div className={ sectionClass }>
+				<div className={ sectionClass } style={ searchSectionStyle }>
 					<div className="search-box" style={ searchBoxStyle }>
 						<div className="filter-group">
 							<label htmlFor="searchInput">

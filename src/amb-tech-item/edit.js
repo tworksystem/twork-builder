@@ -225,7 +225,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 					tagName="h3"
 					value={ title }
 					onChange={ ( val ) => setAttributes( { title: val } ) }
-					placeholder={ __( 'Title...', 'twork-builder' ) }
+					placeholder={ __( 'Title…', 'twork-builder' ) }
 					style={ {
 						color: titleColor,
 						fontSize: `${ titleFontSize }rem`,
@@ -241,7 +241,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 					onChange={ ( val ) =>
 						setAttributes( { description: val } )
 					}
-					placeholder={ __( 'Description...', 'twork-builder' ) }
+					placeholder={ __( 'Description…', 'twork-builder' ) }
 					style={ {
 						color: descriptionColor,
 						fontSize: `${ descriptionFontSize }rem`,

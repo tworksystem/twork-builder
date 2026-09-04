@@ -43,6 +43,7 @@ export function FlexibleIcon( {
 			playsInline: true,
 			autoPlay: true,
 			loop: true,
+			'aria-hidden': 'true',
 		} );
 	}
 	if ( type === 'dashicon' && dashicon ) {
@@ -60,7 +61,12 @@ export function FlexibleIcon( {
 	return null;
 }
 
-export function InfoCardIcon( { iconType, iconClass, dashicon, iconImageUrl } ) {
+export function InfoCardIcon( {
+	iconType,
+	iconClass,
+	dashicon,
+	iconImageUrl,
+} ) {
 	if ( iconType === 'image' && iconImageUrl ) {
 		return createElement( 'img', { src: iconImageUrl, alt: '' } );
 	}
@@ -198,7 +204,12 @@ export function StarRating( { rating = 5 } ) {
 	);
 }
 
-export function EmAmbFeatureIcon( { item = {}, iconColor, iconBgColor, iconSizePx } ) {
+export function EmAmbFeatureIcon( {
+	item = {},
+	iconColor,
+	iconBgColor,
+	iconSizePx,
+} ) {
 	const style = {
 		color: iconColor || undefined,
 		backgroundColor: iconBgColor || undefined,

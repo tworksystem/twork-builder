@@ -31,7 +31,8 @@ export function reorderArray( items, fromIndex, toIndex ) {
 }
 
 export function resolveOrder( order, defaults ) {
-	const source = Array.isArray( order ) && order.length ? [ ...order ] : [ ...defaults ];
+	const source =
+		Array.isArray( order ) && order.length ? [ ...order ] : [ ...defaults ];
 	const allowed = new Set( defaults );
 	const next = source.filter( ( id ) => allowed.has( id ) );
 
@@ -44,7 +45,12 @@ export function resolveOrder( order, defaults ) {
 	return next;
 }
 
-export function reorderVisibleIndices( items, visibleFrom, visibleTo, isVisible ) {
+export function reorderVisibleIndices(
+	items,
+	visibleFrom,
+	visibleTo,
+	isVisible
+) {
 	const visibleIndices = items
 		.map( ( item, index ) => ( { item, index } ) )
 		.filter( ( entry ) => isVisible( entry.item ) )

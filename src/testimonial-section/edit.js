@@ -84,7 +84,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 		[
 			'twork/testimonial-item',
 			{
-				image: 'https://i.pravatar.cc/150?img=25',
+				image: '',
 				name: 'Laraine Flemming',
 				procedure: 'CBR',
 				quote: 'Professionals in their work, the surgery went well and I was able to go on with my life within just a few weeks. Recommended!',
@@ -94,7 +94,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 		[
 			'twork/testimonial-item',
 			{
-				image: 'https://i.pravatar.cc/150?img=60',
+				image: '',
 				name: 'Herbie Hannes',
 				procedure: 'Valve Prolapse Repair',
 				quote: 'I am deeply grateful to Dr. Chase for his expertise and care. He practices both the science and the art of cardiac surgery.',
@@ -104,7 +104,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 		[
 			'twork/testimonial-item',
 			{
-				image: 'https://i.pravatar.cc/150?img=56',
+				image: '',
 				name: 'William Smith',
 				procedure: 'TMR',
 				quote: 'I felt like 102 before, now I feel like 52, thanks to Dr. Chase and his team. Their expertise is second to none!',
@@ -114,7 +114,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 		[
 			'twork/testimonial-item',
 			{
-				image: 'https://i.pravatar.cc/150?img=47',
+				image: '',
 				name: 'Ellen Norton',
 				procedure: 'Pacemaker Implementation',
 				quote: 'They gave me much more than health - they gave me my life back. One that I can still enjoy with my family and grandchildren.',

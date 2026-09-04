@@ -8,9 +8,14 @@ export default function save( { attributes } ) {
 			spanTwoColumns ? 'span-two' : ''
 		}`,
 		'data-span-two': spanTwoColumns,
+		role: 'button',
+		tabIndex: 0,
+		'aria-label': 'View full size photo',
 	} );
 
-	if ( ! imageUrl ) return null;
+	if ( ! imageUrl ) {
+		return null;
+	}
 
 	return (
 		<div { ...blockProps }>

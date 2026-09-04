@@ -8,6 +8,7 @@ export default function save( { attributes } ) {
 		imageObjectFit,
 		imageObjectPosition,
 		showImage = true,
+		contentVerticalAlign = 'top',
 		showBadge,
 		badgeText,
 		departmentSlug,
@@ -26,6 +27,10 @@ export default function save( { attributes } ) {
 		showBookButton = true,
 	} = attributes;
 
+	const verticalAlign =
+		contentVerticalAlign === 'top' || contentVerticalAlign === 'bottom'
+			? contentVerticalAlign
+			: 'center';
 	const showProfile = showButtons && showProfileButton;
 	const showBook = showButtons && showBookButton;
 	const hasActions = showProfile || showBook;
@@ -34,6 +39,7 @@ export default function save( { attributes } ) {
 	const cardClassName = [
 		'doctor-card',
 		showImage ? '' : 'doctor-card--no-image',
+		! showImage ? `doctor-card--align-${ verticalAlign }` : '',
 	]
 		.filter( Boolean )
 		.join( ' ' );
@@ -92,17 +98,19 @@ export default function save( { attributes } ) {
 			) }
 
 			<div className="doc-content">
-				<span className="doc-dept">{ resolvedDeptLabel }</span>
-				<RichText.Content
-					tagName="h4"
-					value={ doctorName }
-					className="doc-name"
-				/>
-				<RichText.Content
-					tagName="p"
-					value={ qualifications }
-					className="doc-qual"
-				/>
+				<div className="doc-body">
+					<span className="doc-dept">{ resolvedDeptLabel }</span>
+					<RichText.Content
+						tagName="h4"
+						value={ doctorName }
+						className="doc-name"
+					/>
+					<RichText.Content
+						tagName="p"
+						value={ qualifications }
+						className="doc-qual"
+					/>
+				</div>
 				{ hasActions && (
 					<div className={ actionsClassName }>
 						{ showProfile && (
@@ -125,7 +133,9 @@ export default function save( { attributes } ) {
 							<a
 								href={ bookUrl || '#' }
 								className="jivaka-btn btn-primary"
-								target={ bookOpenInNewTab ? '_blank' : undefined }
+								target={
+									bookOpenInNewTab ? '_blank' : undefined
+								}
 								rel={
 									bookOpenInNewTab
 										? 'noopener noreferrer'

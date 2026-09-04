@@ -1,8 +1,5 @@
 import { useBlockProps, RichText } from '@wordpress/block-editor';
-import {
-	getMediaColumnStyle,
-	normalizeMediaSlides,
-} from './media-helpers';
+import { getMediaColumnStyle, normalizeMediaSlides } from './media-helpers';
 
 export default function save( { attributes } ) {
 	const {

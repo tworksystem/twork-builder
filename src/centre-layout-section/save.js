@@ -1,6 +1,16 @@
 import { useBlockProps, InnerBlocks } from '@wordpress/block-editor';
 
-/** Renders one icon by type for front-end save output. */
+/**
+ * Renders one icon by type for front-end save output.
+ * @param root0
+ * @param root0.iconType
+ * @param root0.faClass
+ * @param root0.dashicon
+ * @param root0.imageUrl
+ * @param root0.videoUrl
+ * @param root0.className
+ * @param root0.style
+ */
 function CentreIconOutput( {
 	iconType,
 	faClass,
@@ -178,11 +188,16 @@ export default function save( { attributes } ) {
 												'fontawesome'
 											}
 											faClass={
-												contactPhoneIcon || 'fas fa-phone'
+												contactPhoneIcon ||
+												'fas fa-phone'
 											}
 											dashicon={ contactPhoneDashicon }
-											imageUrl={ contactPhoneIconImageUrl }
-											videoUrl={ contactPhoneIconVideoUrl }
+											imageUrl={
+												contactPhoneIconImageUrl
+											}
+											videoUrl={
+												contactPhoneIconVideoUrl
+											}
 											className="sidebar-contact-phone-icon"
 										/>{ ' ' }
 										{ contactPhone || 'Call' }
@@ -226,11 +241,16 @@ export default function save( { attributes } ) {
 												'fontawesome'
 											}
 											faClass={
-												contactPhoneIcon || 'fas fa-phone'
+												contactPhoneIcon ||
+												'fas fa-phone'
 											}
 											dashicon={ contactPhoneDashicon }
-											imageUrl={ contactPhoneIconImageUrl }
-											videoUrl={ contactPhoneIconVideoUrl }
+											imageUrl={
+												contactPhoneIconImageUrl
+											}
+											videoUrl={
+												contactPhoneIconVideoUrl
+											}
 											className="sidebar-contact-phone-icon"
 										/>{ ' ' }
 										{ contactPhone || 'Call' }

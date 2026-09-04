@@ -4,9 +4,7 @@
 const GLOBAL_FLAG = '__JIVAKA_HEADER_EVENTS_BOUND__';
 
 function isGlobalBound() {
-	return (
-		typeof window !== 'undefined' && window[ GLOBAL_FLAG ] === true
-	);
+	return typeof window !== 'undefined' && window[ GLOBAL_FLAG ] === true;
 }
 
 function markGlobalBound() {
@@ -44,7 +42,9 @@ function setHeaderOpen( headerEl, isOpen ) {
 			.forEach( ( item ) => item.classList.remove( 'dropdown-active' ) );
 		headerEl
 			.querySelectorAll( '.mobile-dropdown-head[aria-expanded="true"]' )
-			.forEach( ( head ) => head.setAttribute( 'aria-expanded', 'false' ) );
+			.forEach( ( head ) =>
+				head.setAttribute( 'aria-expanded', 'false' )
+			);
 	}
 }
 
@@ -130,7 +130,9 @@ export function bindJivakaHeaderGlobalEvents() {
 	document.addEventListener( 'keydown', ( event ) => {
 		if ( event.key === 'Escape' ) {
 			document
-				.querySelectorAll( '.jivaka-header-container .header.nav-active' )
+				.querySelectorAll(
+					'.jivaka-header-container .header.nav-active'
+				)
 				.forEach( ( headerEl ) => setHeaderOpen( headerEl, false ) );
 			return;
 		}
@@ -166,15 +168,13 @@ export function initJivakaHeader( headerEl ) {
 	navToggle.setAttribute( 'aria-expanded', 'false' );
 	navToggle.setAttribute( 'aria-label', 'Open Navigation' );
 
-	headerEl
-		.querySelectorAll( '.mobile-dropdown-head' )
-		.forEach( ( head ) => {
-			head.setAttribute( 'role', 'button' );
-			head.setAttribute( 'tabindex', '0' );
-			if ( ! head.getAttribute( 'aria-expanded' ) ) {
-				head.setAttribute( 'aria-expanded', 'false' );
-			}
-		} );
+	headerEl.querySelectorAll( '.mobile-dropdown-head' ).forEach( ( head ) => {
+		head.setAttribute( 'role', 'button' );
+		head.setAttribute( 'tabindex', '0' );
+		if ( ! head.getAttribute( 'aria-expanded' ) ) {
+			head.setAttribute( 'aria-expanded', 'false' );
+		}
+	} );
 }
 
 export function bootJivakaHeaders( root = document ) {

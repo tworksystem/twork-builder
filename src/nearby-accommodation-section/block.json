@@ -153,7 +153,7 @@
 		"viewportWidth": 1200,
 		"attributes": {
 			"backgroundColor": "#ffffff",
-			"backgroundImage": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?auto=format&fit=crop&w=1200&q=80",
+			"backgroundImage": "",
 			"backgroundOverlay": false,
 			"backgroundOverlayColor": "rgba(0, 0, 0, 0.5)",
 			"backgroundOverlayOpacity": 0.5,
@@ -188,7 +188,7 @@
 			{
 				"name": "twork/nearby-accommodation-item",
 				"attributes": {
-					"image": "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=600&q=80",
+					"image": "",
 					"title": "Mandalay Hill Resort",
 					"subtitle": "5 Star • 5 mins away"
 				}
@@ -196,7 +196,7 @@
 			{
 				"name": "twork/nearby-accommodation-item",
 				"attributes": {
-					"image": "https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=600&q=80",
+					"image": "",
 					"title": "Mercure Mandalay",
 					"subtitle": "4 Star • 10 mins away"
 				}
@@ -204,7 +204,7 @@
 			{
 				"name": "twork/nearby-accommodation-item",
 				"attributes": {
-					"image": "https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=600&q=80",
+					"image": "",
 					"title": "Sedona Hotel",
 					"subtitle": "5 Star • 15 mins away"
 				}
@@ -212,7 +212,7 @@
 			{
 				"name": "twork/nearby-accommodation-item",
 				"attributes": {
-					"image": "https://images.unsplash.com/photo-1596436889106-be35e843f974?auto=format&fit=crop&w=600&q=80",
+					"image": "",
 					"title": "Eastern Palace",
 					"subtitle": "4 Star • 12 mins away"
 				}

@@ -53,7 +53,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 			'twork/gallery-item',
 			{
 				imageUrl:
-					'https://jivakahospital.com/wp-content/uploads/2025/10/img-box-04.jpg',
+					'',
 				imageAlt: 'Cath Lab',
 				category: 'tech',
 			},
@@ -63,7 +63,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 			'twork/gallery-item',
 			{
 				imageUrl:
-					'https://images.unsplash.com/photo-1512678080530-7760d81faba6?auto=format&fit=crop&q=80&w=800',
+					'',
 				imageAlt: 'Room',
 				category: 'rooms',
 			},
@@ -73,7 +73,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 			'twork/gallery-item',
 			{
 				imageUrl:
-					'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=800',
+					'',
 				imageAlt: 'Lobby',
 				category: 'amenity',
 			},
@@ -83,7 +83,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 			'twork/gallery-item',
 			{
 				imageUrl:
-					'https://jivakahospital.com/wp-content/uploads/2025/10/img-box-02.jpg',
+					'',
 				imageAlt: 'OT Room',
 				category: 'tech',
 			},
@@ -93,7 +93,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 			'twork/gallery-item',
 			{
 				imageUrl:
-					'https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=800',
+					'',
 				imageAlt: 'Reception',
 				category: 'amenity',
 			},
@@ -103,7 +103,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 			'twork/gallery-item',
 			{
 				imageUrl:
-					'https://images.unsplash.com/photo-1538108149393-fbbd81895907?auto=format&fit=crop&q=80&w=800',
+					'',
 				imageAlt: 'Corridor',
 				category: 'rooms',
 			},
@@ -113,7 +113,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 			'twork/gallery-item',
 			{
 				imageUrl:
-					'https://images.unsplash.com/photo-1554743365-a80c1243316e?auto=format&fit=crop&q=80&w=800',
+					'',
 				imageAlt: 'Cafeteria',
 				category: 'amenity',
 			},
@@ -123,7 +123,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 			'twork/gallery-item',
 			{
 				imageUrl:
-					'https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=800',
+					'',
 				imageAlt: 'MRI Scan',
 				category: 'tech',
 			},
@@ -133,7 +133,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 			'twork/gallery-item',
 			{
 				imageUrl:
-					'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&q=80&w=800',
+					'',
 				imageAlt: 'VIP Room',
 				category: 'rooms',
 			},
@@ -143,7 +143,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 			'twork/gallery-item',
 			{
 				imageUrl:
-					'https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&q=80&w=800',
+					'',
 				imageAlt: 'Laboratory',
 				category: 'tech',
 			},
@@ -153,7 +153,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 			'twork/gallery-item',
 			{
 				imageUrl:
-					'https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&q=80&w=800',
+					'',
 				imageAlt: 'Exterior',
 				category: 'amenity',
 			},
@@ -163,7 +163,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 			'twork/gallery-item',
 			{
 				imageUrl:
-					'https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&q=80&w=800',
+					'',
 				imageAlt: 'ICU',
 				category: 'rooms',
 			},

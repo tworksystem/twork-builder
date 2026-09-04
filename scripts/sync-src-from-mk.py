@@ -45,6 +45,99 @@ SKIP_BLOCKS = frozenset(
         "ipd-terms-section",
         "visitor-guidelines-section",
         "visitor-guidelines-column",
+        "booking-hero-section",
+        "booking-layout-section",
+        "booking-info-card-item",
+        "csr-moments-gallery-section",
+        "csr-moments-gallery-item",
+        "ph-upload-section",
+        "tele-process-section",
+        "tele-process-card",
+        "brand-header",
+        "brand-nav-item",
+        "hero-banner-carousel",
+        "hero-banner-slide",
+        "image-card-carousel",
+        "image-card-slide",
+        "numbered-features-grid",
+        "numbered-feature-item",
+        "category-card-grid",
+        "category-card",
+        "logo-showcase-section",
+        "logo-showcase-item",
+        "news-card-grid",
+        "news-card",
+        "review-carousel",
+        "review-card",
+        "split-promo-section",
+        "faq-accordion-section",
+        "faq-accordion-item",
+        "subscribe-bar",
+        "brand-footer",
+        "brand-footer-info-card",
+        "brand-footer-column",
+        "breadcrumb-nav",
+        "brand-page-hero",
+        "about-staff-meal-section",
+        "about-staff-meal-gallery",
+        "about-staff-meal-feedback",
+        "about-staff-meal-gallery-item",
+        "about-staff-meal-feedback-item",
+        "about-story-section",
+        "contact-form-section",
+        "blog-list-section",
+        "blog-article-section",
+        "wholesale-section",
+        "legal-content-section",
+        "quality-section",
+        "where-to-buy-section",
+        "careers-section",
+        "page-not-found-section",
+        "shop-header",
+        "shop-hero-carousel",
+        "shop-sidebar",
+        "shop-toolbar",
+        "featured-categories-carousel",
+        "daily-offers-carousel",
+        "best-sellers-carousel",
+        "product-grid-section",
+        "product-detail-section",
+        "back-to-top",
+        # Endoscopy page blocks (endoscopy.html port)
+        "endo-hero-section",
+        "endo-hero-float-card",
+        "endo-stats-section",
+        "endo-stat-item",
+        "endo-procedures-section",
+        "endo-procedure-item",
+        "endo-technology-section",
+        "endo-tech-item",
+        "endo-journey-section",
+        "endo-journey-step",
+        "endo-conditions-section",
+        "endo-condition-item",
+        "endo-prep-section",
+        "endo-prep-tab",
+        "endo-prep-group",
+        "endo-team-section",
+        "endo-doctor-item",
+        "endo-testimonials-section",
+        "endo-testimonial-item",
+        "endo-faq-section",
+        "endo-faq-item",
+        "endo-cta-section",
+        "endo-cta-row",
+        # Laparoscopy page blocks Wave 1 (endo-parity fork)
+        "laparo-hero-section",
+        "laparo-hero-float-card",
+        "laparo-stats-section",
+        "laparo-stat-item",
+        "laparo-procedures-section",
+        "laparo-procedure-item",
+        "laparo-technology-section",
+        "laparo-tech-item",
+        "laparo-cta-section",
+        "laparo-cta-row",
     }
 )
 
@@ -112,8 +205,9 @@ def apply_namespace_replacements(content: str) -> str:
 
 
 def copy_supporting_dirs() -> None:
+    # editor-utils is local-owned (dual-API useStableBlockProps for scaffold blocks).
+    # Do not rmtree/overwrite from mk — same idea as SKIP_BLOCKS for hand-written sources.
     mappings = [
-        (SOURCE_SRC / "editor-utils", TARGET_SRC / "editor-utils"),
         (SOURCE_SRC / "scss", TARGET_SRC / "scss"),
     ]
     for src, dest in mappings:
@@ -139,10 +233,13 @@ def copy_supporting_dirs() -> None:
             else:
                 shutil.copy2(src_file, dest_file)
 
-    global_scss = SOURCE_SRC / "global.scss"
-    if global_scss.is_file():
-        text = apply_namespace_replacements(global_scss.read_text(encoding="utf-8"))
-        (TARGET_SRC / "global.scss").write_text(text, encoding="utf-8")
+    # Keep local Shweghee brand base wiring in global.scss (do not overwrite from mk).
+    local_global = TARGET_SRC / "global.scss"
+    if not local_global.is_file():
+        global_scss = SOURCE_SRC / "global.scss"
+        if global_scss.is_file():
+            text = apply_namespace_replacements(global_scss.read_text(encoding="utf-8"))
+            local_global.write_text(text, encoding="utf-8")
 
 
 def sync_block(block_slug: str) -> dict:

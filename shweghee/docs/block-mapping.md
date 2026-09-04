@@ -34,24 +34,68 @@ Industry-agnostic block names (`twork/*`) — reusable across food, retail, heal
 | `farmart/newsletter-cta` | `twork/subscribe-bar` |
 | `farmart/footer` | `twork/brand-footer` |
 
-## Shop page blocks (unchanged — future phase)
+## Shop page blocks (Phase 2B — `twork/*`)
 
-| Static Component | `data-block` | Notes |
-| --- | --- | --- |
-| `shop-header` | `farmart/shop-header` | Utility bar, search, nav, cart |
-| `breadcrumb` | `farmart/breadcrumb` | BreadcrumbList schema |
-| `shop-hero` | `farmart/shop-hero-slider` | Shop promo slides |
-| `shop-sidebar` | `farmart/shop-sidebar` | Categories accordion + recommendations |
-| `featured-categories` | `farmart/featured-categories` | Category cards carousel |
-| `daily-offers` | `farmart/daily-offers` | Product carousel |
-| `best-sellers` | `farmart/best-sellers` | Product carousel |
-| `shop-toolbar` | `farmart/shop-toolbar` | Sort, per-page, layout toggles |
-| `product-grid` | `farmart/product-grid` | Woo loop + pagination |
-| `product-card` | `farmart/product-card` | Shared inner card template |
-| `shop-footer` | `farmart/shop-footer` | Contact, columns, newsletter |
-| `back-to-top` | `farmart/back-to-top` | Fixed scroll control |
+| Static Component | `data-block` | `src/` folder | Notes |
+| --- | --- | --- | --- |
+| `shop-header` | `twork/shop-header` | `shop-header` | Utility bar, search, nav; cart attrs (WC hook TBD) |
+| `breadcrumb` | `twork/breadcrumb-nav` | `breadcrumb-nav` | BreadcrumbList schema |
+| `shop-hero` | `twork/shop-hero-carousel` | `shop-hero-carousel` | Array slides; `brand-carousel.js` |
+| `shop-sidebar` | `twork/shop-sidebar` | `shop-sidebar` | Categories accordion + recommendations array |
+| `featured-categories` | `twork/featured-categories-carousel` | `featured-categories-carousel` | **Dynamic** — WC `product_cat` |
+| `daily-offers` | `twork/daily-offers-carousel` | `daily-offers-carousel` | **Dynamic** — WC on_sale products |
+| `best-sellers` | `twork/best-sellers-carousel` | `best-sellers-carousel` | **Dynamic** — WC best_selling |
+| `shop-toolbar` | `twork/shop-toolbar` | `shop-toolbar` | Sort/per-page/layout; `shop-toolbar-grid.js` |
+| `product-grid` | `twork/product-grid-section` | `product-grid-section` | **Dynamic** — WC loop + pagination |
+| `product-card` | _(PHP partial)_ | `includes/class-twork-shop-blocks.php` | Used by grid + carousels |
+| `product-detail` | `twork/product-detail-section` | `product-detail-section` | **Dynamic** — single product + tabs |
+| `shop-footer` | `twork/brand-footer` | `brand-footer` | Reuse brand footer (replaces `shop-footer`) |
+| `back-to-top` | `twork/back-to-top` | `back-to-top` | Fixed scroll; `view.js` injects button |
 
-## Migration Checklist
+## Inner page blocks (Phase 2A)
+
+| Static Page | Key blocks (top → bottom) |
+| --- | --- |
+| `about.html` | `breadcrumb-nav`, `brand-page-hero`, `about-story-section`, `brand-footer` |
+| `contact.html` | `breadcrumb-nav`, `brand-page-hero`, `contact-form-section`, `brand-footer` |
+| `blog.html` | `breadcrumb-nav`, `brand-page-hero`, `blog-list-section`, `brand-footer` |
+| `blog-single.html` | `breadcrumb-nav`, `blog-article-section`, `brand-footer` |
+| `faq.html` | `breadcrumb-nav`, `brand-page-hero`, `faq-accordion-section`, `brand-footer` |
+| `wholesale.html` | `breadcrumb-nav`, `brand-page-hero`, `wholesale-section`, `brand-footer` |
+| `quality.html` | `breadcrumb-nav`, `brand-page-hero`, `quality-section`, `brand-footer` |
+| `where-to-buy.html` | `breadcrumb-nav`, `brand-page-hero`, `where-to-buy-section`, `brand-footer` |
+| `careers.html` | `breadcrumb-nav`, `brand-page-hero`, `careers-section`, `brand-footer` |
+| `privacy.html` / `accessibility.html` | `breadcrumb-nav`, `legal-content-section`, `brand-footer` |
+| `404.html` | `page-not-found-section`, `brand-footer` |
+
+## Legacy aliases (deprecated)
+
+| Old `data-block` | New `data-block` |
+| --- | --- |
+| `farmart/header` | `twork/brand-header` |
+| `farmart/hero-slider` | `twork/hero-banner-carousel` |
+| `farmart/services-carousel` | `twork/image-card-carousel` |
+| `farmart/why-choose-us` | `twork/numbered-features-grid` |
+| `farmart/product-categories` | `twork/category-card-grid` |
+| `farmart/partners` | `twork/logo-showcase-section` |
+| `farmart/blog-news` | `twork/news-card-grid` |
+| `farmart/testimonials` | `twork/review-carousel` |
+| `farmart/app-promo` | `twork/split-promo-section` |
+| `farmart/faq` | `twork/faq-accordion-section` |
+| `farmart/newsletter-cta` | `twork/subscribe-bar` |
+| `farmart/footer` | `twork/brand-footer` |
+| `farmart/shop-header` | `twork/shop-header` |
+| `farmart/breadcrumb` | `twork/breadcrumb-nav` |
+| `farmart/shop-hero-slider` | `twork/shop-hero-carousel` |
+| `farmart/shop-sidebar` | `twork/shop-sidebar` |
+| `farmart/featured-categories` | `twork/featured-categories-carousel` |
+| `farmart/daily-offers` | `twork/daily-offers-carousel` |
+| `farmart/best-sellers` | `twork/best-sellers-carousel` |
+| `farmart/shop-toolbar` | `twork/shop-toolbar` |
+| `farmart/product-grid` | `twork/product-grid-section` |
+| `farmart/product-detail` | `twork/product-detail-section` |
+| `farmart/shop-footer` | `twork/brand-footer` |
+| `farmart/back-to-top` | `twork/back-to-top` |
 
 1. Keep `data-block`, `data-list`, `data-item-id` on saved markup.
 2. One block scaffold per row in the table above.

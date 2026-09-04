@@ -1,8 +1,13 @@
 import { useBlockProps, RichText } from '@wordpress/block-editor';
 
 export default function save( { attributes } ) {
-	const { clauseNumber, clauseTitle, clauseParagraphs, clauseItems, showClause } =
-		attributes;
+	const {
+		clauseNumber,
+		clauseTitle,
+		clauseParagraphs,
+		clauseItems,
+		showClause,
+	} = attributes;
 
 	if ( showClause === false ) {
 		return null;
@@ -12,7 +17,9 @@ export default function save( { attributes } ) {
 		className: 'ipd-consent-clause',
 	} );
 
-	const paragraphs = Array.isArray( clauseParagraphs ) ? clauseParagraphs : [];
+	const paragraphs = Array.isArray( clauseParagraphs )
+		? clauseParagraphs
+		: [];
 	const items = Array.isArray( clauseItems ) ? clauseItems : [];
 
 	return (

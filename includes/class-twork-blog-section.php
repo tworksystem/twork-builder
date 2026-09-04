@@ -131,6 +131,7 @@ function twork_render_blog_section($attributes, $content, $block)
             );
 
             if ($featured_post instanceof WP_Post) {
+                // phpcs:ignore WordPressVIPMinimum.Performance.WPQueryParams.PostNotIn_post__not_in -- Exclude featured post from grid only.
                 $grid_args['post__not_in'] = array($featured_post->ID);
             }
 

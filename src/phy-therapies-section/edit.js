@@ -36,7 +36,7 @@ const TEMPLATE = [
 		'twork/phy-therapy-card',
 		{
 			imageUrl:
-				'https://images.unsplash.com/photo-1576091160550-217358c7e618?auto=format&fit=crop&w=600&q=80',
+				'',
 			title: 'Manual Therapy',
 			description:
 				'Hands-on techniques to mobilize joints and soft tissues, reducing pain and increasing range of motion.',
@@ -47,7 +47,7 @@ const TEMPLATE = [
 		'twork/phy-therapy-card',
 		{
 			imageUrl:
-				'https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=600&q=80',
+				'',
 			title: 'Electrotherapy',
 			description:
 				'Using advanced modalities like Ultrasound, TENS, and IFT to manage pain and stimulate muscle healing.',
@@ -58,7 +58,7 @@ const TEMPLATE = [
 		'twork/phy-therapy-card',
 		{
 			imageUrl:
-				'https://images.unsplash.com/photo-1599058945522-28d584b6f0ff?auto=format&fit=crop&w=600&q=80',
+				'',
 			title: 'Exercise Therapy',
 			description:
 				'Customized exercise plans to strengthen muscles, improve balance, and prevent re-injury.',
@@ -69,7 +69,7 @@ const TEMPLATE = [
 		'twork/phy-therapy-card',
 		{
 			imageUrl:
-				'https://plus.unsplash.com/premium_photo-1661281397737-9b5d75902230?auto=format&fit=crop&w=600&q=80',
+				'',
 			title: 'Post-Op Rehab',
 			description:
 				'Specialized care after surgeries like knee replacement or hip replacement to get you back on your feet.',

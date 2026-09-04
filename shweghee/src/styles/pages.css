@@ -3,7 +3,6 @@
 @import "./core/tokens.css";
 @import "./core/utilities.css";
 @import "./layout/container.css";
-
 @import "../components/header/header.css";
 @import "../components/breadcrumb/breadcrumb.css";
 @import "../components/page-hero/page-hero.css";
@@ -22,26 +21,26 @@
 @import "../components/page-not-found/page-not-found.css";
 
 html {
-  scroll-padding-top: 100px;
+	scroll-padding-top: 100px;
 }
 
 .breadcrumb {
-  padding-block: var(--space-3);
+	padding-block: var(--space-3);
 }
 
 .breadcrumb__item {
-  color: var(--color-text-muted);
+	color: var(--color-text-muted);
 }
 
 .breadcrumb__item a {
-  color: var(--color-text-muted);
+	color: var(--color-text-muted);
 }
 
 .breadcrumb__item a:hover {
-  color: var(--color-primary);
+	color: var(--color-primary);
 }
 
 .breadcrumb__inner {
-  width: min(var(--container-max), 92vw);
-  margin-inline: auto;
+	width: min(var(--container-max), 92vw);
+	margin-inline: auto;
 }

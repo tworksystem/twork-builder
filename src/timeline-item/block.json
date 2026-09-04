@@ -356,7 +356,7 @@
 			"descriptionFontSize": 0.9,
 			"descriptionLineHeight": 1.6,
 			"showImage": false,
-			"image": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?auto=format&fit=crop&w=1200&q=80",
+			"image": "",
 			"imageHeight": 200,
 			"imageObjectFit": "cover",
 			"imageObjectPosition": "center",

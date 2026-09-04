@@ -19,7 +19,7 @@
 	"attributes": {
 		"image": {
 			"type": "string",
-			"default": "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=600&q=80"
+			"default": ""
 		},
 		"imageId": {
 			"type": "number"
@@ -87,7 +87,7 @@
 	},
 	"example": {
 		"attributes": {
-			"image": "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=600&q=80",
+			"image": "",
 			"imageAlt": "Hotel",
 			"title": "Mandalay Hill Resort",
 			"titleColor": "#ffffff",

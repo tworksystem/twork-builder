@@ -20,14 +20,18 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 		containerMaxWidth,
 		containerPadding,
 		title,
+		showTitle = true,
 		description,
+		showDescription = true,
 		showChecklist,
 		checklistItems = [],
 		buttonLabel,
 		buttonUrl,
+		showButton = true,
 		imageUrl,
 		imageId,
 		imageAlt,
+		showImage = true,
 	} = attributes;
 
 	const blockProps = useStableBlockProps(
@@ -115,35 +119,23 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 					</PanelBody>
 
 					<PanelBody
-						title={ __( 'Content', 'twork-builder' ) }
-						initialOpen={ false }
+						title={ __( 'Visibility', 'twork-builder' ) }
+						initialOpen={ true }
 					>
-						<RichText
-							tagName="h2"
-							value={ title }
+						<ToggleControl
+							label={ __( 'Show title', 'twork-builder' ) }
+							checked={ showTitle }
 							onChange={ ( val ) =>
-								setAttributes( { title: val } )
+								setAttributes( { showTitle: val } )
 							}
-							placeholder={ __(
-								"Have a Doctor's Prescription?",
-								'twork-builder'
-							) }
 						/>
-
-						<RichText
-							tagName="p"
-							value={ description }
+						<ToggleControl
+							label={ __( 'Show description', 'twork-builder' ) }
+							checked={ showDescription }
 							onChange={ ( val ) =>
-								setAttributes( { description: val } )
+								setAttributes( { showDescription: val } )
 							}
-							placeholder={ __(
-								'Skip the search. Simply upload your prescription photo…',
-								'twork-builder'
-							) }
 						/>
-
-						<Divider />
-
 						<ToggleControl
 							label={ __(
 								'Show checklist items',
@@ -154,9 +146,57 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 								setAttributes( { showChecklist: val } )
 							}
 						/>
+						<ToggleControl
+							label={ __( 'Show button', 'twork-builder' ) }
+							checked={ showButton }
+							onChange={ ( val ) =>
+								setAttributes( { showButton: val } )
+							}
+						/>
+						<ToggleControl
+							label={ __( 'Show image', 'twork-builder' ) }
+							checked={ showImage }
+							onChange={ ( val ) =>
+								setAttributes( { showImage: val } )
+							}
+						/>
+					</PanelBody>
+
+					<PanelBody
+						title={ __( 'Content', 'twork-builder' ) }
+						initialOpen={ false }
+					>
+						{ showTitle && (
+							<RichText
+								tagName="h2"
+								value={ title }
+								onChange={ ( val ) =>
+									setAttributes( { title: val } )
+								}
+								placeholder={ __(
+									"Have a Doctor's Prescription?",
+									'twork-builder'
+								) }
+							/>
+						) }
+
+						{ showDescription && (
+							<RichText
+								tagName="p"
+								value={ description }
+								onChange={ ( val ) =>
+									setAttributes( { description: val } )
+								}
+								placeholder={ __(
+									'Skip the search. Simply upload your prescription photo…',
+									'twork-builder'
+								) }
+							/>
+						) }
 
 						{ showChecklist && (
 							<>
+								<Divider />
 								{ ( Array.isArray( checklistItems )
 									? checklistItems
 									: []
@@ -209,100 +249,112 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 						) }
 					</PanelBody>
 
-					<PanelBody
-						title={ __( 'Button', 'twork-builder' ) }
-						initialOpen={ false }
-					>
-						<TextControl
-							label={ __( 'Button label', 'twork-builder' ) }
-							value={ buttonLabel }
-							onChange={ ( val ) =>
-								setAttributes( { buttonLabel: val } )
-							}
-						/>
+					{ showButton && (
+						<PanelBody
+							title={ __( 'Button', 'twork-builder' ) }
+							initialOpen={ false }
+						>
+							<TextControl
+								label={ __( 'Button label', 'twork-builder' ) }
+								value={ buttonLabel }
+								onChange={ ( val ) =>
+									setAttributes( { buttonLabel: val } )
+								}
+							/>
 
-						<TextControl
-							label={ __(
-								'Button URL (optional)',
-								'twork-builder'
-							) }
-							help={ __(
-								'Optional link for the button. Leave empty to handle via JS.',
-								'twork-builder'
-							) }
-							value={ buttonUrl }
-							onChange={ ( val ) =>
-								setAttributes( { buttonUrl: val } )
-							}
-						/>
-					</PanelBody>
+							<TextControl
+								label={ __(
+									'Button URL (optional)',
+									'twork-builder'
+								) }
+								help={ __(
+									'Optional link for the button. Leave empty to handle via JS.',
+									'twork-builder'
+								) }
+								value={ buttonUrl }
+								onChange={ ( val ) =>
+									setAttributes( { buttonUrl: val } )
+								}
+							/>
+						</PanelBody>
+					) }
 
-					<PanelBody
-						title={ __( 'Right-side image', 'twork-builder' ) }
-						initialOpen={ false }
-					>
-						{ imageUrl ? (
-							<>
-								<img
-									src={ imageUrl }
-									alt={ imageAlt }
-									style={ {
-										width: '100%',
-										height: 'auto',
-										marginBottom: '10px',
-									} }
-								/>
+					{ showImage && (
+						<PanelBody
+							title={ __( 'Right-side image', 'twork-builder' ) }
+							initialOpen={ false }
+						>
+							{ imageUrl ? (
+								<>
+									<img
+										src={ imageUrl }
+										alt={ imageAlt }
+										style={ {
+											width: '100%',
+											height: 'auto',
+											marginBottom: '10px',
+										} }
+									/>
 
-								<TextControl
-									label={ __( 'Alt text', 'twork-builder' ) }
-									value={ imageAlt }
-									onChange={ ( val ) =>
-										setAttributes( { imageAlt: val } )
-									}
-								/>
+									<TextControl
+										label={ __(
+											'Alt text',
+											'twork-builder'
+										) }
+										value={ imageAlt }
+										onChange={ ( val ) =>
+											setAttributes( { imageAlt: val } )
+										}
+									/>
 
-								<button
-									type="button"
-									className="components-button is-secondary is-small"
-									onClick={ () =>
+									<button
+										type="button"
+										className="components-button is-secondary is-small"
+										onClick={ () =>
+											setAttributes( {
+												imageUrl: '',
+												imageId: undefined,
+												imageAlt: '',
+											} )
+										}
+									>
+										{ __(
+											'Remove image',
+											'twork-builder'
+										) }
+									</button>
+								</>
+							) : (
+								<MediaPlaceholder
+									onSelect={ ( media ) => {
+										if ( ! media ) {
+											return;
+										}
 										setAttributes( {
-											imageUrl: '',
-											imageId: undefined,
-											imageAlt: '',
+											imageUrl: media.url || '',
+											imageId: media.id || 0,
+											imageAlt:
+												media.alt || media.title || '',
+										} );
+									} }
+									onSelectURL={ ( url ) =>
+										setAttributes( {
+											imageUrl: url || '',
+											imageId: 0,
 										} )
 									}
-								>
-									{ __( 'Remove image', 'twork-builder' ) }
-								</button>
-							</>
-						) : (
-							<MediaPlaceholder
-								onSelect={ ( media ) => {
-									if ( ! media ) return;
-									setAttributes( {
-										imageUrl: media.url || '',
-										imageId: media.id || 0,
-										imageAlt:
-											media.alt || media.title || '',
-									} );
-								} }
-								onSelectURL={ ( url ) =>
-									setAttributes( {
-										imageUrl: url || '',
-										imageId: 0,
-									} )
-								}
-								accept="image/*"
-								allowedTypes={ [ 'image' ] }
-								labels={ {
-									title: __(
-										'Prescription image',
-										'twork-builder'
-									),
-								} }
-							/>
-						) }
-					</PanelBody>
+									accept="image/*"
+									allowedTypes={ [ 'image' ] }
+									labels={ {
+										title: __(
+											'Prescription image',
+											'twork-builder'
+										),
+									} }
+								/>
+							) }
+						</PanelBody>
+					) }
 				</InspectorControls>
 			) }
 
@@ -318,39 +370,45 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 					<div className="ph-upload-section fade-up">
 						<div className="ph-upload-grid">
 							<div className="ph-upload-content">
-								<RichText
-									tagName="h2"
-									value={ title }
-									onChange={ ( val ) =>
-										setAttributes( { title: val } )
-									}
-									placeholder={ __(
-										"Have a Doctor's Prescription?",
-										'twork-builder'
-									) }
-									style={ {
-										color: '#fff',
-										fontSize: '2.5rem',
-										marginBottom: '20px',
-									} }
-								/>
+								{ showTitle && (
+									<RichText
+										tagName="h2"
+										value={ title }
+										onChange={ ( val ) =>
+											setAttributes( { title: val } )
+										}
+										placeholder={ __(
+											"Have a Doctor's Prescription?",
+											'twork-builder'
+										) }
+										style={ {
+											color: '#fff',
+											fontSize: '2.5rem',
+											marginBottom: '20px',
+										} }
+									/>
+								) }
 
-								<RichText
-									tagName="p"
-									value={ description }
-									onChange={ ( val ) =>
-										setAttributes( { description: val } )
-									}
-									placeholder={ __(
-										'Skip the search. Simply upload your prescription photo, and our pharmacists will prepare your cart for you.',
-										'twork-builder'
-									) }
-									style={ {
-										fontSize: '1.1rem',
-										opacity: 0.9,
-										marginBottom: '20px',
-									} }
-								/>
+								{ showDescription && (
+									<RichText
+										tagName="p"
+										value={ description }
+										onChange={ ( val ) =>
+											setAttributes( {
+												description: val,
+											} )
+										}
+										placeholder={ __(
+											'Skip the search. Simply upload your prescription photo, and our pharmacists will prepare your cart for you.',
+											'twork-builder'
+										) }
+										style={ {
+											fontSize: '1.1rem',
+											opacity: 0.9,
+											marginBottom: '20px',
+										} }
+									/>
+								) }
 
 								{ showChecklist &&
 									Array.isArray( checklistItems ) && (
@@ -389,7 +447,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 										</ul>
 									) }
 
-								{ buttonLabel && (
+								{ showButton && buttonLabel && (
 									<a
 										className="ph-upload-btn"
 										href={ buttonUrl || '#' }
@@ -411,7 +469,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 								) }
 							</div>
 							<div>
-								{ imageUrl && (
+								{ showImage && imageUrl && (
 									<img
 										src={ imageUrl }
 										alt={ imageAlt }

@@ -114,7 +114,14 @@ export function useDoctorFilterLists( {
 		}
 
 		runSync( nextDepartments, nextGenders );
-	}, [ attributes.departments, attributes.genders, blockName, clientId, runSync, setAttributes ] );
+	}, [
+		attributes.departments,
+		attributes.genders,
+		blockName,
+		clientId,
+		runSync,
+		setAttributes,
+	] );
 
 	const updateDepartment = ( index, field, value ) => {
 		const next = [ ...departments ];

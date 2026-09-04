@@ -1,6 +1,12 @@
 import { __ } from '@wordpress/i18n';
 import { useStableBlockProps } from '@twork-builder/editor-utils';
 import {
+	pickPrep,
+	makePrepSetter,
+	CheckupPrepInspector,
+	CheckupPrepEditorBody,
+} from '@twork-builder/shared/checkup-prep-panel';
+import {
 	InnerBlocks,
 	InspectorControls,
 	PanelColorSettings,
@@ -20,10 +26,7 @@ import {
 
 const ALLOWED_BLOCKS = [ 'twork/package-item' ];
 const TEMPLATE = [
-	[
-		'twork/package-item',
-		{ packageName: 'Basic Health', category: 'general' },
-	],
+	[ 'twork/package-item', { packageName: 'Basic Health', category: 'general' } ],
 
 	[
 		'twork/package-item',
@@ -34,10 +37,7 @@ const TEMPLATE = [
 		},
 	],
 
-	[
-		'twork/package-item',
-		{ packageName: 'Healthy Heart', category: 'heart' },
-	],
+	[ 'twork/package-item', { packageName: 'Healthy Heart', category: 'heart' } ],
 ];
 
 export default function Edit( { attributes, setAttributes, isSelected } ) {
@@ -99,7 +99,12 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 		labFeatureIconColor,
 		labButtonBgColor,
 		labButtonTextColor,
+		showPrepPanel,
+		prepMarginBottom,
 	} = attributes;
+
+	const prep = pickPrep( attributes, 'prep' );
+	const setPrep = makePrepSetter( setAttributes, 'prep' );
 
 	const blockProps = useStableBlockProps(
 		() => ( {
@@ -227,7 +232,9 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 	};
 
 	const removeFilterTab = ( index ) => {
-		if ( filterTabs.length <= 1 ) return;
+		if ( filterTabs.length <= 1 ) {
+			return;
+		}
 		const filtered = filterTabs.filter( ( _, i ) => i !== index );
 		setAttributes( { filterTabs: filtered } );
 	};
@@ -257,10 +264,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 										setAttributes( {
 											sectionTitleColor: v ?? undefined,
 										} ),
-									label: __(
-										'Section title',
-										'twork-builder'
-									),
+									label: __( 'Section title', 'twork-builder' ),
 								},
 								{
 									value: waveColor,
@@ -371,10 +375,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 										setAttributes( {
 											featureIconColor: v ?? undefined,
 										} ),
-									label: __(
-										'Feature icon',
-										'twork-builder'
-									),
+									label: __( 'Feature icon', 'twork-builder' ),
 								},
 								{
 									value: featureTextColor,
@@ -382,10 +383,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 										setAttributes( {
 											featureTextColor: v ?? undefined,
 										} ),
-									label: __(
-										'Feature text',
-										'twork-builder'
-									),
+									label: __( 'Feature text', 'twork-builder' ),
 								},
 								{
 									value: buttonBgColor,
@@ -478,10 +476,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 										setAttributes( {
 											labSecondaryColor: v ?? undefined,
 										} ),
-									label: __(
-										'Lab secondary',
-										'twork-builder'
-									),
+									label: __( 'Lab secondary', 'twork-builder' ),
 								},
 								{
 									value: labHeaderBgColor,
@@ -605,10 +600,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 						<Divider />
 						<ToggleControl
-							label={ __(
-								'Show Section Header',
-								'twork-builder'
-							) }
+							label={ __( 'Show Section Header', 'twork-builder' ) }
 							checked={ !! showSectionHeader }
 							onChange={ ( val ) =>
 								setAttributes( { showSectionHeader: val } )
@@ -651,24 +643,15 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 									value={ sectionTitleAlignment }
 									options={ [
 										{
-											label: __(
-												'Left',
-												'twork-builder'
-											),
+											label: __( 'Left', 'twork-builder' ),
 											value: 'left',
 										},
 										{
-											label: __(
-												'Center',
-												'twork-builder'
-											),
+											label: __( 'Center', 'twork-builder' ),
 											value: 'center',
 										},
 										{
-											label: __(
-												'Right',
-												'twork-builder'
-											),
+											label: __( 'Right', 'twork-builder' ),
 											value: 'right',
 										},
 									] }
@@ -741,10 +724,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 											} )
 										}
 									>
-										{ __(
-											'Remove Image',
-											'twork-builder'
-										) }
+										{ __( 'Remove Image', 'twork-builder' ) }
 									</Button>
 								</div>
 							) }
@@ -753,10 +733,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 							<>
 								<Divider />
 								<ToggleControl
-									label={ __(
-										'Show Overlay',
-										'twork-builder'
-									) }
+									label={ __( 'Show Overlay', 'twork-builder' ) }
 									checked={ backgroundOverlay }
 									onChange={ ( val ) =>
 										setAttributes( {
@@ -815,10 +792,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 						initialOpen={ false }
 					>
 						<ToggleControl
-							label={ __(
-								'Show Filter Section',
-								'twork-builder'
-							) }
+							label={ __( 'Show Filter Section', 'twork-builder' ) }
 							checked={ showFilterSection }
 							onChange={ ( val ) =>
 								setAttributes( { showFilterSection: val } )
@@ -828,10 +802,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 						{ showFilterSection && (
 							<>
 								<BaseControl
-									label={ __(
-										'Filter Tabs',
-										'twork-builder'
-									) }
+									label={ __( 'Filter Tabs', 'twork-builder' ) }
 									help={ __(
 										'First tab should have value "all" for "All" filter.',
 										'twork-builder'
@@ -905,10 +876,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 										isSmall
 										onClick={ addFilterTab }
 									>
-										{ __(
-											'Add Filter Tab',
-											'twork-builder'
-										) }
+										{ __( 'Add Filter Tab', 'twork-builder' ) }
 									</Button>
 								</BaseControl>
 								<RangeControl
@@ -1041,10 +1009,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 						/>
 
 						<RangeControl
-							label={ __(
-								'Padding Bottom (px)',
-								'twork-builder'
-							) }
+							label={ __( 'Padding Bottom (px)', 'twork-builder' ) }
 							value={ paddingBottom }
 							onChange={ ( val ) =>
 								setAttributes( { paddingBottom: val } )
@@ -1087,10 +1052,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 						initialOpen={ false }
 					>
 						<ToggleControl
-							label={ __(
-								'Enable Hover Effects',
-								'twork-builder'
-							) }
+							label={ __( 'Enable Hover Effects', 'twork-builder' ) }
 							checked={ hoverEffect }
 							onChange={ ( val ) =>
 								setAttributes( { hoverEffect: val } )
@@ -1099,10 +1061,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 						{ hoverEffect && (
 							<RangeControl
-								label={ __(
-									'Translate Y (px)',
-									'twork-builder'
-								) }
+								label={ __( 'Translate Y (px)', 'twork-builder' ) }
 								value={ hoverTranslateY }
 								onChange={ ( val ) =>
 									setAttributes( { hoverTranslateY: val } )
@@ -1195,6 +1154,51 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 							</>
 						) }
 					</PanelBody>
+
+					<PanelBody
+						title={ __(
+							"Prep Panel (Do's & Don'ts)",
+							'twork-builder'
+						) }
+						initialOpen={ false }
+					>
+						<ToggleControl
+							__nextHasNoMarginBottom
+							label={ __( 'Show Prep Panel', 'twork-builder' ) }
+							help={ __(
+								"Adds a collapsible do's and don'ts card above the filter tabs.",
+								'twork-builder'
+							) }
+							checked={ !! showPrepPanel }
+							onChange={ ( val ) =>
+								setAttributes( { showPrepPanel: val } )
+							}
+						/>
+
+						{ showPrepPanel && (
+							<RangeControl
+								__nextHasNoMarginBottom
+								label={ __(
+									'Space Below Panel (px)',
+									'twork-builder'
+								) }
+								value={ prepMarginBottom }
+								onChange={ ( val ) =>
+									setAttributes( { prepMarginBottom: val } )
+								}
+								min={ 0 }
+								max={ 120 }
+								step={ 4 }
+							/>
+						) }
+					</PanelBody>
+
+					{ showPrepPanel && (
+						<CheckupPrepInspector
+							prep={ prep }
+							setPrep={ setPrep }
+						/>
+					) }
 				</InspectorControls>
 			) }
 
@@ -1262,6 +1266,15 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 								} }
 							/>
 						</div>
+					) }
+					{ showPrepPanel && (
+						<CheckupPrepEditorBody
+							prep={ prep }
+							setPrep={ setPrep }
+							wrapperStyle={ {
+								marginBottom: `${ prepMarginBottom }px`,
+							} }
+						/>
 					) }
 					{ showFilterSection &&
 						filterTabs &&

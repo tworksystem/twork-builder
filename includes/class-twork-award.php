@@ -203,9 +203,9 @@ function twork_render_awards_section($attributes, $content, $block)
     <section
         class="twork-awards-section section-padding awards-section wp-block-twork-awards-section"
         style="<?php echo esc_attr($section_style_str); ?>"
-        data-hover-effect="<?php echo $atts['hoverEffect'] ? 'true' : 'false'; ?>"
-        data-image-zoom="<?php echo $atts['imageZoomOnHover'] ? 'true' : 'false'; ?>"
-        data-animation="<?php echo $atts['animationOnScroll'] ? 'true' : 'false'; ?>"
+        data-hover-effect="<?php echo esc_attr( $atts['hoverEffect'] ? 'true' : 'false' ); ?>"
+        data-image-zoom="<?php echo esc_attr( $atts['imageZoomOnHover'] ? 'true' : 'false' ); ?>"
+        data-animation="<?php echo esc_attr( $atts['animationOnScroll'] ? 'true' : 'false' ); ?>"
         data-animation-type="fadeInUp"
         data-animation-delay="100"
     >

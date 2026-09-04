@@ -7,7 +7,10 @@ import {
 	TextControl,
 	ToggleControl,
 } from '@wordpress/components';
-import { DEFAULT_DEPARTMENTS, DEFAULT_GENDERS } from '@twork-builder/shared/doctor-filter-data';
+import {
+	DEFAULT_DEPARTMENTS,
+	DEFAULT_GENDERS,
+} from '@twork-builder/shared/doctor-filter-data';
 import FilterListsInspectorPanel from '@twork-builder/shared/filter-lists-inspector-panel';
 import { useDoctorFilterLists } from '@twork-builder/shared/use-doctor-filter-lists';
 import { FILTER_BLOCK } from '@twork-builder/shared/doctor-filter-sync';
@@ -22,7 +25,7 @@ const DEFAULT_ATTS = {
 	resetButtonText: 'Reset',
 	containerMaxWidth: 1200,
 	containerPadding: 30,
-	sectionMarginTop: -80,
+	sectionMarginTop: -40,
 	sectionMarginBottom: 60,
 	boxPadding: 30,
 	boxBorderRadius: 8,
@@ -62,6 +65,11 @@ export default function Edit( { attributes, setAttributes, clientId } ) {
 		boxBorderTopWidth,
 		labelColor,
 		inputBorderColor,
+		inputFocusBorderColor,
+		resetButtonBg,
+		resetButtonColor,
+		resetButtonHoverBg,
+		resetButtonHoverColor,
 		addAnimationClass,
 	} = attrs;
 
@@ -85,13 +93,31 @@ export default function Edit( { attributes, setAttributes, clientId } ) {
 		() => ( {
 			className: 'mk-doctor-search-filter-editor',
 			style: {
-				marginTop: `${ sectionMarginTop }px`,
-				marginBottom: `${ sectionMarginBottom }px`,
 				position: 'relative',
-				zIndex: 10,
+				'--mk-search-section-margin-top': `${ sectionMarginTop }px`,
+				'--mk-search-section-margin-bottom': `${ sectionMarginBottom }px`,
+				'--mk-search-label-color': labelColor || undefined,
+				'--mk-search-input-border': inputBorderColor || undefined,
+				'--mk-search-input-focus-border':
+					inputFocusBorderColor || undefined,
+				'--mk-search-reset-bg': resetButtonBg || undefined,
+				'--mk-search-reset-color': resetButtonColor || undefined,
+				'--mk-search-reset-hover-bg': resetButtonHoverBg || undefined,
+				'--mk-search-reset-hover-color':
+					resetButtonHoverColor || undefined,
 			},
 		} ),
-		[ sectionMarginBottom, sectionMarginTop ]
+		[
+			inputBorderColor,
+			inputFocusBorderColor,
+			labelColor,
+			resetButtonBg,
+			resetButtonColor,
+			resetButtonHoverBg,
+			resetButtonHoverColor,
+			sectionMarginBottom,
+			sectionMarginTop,
+		]
 	);
 
 	const containerStyle = {
@@ -99,6 +125,13 @@ export default function Edit( { attributes, setAttributes, clientId } ) {
 		margin: '0 auto',
 		padding: `0 ${ containerPadding }px`,
 		position: 'relative',
+	};
+
+	const searchSectionStyle = {
+		marginTop: `${ sectionMarginTop }px`,
+		marginBottom: `${ sectionMarginBottom }px`,
+		position: 'relative',
+		zIndex: 10,
 	};
 
 	const searchBoxStyle = {
@@ -111,6 +144,15 @@ export default function Edit( { attributes, setAttributes, clientId } ) {
 		gap: '20px',
 		alignItems: 'center',
 		borderTop: `${ boxBorderTopWidth }px solid ${ boxBorderTopColor }`,
+		boxSizing: 'border-box',
+	};
+
+	const filterGroupStyle = {
+		flex: 1,
+		minWidth: 200,
+		display: 'flex',
+		flexDirection: 'column',
+		gap: 8,
 	};
 
 	const labelStyle = {
@@ -127,6 +169,8 @@ export default function Edit( { attributes, setAttributes, clientId } ) {
 		borderRadius: 5,
 		fontSize: '0.95rem',
 		outline: 'none',
+		boxSizing: 'border-box',
+		background: '#fff',
 	};
 
 	return (
@@ -156,10 +200,7 @@ export default function Edit( { attributes, setAttributes, clientId } ) {
 					/>
 
 					<TextControl
-						label={ __(
-							'Search placeholder',
-							'twork-builder'
-						) }
+						label={ __( 'Search placeholder', 'twork-builder' ) }
 						value={ attrs.searchPlaceholder }
 						onChange={ ( val ) =>
 							setAttributes( { searchPlaceholder: val } )
@@ -194,10 +235,7 @@ export default function Edit( { attributes, setAttributes, clientId } ) {
 					/>
 
 					<TextControl
-						label={ __(
-							'Gender "All" option',
-							'twork-builder'
-						) }
+						label={ __( 'Gender "All" option', 'twork-builder' ) }
 						value={ attrs.genderAllLabel }
 						onChange={ ( val ) =>
 							setAttributes( { genderAllLabel: val } )
@@ -255,7 +293,7 @@ export default function Edit( { attributes, setAttributes, clientId } ) {
 						max={ 50 }
 						step={ 5 }
 						help={ __(
-							'Negative values pull the filter up over the hero. Default -80.',
+							'Negative values pull the filter up over the hero. Default -40 (doctors.html).',
 							'twork-builder'
 						) }
 					/>
@@ -291,10 +329,7 @@ export default function Edit( { attributes, setAttributes, clientId } ) {
 					/>
 
 					<RangeControl
-						label={ __(
-							'Border radius (px)',
-							'twork-builder'
-						) }
+						label={ __( 'Border radius (px)', 'twork-builder' ) }
 						value={ attrs.boxBorderRadius }
 						onChange={ ( val ) =>
 							setAttributes( { boxBorderRadius: val } )
@@ -305,10 +340,7 @@ export default function Edit( { attributes, setAttributes, clientId } ) {
 					/>
 
 					<RangeControl
-						label={ __(
-							'Top border width (px)',
-							'twork-builder'
-						) }
+						label={ __( 'Top border width (px)', 'twork-builder' ) }
 						value={ attrs.boxBorderTopWidth }
 						onChange={ ( val ) =>
 							setAttributes( { boxBorderTopWidth: val } )
@@ -374,10 +406,7 @@ export default function Edit( { attributes, setAttributes, clientId } ) {
 									setAttributes( {
 										inputFocusBorderColor: val,
 									} ),
-								label: __(
-									'Focus border',
-									'twork-builder'
-								),
+								label: __( 'Focus border', 'twork-builder' ),
 							},
 						] }
 					/>
@@ -449,24 +478,19 @@ export default function Edit( { attributes, setAttributes, clientId } ) {
 			</InspectorControls>
 
 			<div { ...blockProps }>
-				<div style={ containerStyle }>
+				<div className="jivaka-container" style={ containerStyle }>
 					<div
-						className="search-section"
-						style={ {
-							marginTop: `${ sectionMarginTop }px`,
-							marginBottom: `${ sectionMarginBottom }px`,
-						} }
+						className={
+							addAnimationClass
+								? 'search-section animate-hero'
+								: 'search-section'
+						}
+						style={ searchSectionStyle }
 					>
 						<div className="search-box" style={ searchBoxStyle }>
 							<div
 								className="filter-group"
-								style={ {
-									flex: 1,
-									minWidth: 200,
-									display: 'flex',
-									flexDirection: 'column',
-									gap: 8,
-								} }
+								style={ filterGroupStyle }
 							>
 								<label style={ labelStyle }>
 									{ nameLabel }
@@ -483,13 +507,7 @@ export default function Edit( { attributes, setAttributes, clientId } ) {
 							</div>
 							<div
 								className="filter-group"
-								style={ {
-									flex: 1,
-									minWidth: 200,
-									display: 'flex',
-									flexDirection: 'column',
-									gap: 8,
-								} }
+								style={ filterGroupStyle }
 							>
 								<label style={ labelStyle }>
 									{ departmentLabel }
@@ -499,7 +517,9 @@ export default function Edit( { attributes, setAttributes, clientId } ) {
 									style={ inputStyle }
 									defaultValue="all"
 								>
-									<option value="all">{ departmentAllLabel }</option>
+									<option value="all">
+										{ departmentAllLabel }
+									</option>
 									{ departments.map( ( dept ) => (
 										<option
 											key={ dept.value }
@@ -512,13 +532,7 @@ export default function Edit( { attributes, setAttributes, clientId } ) {
 							</div>
 							<div
 								className="filter-group"
-								style={ {
-									flex: 1,
-									minWidth: 200,
-									display: 'flex',
-									flexDirection: 'column',
-									gap: 8,
-								} }
+								style={ filterGroupStyle }
 							>
 								<label style={ labelStyle }>
 									{ genderLabel }
@@ -528,7 +542,9 @@ export default function Edit( { attributes, setAttributes, clientId } ) {
 									style={ inputStyle }
 									defaultValue="all"
 								>
-									<option value="all">{ genderAllLabel }</option>
+									<option value="all">
+										{ genderAllLabel }
+									</option>
 									{ genders.map( ( gender ) => (
 										<option
 											key={ gender.value }
@@ -539,10 +555,7 @@ export default function Edit( { attributes, setAttributes, clientId } ) {
 									) ) }
 								</select>
 							</div>
-							<div
-								className="search-btn-wrapper"
-								style={ { alignSelf: 'flex-end' } }
-							>
+							<div className="search-btn-wrapper">
 								<button
 									type="button"
 									className="btn-reset"
@@ -555,6 +568,11 @@ export default function Edit( { attributes, setAttributes, clientId } ) {
 										background: attrs.resetButtonBg,
 										color: attrs.resetButtonColor,
 										border: 'none',
+										display: 'inline-flex',
+										alignItems: 'center',
+										gap: 8,
+										fontSize: '0.95rem',
+										boxSizing: 'border-box',
 									} }
 								>
 									<i className="fas fa-undo" aria-hidden />{ ' ' }
