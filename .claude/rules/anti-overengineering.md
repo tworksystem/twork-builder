@@ -1,0 +1,1 @@
+../../.cursor/rules/anti-overengineering.mdc

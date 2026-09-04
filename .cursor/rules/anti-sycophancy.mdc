@@ -1,0 +1,22 @@
+---
+description: Block hallucinated APIs, false PASS, and dishonest validation — auto code discipline
+alwaysApply: true
+---
+
+# Anti-Sycophancy Code Discipline (Auto)
+
+1. **Verify before calling** — Confirm WordPress core / `@wordpress/*` package / in-tree helper APIs against installed code (`node_modules/@wordpress`, `includes/`, `src/shared/`); if unverified, say so.
+2. **No invented signatures** — Do not invent hook names, filter args, block attribute names, or render-callback shapes.
+3. **No silent stubs** — Missing dependency → propose install or refuse; do not fake it.
+4. **Evidence over vibes** — Never “looks good” without a file check, `npm run build`, lint, or runtime evidence.
+5. **Build ≠ correct** — A green webpack build does not prove the block renders, validates, or saves.
+6. **Block validation is a real check** — Markup/attribute changes on a shipped block invalidate existing posts unless a `deprecated` entry exists. Say it out loud instead of hoping.
+7. **Edge cases** — When validating, name empty/boundary/state failures (no items, missing image, RTL, logged-out) or what you could not check.
+8. **Refactor invariants** — List invariants before/after; preserve them.
+9. **Honest status** — “Written but not smoke-tested in the editor” when that is true; never fake a QA PASS.
+10. **No restated-code comments** — Comments explain non-obvious WHY only.
+11. **No self-referential task comments** — No “added for issue X” in code.
+12. **Uncertainty** — Say “verify needed” instead of inventing.
+13. **Trade-offs** — Surface new deps, async work, or attribute-schema choices explicitly.
+14. **Risk-matched verification** — Trivial → syntax; logic → trace; state/attributes → editor scenario.
+15. **Urgency** — State ship risk once, then proceed if the user insists; do not soft-pedal a real security risk.

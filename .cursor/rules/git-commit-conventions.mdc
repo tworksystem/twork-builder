@@ -1,0 +1,56 @@
+---
+description: Commit message + branch conventions for this repo — use when writing commits, branches, or release notes
+alwaysApply: false
+---
+
+# Git Commit Conventions (twork-builder)
+
+Adapted from awesome `git-conventional-commit-messages`. **This repo deviates from the plain spec — match the repo, not the spec.**
+
+## Actual format in this repo
+
+```
+<type>: <DDMMYYYY> - <what changed>
+```
+
+Real examples from `git log`:
+
+```
+feat: 13072026 - add Python sync pipeline and hand-written block suite
+fix: 13072026 - refine ambulance process section editor controls and styling
+chore: 13072026 - bump plugin to v1.0.8 with synchronized block sources
+docs: 13072026 - remove author email from README for privacy
+```
+
+- **MUST** keep the `type: DDMMYYYY - description` shape — no parenthesised scope, date before the description
+- **MUST** use the date of the commit, `DDMMYYYY`, zero-padded
+- **MUST** write the description in lower case, imperative-ish, no trailing period
+- **MUST** name the concrete surface in the description (block name, include file, script) — the scope lives in the words, not in parentheses
+- Run `git log --oneline -5` before writing a message and match what you see. If the repo convention has moved on, follow the newest commits, not this file.
+
+## Types in use
+`feat` · `fix` · `chore` · `docs` — plus `refactor`, `perf`, `build`, `style` when they genuinely apply. Do not invent new types.
+
+## Breaking changes
+Block markup or attribute changes that invalidate existing posts are breaking for site editors even when PHP still runs.
+- Append `!` after the type: `feat!: 25082026 - ...`
+- Or add a `BREAKING CHANGE:` footer naming the affected `twork/*` blocks and whether a `deprecated` entry ships with it
+
+## Body / footers (optional)
+- Blank line after the subject; body explains **why**, not a file list — the diff is the file list
+- Footers in git-trailer form (`Refs:`, `BREAKING CHANGE:`)
+
+## Never
+- `wip`, `fix`, `update`, `changes` as the whole message
+- A subject that only restates the filename (`fix: 25082026 - update edit.js`)
+- Bundling a version bump, a build artifact, and a feature into one commit — split them
+- Committing `build/`, `dist/`, `node_modules/`, or a release zip outside a release commit, and never silently
+- Rewriting published history
+
+## Branches
+- `type/short-description` (Clickr standard), e.g. `fix/packages-section-prep-panel`
+- No Gitflow `develop` / `release/*` / `hotfix/*` layer here — this repo works off `main`
+- Never commit directly to `main` for feature work; branch first
+
+## Release commits
+A version bump touches four places and they move in one commit: `twork-builder.php` header, `TWORK_BUILDER_VERSION`, `readme.txt` stable tag, `package.json`.

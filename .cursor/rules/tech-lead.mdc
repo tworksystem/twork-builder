@@ -1,0 +1,5 @@
+---
+description: Run during code modification workflows to act as Principal Engineer & QA
+globs: "src/**/*, app/**/*"
+alwaysApply: true
+---

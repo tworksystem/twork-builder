@@ -1,0 +1,43 @@
+---
+description: Auto-use CodeGraph MCP for codebase exploration before grep/read loops
+alwaysApply: true
+---
+
+# CodeGraph (Auto)
+
+## Auto-invoke (ခေါ်ခိုင်းစရာမလို)
+- ဒီ PJ (`twork-builder`) မှာ code explore / flow trace / symbol lookup / impact analysis လုပ်ရင် **grep+Read loop မစခင်** `codegraph_explore` (MCP) ကို ကိုယ်တိုင် ခေါ်သုံးရမည်။
+- Index: `.codegraph/` (gitignored) — 1,015 files · JS 974 · PHP 19 · liquid 11 · python 10။
+- Config: `codegraph.json` — `exclude`: `woocommerce-import/`, `languages/`; `deprioritize`: `shweghee/`, `templates/`, `scripts/`, `.agents/` (indexed ဖြစ်ဆဲ၊ ranking မှာသာ နောက်ဆုတ်)။
+- MCP: project `.cursor/mcp.json` (Cursor) + `.mcp.json` (Claude Code) — absolute `--path` → twork-builder။ Global `~/.cursor/mcp.json` က `${workspaceFolder}` version ရှိ; project config က ဦးစားပေး။
+
+## Auto-sync (manual `codegraph sync` မလို)
+- `serve --mcp` က native OS file events နဲ့ watch; 2s debounce; incremental sync — **`--no-watch` မထည့်ရ**။
+- Daemon တစ်ခုက PJ တစ်ခုကို ကိုင်; `codegraph daemon` နဲ့ စစ်လို့ရ။ Editor ပိတ်ထားချိန် ပြင်ခဲ့တဲ့ file တွေက MCP ပြန်တက်ချိန် sync ဝင်တယ်။
+- Manual `codegraph sync` / `index` က **fallback သာ** — watcher သေနေမှ၊ သို့ index corrupt မှ။
+
+## Graph ထဲ **မပါတဲ့** ဖိုင်တွေ (ဒီ PJ အတွက် အရေးကြီး)
+- `block.json` (JSON မ index) — block attributes / supports / defaults သိချင်ရင် **`Read` နဲ့ တိုက်ရိုက်ဖတ်**
+- `*.scss` (SCSS မ index) — style lookup ကို Grep/Read
+- `build/`, `dist/`, `node_modules/`, `.backup-manual-blocks/`, `*.min.js` — gitignore အရ ဖယ်ထား
+- 1 MB အထက် ဖိုင်များ
+→ ဒီ ၄ မျိုးအတွက် CodeGraph က "မတွေ့ဘူး" ဆိုတာ **မရှိဘူး လို့ အဓိပ္ပာယ်မသက်ရောက်**။ Read/Grep နဲ့ အတည်ပြုရမည်။
+
+## Query order
+1. **Structural / flow / "how does X work" / callers-callees / blast radius** → `codegraph_explore` (symbol name သို့ natural-language query)
+2. **CodeGraph ပြထားသော source** → already Read equivalent; ထပ်မဖတ်ရ (staleness banner မရှိရင်)
+3. **Staleness banner** (`⚠️` pending file) → banner ထဲ file ကို `Read` နဲ့ live content ယူ
+4. **Index မရှိ / MCP unavailable** → built-in Grep/Read fallback; user ကို `codegraph init` / MCP reconnect remind
+
+## Hard rejects
+- CodeGraph ရှိပြီး file-by-file grep/read exploration loop စခြင်း (config/docs/`block.json`/SCSS query မဟုတ်ရင်)
+- CodeGraph result ကို grep နဲ့ re-verify (staleness မရှိရင်)
+- `codegraph sync` ကို routine အဖြစ် ခေါ်ခြင်း — watcher က လုပ်ပြီးသား
+- `.codegraph/` ကို commit လုပ်ခြင်း (`.codegraph/.gitignore` သာ commit)
+- Generated / backup tree (`build/`, `dist/`, `.backup-manual-blocks/`) ကို primary source အဖြစ် treat လုပ်ခြင်း
+
+## Default targets
+- `src/**` block sources (`edit.js`, `save.js`, `index.js`, `render.php`)
+- `includes/*.php` render callbacks + CPT classes
+- `assets/js/*-init.js` front-end scripts
+- `src/shared/**` cross-block helpers

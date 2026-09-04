@@ -1,0 +1,58 @@
+---
+description: JS/JSX code quality for Gutenberg blocks + front-end scripts (awesome + Clickr adapted)
+alwaysApply: false
+globs: "src/**/*.{js,jsx}, assets/js/**/*.js, scripts/**/*.mjs, shweghee/src/**/*.js"
+---
+
+# JS Code Quality (Awesome + Clickr · WordPress blocks)
+
+Defers to `.cursorrules`, `anti-overengineering`, `anti-sycophancy`, `security-appsec`, `clickr-coding-standards`.
+Stack SoT: `docs/standards/javascript.md` — apply the **naming / structure / error-handling** rules; the Next.js App Router, Supabase, and Zod sections are **reference only** (this is a `wp-scripts` plugin).
+Block-specific procedure lives in the `wp-block-development` skill — read it before changing `block.json` / `save.js`.
+
+## Mindsets
+- Simplicity · readability · maintainability over premature micro-opts
+- Less code = less debt; 270+ block folders means every pattern gets copied
+
+## Naming
+- **MUST** `camelCase` variables/functions, `PascalCase` components, `SCREAMING_SNAKE_CASE` module constants
+- **MUST** hooks named `useThing`; handlers `handleClick` on the definition, `onClick` on the prop
+- **MUST** units in names (`timeoutMs`, `maxItems`); collections plural; booleans as questions (`isSelected`, `hasImage`)
+- **MUST** block attribute names match between `block.json`, `edit.js`, `save.js`, and the PHP render callback — no near-miss spellings
+- **NEVER** leave `d`, `tmp`, `obj`, `x`, or vague `data` in merged code when the domain name is known
+
+## Gutenberg specifics
+- `useBlockProps()` in `edit.js` and `useBlockProps.save()` in `save.js` — never hand-write the wrapper class
+- Attribute defaults belong in `block.json`, not scattered `||` fallbacks in the component
+- Keep `save.js` pure and deterministic — no `Date`, no random, no `window` reads
+- Markup or attribute changes to a shipped block need a `deprecated` entry, or existing posts break
+- Use `@wordpress/*` packages (`components`, `block-editor`, `i18n`, `element`) — do not import React directly
+- Wrap user-facing strings in `__()` / `_x()` with the `twork-builder` text domain
+- `InspectorControls` panels: group related controls, avoid 60-control walls of `ToggleControl`
+
+## Guidelines
+- Early returns over deep nesting; small pure helpers over sprawling functions
+- Shared logic goes in `src/shared/` — do not duplicate a helper into a 15th block folder
+- DRY only when duplication is real and stable
+- **Minimal diffs** — touch only task-related sections; do not reformat or rewrite unrelated comments
+- **SHOULD** handle rejected promises (`await` + `try/catch`, `.catch`, or intentional `void` with a why-comment); check `res.ok` on `fetch`; check `is_wp_error` equivalents on `apiFetch`
+
+## Front-end scripts (`assets/js/*-init.js`)
+- Guard for element existence before binding; scripts load site-wide
+- Prefer a single namespaced object / IIFE over ad-hoc `window.*` sprawl
+- **NEVER** stash tokens, nonces beyond their scope, or PII on `window`
+- Clean up listeners/observers when the init can run twice (editor preview + front end)
+
+## Comments
+- WHY only (non-obvious intent) — no restated-code comments
+- JSDoc only for non-obvious shared helpers
+- Workarounds: reason + date
+
+## Bugs found while editing
+- Out-of-scope bug → short `TODO(name, date):` note OR report it in the reply — do not drive-by fix unless asked
+
+## Reject
+- Importing new libraries without need/approval
+- Converting block JS into a standalone React/Next/Vite app structure
+- Editing a synced block in `src/` that is not in `SKIP_BLOCKS` (see `anti-overengineering`)
+- `eval` / unsafe `innerHTML` / `dangerouslySetInnerHTML` with attribute data (see `security-appsec`)

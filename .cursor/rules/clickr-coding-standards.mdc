@@ -1,0 +1,58 @@
+---
+description: Clickr Coding Standards (master digest) — naming, secrets, XSS/SQLi, privacy, commits; request when standards apply
+alwaysApply: false
+---
+
+# Clickr Coding Standards (twork-builder digest)
+
+SoT full text: `docs/standards/CODING-STANDARDS.md` (v1.1) · stack file `docs/standards/php-wordpress.md` (primary here) · `docs/standards/javascript.md` (naming/structure only — Next.js/Supabase sections are other-repo reference).
+**Defers to** `.cursorrules` → skills → always-on `.mdc` (`security-appsec`, `anti-overengineering`, `anti-sycophancy`, `context-handoff`). Conflicts lose upward.
+
+Tags: **NEVER** = hard stop · **MUST** = required · **SHOULD** = default with a reason if skipped.
+
+## Naming / variables
+- **MUST** `snake_case` for WordPress functions, hooks, and variables; `PascalCase` classes; `SCREAMING_SNAKE_CASE` constants.
+- **MUST** prefix every global function, hook, option, transient, meta key, and CPT with `twork_` / `twork-`. Blocks stay in the `twork/` namespace, text domain `twork-builder`.
+- **MUST** include units (`timeout_ms`, `price_cents`); collections plural; booleans as questions; money as integer cents.
+- **NEVER** shadow WordPress globals (`$post`, `$wpdb`, `$wp_query`); **NEVER** leave `$data`/`$temp`/`$obj` in merged code.
+- **NEVER** ship `class-x-old.php`, `edit-new.js`, or `*-backup` files.
+
+## Structure
+- **MUST** keep custom logic in `includes/` classes, split once a file grows past ~200 lines of unrelated concerns.
+- **MUST** keep block sources in `src/<block>/` with `block.json` as the single registration SoT.
+- **NEVER** edit core, a parent theme, or another plugin from this one.
+
+## Comments
+- **MUST** PHPDoc on public functions with `@param` / `@return`; comment every hook you add (what fires it, why the priority).
+- **MUST** comment WordPress/Gutenberg quirks you worked around, with the version and date.
+- **NEVER** commented-out code in merges; **NEVER** restated-code filler.
+
+## Secrets / security (aligns with `security-appsec`)
+- **NEVER** commit real secrets; **NEVER** log tokens/passwords/session IDs/NRIC; **NEVER** secrets in query strings.
+- **MUST** sanitize on input and escape on output, matched to context, every time.
+- **NEVER** string-built SQL (`$wpdb->prepare()` always), `eval`/`unserialize` on user data, or unsafe `innerHTML`.
+- **MUST** `current_user_can()` + nonce on every admin/AJAX/REST action; fail closed.
+
+## Privacy (PDPA-aware)
+- **MUST** treat booking/contact/enquiry entries and doctor records as personal data; retention period set and honoured.
+- **NEVER** email a submission containing NRIC/full card/bank details; **NEVER** pull unmasked production data locally.
+- **MUST** get client approval before adding analytics, chat, heatmap, or AI integrations.
+
+## Dependencies
+- **MUST** lockfile committed; confirm a package exists before install; licence check on client work.
+- **NEVER** add deps an agent invented from memory; **NEVER** new libs without need (see `anti-overengineering`).
+
+## Performance
+- **MUST** fix query count first; cache with a deliberate TTL; enqueue per block, versioned.
+- **MUST** hold Core Web Vitals green (LCP < 2.5s, CLS < 0.1, INP < 200ms) — detail in `web-app-optimization`.
+
+## Version control / commits
+- **MUST** branch `type/short-description`; commit `type(scope): what changed` — scope = block or include (`fix(packages-section): escape prep panel output`).
+- **NEVER** `wip`/`fix`/`update` as the whole message; **NEVER** commit DB dumps, certs, or list exports.
+- **MUST** say so in the message when build output (`build/`, `dist/`, zips) ships alongside source.
+
+## This repo overrides
+- Agent SoT remains `.cursorrules` (Burmese workflow, WordPress anchor) — not `CLAUDE.md`.
+- `docs/standards/javascript.md` React/Next **MUST** rules apply to naming and error handling only; block code follows `js-code-quality.mdc` + the `wp-block-development` skill.
+- `docs/standards/` Composer-managed-WordPress rules describe a full site build; this repo is a **distributable plugin** — `composer.json` is not required, `package.json` + `wp-scripts` is the build SoT.
+- Release version must match in three places: `twork-builder.php` header, `TWORK_BUILDER_VERSION`, `readme.txt` stable tag — and `package.json` tracks it too.

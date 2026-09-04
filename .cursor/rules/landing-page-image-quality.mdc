@@ -1,0 +1,31 @@
+---
+description: Block/page image quality — no placeholders, alt, CLS, WebP (auto on media + UI surfaces)
+alwaysApply: false
+globs: "src/**/*.{js,jsx,json,scss}, templates/**/*, includes/**/*.php, assets/**/*, *.html"
+---
+
+# Block / Page Image Quality (Auto-attach)
+
+When editing block output, kit templates, or demo HTML that includes images:
+
+## Sources
+- No `placehold.co`, `via.placeholder.com`, `dummyimage.com`, `picsum.photos`, or broken hotlinks — including in `block.json` `example` and `attributes` defaults
+- Prefer WordPress Media Library IDs (`MediaUpload` + `wp_get_attachment_image()`) over hardcoded URLs
+- Plugin-shipped art lives under `assets/`; kit demo content under `templates/`
+- Confirm licence before any third-party image
+
+## Quality & CLS
+- Real, on-brand imagery — not vague stock filler when the product/place/person matters
+- Explicit `width`/`height` or CSS `aspect-ratio` to prevent layout shift
+- Prefer WebP/optimized sizes; lazy-load below the fold; never lazy-load the LCP image
+- Respect the plugin zip budget — new binary assets must not push the release over the size limit
+
+## Accessibility
+- Informative images: specific `alt` (editable by the site editor, not hardcoded English)
+- Decorative: empty `alt`
+- Do not put essential copy only inside an image — text must be a real, translatable attribute
+
+## Checks
+- Paths resolve at runtime — use `TWORK_BUILDER_URL` / `plugins_url()`, never a relative path that breaks once installed
+- Mobile + desktop crop still readable
+- Empty state (no image selected) renders cleanly — no broken-image icon, no stretched placeholder box

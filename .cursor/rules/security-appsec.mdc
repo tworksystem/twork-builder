@@ -1,0 +1,63 @@
+---
+description: Auto AppSec for WordPress plugin/block code — nonces, capabilities, escaping, secrets
+alwaysApply: true
+globs: "**/*.{php,js,jsx,ts,tsx,css,scss,json,sh}"
+---
+
+# Security AppSec (Auto — WordPress plugin)
+
+## Precedence
+Defers to `.cursorrules` Safety. Deeper stack detail: `docs/standards/php-wordpress.md` §9, and the `wp-plugin-development` skill.
+
+## Secrets
+- Never hardcode credentials, API keys, tokens, licence keys, or connection strings
+- Never commit `wp-config.php`, `.env`, or client site credentials
+- Never log passwords, tokens, session IDs, or a full `$_POST` / webhook body
+
+## PHP entry guard
+- Every PHP file starts with `if (!defined('ABSPATH')) { exit; }`
+- No new global functions without the `twork_` prefix; options/transients/meta keys prefixed too
+
+## Output escaping (render callbacks + templates)
+| Context | Function |
+|---|---|
+| HTML text | `esc_html()` |
+| Attribute | `esc_attr()` |
+| URL | `esc_url()` |
+| Inside `<script>` | `wp_json_encode()` |
+| Rich text / block content | `wp_kses_post()` |
+- Escape **at output**, every time — including block attributes coming from the editor
+- `printf` with placeholders over string concatenation
+
+## Input
+- Sanitize on input: `sanitize_text_field`, `sanitize_email`, `absint`, `esc_url_raw`, `wp_kses_post`
+- Allow-list enum-style attributes (layout, variant, columns) instead of trusting the saved value
+- `$wpdb->prepare()` on every custom query; never interpolate into `$wpdb->query()`
+
+## AuthZ / CSRF
+- `current_user_can()` on every admin action, AJAX handler, and REST callback
+- Nonce verification on every form and AJAX call (`check_admin_referer` / `wp_verify_nonce`)
+- Real `permission_callback` on `register_rest_route()` — `__return_true` only for genuinely public data
+- `is_admin()` is not a permission check
+
+## JS
+- No `eval`; no `dangerouslySetInnerHTML` / `innerHTML` with unsanitized user or attribute data
+- Prefer `RawHTML` with server-sanitized content, or `textContent` in front-end scripts
+- Localize data with `wp_localize_script` / `wp_add_inline_script` + `wp_json_encode` — never inject raw PHP into a script tag
+
+## Dangerous PHP
+- Never `eval()`, `extract()`, `create_function()`, or `unserialize()` on user data
+- `hash_equals()` for secret comparison; `wp_generate_password()` / `random_bytes()` for tokens
+
+## Dependencies
+- Do not add packages without need + approval path; confirm the package exists before install
+- Prefer WordPress core APIs and existing in-tree helpers over new libraries
+
+## PII
+- Booking/contact form entries, patient-facing enquiries, and doctor data are personal data
+- No PII in front-end globals, HTML comments, or logs; log IDs, not emails
+
+## Do not
+- Weaken security “to make it sound less serious”
+- Touch production secrets or paste client credentials into replies
+- Disable escaping to “fix” a rendering bug

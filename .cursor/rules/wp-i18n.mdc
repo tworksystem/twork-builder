@@ -1,0 +1,41 @@
+---
+description: Translation-safe strings for blocks and PHP — text domain, no concatenation, no RTL work
+alwaysApply: false
+globs: "src/**/*.{js,jsx,json}, includes/**/*.php, twork-builder.php, templates/**/*"
+---
+
+# WordPress i18n (adapted from awesome `rtl-right-to-left-i18n` — i18n half only)
+
+The upstream pack is Tailwind/React-Native/RTL-centric. Only its "never hardcode strings" core is adopted; the Tailwind logical-class, React Native, and RTL-flip sections are **dropped** — this plugin ships no RTL build (`create-zip.sh` excludes `*style-index-rtl.css`).
+
+## Current state (factual — do not "fix" unasked)
+- Text domain `twork-builder` is declared in the plugin header; `Domain Path: /languages`
+- ~3,800 `__()` calls in `src/` and ~110 in `includes/` already use the correct domain
+- `languages/` holds only `index.php` — **no `.pot`/`.mo` shipped**, and neither `load_plugin_textdomain()` nor `wp_set_script_translations()` is called anywhere
+- So: strings are marked up correctly, but nothing is actually translated at runtime
+- Wiring that up is a **separate approved task** — do not start it mid-feature. Report it if it blocks the ask.
+
+## When writing strings
+- **MUST** wrap every user-facing string in `__()` / `_x()` / `_n()` / `esc_html__()` with the `'twork-builder'` domain — both JS (`@wordpress/i18n`) and PHP
+- **MUST** use a string literal for the domain — never a variable or constant; the string extractor cannot follow it
+- **NEVER** concatenate a sentence from fragments. Use `sprintf( __( '%s items', 'twork-builder' ), $count )`
+- **MUST** use `_n()` for plurals, and numbered placeholders (`%1$s`, `%2$s`) whenever there is more than one
+- **MUST** add translator comments for anything ambiguous: `/* translators: %s = doctor name */`
+- **NEVER** wrap a CSS class, HTML attribute value, `rel="noopener"`, block name, or option key in `__()`
+
+## Editor-owned copy
+- Default copy that a site editor can change belongs in a `block.json` attribute default, not in a translation call — attributes are per-site content, not UI chrome
+- `__()` is for **editor UI** (panel labels, placeholders, help text) and for hardcoded front-end chrome the editor cannot reach
+
+## Bidirectional / mixed script
+- Burmese + English in one line: no special handling needed for LTR, but do not force `font-family` overrides that drop Myanmar glyph coverage
+- Use `<bdi>` only around user-supplied names embedded in a sentence
+
+## Formatting
+- Dates through `wp_date()` / `date_i18n()`, never a hardcoded `date()` format string in output
+- Numbers and currency through `number_format_i18n()` / WooCommerce price helpers
+
+## Reject
+- Adding an i18n build step, `.pot` generation, or a translation plugin without an explicit ask
+- Retrofitting RTL logical properties or an RTL stylesheet — not shipped here
+- Changing the text domain, or introducing a second one

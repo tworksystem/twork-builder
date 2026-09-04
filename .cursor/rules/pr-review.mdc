@@ -1,0 +1,57 @@
+---
+description: Focused PR / diff review with severity ranking and file:line citations — only when the user asks for a review
+alwaysApply: false
+---
+
+# PR Review (adapted from awesome `pr-review`)
+
+Use only when the user asks you to review a PR, a diff, or "this change". Does not replace the Scout/Architect/Builder/QA workflow — a review is its own request.
+
+Pick the angle from the user's emphasis (security, perf, WP correctness, architecture). If unspecified, ask, or default to **WordPress correctness** — it is where this plugin breaks most often.
+
+## Output discipline (all angles)
+- Cite `path/to/file.php:42` for every finding
+- Rank: **blocker · important · nit**
+- Be specific. “This looks risky” is not a finding; “`includes/class-twork-shop-blocks.php:93` — `$_GET['orderby']` reaches `wc_get_products` unfiltered” is
+- If the diff lacks context, say so and ask for the surrounding file — never guess
+- End with a verdict on its own line: `Safe to merge | needs changes | reject`
+
+---
+
+## Angle 1: WORDPRESS CORRECTNESS (default)
+1. **Block validation** — markup/attribute change on a shipped block with no `deprecated` entry → existing posts break. Blocker.
+2. **Sync pipeline** — is the edited `src/` block in `SKIP_BLOCKS`? If not, the change is erased on the next build. Blocker.
+3. **Registration parity** — `block.json` attributes vs `edit.js` vs `save.js` vs the PHP render callback; near-miss names, missing defaults
+4. **Save purity** — non-deterministic `save.js` (dates, random, `window`)
+5. **Enqueue** — per-block assets, version string tied to `TWORK_BUILDER_VERSION`, nothing loaded site-wide by accident
+6. **Text domain** — new strings wrapped in `__()` with `twork-builder`
+7. **Version drift** — plugin header, `TWORK_BUILDER_VERSION`, `readme.txt` stable tag, `package.json` all moved together
+
+## Angle 2: SECURITY
+1. **Escaping** — any unescaped echo of an attribute, meta, or `$_GET` value; wrong function for the context
+2. **Input** — untrusted input into queries, file paths, `wp_kses` bypasses, `unserialize`
+3. **Injection** — SQL without `$wpdb->prepare()`, raw HTML injection, `dangerouslySetInnerHTML`
+4. **AuthZ / CSRF** — admin, AJAX, or REST path with no `current_user_can()` or nonce; `permission_callback => __return_true`
+5. **Secrets** — hardcoded keys/tokens, secrets in a localized script payload or client bundle
+6. **Data exposure** — PII (enquiry, booking, patient-facing form data) in logs, block output, or REST responses
+
+## Angle 3: PERFORMANCE
+1. **N+1** — `WP_Query` / `wc_get_product()` / `get_post_meta()` per item inside a render loop
+2. **Unbounded work** — `posts_per_page => -1`, missing pagination cap
+3. **Cache misuse** — transient keys missing a variable, no TTL, no invalidation point
+4. **Front-end weight** — new library for one effect, blocking script, asset enqueued on every page
+5. **CLS/LCP** — image without dimensions, lazy-loaded hero, layout that shifts on hydrate
+
+## Angle 4: ARCHITECTURE
+1. **Scope drift** — does the diff match the request, or did it grow a refactor?
+2. **Premature abstraction** — a shared layer with one caller. Debt.
+3. **Duplication** — a helper copied into an Nth block folder instead of `src/shared/`
+4. **Coupling** — a presentational block reaching into WooCommerce, cart, or user state
+5. **Reversibility** — attribute-schema and data-shape changes are one-way doors for live pages. Call them out.
+6. **Naming** — block, attribute, and function names that describe the implementation rather than the role
+
+End with: `Architecturally sound | needs trim | re-think before merging`.
+
+---
+
+Ask for full files, not just the diff — attribute and deprecation bugs live outside the changed lines.

@@ -1,0 +1,43 @@
+---
+description: Auto-load WordPress agent skills (Figma-style eager invoke) for any WP/block/plugin/theme work
+globs: "**/*.{php,js,jsx,ts,tsx,scss,css,json,md}"
+alwaysApply: true
+---
+
+# WordPress Skills — Mandatory Auto-Use
+
+**Use eagerly.** Do NOT wait for the user to type `/skill` or `@skill`. When the task touches WordPress, Gutenberg, blocks, plugins, themes, WooCommerce, REST, WP-CLI, Playground, or this repo's `twork/*` blocks — load and follow the matching skill **before** writing code.
+
+## Skill locations (project)
+
+- `.agents/skills/<name>/SKILL.md`
+- `.cursor/skills/<name>/` → symlinks to the same folders
+
+## Routing (always)
+
+1. **First action:** Read `wordpress-router` then `wp-project-triage` when starting a WordPress task.
+2. **Then** read the domain skill(s) below that match the work. Skip only if the task is clearly unrelated to WordPress.
+
+## Domain map (trigger → skill)
+
+| Trigger | Skill |
+|--------|--------|
+| `block.json`, `edit.js`/`save.js`, `register_block_type`, Gutenberg, block invalid/deprecation | `wp-block-development` |
+| Plugin bootstrap, hooks, Settings API, nonces, escaping, packaging | `wp-plugin-development` |
+| `theme.json`, FSE templates, patterns, style variations | `wp-block-themes` / `wp-patterns` |
+| REST routes, schema, auth | `wp-rest-api` |
+| `data-wp-*`, interactivity store | `wp-interactivity-api` |
+| Abilities API | `wp-abilities-api` (+ audit/verify as needed) |
+| WP-CLI, search-replace, multisite ops | `wp-wpcli-and-ops` |
+| Caching, queries, Server-Timing | `wp-performance` |
+| PHPStan / static analysis | `wp-phpstan` |
+| Playground / blueprints | `wp-playground` / `blueprint` |
+| Design system tokens/components | `wpds` |
+| Plugin Directory / readme.txt / svn release | `wp-plugin-directory-guidelines` |
+
+## Hard rules
+
+- Prefer skill procedures over inventing outdated pre-block patterns.
+- Security: nonces, capabilities, sanitize/escape — follow `wp-plugin-development`.
+- Block changes: check deprecations per `wp-block-development` before shipping markup/attribute changes.
+- This rule does **not** replace reading the skill file — open `SKILL.md` (and linked `references/`) when that domain is in play.

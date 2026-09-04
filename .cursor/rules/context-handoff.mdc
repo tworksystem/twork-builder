@@ -1,0 +1,78 @@
+---
+description: Context-window handoff — stop guessing when thin; persist DONE/NEXT to active_context + progress
+alwaysApply: true
+---
+
+# Context handoff (Auto)
+
+Chat memory ≠ SoT. When the window is thin, mid-step, or a new chat continues work — **files win**. Do not invent NEXT from residual chat.
+
+## SoT (read first every continue / Scout)
+
+1. `active_context.md` — Goal · Done · Not verified · Open decisions · Next · paste block
+2. `progress.md` — last QA/DevOps JSON · Next line
+3. User’s latest message (overrides stale file Status only when explicit)
+
+If (1)+(2) contradict the latest user ask → **stop** · report drift · ask which wins. Do not Builder.
+
+## When to hard-stop (no Builder / no “finish the wave”)
+
+Trigger any of:
+
+- User: `context thin` · `handoff only` · `no code` · chat အသစ် / continue-from-files
+- Self-check: long thread + large tool dumps + cannot restate DONE/NEXT from **files** without guessing
+- Mid Scout/Architect/Builder/QA/DevOps and the next action needs facts not in files or this turn’s tool results
+- **`preCompact` hook warn** (`.cursor/hooks/precompact-handoff-warn.py`) — compaction စရင် treat as thin · handoff only (hook cannot block compact)
+
+On hard-stop:
+
+1. Update `active_context.md`: **DONE** · **PARTIAL** (if mid-Builder) · **NEXT** · **Out of scope** · paste-ready first message
+2. Update `progress.md` Next line if QA/status changed
+3. Reply: short status + paste block only — **no new code** · no workflow step jump
+4. End. Do not append “meanwhile I’ll also…”
+
+## Mid-step partial (Builder/QA ကျိုးချိန်)
+
+| State | Write to `active_context` |
+|-------|---------------------------|
+| Scout/Architect done | Status = plan ready · NEXT = Builder |
+| Builder half-done | **PARTIAL** = files touched + what’s left · NEXT = finish Builder then QA · list exact block folders / PHP paths |
+| Build run but not verified | PARTIAL = `npm run build` result only · NEXT = editor smoke test |
+| QA incomplete | PARTIAL = checks run / not run · NEXT = QA |
+| DevOps notes only | NEXT = user zip/install/smoke · no fake PASS |
+
+Never mark Visual / QA **PASS** without evidence in this turn or `progress.md`.
+A green `npm run build` alone is **not** a QA PASS — editor render + block validation are separate.
+
+## Release-state drift (project-specific)
+
+Version lives in three places — `twork-builder.php` header + `TWORK_BUILDER_VERSION`, `readme.txt` stable tag, `package.json`.
+On any handoff mid-release, record all three actual values in `active_context.md`. Never assume they match.
+
+## New chat / continue paste (agent must emit or refresh)
+
+Keep a fenced paste under `active_context.md` “Context ကုန်လို့ နောက် chat” (or equivalent):
+
+```
+Continue twork-builder from active_context.md + progress.md.
+DONE: …
+NEXT: …
+SoT / rejects / wave limits…
+If context thin: update active_context handoff only — no code.
+Workflow Scout→… one step per y.
+```
+
+New chat turn 1 = **Scout from files** (or handoff-only if the user said so). Do not skip to Builder because “we were about to”.
+
+## Workflow lock (unchanged)
+
+- One numerical step per user `y`
+- Do not run Builder+QA in the same turn as Scout/Architect
+- `y` alone after a handoff ≠ permission to guess a missing NEXT — re-read files first
+
+## Reject
+
+- Continuing implementation from chat recall when `active_context` Status/NEXT is missing or stale
+- Inventing block names, attribute names, versions, PASS, or “probably done”
+- Expanding scope to “finish while we’re here” under thin context
+- Replacing this rule with a Skill (session hygiene stays always-on `.mdc`)

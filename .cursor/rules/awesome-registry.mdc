@@ -1,0 +1,95 @@
+---
+description: Rule/skill registry + precedence for twork-builder — conflicts lose to .cursorrules/skills
+alwaysApply: false
+---
+
+# Rule Registry (twork-builder)
+
+## Sources
+- Curated from [PatrickJS/awesome-cursorrules](https://github.com/PatrickJS/awesome-cursorrules) — **adapted**, not a full clone
+- Ported and re-scoped from the `dbs-mtj` Cursor setup (SharePoint/ASPX rules dropped)
+- WordPress skills from [WordPress/agent-skills](https://github.com/WordPress/agent-skills) — see `skills-lock.json`
+
+Related map: `.cursor/INTEGRATION.md`.
+
+## Precedence (conflict = higher wins)
+1. `.cursorrules`
+2. `.agents/skills/*` (mirrored at `.cursor/skills/*`)
+3. Always-on `.mdc` — `anti-overengineering`, `anti-sycophancy`, `security-appsec`, `context-handoff`, `codegraph-auto`, `wordpress-skills`, `tech-lead`
+4. Gated `.mdc` — `js-code-quality`, `web-app-optimization`, `landing-page-image-quality`, `clickr-coding-standards`, `qa-bug-report`
+5. `docs/standards/` raw stack files (lowest)
+
+## Installed rules
+| Rule | Mode | Role |
+|------|------|------|
+| `anti-overengineering` | always | Scope guard + `SKIP_BLOCKS` sync-pipeline guard |
+| `anti-sycophancy` | always | No invented APIs, no fake QA PASS |
+| `security-appsec` | always | WP escaping/nonces/caps/secrets |
+| `context-handoff` | always | `active_context.md` + `progress.md` handoff discipline |
+| `codegraph-auto` | always | CodeGraph MCP before grep/read loops; auto-sync watcher |
+| `wordpress-skills` | always | Eager auto-load of `.agents/skills/*` (pre-existing) |
+| `tech-lead` | always | Principal-engineer persona on `src/`, `app/` (pre-existing) |
+| `js-code-quality` | globs | Block JS/JSX + front-end init scripts |
+| `web-app-optimization` | globs | Front-end Web Vitals + a11y for block output |
+| `landing-page-image-quality` | globs | Media quality, alt, CLS, no placeholder services |
+| `woocommerce-blocks` | globs | Woo product queries, HPOS, inactive-plugin guard |
+| `wp-i18n` | globs | Text domain discipline, no string concatenation |
+| `clickr-coding-standards` | request | Clickr master digest (PHP/WP primary) |
+| `qa-bug-report` | request | Bug report / QA write-up structure |
+| `git-commit-conventions` | request | This repo's `type: DDMMYYYY - desc` format + branches |
+| `pr-review` | request | Severity-ranked diff review, 4 angles |
+
+## awesome-cursorrules cherry-picks (adapted, never copied whole)
+| Upstream file | Landed as | Adaptation |
+|---|---|---|
+| `anti-overengineering` | `anti-overengineering.mdc` | + `SKIP_BLOCKS` sync guard |
+| `anti-sycophancy-code-discipline` | `anti-sycophancy.mdc` | + block-validation evidence rule |
+| `landing-page-image-quality` | `landing-page-image-quality.mdc` | Media Library / `block.json` example scope |
+| `qa-bug-report` | `qa-bug-report.mdc` | + WP env + block-validation fields |
+| `web-app-optimization` | `web-app-optimization.mdc` | **full rewrite** — upstream is a SvelteKit dump |
+| `wordpress-claude-stack` | `woocommerce-blocks.mdc` | Woo section only; theme/ACF/generic-security dropped as duplicates |
+| `git-conventional-commit-messages` | `git-commit-conventions.mdc` | Re-pinned to this repo's real `type: DDMMYYYY - desc` log |
+| `pr-review` | `pr-review.mdc` | WP-correctness angle replaces the tests angle (no test infra) |
+| `rtl-right-to-left-i18n` | `wp-i18n.mdc` | i18n half only; RTL / Tailwind / React-Native halves dropped |
+
+## Clickr Coding Standards (docs + gated)
+- Archive SoT: `docs/standards/` — `CODING-STANDARDS.md`, `php-wordpress.md`, `javascript.md`
+- `php-wordpress.md` = **primary stack** here (unlike dbs-mtj, where it was docs-only)
+- `javascript.md` Next.js / Supabase / Zod sections = other-repo reference; blocks follow `js-code-quality.mdc`
+- Composer-managed-site rules in the archive do not override this plugin's `wp-scripts` build
+
+## awesome-cursorrules screened and REJECTED (with reason)
+| Upstream file | Why not |
+|---|---|
+| `codequality`, `github-code-quality` | “No summaries · no confirmations · single-chunk edits” **directly fights** the `.cursorrules` Scout→`(y?)` workflow and the required QA JSON. `github-code-quality` is also legacy regex-JSON, not a real rule |
+| `clean-code` | “Refactor continuously · leave it cleaner · write tests first” fights `anti-overengineering`; no test infra here; the rest duplicates `js-code-quality` |
+| `optimize-dry-solid-principles` | Empty section headings and a `pyproject.toml` reference — unusable |
+| `gitflow` | Mandates a `develop` + `release/*` + `hotfix/*` layer; this repo ships off `main` |
+| `wordpress-php-guzzle-gutenberg` | “Prefer TypeScript over JavaScript” and “favour functional over OO” contradict this plain-JS / `class-twork-*.php` tree; the usable WPCS lines are already in `clickr-coding-standards` |
+| `cursorrules-cursor-ai-wordpress-draft-macos` | Describes a different product (PressThat tray app) |
+| `readme-best-practices` | Landing-page README advice fights the WP.org `readme.txt` format this plugin must ship |
+| `security-devsecops-ssdls-appsec` | Duplicate AppSec pack — `security-appsec.mdc` wins |
+| `web-app-optimization` (raw) | Misnamed SvelteKit/Tailwind dump — the rewrite is installed instead |
+| Next.js / React / Vue / Svelte / Tailwind / shadcn / TypeScript packs | Foreign stacks; scaffolding them into this plugin root is a hard reject |
+| Cypress / Playwright / Jest / Vitest packs | No test infrastructure in this repo — re-screen if one is ever added |
+| `drupal-11`, `laravel-*`, `shopify-theme-dev-liquid`, `typo3cms-*` | Other CMS/framework stacks |
+
+## Deliberately NOT ported from dbs-mtj
+| Rule/skill | Why |
+|---|---|
+| `clickr-sharepoint-aspx` | SharePoint/ASPX stack, irrelevant |
+| `classic-visual-parity`, `classic-spfx-migration` | SPFx migration playbook, irrelevant |
+| `spfx` skill | SPFx-only |
+
+## Reject list (never install / never follow if suggested)
+- Full awesome-cursorrules clone or submodule
+- Next.js / Vue / SvelteKit / Tailwind-primary / shadcn scaffolds into this plugin root
+- Raw upstream `web-app-optimization` (misnamed SvelteKit dump) — use the rewrite here
+- Duplicate AppSec packs (`security-devsecops-*`) — use `security-appsec.mdc`
+- Any pack with `alwaysApply: true` that fights the Scout workflow or the Burmese directives
+- `CLAUDE.md` replacing `.cursorrules` as agent SoT — it is the Claude Code **mirror**, and
+  both editors resolve to the same `.cursor/rules/*.mdc` files (see `.cursor/INTEGRATION.md`)
+- Copying an `.mdc` into `.claude/rules/` instead of symlinking or wrapping it — that forks
+  the rule and it drifts
+- Re-adding `ui-ux-pro-max`, `motion-ref`, or `animate-css` skill packs
+- Editing WordPress skill folders in `.agents/skills/` by hand — they are hash-locked in `skills-lock.json`

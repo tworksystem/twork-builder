@@ -1,0 +1,43 @@
+---
+description: WooCommerce-backed block rules — product queries, HPOS safety, graceful degradation when Woo is inactive
+alwaysApply: false
+globs: "includes/class-twork-shop-blocks.php, includes/class-twork-agrezer-shop-grid-section.php, includes/class-twork-ph-*-section.php, src/shop-*/**, src/product-*/**, src/ph-*-section/**, woocommerce-import/**"
+---
+
+# WooCommerce Blocks (adapted from awesome `wordpress-claude-stack`)
+
+Defers to `.cursorrules`, `security-appsec`, `anti-overengineering`, `js-code-quality`.
+Only the WooCommerce portion of the upstream pack is adopted — its theme, ACF, and generic-security sections are dropped as duplicates or non-applicable.
+
+## Plugin-inactive guard (this repo's existing contract)
+- WooCommerce is an **optional** dependency. Every Woo-backed render callback must keep returning the existing `twork_shop_woocommerce_missing()` style notice instead of fataling.
+- Never call a `wc_*` function or `WC()` at file scope or on `plugins_loaded` without a `class_exists('WooCommerce')` / `function_exists()` guard.
+- Editor preview must not fatal on a site without WooCommerce.
+
+## Product data
+- Use `wc_get_products()` / `wc_get_product()` — never a raw `WP_Query` on `post_type=product`, never `query_posts()`.
+- Read prices, stock, and ratings through the product object (`get_price_html()`, `get_average_rating()`), not post meta.
+- **HPOS-compatible only** — never read or write order data through `postmeta`. Use the CRUD API (`wc_get_order()`, `$order->get_*()` / `->set_*()` + `->save()`).
+- Cap `limit` on every product query; no unbounded `limit => -1` on a catalogue that grows.
+
+## Sorting / filtering / paging
+- `orderby`, `order`, `paged`, and category params from `$_GET` are **untrusted** — keep the existing allow-list resolver pattern (`twork_*_resolve_orderby`); never pass a raw GET value into query args.
+- Paginate server-side; keep the page-size cap in the block attributes, not in the URL.
+
+## Hooks over overrides
+- Extend through WooCommerce hooks and filters; never modify Woo core or copy a Woo template into this plugin.
+- When rendering Woo-owned UI (tabs, price html, rating), call the Woo callback rather than re-implementing its markup.
+
+## Output
+- Escape everything at output, including product titles and short descriptions (`esc_html`, `wp_kses_post` for description HTML).
+- Never expose customer, order, or cart data in a public block render.
+
+## Performance
+- No `wc_get_product()` inside a loop over IDs you already queried — batch with `wc_get_products(['include' => $ids])`.
+- Cache expensive catalogue aggregates in a transient with a named invalidation point; bust on `woocommerce_update_product`.
+
+## Reject
+- `declare(strict_types=1)` retrofits — this plugin targets PHP 7.4 and WordPress passes loose types through hooks
+- Cart, checkout, or payment logic in a page-builder block
+- Adding the WooCommerce Blocks / Store API as a dependency for a presentational grid
+- Direct SQL against `wp_wc_*` or `wp_posts` for product or order data

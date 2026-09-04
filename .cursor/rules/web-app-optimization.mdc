@@ -1,0 +1,44 @@
+---
+description: WordPress front-end Web Vitals + a11y for block output (rewritten — NOT the upstream SvelteKit pack)
+alwaysApply: false
+globs: "src/**/*.{js,jsx,scss,css}, includes/**/*.php, templates/**/*, assets/**/*, *.html"
+---
+
+# Web App Optimization (WordPress blocks · awesome-inspired)
+
+The upstream awesome file named `web-app-optimization` is a **SvelteKit/Tailwind dump** — do not follow it. This rule is the project rewrite.
+Defers to `.cursorrules` optimization_standards, `landing-page-image-quality`, `security-appsec`. Deeper queries/caching detail: `wp-performance` skill + `docs/standards/php-wordpress.md` §14.
+
+## Performance (Web Vitals)
+- **LCP:** prioritize hero/above-fold media; no blocking scripts before first paint; `fetchpriority="high"` on the hero image only
+- **CLS:** explicit `width`/`height` or `aspect-ratio` on every image, video, and slider slide; reserve space for tabs/accordions that hydrate
+- **INP:** keep click/tap handlers light; defer non-critical work; no layout thrash in scroll handlers
+- Enqueue per block (`block.json` `style` / `viewScript`) so a page only loads what it renders — never enqueue a block's assets site-wide
+- `loading="lazy"` below the fold; never on the LCP image
+- Every `wp_enqueue_*` needs a version string tied to `TWORK_BUILDER_VERSION`
+
+## Server side
+- No `WP_Query` inside a render loop; no `posts_per_page => -1` on a query that grows
+- Cache expensive render data in a transient with a deliberate TTL and a named invalidation point
+- Prefer `wp_get_attachment_image()` so `srcset`/`sizes` are generated
+
+## Markup & SEO
+- Semantic HTML5 landmarks; one `h1` per page; heading levels in order inside a block
+- Blocks that output headings should expose a heading-level control rather than hardcoding `h2`
+- Do not invent SSR/hydration patterns — use the Interactivity API (`wp-interactivity-api` skill) when a block needs front-end state
+
+## Accessibility
+- Semantic controls over div-click; keyboard reachability for tabs, accordions, filters, and modals
+- Visible focus; sufficient contrast; `aria-expanded` / `aria-controls` on disclosure UI
+- ARIA only when native semantics are insufficient
+- Informative images: specific `alt`; decorative: empty `alt`
+- Respect `prefers-reduced-motion` in any scroll/entrance animation
+
+## Responsive
+- One adapting stylesheet, not a separate mobile build; breakpoints factored in while building desktop
+- Do not remove or mutate existing responsive rules/utility classes when fixing a mobile view
+
+## Reject
+- SvelteKit · Tailwind-first · shadcn · Vite SPA scaffold “for performance”
+- Rewriting a whole `style.scss` for a local LCP tweak
+- Adding a new animation library (GSAP/Framer/AOS) when CSS or the in-tree approach works
