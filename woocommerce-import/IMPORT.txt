@@ -1,0 +1,14 @@
+WooCommerce Product Import — ရွှေမြန်မာ ထောပတ် (11 products)
+========================================================
+
+Images column = absolute Media URLs (shweghee.com, .jpg)
+
+1) CSV ဖိုင်: woocommerce-import/shwe-myanmar-htawpat.csv
+2) Products → Import → CSV ရွေး → Run the importer
+3) Image URL ဥပမာ:
+   https://shweghee.com/wp-content/uploads/2026/08/SM-HTAWPAT-01.jpg
+
+Note: Live Media မှာ SM-HTAWPAT-01..11.jpg တင်ပြီးသား ဖြစ်ရမယ်။
+Local folder images/*.png = source only (CSV မသုံး)။
+
+Products: 11 simple | SKU SM-HTAWPAT-01..11
