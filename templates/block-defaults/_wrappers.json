@@ -1,0 +1,887 @@
+{
+  "about-story-section": {
+    "tag": "section",
+    "className": "about-story",
+    "hasInner": false
+  },
+  "about-milestones-section": {
+    "tag": "section",
+    "className": "about-milestones about-story",
+    "hasInner": false
+  },
+  "accommodation-room-card": {
+    "tag": "div",
+    "className": "room-card fade-up",
+    "hasInner": false
+  },
+  "accreditation-cert-card": {
+    "tag": "div",
+    "className": "accreditation-cert-card",
+    "hasInner": false
+  },
+  "affiliation-logo-item": {
+    "tag": "div",
+    "className": "partner-logo-wrap",
+    "hasInner": false
+  },
+  "amb-fleet-card-item": {
+    "tag": "div",
+    "className": "amb-fleet-card mk-amb-fleet-card",
+    "hasInner": false
+  },
+  "amb-fleet-section": {
+    "tag": "section",
+    "className": "mk-amb-fleet-section amb-section amb-fleet-section",
+    "hasInner": true
+  },
+  "amb-map-section": {
+    "tag": "section",
+    "className": "mk-amb-map-section amb-section",
+    "hasInner": false
+  },
+  "amb-process-section": {
+    "tag": "section",
+    "className": "mk-amb-process-section amb-section amb-process-section",
+    "hasInner": true
+  },
+  "amb-process-step": {
+    "tag": "div",
+    "className": "amb-step mk-amb-process-step",
+    "hasInner": false
+  },
+  "amb-tech-item": {
+    "tag": "div",
+    "className": "amb-tech-item mk-amb-tech-item",
+    "hasInner": false
+  },
+  "amb-tech-section": {
+    "tag": "section",
+    "className": "mk-amb-tech-section amb-section amb-tech-section",
+    "hasInner": true
+  },
+  "awards-section": {
+    "tag": "div",
+    "className": "awards-section",
+    "hasInner": false
+  },
+  "back-to-top": {
+    "tag": "div",
+    "className": "back-to-top",
+    "hasInner": false
+  },
+  "before-you-come-item": {
+    "tag": "div",
+    "className": "before-you-come-item-card",
+    "hasInner": false
+  },
+  "benefit-item": {
+    "tag": "div",
+    "className": "benefit-card fade-up",
+    "hasInner": false
+  },
+  "blog-list-section": {
+    "tag": "section",
+    "className": "blog-list",
+    "hasInner": false
+  },
+  "booking-hero-section": {
+    "tag": "section",
+    "className": "mk-booking-hero-section page-hero",
+    "hasInner": false
+  },
+  "booking-info-card-item": {
+    "tag": "div",
+    "className": "info-card",
+    "hasInner": false
+  },
+  "booking-layout-section": {
+    "tag": "section",
+    "className": "mk-booking-layout-section jivaka-booking-module",
+    "hasInner": true
+  },
+  "brand-footer": {
+    "tag": "footer",
+    "className": "footer",
+    "hasInner": false
+  },
+  "brand-header": {
+    "tag": "header",
+    "className": "header",
+    "hasInner": true
+  },
+  "brand-nav-item": {
+    "tag": "a",
+    "className": "header__nav-link",
+    "hasInner": false
+  },
+  "brand-page-hero": {
+    "tag": "section",
+    "className": "page-hero",
+    "hasInner": false
+  },
+  "breadcrumb-nav": {
+    "tag": "nav",
+    "className": "breadcrumb",
+    "hasInner": false
+  },
+  "career-cta-section": {
+    "tag": "section",
+    "className": "mk-career-cta-section",
+    "hasInner": false
+  },
+  "careers-section": {
+    "tag": "section",
+    "className": "careers-section",
+    "hasInner": false
+  },
+  "category-card": {
+    "tag": "a",
+    "className": "product-categories__card",
+    "hasInner": false
+  },
+  "category-card-grid": {
+    "tag": "section",
+    "className": "product-categories",
+    "hasInner": true
+  },
+  "centre-condition-card": {
+    "tag": "div",
+    "className": "condition-card",
+    "hasInner": false
+  },
+  "centre-conditions-section": {
+    "tag": "section",
+    "className": "centre-conditions-section",
+    "hasInner": true
+  },
+  "centre-cta-section": {
+    "tag": "div",
+    "className": "centre-cta fade-up",
+    "hasInner": false
+  },
+  "centre-doctor-card": {
+    "tag": "div",
+    "className": "doctor-card-mini stagger-doc",
+    "hasInner": false
+  },
+  "centre-doctors-section": {
+    "tag": "div",
+    "className": "content-section fade-up",
+    "hasInner": true
+  },
+  "centre-faq-item": {
+    "tag": "div",
+    "className": "faq-item",
+    "hasInner": false
+  },
+  "centre-faq-section": {
+    "tag": "div",
+    "className": "content-section fade-up",
+    "hasInner": true
+  },
+  "centre-layout-section": {
+    "tag": "section",
+    "className": "mk-centre-layout-section section-padding",
+    "hasInner": true
+  },
+  "centre-overview-section": {
+    "tag": "div",
+    "className": "content-section fade-up",
+    "hasInner": false
+  },
+  "centre-specialist-card": {
+    "tag": "div",
+    "className": "doc-card",
+    "hasInner": false
+  },
+  "centre-specialists-section": {
+    "tag": "section",
+    "className": "centre-specialists-section",
+    "hasInner": true
+  },
+  "centre-technology-item": {
+    "tag": "div",
+    "className": "tech-item",
+    "hasInner": false
+  },
+  "centre-technology-section": {
+    "tag": "section",
+    "className": "centre-technology-section",
+    "hasInner": true
+  },
+  "centre-treatments-section": {
+    "tag": "div",
+    "className": "content-section fade-up",
+    "hasInner": true
+  },
+  "contact-form-section": {
+    "tag": "section",
+    "className": "contact-form",
+    "hasInner": false
+  },
+  "contact-layout-section": {
+    "tag": "section",
+    "className": "mk-contact-layout-section",
+    "hasInner": true
+  },
+  "csr-cta-section": {
+    "tag": "div",
+    "className": "mk-csr-cta-section csr-cta-section",
+    "hasInner": false
+  },
+  "csr-event-item": {
+    "tag": "div",
+    "className": "event-card stagger-event animate-on-scroll",
+    "hasInner": false
+  },
+  "csr-events-section": {
+    "tag": "section",
+    "className": "section-padding mk-csr-events-section",
+    "hasInner": true
+  },
+  "csr-initiatives-section": {
+    "tag": "div",
+    "className": "csr-initiatives-section",
+    "hasInner": false
+  },
+  "csr-moments-gallery-section": {
+    "tag": "section",
+    "className": "section-padding mk-csr-moments-gallery-section",
+    "hasInner": true
+  },
+  "csr-partner-logo-item": {
+    "tag": "div",
+    "className": "partner-logo-wrap csr-partner-logo-wrap",
+    "hasInner": false
+  },
+  "csr-partners-section": {
+    "tag": "section",
+    "className": "mk-csr-partners-section section-padding csr-partners-section",
+    "hasInner": true
+  },
+  "csr-stats-section": {
+    "tag": "div",
+    "className": "mk-csr-stats-section",
+    "hasInner": true
+  },
+  "dept-condition-item": {
+    "tag": "div",
+    "className": "condition-card",
+    "hasInner": false
+  },
+  "dept-conditions-section": {
+    "tag": "section",
+    "className": "content-section",
+    "hasInner": true
+  },
+  "dept-doc-card-item": {
+    "tag": "div",
+    "className": "doc-card",
+    "hasInner": false
+  },
+  "dept-faq-item": {
+    "tag": "div",
+    "className": "faq-item",
+    "hasInner": false
+  },
+  "dept-faq-section": {
+    "tag": "section",
+    "className": "content-section",
+    "hasInner": true
+  },
+  "dept-overview-section": {
+    "tag": "section",
+    "className": "content-section",
+    "hasInner": false
+  },
+  "dept-specialists-section": {
+    "tag": "section",
+    "className": "content-section",
+    "hasInner": true
+  },
+  "dept-tech-item": {
+    "tag": "div",
+    "className": "tech-item",
+    "hasInner": false
+  },
+  "dept-technology-section": {
+    "tag": "section",
+    "className": "content-section",
+    "hasInner": true
+  },
+  "doctor-card-item": {
+    "tag": "div",
+    "className": "doctor-card-item",
+    "hasInner": false
+  },
+  "doctor-directory-section": {
+    "tag": "section",
+    "className": "doctor-directory mk-doctor-directory-section",
+    "hasInner": true
+  },
+  "doctor-search-filter-section": {
+    "tag": "div",
+    "className": "mk-doctor-search-filter-section",
+    "hasInner": false
+  },
+  "em-amb-section": {
+    "tag": "img",
+    "className": "em-section mk-em-amb-section",
+    "hasInner": false
+  },
+  "em-doc-card": {
+    "tag": "div",
+    "className": "em-doc-card stagger-up",
+    "hasInner": false
+  },
+  "em-doc-section": {
+    "tag": "section",
+    "className": "em-section mk-em-doc-section",
+    "hasInner": true
+  },
+  "em-process-section": {
+    "tag": "section",
+    "className": "em-section mk-em-process-section",
+    "hasInner": true
+  },
+  "em-process-step": {
+    "tag": "div",
+    "className": "em-step stagger-up",
+    "hasInner": false
+  },
+  "em-stat-item": {
+    "tag": "div",
+    "className": "em-stat-item",
+    "hasInner": false
+  },
+  "em-stats-section": {
+    "tag": "div",
+    "className": "mk-em-stats-section",
+    "hasInner": true
+  },
+  "em-triage-card": {
+    "tag": "div",
+    "className": "em-triage-card",
+    "hasInner": false
+  },
+  "em-triage-section": {
+    "tag": "section",
+    "className": "em-section mk-em-triage-section",
+    "hasInner": true
+  },
+  "emergency-hero": {
+    "tag": "header",
+    "className": "em-hero page-hero page-hero-emergency",
+    "hasInner": false
+  },
+  "exclusive-service-item": {
+    "tag": "div",
+    "className": "svc-card stagger-card",
+    "hasInner": false
+  },
+  "faq-accordion-item": {
+    "tag": "div",
+    "className": "faq__item",
+    "hasInner": false
+  },
+  "faq-accordion-section": {
+    "tag": "section",
+    "className": "faq faq-accordion-section",
+    "hasInner": true
+  },
+  "feature-card": {
+    "tag": "div",
+    "className": "feature-card stagger-up",
+    "hasInner": false
+  },
+  "gallery-item": {
+    "tag": "div",
+    "className": "gallery-item fade-up",
+    "hasInner": false
+  },
+  "gm-service-item": {
+    "tag": "div",
+    "className": "jivaka-gm-service-card",
+    "hasInner": false
+  },
+  "hc-area-tag": {
+    "tag": "span",
+    "className": "hc-area-tag",
+    "hasInner": false
+  },
+  "hc-faq-item": {
+    "tag": "div",
+    "className": "hc-faq-item stagger-up",
+    "hasInner": false
+  },
+  "hc-intro-list-item": {
+    "tag": "li",
+    "className": "hc-check-list-item",
+    "hasInner": false
+  },
+  "hc-package-card": {
+    "tag": "div",
+    "className": "hc-pkg-card stagger-up",
+    "hasInner": false
+  },
+  "health-check-checklist-section": {
+    "tag": "section",
+    "className": "chk-section chk-checklist-section mk-health-check-checklist-section",
+    "hasInner": false
+  },
+  "health-check-compare-section": {
+    "tag": "section",
+    "className": "chk-section chk-compare-section mk-health-check-compare-section",
+    "hasInner": false
+  },
+  "health-check-cta-section": {
+    "tag": "div",
+    "className": "mk-health-check-cta-section",
+    "hasInner": false
+  },
+  "health-check-hero": {
+    "tag": "header",
+    "className": "chk-hero mk-health-check-hero",
+    "hasInner": false
+  },
+  "health-check-packages-section": {
+    "tag": "section",
+    "className": "chk-section mk-health-check-packages-section",
+    "hasInner": true
+  },
+  "health-check-step-item": {
+    "tag": "div",
+    "className": "chk-step-item stagger-up",
+    "hasInner": false
+  },
+  "health-check-steps-section": {
+    "tag": "section",
+    "className": "chk-section mk-health-check-steps-section",
+    "hasInner": true
+  },
+  "hero-banner-carousel": {
+    "tag": "section",
+    "className": "hero",
+    "hasInner": true
+  },
+  "hero-banner-slide": {
+    "tag": "article",
+    "className": "hero__slide",
+    "hasInner": false
+  },
+  "hotline-accordion-item": {
+    "tag": "div",
+    "className": "acc-item",
+    "hasInner": false
+  },
+  "image-card-carousel": {
+    "tag": "section",
+    "className": "services-carousel",
+    "hasInner": true
+  },
+  "image-card-slide": {
+    "tag": "article",
+    "className": "services-carousel__card",
+    "hasInner": false
+  },
+  "info-card-item": {
+    "tag": "span",
+    "className": "info-card animate-stagger",
+    "hasInner": false
+  },
+  "inquiry-form-section": {
+    "tag": "section",
+    "className": "mk-inquiry-form-section inquiry-form-block section-padding services-section",
+    "hasInner": false
+  },
+  "insurance-partner-item": {
+    "tag": "div",
+    "className": "insurance-card fade-up",
+    "hasInner": false
+  },
+  "jivaka-badge-item": {
+    "tag": "div",
+    "className": "jivaka-badge-item mk-jivaka-badge-item",
+    "hasInner": false
+  },
+  "jivaka-footer-section": {
+    "tag": "div",
+    "className": "jivaka-footer-section-block",
+    "hasInner": false
+  },
+  "jivaka-header-section": {
+    "tag": "div",
+    "className": "jivaka-header-section-block",
+    "hasInner": false
+  },
+  "jivaka-hero-section": {
+    "tag": "section",
+    "className": "jivaka-hero-section mk-jivaka-hero-section",
+    "hasInner": true
+  },
+  "job-card-item": {
+    "tag": "div",
+    "className": "job-card stagger-job",
+    "hasInner": false
+  },
+  "job-category-item": {
+    "tag": "div",
+    "className": "job-category",
+    "hasInner": true
+  },
+  "journey-step-item": {
+    "tag": "div",
+    "className": "step-card stagger-card",
+    "hasInner": false
+  },
+  "key-service-item": {
+    "tag": "div",
+    "className": "key-service-item animate-on-scroll mk-key-service-item",
+    "hasInner": false
+  },
+  "lab-dept-card": {
+    "tag": "div",
+    "className": "lab-dept-card",
+    "hasInner": false
+  },
+  "lab-depts-section": {
+    "tag": "section",
+    "className": "lab-section mk-lab-depts-section",
+    "hasInner": true
+  },
+  "lab-hero-section": {
+    "tag": "header",
+    "className": "lab-hero mk-lab-hero-section",
+    "hasInner": false
+  },
+  "lab-step-item": {
+    "tag": "div",
+    "className": "lab-step-row stagger-up",
+    "hasInner": false
+  },
+  "lab-steps-section": {
+    "tag": "section",
+    "className": "lab-section mk-lab-steps-section",
+    "hasInner": true
+  },
+  "lab-tech-item": {
+    "tag": "div",
+    "className": "lab-tech-row fade-up",
+    "hasInner": false
+  },
+  "lab-tech-section": {
+    "tag": "section",
+    "className": "lab-section mk-lab-tech-section",
+    "hasInner": true
+  },
+  "legal-content-section": {
+    "tag": "section",
+    "className": "legal-content",
+    "hasInner": false
+  },
+  "logo-showcase-item": {
+    "tag": "div",
+    "className": "partners__logo-cell",
+    "hasInner": false
+  },
+  "logo-showcase-section": {
+    "tag": "section",
+    "className": "partners",
+    "hasInner": true
+  },
+  "mission-vision-item": {
+    "tag": "img",
+    "className": "mk-mv-item",
+    "hasInner": false
+  },
+  "nearby-accommodation-item": {
+    "tag": "div",
+    "className": "hotel-card stagger-hotel",
+    "hasInner": false
+  },
+  "neuro-centre-section": {
+    "tag": "section",
+    "className": "mk-neuro-centre-section",
+    "hasInner": true
+  },
+  "news-card": {
+    "tag": "article",
+    "className": "blog-news__card",
+    "hasInner": false
+  },
+  "news-card-grid": {
+    "tag": "section",
+    "className": "blog-news",
+    "hasInner": true
+  },
+  "numbered-feature-item": {
+    "tag": "article",
+    "className": "why-choose-us__item",
+    "hasInner": false
+  },
+  "numbered-features-grid": {
+    "tag": "section",
+    "className": "why-choose-us",
+    "hasInner": true
+  },
+  "package-item": {
+    "tag": "div",
+    "className": "package-item",
+    "hasInner": false
+  },
+  "packages-section": {
+    "tag": "section",
+    "className": "packages-section",
+    "hasInner": true
+  },
+  "paediatrics-condition-card": {
+    "tag": "div",
+    "className": "paed-cond-card paed-stagger",
+    "hasInner": false
+  },
+  "page-hero": {
+    "tag": "header",
+    "className": "page-hero",
+    "hasInner": false
+  },
+  "page-not-found-section": {
+    "tag": "section",
+    "className": "page-not-found",
+    "hasInner": false
+  },
+  "ph-hero-section": {
+    "tag": "section",
+    "className": "ph-hero mk-ph-hero-section",
+    "hasInner": false
+  },
+  "ph-upload-section": {
+    "tag": "div",
+    "className": "mk-ph-upload-section",
+    "hasInner": false
+  },
+  "phy-journey-step": {
+    "tag": "div",
+    "className": "phy-journey-item",
+    "hasInner": false
+  },
+  "phy-stat-card": {
+    "tag": "div",
+    "className": "phy-stat-card stagger-up",
+    "hasInner": false
+  },
+  "phy-therapy-card": {
+    "tag": "div",
+    "className": "phy-service-card stagger-up",
+    "hasInner": false
+  },
+  "profile-hero": {
+    "tag": "div",
+    "className": "profile-hero",
+    "hasInner": false
+  },
+  "profile-tabs-section": {
+    "tag": "div",
+    "className": "profile-tabs-section",
+    "hasInner": false
+  },
+  "quality-section": {
+    "tag": "section",
+    "className": "quality-section",
+    "hasInner": false
+  },
+  "rad-diagnostic-tabs": {
+    "tag": "section",
+    "className": "rad-section mk-rad-diagnostic-tabs",
+    "hasInner": false
+  },
+  "rad-faq-item": {
+    "tag": "div",
+    "className": "rad-faq-item",
+    "hasInner": false
+  },
+  "rad-hero-section": {
+    "tag": "header",
+    "className": "rad-hero mk-rad-hero-section",
+    "hasInner": false
+  },
+  "rad-prep-faq-section": {
+    "tag": "section",
+    "className": "rad-section mk-rad-prep-faq-section",
+    "hasInner": true
+  },
+  "rad-process-section": {
+    "tag": "section",
+    "className": "rad-section mk-rad-process-section",
+    "hasInner": true
+  },
+  "rad-safety-card": {
+    "tag": "div",
+    "className": "rad-safety-card",
+    "hasInner": false
+  },
+  "rad-safety-section": {
+    "tag": "section",
+    "className": "rad-section mk-rad-safety-section",
+    "hasInner": true
+  },
+  "rad-stat-item": {
+    "tag": "div",
+    "className": "rad-stat-item",
+    "hasInner": false
+  },
+  "rad-stats-section": {
+    "tag": "section",
+    "className": "rad-section mk-rad-stats-section",
+    "hasInner": true
+  },
+  "rad-step-item": {
+    "tag": "div",
+    "className": "rad-step stagger-up",
+    "hasInner": false
+  },
+  "rad-tech-item": {
+    "tag": "div",
+    "className": "rad-tech-item",
+    "hasInner": false
+  },
+  "rad-tech-section": {
+    "tag": "section",
+    "className": "rad-section rad-tech-section mk-rad-tech-section",
+    "hasInner": true
+  },
+  "rad-why-item": {
+    "tag": "div",
+    "className": "rad-why-item stagger-up",
+    "hasInner": false
+  },
+  "rad-why-section": {
+    "tag": "section",
+    "className": "rad-section mk-rad-why-section",
+    "hasInner": true
+  },
+  "review-card": {
+    "tag": "article",
+    "className": "testimonials__card",
+    "hasInner": false
+  },
+  "review-carousel": {
+    "tag": "section",
+    "className": "testimonials",
+    "hasInner": true
+  },
+  "service-item": {
+    "tag": "div",
+    "className": "service-item",
+    "hasInner": false
+  },
+  "shop-header": {
+    "tag": "header",
+    "className": "shop-header",
+    "hasInner": false
+  },
+  "shop-hero-carousel": {
+    "tag": "section",
+    "className": "shop-hero",
+    "hasInner": false
+  },
+  "shop-sidebar": {
+    "tag": "aside",
+    "className": "shop-sidebar",
+    "hasInner": false
+  },
+  "shop-toolbar": {
+    "tag": "div",
+    "className": "shop-toolbar",
+    "hasInner": false
+  },
+  "split-promo-section": {
+    "tag": "section",
+    "className": "app-promo",
+    "hasInner": false
+  },
+  "stat-item": {
+    "tag": "div",
+    "className": "stat-item",
+    "hasInner": false
+  },
+  "story-item": {
+    "tag": "div",
+    "className": "story-item",
+    "hasInner": false
+  },
+  "subscribe-bar": {
+    "tag": "section",
+    "className": "newsletter",
+    "hasInner": false
+  },
+  "surgical-service-card": {
+    "tag": "div",
+    "className": "service-card stagger-up",
+    "hasInner": false
+  },
+  "team-member-item": {
+    "tag": "div",
+    "className": "team-member-card",
+    "hasInner": false
+  },
+  "tele-download-section": {
+    "tag": "section",
+    "className": "mk-tele-download-section section-padding",
+    "hasInner": true
+  },
+  "tele-process-card": {
+    "tag": "div",
+    "className": "mk-tele-process-card-wrapper",
+    "hasInner": false
+  },
+  "tele-process-section": {
+    "tag": "section",
+    "className": "mk-tele-process-section process-section",
+    "hasInner": true
+  },
+  "tele-specialty-item": {
+    "tag": "div",
+    "className": "mk-tele-specialty-item-wrapper",
+    "hasInner": false
+  },
+  "tele-specialty-section": {
+    "tag": "section",
+    "className": "mk-tele-specialty-section section-padding",
+    "hasInner": true
+  },
+  "testimonial-item": {
+    "tag": "div",
+    "className": "testimonial-card animate-on-scroll",
+    "hasInner": false
+  },
+  "timeline": {
+    "tag": "section",
+    "className": "timeline-section",
+    "hasInner": false
+  },
+  "timeline-item": {
+    "tag": "div",
+    "className": "timeline-item",
+    "hasInner": false
+  },
+  "visiting-hours-item": {
+    "tag": "div",
+    "className": "hours-row",
+    "hasInner": false
+  },
+  "visiting-info-section": {
+    "tag": "section",
+    "className": "mk-visiting-info-section section-padding info-section",
+    "hasInner": true
+  },
+  "where-to-buy-section": {
+    "tag": "section",
+    "className": "where-to-buy",
+    "hasInner": false
+  },
+  "wholesale-section": {
+    "tag": "section",
+    "className": "wholesale-section",
+    "hasInner": false
+  }
+}

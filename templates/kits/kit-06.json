@@ -1,0 +1,112 @@
+{
+  "id": 6,
+  "slug": "kit-06",
+  "label": "Emergency & Ambulance",
+  "description": "24/7 emergency department plus ambulance fleet, triage, units, and doctors — from hospital emergency reference pages.",
+  "pages": [
+    {
+      "title": "Emergency",
+      "slug": "emergency",
+      "is_front": true,
+      "blocks": [
+        {
+          "name": "twork/emergency-hero",
+          "attrs": {
+            "badgeText": "24/7 EMERGENCY",
+            "title": "Emergency Care When Every Second Counts",
+            "description": "Immediate triage, specialist teams, and coordinated ambulance response."
+          }
+        },
+        {
+          "name": "twork/em-stats-section"
+        },
+        {
+          "name": "twork/em-triage-section"
+        },
+        {
+          "name": "twork/em-process-section"
+        },
+        {
+          "name": "twork/em-units-section"
+        },
+        {
+          "name": "twork/em-doc-section"
+        },
+        {
+          "name": "twork/em-amb-section"
+        }
+      ]
+    },
+    {
+      "title": "Ambulance Service",
+      "slug": "ambulance-service",
+      "blocks": [
+        {
+          "name": "twork/emergency-hero",
+          "attrs": {
+            "badgeText": "AMBULANCE",
+            "title": "Advanced Ambulance Fleet",
+            "description": "Fully equipped vehicles, trained crews, and rapid dispatch across coverage zones."
+          }
+        },
+        {
+          "name": "twork/amb-fleet-section"
+        },
+        {
+          "name": "twork/amb-tech-section"
+        },
+        {
+          "name": "twork/amb-process-section"
+        },
+        {
+          "name": "twork/amb-map-section"
+        }
+      ]
+    },
+    {
+      "title": "Emergency Doctors",
+      "slug": "doctors",
+      "blocks": [
+        {
+          "name": "twork/page-hero",
+          "attrs": {
+            "titleText": "Emergency Doctors",
+            "breadcrumbText": "Emergency Doctors"
+          }
+        },
+        {
+          "name": "twork/em-doc-section"
+        },
+        {
+          "name": "twork/doctor-directory-section"
+        }
+      ]
+    },
+    {
+      "title": "Contact Emergency",
+      "slug": "contact",
+      "blocks": [
+        {
+          "name": "twork/page-hero",
+          "attrs": {
+            "titleText": "Contact & Emergency Hotline",
+            "breadcrumbText": "Contact Emergency"
+          }
+        },
+        {
+          "name": "twork/booking-layout-section",
+          "attrs": {
+            "infoTitle": "Need urgent help?",
+            "showEmergencyBox": true,
+            "emergencyTitle": "Emergency Hotline",
+            "emergencyText": "Call now for immediate assistance."
+          }
+        },
+        {
+          "name": "twork/contact-layout-section"
+        }
+      ]
+    }
+  ],
+  "preview": "assets/templates/kit-06.png"
+}

@@ -1,0 +1,162 @@
+{
+  "id": 2,
+  "slug": "kit-02",
+  "label": "Hospital Core",
+  "description": "Hospital homepage, doctors directory, packages, patient guide, and contact.",
+  "pages": [
+    {
+      "title": "Home",
+      "slug": "home",
+      "is_front": true,
+      "blocks": [
+        {
+          "name": "twork/page-hero",
+          "attrs": {
+            "titleText": "Hospital Home",
+            "breadcrumbText": "Home"
+          }
+        },
+        {
+          "name": "twork/updates-section"
+        },
+        {
+          "name": "twork/packages-section"
+        },
+        {
+          "name": "twork/doctor-directory-section"
+        }
+      ]
+    },
+    {
+      "title": "About",
+      "slug": "about",
+      "blocks": [
+        {
+          "name": "twork/page-hero",
+          "attrs": {
+            "titleText": "About the Hospital",
+            "breadcrumbText": "About"
+          }
+        },
+        {
+          "name": "twork/timeline"
+        },
+        {
+          "name": "twork/awards-section"
+        }
+      ]
+    },
+    {
+      "title": "Doctors",
+      "slug": "doctors",
+      "blocks": [
+        {
+          "name": "twork/page-hero",
+          "attrs": {
+            "titleText": "Our Doctors",
+            "breadcrumbText": "Doctors"
+          }
+        },
+        {
+          "name": "twork/doctor-search-filter-section"
+        },
+        {
+          "name": "twork/doctor-directory-section"
+        }
+      ]
+    },
+    {
+      "title": "Doctor Profile",
+      "slug": "doctor-profile",
+      "blocks": [
+        {
+          "name": "twork/profile-hero"
+        },
+        {
+          "name": "twork/profile-tabs-section"
+        }
+      ]
+    },
+    {
+      "title": "Packages",
+      "slug": "packages",
+      "blocks": [
+        {
+          "name": "twork/page-hero",
+          "attrs": {
+            "titleText": "Health Packages",
+            "breadcrumbText": "Packages"
+          }
+        },
+        {
+          "name": "twork/packages-section"
+        }
+      ]
+    },
+    {
+      "title": "Patient Guide",
+      "slug": "patient-guide",
+      "blocks": [
+        {
+          "name": "twork/page-hero",
+          "attrs": {
+            "titleText": "Patient Guide",
+            "breadcrumbText": "Patient Guide"
+          }
+        },
+        {
+          "name": "twork/visiting-info-section"
+        }
+      ]
+    },
+    {
+      "title": "Career",
+      "slug": "career",
+      "blocks": [
+        {
+          "name": "twork/page-hero",
+          "attrs": {
+            "titleText": "Careers",
+            "breadcrumbText": "Career"
+          }
+        },
+        {
+          "name": "twork/career-cta-section"
+        }
+      ]
+    },
+    {
+      "title": "Blog",
+      "slug": "blog",
+      "blocks": [
+        {
+          "name": "twork/page-hero",
+          "attrs": {
+            "titleText": "News & Blog",
+            "breadcrumbText": "Blog"
+          }
+        },
+        {
+          "name": "twork/blog-section"
+        }
+      ]
+    },
+    {
+      "title": "Contact",
+      "slug": "contact",
+      "blocks": [
+        {
+          "name": "twork/page-hero",
+          "attrs": {
+            "titleText": "Contact Us",
+            "breadcrumbText": "Contact"
+          }
+        },
+        {
+          "name": "twork/contact-layout-section"
+        }
+      ]
+    }
+  ],
+  "preview": "assets/templates/kit-02.png"
+}

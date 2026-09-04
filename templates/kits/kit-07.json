@@ -1,0 +1,99 @@
+{
+  "id": 7,
+  "slug": "kit-07",
+  "label": "Health Check-up",
+  "description": "Full health screening journey — hero, steps, packages, comparison, checklist, and CTA.",
+  "pages": [
+    {
+      "title": "Health Check-up",
+      "slug": "health-check-up",
+      "is_front": true,
+      "blocks": [
+        {
+          "name": "twork/health-check-hero",
+          "attrs": {
+            "badgeText": "PREVENTIVE CARE",
+            "title": "Comprehensive Health Check-up Packages",
+            "description": "Screen early, stay ahead — tailored packages for every life stage."
+          }
+        },
+        {
+          "name": "twork/health-check-steps-section"
+        },
+        {
+          "name": "twork/health-check-packages-section"
+        },
+        {
+          "name": "twork/health-check-compare-section"
+        },
+        {
+          "name": "twork/health-check-checklist-section"
+        },
+        {
+          "name": "twork/health-check-cta-section"
+        }
+      ]
+    },
+    {
+      "title": "Packages",
+      "slug": "packages",
+      "blocks": [
+        {
+          "name": "twork/page-hero",
+          "attrs": {
+            "titleText": "Health Packages",
+            "breadcrumbText": "Packages"
+          }
+        },
+        {
+          "name": "twork/packages-section"
+        },
+        {
+          "name": "twork/health-check-packages-section"
+        },
+        {
+          "name": "twork/health-check-cta-section"
+        }
+      ]
+    },
+    {
+      "title": "About Screening",
+      "slug": "about",
+      "blocks": [
+        {
+          "name": "twork/page-hero",
+          "attrs": {
+            "titleText": "How Our Screening Works",
+            "breadcrumbText": "About Screening"
+          }
+        },
+        {
+          "name": "twork/health-check-steps-section"
+        },
+        {
+          "name": "twork/health-check-checklist-section"
+        }
+      ]
+    },
+    {
+      "title": "Book a Check-up",
+      "slug": "contact",
+      "blocks": [
+        {
+          "name": "twork/page-hero",
+          "attrs": {
+            "titleText": "Book a Health Check-up",
+            "breadcrumbText": "Book a Check-up"
+          }
+        },
+        {
+          "name": "twork/inquiry-form-section"
+        },
+        {
+          "name": "twork/contact-layout-section"
+        }
+      ]
+    }
+  ],
+  "preview": "assets/templates/kit-07.png"
+}

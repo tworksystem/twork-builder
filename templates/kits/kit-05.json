@@ -1,0 +1,83 @@
+{
+  "id": 5,
+  "slug": "kit-05",
+  "label": "Specialty Centre",
+  "description": "Specialty centre landing (neuro) with overview, doctors, and FAQ treatments.",
+  "pages": [
+    {
+      "title": "Neuro Centre",
+      "slug": "neuro-centre",
+      "is_front": true,
+      "blocks": [
+        {
+          "name": "twork/page-hero",
+          "attrs": {
+            "titleText": "Neuro Centre",
+            "breadcrumbText": "Neuro Centre"
+          }
+        },
+        {
+          "name": "twork/neuro-centre-section"
+        },
+        {
+          "name": "twork/centre-overview-section"
+        },
+        {
+          "name": "twork/centre-layout-section"
+        }
+      ]
+    },
+    {
+      "title": "Doctors",
+      "slug": "doctors",
+      "blocks": [
+        {
+          "name": "twork/page-hero",
+          "attrs": {
+            "titleText": "Centre Doctors",
+            "breadcrumbText": "Doctors"
+          }
+        },
+        {
+          "name": "twork/doctor-directory-section"
+        }
+      ]
+    },
+    {
+      "title": "Contact",
+      "slug": "contact",
+      "blocks": [
+        {
+          "name": "twork/page-hero",
+          "attrs": {
+            "titleText": "Contact the Centre",
+            "breadcrumbText": "Contact"
+          }
+        },
+        {
+          "name": "twork/inquiry-form-section"
+        },
+        {
+          "name": "twork/contact-layout-section"
+        }
+      ]
+    },
+    {
+      "title": "About",
+      "slug": "about",
+      "blocks": [
+        {
+          "name": "twork/page-hero",
+          "attrs": {
+            "titleText": "About the Centre",
+            "breadcrumbText": "About"
+          }
+        },
+        {
+          "name": "twork/centre-overview-section"
+        }
+      ]
+    }
+  ],
+  "preview": "assets/templates/kit-05.png"
+}

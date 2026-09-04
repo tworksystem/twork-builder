@@ -1,0 +1,399 @@
+{
+  "id": 1,
+  "slug": "kit-01",
+  "label": "Brand / Retail",
+  "description": "Shweghee-style brand site: Home, Shop, Product, and inner pages with twork brand blocks.",
+  "pages": [
+    {
+      "title": "Home",
+      "slug": "home",
+      "is_front": true,
+      "blocks": [
+        {
+          "name": "twork/brand-header"
+        },
+        {
+          "name": "twork/hero-banner-carousel"
+        },
+        {
+          "name": "twork/image-card-carousel"
+        },
+        {
+          "name": "twork/numbered-features-grid"
+        },
+        {
+          "name": "twork/category-card-grid"
+        },
+        {
+          "name": "twork/logo-showcase-section"
+        },
+        {
+          "name": "twork/news-card-grid"
+        },
+        {
+          "name": "twork/review-carousel"
+        },
+        {
+          "name": "twork/split-promo-section"
+        },
+        {
+          "name": "twork/faq-accordion-section"
+        },
+        {
+          "name": "twork/subscribe-bar"
+        },
+        {
+          "name": "twork/brand-footer"
+        }
+      ]
+    },
+    {
+      "title": "About",
+      "slug": "about",
+      "blocks": [
+        {
+          "name": "twork/brand-header"
+        },
+        {
+          "name": "twork/breadcrumb-nav",
+          "attrs": {
+            "currentLabel": "About"
+          }
+        },
+        {
+          "name": "twork/brand-page-hero",
+          "attrs": {
+            "title": "About Us",
+            "eyebrow": "Our Story"
+          }
+        },
+        {
+          "name": "twork/about-story-section"
+        },
+        {
+          "name": "twork/brand-footer"
+        }
+      ]
+    },
+    {
+      "title": "Shop",
+      "slug": "shop",
+      "blocks": [
+        {
+          "name": "twork/shop-header"
+        },
+        {
+          "name": "twork/breadcrumb-nav",
+          "attrs": {
+            "currentLabel": "Shop"
+          }
+        },
+        {
+          "name": "twork/shop-hero-carousel"
+        },
+        {
+          "name": "twork/shop-sidebar"
+        },
+        {
+          "name": "twork/featured-categories-carousel"
+        },
+        {
+          "name": "twork/daily-offers-carousel"
+        },
+        {
+          "name": "twork/best-sellers-carousel"
+        },
+        {
+          "name": "twork/shop-toolbar"
+        },
+        {
+          "name": "twork/product-grid-section"
+        },
+        {
+          "name": "twork/brand-footer"
+        },
+        {
+          "name": "twork/back-to-top"
+        }
+      ]
+    },
+    {
+      "title": "Product",
+      "slug": "product",
+      "blocks": [
+        {
+          "name": "twork/shop-header"
+        },
+        {
+          "name": "twork/breadcrumb-nav",
+          "attrs": {
+            "currentLabel": "Product"
+          }
+        },
+        {
+          "name": "twork/product-detail-section"
+        },
+        {
+          "name": "twork/brand-footer"
+        }
+      ]
+    },
+    {
+      "title": "Contact",
+      "slug": "contact",
+      "blocks": [
+        {
+          "name": "twork/brand-header"
+        },
+        {
+          "name": "twork/breadcrumb-nav",
+          "attrs": {
+            "currentLabel": "Contact"
+          }
+        },
+        {
+          "name": "twork/brand-page-hero",
+          "attrs": {
+            "title": "Contact Us",
+            "eyebrow": "Get in touch"
+          }
+        },
+        {
+          "name": "twork/contact-form-section"
+        },
+        {
+          "name": "twork/brand-footer"
+        }
+      ]
+    },
+    {
+      "title": "Blog",
+      "slug": "blog",
+      "blocks": [
+        {
+          "name": "twork/brand-header"
+        },
+        {
+          "name": "twork/breadcrumb-nav",
+          "attrs": {
+            "currentLabel": "Blog"
+          }
+        },
+        {
+          "name": "twork/brand-page-hero",
+          "attrs": {
+            "title": "Blog",
+            "eyebrow": "News"
+          }
+        },
+        {
+          "name": "twork/blog-list-section"
+        },
+        {
+          "name": "twork/brand-footer"
+        }
+      ]
+    },
+    {
+      "title": "FAQ",
+      "slug": "faq",
+      "blocks": [
+        {
+          "name": "twork/brand-header"
+        },
+        {
+          "name": "twork/breadcrumb-nav",
+          "attrs": {
+            "currentLabel": "FAQ"
+          }
+        },
+        {
+          "name": "twork/brand-page-hero",
+          "attrs": {
+            "title": "FAQ",
+            "eyebrow": "Help"
+          }
+        },
+        {
+          "name": "twork/faq-accordion-section"
+        },
+        {
+          "name": "twork/brand-footer"
+        }
+      ]
+    },
+    {
+      "title": "Careers",
+      "slug": "careers",
+      "blocks": [
+        {
+          "name": "twork/brand-header"
+        },
+        {
+          "name": "twork/breadcrumb-nav",
+          "attrs": {
+            "currentLabel": "Careers"
+          }
+        },
+        {
+          "name": "twork/brand-page-hero",
+          "attrs": {
+            "title": "Careers",
+            "eyebrow": "Join us"
+          }
+        },
+        {
+          "name": "twork/careers-section"
+        },
+        {
+          "name": "twork/brand-footer"
+        }
+      ]
+    },
+    {
+      "title": "Wholesale",
+      "slug": "wholesale",
+      "blocks": [
+        {
+          "name": "twork/brand-header"
+        },
+        {
+          "name": "twork/breadcrumb-nav",
+          "attrs": {
+            "currentLabel": "Wholesale"
+          }
+        },
+        {
+          "name": "twork/brand-page-hero",
+          "attrs": {
+            "title": "Wholesale",
+            "eyebrow": "B2B"
+          }
+        },
+        {
+          "name": "twork/wholesale-section"
+        },
+        {
+          "name": "twork/brand-footer"
+        }
+      ]
+    },
+    {
+      "title": "Quality",
+      "slug": "quality",
+      "blocks": [
+        {
+          "name": "twork/brand-header"
+        },
+        {
+          "name": "twork/breadcrumb-nav",
+          "attrs": {
+            "currentLabel": "Quality"
+          }
+        },
+        {
+          "name": "twork/brand-page-hero",
+          "attrs": {
+            "title": "Quality",
+            "eyebrow": "Standards"
+          }
+        },
+        {
+          "name": "twork/quality-section"
+        },
+        {
+          "name": "twork/brand-footer"
+        }
+      ]
+    },
+    {
+      "title": "Where to Buy",
+      "slug": "where-to-buy",
+      "blocks": [
+        {
+          "name": "twork/brand-header"
+        },
+        {
+          "name": "twork/breadcrumb-nav",
+          "attrs": {
+            "currentLabel": "Where to Buy"
+          }
+        },
+        {
+          "name": "twork/brand-page-hero",
+          "attrs": {
+            "title": "Where to Buy",
+            "eyebrow": "Stores"
+          }
+        },
+        {
+          "name": "twork/where-to-buy-section"
+        },
+        {
+          "name": "twork/brand-footer"
+        }
+      ]
+    },
+    {
+      "title": "Privacy Policy",
+      "slug": "privacy",
+      "blocks": [
+        {
+          "name": "twork/brand-header"
+        },
+        {
+          "name": "twork/breadcrumb-nav",
+          "attrs": {
+            "currentLabel": "Privacy"
+          }
+        },
+        {
+          "name": "twork/legal-content-section",
+          "attrs": {
+            "title": "Privacy Policy"
+          }
+        },
+        {
+          "name": "twork/brand-footer"
+        }
+      ]
+    },
+    {
+      "title": "Accessibility",
+      "slug": "accessibility",
+      "blocks": [
+        {
+          "name": "twork/brand-header"
+        },
+        {
+          "name": "twork/breadcrumb-nav",
+          "attrs": {
+            "currentLabel": "Accessibility"
+          }
+        },
+        {
+          "name": "twork/legal-content-section",
+          "attrs": {
+            "title": "Accessibility"
+          }
+        },
+        {
+          "name": "twork/brand-footer"
+        }
+      ]
+    },
+    {
+      "title": "404",
+      "slug": "page-not-found",
+      "blocks": [
+        {
+          "name": "twork/page-not-found-section"
+        },
+        {
+          "name": "twork/brand-footer"
+        }
+      ]
+    }
+  ],
+  "preview": "assets/templates/kit-01.png"
+}
