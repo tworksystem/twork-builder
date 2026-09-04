@@ -1,0 +1,33 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"category": "twork-builder",
+	"textdomain": "twork-builder",
+	"name": "twork/logo-showcase-item",
+	"title": "Logo Showcase Item",
+	"parent": [ "twork/logo-showcase-section" ],
+	"description": "",
+	"keywords": [ "brand", "shweghee", "partners" ],
+	"attributes": {
+		"itemId": {
+			"type": "string",
+			"default": "logo_1"
+		},
+		"name": {
+			"type": "string",
+			"default": "Partner"
+		},
+		"imageUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"imageAlt": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"supports": {
+		"html": false
+	},
+	"editorScript": "file:./index.js"
+}

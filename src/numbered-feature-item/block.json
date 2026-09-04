@@ -1,0 +1,38 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"category": "twork-builder",
+	"textdomain": "twork-builder",
+	"name": "twork/numbered-feature-item",
+	"title": "Numbered Feature Item",
+	"parent": [ "twork/numbered-features-grid" ],
+	"description": "",
+	"keywords": [ "brand", "shweghee", "why-choose" ],
+	"attributes": {
+		"itemId": {
+			"type": "string",
+			"default": "why_1"
+		},
+		"number": {
+			"type": "string",
+			"default": "01"
+		},
+		"title": {
+			"type": "string",
+			"default": "Feature"
+		},
+		"text": {
+			"type": "string",
+			"default": ""
+		},
+		"icon": {
+			"type": "string",
+			"default": "cube",
+			"enum": [ "cube", "star", "truck", "tag", "cherry", "cert" ]
+		}
+	},
+	"supports": {
+		"html": false
+	},
+	"editorScript": "file:./index.js"
+}

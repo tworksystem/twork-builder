@@ -1,0 +1,23 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/subscribe-bar",
+	"title": "Subscribe Bar",
+	"category": "twork-builder",
+	"icon": "email",
+	"description": "Email newsletter strip with honeypot anti-spam.",
+	"keywords": [ "newsletter", "subscribe", "email", "shweghee" ],
+	"attributes": {
+		"title": {
+			"type": "string",
+			"default": "Stay updated on Shwe Myanmar products, promotions, and news."
+		},
+		"placeholder": { "type": "string", "default": "Your email address" },
+		"buttonLabel": { "type": "string", "default": "SUBSCRIBE" },
+		"honeypotName": { "type": "string", "default": "website" }
+	},
+	"supports": { "html": false, "align": [ "wide", "full" ] },
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./view.js"
+}

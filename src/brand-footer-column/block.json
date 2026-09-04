@@ -1,0 +1,34 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"category": "twork-builder",
+	"textdomain": "twork-builder",
+	"name": "twork/brand-footer-column",
+	"title": "Brand Footer Column",
+	"parent": [
+		"twork/brand-footer"
+	],
+	"description": "",
+	"keywords": [
+		"brand",
+		"shweghee"
+	],
+	"attributes": {
+		"itemId": {
+			"type": "string",
+			"default": "col_help"
+		},
+		"columnTitle": {
+			"type": "string",
+			"default": "Help & Info"
+		},
+		"linksJson": {
+			"type": "string",
+			"default": "[]"
+		}
+	},
+	"supports": {
+		"html": false
+	},
+	"editorScript": "file:./index.js"
+}

@@ -1,0 +1,41 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"category": "twork-builder",
+	"textdomain": "twork-builder",
+	"name": "twork/review-card",
+	"title": "Review Card",
+	"parent": [ "twork/review-carousel" ],
+	"description": "",
+	"keywords": [ "brand", "shweghee", "testimonials" ],
+	"attributes": {
+		"itemId": {
+			"type": "string",
+			"default": "t_1"
+		},
+		"text": {
+			"type": "string",
+			"default": ""
+		},
+		"name": {
+			"type": "string",
+			"default": ""
+		},
+		"location": {
+			"type": "string",
+			"default": ""
+		},
+		"avatarUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"avatarAlt": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"supports": {
+		"html": false
+	},
+	"editorScript": "file:./index.js"
+}

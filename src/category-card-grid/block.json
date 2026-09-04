@@ -1,0 +1,34 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"category": "twork-builder",
+	"textdomain": "twork-builder",
+	"name": "twork/category-card-grid",
+	"title": "Shwe Myanmar Main Products.",
+	"description": "",
+	"keywords": [ "brand", "shweghee", "products" ],
+	"attributes": {
+		"eyebrow": {
+			"type": "string",
+			"default": "OUR PRODUCT RANGE"
+		},
+		"title": {
+			"type": "string",
+			"default": "Shwe Myanmar Main Products."
+		},
+		"ctaLabel": {
+			"type": "string",
+			"default": "See all products"
+		},
+		"ctaHref": {
+			"type": "string",
+			"default": "/shop/"
+		}
+	},
+	"supports": {
+		"html": false,
+		"align": [ "wide", "full" ]
+	},
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
+}

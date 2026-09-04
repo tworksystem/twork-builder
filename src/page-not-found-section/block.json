@@ -1,0 +1,57 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"category": "twork-builder",
+	"textdomain": "twork-builder",
+	"name": "twork/page-not-found-section",
+	"title": "Page Not Found Section",
+	"description": "",
+	"keywords": [
+		"brand",
+		"shweghee",
+		"inner-page"
+	],
+	"attributes": {
+		"code": {
+			"type": "string",
+			"default": "404"
+		},
+		"title": {
+			"type": "string",
+			"default": "Oops! Page Not Found"
+		},
+		"text": {
+			"type": "string",
+			"default": "ဤစာမျက်နှာကို ရှာမတွေ့ပါ။ အောက်ပါ လင့်ခ်များမှ ဆက်လက်ရှာဖွေနိုင်ပါသည်။"
+		},
+		"links": {
+			"type": "array",
+			"default": [
+				{
+					"id": "home",
+					"label": "Go Home",
+					"href": "/"
+				},
+				{
+					"id": "shop",
+					"label": "Browse Shop",
+					"href": "/shop"
+				},
+				{
+					"id": "contact",
+					"label": "Contact Us",
+					"href": "/contact"
+				}
+			]
+		}
+	},
+	"supports": {
+		"html": false,
+		"align": [
+			"wide",
+			"full"
+		]
+	},
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
+}

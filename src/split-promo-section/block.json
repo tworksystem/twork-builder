@@ -1,0 +1,60 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/split-promo-section",
+	"title": "Contact Us For Orders & Wholesale.",
+	"category": "twork-builder",
+	"icon": "smartphone",
+	"description": "Split layout CTA with feature list and image.",
+	"keywords": [ "promo", "cta", "split", "shweghee", "wholesale" ],
+	"textdomain": "twork-builder",
+	"attributes": {
+		"eyebrow": {
+			"type": "string",
+			"default": "ORDER SHWE MYANMAR"
+		},
+		"title": {
+			"type": "string",
+			"default": "Contact Us For Orders & Wholesale."
+		},
+		"features": {
+			"type": "array",
+			"default": [
+				"Call our Mandalay hotline: 095-2-55122",
+				"Bulk orders available in 10 Viss packs",
+				"Nationwide distribution across Myanmar",
+				"Premium butter and ghee for home & business"
+			]
+		},
+		"primaryHref": {
+			"type": "string",
+			"default": "tel:095255122"
+		},
+		"primaryLabel": {
+			"type": "string",
+			"default": "Call 095-2-55122"
+		},
+		"secondaryHref": {
+			"type": "string",
+			"default": "tel:09592001227"
+		},
+		"secondaryLabel": {
+			"type": "string",
+			"default": "Call 095-9-200 1227"
+		},
+		"imageUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"imageAlt": {
+			"type": "string",
+			"default": "Shwe Myanmar butter products"
+		}
+	},
+	"supports": {
+		"html": false,
+		"align": [ "wide", "full" ]
+	},
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
+}

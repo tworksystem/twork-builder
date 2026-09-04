@@ -1,0 +1,41 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"category": "twork-builder",
+	"textdomain": "twork-builder",
+	"name": "twork/brand-page-hero",
+	"title": "Brand Page Hero",
+	"description": "",
+	"keywords": [
+		"brand",
+		"shweghee",
+		"inner-page"
+	],
+	"attributes": {
+		"eyebrow": {
+			"type": "string",
+			"default": "OUR STORY"
+		},
+		"title": {
+			"type": "string",
+			"default": "About Shwe Myanmar"
+		},
+		"subtitle": {
+			"type": "string",
+			"default": "Mandalay heritage, natural ingredients, and trusted quality."
+		},
+		"imageUrl": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"supports": {
+		"html": false,
+		"align": [
+			"wide",
+			"full"
+		]
+	},
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
+}

@@ -1,0 +1,30 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/shop-hero-carousel",
+	"title": "Shop Hero Carousel",
+	"category": "twork-builder",
+	"keywords": ["shop", "hero", "carousel"],
+	"attributes": {
+		"autoplayMs": { "type": "number", "default": 6000 },
+		"slides": {
+			"type": "array",
+			"default": [
+				{
+					"id": "slide_1",
+					"eyebrow": "SHWE MYANMAR SHOP",
+					"title": "Premium Butter & Ghee",
+					"highlight": "Natural Quality",
+					"subtitle": "Shop our full range of Shwe Myanmar products.",
+					"ctaLabel": "SHOP NOW",
+					"ctaHref": "#products",
+					"imageUrl": ""
+				}
+			]
+		}
+	},
+	"supports": { "html": false, "align": ["full", "wide"] },
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./view.js"
+}

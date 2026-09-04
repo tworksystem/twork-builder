@@ -1,0 +1,50 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"category": "twork-builder",
+	"textdomain": "twork-builder",
+	"name": "twork/hero-banner-slide",
+	"title": "Hero Banner Slide",
+	"parent": [
+		"twork/hero-banner-carousel"
+	],
+	"description": "",
+	"keywords": [
+		"brand",
+		"shweghee"
+	],
+	"attributes": {
+		"itemId": {
+			"type": "string",
+			"default": "slide_1"
+		},
+		"eyebrow": {
+			"type": "string",
+			"default": "SHWE MYANMAR"
+		},
+		"title": {
+			"type": "string",
+			"default": "Hero Title"
+		},
+		"subtitle": {
+			"type": "string",
+			"default": ""
+		},
+		"ctaLabel": {
+			"type": "string",
+			"default": "VIEW PRODUCTS"
+		},
+		"ctaHref": {
+			"type": "string",
+			"default": "#"
+		},
+		"imageUrl": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"supports": {
+		"html": false
+	},
+	"editorScript": "file:./index.js"
+}

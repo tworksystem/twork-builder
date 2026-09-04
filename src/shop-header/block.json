@@ -1,0 +1,45 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/shop-header",
+	"title": "Shop Header",
+	"category": "twork-builder",
+	"description": "E-commerce header with utility bar, search, cart and navigation.",
+	"keywords": ["shop", "header", "woocommerce", "shweghee"],
+	"attributes": {
+		"brandName": { "type": "string", "default": "Shwe Myanmar" },
+		"logoUrl": { "type": "string", "default": "" },
+		"homeUrl": { "type": "string", "default": "/" },
+		"searchPlaceholder": { "type": "string", "default": "Search butter, ghee, dairy..." },
+		"language": { "type": "string", "default": "English" },
+		"currency": { "type": "string", "default": "MMK" },
+		"cartTotal": { "type": "string", "default": "0 MMK" },
+		"recentLabel": { "type": "string", "default": "Recently Viewed" },
+		"utilityLinks": {
+			"type": "array",
+			"default": [
+				{ "id": "support", "label": "Customer Support", "href": "#footer" },
+				{ "id": "tracking", "label": "Order Inquiry", "href": "tel:095255122" }
+			]
+		},
+		"categories": {
+			"type": "array",
+			"default": [
+				{ "id": "all", "label": "All Categories" },
+				{ "id": "butter", "label": "Butter" },
+				{ "id": "ghee", "label": "Ghee" }
+			]
+		},
+		"menuItems": {
+			"type": "array",
+			"default": [
+				{ "id": "home", "label": "Home", "href": "/" },
+				{ "id": "shop", "label": "Shop", "href": "/shop" }
+			]
+		}
+	},
+	"supports": { "html": false, "align": ["full"] },
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./view.js"
+}

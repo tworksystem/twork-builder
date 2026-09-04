@@ -1,0 +1,60 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/brand-footer",
+	"title": "Brand Footer",
+	"category": "twork-builder",
+	"icon": "admin-site-alt3",
+	"description": "Multi-column footer with info cards, links and pasture image.",
+	"keywords": [ "footer", "brand", "shweghee" ],
+	"attributes": {
+		"brandPrefix": { "type": "string", "default": "Shwe" },
+		"brandSuffix": { "type": "string", "default": "Myanmar" },
+		"description": {
+			"type": "string",
+			"default": "Shwe Myanmar Foodstuff Industry — premium butter and ghee from Mandalay, Myanmar. Natural scent, natural taste (သဘာဝ အနံ့ သဘာဝ အရသာ)."
+		},
+		"copyright": {
+			"type": "string",
+			"default": "© 2026 Shwe Myanmar Foodstuff Industry. All rights reserved."
+		},
+		"pastureImageUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"pastureImageAlt": { "type": "string", "default": "Shwe Myanmar premium butter products" },
+		"infoCards": {
+			"type": "array",
+			"default": [
+				{ "id": "info_phone", "label": "CUSTOMER HOTLINE", "lines": [ "095-2-55122", "095-2-55123" ], "icon": "phone" },
+				{ "id": "info_address", "label": "OFFICE ADDRESS", "lines": [ "Shwe Myanmar Foodstuff Industry", "Mandalay, Myanmar" ], "icon": "pin" },
+				{ "id": "info_hours", "label": "BUSINESS HOURS", "lines": [ "08:00 - 17:00, MMT", "Monday - Saturday" ], "icon": "clock" }
+			]
+		},
+		"columns": {
+			"type": "array",
+			"default": [
+				{
+					"id": "col_help",
+					"title": "Help & Info",
+					"links": [
+						{ "id": "l1", "label": "About Us", "href": "/about" },
+						{ "id": "l2", "label": "Contact Us", "href": "/contact" },
+						{ "id": "l3", "label": "Our Products", "href": "/shop" }
+					]
+				},
+				{
+					"id": "col_corp",
+					"title": "Company",
+					"links": [
+						{ "id": "c1", "label": "Wholesale Orders", "href": "/wholesale" },
+						{ "id": "c2", "label": "Our Story", "href": "/about" }
+					]
+				}
+			]
+		}
+	},
+	"supports": { "html": false, "align": [ "full" ] },
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
+}

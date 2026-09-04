@@ -1,0 +1,38 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"category": "twork-builder",
+	"textdomain": "twork-builder",
+	"name": "twork/brand-footer-info-card",
+	"title": "Brand Footer Info Card",
+	"parent": [
+		"twork/brand-footer"
+	],
+	"description": "",
+	"keywords": [
+		"brand",
+		"shweghee"
+	],
+	"attributes": {
+		"itemId": {
+			"type": "string",
+			"default": "info_phone"
+		},
+		"label": {
+			"type": "string",
+			"default": "CUSTOMER HOTLINE"
+		},
+		"lines": {
+			"type": "string",
+			"default": "095-2-55122"
+		},
+		"icon": {
+			"type": "string",
+			"default": "phone"
+		}
+	},
+	"supports": {
+		"html": false
+	},
+	"editorScript": "file:./index.js"
+}

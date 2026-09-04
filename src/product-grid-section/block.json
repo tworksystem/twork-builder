@@ -1,0 +1,32 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"category": "twork-builder",
+	"textdomain": "twork-builder",
+	"name": "twork/product-grid-section",
+	"title": "Product Grid Section",
+	"keywords": [
+		"shop",
+		"woocommerce",
+		"shweghee"
+	],
+	"attributes": {
+		"columns": {
+			"type": "number",
+			"default": 4
+		},
+		"perPage": {
+			"type": "number",
+			"default": 12
+		}
+	},
+	"supports": {
+		"html": false,
+		"align": [
+			"wide",
+			"full"
+		]
+	},
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
+}

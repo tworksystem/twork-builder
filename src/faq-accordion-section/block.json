@@ -1,0 +1,45 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"category": "twork-builder",
+	"textdomain": "twork-builder",
+	"name": "twork/faq-accordion-section",
+	"title": "Frequently Asked Questions",
+	"description": "",
+	"keywords": [
+		"brand",
+		"shweghee"
+	],
+	"attributes": {
+		"eyebrow": {
+			"type": "string",
+			"default": "USEFUL INFORMATION"
+		},
+		"title": {
+			"type": "string",
+			"default": "Frequently Asked Questions"
+		},
+		"contactText": {
+			"type": "string",
+			"default": "Still have more questions?"
+		},
+		"contactLinkLabel": {
+			"type": "string",
+			"default": "Contact us"
+		},
+		"contactHref": {
+			"type": "string",
+			"default": "/contact"
+		}
+	},
+	"supports": {
+		"html": false,
+		"align": [
+			"wide",
+			"full"
+		]
+	},
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./view.js"
+}

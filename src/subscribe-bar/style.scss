@@ -1,0 +1,58 @@
+@import "../shared/brand-tokens";
+
+.newsletter__banner {
+	background: var(--color-brand-orange);
+	color: #fff;
+	padding-block: var(--space-6);
+}
+
+.newsletter__inner {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	gap: var(--space-5);
+}
+
+.newsletter__title {
+	font-size: var(--font-size-sm);
+	font-weight: 600;
+	margin: 0;
+	max-width: 420px;
+}
+
+.newsletter__form {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--space-3);
+	flex: 1;
+	justify-content: flex-end;
+	min-width: min(100%, 320px);
+}
+
+.newsletter__input {
+	flex: 1;
+	min-width: 200px;
+	padding: 0.75rem 1rem;
+	border: 0;
+	border-radius: var(--radius-md);
+	font-size: var(--font-size-sm);
+}
+
+.newsletter__feedback {
+	width: 100%;
+	font-size: var(--font-size-xs);
+	margin: var(--space-2) 0 0;
+}
+
+@media (max-width: 768px) {
+
+	.newsletter__inner {
+		flex-direction: column;
+		align-items: stretch;
+	}
+
+	.newsletter__form {
+		justify-content: stretch;
+	}
+}
