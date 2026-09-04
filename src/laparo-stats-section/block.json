@@ -1,0 +1,136 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/laparo-stats-section",
+	"version": "1.0.0",
+	"title": "Laparoscopy Stats Strip",
+	"category": "twork-builder",
+	"icon": "chart-bar",
+	"description": "Trust statistics strip with animated counters below the Laparoscopy hero.",
+	"keywords": [
+		"laparoscopy",
+		"stats",
+		"counter",
+		"trust",
+		"mk"
+	],
+	"attributes": {
+		"showSection": {
+			"type": "boolean",
+			"default": true
+		},
+		"backgroundColor": {
+			"type": "string",
+			"default": "#ffffff"
+		},
+		"borderColor": {
+			"type": "string",
+			"default": "#e0e0e0"
+		},
+		"paddingTop": {
+			"type": "number",
+			"default": 44
+		},
+		"paddingBottom": {
+			"type": "number",
+			"default": 44
+		},
+		"marginTop": {
+			"type": "number",
+			"default": -60
+		},
+		"containerMaxWidth": {
+			"type": "number",
+			"default": 1200
+		},
+		"containerPadding": {
+			"type": "number",
+			"default": 24
+		},
+		"columns": {
+			"type": "number",
+			"default": 4
+		},
+		"columnsTablet": {
+			"type": "number",
+			"default": 2
+		},
+		"columnsMobile": {
+			"type": "number",
+			"default": 1
+		},
+		"gap": {
+			"type": "number",
+			"default": 20
+		},
+		"cardRadius": {
+			"type": "number",
+			"default": 28
+		},
+		"enableCounterAnimation": {
+			"type": "boolean",
+			"default": true
+		},
+		"animationOnScroll": {
+			"type": "boolean",
+			"default": true
+		},
+		"respectReducedMotion": {
+			"type": "boolean",
+			"default": true
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"align": [
+			"wide",
+			"full"
+		]
+	},
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": {
+			"showSection": true,
+			"marginTop": -60,
+			"columns": 4,
+			"enableCounterAnimation": true
+		},
+		"innerBlocks": [
+			{
+				"name": "twork/laparo-stat-item",
+				"attributes": {
+					"countValue": 18500,
+					"countSuffix": "+",
+					"statLabel": "Procedures completed"
+				}
+			},
+			{
+				"name": "twork/laparo-stat-item",
+				"attributes": {
+					"countValue": 99,
+					"suffixHighlight": ".4%",
+					"statLabel": "Diagnostic accuracy"
+				}
+			},
+			{
+				"name": "twork/laparo-stat-item",
+				"attributes": {
+					"countValue": 12,
+					"statLabel": "Consultant surgeons"
+				}
+			},
+			{
+				"name": "twork/laparo-stat-item",
+				"attributes": {
+					"countValue": 30,
+					"suffixHighlight": " min",
+					"statLabel": "Average report time"
+				}
+			}
+		]
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
+}

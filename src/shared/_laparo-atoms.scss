@@ -1,0 +1,115 @@
+// Shared Laparoscopy page atoms (Wave 1 section roots)
+.twork-laparo-hero-section,
+.twork-laparo-stats-section,
+.twork-laparo-procedures-section,
+.twork-laparo-technology-section,
+.twork-laparo-cta-section {
+
+	.laparo-container {
+		width: 100%;
+		max-width: var(--laparo-container, 1200px);
+		margin: 0 auto;
+		padding: 0 24px;
+	}
+
+	.eyebrow {
+		display: inline-flex;
+		align-items: center;
+		gap: 9px;
+		font-family: Poppins, system-ui, sans-serif;
+		font-size: 0.74rem;
+		font-weight: 600;
+		letter-spacing: 0.16em;
+		text-transform: uppercase;
+		color: var(--laparo-primary-teal);
+		background: var(--laparo-primary-100);
+		border: 1px solid rgba(13, 148, 136, 0.38);
+		padding: 7px 16px;
+		border-radius: 100px;
+		margin-bottom: 18px;
+
+		i {
+			font-size: 0.8rem;
+		}
+	}
+
+	.section-head {
+		max-width: 640px;
+		margin: 0 auto clamp(42px, 5vw, 66px);
+		text-align: center;
+
+		p {
+			margin-top: 16px;
+			font-size: clamp(0.95rem, 1.05vw, 1.03rem);
+			color: var(--laparo-ink-500);
+		}
+	}
+
+	.btn {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		gap: 10px;
+		font-family: Poppins, system-ui, sans-serif;
+		font-weight: 600;
+		font-size: 0.95rem;
+		padding: 15px 30px;
+		border-radius: 100px;
+		border: 1.5px solid transparent;
+		cursor: pointer;
+		text-decoration: none;
+		transition:
+			transform 0.45s var(--laparo-ease-spring),
+			box-shadow 0.45s var(--laparo-ease-out),
+			background 0.3s,
+			color 0.3s,
+			border-color 0.3s;
+
+		i {
+			transition: transform 0.4s var(--laparo-ease-spring);
+		}
+
+		&:hover i {
+			transform: translateX(4px);
+		}
+	}
+
+	.btn-primary {
+		background: var(--laparo-primary);
+		color: #fff;
+		font-weight: 700;
+		letter-spacing: 0.01em;
+		box-shadow: 0 10px 22px -12px rgba(13, 148, 136, 0.55);
+
+		&:hover {
+			background: var(--laparo-primary-600);
+			box-shadow: 0 14px 28px -14px rgba(15, 118, 110, 0.65);
+		}
+	}
+
+	.btn-ghost {
+		border-color: var(--laparo-line-strong);
+		color: var(--laparo-ink);
+		background: var(--laparo-white);
+
+		&:hover {
+			border-color: var(--laparo-ink);
+			background: var(--laparo-ink);
+			color: #fff;
+		}
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+	.twork-laparo-hero-section,
+	.twork-laparo-stats-section,
+	.twork-laparo-procedures-section {
+
+		.aurora,
+		.scan-beam,
+		.float-card {
+			animation: none !important;
+		}
+	}
+}

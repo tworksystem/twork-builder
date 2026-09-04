@@ -1,0 +1,103 @@
+/**
+ * Laparoscopy Wave 1 blocks — editor-canvas only overrides.
+ * Imported from section `editor.scss` files. Never load on the front end.
+ */
+
+.editor-styles-wrapper,
+.block-editor-block-list__block {
+
+	/* Hero float cards: stack for editing (FE uses absolute + bob) */
+	.twork-laparo-hero-section .float-card.fc-1,
+	.twork-laparo-hero-section .float-card.fc-2,
+	.twork-laparo-hero-section .float-card.fc-3,
+	.twork-laparo-hero-section .wp-block-twork-laparo-hero-float-card .float-card {
+		position: relative !important;
+		left: auto !important;
+		right: auto !important;
+		top: auto !important;
+		bottom: auto !important;
+		margin: 12px 0 0;
+		animation: none !important;
+		max-width: 280px;
+	}
+
+	.twork-laparo-hero-section .block-editor-inner-blocks > .block-editor-block-list__layout {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 12px;
+		margin-top: 12px;
+	}
+
+	/* Stats strip: InnerBlocks layout must own the CSS grid */
+	.twork-laparo-stats-section .trust-card {
+
+		> .block-editor-inner-blocks {
+			display: block !important;
+			width: 100%;
+		}
+
+		&.block-editor-block-list__layout,
+		> .block-editor-inner-blocks > .block-editor-block-list__layout {
+			display: grid !important;
+			grid-template-columns: repeat(var(--laparo-stats-columns-desktop, 4), minmax(0, 1fr)) !important;
+			gap: var(--laparo-stats-gap, 20px) !important;
+			width: 100% !important;
+			align-items: center;
+		}
+
+		.wp-block-twork-laparo-stat-item,
+		[data-type="twork/laparo-stat-item"] {
+			text-align: center;
+			margin: 0 !important;
+		}
+	}
+
+	/* Procedures bento: InnerBlocks layout must own the 6-col grid */
+	.twork-laparo-procedures-section .bento {
+
+		> .block-editor-inner-blocks {
+			display: block !important;
+			width: 100%;
+		}
+
+		&.block-editor-block-list__layout,
+		> .block-editor-inner-blocks > .block-editor-block-list__layout {
+			display: grid !important;
+			grid-template-columns: repeat(6, minmax(0, 1fr)) !important;
+			gap: 22px !important;
+			width: 100% !important;
+		}
+
+		.wp-block-twork-laparo-procedure-item,
+		[data-type="twork/laparo-procedure-item"] {
+			margin: 0 !important;
+			max-width: none !important;
+			width: auto !important;
+			min-width: 0;
+		}
+
+		.wp-block-twork-laparo-procedure-item.p-card--wide,
+		[data-type="twork/laparo-procedure-item"]:has(.p-card--wide) {
+			grid-column: span 3;
+		}
+
+		.block-list-appender,
+		.block-editor-default-block-appender {
+			grid-column: 1 / -1;
+		}
+	}
+
+	/* Technology stage empty state */
+	.twork-laparo-technology-section .laparo-tech-stage-images:empty::after {
+		content: "Stage images sync from Technology Items";
+		position: absolute;
+		inset: 0;
+		display: grid;
+		place-items: center;
+		padding: 1rem;
+		color: rgba(255, 255, 255, 0.65);
+		font-size: 0.85rem;
+		text-align: center;
+		background: rgba(0, 0, 0, 0.35);
+	}
+}

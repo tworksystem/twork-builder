@@ -1,0 +1,97 @@
+@import "../shared/laparo-tokens";
+@import "../shared/laparo-atoms";
+
+.twork-laparo-stats-section {
+	position: relative;
+	z-index: 5;
+	margin-top: var(--laparo-stats-margin-top, -60px);
+
+	.trust-card,
+	.trust-card.reveal {
+		background: var(--laparo-white);
+		border: 1px solid var(--laparo-line);
+		border-radius: var(--laparo-stats-card-radius, var(--laparo-r-lg));
+		box-shadow: var(--laparo-sh-md);
+
+		/* SoT: laparoscopy.html .trust-card — all sides */
+		padding: clamp(28px, 3.4vw, 44px);
+		display: grid !important;
+		width: 100% !important;
+		grid-template-columns: repeat(var(--laparo-stats-columns-desktop, 4), minmax(0, 1fr)) !important;
+		gap: var(--laparo-stats-gap, 20px);
+		align-items: center;
+		opacity: 1;
+		transform: none;
+	}
+
+	.stat {
+		text-align: center;
+		position: relative;
+		max-width: none !important;
+		width: auto !important;
+		min-width: 0;
+		margin: 0 !important;
+		float: none !important;
+	}
+
+	.trust-card > .wp-block-twork-laparo-stat-item {
+		max-width: none !important;
+		width: auto !important;
+		min-width: 0;
+		margin: 0 !important;
+		float: none !important;
+	}
+
+	.stat + .stat::before {
+		content: "";
+		position: absolute;
+		left: -10px;
+		top: 10%;
+		height: 80%;
+		width: 1px;
+		background: var(--laparo-line);
+	}
+
+	.num {
+		font-family: Poppins, system-ui, sans-serif;
+		font-weight: 800;
+		font-size: clamp(1.8rem, 3vw, 2.6rem);
+		color: var(--laparo-ink);
+		letter-spacing: -0.04em;
+		line-height: 1;
+
+		em {
+			font-style: normal;
+			color: var(--laparo-primary);
+		}
+	}
+
+	.lbl {
+		display: block;
+		margin-top: 8px;
+		font-size: 0.82rem;
+		letter-spacing: 0.04em;
+		color: var(--laparo-medium-grey);
+	}
+}
+
+@media (max-width: 900px) {
+
+	.twork-laparo-stats-section .trust-card,
+	.twork-laparo-stats-section .trust-card.reveal {
+		grid-template-columns: repeat(var(--laparo-stats-columns-tablet, 2), minmax(0, 1fr)) !important;
+		gap: 28px 12px;
+	}
+
+	.twork-laparo-stats-section .stat + .stat::before {
+		display: none;
+	}
+}
+
+@media (max-width: 600px) {
+
+	.twork-laparo-stats-section .trust-card,
+	.twork-laparo-stats-section .trust-card.reveal {
+		grid-template-columns: repeat(var(--laparo-stats-columns-mobile, 1), minmax(0, 1fr)) !important;
+	}
+}

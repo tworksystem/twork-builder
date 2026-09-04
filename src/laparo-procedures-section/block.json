@@ -1,0 +1,146 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/laparo-procedures-section",
+	"version": "1.0.0",
+	"title": "Laparoscopy Procedures",
+	"category": "twork-builder",
+	"icon": "heart",
+	"description": "Bento grid of laparoscopy procedures with chips and book links.",
+	"keywords": [
+		"laparoscopy",
+		"procedures",
+		"bento",
+		"keyhole",
+		"mk"
+	],
+	"attributes": {
+		"showSection": {
+			"type": "boolean",
+			"default": true
+		},
+		"sectionId": {
+			"type": "string",
+			"default": "procedures"
+		},
+		"backgroundColor": {
+			"type": "string",
+			"default": "#f9f9f9"
+		},
+		"paddingTop": {
+			"type": "number",
+			"default": 100
+		},
+		"paddingBottom": {
+			"type": "number",
+			"default": 100
+		},
+		"containerMaxWidth": {
+			"type": "number",
+			"default": 1200
+		},
+		"containerPadding": {
+			"type": "number",
+			"default": 24
+		},
+		"showEyebrow": {
+			"type": "boolean",
+			"default": true
+		},
+		"eyebrowIcon": {
+			"type": "string",
+			"default": "fas fa-list-check"
+		},
+		"eyebrowIconType": {
+			"type": "string",
+			"default": "fontawesome"
+		},
+		"eyebrowIconDashicon": {
+			"type": "string",
+			"default": ""
+		},
+		"eyebrowIconImageUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"eyebrowIconImageId": {
+			"type": "number",
+			"default": 0
+		},
+		"eyebrowIconVideoUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"eyebrowIconVideoId": {
+			"type": "number",
+			"default": 0
+		},
+		"eyebrowText": {
+			"type": "string",
+			"default": "What we offer"
+		},
+		"showTitle": {
+			"type": "boolean",
+			"default": true
+		},
+		"title": {
+			"type": "string",
+			"default": "Diagnostic & therapeutic laparoscopy, under one roof"
+		},
+		"showSubtitle": {
+			"type": "boolean",
+			"default": true
+		},
+		"subtitle": {
+			"type": "string",
+			"default": "From routine gallbladder and hernia repair to diagnostic laparoscopy — every case is consultant-led in a modern modular theatre."
+		},
+		"animationOnScroll": {
+			"type": "boolean",
+			"default": true
+		},
+		"enableCardSpotlight": {
+			"type": "boolean",
+			"default": true
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"align": [
+			"wide",
+			"full"
+		]
+	},
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": {
+			"sectionId": "procedures",
+			"eyebrowText": "What we offer",
+			"title": "From routine gallbladder and hernia repair to diagnostic laparoscopy — every case is consultant-led in a modern modular theatre.",
+			"subtitle": "From routine gallbladder and hernia repair to diagnostic laparoscopy — every case is consultant-led in a modern modular theatre."
+		},
+		"innerBlocks": [
+			{
+				"name": "twork/laparo-procedure-item",
+				"attributes": {
+					"cardLayout": "wide",
+					"title": "Laparoscopic Cholecystectomy",
+					"description": "A slim, flexible camera examines the oesophagus, stomach and duodenum to investigate reflux, ulcers, difficulty swallowing and unexplained anaemia."
+				}
+			},
+			{
+				"name": "twork/laparo-procedure-item",
+				"attributes": {
+					"cardLayout": "wide",
+					"title": "Hernia Repair (TAPP/TEP)",
+					"description": "Minimally invasive keyhole procedure with smaller scars, less pain, and a faster return to daily life."
+				}
+			}
+		]
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}
