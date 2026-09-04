@@ -1,0 +1,35 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/endo-faq-item",
+	"version": "1.0.0",
+	"title": "Endoscopy FAQ Item",
+	"category": "twork-builder",
+	"parent": [ "twork/endo-faq-section" ],
+	"description": "Single FAQ accordion item for the Endoscopy FAQ section.",
+	"attributes": {
+		"showItem": { "type": "boolean", "default": true },
+		"showQuestion": { "type": "boolean", "default": true },
+		"question": {
+			"type": "string",
+			"default": "Does an endoscopy hurt?"
+		},
+		"showAnswer": { "type": "boolean", "default": true },
+		"answer": {
+			"type": "string",
+			"default": "Not usually. With sedation most patients remember nothing at all."
+		},
+		"showToggleIcon": { "type": "boolean", "default": true },
+		"toggleIconClass": { "type": "string", "default": "fas fa-plus" }
+	},
+	"supports": { "html": false },
+	"example": {
+		"attributes": {
+			"question": "Does an endoscopy hurt?",
+			"answer": "Not usually. With sedation most patients remember nothing at all."
+		}
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
+}

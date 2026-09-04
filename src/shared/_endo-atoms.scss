@@ -1,0 +1,119 @@
+// Shared Endoscopy page atoms (scoped under block roots)
+.twork-endo-hero-section,
+.twork-endo-stats-section,
+.twork-endo-procedures-section,
+.twork-endo-technology-section,
+.twork-endo-journey-section,
+.twork-endo-conditions-section,
+.twork-endo-prep-section,
+.twork-endo-team-section,
+.twork-endo-testimonials-section,
+.twork-endo-faq-section,
+.twork-endo-cta-section {
+
+	.endo-container {
+		width: 100%;
+		max-width: var(--endo-container, 1200px);
+		margin: 0 auto;
+		padding: 0 24px;
+	}
+
+	.eyebrow {
+		display: inline-flex;
+		align-items: center;
+		gap: 9px;
+		font-family: Poppins, system-ui, sans-serif;
+		font-size: 0.74rem;
+		font-weight: 600;
+		letter-spacing: 0.16em;
+		text-transform: uppercase;
+		color: var(--endo-primary-orange);
+		background: var(--endo-primary-100);
+		border: 1px solid rgba(244, 139, 42, 0.38);
+		padding: 7px 16px;
+		border-radius: 100px;
+		margin-bottom: 18px;
+
+		i {
+			font-size: 0.8rem;
+		}
+	}
+
+	.section-head {
+		max-width: 640px;
+		margin: 0 auto clamp(42px, 5vw, 66px);
+		text-align: center;
+
+		p {
+			margin-top: 16px;
+			font-size: clamp(0.95rem, 1.05vw, 1.03rem);
+			color: var(--endo-ink-500);
+		}
+	}
+
+	.btn {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		gap: 10px;
+		font-family: Poppins, system-ui, sans-serif;
+		font-weight: 600;
+		font-size: 0.95rem;
+		padding: 15px 30px;
+		border-radius: 100px;
+		border: 1.5px solid transparent;
+		cursor: pointer;
+		text-decoration: none;
+		transition:
+			transform 0.45s var(--endo-ease-spring),
+			box-shadow 0.45s var(--endo-ease-out),
+			background 0.3s,
+			color 0.3s,
+			border-color 0.3s;
+
+		i {
+			transition: transform 0.4s var(--endo-ease-spring);
+		}
+
+		&:hover i {
+			transform: translateX(4px);
+		}
+	}
+
+	.btn-primary {
+		background: var(--endo-primary);
+		color: #fff;
+		box-shadow: 0 14px 30px -12px rgba(244, 139, 42, 0.8);
+
+		&:hover {
+			background: var(--endo-primary-600);
+			box-shadow: 0 22px 42px -14px rgba(244, 139, 42, 0.9);
+		}
+	}
+
+	.btn-ghost {
+		border-color: var(--endo-line-strong);
+		color: var(--endo-ink);
+		background: var(--endo-white);
+
+		&:hover {
+			border-color: var(--endo-ink);
+			background: var(--endo-ink);
+			color: #fff;
+		}
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+	.twork-endo-hero-section,
+	.twork-endo-stats-section,
+	.twork-endo-procedures-section {
+
+		.aurora,
+		.scan-beam,
+		.float-card {
+			animation: none !important;
+		}
+	}
+}

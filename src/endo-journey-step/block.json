@@ -1,0 +1,85 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/endo-journey-step",
+	"version": "1.0.0",
+	"title": "Journey Step",
+	"category": "twork-builder",
+	"parent": [ "twork/endo-journey-section" ],
+	"description": "Single step in the Endoscopy patient journey timeline.",
+	"attributes": {
+		"showItem": {
+			"type": "boolean",
+			"default": true
+		},
+		"showIcon": {
+			"type": "boolean",
+			"default": true
+		},
+		"iconClass": {
+			"type": "string",
+			"default": "fas fa-calendar-check"
+		},
+		"iconType": {
+			"type": "string",
+			"default": "fontawesome"
+		},
+		"iconDashicon": {
+			"type": "string",
+			"default": ""
+		},
+		"iconImageUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"iconImageId": {
+			"type": "number",
+			"default": 0
+		},
+		"iconVideoUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"iconVideoId": {
+			"type": "number",
+			"default": 0
+		},
+		"showTime": {
+			"type": "boolean",
+			"default": true
+		},
+		"timeLabel": {
+			"type": "string",
+			"default": "Day −7"
+		},
+		"showTitle": {
+			"type": "boolean",
+			"default": true
+		},
+		"title": {
+			"type": "string",
+			"default": "Consultation"
+		},
+		"showDescription": {
+			"type": "boolean",
+			"default": true
+		},
+		"description": {
+			"type": "string",
+			"default": "Your consultant reviews symptoms, medication and confirms the right procedure for you."
+		}
+	},
+	"supports": {
+		"html": false
+	},
+	"example": {
+		"attributes": {
+			"timeLabel": "Day −7",
+			"title": "Consultation",
+			"iconClass": "fas fa-calendar-check"
+		}
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
+}

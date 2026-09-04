@@ -1,0 +1,63 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/endo-cta-section",
+	"version": "1.0.0",
+	"title": "Endoscopy CTA",
+	"category": "twork-builder",
+	"icon": "calendar",
+	"description": "Booking call-to-action panel for the Endoscopy page.",
+	"keywords": [ "endoscopy", "cta", "booking", "mk" ],
+	"attributes": {
+		"showSection": { "type": "boolean", "default": true },
+		"sectionId": { "type": "string", "default": "book" },
+		"backgroundColor": { "type": "string", "default": "#f9f9f9" },
+		"paddingTop": { "type": "number", "default": 0 },
+		"paddingBottom": { "type": "number", "default": 100 },
+		"containerMaxWidth": { "type": "number", "default": 1200 },
+		"containerPadding": { "type": "number", "default": 24 },
+		"showCtaWrap": { "type": "boolean", "default": true },
+		"showEyebrow": { "type": "boolean", "default": true },
+		"eyebrowIcon": { "type": "string", "default": "fas fa-calendar-check" },
+		"eyebrowIconType": { "type": "string", "default": "fontawesome" },
+		"eyebrowIconDashicon": { "type": "string", "default": "" },
+		"eyebrowIconImageUrl": { "type": "string", "default": "" },
+		"eyebrowIconImageId": { "type": "number", "default": 0 },
+		"eyebrowIconVideoUrl": { "type": "string", "default": "" },
+		"eyebrowIconVideoId": { "type": "number", "default": 0 },
+		"eyebrowText": { "type": "string", "default": "Booking" },
+		"showTitle": { "type": "boolean", "default": true },
+		"title": {
+			"type": "string",
+			"default": "Book your endoscopy in under two minutes"
+		},
+		"showSubtitle": { "type": "boolean", "default": true },
+		"subtitle": {
+			"type": "string",
+			"default": "Choose a morning slot, tell us your symptoms, and a nurse will call you the same day to confirm preparation and answer any questions."
+		},
+		"showPrimaryButton": { "type": "boolean", "default": true },
+		"primaryButtonText": { "type": "string", "default": "Call 01-234 5678" },
+		"primaryButtonUrl": { "type": "string", "default": "tel:012345678" },
+		"primaryButtonIcon": { "type": "string", "default": "fas fa-phone" },
+		"showPrimaryButtonIcon": { "type": "boolean", "default": true },
+		"showSecondaryButton": { "type": "boolean", "default": true },
+		"secondaryButtonText": {
+			"type": "string",
+			"default": "Request a callback"
+		},
+		"secondaryButtonUrl": { "type": "string", "default": "#" },
+		"secondaryButtonIcon": { "type": "string", "default": "fas fa-arrow-right" },
+		"showSecondaryButtonIcon": { "type": "boolean", "default": true },
+		"enableMagneticButtons": { "type": "boolean", "default": true },
+		"animationOnScroll": { "type": "boolean", "default": true }
+	},
+	"supports": { "html": false, "anchor": true, "align": [ "wide", "full" ] },
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": { "sectionId": "book", "title": "Book your endoscopy in under two minutes" }
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
+}

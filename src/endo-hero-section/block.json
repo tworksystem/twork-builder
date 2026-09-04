@@ -1,0 +1,235 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/endo-hero-section",
+	"version": "1.0.0",
+	"title": "Endoscopy Hero",
+	"category": "twork-builder",
+	"icon": "cover-image",
+	"description": "Endoscopy centre hero with aurora background, proof strip, hero image, and floating highlight cards.",
+	"keywords": [ "endoscopy", "hero", "gastroscopy", "colonoscopy", "mk" ],
+	"attributes": {
+		"showSection": {
+			"type": "boolean",
+			"default": true
+		},
+		"sectionId": {
+			"type": "string",
+			"default": "top"
+		},
+		"showAurora": {
+			"type": "boolean",
+			"default": true
+		},
+		"showEyebrow": {
+			"type": "boolean",
+			"default": true
+		},
+		"eyebrowIcon": {
+			"type": "string",
+			"default": "fas fa-microscope"
+		},
+		"eyebrowIconType": {
+			"type": "string",
+			"default": "fontawesome"
+		},
+		"eyebrowIconDashicon": {
+			"type": "string",
+			"default": ""
+		},
+		"eyebrowIconImageUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"eyebrowIconImageId": {
+			"type": "number",
+			"default": 0
+		},
+		"eyebrowIconVideoUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"eyebrowIconVideoId": {
+			"type": "number",
+			"default": 0
+		},
+		"eyebrowText": {
+			"type": "string",
+			"default": "Endoscopy Centre of Excellence"
+		},
+		"showTitle": {
+			"type": "boolean",
+			"default": true
+		},
+		"titleLine1": {
+			"type": "string",
+			"default": "See clearly."
+		},
+		"titleLine2": {
+			"type": "string",
+			"default": "Treat early."
+		},
+		"titleLine3": {
+			"type": "string",
+			"default": "Recover faster."
+		},
+		"titleLine3Highlight": {
+			"type": "boolean",
+			"default": true
+		},
+		"showLead": {
+			"type": "boolean",
+			"default": true
+		},
+		"leadText": {
+			"type": "string",
+			"default": "Day-case gastroscopy and colonoscopy with 4K ultra-HD imaging, consultant-led sedation and a written report in your hand within 30 minutes — no overnight stay required."
+		},
+		"showPrimaryCta": {
+			"type": "boolean",
+			"default": true
+		},
+		"primaryCtaText": {
+			"type": "string",
+			"default": "Book a Screening"
+		},
+		"primaryCtaUrl": {
+			"type": "string",
+			"default": "#book"
+		},
+		"showSecondaryCta": {
+			"type": "boolean",
+			"default": true
+		},
+		"secondaryCtaText": {
+			"type": "string",
+			"default": "Explore Procedures"
+		},
+		"secondaryCtaUrl": {
+			"type": "string",
+			"default": "#procedures"
+		},
+		"showProof": {
+			"type": "boolean",
+			"default": true
+		},
+		"proofAvatars": {
+			"type": "array",
+			"default": [
+				{ "url": "", "id": 0, "alt": "Patient", "showAvatar": true },
+				{ "url": "", "id": 0, "alt": "Patient", "showAvatar": true },
+				{ "url": "", "id": 0, "alt": "Patient", "showAvatar": true },
+				{ "url": "", "id": 0, "alt": "Patient", "showAvatar": true }
+			]
+		},
+		"proofRatingText": {
+			"type": "string",
+			"default": "4.9 / 5"
+		},
+		"proofSubtext": {
+			"type": "string",
+			"default": "from 2,100+ verified patient reviews"
+		},
+		"showStars": {
+			"type": "boolean",
+			"default": true
+		},
+		"showVisual": {
+			"type": "boolean",
+			"default": true
+		},
+		"heroImageUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"heroImageId": {
+			"type": "number"
+		},
+		"heroImageAlt": {
+			"type": "string",
+			"default": "Endoscopy suite at Jivaka Hospital"
+		},
+		"showScanBeam": {
+			"type": "boolean",
+			"default": true
+		},
+		"containerMaxWidth": {
+			"type": "number",
+			"default": 1200
+		},
+		"paddingTop": {
+			"type": "number",
+			"default": 80
+		},
+		"paddingBottom": {
+			"type": "number",
+			"default": 120
+		},
+		"animationOnScroll": {
+			"type": "boolean",
+			"default": true
+		},
+		"respectReducedMotion": {
+			"type": "boolean",
+			"default": true
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"align": [ "wide", "full" ]
+	},
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": {
+			"showSection": true,
+			"sectionId": "top",
+			"eyebrowText": "Endoscopy Centre of Excellence",
+			"titleLine1": "See clearly.",
+			"titleLine2": "Treat early.",
+			"titleLine3": "Recover faster.",
+			"leadText": "Day-case gastroscopy and colonoscopy with 4K ultra-HD imaging, consultant-led sedation and a written report in your hand within 30 minutes — no overnight stay required.",
+			"primaryCtaText": "Book a Screening",
+			"secondaryCtaText": "Explore Procedures",
+			"proofRatingText": "4.9 / 5",
+			"proofSubtext": "from 2,100+ verified patient reviews",
+			"heroImageUrl": "",
+			"heroImageAlt": "Endoscopy suite at Jivaka Hospital"
+		},
+		"innerBlocks": [
+			{
+				"name": "twork/endo-hero-float-card",
+				"attributes": {
+					"positionSlot": "fc-1",
+					"iconClass": "fas fa-bed-pulse",
+					"title": "Painless",
+					"subtitle": "Sedation by consultants"
+				}
+			},
+			{
+				"name": "twork/endo-hero-float-card",
+				"attributes": {
+					"positionSlot": "fc-2",
+					"iconClass": "fas fa-file-waveform",
+					"iconBgColor": "#f8f9fa",
+					"iconColor": "#212121",
+					"title": "30 min",
+					"subtitle": "Report turnaround"
+				}
+			},
+			{
+				"name": "twork/endo-hero-float-card",
+				"attributes": {
+					"positionSlot": "fc-3",
+					"iconClass": "fas fa-shield-heart",
+					"title": "Same day",
+					"subtitle": "Home in 2 hours"
+				}
+			}
+		]
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css",
+	"editorStyle": "file:./style-index.css"
+}

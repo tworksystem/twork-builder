@@ -1,0 +1,44 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/endo-prep-group",
+	"version": "1.0.0",
+	"title": "Prep Checklist Group",
+	"category": "twork-builder",
+	"parent": [ "twork/endo-prep-tab" ],
+	"description": "Checklist group card inside a preparation tab.",
+	"attributes": {
+		"showGroup": { "type": "boolean", "default": true },
+		"showTitle": { "type": "boolean", "default": true },
+		"groupTitle": { "type": "string", "default": "7 days before" },
+		"showIcon": { "type": "boolean", "default": true },
+		"iconClass": { "type": "string", "default": "fas fa-calendar-day" },
+		"iconType": { "type": "string", "default": "fontawesome" },
+		"iconDashicon": { "type": "string", "default": "" },
+		"iconImageUrl": { "type": "string", "default": "" },
+		"iconImageId": { "type": "number", "default": 0 },
+		"iconVideoUrl": { "type": "string", "default": "" },
+		"iconVideoId": { "type": "number", "default": 0 },
+		"variant": { "type": "string", "default": "default" },
+		"items": {
+			"type": "array",
+			"default": [
+				{
+					"showItem": true,
+					"text": "Tell us about blood thinners, insulin or iron tablets — some must be paused.",
+					"listStyle": "check"
+				}
+			]
+		}
+	},
+	"supports": { "html": false },
+	"example": {
+		"attributes": {
+			"groupTitle": "7 days before",
+			"iconClass": "fas fa-calendar-day"
+		}
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
+}

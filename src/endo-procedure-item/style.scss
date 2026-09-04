@@ -1,0 +1,143 @@
+@import "../shared/endo-tokens";
+
+.wp-block-twork-endo-procedure-item {
+	position: relative;
+	grid-column: span 2;
+	background: var(--endo-white);
+	border: 1px solid var(--endo-line);
+	border-radius: var(--endo-r-lg);
+	padding: 34px 30px;
+	overflow: hidden;
+	transition:
+		transform 0.5s var(--endo-ease-spring),
+		box-shadow 0.5s var(--endo-ease-out),
+		border-color 0.4s;
+
+	&::before {
+		content: "";
+		position: absolute;
+		inset: 0;
+		background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 0%), rgba(244, 139, 42, 0.14), transparent 62%);
+		opacity: 0;
+		transition: opacity 0.45s;
+		pointer-events: none;
+	}
+
+	&:hover {
+		transform: translateY(-8px);
+		box-shadow: var(--endo-sh-md);
+		border-color: rgba(244, 139, 42, 0.45);
+	}
+
+	&:hover::before {
+		opacity: 1;
+	}
+
+	> * {
+		position: relative;
+		z-index: 1;
+	}
+
+	&.p-card--wide {
+		grid-column: span 3;
+	}
+
+	.p-icon {
+		width: 58px;
+		height: 58px;
+		border-radius: 18px;
+		display: grid;
+		place-items: center;
+		font-size: 1.4rem;
+		margin-bottom: 22px;
+		background: var(--endo-primary-100);
+		color: var(--endo-primary-orange);
+		transition: transform 0.5s var(--endo-ease-spring);
+	}
+
+	&:hover .p-icon {
+		transform: rotate(-8deg) scale(1.08);
+	}
+
+	h3 {
+		font-family: Poppins, system-ui, sans-serif;
+		font-size: clamp(1.15rem, 1.6vw, 1.4rem);
+		font-weight: 700;
+		margin-bottom: 10px;
+		color: var(--endo-ink);
+	}
+
+	p {
+		font-size: 0.93rem;
+		color: var(--endo-ink-500);
+	}
+
+	.p-meta {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 8px;
+		margin-top: 20px;
+	}
+
+	.chip {
+		font-size: 0.75rem;
+		font-family: Poppins, system-ui, sans-serif;
+		font-weight: 500;
+		padding: 6px 13px;
+		border-radius: 100px;
+		background: var(--endo-bg);
+		border: 1px solid var(--endo-line);
+		color: var(--endo-ink-500);
+
+		i {
+			color: var(--endo-accent);
+			margin-right: 5px;
+		}
+	}
+
+	.p-link {
+		display: inline-flex;
+		align-items: center;
+		gap: 8px;
+		margin-top: 22px;
+		font-family: Poppins, system-ui, sans-serif;
+		font-weight: 600;
+		font-size: 0.88rem;
+		color: var(--endo-primary-orange);
+		text-decoration: none;
+
+		i {
+			transition: transform 0.4s var(--endo-ease-spring);
+		}
+
+		&:hover i {
+			transform: translateX(5px);
+		}
+	}
+}
+
+.twork-endo-procedures-section .bento {
+
+	.wp-block-twork-endo-procedure-item.p-card--wide {
+		grid-column: span 3;
+	}
+}
+
+@media (max-width: 900px) {
+
+	.wp-block-twork-endo-procedure-item,
+	.twork-endo-procedures-section .bento .wp-block-twork-endo-procedure-item.p-card--wide {
+		grid-column: span 1;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+	.wp-block-twork-endo-procedure-item {
+		transition: none;
+
+		&:hover {
+			transform: none;
+		}
+	}
+}

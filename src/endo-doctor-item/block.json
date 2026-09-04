@@ -1,0 +1,45 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/endo-doctor-item",
+	"version": "1.0.0",
+	"title": "Endoscopy Doctor Card",
+	"category": "twork-builder",
+	"parent": [ "twork/endo-team-section" ],
+	"description": "Specialist doctor card for the Endoscopy team section.",
+	"attributes": {
+		"showItem": { "type": "boolean", "default": true },
+		"showPhoto": { "type": "boolean", "default": true },
+		"imageUrl": { "type": "string", "default": "" },
+		"imageId": { "type": "number" },
+		"imageAlt": { "type": "string", "default": "" },
+		"showTag": { "type": "boolean", "default": true },
+		"tagText": { "type": "string", "default": "Upper GI" },
+		"showSocial": { "type": "boolean", "default": true },
+		"showBookLink": { "type": "boolean", "default": true },
+		"bookUrl": { "type": "string", "default": "#book" },
+		"bookAriaLabel": { "type": "string", "default": "Book" },
+		"showProfileLink": { "type": "boolean", "default": true },
+		"profileUrl": { "type": "string", "default": "#" },
+		"profileAriaLabel": { "type": "string", "default": "Profile" },
+		"showName": { "type": "boolean", "default": true },
+		"name": { "type": "string", "default": "Dr. Aung Kyaw Moe" },
+		"showRole": { "type": "boolean", "default": true },
+		"role": { "type": "string", "default": "Consultant Gastroenterologist" },
+		"showExperience": { "type": "boolean", "default": true },
+		"experienceText": { "type": "string", "default": "18 yrs" },
+		"showLanguages": { "type": "boolean", "default": true },
+		"languagesText": { "type": "string", "default": "MM / EN" }
+	},
+	"supports": { "html": false },
+	"example": {
+		"attributes": {
+			"name": "Dr. Aung Kyaw Moe",
+			"role": "Consultant Gastroenterologist",
+			"tagText": "Upper GI"
+		}
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
+}

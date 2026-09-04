@@ -1,0 +1,127 @@
+@import "../shared/endo-tokens";
+@import "../shared/endo-atoms";
+
+.twork-endo-faq-section {
+
+	h2 {
+		font-family: Poppins, system-ui, sans-serif;
+		font-size: clamp(1.9rem, 3.4vw, 2.85rem);
+		font-weight: 700;
+		line-height: 1.14;
+		color: var(--endo-ink);
+	}
+
+	.faq-intro {
+		margin-top: 16px;
+		color: var(--endo-ink-500);
+	}
+
+	.faq-aside-btn {
+		margin-top: 26px;
+	}
+
+	.faq-layout {
+		display: grid;
+		grid-template-columns: 0.8fr 1.2fr;
+		gap: clamp(36px, 4vw, 70px);
+		align-items: start;
+	}
+
+	.faq-aside {
+		position: sticky;
+		top: 110px;
+	}
+
+	.faq-list {
+		display: flex;
+		flex-direction: column;
+		gap: 12px;
+	}
+
+	.faq {
+		background: var(--endo-white);
+		border: 1px solid var(--endo-line);
+		border-radius: var(--endo-r-md);
+		overflow: hidden;
+		transition:
+			border-color 0.4s,
+			box-shadow 0.4s;
+	}
+
+	.faq.is-open {
+		border-color: rgba(244, 139, 42, 0.4);
+		box-shadow: var(--endo-sh-sm);
+	}
+
+	.faq-q {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 18px;
+		text-align: left;
+		background: none;
+		border: 0;
+		cursor: pointer;
+		padding: 22px 24px;
+		font-family: Poppins, system-ui, sans-serif;
+		font-size: 1rem;
+		font-weight: 600;
+		color: var(--endo-ink);
+	}
+
+	.faq-q i {
+		flex-shrink: 0;
+		width: 30px;
+		height: 30px;
+		border-radius: 50%;
+		display: grid;
+		place-items: center;
+		font-size: 0.75rem;
+		background: var(--endo-bg);
+		color: var(--endo-primary-orange);
+		transition:
+			transform 0.45s var(--endo-ease-spring),
+			background 0.35s,
+			color 0.35s;
+	}
+
+	.faq.is-open .faq-q i {
+		transform: rotate(135deg);
+		background: var(--endo-primary);
+		color: #fff;
+	}
+
+	.faq-a {
+		height: 0;
+		overflow: hidden;
+		transition: height 0.4s ease;
+	}
+
+	.faq-a-inner {
+		padding: 0 24px 24px;
+		font-size: 0.93rem;
+		color: var(--endo-ink-700);
+	}
+}
+
+@media (max-width: 900px) {
+
+	.twork-endo-faq-section {
+
+		.faq-layout {
+			grid-template-columns: 1fr;
+		}
+
+		.faq-aside {
+			position: static;
+		}
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+	.twork-endo-faq-section .faq-a {
+		transition: none;
+	}
+}

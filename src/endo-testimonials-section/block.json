@@ -1,0 +1,49 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/endo-testimonials-section",
+	"version": "1.0.0",
+	"title": "Endoscopy Testimonials",
+	"category": "twork-builder",
+	"icon": "format-quote",
+	"description": "Scrolling patient quote marquee for the Endoscopy page.",
+	"keywords": [ "endoscopy", "testimonials", "quotes", "mk" ],
+	"attributes": {
+		"showSection": { "type": "boolean", "default": true },
+		"sectionId": { "type": "string", "default": "testimonials" },
+		"backgroundColor": { "type": "string", "default": "#ffffff" },
+		"paddingTop": { "type": "number", "default": 100 },
+		"paddingBottom": { "type": "number", "default": 100 },
+		"containerMaxWidth": { "type": "number", "default": 1200 },
+		"containerPadding": { "type": "number", "default": 24 },
+		"showEyebrow": { "type": "boolean", "default": true },
+		"eyebrowIcon": { "type": "string", "default": "fas fa-comment-medical" },
+		"eyebrowIconType": { "type": "string", "default": "fontawesome" },
+		"eyebrowIconDashicon": { "type": "string", "default": "" },
+		"eyebrowIconImageUrl": { "type": "string", "default": "" },
+		"eyebrowIconImageId": { "type": "number", "default": 0 },
+		"eyebrowIconVideoUrl": { "type": "string", "default": "" },
+		"eyebrowIconVideoId": { "type": "number", "default": 0 },
+		"eyebrowText": { "type": "string", "default": "Patient stories" },
+		"showTitle": { "type": "boolean", "default": true },
+		"title": { "type": "string", "default": "“I was worried for nothing”" },
+		"showSubtitle": { "type": "boolean", "default": true },
+		"subtitle": {
+			"type": "string",
+			"default": "The words patients use most often after their first endoscopy: quick, gentle, and far easier than expected."
+		},
+		"showMarquee": { "type": "boolean", "default": true },
+		"enableMarquee": { "type": "boolean", "default": true },
+		"duplicateForLoop": { "type": "boolean", "default": true },
+		"animationOnScroll": { "type": "boolean", "default": true }
+	},
+	"supports": { "html": false, "anchor": true, "align": [ "wide", "full" ] },
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": { "title": "“I was worried for nothing”" }
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

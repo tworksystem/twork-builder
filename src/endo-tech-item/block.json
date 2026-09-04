@@ -1,0 +1,77 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/endo-tech-item",
+	"version": "1.0.0",
+	"title": "Technology Item",
+	"category": "twork-builder",
+	"parent": [ "twork/endo-technology-section" ],
+	"description": "Technology list item with stage image for the Endoscopy technology section.",
+	"attributes": {
+		"showItem": {
+			"type": "boolean",
+			"default": true
+		},
+		"stageIndex": {
+			"type": "number",
+			"default": 0
+		},
+		"hudLabel": {
+			"type": "string",
+			"default": "4K Ultra-HD Imaging"
+		},
+		"showImage": {
+			"type": "boolean",
+			"default": true
+		},
+		"imageUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"imageId": {
+			"type": "number"
+		},
+		"imageAlt": {
+			"type": "string",
+			"default": ""
+		},
+		"showNumber": {
+			"type": "boolean",
+			"default": true
+		},
+		"itemNumber": {
+			"type": "string",
+			"default": "01"
+		},
+		"showTitle": {
+			"type": "boolean",
+			"default": true
+		},
+		"title": {
+			"type": "string",
+			"default": "4K Ultra-HD & Narrow-Band Imaging"
+		},
+		"showDescription": {
+			"type": "boolean",
+			"default": true
+		},
+		"description": {
+			"type": "string",
+			"default": "Olympus EVIS X1 towers render mucosal detail at four times full-HD resolution."
+		}
+	},
+	"supports": {
+		"html": false
+	},
+	"example": {
+		"attributes": {
+			"stageIndex": 0,
+			"hudLabel": "4K Ultra-HD Imaging",
+			"itemNumber": "01",
+			"title": "4K Ultra-HD & Narrow-Band Imaging"
+		}
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
+}

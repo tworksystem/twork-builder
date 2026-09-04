@@ -1,0 +1,51 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/endo-prep-section",
+	"version": "1.0.0",
+	"title": "Endoscopy Prep Section",
+	"category": "twork-builder",
+	"icon": "clipboard",
+	"description": "Before / during / after preparation tabs for the Endoscopy page.",
+	"keywords": [ "endoscopy", "prep", "tabs", "mk" ],
+	"attributes": {
+		"showSection": { "type": "boolean", "default": true },
+		"sectionId": { "type": "string", "default": "prepare" },
+		"backgroundColor": { "type": "string", "default": "#ffffff" },
+		"paddingTop": { "type": "number", "default": 100 },
+		"paddingBottom": { "type": "number", "default": 100 },
+		"containerMaxWidth": { "type": "number", "default": 1200 },
+		"containerPadding": { "type": "number", "default": 24 },
+		"showEyebrow": { "type": "boolean", "default": true },
+		"eyebrowIcon": { "type": "string", "default": "fas fa-clipboard-list" },
+		"eyebrowIconType": { "type": "string", "default": "fontawesome" },
+		"eyebrowIconDashicon": { "type": "string", "default": "" },
+		"eyebrowIconImageUrl": { "type": "string", "default": "" },
+		"eyebrowIconImageId": { "type": "number", "default": 0 },
+		"eyebrowIconVideoUrl": { "type": "string", "default": "" },
+		"eyebrowIconVideoId": { "type": "number", "default": 0 },
+		"eyebrowText": { "type": "string", "default": "Preparation guide" },
+		"showTitle": { "type": "boolean", "default": true },
+		"title": {
+			"type": "string",
+			"default": "Know exactly what to do — before, during and after"
+		},
+		"showSubtitle": { "type": "boolean", "default": true },
+		"subtitle": {
+			"type": "string",
+			"default": "A good result depends on good preparation. Save this page or ask our nurses to print it for you."
+		},
+		"showTabGlider": { "type": "boolean", "default": true },
+		"animationOnScroll": { "type": "boolean", "default": true },
+		"enableTabGlider": { "type": "boolean", "default": true }
+	},
+	"supports": { "html": false, "anchor": true, "align": [ "wide", "full" ] },
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": { "sectionId": "prepare", "title": "Know exactly what to do — before, during and after" }
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

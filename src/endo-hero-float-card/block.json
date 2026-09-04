@@ -1,0 +1,92 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/endo-hero-float-card",
+	"version": "1.0.0",
+	"title": "Hero Float Card",
+	"category": "twork-builder",
+	"parent": [ "twork/endo-hero-section" ],
+	"description": "Floating highlight card on the Endoscopy hero visual.",
+	"attributes": {
+		"showItem": {
+			"type": "boolean",
+			"default": true
+		},
+		"positionSlot": {
+			"type": "string",
+			"default": "fc-1"
+		},
+		"showIcon": {
+			"type": "boolean",
+			"default": true
+		},
+		"iconClass": {
+			"type": "string",
+			"default": "fas fa-bed-pulse"
+		},
+		"iconType": {
+			"type": "string",
+			"default": "fontawesome"
+		},
+		"iconDashicon": {
+			"type": "string",
+			"default": ""
+		},
+		"iconImageUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"iconImageId": {
+			"type": "number",
+			"default": 0
+		},
+		"iconVideoUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"iconVideoId": {
+			"type": "number",
+			"default": 0
+		},
+		"iconBgColor": {
+			"type": "string",
+			"default": "#fff9f2"
+		},
+		"iconColor": {
+			"type": "string",
+			"default": "#e67a22"
+		},
+		"showTitle": {
+			"type": "boolean",
+			"default": true
+		},
+		"title": {
+			"type": "string",
+			"default": "Painless"
+		},
+		"showSubtitle": {
+			"type": "boolean",
+			"default": true
+		},
+		"subtitle": {
+			"type": "string",
+			"default": "Sedation by consultants"
+		}
+	},
+	"supports": {
+		"html": false
+	},
+	"example": {
+		"attributes": {
+			"showItem": true,
+			"positionSlot": "fc-1",
+			"showIcon": true,
+			"iconClass": "fas fa-bed-pulse",
+			"title": "Painless",
+			"subtitle": "Sedation by consultants"
+		}
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
+}

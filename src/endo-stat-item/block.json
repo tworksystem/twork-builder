@@ -1,0 +1,66 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/endo-stat-item",
+	"version": "1.0.0",
+	"title": "Endoscopy Stat Item",
+	"category": "twork-builder",
+	"parent": [ "twork/endo-stats-section" ],
+	"description": "Single animated statistic for the Endoscopy stats strip.",
+	"attributes": {
+		"showItem": {
+			"type": "boolean",
+			"default": true
+		},
+		"showNumber": {
+			"type": "boolean",
+			"default": true
+		},
+		"countValue": {
+			"type": "number",
+			"default": 18500
+		},
+		"countSuffix": {
+			"type": "string",
+			"default": ""
+		},
+		"suffixHighlight": {
+			"type": "string",
+			"default": ""
+		},
+		"showLabel": {
+			"type": "boolean",
+			"default": true
+		},
+		"statLabel": {
+			"type": "string",
+			"default": "Procedures completed"
+		},
+		"numberColor": {
+			"type": "string",
+			"default": "#212121"
+		},
+		"highlightColor": {
+			"type": "string",
+			"default": "#f48b2a"
+		},
+		"labelColor": {
+			"type": "string",
+			"default": "#666666"
+		}
+	},
+	"supports": {
+		"html": false
+	},
+	"example": {
+		"attributes": {
+			"showItem": true,
+			"countValue": 18500,
+			"countSuffix": "+",
+			"statLabel": "Procedures completed"
+		}
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
+}

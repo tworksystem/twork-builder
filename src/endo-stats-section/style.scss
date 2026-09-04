@@ -1,0 +1,97 @@
+@import "../shared/endo-tokens";
+@import "../shared/endo-atoms";
+
+.twork-endo-stats-section {
+	position: relative;
+	z-index: 5;
+	margin-top: var(--endo-stats-margin-top, -60px);
+
+	.trust-card,
+	.trust-card.reveal {
+		background: var(--endo-white);
+		border: 1px solid var(--endo-line);
+		border-radius: var(--endo-stats-card-radius, var(--endo-r-lg));
+		box-shadow: var(--endo-sh-md);
+
+		/* SoT: endoscopy.html .trust-card — all sides */
+		padding: clamp(28px, 3.4vw, 44px);
+		display: grid !important;
+		width: 100% !important;
+		grid-template-columns: repeat(var(--endo-stats-columns-desktop, 4), minmax(0, 1fr)) !important;
+		gap: var(--endo-stats-gap, 20px);
+		align-items: center;
+		opacity: 1;
+		transform: none;
+	}
+
+	.stat {
+		text-align: center;
+		position: relative;
+		max-width: none !important;
+		width: auto !important;
+		min-width: 0;
+		margin: 0 !important;
+		float: none !important;
+	}
+
+	.trust-card > .wp-block-twork-endo-stat-item {
+		max-width: none !important;
+		width: auto !important;
+		min-width: 0;
+		margin: 0 !important;
+		float: none !important;
+	}
+
+	.stat + .stat::before {
+		content: "";
+		position: absolute;
+		left: -10px;
+		top: 10%;
+		height: 80%;
+		width: 1px;
+		background: var(--endo-line);
+	}
+
+	.num {
+		font-family: Poppins, system-ui, sans-serif;
+		font-weight: 800;
+		font-size: clamp(1.8rem, 3vw, 2.6rem);
+		color: var(--endo-ink);
+		letter-spacing: -0.04em;
+		line-height: 1;
+
+		em {
+			font-style: normal;
+			color: var(--endo-primary);
+		}
+	}
+
+	.lbl {
+		display: block;
+		margin-top: 8px;
+		font-size: 0.82rem;
+		letter-spacing: 0.04em;
+		color: var(--endo-medium-grey);
+	}
+}
+
+@media (max-width: 900px) {
+
+	.twork-endo-stats-section .trust-card,
+	.twork-endo-stats-section .trust-card.reveal {
+		grid-template-columns: repeat(var(--endo-stats-columns-tablet, 2), minmax(0, 1fr)) !important;
+		gap: 28px 12px;
+	}
+
+	.twork-endo-stats-section .stat + .stat::before {
+		display: none;
+	}
+}
+
+@media (max-width: 600px) {
+
+	.twork-endo-stats-section .trust-card,
+	.twork-endo-stats-section .trust-card.reveal {
+		grid-template-columns: repeat(var(--endo-stats-columns-mobile, 1), minmax(0, 1fr)) !important;
+	}
+}

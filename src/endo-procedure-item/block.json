@@ -1,0 +1,126 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/endo-procedure-item",
+	"version": "1.0.0",
+	"title": "Procedure Card",
+	"category": "twork-builder",
+	"parent": [ "twork/endo-procedures-section" ],
+	"description": "Single procedure card for the Endoscopy bento grid.",
+	"attributes": {
+		"showItem": {
+			"type": "boolean",
+			"default": true
+		},
+		"cardLayout": {
+			"type": "string",
+			"default": "normal"
+		},
+		"showIcon": {
+			"type": "boolean",
+			"default": true
+		},
+		"iconClass": {
+			"type": "string",
+			"default": "fas fa-notes-medical"
+		},
+		"iconType": {
+			"type": "string",
+			"default": "fontawesome"
+		},
+		"iconDashicon": {
+			"type": "string",
+			"default": ""
+		},
+		"iconImageUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"iconImageId": {
+			"type": "number",
+			"default": 0
+		},
+		"iconVideoUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"iconVideoId": {
+			"type": "number",
+			"default": 0
+		},
+		"iconBgColor": {
+			"type": "string",
+			"default": "#fff3e0"
+		},
+		"iconColor": {
+			"type": "string",
+			"default": "#f48b2a"
+		},
+		"showTitle": {
+			"type": "boolean",
+			"default": true
+		},
+		"title": {
+			"type": "string",
+			"default": "Upper GI Endoscopy (Gastroscopy)"
+		},
+		"showDescription": {
+			"type": "boolean",
+			"default": true
+		},
+		"description": {
+			"type": "string",
+			"default": "A slim, flexible camera examines the oesophagus, stomach and duodenum."
+		},
+		"showChips": {
+			"type": "boolean",
+			"default": true
+		},
+		"chips": {
+			"type": "array",
+			"default": [
+				{
+					"showChip": true,
+					"iconClass": "fas fa-clock",
+					"text": "10–15 min"
+				},
+				{
+					"showChip": true,
+					"iconClass": "fas fa-syringe",
+					"text": "Sedation optional"
+				},
+				{
+					"showChip": true,
+					"iconClass": "fas fa-house-medical",
+					"text": "Day case"
+				}
+			]
+		},
+		"showLink": {
+			"type": "boolean",
+			"default": true
+		},
+		"linkText": {
+			"type": "string",
+			"default": "Book this procedure"
+		},
+		"linkUrl": {
+			"type": "string",
+			"default": "#book"
+		}
+	},
+	"supports": {
+		"html": false
+	},
+	"example": {
+		"attributes": {
+			"cardLayout": "wide",
+			"title": "Upper GI Endoscopy (Gastroscopy)",
+			"description": "A slim, flexible camera examines the oesophagus, stomach and duodenum.",
+			"linkText": "Book this procedure"
+		}
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
+}

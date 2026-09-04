@@ -1,0 +1,134 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/endo-conditions-section",
+	"version": "1.0.0",
+	"title": "Endoscopy Conditions",
+	"category": "twork-builder",
+	"icon": "heart",
+	"description": "Symptoms grid with urgent note for the Endoscopy page.",
+	"keywords": [ "endoscopy", "conditions", "symptoms", "mk" ],
+	"attributes": {
+		"showSection": {
+			"type": "boolean",
+			"default": true
+		},
+		"sectionId": {
+			"type": "string",
+			"default": "conditions"
+		},
+		"backgroundColor": {
+			"type": "string",
+			"default": "#f9f9f9"
+		},
+		"paddingTop": {
+			"type": "number",
+			"default": 100
+		},
+		"paddingBottom": {
+			"type": "number",
+			"default": 100
+		},
+		"containerMaxWidth": {
+			"type": "number",
+			"default": 1200
+		},
+		"containerPadding": {
+			"type": "number",
+			"default": 24
+		},
+		"showEyebrow": {
+			"type": "boolean",
+			"default": true
+		},
+		"eyebrowIcon": {
+			"type": "string",
+			"default": "fas fa-stethoscope"
+		},
+		"eyebrowIconType": {
+			"type": "string",
+			"default": "fontawesome"
+		},
+		"eyebrowIconDashicon": {
+			"type": "string",
+			"default": ""
+		},
+		"eyebrowIconImageUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"eyebrowIconImageId": {
+			"type": "number",
+			"default": 0
+		},
+		"eyebrowIconVideoUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"eyebrowIconVideoId": {
+			"type": "number",
+			"default": 0
+		},
+		"eyebrowText": {
+			"type": "string",
+			"default": "When to come in"
+		},
+		"showTitle": {
+			"type": "boolean",
+			"default": true
+		},
+		"title": {
+			"type": "string",
+			"default": "Symptoms we investigate"
+		},
+		"showIntro": {
+			"type": "boolean",
+			"default": true
+		},
+		"introText": {
+			"type": "string",
+			"default": "Persistent digestive symptoms deserve an answer, not a guess. If any of these has lasted more than three weeks, an endoscopy is usually the fastest route to certainty."
+		},
+		"showUrgentNote": {
+			"type": "boolean",
+			"default": true
+		},
+		"urgentNoteIcon": {
+			"type": "string",
+			"default": "fas fa-triangle-exclamation"
+		},
+		"urgentNoteText": {
+			"type": "string",
+			"default": "Do not wait if you have blood in your stool, black stools, vomiting blood, or unintentional weight loss. Call our urgent line on 01-234 5678."
+		},
+		"animationOnScroll": {
+			"type": "boolean",
+			"default": true
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"align": [ "wide", "full" ]
+	},
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": {
+			"sectionId": "conditions",
+			"title": "Symptoms we investigate"
+		},
+		"innerBlocks": [
+			{
+				"name": "twork/endo-condition-item",
+				"attributes": {
+					"label": "Persistent heartburn",
+					"iconClass": "fas fa-fire"
+				}
+			}
+		]
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}
