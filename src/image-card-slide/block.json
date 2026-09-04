@@ -1,0 +1,41 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"category": "twork-builder",
+	"textdomain": "twork-builder",
+	"name": "twork/image-card-slide",
+	"title": "Image Card Slide",
+	"parent": [ "twork/image-card-carousel" ],
+	"description": "",
+	"keywords": [ "brand", "shweghee", "services" ],
+	"attributes": {
+		"itemId": {
+			"type": "string",
+			"default": "svc_1"
+		},
+		"title": {
+			"type": "string",
+			"default": "Service"
+		},
+		"ctaLabel": {
+			"type": "string",
+			"default": "Learn more"
+		},
+		"href": {
+			"type": "string",
+			"default": "#"
+		},
+		"imageUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"imageAlt": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"supports": {
+		"html": false
+	},
+	"editorScript": "file:./index.js"
+}

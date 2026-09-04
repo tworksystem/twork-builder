@@ -1,0 +1,17 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/hero-banner-carousel",
+	"title": "Hero Banner Carousel",
+	"category": "twork-builder",
+	"icon": "slides",
+	"description": "Fade hero slider with autoplay, arrows and dots.",
+	"keywords": [ "hero", "carousel", "banner", "shweghee" ],
+	"attributes": {
+		"autoplayMs": { "type": "number", "default": 7000 }
+	},
+	"supports": { "html": false, "align": [ "full", "wide" ] },
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./view.js"
+}

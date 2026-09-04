@@ -1,0 +1,37 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"category": "twork-builder",
+	"textdomain": "twork-builder",
+	"name": "twork/daily-offers-carousel",
+	"title": "Daily Offers Carousel",
+	"keywords": [
+		"shop",
+		"woocommerce",
+		"shweghee"
+	],
+	"attributes": {
+		"sectionTitle": {
+			"type": "string",
+			"default": "Products"
+		},
+		"numberOfItems": {
+			"type": "number",
+			"default": 4
+		},
+		"source": {
+			"type": "string",
+			"default": "on_sale"
+		}
+	},
+	"supports": {
+		"html": false,
+		"align": [
+			"wide",
+			"full"
+		]
+	},
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./view.js"
+}

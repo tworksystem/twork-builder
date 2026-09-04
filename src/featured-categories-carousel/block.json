@@ -1,0 +1,33 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"category": "twork-builder",
+	"textdomain": "twork-builder",
+	"name": "twork/featured-categories-carousel",
+	"title": "Featured Categories Carousel",
+	"keywords": [
+		"shop",
+		"woocommerce",
+		"shweghee"
+	],
+	"attributes": {
+		"sectionTitle": {
+			"type": "string",
+			"default": "Featured Categories"
+		},
+		"numberOfItems": {
+			"type": "number",
+			"default": 6
+		}
+	},
+	"supports": {
+		"html": false,
+		"align": [
+			"wide",
+			"full"
+		]
+	},
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./view.js"
+}

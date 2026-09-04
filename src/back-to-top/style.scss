@@ -1,0 +1,24 @@
+@import "../shared/brand-tokens";
+
+.back-to-top {
+	position: fixed;
+	right: 1.5rem;
+	bottom: 1.5rem;
+	width: 44px;
+	height: 44px;
+	border-radius: 50%;
+	border: 0;
+	background: var(--shop-color-accent, #ff7f00);
+	color: #fff;
+	font-size: 1.25rem;
+	cursor: pointer;
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity 0.2s;
+	z-index: 200;
+}
+
+.back-to-top.is-visible {
+	opacity: 1;
+	visibility: visible;
+}

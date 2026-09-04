@@ -1,0 +1,130 @@
+@import "../shared/brand-tokens";
+
+.hero {
+	padding: 0;
+}
+
+.hero__wrap {
+	position: relative;
+	min-height: clamp(440px, 58vh, 640px);
+	overflow: hidden;
+	background: var(--color-bg-alt);
+}
+
+.hero__track {
+	position: relative;
+	min-height: inherit;
+}
+
+.hero__slide {
+	position: absolute;
+	inset: 0;
+	background-color: var(--color-bg-alt);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center right;
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity 0.5s ease;
+}
+
+/* Progressive: first slide visible until brand-carousel marks init */
+.hero__slide.is-active,
+.hero__wrap:not([data-brand-carousel-init]) .hero__slide:first-child {
+	opacity: 1;
+	visibility: visible;
+	z-index: 1;
+}
+
+/* Editor: viewScript does not run — show slides for editing */
+.hero-editor .hero__slide {
+	position: relative;
+	inset: auto;
+	opacity: 1;
+	visibility: visible;
+	min-height: clamp(440px, 58vh, 640px);
+}
+
+.hero-editor .hero__track {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-4);
+}
+
+.hero__overlay {
+	display: flex;
+	align-items: center;
+	width: 100%;
+	min-height: inherit;
+	padding-block: var(--space-8);
+}
+
+.hero__content {
+	max-width: 560px;
+}
+
+.hero__eyebrow {
+	color: var(--color-brand);
+	font-size: var(--font-size-xs);
+	font-weight: 600;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+}
+
+.hero__title {
+	margin-top: var(--space-3);
+	font-size: var(--font-size-hero);
+	font-weight: 700;
+	line-height: 1.12;
+	color: var(--color-text-primary);
+}
+
+.hero__subtitle {
+	margin-top: var(--space-4);
+	color: var(--color-text-muted);
+	font-size: var(--font-size-sm);
+	line-height: 1.65;
+	max-width: 500px;
+}
+
+.hero__cta {
+	margin-top: var(--space-5);
+}
+
+.hero__arrow {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 48px;
+	height: 48px;
+	border-radius: 50%;
+	border: 0;
+	background: rgba(255, 255, 255, 0.85);
+	color: var(--color-text-muted);
+	font-size: 1.75rem;
+	cursor: pointer;
+	z-index: 2;
+}
+
+.hero__arrow--prev {
+	left: var(--space-4);
+}
+
+.hero__arrow--next {
+	right: var(--space-4);
+}
+
+.hero__dots {
+	position: absolute;
+	bottom: var(--space-5);
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: 2;
+}
+
+@media (max-width: 768px) {
+
+	.hero__arrow {
+		display: none;
+	}
+}

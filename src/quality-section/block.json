@@ -1,0 +1,45 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"category": "twork-builder",
+	"textdomain": "twork-builder",
+	"name": "twork/quality-section",
+	"title": "Quality Section",
+	"description": "",
+	"keywords": [
+		"brand",
+		"shweghee",
+		"inner-page"
+	],
+	"attributes": {
+		"eyebrow": {
+			"type": "string",
+			"default": "OUR COMMITMENT"
+		},
+		"title": {
+			"type": "string",
+			"default": "Natural Quality, Every Batch"
+		},
+		"paragraphs": {
+			"type": "array",
+			"default": []
+		},
+		"steps": {
+			"type": "array",
+			"default": []
+		},
+		"standards": {
+			"type": "array",
+			"default": []
+		}
+	},
+	"supports": {
+		"html": false,
+		"align": [
+			"wide",
+			"full"
+		]
+	},
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
+}

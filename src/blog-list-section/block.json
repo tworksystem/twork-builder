@@ -1,0 +1,42 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"category": "twork-builder",
+	"textdomain": "twork-builder",
+	"name": "twork/blog-list-section",
+	"title": "Blog List Section",
+	"description": "",
+	"keywords": [
+		"brand",
+		"shweghee",
+		"inner-page"
+	],
+	"attributes": {
+		"posts": {
+			"type": "array",
+			"default": [
+				{
+					"id": "post_1",
+					"author": "Shwe Myanmar",
+					"category": "Product",
+					"date": "March 15, 2026",
+					"dateIso": "2026-03-15",
+					"title": "Introducing Our 10 Viss Bulk Pack",
+					"excerpt": "Our flagship 10 Viss bulk pack is now available.",
+					"href": "/blog/introducing-10-viss",
+					"imageUrl": "",
+					"imageAlt": "10 Viss pack"
+				}
+			]
+		}
+	},
+	"supports": {
+		"html": false,
+		"align": [
+			"wide",
+			"full"
+		]
+	},
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
+}

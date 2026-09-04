@@ -1,0 +1,57 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"category": "twork-builder",
+	"textdomain": "twork-builder",
+	"name": "twork/news-card",
+	"title": "News Card",
+	"parent": [ "twork/news-card-grid" ],
+	"description": "",
+	"keywords": [ "brand", "shweghee", "blog" ],
+	"attributes": {
+		"itemId": {
+			"type": "string",
+			"default": "post_1"
+		},
+		"title": {
+			"type": "string",
+			"default": "News"
+		},
+		"excerpt": {
+			"type": "string",
+			"default": ""
+		},
+		"author": {
+			"type": "string",
+			"default": "Shwe Myanmar"
+		},
+		"category": {
+			"type": "string",
+			"default": "News"
+		},
+		"date": {
+			"type": "string",
+			"default": ""
+		},
+		"dateIso": {
+			"type": "string",
+			"default": ""
+		},
+		"href": {
+			"type": "string",
+			"default": "/blog/"
+		},
+		"imageUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"imageAlt": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"supports": {
+		"html": false
+	},
+	"editorScript": "file:./index.js"
+}

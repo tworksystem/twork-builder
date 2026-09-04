@@ -1,0 +1,32 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"category": "twork-builder",
+	"textdomain": "twork-builder",
+	"name": "twork/news-card-grid",
+	"title": "Latest From Shwe Myanmar.",
+	"description": "",
+	"keywords": [
+		"brand",
+		"shweghee"
+	],
+	"attributes": {
+		"eyebrow": {
+			"type": "string",
+			"default": "NEWS & UPDATES"
+		},
+		"title": {
+			"type": "string",
+			"default": "Latest From Shwe Myanmar."
+		}
+	},
+	"supports": {
+		"html": false,
+		"align": [
+			"wide",
+			"full"
+		]
+	},
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
+}

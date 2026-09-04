@@ -1,0 +1,23 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/shop-sidebar",
+	"title": "Shop Sidebar",
+	"category": "twork-builder",
+	"keywords": ["shop", "sidebar", "categories"],
+	"attributes": {
+		"categoriesTitle": { "type": "string", "default": "Product Categories" },
+		"recommendTitle": { "type": "string", "default": "Recommended" },
+		"categories": {
+			"type": "array",
+			"default": [
+				{ "id": "butter", "label": "Butter", "children": [{ "id": "b1", "label": "Retail Packs", "href": "/shop" }] }
+			]
+		},
+		"recommendations": { "type": "array", "default": [] }
+	},
+	"supports": { "html": false },
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./view.js"
+}

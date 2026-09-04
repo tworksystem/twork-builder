@@ -1,0 +1,89 @@
+// Shweghee shop design tokens (from shweghee/src/styles/core/shop-tokens.css)
+:root {
+	--shop-color-header: #c45a12;
+	--shop-color-header-dark: #8f3f0a;
+	--shop-color-accent: #ff7f00;
+	--shop-color-accent-bright: #ffb84c;
+	--shop-color-search-btn: #ff7f00;
+	--shop-color-recent: #ff0;
+	--shop-color-link: #c45a12;
+	--shop-color-price: #ff7f00;
+	--shop-color-sale: #e63900;
+	--shop-color-badge-sale: #ff7f00;
+	--shop-color-badge-stock: #1a1a1a;
+	--shop-color-star: #ffb84c;
+	--shop-color-toolbar-bg: #fff8b3;
+	--shop-color-border: #e8e8e8;
+	--shop-color-cta: #ff7f00;
+	--shop-color-muted: #666;
+	--shop-container-max: 1320px;
+	--shop-sidebar-width: 280px;
+}
+
+.shop-header__container {
+	width: min(var(--shop-container-max), 94vw);
+	margin-inline: auto;
+}
+
+.shop-layout {
+	display: grid;
+	grid-template-columns: minmax(240px, var(--shop-sidebar-width)) 1fr;
+	gap: var(--space-6);
+	align-items: start;
+	padding-block: var(--space-5);
+}
+
+.shop-main {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-6);
+	min-width: 0;
+}
+
+.shop-panel {
+	border: 1px solid var(--shop-color-border);
+	border-radius: var(--radius-md);
+	background: var(--color-bg-surface, #fff);
+	padding: var(--space-5);
+}
+
+.shop-panel__head {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: var(--space-4);
+	margin-bottom: var(--space-5);
+}
+
+.shop-panel__title-wrap {
+	display: flex;
+	align-items: center;
+	gap: var(--space-3);
+}
+
+.shop-panel__icon {
+	display: inline-flex;
+	color: var(--shop-color-accent);
+}
+
+.shop-panel__title {
+	font-size: var(--font-size-md);
+	font-weight: 700;
+}
+
+.shop-panel__view-all {
+	font-size: var(--font-size-sm);
+	color: var(--shop-color-muted);
+	text-decoration: none;
+}
+
+.shop-panel__view-all:hover {
+	color: var(--shop-color-accent);
+}
+
+@media (max-width: 1024px) {
+
+	.shop-layout {
+		grid-template-columns: 1fr;
+	}
+}

@@ -1,0 +1,75 @@
+/**
+ * Shared Shweghee / brand base (editor + frontend via global.css).
+ * Tokens stay in brand-tokens.scss (imported by block styles).
+ */
+
+.l-grid {
+	display: grid;
+	gap: var(--space-4, 1rem);
+}
+
+.l-grid--2 {
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.l-grid--3 {
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.l-grid--4 {
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+@media (max-width: 1024px) {
+
+	.l-grid--4 {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+	}
+}
+
+@media (max-width: 768px) {
+
+	.l-grid--4,
+	.l-grid--3 {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+
+	.l-grid--2 {
+		grid-template-columns: 1fr;
+	}
+}
+
+/* Apply brand type stack wherever Shweghee/twork brand markup appears */
+[data-block^="twork/"],
+.header,
+.footer,
+.hero,
+.shop-header,
+.shop-hero,
+.newsletter,
+.faq,
+.about-story,
+.page-hero,
+.product-categories,
+.partners,
+.blog-news,
+.testimonials,
+.app-promo,
+.why-choose-us,
+.services-carousel,
+.featured-categories,
+.daily-offers,
+.best-sellers,
+.breadcrumb,
+.careers-section,
+.contact-form,
+.legal-content,
+.wholesale-section,
+.quality-section,
+.where-to-buy,
+.blog-list,
+.blog-article,
+.page-not-found {
+	font-family:
+ var(--font-family-base, "Poppins", "Noto Sans Myanmar", "Segoe UI", system-ui, sans-serif);
+}

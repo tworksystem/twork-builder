@@ -1,0 +1,54 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"category": "twork-builder",
+	"textdomain": "twork-builder",
+	"name": "twork/wholesale-section",
+	"title": "Wholesale Section",
+	"description": "",
+	"keywords": [
+		"brand",
+		"shweghee",
+		"inner-page"
+	],
+	"attributes": {
+		"eyebrow": {
+			"type": "string",
+			"default": "BULK SUPPLY"
+		},
+		"title": {
+			"type": "string",
+			"default": "Wholesale Orders & Distribution"
+		},
+		"intro": {
+			"type": "string",
+			"default": ""
+		},
+		"benefits": {
+			"type": "array",
+			"default": []
+		},
+		"formTitle": {
+			"type": "string",
+			"default": "Wholesale Inquiry"
+		},
+		"submitLabel": {
+			"type": "string",
+			"default": "SUBMIT INQUIRY"
+		},
+		"honeypotName": {
+			"type": "string",
+			"default": "url"
+		}
+	},
+	"supports": {
+		"html": false,
+		"align": [
+			"wide",
+			"full"
+		]
+	},
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./view.js"
+}

@@ -1,0 +1,22 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/brand-header",
+	"title": "Brand Header",
+	"category": "twork-builder",
+	"icon": "admin-site-alt3",
+	"description": "Logo, navigation, hotline, sticky header and mobile menu.",
+	"keywords": [ "header", "brand", "navigation", "shweghee" ],
+	"attributes": {
+		"brandName": { "type": "string", "default": "Shwe Myanmar" },
+		"logoUrl": { "type": "string", "default": "" },
+		"logoId": { "type": "number" },
+		"homeUrl": { "type": "string", "default": "/" },
+		"hotlineLabel": { "type": "string", "default": "CUSTOMER HOTLINE" },
+		"phone": { "type": "string", "default": "095-2-55122" }
+	},
+	"supports": { "html": false, "align": [ "full" ] },
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./view.js"
+}

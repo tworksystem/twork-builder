@@ -1,0 +1,42 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"category": "twork-builder",
+	"textdomain": "twork-builder",
+	"name": "twork/logo-showcase-section",
+	"title": "Serving Customers Across Myanmar.",
+	"description": "",
+	"keywords": [ "brand", "shweghee", "partners" ],
+	"attributes": {
+		"eyebrow": {
+			"type": "string",
+			"default": "DISTRIBUTION NETWORK"
+		},
+		"title": {
+			"type": "string",
+			"default": "Serving Customers Across Myanmar."
+		},
+		"descriptionBold": {
+			"type": "string",
+			"default": "From Mandalay to every region,"
+		},
+		"description": {
+			"type": "string",
+			"default": " Shwe Myanmar Foodstuff Industry works with distributors and retailers nationwide to bring premium butter and ghee to families and businesses."
+		},
+		"readMoreLabel": {
+			"type": "string",
+			"default": "Contact us"
+		},
+		"readMoreHref": {
+			"type": "string",
+			"default": "/where-to-buy/"
+		}
+	},
+	"supports": {
+		"html": false,
+		"align": [ "wide", "full" ]
+	},
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
+}
