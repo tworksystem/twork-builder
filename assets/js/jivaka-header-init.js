@@ -2,7 +2,7 @@
  * Jivaka header mobile navigation (global delegation).
  */
 ( function () {
-	var GLOBAL_FLAG = '__JIVAKA_HEADER_EVENTS_BOUND__';
+	const GLOBAL_FLAG = '__JIVAKA_HEADER_EVENTS_BOUND__';
 
 	function isGlobalBound() {
 		return window[ GLOBAL_FLAG ] === true;
@@ -23,12 +23,15 @@
 			return;
 		}
 
-		var navToggle = headerEl.querySelector( '.nav-toggle' );
+		const navToggle = headerEl.querySelector( '.nav-toggle' );
 
 		headerEl.classList.toggle( 'nav-active', isOpen );
 
 		if ( navToggle ) {
-			navToggle.setAttribute( 'aria-expanded', isOpen ? 'true' : 'false' );
+			navToggle.setAttribute(
+				'aria-expanded',
+				isOpen ? 'true' : 'false'
+			);
 			navToggle.setAttribute(
 				'aria-label',
 				isOpen ? 'Close Navigation' : 'Open Navigation'
@@ -56,8 +59,8 @@
 	}
 
 	function toggleMobileDropdown( head ) {
-		var headerEl = getHeaderFromNode( head );
-		var parentItem = head
+		const headerEl = getHeaderFromNode( head );
+		const parentItem = head
 			? head.closest( '.nav-item.has-mobile-dropdown' )
 			: null;
 
@@ -73,7 +76,7 @@
 				}
 			} );
 
-		var isOpen = parentItem.classList.toggle( 'dropdown-active' );
+		const isOpen = parentItem.classList.toggle( 'dropdown-active' );
 		head.setAttribute( 'aria-expanded', isOpen ? 'true' : 'false' );
 	}
 
@@ -95,14 +98,14 @@
 		document.addEventListener(
 			'click',
 			function ( event ) {
-				var toggle = event.target.closest(
+				const toggle = event.target.closest(
 					'.jivaka-header-container .header .nav-toggle'
 				);
 
 				if ( toggle ) {
 					stopEvent( event );
 
-					var headerEl = getHeaderFromNode( toggle );
+					const headerEl = getHeaderFromNode( toggle );
 					if ( ! headerEl ) {
 						return;
 					}
@@ -114,7 +117,7 @@
 					return;
 				}
 
-				var head = event.target.closest(
+				const head = event.target.closest(
 					'.jivaka-header-container .header .mobile-dropdown-head'
 				);
 
@@ -124,7 +127,7 @@
 					return;
 				}
 
-				var overlay = event.target.closest(
+				const overlay = event.target.closest(
 					'.jivaka-header-container .header .mobile-nav-overlay'
 				);
 
@@ -153,7 +156,7 @@
 		document
 			.querySelectorAll( '.jivaka-header-container .header' )
 			.forEach( function ( headerEl ) {
-				var navToggle = headerEl.querySelector( '.nav-toggle' );
+				const navToggle = headerEl.querySelector( '.nav-toggle' );
 				if ( navToggle ) {
 					navToggle.setAttribute( 'type', 'button' );
 					navToggle.setAttribute( 'aria-expanded', 'false' );
