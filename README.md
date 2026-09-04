@@ -3,12 +3,13 @@
 > **Professional WordPress Gutenberg Blocks Plugin** — purpose-built for the Twork Ecosystem  
 > Enterprise-grade page building blocks for hospitals, clinics, corporate sites, food & retail brands, and e-commerce.
 
-[![License: GPL v2 or later](https://img.shields.io/badge/License-GPL%20v2%2B-blue.svg)](LICENSE)
+[![License: GPL v2 or later](https://img.shields.io/badge/License-GPL%20v2%20or%20later-blue.svg)](https://www.gnu.org/licenses/gpl-2.0.html)
+[![GitHub](https://img.shields.io/badge/GitHub-mawkunnmyat%2Ftwork--builder-181717.svg)](https://github.com/mawkunnmyat/twork-builder)
 [![WordPress](https://img.shields.io/badge/WordPress-6.0%2B-blue.svg)](https://wordpress.org/)
-[![PHP](https://img.shields.io/badge/PHP-7.4%2B-purple.svg)](https://php.net/)
-[![Node.js](https://img.shields.io/badge/Node.js-18%2B-green.svg)](https://nodejs.org/)
-[![Gutenberg](https://img.shields.io/badge/Gutenberg-Blocks-orange.svg)](https://developer.wordpress.org/block-editor/)
-[![Blocks](https://img.shields.io/badge/Blocks-270%2B-brightgreen.svg)](#-block-catalog)
+[![PHP](https://img.shields.io/badge/PHP-7.4%2B-777BB4.svg)](https://www.php.net/)
+[![Node.js](https://img.shields.io/badge/Node.js-18.0%2B-339933.svg)](https://nodejs.org/)
+[![Gutenberg](https://img.shields.io/badge/Gutenberg-Block%20Editor-0073aa.svg)](https://developer.wordpress.org/block-editor/)
+[![Blocks](https://img.shields.io/badge/Blocks-270%2B-orange.svg)](#-block-catalog)
 
 **Current Version:** `1.0.13` · **270+ Custom Blocks** · **GPL v2 or later**
 
@@ -701,13 +702,15 @@ This project is licensed under the **GPL v2 or later** — see [LICENSE](LICENSE
 
 - 🌐 **Website:** [https://www.tworksystem.com](https://www.tworksystem.com)
 - 🔗 **Plugin URI:** [https://www.tworksystem.com/twork-builder](https://www.tworksystem.com/twork-builder)
-- 🐙 **GitHub:** [https://github.com/mawkunnmyat/twork-builder](https://github.com/mawkunnmyat/twork-builder)
-- 📧 **Contact:** mapoeeiphyu2017.miitinternship@gmail.com
+- 🐙 **Primary Repo:** [https://github.com/mawkunnmyat/twork-builder](https://github.com/mawkunnmyat/twork-builder)
+- 🏢 **Org Mirror:** [https://github.com/tworksystem/twork-builder](https://github.com/tworksystem/twork-builder)
+- 📧 **Contact:** [mapoeeiphyu2017.miitinternship@gmail.com](mailto:mapoeeiphyu2017.miitinternship@gmail.com)
 
-### Author
+### Author & Maintainer
 
 **Maw Kunn Myat** — [@mawkunnmyat](https://github.com/mawkunnmyat)  
-📧 mapoeeiphyu2017.miitinternship@gmail.com
+📧 [mapoeeiphyu2017.miitinternship@gmail.com](mailto:mapoeeiphyu2017.miitinternship@gmail.com)  
+💼 Principal Developer — T-Work System Co., Ltd.
 
 ---
 

@@ -4,6 +4,22 @@
   "description": "Twork Builder Gutenberg blocks",
   "author": "T-Work System Co., Ltd.",
   "license": "GPL-2.0-or-later",
+  "homepage": "https://www.tworksystem.com/twork-builder",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mawkunnmyat/twork-builder.git"
+  },
+  "keywords": [
+    "wordpress",
+    "gutenberg",
+    "blocks",
+    "twork",
+    "page-builder"
+  ],
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
   "scripts": {
     "sync-src": "python3 scripts/sync-src-from-mk.py",
     "build": "python3 scripts/sync-src-from-mk.py && python3 scripts/patch-style-imports.py && cross-env NODE_OPTIONS=--max-old-space-size=8192 WP_COPY_PHP_FILES_TO_DIST=1 wp-scripts build",
