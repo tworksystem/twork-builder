@@ -1,0 +1,36 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/laparo-cta-row",
+	"version": "1.0.0",
+	"title": "CTA Info Row",
+	"category": "twork-builder",
+	"parent": [ "twork/laparo-cta-section" ],
+	"description": "Info row inside the Laparoscopy CTA panel.",
+	"attributes": {
+		"showItem": { "type": "boolean", "default": true },
+		"showIcon": { "type": "boolean", "default": true },
+		"iconClass": { "type": "string", "default": "fas fa-clock" },
+		"iconType": { "type": "string", "default": "fontawesome" },
+		"iconDashicon": { "type": "string", "default": "" },
+		"iconImageUrl": { "type": "string", "default": "" },
+		"iconImageId": { "type": "number", "default": 0 },
+		"iconVideoUrl": { "type": "string", "default": "" },
+		"iconVideoId": { "type": "number", "default": 0 },
+		"showTitle": { "type": "boolean", "default": true },
+		"title": { "type": "string", "default": "Mon – Sun, 8:00 – 18:00" },
+		"showSubtitle": { "type": "boolean", "default": true },
+		"subtitle": { "type": "string", "default": "Laparoscopy suite, Level 3" }
+	},
+	"supports": { "html": false },
+	"example": {
+		"attributes": {
+			"iconClass": "fas fa-clock",
+			"title": "Mon – Sun, 8:00 – 18:00",
+			"subtitle": "Laparoscopy suite, Level 3"
+		}
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
+}

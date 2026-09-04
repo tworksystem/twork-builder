@@ -1,0 +1,147 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/laparo-technology-section",
+	"version": "1.0.0",
+	"title": "Laparoscopy Technology",
+	"category": "twork-builder",
+	"icon": "desktop",
+	"description": "Sticky image stage with interactive technology list for the Laparoscopy page.",
+	"keywords": [
+		"laparoscopy",
+		"technology",
+		"imaging",
+		"mk"
+	],
+	"attributes": {
+		"showSection": {
+			"type": "boolean",
+			"default": true
+		},
+		"sectionId": {
+			"type": "string",
+			"default": "technology"
+		},
+		"backgroundColor": {
+			"type": "string",
+			"default": "#212121"
+		},
+		"paddingTop": {
+			"type": "number",
+			"default": 100
+		},
+		"paddingBottom": {
+			"type": "number",
+			"default": 100
+		},
+		"containerMaxWidth": {
+			"type": "number",
+			"default": 1200
+		},
+		"containerPadding": {
+			"type": "number",
+			"default": 24
+		},
+		"showStickyStage": {
+			"type": "boolean",
+			"default": true
+		},
+		"showHud": {
+			"type": "boolean",
+			"default": true
+		},
+		"showHudDot": {
+			"type": "boolean",
+			"default": true
+		},
+		"showEyebrow": {
+			"type": "boolean",
+			"default": true
+		},
+		"eyebrowIcon": {
+			"type": "string",
+			"default": "fas fa-microchip"
+		},
+		"eyebrowIconType": {
+			"type": "string",
+			"default": "fontawesome"
+		},
+		"eyebrowIconDashicon": {
+			"type": "string",
+			"default": ""
+		},
+		"eyebrowIconImageUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"eyebrowIconImageId": {
+			"type": "number",
+			"default": 0
+		},
+		"eyebrowIconVideoUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"eyebrowIconVideoId": {
+			"type": "number",
+			"default": 0
+		},
+		"eyebrowText": {
+			"type": "string",
+			"default": "Inside the suite"
+		},
+		"showTitle": {
+			"type": "boolean",
+			"default": true
+		},
+		"title": {
+			"type": "string",
+			"default": "Technology that finds what the eye alone would miss"
+		},
+		"showIntro": {
+			"type": "boolean",
+			"default": true
+		},
+		"introText": {
+			"type": "string",
+			"default": "Four systems work together on every case — imaging, AI, sterilisation and recovery — so accuracy never depends on a single pair of hands."
+		},
+		"animationOnScroll": {
+			"type": "boolean",
+			"default": true
+		},
+		"enableStageSync": {
+			"type": "boolean",
+			"default": true
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"align": [
+			"wide",
+			"full"
+		]
+	},
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": {
+			"sectionId": "technology",
+			"title": "Technology that finds what the eye alone would miss"
+		},
+		"innerBlocks": [
+			{
+				"name": "twork/laparo-tech-item",
+				"attributes": {
+					"stageIndex": 0,
+					"hudLabel": "4K Ultra-HD Imaging",
+					"itemNumber": "01",
+					"title": "4K Ultra-HD & Narrow-Band Imaging"
+				}
+			}
+		]
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
+}

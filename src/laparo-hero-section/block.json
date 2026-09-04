@@ -1,0 +1,264 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/laparo-hero-section",
+	"version": "1.0.0",
+	"title": "Laparoscopy Hero",
+	"category": "twork-builder",
+	"icon": "cover-image",
+	"description": "Laparoscopy centre hero with aurora background, proof strip, hero image, and floating highlight cards.",
+	"keywords": [
+		"laparoscopy",
+		"hero",
+		"keyhole",
+		"surgery",
+		"mk"
+	],
+	"attributes": {
+		"showSection": {
+			"type": "boolean",
+			"default": true
+		},
+		"sectionId": {
+			"type": "string",
+			"default": "top"
+		},
+		"showAurora": {
+			"type": "boolean",
+			"default": true
+		},
+		"showEyebrow": {
+			"type": "boolean",
+			"default": true
+		},
+		"eyebrowIcon": {
+			"type": "string",
+			"default": "fas fa-user-md"
+		},
+		"eyebrowIconType": {
+			"type": "string",
+			"default": "fontawesome"
+		},
+		"eyebrowIconDashicon": {
+			"type": "string",
+			"default": ""
+		},
+		"eyebrowIconImageUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"eyebrowIconImageId": {
+			"type": "number",
+			"default": 0
+		},
+		"eyebrowIconVideoUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"eyebrowIconVideoId": {
+			"type": "number",
+			"default": 0
+		},
+		"eyebrowText": {
+			"type": "string",
+			"default": "Laparoscopy Centre of Excellence"
+		},
+		"showTitle": {
+			"type": "boolean",
+			"default": true
+		},
+		"titleLine1": {
+			"type": "string",
+			"default": "Smaller cuts."
+		},
+		"titleLine2": {
+			"type": "string",
+			"default": "Faster recovery."
+		},
+		"titleLine3": {
+			"type": "string",
+			"default": "Precision care."
+		},
+		"titleLine3Highlight": {
+			"type": "boolean",
+			"default": true
+		},
+		"showLead": {
+			"type": "boolean",
+			"default": true
+		},
+		"leadText": {
+			"type": "string",
+			"default": "Consultant-led keyhole surgery with 4K laparoscopy towers, modern modular theatres, and day-case pathways where clinically appropriate."
+		},
+		"showPrimaryCta": {
+			"type": "boolean",
+			"default": true
+		},
+		"primaryCtaText": {
+			"type": "string",
+			"default": "Book a Consultation"
+		},
+		"primaryCtaUrl": {
+			"type": "string",
+			"default": "#book"
+		},
+		"showSecondaryCta": {
+			"type": "boolean",
+			"default": true
+		},
+		"secondaryCtaText": {
+			"type": "string",
+			"default": "Explore Procedures"
+		},
+		"secondaryCtaUrl": {
+			"type": "string",
+			"default": "#procedures"
+		},
+		"showProof": {
+			"type": "boolean",
+			"default": true
+		},
+		"proofAvatars": {
+			"type": "array",
+			"default": [
+				{
+					"url": "",
+					"id": 0,
+					"alt": "Patient",
+					"showAvatar": true
+				},
+				{
+					"url": "",
+					"id": 0,
+					"alt": "Patient",
+					"showAvatar": true
+				},
+				{
+					"url": "",
+					"id": 0,
+					"alt": "Patient",
+					"showAvatar": true
+				},
+				{
+					"url": "",
+					"id": 0,
+					"alt": "Patient",
+					"showAvatar": true
+				}
+			]
+		},
+		"proofRatingText": {
+			"type": "string",
+			"default": "4.9 / 5"
+		},
+		"proofSubtext": {
+			"type": "string",
+			"default": "from 2,100+ verified patient reviews"
+		},
+		"showStars": {
+			"type": "boolean",
+			"default": true
+		},
+		"showVisual": {
+			"type": "boolean",
+			"default": true
+		},
+		"heroImageUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"heroImageId": {
+			"type": "number"
+		},
+		"heroImageAlt": {
+			"type": "string",
+			"default": "Laparoscopy suite at Jivaka Hospital"
+		},
+		"showScanBeam": {
+			"type": "boolean",
+			"default": true
+		},
+		"containerMaxWidth": {
+			"type": "number",
+			"default": 1200
+		},
+		"paddingTop": {
+			"type": "number",
+			"default": 80
+		},
+		"paddingBottom": {
+			"type": "number",
+			"default": 120
+		},
+		"animationOnScroll": {
+			"type": "boolean",
+			"default": true
+		},
+		"respectReducedMotion": {
+			"type": "boolean",
+			"default": true
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"align": [
+			"wide",
+			"full"
+		]
+	},
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": {
+			"showSection": true,
+			"sectionId": "top",
+			"eyebrowText": "Laparoscopy Centre of Excellence",
+			"titleLine1": "Smaller cuts.",
+			"titleLine2": "Faster recovery.",
+			"titleLine3": "Precision care.",
+			"leadText": "Consultant-led keyhole surgery with 4K laparoscopy towers, modern modular theatres, and day-case pathways where clinically appropriate.",
+			"primaryCtaText": "Book a Consultation",
+			"secondaryCtaText": "Explore Procedures",
+			"proofRatingText": "4.9 / 5",
+			"proofSubtext": "from 2,100+ verified patient reviews",
+			"heroImageUrl": "",
+			"heroImageAlt": "Laparoscopy suite at Jivaka Hospital"
+		},
+		"innerBlocks": [
+			{
+				"name": "twork/laparo-hero-float-card",
+				"attributes": {
+					"positionSlot": "fc-1",
+					"iconClass": "fas fa-bed-pulse",
+					"title": "Painless",
+					"subtitle": "Sedation by consultants"
+				}
+			},
+			{
+				"name": "twork/laparo-hero-float-card",
+				"attributes": {
+					"positionSlot": "fc-2",
+					"iconClass": "fas fa-file-waveform",
+					"iconBgColor": "#f8f9fa",
+					"iconColor": "#212121",
+					"title": "30 min",
+					"subtitle": "Report turnaround"
+				}
+			},
+			{
+				"name": "twork/laparo-hero-float-card",
+				"attributes": {
+					"positionSlot": "fc-3",
+					"iconClass": "fas fa-shield-heart",
+					"title": "Same day",
+					"subtitle": "Home in 2 hours"
+				}
+			}
+		]
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css",
+	"editorStyle": "file:./style-index.css"
+}

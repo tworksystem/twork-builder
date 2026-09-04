@@ -1,0 +1,183 @@
+@import "../shared/laparo-tokens";
+@import "../shared/laparo-atoms";
+
+.twork-laparo-technology-section {
+	color: rgba(255, 255, 255, 0.88);
+	overflow: hidden;
+
+	h2,
+	h3,
+	h4 {
+		font-family: Poppins, system-ui, sans-serif;
+		color: #fff;
+	}
+
+	h2 {
+		font-size: clamp(1.9rem, 3.4vw, 2.85rem);
+		font-weight: 700;
+		line-height: 1.14;
+	}
+
+	.eyebrow {
+		color: var(--laparo-primary-orange);
+		background: rgba(13, 148, 136, 0.22);
+		border-color: rgba(13, 148, 136, 0.45);
+	}
+
+	p,
+	.tech-intro {
+		color: rgba(255, 255, 255, 0.82);
+		margin-top: 16px;
+	}
+
+	.tech-grid {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: clamp(40px, 5vw, 80px);
+		align-items: start;
+	}
+
+	.tech-sticky {
+		position: sticky;
+		top: 110px;
+	}
+
+	.tech-stage {
+		position: relative;
+		border-radius: var(--laparo-r-xl);
+		overflow: hidden;
+		aspect-ratio: 4 / 4.4;
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		background: rgba(0, 0, 0, 0.25);
+	}
+
+	.laparo-tech-stage-images img {
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		opacity: 0;
+		transform: scale(1.08);
+		transition:
+			opacity 0.8s var(--laparo-ease-out),
+			transform 1.2s var(--laparo-ease-out);
+	}
+
+	.laparo-tech-stage-images img.is-active {
+		opacity: 1;
+		transform: scale(1);
+	}
+
+	.tech-hud {
+		position: absolute;
+		left: 20px;
+		bottom: 20px;
+		right: 20px;
+		z-index: 2;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 14px;
+		padding: 14px 18px;
+		border-radius: 16px;
+		background: rgba(33, 33, 33, 0.72);
+		backdrop-filter: blur(12px);
+		border: 1px solid rgba(255, 255, 255, 0.12);
+		font-family: Poppins, system-ui, sans-serif;
+		font-size: 0.82rem;
+		color: #fff;
+	}
+
+	.hud-dot {
+		display: inline-block;
+		width: 8px;
+		height: 8px;
+		border-radius: 50%;
+		background: var(--laparo-accent);
+		margin-right: 8px;
+		box-shadow: 0 0 0 0 rgba(15, 118, 110, 0.7);
+		animation: laparo-tech-pulse 2s infinite;
+	}
+
+	@keyframes laparo-tech-pulse {
+
+		70% {
+			box-shadow: 0 0 0 12px rgba(15, 118, 110, 0);
+		}
+
+		100% {
+			box-shadow: 0 0 0 0 rgba(15, 118, 110, 0);
+		}
+	}
+
+	.tech-list {
+		display: flex;
+		flex-direction: column;
+		gap: 18px;
+		margin-top: 34px;
+	}
+
+	.tech-item {
+		padding: 26px 28px;
+		border-radius: var(--laparo-r-md);
+		border: 1px solid rgba(255, 255, 255, 0.14);
+		background: rgba(255, 255, 255, 0.06);
+		transition:
+			background 0.5s,
+			border-color 0.5s,
+			transform 0.5s var(--laparo-ease-spring);
+		cursor: default;
+	}
+
+	.tech-item.is-active {
+		background: rgba(255, 255, 255, 0.12);
+		border-color: rgba(13, 148, 136, 0.55);
+		transform: translateX(6px);
+	}
+
+	.tech-item-head {
+		display: flex;
+		align-items: center;
+		gap: 14px;
+		margin-bottom: 10px;
+	}
+
+	.tech-num {
+		font-family: Poppins, system-ui, sans-serif;
+		font-size: 0.78rem;
+		font-weight: 600;
+		letter-spacing: 0.1em;
+		color: var(--laparo-primary);
+	}
+
+	.tech-item p {
+		font-size: 0.93rem;
+		margin: 0;
+	}
+}
+
+@media (max-width: 900px) {
+
+	.twork-laparo-technology-section {
+
+		.tech-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.tech-sticky {
+			position: static;
+		}
+
+		.tech-stage {
+			aspect-ratio: 16 / 10;
+		}
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+	.twork-laparo-technology-section .hud-dot {
+		animation: none;
+	}
+}

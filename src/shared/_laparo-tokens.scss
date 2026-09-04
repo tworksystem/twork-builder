@@ -1,0 +1,56 @@
+// Laparoscopy page design tokens (endo layout parity · teal palette)
+.twork-laparo-hero-section,
+.twork-laparo-stats-section,
+.twork-laparo-procedures-section,
+.twork-laparo-technology-section,
+.twork-laparo-cta-section {
+	--laparo-primary-teal: #0d9488;
+	--laparo-brand-teal-hover: #0f766e;
+	--laparo-teal-soft: #ccfbf1;
+	--laparo-teal-tint: #f0fdfa;
+	--laparo-dark-grey: #212121;
+	--laparo-medium-grey: #666;
+	--laparo-light-grey-bg: #f8f9fa;
+	--laparo-white: #fff;
+	--laparo-border: #e0e0e0;
+	--laparo-donts-red: #c0392b;
+
+	--laparo-primary: var(--laparo-primary-teal);
+	--laparo-primary-600: var(--laparo-brand-teal-hover);
+	--laparo-primary-100: var(--laparo-teal-soft);
+
+	--laparo-ink: var(--laparo-dark-grey);
+	--laparo-ink-700: #333;
+	--laparo-ink-500: #555;
+	--laparo-muted: var(--laparo-medium-grey);
+	--laparo-section-bg: #f9f9f9;
+
+	--laparo-accent: var(--laparo-brand-teal-hover);
+	--laparo-accent-100: var(--laparo-teal-tint);
+	--laparo-alt: var(--laparo-dark-grey);
+	--laparo-alt-100: var(--laparo-light-grey-bg);
+
+	--laparo-bg: var(--laparo-light-grey-bg);
+	--laparo-line: var(--laparo-border);
+	--laparo-line-strong: #cfcfcf;
+
+	--laparo-r-sm: 14px;
+	--laparo-r-md: 20px;
+	--laparo-r-lg: 22px;
+	--laparo-r-xl: 36px;
+
+	--laparo-sh-sm: 0 5px 15px rgba(0, 0, 0, 0.05);
+	--laparo-sh-md: 0 18px 40px -18px rgba(0, 0, 0, 0.18);
+	--laparo-sh-lg: 0 20px 50px rgba(0, 0, 0, 0.1);
+
+	--laparo-ease-spring: cubic-bezier(0.22, 1, 0.36, 1);
+	--laparo-ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+
+	--laparo-container: 1200px;
+
+	/* Aliases for forked SCSS that still references orange token names */
+	--laparo-primary-orange: var(--laparo-primary-teal);
+	--laparo-brand-orange-hover: var(--laparo-brand-teal-hover);
+	--laparo-orange-soft: var(--laparo-teal-soft);
+	--laparo-orange-tint: var(--laparo-teal-tint);
+}
