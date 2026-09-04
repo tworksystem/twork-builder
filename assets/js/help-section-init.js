@@ -1,4 +1,4 @@
-(function () {
+( function () {
 	'use strict';
 
 	function resolveBookUrl( bookUrl, value, selectName ) {
@@ -6,15 +6,15 @@
 			return '#';
 		}
 
-		var paramKey = selectName || 'doctors';
-		var encodedValue = encodeURIComponent( value );
+		const paramKey = selectName || 'doctors';
+		const encodedValue = encodeURIComponent( value );
 
 		if ( bookUrl && bookUrl.indexOf( '{value}' ) !== -1 ) {
 			return bookUrl.replace( /\{value\}/g, encodedValue );
 		}
 
 		if ( bookUrl ) {
-			var separator = bookUrl.indexOf( '?' ) !== -1 ? '&' : '?';
+			const separator = bookUrl.indexOf( '?' ) !== -1 ? '&' : '?';
 			return (
 				bookUrl +
 				separator +
@@ -24,16 +24,11 @@
 			);
 		}
 
-		return (
-			'#?' +
-			encodeURIComponent( paramKey ) +
-			'=' +
-			encodedValue
-		);
+		return '#?' + encodeURIComponent( paramKey ) + '=' + encodedValue;
 	}
 
 	function initHelpBookingForms() {
-		var cards = document.querySelectorAll(
+		const cards = document.querySelectorAll(
 			'.wp-block-twork-help-section .help-booking-card, .help-section.jivaka-section .help-booking-card'
 		);
 
@@ -43,22 +38,22 @@
 			}
 			card.setAttribute( 'data-help-book-init', 'true' );
 
-			var select = card.querySelector( '.help-dept-select' );
-			var btn = card.querySelector( '[data-help-book-btn]' );
+			const select = card.querySelector( '.help-dept-select' );
+			const btn = card.querySelector( '[data-help-book-btn]' );
 
 			if ( ! btn || ! select ) {
 				return;
 			}
 
 			function syncBookButton() {
-				var opt = select.options[ select.selectedIndex ];
-				var value = opt ? opt.value : '';
-				var bookUrl = opt
+				const opt = select.options[ select.selectedIndex ];
+				const value = opt ? opt.value : '';
+				const bookUrl = opt
 					? opt.getAttribute( 'data-book-url' ) || ''
 					: '';
-				var selectName = select.getAttribute( 'name' ) || 'doctors';
-				var href = resolveBookUrl( bookUrl, value, selectName );
-				var disabled = ! value;
+				const selectName = select.getAttribute( 'name' ) || 'doctors';
+				const href = resolveBookUrl( bookUrl, value, selectName );
+				const disabled = ! value;
 
 				btn.setAttribute( 'href', href );
 				btn.classList.toggle( 'is-disabled', disabled );
@@ -78,24 +73,26 @@
 	}
 
 	function initHelpSectionSlideshows() {
-		var blocks = document.querySelectorAll(
+		const blocks = document.querySelectorAll(
 			'.wp-block-twork-help-section .help-media-slideshow'
 		);
 
 		blocks.forEach( function ( slideshow ) {
-			if ( slideshow.getAttribute( 'data-help-slideshow-init' ) === 'true' ) {
+			if (
+				slideshow.getAttribute( 'data-help-slideshow-init' ) === 'true'
+			) {
 				return;
 			}
 			slideshow.setAttribute( 'data-help-slideshow-init', 'true' );
 
-			var slides = Array.prototype.slice.call(
+			const slides = Array.prototype.slice.call(
 				slideshow.querySelectorAll( '.help-media-slide' )
 			);
 			if ( ! slides.length ) {
 				return;
 			}
 
-			var intervalMs = Math.max(
+			const intervalMs = Math.max(
 				2000,
 				parseInt(
 					slideshow.getAttribute( 'data-slideshow-interval' ),
@@ -104,7 +101,7 @@
 			);
 
 			function setActiveIndex( index ) {
-				for ( var i = 0; i < slides.length; i++ ) {
+				for ( let i = 0; i < slides.length; i++ ) {
 					slides[ i ].classList.toggle( 'is-active', i === index );
 				}
 			}
@@ -112,7 +109,7 @@
 			setActiveIndex( 0 );
 
 			if ( slides.length > 1 ) {
-				var currentIndex = 0;
+				let currentIndex = 0;
 				setInterval( function () {
 					currentIndex = ( currentIndex + 1 ) % slides.length;
 					setActiveIndex( currentIndex );
@@ -131,4 +128,4 @@
 	} else {
 		initHelpSection();
 	}
-})();
+} )();
