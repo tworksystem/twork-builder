@@ -1,0 +1,94 @@
+{
+  "id": 8,
+  "slug": "kit-08",
+  "label": "Telemedicine & Booking",
+  "description": "Virtual care specialties, consult process, app download, appointment booking, and Jivaka app pages.",
+  "pages": [
+    {
+      "title": "Telemedicine",
+      "slug": "telemedicine",
+      "is_front": true,
+      "blocks": [
+        {
+          "name": "twork/page-hero",
+          "attrs": {
+            "titleText": "Telemedicine — Care From Anywhere",
+            "breadcrumbText": "Telemedicine"
+          }
+        },
+        {
+          "name": "twork/tele-specialty-section"
+        },
+        {
+          "name": "twork/tele-process-section"
+        },
+        {
+          "name": "twork/tele-download-section",
+          "attrs": {
+            "title": "Download the App",
+            "description": "Book video consults, manage appointments, and get care on the go."
+          }
+        }
+      ]
+    },
+    {
+      "title": "Book Appointment",
+      "slug": "booking",
+      "blocks": [
+        {
+          "name": "twork/booking-hero-section",
+          "attrs": {}
+        },
+        {
+          "name": "twork/booking-layout-section",
+          "attrs": {
+            "infoTitle": "Appointment information",
+            "infoDescription": "Choose a specialty, pick a time, and confirm your consult.",
+            "showEmergencyBox": true,
+            "emergencyTitle": "Emergency?",
+            "emergencyText": "For life-threatening cases, call the emergency hotline or visit the ER."
+          }
+        }
+      ]
+    },
+    {
+      "title": "Jivaka App",
+      "slug": "jivaka-app",
+      "blocks": [
+        {
+          "name": "twork/jivaka-header-section"
+        },
+        {
+          "name": "twork/jivaka-hero-section",
+          "attrs": {
+            "title": "Jivaka",
+            "subtitle": "Your hospital in your pocket — bookings, records, and teleconsults."
+          }
+        },
+        {
+          "name": "twork/jivaka-footer-section"
+        }
+      ]
+    },
+    {
+      "title": "Contact",
+      "slug": "contact",
+      "blocks": [
+        {
+          "name": "twork/page-hero",
+          "attrs": {
+            "titleText": "Contact Telemedicine Support",
+            "breadcrumbText": "Contact"
+          }
+        },
+        {
+          "name": "twork/booking-layout-section"
+        },
+        {
+          "name": "twork/contact-layout-section"
+        }
+      ]
+    }
+  ],
+  "preview": "assets/templates/kit-08.png"
+}

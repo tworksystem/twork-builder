@@ -1,0 +1,114 @@
+{
+  "id": 4,
+  "slug": "kit-04",
+  "label": "CSR / Corporate",
+  "description": "Corporate CSR site with stats, initiatives, partners, and careers.",
+  "pages": [
+    {
+      "title": "Home",
+      "slug": "home",
+      "is_front": true,
+      "blocks": [
+        {
+          "name": "twork/page-hero",
+          "attrs": {
+            "titleText": "Corporate Home",
+            "breadcrumbText": "Home"
+          }
+        },
+        {
+          "name": "twork/csr-stats-section"
+        },
+        {
+          "name": "twork/csr-initiatives-section"
+        },
+        {
+          "name": "twork/csr-cta-section"
+        }
+      ]
+    },
+    {
+      "title": "CSR",
+      "slug": "csr",
+      "blocks": [
+        {
+          "name": "twork/page-hero",
+          "attrs": {
+            "titleText": "Corporate Social Responsibility",
+            "breadcrumbText": "CSR"
+          }
+        },
+        {
+          "name": "twork/csr-stats-section"
+        },
+        {
+          "name": "twork/csr-initiatives-section"
+        },
+        {
+          "name": "twork/csr-partners-section"
+        },
+        {
+          "name": "twork/csr-moments-gallery-section"
+        },
+        {
+          "name": "twork/csr-events-section"
+        },
+        {
+          "name": "twork/csr-cta-section"
+        }
+      ]
+    },
+    {
+      "title": "About",
+      "slug": "about",
+      "blocks": [
+        {
+          "name": "twork/page-hero",
+          "attrs": {
+            "titleText": "About Us",
+            "breadcrumbText": "About"
+          }
+        },
+        {
+          "name": "twork/mission-vision-item"
+        },
+        {
+          "name": "twork/awards-section"
+        }
+      ]
+    },
+    {
+      "title": "Career",
+      "slug": "career",
+      "blocks": [
+        {
+          "name": "twork/page-hero",
+          "attrs": {
+            "titleText": "Careers",
+            "breadcrumbText": "Career"
+          }
+        },
+        {
+          "name": "twork/career-cta-section"
+        }
+      ]
+    },
+    {
+      "title": "Contact",
+      "slug": "contact",
+      "blocks": [
+        {
+          "name": "twork/page-hero",
+          "attrs": {
+            "titleText": "Contact",
+            "breadcrumbText": "Contact"
+          }
+        },
+        {
+          "name": "twork/contact-layout-section"
+        }
+      ]
+    }
+  ],
+  "preview": "assets/templates/kit-04.png"
+}

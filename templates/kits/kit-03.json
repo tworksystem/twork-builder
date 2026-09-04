@@ -1,0 +1,109 @@
+{
+  "id": 3,
+  "slug": "kit-03",
+  "label": "Pharmacy / Woo",
+  "description": "Pharmacy landing plus WooCommerce shop grid and popular products.",
+  "pages": [
+    {
+      "title": "Pharmacy",
+      "slug": "pharmacy",
+      "is_front": true,
+      "blocks": [
+        {
+          "name": "twork/ph-hero-section"
+        },
+        {
+          "name": "twork/ph-shop-category-section"
+        },
+        {
+          "name": "twork/ph-popular-products-section"
+        },
+        {
+          "name": "twork/ph-upload-section"
+        }
+      ]
+    },
+    {
+      "title": "Shop",
+      "slug": "shop",
+      "blocks": [
+        {
+          "name": "twork/shop-header"
+        },
+        {
+          "name": "twork/breadcrumb-nav",
+          "attrs": {
+            "currentLabel": "Shop"
+          }
+        },
+        {
+          "name": "twork/shop-hero-carousel"
+        },
+        {
+          "name": "twork/featured-categories-carousel"
+        },
+        {
+          "name": "twork/daily-offers-carousel"
+        },
+        {
+          "name": "twork/best-sellers-carousel"
+        },
+        {
+          "name": "twork/shop-toolbar"
+        },
+        {
+          "name": "twork/product-grid-section"
+        },
+        {
+          "name": "twork/brand-footer"
+        },
+        {
+          "name": "twork/back-to-top"
+        }
+      ]
+    },
+    {
+      "title": "Product",
+      "slug": "product",
+      "blocks": [
+        {
+          "name": "twork/shop-header"
+        },
+        {
+          "name": "twork/breadcrumb-nav",
+          "attrs": {
+            "currentLabel": "Product"
+          }
+        },
+        {
+          "name": "twork/product-detail-section"
+        },
+        {
+          "name": "twork/brand-footer"
+        }
+      ]
+    },
+    {
+      "title": "Contact",
+      "slug": "contact",
+      "blocks": [
+        {
+          "name": "twork/brand-header"
+        },
+        {
+          "name": "twork/brand-page-hero",
+          "attrs": {
+            "title": "Contact Pharmacy"
+          }
+        },
+        {
+          "name": "twork/contact-form-section"
+        },
+        {
+          "name": "twork/brand-footer"
+        }
+      ]
+    }
+  ],
+  "preview": "assets/templates/kit-03.png"
+}

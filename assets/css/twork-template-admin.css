@@ -1,0 +1,195 @@
+/* Twork Templates admin — Preview Design cards */
+
+.twork-templates-wrap {
+	max-width: 1200px;
+}
+
+.twork-templates-intro {
+	max-width: 52rem;
+	color: #50575e;
+}
+
+.twork-kits {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+	gap: 20px;
+	margin-top: 20px;
+}
+
+.twork-kit-card {
+	display: flex;
+	flex-direction: column;
+	background: #fff;
+	border: 1px solid #c3c4c7;
+	border-radius: 8px;
+	overflow: hidden;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+	margin: 0;
+}
+
+.twork-kit-card.is-active {
+	border-color: #00a32a;
+	box-shadow: 0 0 0 1px #00a32a;
+}
+
+.twork-kit-card__preview {
+	position: relative;
+	aspect-ratio: 16 / 9;
+	background: #1d2327;
+	overflow: hidden;
+}
+
+.twork-kit-card__preview img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.twork-kit-card__preview-fallback {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+	color: #fff;
+	font-size: 15px;
+	font-weight: 600;
+	background: linear-gradient(135deg, #1d2327, #2271b1);
+}
+
+.twork-kit-card__badge {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	padding: 2px 8px;
+	border-radius: 999px;
+	background: #00a32a;
+	color: #fff;
+	font-size: 11px;
+	font-weight: 600;
+	letter-spacing: 0.02em;
+	text-transform: uppercase;
+}
+
+.twork-kit-card__body {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	padding: 16px;
+	flex: 1;
+}
+
+.twork-kit-card__title {
+	margin: 0;
+	font-size: 15px;
+	line-height: 1.35;
+}
+
+.twork-kit-card__desc {
+	margin: 0;
+	color: #50575e;
+	font-size: 13px;
+	line-height: 1.45;
+}
+
+.twork-kit-card__meta {
+	margin: 0;
+	font-size: 12px;
+	color: #646970;
+}
+
+.twork-kit-card__details {
+	border: 1px solid #dcdcde;
+	border-radius: 6px;
+	background: #f6f7f7;
+}
+
+.twork-kit-card__details > summary {
+	cursor: pointer;
+	padding: 10px 12px;
+	font-size: 13px;
+	font-weight: 600;
+	color: #1d2327;
+	list-style: none;
+}
+
+.twork-kit-card__details > summary::-webkit-details-marker {
+	display: none;
+}
+
+.twork-kit-card__details > summary::before {
+	content: "▸";
+	display: inline-block;
+	margin-right: 6px;
+	color: #2271b1;
+}
+
+.twork-kit-card__details[open] > summary::before {
+	content: "▾";
+}
+
+.twork-kit-card__detail-body {
+	padding: 0 12px 12px;
+	max-height: 280px;
+	overflow: auto;
+	border-top: 1px solid #dcdcde;
+}
+
+.twork-kit-page {
+	padding-top: 10px;
+}
+
+.twork-kit-page + .twork-kit-page {
+	border-top: 1px dashed #dcdcde;
+	margin-top: 10px;
+}
+
+.twork-kit-page__title {
+	margin: 0 0 6px;
+	font-size: 12px;
+	font-weight: 600;
+}
+
+.twork-kit-page__title code {
+	font-size: 11px;
+	font-weight: 400;
+	margin-left: 4px;
+}
+
+.twork-kit-page__front {
+	display: inline-block;
+	margin-left: 6px;
+	padding: 0 6px;
+	border-radius: 3px;
+	background: #2271b1;
+	color: #fff;
+	font-size: 10px;
+	font-weight: 600;
+	text-transform: uppercase;
+}
+
+.twork-kit-blocks {
+	margin: 0;
+	padding: 0 0 0 16px;
+	font-size: 11px;
+	color: #50575e;
+	line-height: 1.5;
+}
+
+.twork-kit-card__form {
+	margin-top: auto;
+	padding-top: 4px;
+}
+
+.twork-kit-card__form .button {
+	width: 100%;
+	justify-content: center;
+	text-align: center;
+}
+
+.twork-templates-note {
+	margin-top: 24px;
+	color: #646970;
+	font-size: 13px;
+}

@@ -1,0 +1,2679 @@
+{
+  "twork/tele-specialty-section": [
+    {
+      "name": "twork/tele-specialty-item",
+      "attrs": {
+        "iconClass": "fas fa-stethoscope",
+        "title": "General Medicine"
+      }
+    },
+    {
+      "name": "twork/tele-specialty-item",
+      "attrs": {
+        "iconClass": "fas fa-allergies",
+        "title": "Dermatology"
+      }
+    },
+    {
+      "name": "twork/tele-specialty-item",
+      "attrs": {
+        "iconClass": "fas fa-baby",
+        "title": "Pediatrics"
+      }
+    },
+    {
+      "name": "twork/tele-specialty-item",
+      "attrs": {
+        "iconClass": "fas fa-brain",
+        "title": "Psychology"
+      }
+    },
+    {
+      "name": "twork/tele-specialty-item",
+      "attrs": {
+        "iconClass": "fas fa-female",
+        "title": "Gynecology"
+      }
+    },
+    {
+      "name": "twork/tele-specialty-item",
+      "attrs": {
+        "iconClass": "fas fa-carrot",
+        "title": "Nutrition / Diet"
+      }
+    },
+    {
+      "name": "twork/tele-specialty-item",
+      "attrs": {
+        "iconClass": "fas fa-heartbeat",
+        "title": "Cardiology Follow-up"
+      }
+    },
+    {
+      "name": "twork/tele-specialty-item",
+      "attrs": {
+        "iconClass": "fas fa-notes-medical",
+        "title": "Report Review"
+      }
+    }
+  ],
+  "twork/em-triage-section": [
+    {
+      "name": "twork/em-triage-card",
+      "attrs": {
+        "iconClass": "fas fa-heartbeat",
+        "cardTitle": "Heart Attack Signs",
+        "listItems": [
+          {
+            "id": 1,
+            "text": "Squeezing chest pain or pressure"
+          },
+          {
+            "id": 2,
+            "text": "Pain radiating to jaw, neck, or left arm"
+          },
+          {
+            "id": 3,
+            "text": "Shortness of breath & cold sweats"
+          },
+          {
+            "id": 4,
+            "text": "Nausea or lightheadedness"
+          }
+        ]
+      }
+    },
+    {
+      "name": "twork/em-triage-card",
+      "attrs": {
+        "iconClass": "fas fa-lungs",
+        "cardTitle": "Breathing Issues",
+        "listItems": [
+          {
+            "id": 1,
+            "text": "Severe asthma unresponsive to inhalers"
+          },
+          {
+            "id": 2,
+            "text": "Choking or gasping for air"
+          },
+          {
+            "id": 3,
+            "text": "Bluish lips or face (Cyanosis)"
+          },
+          {
+            "id": 4,
+            "text": "Inability to speak in full sentences"
+          }
+        ]
+      }
+    },
+    {
+      "name": "twork/em-triage-card",
+      "attrs": {
+        "iconClass": "fas fa-brain",
+        "cardTitle": "Stroke (F.A.S.T)",
+        "listItems": [
+          {
+            "id": 1,
+            "text": "Face drooping on one side"
+          },
+          {
+            "id": 2,
+            "text": "Arm weakness or numbness"
+          },
+          {
+            "id": 3,
+            "text": "Speech difficulty (slurred)"
+          },
+          {
+            "id": 4,
+            "text": "Sudden severe headache & confusion"
+          }
+        ]
+      }
+    },
+    {
+      "name": "twork/em-triage-card",
+      "attrs": {
+        "iconClass": "fas fa-car-crash",
+        "cardTitle": "Severe Trauma",
+        "listItems": [
+          {
+            "id": 1,
+            "text": "Heavy, uncontrollable bleeding"
+          },
+          {
+            "id": 2,
+            "text": "Deep wounds or gunshot/knife wounds"
+          },
+          {
+            "id": 3,
+            "text": "Compound fractures (bone visible)"
+          },
+          {
+            "id": 4,
+            "text": "Head injury with loss of consciousness"
+          }
+        ]
+      }
+    }
+  ],
+  "twork/hc-area-section": [
+    {
+      "name": "twork/hc-area-tag",
+      "attrs": {
+        "label": "Chanayethazan"
+      }
+    },
+    {
+      "name": "twork/hc-area-tag",
+      "attrs": {
+        "label": "Chanmyathazi"
+      }
+    },
+    {
+      "name": "twork/hc-area-tag",
+      "attrs": {
+        "label": "Maha Aungmye"
+      }
+    },
+    {
+      "name": "twork/hc-area-tag",
+      "attrs": {
+        "label": "Aungmyethazan"
+      }
+    },
+    {
+      "name": "twork/hc-area-tag",
+      "attrs": {
+        "label": "Pyigyidagun"
+      }
+    },
+    {
+      "name": "twork/hc-area-tag",
+      "attrs": {
+        "label": "Amarapura"
+      }
+    },
+    {
+      "name": "twork/hc-area-tag",
+      "attrs": {
+        "label": "Patheingyi"
+      }
+    }
+  ],
+  "twork/csr-partners-section": [
+    {
+      "name": "twork/csr-partner-logo-item",
+      "attrs": {
+        "placeholderColor": "#f48b2a"
+      }
+    },
+    {
+      "name": "twork/csr-partner-logo-item",
+      "attrs": {
+        "placeholderColor": "#e3f2fd"
+      }
+    },
+    {
+      "name": "twork/csr-partner-logo-item",
+      "attrs": {
+        "placeholderColor": "#f3e5f5"
+      }
+    },
+    {
+      "name": "twork/csr-partner-logo-item",
+      "attrs": {
+        "placeholderColor": "#e8f5e9"
+      }
+    },
+    {
+      "name": "twork/csr-partner-logo-item",
+      "attrs": {
+        "placeholderColor": "#fff3e0"
+      }
+    }
+  ],
+  "twork/logo-showcase-section": [
+    {
+      "name": "twork/logo-showcase-item",
+      "attrs": {
+        "itemId": "logo_1",
+        "name": "Mandalay Region",
+        "imageUrl": "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?w=200&h=120&fit=crop&q=75",
+        "imageAlt": "Mandalay Region — Shwe Myanmar"
+      }
+    },
+    {
+      "name": "twork/logo-showcase-item",
+      "attrs": {
+        "itemId": "logo_2",
+        "name": "Yangon Region",
+        "imageUrl": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=200&h=120&fit=crop&q=75",
+        "imageAlt": "Yangon Region — Shwe Myanmar"
+      }
+    },
+    {
+      "name": "twork/logo-showcase-item",
+      "attrs": {
+        "itemId": "logo_3",
+        "name": "Sagaing Region",
+        "imageUrl": "https://images.unsplash.com/photo-1500595046743-cd271d694d30?w=200&h=120&fit=crop&q=75",
+        "imageAlt": "Sagaing Region — Shwe Myanmar"
+      }
+    },
+    {
+      "name": "twork/logo-showcase-item",
+      "attrs": {
+        "itemId": "logo_4",
+        "name": "Shan State",
+        "imageUrl": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=200&h=120&fit=crop&q=75",
+        "imageAlt": "Shan State — Shwe Myanmar"
+      }
+    },
+    {
+      "name": "twork/logo-showcase-item",
+      "attrs": {
+        "itemId": "logo_5",
+        "name": "Magway Region",
+        "imageUrl": "https://images.unsplash.com/photo-1563636619-e9143da7973b?w=200&h=120&fit=crop&q=75",
+        "imageAlt": "Magway Region — Shwe Myanmar"
+      }
+    }
+  ],
+  "twork/rad-stats-section": [
+    {
+      "name": "twork/rad-stat-item",
+      "attrs": {
+        "statNumber": "24/7",
+        "statLabel": "Operating Hours"
+      }
+    },
+    {
+      "name": "twork/rad-stat-item",
+      "attrs": {
+        "statNumber": "1.5T",
+        "statLabel": "MRI Power"
+      }
+    },
+    {
+      "name": "twork/rad-stat-item",
+      "attrs": {
+        "statNumber": "100%",
+        "statLabel": "Digital Reports"
+      }
+    },
+    {
+      "name": "twork/rad-stat-item",
+      "attrs": {
+        "statNumber": "15+",
+        "statLabel": "Specialists"
+      }
+    }
+  ],
+  "twork/contact-layout-section": [
+    {
+      "name": "twork/hotline-accordion-item",
+      "attrs": {
+        "title": "Heart Centre Hotline",
+        "phoneNumber": "09-111 222 333"
+      }
+    },
+    {
+      "name": "twork/hotline-accordion-item",
+      "attrs": {
+        "title": "Neuro Centre Hotline",
+        "phoneNumber": "09-444 555 666"
+      }
+    },
+    {
+      "name": "twork/hotline-accordion-item",
+      "attrs": {
+        "title": "Pharmacy & Lab",
+        "phoneNumber": "09-777 888 999"
+      }
+    }
+  ],
+  "twork/journey-steps-section": [
+    {
+      "name": "twork/journey-step-item",
+      "attrs": {
+        "stepNumber": 1,
+        "title": "Inquiry & Estimate",
+        "description": "Send us your medical reports. Our specialists will review them and provide a treatment plan and cost estimate."
+      }
+    },
+    {
+      "name": "twork/journey-step-item",
+      "attrs": {
+        "stepNumber": 2,
+        "title": "Travel & Visa",
+        "description": "We assist with medical visa invitation letters and can help arrange accommodation and transport."
+      }
+    },
+    {
+      "name": "twork/journey-step-item",
+      "attrs": {
+        "stepNumber": 3,
+        "title": "Arrival & Care",
+        "description": "Airport pickup, dedicated interpreters, and priority admission to ensure a stress-free experience."
+      }
+    },
+    {
+      "name": "twork/journey-step-item",
+      "attrs": {
+        "stepNumber": 4,
+        "title": "Post-Care Follow-up",
+        "description": "Even after you return home, we stay connected for follow-up consultations and recovery monitoring."
+      }
+    }
+  ],
+  "twork/phy-therapies-section": [
+    {
+      "name": "twork/phy-therapy-card",
+      "attrs": {
+        "imageUrl": "",
+        "title": "Manual Therapy",
+        "description": "Hands-on techniques to mobilize joints and soft tissues, reducing pain and increasing range of motion."
+      }
+    },
+    {
+      "name": "twork/phy-therapy-card",
+      "attrs": {
+        "imageUrl": "",
+        "title": "Electrotherapy",
+        "description": "Using advanced modalities like Ultrasound, TENS, and IFT to manage pain and stimulate muscle healing."
+      }
+    },
+    {
+      "name": "twork/phy-therapy-card",
+      "attrs": {
+        "imageUrl": "",
+        "title": "Exercise Therapy",
+        "description": "Customized exercise plans to strengthen muscles, improve balance, and prevent re-injury."
+      }
+    },
+    {
+      "name": "twork/phy-therapy-card",
+      "attrs": {
+        "imageUrl": "",
+        "title": "Post-Op Rehab",
+        "description": "Specialized care after surgeries like knee replacement or hip replacement to get you back on your feet."
+      }
+    }
+  ],
+  "twork/lab-depts-section": [
+    {
+      "name": "twork/lab-dept-card",
+      "attrs": {
+        "iconClass": "fas fa-flask",
+        "title": "Biochemistry"
+      }
+    },
+    {
+      "name": "twork/lab-dept-card",
+      "attrs": {
+        "iconClass": "fas fa-tint",
+        "title": "Hematology"
+      }
+    },
+    {
+      "name": "twork/lab-dept-card",
+      "attrs": {
+        "iconClass": "fas fa-dna",
+        "title": "Molecular Bio"
+      }
+    },
+    {
+      "name": "twork/lab-dept-card",
+      "attrs": {
+        "iconClass": "fas fa-bacterium",
+        "title": "Microbiology"
+      }
+    },
+    {
+      "name": "twork/lab-dept-card",
+      "attrs": {
+        "iconClass": "fas fa-microscope",
+        "title": "Histopathology"
+      }
+    },
+    {
+      "name": "twork/lab-dept-card",
+      "attrs": {
+        "iconClass": "fas fa-vial",
+        "title": "Clinical Path"
+      }
+    }
+  ],
+  "twork/em-process-section": [
+    {
+      "name": "twork/em-process-step",
+      "attrs": {
+        "stepNumber": "1",
+        "title": "Arrival",
+        "description": "Ambulance or walk-in."
+      }
+    },
+    {
+      "name": "twork/em-process-step",
+      "attrs": {
+        "stepNumber": "2",
+        "title": "Triage",
+        "description": "Quick severity assessment."
+      }
+    },
+    {
+      "name": "twork/em-process-step",
+      "attrs": {
+        "stepNumber": "3",
+        "title": "Diagnosis",
+        "description": "Rapid labs and imaging."
+      }
+    },
+    {
+      "name": "twork/em-process-step",
+      "attrs": {
+        "stepNumber": "4",
+        "title": "Treatment",
+        "description": "Surgery or ICU admission."
+      }
+    }
+  ],
+  "twork/surgical-services-section": [
+    {
+      "name": "twork/surgical-service-card",
+      "attrs": {
+        "title": "GI Surgery",
+        "description": "Advanced treatment for stomach, liver, and colorectal conditions using modern protocols.",
+        "iconClass": "fas fa-procedures",
+        "listItems": [
+          "Gallbladder Stones",
+          "Appendicitis"
+        ]
+      }
+    },
+    {
+      "name": "twork/surgical-service-card",
+      "attrs": {
+        "title": "Hernia Repair",
+        "description": "Minimally invasive mesh repair for inguinal, umbilical, and incisional hernias.",
+        "iconClass": "fas fa-dot-circle",
+        "listItems": [
+          "3D Mesh Technology",
+          "Day-care Procedure"
+        ]
+      }
+    },
+    {
+      "name": "twork/surgical-service-card",
+      "attrs": {
+        "title": "Trauma & Emergency",
+        "description": "24/7 readiness for accident victims and acute surgical emergencies.",
+        "iconClass": "fas fa-crutch",
+        "listItems": [
+          "Rapid Response",
+          "Multi-disciplinary Team"
+        ]
+      }
+    }
+  ],
+  "twork/brand-header": [
+    {
+      "name": "twork/brand-nav-item",
+      "attrs": {
+        "itemId": "home",
+        "label": "Home",
+        "href": "/"
+      }
+    },
+    {
+      "name": "twork/brand-nav-item",
+      "attrs": {
+        "itemId": "shop",
+        "label": "Shop",
+        "href": "/shop"
+      }
+    },
+    {
+      "name": "twork/brand-nav-item",
+      "attrs": {
+        "itemId": "about",
+        "label": "About",
+        "href": "/about"
+      }
+    }
+  ],
+  "twork/category-card-grid": [
+    {
+      "name": "twork/category-card",
+      "attrs": {
+        "itemId": "cat_butter",
+        "title": "Butter",
+        "count": "3 Sizes",
+        "href": "/shop/"
+      }
+    },
+    {
+      "name": "twork/category-card",
+      "attrs": {
+        "itemId": "cat_ghee",
+        "title": "Ghee",
+        "count": "2 Sizes",
+        "href": "/shop/"
+      }
+    },
+    {
+      "name": "twork/category-card",
+      "attrs": {
+        "itemId": "cat_bulk",
+        "title": "Bulk (10 Viss)",
+        "count": "1 Item",
+        "href": "/shop/"
+      }
+    },
+    {
+      "name": "twork/category-card",
+      "attrs": {
+        "itemId": "cat_retail",
+        "title": "Retail Packs",
+        "count": "2 Items",
+        "href": "/shop/"
+      }
+    },
+    {
+      "name": "twork/category-card",
+      "attrs": {
+        "itemId": "cat_cooking",
+        "title": "Cooking Essentials",
+        "count": "4 Items",
+        "href": "/shop/"
+      }
+    },
+    {
+      "name": "twork/category-card",
+      "attrs": {
+        "itemId": "cat_dairy",
+        "title": "Dairy Products",
+        "count": "3 Items",
+        "href": "/shop/"
+      }
+    },
+    {
+      "name": "twork/category-card",
+      "attrs": {
+        "itemId": "cat_gift",
+        "title": "Gift Sets",
+        "count": "2 Items",
+        "href": "/shop/"
+      }
+    },
+    {
+      "name": "twork/category-card",
+      "attrs": {
+        "itemId": "cat_wholesale",
+        "title": "Wholesale",
+        "count": "Contact Us",
+        "href": "/wholesale/"
+      }
+    }
+  ],
+  "twork/how-it-works-section": [
+    {
+      "name": "twork/journey-step-item",
+      "attrs": {
+        "stepNumber": 1,
+        "title": "Book a Test",
+        "description": "Call us or book online."
+      }
+    },
+    {
+      "name": "twork/journey-step-item",
+      "attrs": {
+        "stepNumber": 2,
+        "title": "Sample Collection",
+        "description": "Quick and painless collection."
+      }
+    },
+    {
+      "name": "twork/journey-step-item",
+      "attrs": {
+        "stepNumber": 3,
+        "title": "Analysis",
+        "description": "Processed in ISO-certified lab."
+      }
+    },
+    {
+      "name": "twork/journey-step-item",
+      "attrs": {
+        "stepNumber": 4,
+        "title": "Report",
+        "description": "Sent via Email / SMS."
+      }
+    }
+  ],
+  "twork/amb-process-section": [
+    {
+      "name": "twork/amb-process-step",
+      "attrs": {
+        "title": "Call 1911",
+        "description": "Our dispatch center gathers location and patient condition."
+      }
+    },
+    {
+      "name": "twork/amb-process-step",
+      "attrs": {
+        "title": "Dispatch",
+        "description": "The nearest ALS/BLS unit is deployed immediately."
+      }
+    },
+    {
+      "name": "twork/amb-process-step",
+      "attrs": {
+        "title": "Stabilize",
+        "description": "Paramedics begin treatment on-site and en route."
+      }
+    },
+    {
+      "name": "twork/amb-process-step",
+      "attrs": {
+        "title": "Hospital Arrival",
+        "description": "ER team is pre-informed and ready for handover."
+      }
+    }
+  ],
+  "twork/lab-steps-section": [
+    {
+      "name": "twork/lab-step-item",
+      "attrs": {
+        "stepNumber": "1",
+        "title": "Book a Test",
+        "description": "Call us or book online."
+      }
+    },
+    {
+      "name": "twork/lab-step-item",
+      "attrs": {
+        "stepNumber": "2",
+        "title": "Sample Collection",
+        "description": "Quick and painless collection."
+      }
+    },
+    {
+      "name": "twork/lab-step-item",
+      "attrs": {
+        "stepNumber": "3",
+        "title": "Analysis",
+        "description": "Processed in ISO lab."
+      }
+    },
+    {
+      "name": "twork/lab-step-item",
+      "attrs": {
+        "stepNumber": "4",
+        "title": "Report",
+        "description": "Sent via Email/SMS."
+      }
+    }
+  ],
+  "twork/csr-events-section": [
+    {
+      "name": "twork/csr-event-item",
+      "attrs": {
+        "dateDay": "15",
+        "dateMonth": "Nov",
+        "title": "Free Eye Check-up Camp",
+        "location": "Kyaukse Township",
+        "time": "8:00 AM – 4:00 PM",
+        "buttonText": "Volunteer"
+      }
+    },
+    {
+      "name": "twork/csr-event-item",
+      "attrs": {
+        "dateDay": "05",
+        "dateMonth": "Dec",
+        "title": "Annual Blood Donation Drive",
+        "location": "Jivaka Hospital Main Hall",
+        "time": "9:00 AM – 3:00 PM",
+        "buttonText": "Register"
+      }
+    }
+  ],
+  "twork/accreditation-section": [
+    {
+      "name": "twork/accreditation-cert-card",
+      "attrs": {
+        "iconClass": "fas fa-certificate",
+        "certTitle": "ISO 9001:2015",
+        "certBadge": "Certified Since 2018",
+        "certDescription": "Recognized for our Quality Management System ensuring consistent and excellent healthcare services."
+      }
+    },
+    {
+      "name": "twork/accreditation-cert-card",
+      "attrs": {
+        "iconClass": "fas fa-globe",
+        "certTitle": "JCI Accreditation",
+        "certBadge": "Gold Seal of Approval",
+        "certDescription": "The highest international standard for healthcare safety and quality protocols."
+      }
+    },
+    {
+      "name": "twork/accreditation-cert-card",
+      "attrs": {
+        "iconClass": "fas fa-shield-alt",
+        "certTitle": "Safety Excellence",
+        "certBadge": "National Safety Council",
+        "certDescription": "Awarded for maintaining zero-accident records and advanced fire safety protocols."
+      }
+    }
+  ],
+  "twork/hc-packages-section": [
+    {
+      "name": "twork/hc-package-card",
+      "attrs": {
+        "title": "Nursing (Short Term)",
+        "price": "30,000",
+        "priceUnit": "MMK / Day",
+        "features": [
+          "12 Hours Duty",
+          "Vitals Monitoring",
+          "Medication Administration",
+          "Basic Hygiene Care"
+        ],
+        "buttonText": "Choose Plan",
+        "buttonUrl": "#",
+        "buttonStyle": "outline"
+      }
+    },
+    {
+      "name": "twork/hc-package-card",
+      "attrs": {
+        "title": "Physio Recovery",
+        "price": "25,000",
+        "priceUnit": "MMK / Session",
+        "features": [
+          "45-60 Mins Session",
+          "Manual Therapy",
+          "Exercise Guidance",
+          "Pain Management"
+        ],
+        "buttonText": "Choose Plan",
+        "buttonUrl": "#",
+        "buttonStyle": "primary",
+        "headBackground": "var(--hc-light)"
+      }
+    },
+    {
+      "name": "twork/hc-package-card",
+      "attrs": {
+        "title": "Doctor Visit",
+        "price": "40,000",
+        "priceUnit": "MMK / Visit",
+        "features": [
+          "Comprehensive Checkup",
+          "Prescription Review",
+          "Specialist Referral (if needed)",
+          "Dietary Advice"
+        ],
+        "buttonText": "Choose Plan",
+        "buttonUrl": "#",
+        "buttonStyle": "outline"
+      }
+    }
+  ],
+  "twork/before-you-come-section": [
+    {
+      "name": "twork/before-you-come-item",
+      "attrs": {
+        "icon": "fas fa-clock",
+        "title": "Fasting",
+        "description": "Please fast for at least 8-10 hours before the checkup. Water is allowed."
+      }
+    },
+    {
+      "name": "twork/before-you-come-item",
+      "attrs": {
+        "icon": "fas fa-file-medical",
+        "title": "Reports",
+        "description": "Bring any previous medical records and current medication list."
+      }
+    },
+    {
+      "name": "twork/before-you-come-item",
+      "attrs": {
+        "icon": "fas fa-calendar-check",
+        "title": "Appointment",
+        "description": "Booking is recommended to avoid long waiting times."
+      }
+    }
+  ],
+  "twork/rad-process-section": [
+    {
+      "name": "twork/rad-step-item",
+      "attrs": {
+        "iconClass": "far fa-calendar-check",
+        "title": "Book",
+        "description": "Schedule via phone or app."
+      }
+    },
+    {
+      "name": "twork/rad-step-item",
+      "attrs": {
+        "iconClass": "fas fa-user-nurse",
+        "title": "Prepare",
+        "description": "Fast or drink contrast (if needed)."
+      }
+    },
+    {
+      "name": "twork/rad-step-item",
+      "attrs": {
+        "iconClass": "fas fa-radiation",
+        "title": "Scan",
+        "description": "Quick and painless imaging."
+      }
+    },
+    {
+      "name": "twork/rad-step-item",
+      "attrs": {
+        "iconClass": "fas fa-file-medical-alt",
+        "title": "Report",
+        "description": "Digital report within 2 hours."
+      }
+    }
+  ],
+  "twork/faq-accordion-section": [
+    {
+      "name": "twork/faq-accordion-item",
+      "attrs": {
+        "itemId": "faq_1",
+        "question": "What products does Shwe Myanmar make?",
+        "answer": "Premium butter and ghee."
+      }
+    }
+  ],
+  "twork/job-category-item": [
+    {
+      "name": "twork/job-card-item",
+      "attrs": {
+        "jobTitle": "Senior Staff Nurse (ICU)",
+        "location": "Mandalay",
+        "employmentType": "Full Time",
+        "departmentIcon": "fas fa-stethoscope",
+        "department": "Nursing Dept"
+      }
+    },
+    {
+      "name": "twork/job-card-item",
+      "attrs": {
+        "jobTitle": "Resident Medical Officer (RMO)",
+        "location": "Mandalay",
+        "employmentType": "Rotational Shift",
+        "departmentIcon": "fas fa-user-md",
+        "department": "Emergency Dept"
+      }
+    }
+  ],
+  "twork/centre-conditions-section": [
+    {
+      "name": "twork/centre-condition-card",
+      "attrs": {
+        "iconClass": "fas fa-heart-broken",
+        "title": "Coronary Artery Disease"
+      }
+    },
+    {
+      "name": "twork/centre-condition-card",
+      "attrs": {
+        "iconClass": "fas fa-bolt",
+        "title": "Arrhythmia"
+      }
+    },
+    {
+      "name": "twork/centre-condition-card",
+      "attrs": {
+        "iconClass": "fas fa-heartbeat",
+        "title": "Heart Failure"
+      }
+    },
+    {
+      "name": "twork/centre-condition-card",
+      "attrs": {
+        "iconClass": "fas fa-child",
+        "title": "Congenital Defects"
+      }
+    },
+    {
+      "name": "twork/centre-condition-card",
+      "attrs": {
+        "iconClass": "fas fa-procedures",
+        "title": "Valvular Disease"
+      }
+    },
+    {
+      "name": "twork/centre-condition-card",
+      "attrs": {
+        "iconClass": "fas fa-user-md",
+        "title": "Hypertension"
+      }
+    }
+  ],
+  "twork/news-card-grid": [
+    {
+      "name": "twork/news-card",
+      "attrs": {
+        "itemId": "post_1",
+        "author": "Shwe Myanmar",
+        "category": "Product",
+        "date": "March 15, 2026",
+        "dateIso": "2026-03-15",
+        "title": "Introducing Our 10 Viss Bulk Pack",
+        "excerpt": "Our flagship 10 Viss (≈ 16.33 kg) butter pack is now available for wholesale and commercial customers across Myanmar.",
+        "href": "/blog/"
+      }
+    },
+    {
+      "name": "twork/news-card",
+      "attrs": {
+        "itemId": "post_2",
+        "author": "Shwe Myanmar",
+        "category": "Quality",
+        "date": "February 28, 2026",
+        "dateIso": "2026-02-28",
+        "title": "How We Maintain Natural Taste",
+        "excerpt": "Learn about our quality control process that ensures every pack of Shwe Myanmar butter delivers natural scent and natural taste.",
+        "href": "/blog/"
+      }
+    },
+    {
+      "name": "twork/news-card",
+      "attrs": {
+        "itemId": "post_3",
+        "author": "Shwe Myanmar",
+        "category": "News",
+        "date": "January 10, 2026",
+        "dateIso": "2026-01-10",
+        "title": "Mandalay Production Facility Update",
+        "excerpt": "Shwe Myanmar Foodstuff Industry continues to invest in our Mandalay facility to meet growing demand for premium butter and ghee.",
+        "href": "/blog/"
+      }
+    }
+  ],
+  "twork/services-grid": [
+    {
+      "name": "twork/service-item",
+      "attrs": {
+        "cardStyle": "primary"
+      }
+    },
+    {
+      "name": "twork/service-item",
+      "attrs": {
+        "cardStyle": "primary"
+      }
+    },
+    {
+      "name": "twork/service-item",
+      "attrs": {
+        "cardStyle": "primary"
+      }
+    },
+    {
+      "name": "twork/service-item",
+      "attrs": {
+        "cardStyle": "dark",
+        "itemType": "info"
+      }
+    }
+  ],
+  "twork/dept-conditions-section": [
+    {
+      "name": "twork/dept-condition-item",
+      "attrs": {
+        "icon": "fa-heart-broken",
+        "title": "Coronary Artery Disease"
+      }
+    },
+    {
+      "name": "twork/dept-condition-item",
+      "attrs": {
+        "icon": "fa-bolt",
+        "title": "Arrhythmia"
+      }
+    },
+    {
+      "name": "twork/dept-condition-item",
+      "attrs": {
+        "icon": "fa-heartbeat",
+        "title": "Heart Failure"
+      }
+    },
+    {
+      "name": "twork/dept-condition-item",
+      "attrs": {
+        "icon": "fa-child",
+        "title": "Congenital Defects"
+      }
+    },
+    {
+      "name": "twork/dept-condition-item",
+      "attrs": {
+        "icon": "fa-procedures",
+        "title": "Valvular Disease"
+      }
+    },
+    {
+      "name": "twork/dept-condition-item",
+      "attrs": {
+        "icon": "fa-user-md",
+        "title": "Hypertension"
+      }
+    }
+  ],
+  "twork/phy-stats-section": [
+    {
+      "name": "twork/phy-stat-card",
+      "attrs": {
+        "statNumber": "5k+",
+        "label": "Happy Patients"
+      }
+    },
+    {
+      "name": "twork/phy-stat-card",
+      "attrs": {
+        "statNumber": "10+",
+        "label": "Expert Therapists"
+      }
+    },
+    {
+      "name": "twork/phy-stat-card",
+      "attrs": {
+        "statNumber": "98%",
+        "label": "Recovery Rate"
+      }
+    },
+    {
+      "name": "twork/phy-stat-card",
+      "attrs": {
+        "statNumber": "15",
+        "label": "Years Experience"
+      }
+    }
+  ],
+  "twork/em-stats-section": [
+    {
+      "name": "twork/em-stat-item",
+      "attrs": {
+        "iconClass": "fas fa-clock",
+        "statValue": "24/7",
+        "statLabel": "Open All Day"
+      }
+    },
+    {
+      "name": "twork/em-stat-item",
+      "attrs": {
+        "iconClass": "fas fa-user-md",
+        "statValue": "10+",
+        "statLabel": "ER Specialists"
+      }
+    },
+    {
+      "name": "twork/em-stat-item",
+      "attrs": {
+        "iconClass": "fas fa-ambulance",
+        "statValue": "15 min",
+        "statLabel": "Avg. Response"
+      }
+    },
+    {
+      "name": "twork/em-stat-item",
+      "attrs": {
+        "iconClass": "fas fa-bed",
+        "statValue": "20+",
+        "statLabel": "ICU Beds"
+      }
+    }
+  ],
+  "twork/affiliations-section": [
+    {
+      "name": "twork/affiliation-logo-item"
+    },
+    {
+      "name": "twork/affiliation-logo-item"
+    },
+    {
+      "name": "twork/affiliation-logo-item"
+    },
+    {
+      "name": "twork/affiliation-logo-item"
+    }
+  ],
+  "twork/lab-tech-section": [
+    {
+      "name": "twork/lab-tech-item"
+    },
+    {
+      "name": "twork/lab-tech-item"
+    }
+  ],
+  "twork/visiting-info-section": [
+    {
+      "name": "twork/visiting-hours-item",
+      "attrs": {
+        "wardName": "General Ward",
+        "timeSlot": "10:00 AM – 8:00 PM",
+        "iconClass": "fas fa-procedures"
+      }
+    },
+    {
+      "name": "twork/visiting-hours-item",
+      "attrs": {
+        "wardName": "ICU / CCU",
+        "timeSlot": "11:00 AM – 12:00 PM",
+        "iconClass": "fas fa-heartbeat"
+      }
+    },
+    {
+      "name": "twork/visiting-hours-item",
+      "attrs": {
+        "wardName": "Private Rooms",
+        "timeSlot": "8:00 AM – 9:00 PM",
+        "iconClass": "fas fa-user-md"
+      }
+    },
+    {
+      "name": "twork/visiting-hours-item",
+      "attrs": {
+        "wardName": "NICU (Parents)",
+        "timeSlot": "24 Hours Allowed",
+        "iconClass": "fas fa-baby"
+      }
+    }
+  ],
+  "twork/jivaka-hero-section": [
+    {
+      "name": "twork/jivaka-badge-item"
+    },
+    {
+      "name": "twork/jivaka-badge-item"
+    },
+    {
+      "name": "twork/jivaka-badge-item"
+    }
+  ],
+  "twork/phy-journey-section": [
+    {
+      "name": "twork/phy-journey-step",
+      "attrs": {
+        "title": "1. Initial Assessment",
+        "description": "Comprehensive evaluation of your posture, movement, and pain points by our senior physiotherapists."
+      }
+    },
+    {
+      "name": "twork/phy-journey-step",
+      "attrs": {
+        "title": "2. Treatment Plan",
+        "description": "We design a personalized roadmap combining manual therapy, machines, and exercises."
+      }
+    },
+    {
+      "name": "twork/phy-journey-step",
+      "attrs": {
+        "title": "3. Active Rehab",
+        "description": "Guided sessions in our gym to strengthen muscles and improve flexibility."
+      }
+    },
+    {
+      "name": "twork/phy-journey-step",
+      "attrs": {
+        "title": "4. Maintenance",
+        "description": "Home exercise programs to prevent future injuries and maintain health."
+      }
+    }
+  ],
+  "twork/dept-faq-section": [
+    {
+      "name": "twork/dept-faq-item",
+      "attrs": {
+        "question": "What are the signs of a heart attack?",
+        "answer": "Symptoms include chest pain, shortness of breath, pain in the arm or jaw, and cold sweats. Seek emergency care immediately."
+      }
+    },
+    {
+      "name": "twork/dept-faq-item",
+      "attrs": {
+        "question": "Do I need an appointment for ECG?",
+        "answer": "Routine ECGs require appointments, but emergency ECGs are available 24/7 at our Emergency Department."
+      }
+    },
+    {
+      "name": "twork/dept-faq-item",
+      "attrs": {
+        "question": "Does Jivaka accept international insurance?",
+        "answer": "Yes, we partner with major international insurance providers including Cigna, Aetna, and Allianz."
+      }
+    }
+  ],
+  "twork/dept-layout-section": [
+    {
+      "name": "twork/dept-overview-section"
+    },
+    {
+      "name": "twork/dept-conditions-section"
+    },
+    {
+      "name": "twork/dept-specialists-section"
+    },
+    {
+      "name": "twork/dept-technology-section"
+    },
+    {
+      "name": "twork/dept-faq-section"
+    }
+  ],
+  "twork/rad-safety-section": [
+    {
+      "name": "twork/rad-safety-card",
+      "attrs": {
+        "iconClass": "fas fa-shield-alt",
+        "title": "Dose Management",
+        "description": "Automated dose tracking for every patient to prevent overexposure."
+      }
+    },
+    {
+      "name": "twork/rad-safety-card",
+      "attrs": {
+        "iconClass": "fas fa-child",
+        "title": "Pediatric Protocols",
+        "description": "Specialized low-dose settings specifically for children."
+      }
+    },
+    {
+      "name": "twork/rad-safety-card",
+      "attrs": {
+        "iconClass": "fas fa-pump-medical",
+        "title": "Contrast Safety",
+        "description": "Strict kidney function checks before administering contrast media."
+      }
+    }
+  ],
+  "twork/team-members-grid": [
+    {
+      "name": "twork/team-member-item"
+    },
+    {
+      "name": "twork/team-member-item"
+    },
+    {
+      "name": "twork/team-member-item"
+    },
+    {
+      "name": "twork/team-member-item"
+    }
+  ],
+  "twork/nearby-accommodation-section": [
+    {
+      "name": "twork/nearby-accommodation-item",
+      "attrs": {
+        "image": "",
+        "title": "Mandalay Hill Resort",
+        "subtitle": "5 Star • 5 mins away"
+      }
+    },
+    {
+      "name": "twork/nearby-accommodation-item",
+      "attrs": {
+        "image": "",
+        "title": "Mercure Mandalay",
+        "subtitle": "4 Star • 10 mins away"
+      }
+    },
+    {
+      "name": "twork/nearby-accommodation-item",
+      "attrs": {
+        "image": "",
+        "title": "Sedona Hotel",
+        "subtitle": "5 Star • 15 mins away"
+      }
+    },
+    {
+      "name": "twork/nearby-accommodation-item",
+      "attrs": {
+        "image": "",
+        "title": "Eastern Palace",
+        "subtitle": "4 Star • 12 mins away"
+      }
+    }
+  ],
+  "twork/booking-layout-section": [
+    {
+      "name": "twork/booking-info-card-item",
+      "attrs": {
+        "title": "What to Bring",
+        "iconClass": "fas fa-clipboard-check",
+        "itemIconClass": "fas fa-check",
+        "listItems": [
+          {
+            "id": 1,
+            "text": "Previous Medical Reports",
+            "iconClass": ""
+          },
+          {
+            "id": 2,
+            "text": "List of Current Medications",
+            "iconClass": ""
+          },
+          {
+            "id": 3,
+            "text": "NRC Card / ID Proof",
+            "iconClass": ""
+          },
+          {
+            "id": 4,
+            "text": "Insurance Card (if any)",
+            "iconClass": ""
+          }
+        ]
+      }
+    },
+    {
+      "name": "twork/booking-info-card-item",
+      "attrs": {
+        "title": "OPD Hours",
+        "iconClass": "fas fa-clock",
+        "itemIconClass": "fas fa-clock",
+        "listItems": [
+          {
+            "id": 1,
+            "text": "Mon - Sat: 8:00 AM - 8:00 PM",
+            "iconClass": "fas fa-clock"
+          },
+          {
+            "id": 2,
+            "text": "Sunday: 9:00 AM - 1:00 PM",
+            "iconClass": "fas fa-clock"
+          },
+          {
+            "id": 3,
+            "text": "Call for Booking: 09-789 101 101",
+            "iconClass": "fas fa-phone"
+          }
+        ]
+      }
+    }
+  ],
+  "twork/gm-services-section": [
+    {
+      "name": "twork/gm-service-item",
+      "attrs": {
+        "icon": "fas fa-thermometer-half",
+        "title": "Acute Illnesses"
+      }
+    },
+    {
+      "name": "twork/gm-service-item",
+      "attrs": {
+        "icon": "fas fa-heartbeat",
+        "title": "Chronic Management"
+      }
+    },
+    {
+      "name": "twork/gm-service-item",
+      "attrs": {
+        "icon": "fas fa-user-shield",
+        "title": "Preventative Care"
+      }
+    }
+  ],
+  "twork/dept-specialists-section": [
+    {
+      "name": "twork/dept-doc-card-item",
+      "attrs": {
+        "name": "Dr. Kyaw Swar",
+        "specialization": "Interventional Cardiologist",
+        "qualifications": "MBBS, M.Med.Sc, MRCP (UK)"
+      }
+    },
+    {
+      "name": "twork/dept-doc-card-item",
+      "attrs": {
+        "name": "Dr. Susan May",
+        "specialization": "Cardiothoracic Surgeon",
+        "qualifications": "MBBS, Dr.Med.Sc (Surgery)"
+      }
+    }
+  ],
+  "twork/rad-why-section": [
+    {
+      "name": "twork/rad-why-item",
+      "attrs": {
+        "iconClass": "fas fa-certificate",
+        "title": "ISO Certified",
+        "description": "Internationally recognized quality standards."
+      }
+    },
+    {
+      "name": "twork/rad-why-item",
+      "attrs": {
+        "iconClass": "fas fa-bolt",
+        "title": "Fast Turnaround",
+        "description": "Emergency reports within 1 hour."
+      }
+    },
+    {
+      "name": "twork/rad-why-item",
+      "attrs": {
+        "iconClass": "fas fa-user-md",
+        "title": "Sub-Specialists",
+        "description": "Neuro, Cardiac, and MSK Radiology experts."
+      }
+    },
+    {
+      "name": "twork/rad-why-item",
+      "attrs": {
+        "iconClass": "fas fa-money-bill-wave",
+        "title": "Affordable",
+        "description": "Transparent pricing with no hidden costs."
+      }
+    }
+  ],
+  "twork/csr-stats-section": [
+    {
+      "name": "twork/stat-item",
+      "attrs": {
+        "statNumber": "50+",
+        "statLabel": "Rural Medical Camps"
+      }
+    },
+    {
+      "name": "twork/stat-item",
+      "attrs": {
+        "statNumber": "10k+",
+        "statLabel": "Patients Screened"
+      }
+    },
+    {
+      "name": "twork/stat-item",
+      "attrs": {
+        "statNumber": "200+",
+        "statLabel": "Free Surgeries"
+      }
+    },
+    {
+      "name": "twork/stat-item",
+      "attrs": {
+        "statNumber": "1.5k",
+        "statLabel": "Units of Blood Donated"
+      }
+    }
+  ],
+  "twork/hero-banner-carousel": [
+    {
+      "name": "twork/hero-banner-slide",
+      "attrs": {
+        "itemId": "slide_1",
+        "eyebrow": "SHWE MYANMAR FOODSTUFF INDUSTRY",
+        "title": "သဘာဝ အနံ့ သဘာဝ အရသာ...",
+        "subtitle": "Natural scent, natural taste — premium butter and ghee.",
+        "ctaLabel": "VIEW PRODUCTS",
+        "ctaHref": "#categories"
+      }
+    }
+  ],
+  "twork/numbered-features-grid": [
+    {
+      "name": "twork/numbered-feature-item",
+      "attrs": {
+        "itemId": "why_1",
+        "number": "01",
+        "icon": "cube",
+        "title": "Natural Ingredients",
+        "text": "သဘာဝ အနံ့ သဘာဝ အရသာ — we use carefully selected natural ingredients to deliver authentic butter and ghee flavor."
+      }
+    },
+    {
+      "name": "twork/numbered-feature-item",
+      "attrs": {
+        "itemId": "why_2",
+        "number": "02",
+        "icon": "star",
+        "title": "Consistent Quality",
+        "text": "Every batch from our Mandalay facility meets strict quality standards so your family gets the same great taste every time."
+      }
+    },
+    {
+      "name": "twork/numbered-feature-item",
+      "attrs": {
+        "itemId": "why_3",
+        "number": "03",
+        "icon": "truck",
+        "title": "Trusted Brand",
+        "text": "Shwe Myanmar (ရွှေမြန်မာ) is a registered trademark — a name households across Myanmar recognize and trust."
+      }
+    },
+    {
+      "name": "twork/numbered-feature-item",
+      "attrs": {
+        "itemId": "why_4",
+        "number": "04",
+        "icon": "tag",
+        "title": "Fair Pricing",
+        "text": "Premium quality butter and ghee at prices that make everyday cooking accessible for families and businesses alike."
+      }
+    },
+    {
+      "name": "twork/numbered-feature-item",
+      "attrs": {
+        "itemId": "why_5",
+        "number": "05",
+        "icon": "cherry",
+        "title": "Multiple Pack Sizes",
+        "text": "From 1 Viss retail packs to our flagship 10 Viss bulk size — options for home kitchens and commercial use."
+      }
+    },
+    {
+      "name": "twork/numbered-feature-item",
+      "attrs": {
+        "itemId": "why_6",
+        "number": "06",
+        "icon": "cert",
+        "title": "Mandalay Origin",
+        "text": "Proudly produced in Mandalay, Myanmar — bringing the heritage and craftsmanship of our region to every product."
+      }
+    }
+  ],
+  "twork/accommodation-options-section": [
+    {
+      "name": "twork/accommodation-room-card",
+      "attrs": {
+        "title": "Standard Ward",
+        "imageUrl": "",
+        "imageAlt": "Standard Ward",
+        "priceText": "30,000 MMK / Night",
+        "amenities": [
+          {
+            "id": 1,
+            "icon": "fas fa-bed",
+            "text": "Adjustable Patient Bed"
+          },
+          {
+            "id": 2,
+            "icon": "fas fa-wifi",
+            "text": "Free Wi-Fi"
+          },
+          {
+            "id": 3,
+            "icon": "fas fa-fan",
+            "text": "Air Conditioning"
+          },
+          {
+            "id": 4,
+            "icon": "fas fa-users",
+            "text": "Shared Bathroom"
+          }
+        ],
+        "buttonText": "Check Availability",
+        "buttonUrl": "contact.html?room=standard"
+      }
+    },
+    {
+      "name": "twork/accommodation-room-card",
+      "attrs": {
+        "title": "Private Room",
+        "imageUrl": "",
+        "imageAlt": "Private Room",
+        "priceText": "65,000 MMK / Night",
+        "amenities": [
+          {
+            "id": 1,
+            "icon": "fas fa-bed",
+            "text": "Electric Bed"
+          },
+          {
+            "id": 2,
+            "icon": "fas fa-tv",
+            "text": "LED TV"
+          },
+          {
+            "id": 3,
+            "icon": "fas fa-couch",
+            "text": "Sofa for Attendant"
+          },
+          {
+            "id": 4,
+            "icon": "fas fa-bath",
+            "text": "Private Bathroom"
+          }
+        ],
+        "buttonText": "Check Availability",
+        "buttonUrl": "contact.html?room=private"
+      }
+    },
+    {
+      "name": "twork/accommodation-room-card",
+      "attrs": {
+        "title": "VIP Suite",
+        "imageUrl": "",
+        "imageAlt": "VIP Suite",
+        "priceText": "120,000 MMK / Night",
+        "titleColor": "#f48b2a",
+        "amenities": [
+          {
+            "id": 1,
+            "icon": "fas fa-layer-group",
+            "text": "Separate Living Area"
+          },
+          {
+            "id": 2,
+            "icon": "fas fa-utensils",
+            "text": "Kitchenette & Fridge"
+          },
+          {
+            "id": 3,
+            "icon": "fas fa-tv",
+            "text": "2 LED TVs"
+          },
+          {
+            "id": 4,
+            "icon": "fas fa-concierge-bell",
+            "text": "24/7 Dedicated Nurse"
+          }
+        ],
+        "buttonText": "Book Now",
+        "buttonUrl": "contact.html?room=vip",
+        "buttonBgColor": "#f48b2a",
+        "buttonTextColor": "#ffffff",
+        "buttonBorderColor": "#f48b2a"
+      }
+    }
+  ],
+  "twork/benefits-section": [
+    {
+      "name": "twork/benefit-item",
+      "attrs": {
+        "icon": "fas fa-user-md",
+        "title": "Professional Growth",
+        "description": "Continuous learning opportunities, workshops, and international training programs."
+      }
+    },
+    {
+      "name": "twork/benefit-item",
+      "attrs": {
+        "icon": "fas fa-heartbeat",
+        "title": "Work-Life Balance",
+        "description": "Flexible shift schedules and leave policies to help you maintain a healthy lifestyle."
+      }
+    },
+    {
+      "name": "twork/benefit-item",
+      "attrs": {
+        "icon": "fas fa-users",
+        "title": "Inclusive Culture",
+        "description": "A collaborative environment where every voice is heard and teamwork is celebrated."
+      }
+    },
+    {
+      "name": "twork/benefit-item",
+      "attrs": {
+        "icon": "fas fa-briefcase-medical",
+        "title": "Modern Facilities",
+        "description": "Work with state-of-the-art medical technology and advanced infrastructure."
+      }
+    },
+    {
+      "name": "twork/benefit-item",
+      "attrs": {
+        "icon": "fas fa-hand-holding-usd",
+        "title": "Competitive Benefits",
+        "description": "Attractive salary packages, health insurance, and performance-based bonuses."
+      }
+    },
+    {
+      "name": "twork/benefit-item",
+      "attrs": {
+        "icon": "fas fa-globe-asia",
+        "title": "Community Impact",
+        "description": "Participate in CSR initiatives and medical outreach programs across Myanmar."
+      }
+    }
+  ],
+  "twork/features-section": [
+    {
+      "name": "twork/feature-card",
+      "attrs": {
+        "title": "Advanced Tech",
+        "description": "4K Laparoscopy towers and modern modular operation theaters.",
+        "iconClass": "fas fa-microscope"
+      }
+    },
+    {
+      "name": "twork/feature-card",
+      "attrs": {
+        "title": "Expert Team",
+        "description": "Senior consultants with over 20 years of surgical experience.",
+        "iconClass": "fas fa-user-md"
+      }
+    },
+    {
+      "name": "twork/feature-card",
+      "attrs": {
+        "title": "Patient Centric",
+        "description": "Personalized care plans ensuring comfort and safety.",
+        "iconClass": "fas fa-heart-pulse"
+      }
+    }
+  ],
+  "twork/amb-tech-section": [
+    {
+      "name": "twork/amb-tech-item",
+      "attrs": {
+        "icon": "fa-heartbeat",
+        "title": "Defibrillator",
+        "description": "Immediate response for cardiac arrest patients."
+      }
+    },
+    {
+      "name": "twork/amb-tech-item",
+      "attrs": {
+        "icon": "fa-lungs",
+        "title": "Mobile Ventilator",
+        "description": "Respiratory support for critical breathing issues."
+      }
+    },
+    {
+      "name": "twork/amb-tech-item",
+      "attrs": {
+        "icon": "fa-map-marker-alt",
+        "title": "GPS Tracking",
+        "description": "Real-time location sharing with the hospital ER."
+      }
+    },
+    {
+      "name": "twork/amb-tech-item",
+      "attrs": {
+        "icon": "fa-first-aid",
+        "title": "Trauma Kit",
+        "description": "Comprehensive supplies for accident stabilization."
+      }
+    }
+  ],
+  "twork/hc-intro-section": [
+    {
+      "name": "twork/hc-intro-list-item",
+      "attrs": {
+        "text": "Licensed & Verified Professionals"
+      }
+    },
+    {
+      "name": "twork/hc-intro-list-item",
+      "attrs": {
+        "text": "Personalized Care Plans"
+      }
+    },
+    {
+      "name": "twork/hc-intro-list-item",
+      "attrs": {
+        "text": "24/7 Support & Monitoring"
+      }
+    },
+    {
+      "name": "twork/hc-intro-list-item",
+      "attrs": {
+        "text": "Latest Medical Equipment"
+      }
+    }
+  ],
+  "twork/centre-doctors-section": [
+    {
+      "name": "twork/centre-doctor-card",
+      "attrs": {
+        "name": "Dr. Susan May",
+        "specialization": "Neurosurgeon"
+      }
+    },
+    {
+      "name": "twork/centre-doctor-card",
+      "attrs": {
+        "name": "Dr. Nilar",
+        "specialization": "Neurologist"
+      }
+    },
+    {
+      "name": "twork/centre-doctor-card",
+      "attrs": {
+        "name": "Dr. Zaw Win",
+        "specialization": "Spine Surgeon"
+      }
+    }
+  ],
+  "twork/packages-section": [
+    {
+      "name": "twork/package-item",
+      "attrs": {
+        "packageName": "Basic Health",
+        "category": "general"
+      }
+    },
+    {
+      "name": "twork/package-item",
+      "attrs": {
+        "packageName": "Executive Checkup",
+        "category": "general",
+        "isRecommended": true
+      }
+    },
+    {
+      "name": "twork/package-item",
+      "attrs": {
+        "packageName": "Healthy Heart",
+        "category": "heart"
+      }
+    }
+  ],
+  "twork/job-openings-section": [
+    {
+      "name": "twork/job-category-item",
+      "attrs": {
+        "categoryTitle": "Medical & Nursing",
+        "categoryTitleColor": "#212121"
+      }
+    },
+    {
+      "name": "twork/job-category-item",
+      "attrs": {
+        "categoryTitle": "Administration & Support",
+        "categoryTitleColor": "#212121"
+      }
+    }
+  ],
+  "twork/timeline-wrapper": [
+    {
+      "name": "twork/timeline-item"
+    },
+    {
+      "name": "twork/timeline-item"
+    },
+    {
+      "name": "twork/timeline-item"
+    },
+    {
+      "name": "twork/timeline-item"
+    }
+  ],
+  "twork/centre-faq-section": [
+    {
+      "name": "twork/centre-faq-item",
+      "attrs": {
+        "question": "What are the signs of a Stroke (FAST)?",
+        "answer": "Face drooping, Arm weakness, Speech difficulty, Time to call 09-789 101 101 immediately. Immediate treatment is crucial."
+      }
+    },
+    {
+      "name": "twork/centre-faq-item",
+      "attrs": {
+        "question": "When should I see a doctor for a headache?",
+        "answer": "You should seek medical attention if headaches are sudden and severe, accompanied by fever, stiff neck, confusion, vision loss, or after a head injury."
+      }
+    }
+  ],
+  "twork/amb-fleet-section": [
+    {
+      "name": "twork/amb-fleet-card-item",
+      "attrs": {
+        "badgeText": "Critical Care",
+        "badgeStyle": "dark"
+      }
+    },
+    {
+      "name": "twork/amb-fleet-card-item",
+      "attrs": {
+        "badgeText": "Standard",
+        "badgeStyle": "primary"
+      }
+    }
+  ],
+  "twork/testimonial-section": [
+    {
+      "name": "twork/testimonial-item",
+      "attrs": {
+        "image": "",
+        "name": "Laraine Flemming",
+        "procedure": "CBR",
+        "quote": "Professionals in their work, the surgery went well and I was able to go on with my life within just a few weeks. Recommended!"
+      }
+    },
+    {
+      "name": "twork/testimonial-item",
+      "attrs": {
+        "image": "",
+        "name": "Herbie Hannes",
+        "procedure": "Valve Prolapse Repair",
+        "quote": "I am deeply grateful to Dr. Chase for his expertise and care. He practices both the science and the art of cardiac surgery."
+      }
+    },
+    {
+      "name": "twork/testimonial-item",
+      "attrs": {
+        "image": "",
+        "name": "William Smith",
+        "procedure": "TMR",
+        "quote": "I felt like 102 before, now I feel like 52, thanks to Dr. Chase and his team. Their expertise is second to none!"
+      }
+    },
+    {
+      "name": "twork/testimonial-item",
+      "attrs": {
+        "image": "",
+        "name": "Ellen Norton",
+        "procedure": "Pacemaker Implementation",
+        "quote": "They gave me much more than health - they gave me my life back. One that I can still enjoy with my family and grandchildren."
+      }
+    }
+  ],
+  "twork/doctor-directory-section": [
+    {
+      "name": "twork/doctor-card-item"
+    },
+    {
+      "name": "twork/doctor-card-item"
+    },
+    {
+      "name": "twork/doctor-card-item"
+    },
+    {
+      "name": "twork/doctor-card-item"
+    }
+  ],
+  "twork/hc-faq-section": [
+    {
+      "name": "twork/hc-faq-item",
+      "attrs": {
+        "question": "Is the service available 24/7?",
+        "answer": "Yes, our nursing and doctor visit services can be arranged for any time of the day, depending on availability."
+      }
+    },
+    {
+      "name": "twork/hc-faq-item",
+      "attrs": {
+        "question": "Do you bring your own equipment?",
+        "answer": "Yes, our team comes equipped with basic diagnostic tools (BP machine, Oximeter, etc.). For specialized equipment like Oxygen concentrators, we offer rental services."
+      }
+    },
+    {
+      "name": "twork/hc-faq-item",
+      "attrs": {
+        "question": "How do I pay?",
+        "answer": "We accept cash, KPay, WavePay, and major credit cards upon completion of the service or via advance booking."
+      }
+    }
+  ],
+  "twork/paediatrics-conditions-section": [
+    {
+      "name": "twork/paediatrics-condition-card",
+      "attrs": {
+        "iconClass": "fas fa-lungs",
+        "title": "Respiratory Issues",
+        "subtitle": "Asthma, Pneumonia"
+      }
+    },
+    {
+      "name": "twork/paediatrics-condition-card",
+      "attrs": {
+        "iconClass": "fas fa-temperature-high",
+        "title": "Infectious Diseases",
+        "subtitle": "Dengue, Typhoid"
+      }
+    },
+    {
+      "name": "twork/paediatrics-condition-card",
+      "attrs": {
+        "iconClass": "fas fa-allergies",
+        "title": "Allergies & Skin",
+        "subtitle": "Eczema, Rashes"
+      }
+    },
+    {
+      "name": "twork/paediatrics-condition-card",
+      "attrs": {
+        "iconClass": "fas fa-utensils",
+        "title": "Nutritional Health",
+        "subtitle": "Malnutrition, Obesity"
+      }
+    },
+    {
+      "name": "twork/paediatrics-condition-card",
+      "attrs": {
+        "iconClass": "fas fa-brain",
+        "title": "Development",
+        "subtitle": "Autism, Speech Delay"
+      }
+    },
+    {
+      "name": "twork/paediatrics-condition-card",
+      "attrs": {
+        "iconClass": "fas fa-baby",
+        "title": "Neonatal Care",
+        "subtitle": "Jaundice, Preterm"
+      }
+    },
+    {
+      "name": "twork/paediatrics-condition-card",
+      "attrs": {
+        "iconClass": "fas fa-heartbeat",
+        "title": "Congenital Heart",
+        "subtitle": "Defects, Murmurs"
+      }
+    },
+    {
+      "name": "twork/paediatrics-condition-card",
+      "attrs": {
+        "iconClass": "fas fa-bone",
+        "title": "Orthopaedics",
+        "subtitle": "Fractures, Clubfoot"
+      }
+    }
+  ],
+  "twork/key-services-section": [
+    {
+      "name": "twork/key-service-item"
+    },
+    {
+      "name": "twork/key-service-item"
+    },
+    {
+      "name": "twork/key-service-item"
+    }
+  ],
+  "twork/rad-prep-faq-section": [
+    {
+      "name": "twork/rad-faq-item",
+      "attrs": {
+        "question": "Do I need to fast before a CT Scan?",
+        "answer": "Yes, usually 4-6 hours of fasting is required for abdominal CT scans, especially if contrast dye is used."
+      }
+    },
+    {
+      "name": "twork/rad-faq-item",
+      "attrs": {
+        "question": "Is MRI safe for everyone?",
+        "answer": "MRI uses magnets, not radiation. However, it is NOT safe if you have metal implants, pacemakers, or older surgical clips."
+      }
+    },
+    {
+      "name": "twork/rad-faq-item",
+      "attrs": {
+        "question": "How long does a report take?",
+        "answer": "Emergency X-rays are reported instantly. CT/MRI reports are typically ready within 2-4 hours."
+      }
+    },
+    {
+      "name": "twork/rad-faq-item",
+      "attrs": {
+        "question": "What should I wear?",
+        "answer": "Wear loose, comfortable clothing without zippers or metal buttons. We will provide a hospital gown if needed."
+      }
+    }
+  ],
+  "twork/centre-specialists-section": [
+    {
+      "name": "twork/centre-specialist-card",
+      "attrs": {
+        "name": "Dr. Kyaw Swar",
+        "specialization": "Interventional Cardiologist",
+        "qualifications": "MBBS, M.Med.Sc, MRCP (UK)"
+      }
+    },
+    {
+      "name": "twork/centre-specialist-card",
+      "attrs": {
+        "name": "Dr. Susan May",
+        "specialization": "Cardiothoracic Surgeon",
+        "qualifications": "MBBS, Dr.Med.Sc (Surgery)"
+      }
+    },
+    {
+      "name": "twork/centre-specialist-card",
+      "attrs": {
+        "name": "Dr. Hlaing Min",
+        "specialization": "Senior Cardiologist",
+        "qualifications": "MBBS, M.Med.Sc (Internal Med), Dip.Cardio"
+      }
+    },
+    {
+      "name": "twork/centre-specialist-card",
+      "attrs": {
+        "name": "Dr. Thida Win",
+        "specialization": "Electrophysiologist",
+        "qualifications": "MBBS, Ph.D. (Cardiology)"
+      }
+    }
+  ],
+  "twork/tele-process-section": [
+    {
+      "name": "twork/tele-process-card",
+      "attrs": {
+        "stepNumber": 1,
+        "iconClass": "fas fa-user-md",
+        "title": "Choose Doctor",
+        "description": "Select a specialist from our list and view their available online schedules."
+      }
+    },
+    {
+      "name": "twork/tele-process-card",
+      "attrs": {
+        "stepNumber": 2,
+        "iconClass": "fas fa-calendar-check",
+        "title": "Book Slot",
+        "description": "Pick a time that works for you and make a secure online payment."
+      }
+    },
+    {
+      "name": "twork/tele-process-card",
+      "attrs": {
+        "stepNumber": 3,
+        "iconClass": "fas fa-link",
+        "title": "Get Link",
+        "description": "Receive a secure encrypted video meeting link via SMS or Email."
+      }
+    },
+    {
+      "name": "twork/tele-process-card",
+      "attrs": {
+        "stepNumber": 4,
+        "iconClass": "fas fa-file-prescription",
+        "title": "Consultation",
+        "description": "See the doctor and get your digital prescription instantly in the app."
+      }
+    }
+  ],
+  "twork/exclusive-services-section": [
+    {
+      "name": "twork/exclusive-service-item",
+      "attrs": {
+        "icon": "fas fa-language",
+        "title": "Language Interpretation",
+        "description": "Our team speaks English, Chinese, and Thai to ensure clear communication."
+      }
+    },
+    {
+      "name": "twork/exclusive-service-item",
+      "attrs": {
+        "icon": "fas fa-plane-arrival",
+        "title": "Airport Transfer",
+        "description": "Complimentary pickup and drop-off services for patients and attendants."
+      }
+    },
+    {
+      "name": "twork/exclusive-service-item",
+      "attrs": {
+        "icon": "fas fa-passport",
+        "title": "Visa Assistance",
+        "description": "Provision of official documents required for Medical Visa application."
+      }
+    },
+    {
+      "name": "twork/exclusive-service-item",
+      "attrs": {
+        "icon": "fas fa-hotel",
+        "title": "Accommodation",
+        "description": "Partnerships with nearby hotels for comfortable stays for family members."
+      }
+    },
+    {
+      "name": "twork/exclusive-service-item",
+      "attrs": {
+        "icon": "fas fa-utensils",
+        "title": "International Cuisine",
+        "description": "Customized meal plans catering to diverse cultural and dietary preferences."
+      }
+    },
+    {
+      "name": "twork/exclusive-service-item",
+      "attrs": {
+        "icon": "fas fa-wifi",
+        "title": "Connectivity",
+        "description": "Free local SIM cards and high-speed Wi-Fi to keep you connected with home."
+      }
+    }
+  ],
+  "twork/centre-technology-section": [
+    {
+      "name": "twork/centre-technology-item",
+      "attrs": {
+        "caption": "Philips Azurion Cath Lab"
+      }
+    },
+    {
+      "name": "twork/centre-technology-item",
+      "attrs": {
+        "caption": "Modular Cardiac OT"
+      }
+    }
+  ],
+  "twork/mission-vision-grid": [
+    {
+      "name": "twork/mission-vision-item",
+      "attrs": {
+        "iconType": "dashicon",
+        "iconValue": "dashicons-bullseye",
+        "title": "Our Mission"
+      }
+    },
+    {
+      "name": "twork/mission-vision-item",
+      "attrs": {
+        "iconType": "dashicon",
+        "iconValue": "dashicons-visibility",
+        "title": "Our Vision"
+      }
+    },
+    {
+      "name": "twork/mission-vision-item",
+      "attrs": {
+        "iconType": "dashicon",
+        "iconValue": "dashicons-heart",
+        "title": "Our Values"
+      }
+    }
+  ],
+  "twork/gallery-section": [
+    {
+      "name": "twork/gallery-item",
+      "attrs": {
+        "imageUrl": "",
+        "imageAlt": "Cath Lab",
+        "category": "tech"
+      }
+    },
+    {
+      "name": "twork/gallery-item",
+      "attrs": {
+        "imageUrl": "",
+        "imageAlt": "Room",
+        "category": "rooms"
+      }
+    },
+    {
+      "name": "twork/gallery-item",
+      "attrs": {
+        "imageUrl": "",
+        "imageAlt": "Lobby",
+        "category": "amenity"
+      }
+    },
+    {
+      "name": "twork/gallery-item",
+      "attrs": {
+        "imageUrl": "",
+        "imageAlt": "OT Room",
+        "category": "tech"
+      }
+    },
+    {
+      "name": "twork/gallery-item",
+      "attrs": {
+        "imageUrl": "",
+        "imageAlt": "Reception",
+        "category": "amenity"
+      }
+    },
+    {
+      "name": "twork/gallery-item",
+      "attrs": {
+        "imageUrl": "",
+        "imageAlt": "Corridor",
+        "category": "rooms"
+      }
+    },
+    {
+      "name": "twork/gallery-item",
+      "attrs": {
+        "imageUrl": "",
+        "imageAlt": "Cafeteria",
+        "category": "amenity"
+      }
+    },
+    {
+      "name": "twork/gallery-item",
+      "attrs": {
+        "imageUrl": "",
+        "imageAlt": "MRI Scan",
+        "category": "tech"
+      }
+    },
+    {
+      "name": "twork/gallery-item",
+      "attrs": {
+        "imageUrl": "",
+        "imageAlt": "VIP Room",
+        "category": "rooms"
+      }
+    },
+    {
+      "name": "twork/gallery-item",
+      "attrs": {
+        "imageUrl": "",
+        "imageAlt": "Laboratory",
+        "category": "tech"
+      }
+    },
+    {
+      "name": "twork/gallery-item",
+      "attrs": {
+        "imageUrl": "",
+        "imageAlt": "Exterior",
+        "category": "amenity"
+      }
+    },
+    {
+      "name": "twork/gallery-item",
+      "attrs": {
+        "imageUrl": "",
+        "imageAlt": "ICU",
+        "category": "rooms"
+      }
+    }
+  ],
+  "twork/insurance-partners-section": [
+    {
+      "name": "twork/insurance-partner-item",
+      "attrs": {
+        "partnerName": "AIA Myanmar",
+        "iconClass": "fas fa-shield-alt"
+      }
+    },
+    {
+      "name": "twork/insurance-partner-item",
+      "attrs": {
+        "partnerName": "Prudential",
+        "iconClass": "fas fa-umbrella"
+      }
+    },
+    {
+      "name": "twork/insurance-partner-item",
+      "attrs": {
+        "partnerName": "Manulife",
+        "iconClass": "fas fa-leaf"
+      }
+    },
+    {
+      "name": "twork/insurance-partner-item",
+      "attrs": {
+        "partnerName": "GGI Insurance",
+        "iconClass": "fas fa-building"
+      }
+    },
+    {
+      "name": "twork/insurance-partner-item",
+      "attrs": {
+        "partnerName": "IKBZ Insurance",
+        "iconClass": "fas fa-landmark"
+      }
+    },
+    {
+      "name": "twork/insurance-partner-item",
+      "attrs": {
+        "partnerName": "CB Insurance",
+        "iconClass": "fas fa-hand-holding-heart"
+      }
+    },
+    {
+      "name": "twork/insurance-partner-item",
+      "attrs": {
+        "partnerName": "MGA Insurance",
+        "iconClass": "fas fa-globe-asia"
+      }
+    },
+    {
+      "name": "twork/insurance-partner-item",
+      "attrs": {
+        "partnerName": "Others",
+        "iconClass": "fas fa-file-medical"
+      }
+    }
+  ],
+  "twork/centre-layout-section": [
+    {
+      "name": "twork/centre-overview-section"
+    },
+    {
+      "name": "twork/centre-treatments-section"
+    },
+    {
+      "name": "twork/centre-conditions-section"
+    },
+    {
+      "name": "twork/centre-doctors-section"
+    },
+    {
+      "name": "twork/centre-specialists-section"
+    },
+    {
+      "name": "twork/centre-technology-section"
+    },
+    {
+      "name": "twork/centre-faq-section"
+    },
+    {
+      "name": "twork/centre-cta-section"
+    }
+  ],
+  "twork/em-doc-section": [
+    {
+      "name": "twork/em-doc-card",
+      "attrs": {
+        "imageUrl": "",
+        "role": "Head of Emergency",
+        "name": "Dr. Aung Kyaw",
+        "specialty": "Trauma Specialist"
+      }
+    },
+    {
+      "name": "twork/em-doc-card",
+      "attrs": {
+        "imageUrl": "",
+        "role": "Cardiologist",
+        "name": "Dr. Zaw Win",
+        "specialty": "Acute Cardiac Care"
+      }
+    },
+    {
+      "name": "twork/em-doc-card",
+      "attrs": {
+        "imageUrl": "",
+        "role": "Anesthesiologist",
+        "name": "Dr. Thida Soe",
+        "specialty": "Critical Care"
+      }
+    },
+    {
+      "name": "twork/em-doc-card",
+      "attrs": {
+        "imageUrl": "",
+        "role": "Physician",
+        "name": "Dr. Min Htet",
+        "specialty": "Pediatric Emergency"
+      }
+    }
+  ],
+  "twork/rad-tech-section": [
+    {
+      "name": "twork/rad-tech-item",
+      "attrs": {
+        "iconClass": "fas fa-bolt",
+        "title": "Low Dose",
+        "description": "Protocols to minimize radiation exposure."
+      }
+    },
+    {
+      "name": "twork/rad-tech-item",
+      "attrs": {
+        "iconClass": "fas fa-tachometer-alt",
+        "title": "Rapid Scan",
+        "description": "Whole body scan in under 10 minutes."
+      }
+    },
+    {
+      "name": "twork/rad-tech-item",
+      "attrs": {
+        "iconClass": "fas fa-wifi",
+        "title": "Tele-Rad",
+        "description": "Reports reviewed by remote experts."
+      }
+    },
+    {
+      "name": "twork/rad-tech-item",
+      "attrs": {
+        "iconClass": "fas fa-desktop",
+        "title": "AI Assist",
+        "description": "AI software to help detect anomalies."
+      }
+    }
+  ],
+  "twork/story-grid": [
+    {
+      "name": "twork/story-item"
+    }
+  ],
+  "twork/info-cards-section": [
+    {
+      "name": "twork/info-card-item",
+      "attrs": {
+        "iconClass": "fas fa-phone-volume",
+        "title": "Emergency Cases",
+        "subtitle": "24/7 Immediate Support",
+        "ctaText": "09-789 101 101",
+        "ctaUrl": "tel:09789101101",
+        "ctaColor": "#dc3545"
+      }
+    },
+    {
+      "name": "twork/info-card-item",
+      "attrs": {
+        "iconClass": "fas fa-envelope-open-text",
+        "title": "General Enquiry",
+        "subtitle": "For appointments & info",
+        "ctaText": "info@jivakahospital.com",
+        "ctaUrl": "mailto:info@jivakahospital.com"
+      }
+    },
+    {
+      "name": "twork/info-card-item",
+      "attrs": {
+        "iconClass": "fas fa-map-marked-alt",
+        "title": "Visit Us",
+        "subtitle": "Corner of 101st Street & 57th St,",
+        "secondaryText": "Mandalay, Myanmar",
+        "showCTA": false
+      }
+    }
+  ],
+  "twork/image-card-carousel": [
+    {
+      "name": "twork/image-card-slide",
+      "attrs": {
+        "itemId": "svc_1",
+        "title": "Butter & Ghee Production",
+        "ctaLabel": "Learn more",
+        "href": "#categories"
+      }
+    },
+    {
+      "name": "twork/image-card-slide",
+      "attrs": {
+        "itemId": "svc_2",
+        "title": "Quality Control",
+        "ctaLabel": "Learn more",
+        "href": "/quality/"
+      }
+    },
+    {
+      "name": "twork/image-card-slide",
+      "attrs": {
+        "itemId": "svc_3",
+        "title": "Nationwide Distribution",
+        "ctaLabel": "Learn more",
+        "href": "/where-to-buy/"
+      }
+    }
+  ],
+  "twork/health-check-steps-section": [
+    {
+      "name": "twork/health-check-step-item",
+      "attrs": {
+        "icon": "fas fa-ban",
+        "title": "1. Fasting",
+        "description": "Do not eat for 8-10 hours before the test. Water is allowed."
+      }
+    },
+    {
+      "name": "twork/health-check-step-item",
+      "attrs": {
+        "icon": "fas fa-calendar-check",
+        "title": "2. Appointment",
+        "description": "Book your slot in advance to avoid waiting."
+      }
+    },
+    {
+      "name": "twork/health-check-step-item",
+      "attrs": {
+        "icon": "fas fa-vial",
+        "title": "3. Sample",
+        "description": "Provide blood/urine samples and undergo scans."
+      }
+    },
+    {
+      "name": "twork/health-check-step-item",
+      "attrs": {
+        "icon": "fas fa-file-medical-alt",
+        "title": "4. Review",
+        "description": "Consult with the doctor to understand your report."
+      }
+    }
+  ],
+  "twork/dept-technology-section": [
+    {
+      "name": "twork/dept-tech-item",
+      "attrs": {
+        "caption": "Philips Azurion Cath Lab"
+      }
+    },
+    {
+      "name": "twork/dept-tech-item",
+      "attrs": {
+        "caption": "Modular Cardiac OT"
+      }
+    }
+  ],
+  "twork/review-carousel": [
+    {
+      "name": "twork/review-card",
+      "attrs": {
+        "itemId": "t_1",
+        "text": "Shwe Myanmar butter has been our kitchen staple for years. The natural taste is unmatched — we use it for everything from curries to baking.",
+        "name": "Daw Khin M.",
+        "location": "Mandalay, Myanmar"
+      }
+    },
+    {
+      "name": "twork/review-card",
+      "attrs": {
+        "itemId": "t_2",
+        "text": "We order the 10 Viss bulk pack for our restaurant. Consistent quality every delivery — our customers notice the difference in flavor.",
+        "name": "U Aung K.",
+        "location": "Yangon, Myanmar"
+      }
+    },
+    {
+      "name": "twork/review-card",
+      "attrs": {
+        "itemId": "t_3",
+        "text": "The ghee quality is excellent for traditional Myanmar cooking. Shwe Myanmar is a brand we trust for our family's daily meals.",
+        "name": "Ma Thida W.",
+        "location": "Sagaing, Myanmar"
+      }
+    }
+  ]
+}

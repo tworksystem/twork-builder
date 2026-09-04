@@ -1,0 +1,77 @@
+{
+  "id": 9,
+  "slug": "kit-09",
+  "label": "Lab & Radiology",
+  "description": "Laboratory services and radiology & imaging — departments, technology, process, safety, and prep FAQ.",
+  "pages": [
+    {
+      "title": "Laboratory Services",
+      "slug": "laboratory-services",
+      "is_front": true,
+      "blocks": [
+        {
+          "name": "twork/lab-hero-section"
+        },
+        {
+          "name": "twork/lab-depts-section"
+        },
+        {
+          "name": "twork/lab-tech-section"
+        },
+        {
+          "name": "twork/lab-steps-section"
+        }
+      ]
+    },
+    {
+      "title": "Radiology & Imaging",
+      "slug": "radiology-imaging",
+      "blocks": [
+        {
+          "name": "twork/rad-hero-section"
+        },
+        {
+          "name": "twork/rad-stats-section"
+        },
+        {
+          "name": "twork/rad-why-section"
+        },
+        {
+          "name": "twork/rad-tech-section"
+        },
+        {
+          "name": "twork/rad-process-section"
+        },
+        {
+          "name": "twork/rad-safety-section"
+        },
+        {
+          "name": "twork/rad-prep-faq-section"
+        },
+        {
+          "name": "twork/rad-diagnostic-tabs"
+        }
+      ]
+    },
+    {
+      "title": "Contact Diagnostics",
+      "slug": "contact",
+      "blocks": [
+        {
+          "name": "twork/page-hero",
+          "attrs": {
+            "titleText": "Contact Lab & Imaging",
+            "breadcrumbText": "Contact Diagnostics"
+          }
+        },
+        {
+          "name": "twork/inquiry-form-section"
+        },
+        {
+          "name": "twork/contact-layout-section"
+        }
+      ]
+    }
+  ],
+  "preview": "assets/templates/kit-09.png"
+}
