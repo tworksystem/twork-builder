@@ -1,0 +1,30 @@
+@import "../shared/about-staff-meal-tokens";
+
+.twork-about-staff-meal-gallery {
+	width: 100%;
+
+	&__label {
+		display: none;
+	}
+
+	&__hint {
+		display: none;
+	}
+
+	.block-editor-block-list__layout &__label {
+		display: block;
+		margin: 0 0 8px;
+		font-size: 12px;
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: 0.04em;
+		color: #757575;
+	}
+
+	.block-editor-block-list__layout &__hint {
+		display: block;
+		margin: 0 0 12px;
+		font-size: 12px;
+		color: #757575;
+	}
+}

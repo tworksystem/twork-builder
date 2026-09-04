@@ -1,0 +1,43 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/booking-info-card-item",
+	"version": "1.0.0",
+	"title": "Booking Info Card",
+	"parent": [ "twork/booking-layout-section" ],
+	"category": "twork-builder",
+	"icon": "clipboard",
+	"description": "Info card for booking layout (What to Bring, OPD Hours).",
+	"keywords": [ "booking", "info", "card", "opd", "mk" ],
+	"attributes": {
+		"title": {
+			"type": "string",
+			"default": "What to Bring"
+		},
+		"iconClass": {
+			"type": "string",
+			"default": "fas fa-clipboard-check"
+		},
+		"itemIconClass": {
+			"type": "string",
+			"default": "fas fa-check"
+		},
+		"listItems": {
+			"type": "array",
+			"default": [
+				{ "id": 1, "text": "Previous Medical Reports", "iconClass": "" },
+				{ "id": 2, "text": "List of Current Medications", "iconClass": "" },
+				{ "id": 3, "text": "NRC Card / ID Proof", "iconClass": "" },
+				{ "id": 4, "text": "Insurance Card (if any)", "iconClass": "" }
+			]
+		}
+	},
+	"example": {
+		"attributes": {
+			"title": "What to Bring",
+			"iconClass": "fas fa-clipboard-check"
+		}
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js"
+}

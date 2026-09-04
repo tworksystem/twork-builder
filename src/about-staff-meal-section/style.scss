@@ -1,0 +1,318 @@
+@import "../shared/about-staff-meal-tokens";
+
+.twork-about-staff-meal {
+	box-sizing: border-box;
+
+	*,
+	*::before,
+	*::after {
+		box-sizing: inherit;
+	}
+
+	&.is-hidden,
+	.is-hidden {
+		display: none !important;
+	}
+
+	&__container {
+		max-width: var(--asm-container, #{$asm-container});
+		margin: 0 auto;
+	}
+
+	&__header {
+		text-align: center;
+		margin-bottom: 40px;
+	}
+
+	&__eyebrow {
+		margin: 0 0 12px;
+		font-size: 0.875rem;
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: 0.06em;
+		color: var(--asm-accent, #{$asm-accent});
+	}
+
+	&__title {
+		margin: 0;
+		font-weight: 700;
+		line-height: 1.2;
+
+		&.has-underline::after {
+			content: "";
+			display: block;
+			width: 64px;
+			height: 3px;
+			margin: 16px auto 0;
+			background: var(--asm-accent, #{$asm-accent});
+		}
+	}
+
+	&__regions {
+		display: flex;
+		flex-direction: column;
+		gap: 40px;
+		margin-bottom: 40px;
+	}
+
+	&__quote {
+		position: relative;
+		margin: 0 auto 40px;
+		padding: 0;
+		border: 0;
+		text-align: center;
+		line-height: 1.6;
+
+		p {
+			margin: 0;
+		}
+
+		&.has-quote-marks::before,
+		&.has-quote-marks::after {
+			color: var(--asm-quote-mark-color, var(--asm-accent, #{$asm-accent}));
+			font-size: #{$asm-quote-mark-size};
+			line-height: 1;
+			font-weight: 700;
+		}
+
+		&.has-quote-marks::before {
+			content: "\201C";
+			display: block;
+			margin-bottom: 8px;
+		}
+
+		&.has-quote-marks::after {
+			content: "\201D";
+			display: block;
+			margin-top: 8px;
+		}
+	}
+
+	&__footer {
+		text-align: center;
+
+		p {
+			margin: 0;
+			font-size: 0.875rem;
+			font-weight: 600;
+			letter-spacing: 0.04em;
+			text-transform: uppercase;
+		}
+
+		&.has-lines {
+			display: flex;
+			align-items: center;
+			gap: 16px;
+
+			&::before,
+			&::after {
+				content: "";
+				flex: 1;
+				height: 2px;
+				background: var(--asm-footer-line-color, var(--asm-accent, #{$asm-accent}));
+			}
+		}
+	}
+
+	/* stylelint-disable no-descending-specificity, @stylistic/max-line-length --
+	   gallery layouts are mutually exclusive via data-gallery-layout */
+	&[data-gallery-layout="slider"] .twork-about-staff-meal-gallery,
+	&[data-gallery-layout="slideshow"] .twork-about-staff-meal-gallery {
+		position: relative;
+		width: 100%;
+	}
+
+	&[data-gallery-layout="slider"]:not(.is-asm-gallery-ready)
+	.twork-about-staff-meal-gallery > .twork-about-staff-meal-gallery-item:not(:first-of-type),
+	&[data-gallery-layout="slideshow"]:not(.is-asm-gallery-ready)
+	.twork-about-staff-meal-gallery > .twork-about-staff-meal-gallery-item:not(:first-of-type),
+	&[data-gallery-layout="slider"]:not(.is-asm-gallery-ready)
+	.twork-about-staff-meal-gallery > .wp-block-twork-about-staff-meal-gallery-item:not(:first-of-type),
+	&[data-gallery-layout="slideshow"]:not(.is-asm-gallery-ready)
+	.twork-about-staff-meal-gallery > .wp-block-twork-about-staff-meal-gallery-item:not(:first-of-type) {
+		display: none;
+	}
+
+	&[data-gallery-layout="slider"].is-asm-gallery-ready
+	.twork-about-staff-meal-gallery,
+	&[data-gallery-layout="slideshow"].is-asm-gallery-ready
+	.twork-about-staff-meal-gallery {
+		overflow: hidden;
+	}
+
+	&[data-gallery-layout="slider"].is-asm-gallery-ready
+	.twork-about-staff-meal-gallery > .twork-about-staff-meal-gallery-item,
+	&[data-gallery-layout="slideshow"].is-asm-gallery-ready
+	.twork-about-staff-meal-gallery > .twork-about-staff-meal-gallery-item,
+	&[data-gallery-layout="slider"].is-asm-gallery-ready
+	.twork-about-staff-meal-gallery > .wp-block-twork-about-staff-meal-gallery-item,
+	&[data-gallery-layout="slideshow"].is-asm-gallery-ready
+	.twork-about-staff-meal-gallery > .wp-block-twork-about-staff-meal-gallery-item {
+		display: none;
+		width: 100%;
+	}
+
+	&[data-gallery-layout="slider"].is-asm-gallery-ready
+	.twork-about-staff-meal-gallery > .twork-about-staff-meal-gallery-item.is-active,
+	&[data-gallery-layout="slideshow"].is-asm-gallery-ready
+	.twork-about-staff-meal-gallery > .twork-about-staff-meal-gallery-item.is-active,
+	&[data-gallery-layout="slider"].is-asm-gallery-ready
+	.twork-about-staff-meal-gallery > .wp-block-twork-about-staff-meal-gallery-item.is-active,
+	&[data-gallery-layout="slideshow"].is-asm-gallery-ready
+	.twork-about-staff-meal-gallery > .wp-block-twork-about-staff-meal-gallery-item.is-active {
+		display: block;
+	}
+
+	&[data-gallery-layout="featured-trio"] .twork-about-staff-meal-gallery,
+	&[data-gallery-layout="featured-trio"]
+	.twork-about-staff-meal-gallery
+	.block-editor-inner-blocks > .block-editor-block-list__layout {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+		gap: var(--asm-gallery-gap, #{$asm-gallery-gap});
+
+		> .twork-about-staff-meal-gallery-item.is-featured,
+		> .wp-block-twork-about-staff-meal-gallery-item.is-featured {
+			grid-column: 1 / -1;
+		}
+
+		> .twork-about-staff-meal-gallery-item:first-child,
+		> .wp-block-twork-about-staff-meal-gallery-item:first-child {
+			grid-column: 1 / -1;
+		}
+	}
+
+	&[data-gallery-layout="equal-grid"] .twork-about-staff-meal-gallery,
+	&[data-gallery-layout="equal-grid"]
+	.twork-about-staff-meal-gallery
+	.block-editor-inner-blocks > .block-editor-block-list__layout {
+		display: grid;
+		grid-template-columns: repeat(var(--asm-gallery-cols, 2), minmax(0, 1fr));
+		gap: var(--asm-gallery-gap, #{$asm-gallery-gap});
+	}
+
+	&[data-gallery-layout="stacked"] .twork-about-staff-meal-gallery,
+	&[data-gallery-layout="stacked"]
+	.twork-about-staff-meal-gallery
+	.block-editor-inner-blocks > .block-editor-block-list__layout {
+		display: flex;
+		flex-direction: column;
+		gap: var(--asm-gallery-gap, #{$asm-gallery-gap});
+	}
+
+	&[data-show-captions="0"] .twork-about-staff-meal-gallery-item__caption {
+		display: none;
+	}
+
+	.twork-about-staff-meal-feedback {
+		display: grid;
+		grid-template-columns: repeat(var(--asm-feedback-cols, 3), minmax(0, 1fr));
+		gap: var(--asm-feedback-gap, #{$asm-feedback-gap});
+	}
+
+	&[data-show-gallery="0"] .twork-about-staff-meal-gallery {
+		display: none !important;
+	}
+
+	&[data-show-feedback="0"] .twork-about-staff-meal-feedback {
+		display: none !important;
+	}
+	/* stylelint-enable no-descending-specificity, @stylistic/max-line-length */
+
+	.asm-reveal {
+		opacity: 0;
+		transform: translateY(16px);
+		transition: opacity 0.5s ease, transform 0.5s ease;
+
+		&.is-visible {
+			opacity: 1;
+			transform: none;
+		}
+	}
+}
+
+.twork-about-staff-meal-gallery__controls {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 12px;
+	margin-top: 12px;
+}
+
+.twork-about-staff-meal-gallery__btn {
+	appearance: none;
+	border: 1px solid #ccc;
+	background: #fff;
+	border-radius: 4px;
+	padding: 6px 12px;
+	cursor: pointer;
+	font-size: 14px;
+	line-height: 1;
+}
+
+.twork-about-staff-meal-gallery__dots {
+	display: flex;
+	gap: 8px;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.twork-about-staff-meal-gallery__dot {
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	border: 0;
+	padding: 0;
+	background: #ccc;
+	cursor: pointer;
+
+	&.is-active {
+		background: var(--asm-accent, #e85d04);
+	}
+}
+
+/* Editor: slider/slideshow stay stacked (layout only) */
+/* stylelint-disable @stylistic/max-line-length */
+.editor-styles-wrapper
+.twork-about-staff-meal[data-gallery-layout="slider"]
+.twork-about-staff-meal-gallery
+.block-editor-inner-blocks > .block-editor-block-list__layout,
+.editor-styles-wrapper
+.twork-about-staff-meal[data-gallery-layout="slideshow"]
+.twork-about-staff-meal-gallery
+.block-editor-inner-blocks > .block-editor-block-list__layout,
+.block-editor-block-list__layout
+.twork-about-staff-meal[data-gallery-layout="slider"]
+.twork-about-staff-meal-gallery
+.block-editor-inner-blocks > .block-editor-block-list__layout,
+.block-editor-block-list__layout
+.twork-about-staff-meal[data-gallery-layout="slideshow"]
+.twork-about-staff-meal-gallery
+.block-editor-inner-blocks > .block-editor-block-list__layout {
+	display: flex;
+	flex-direction: column;
+	gap: var(--asm-gallery-gap, 12px);
+}
+/* stylelint-enable @stylistic/max-line-length */
+
+@media (max-width: $asm-bp-mobile) {
+
+	.twork-about-staff-meal {
+		padding-top: var(--asm-pad-top-m, 48px) !important;
+		padding-bottom: var(--asm-pad-bottom-m, 48px) !important;
+
+		.twork-about-staff-meal-feedback {
+			grid-template-columns: 1fr;
+		}
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+	.twork-about-staff-meal .asm-reveal {
+		opacity: 1;
+		transform: none;
+		transition: none;
+	}
+}

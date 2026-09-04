@@ -1,0 +1,56 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"category": "twork-builder",
+	"textdomain": "twork-builder",
+	"name": "twork/about-milestones-section",
+	"title": "About Milestones Section",
+	"description": "OUR JOURNEY milestones grid for About pages.",
+	"keywords": [
+		"about",
+		"milestones",
+		"journey",
+		"brand",
+		"shweghee"
+	],
+	"attributes": {
+		"timelineEyebrow": {
+			"type": "string",
+			"default": "OUR JOURNEY"
+		},
+		"timelineTitle": {
+			"type": "string",
+			"default": "Milestones"
+		},
+		"milestones": {
+			"type": "array",
+			"default": [
+				{
+					"id": "m1",
+					"year": "Founded",
+					"title": "Mandalay Origins",
+					"text": "Shwe Myanmar Foodstuff Industry established in Mandalay, bringing traditional butter-making heritage to modern production."
+				},
+				{
+					"id": "m2",
+					"year": "Growth",
+					"title": "Nationwide Distribution",
+					"text": "Expanded distribution across Myanmar — Mandalay, Yangon, Sagaing, Shan, and Magway regions."
+				},
+				{
+					"id": "m3",
+					"year": "Today",
+					"title": "10 Viss Bulk Launch",
+					"text": "Introduced our flagship 10 Viss (≈16.33 kg) bulk pack for wholesale and commercial customers."
+				}
+			]
+		}
+	},
+	"supports": {
+		"html": false,
+		"align": [ "wide", "full" ]
+	},
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php"
+}

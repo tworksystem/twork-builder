@@ -1,0 +1,283 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/booking-layout-section",
+	"version": "1.1.0",
+	"title": "Booking Layout Section",
+	"category": "twork-builder",
+	"icon": "calendar",
+	"description": "Two-column appointment booking layout: info cards + booking form.",
+	"keywords": [ "booking", "appointment", "form", "schedule", "mk" ],
+	"attributes": {
+		"infoTitle": {
+			"type": "string",
+			"default": "Easy Scheduling"
+		},
+		"infoDescription": {
+			"type": "string",
+			"default": "Fill out the form to request an appointment. Our team will contact you to confirm your slot."
+		},
+		"showEmergencyBox": {
+			"type": "boolean",
+			"default": true
+		},
+		"emergencyTitle": {
+			"type": "string",
+			"default": "Medical Emergency?"
+		},
+		"emergencyText": {
+			"type": "string",
+			"default": "Do not use this form for emergencies. Please call our 24/7 hotline immediately."
+		},
+		"emergencyPhone": {
+			"type": "string",
+			"default": "09-111 222 333"
+		},
+		"emergencyPhoneHref": {
+			"type": "string",
+			"default": "tel:09111222333"
+		},
+		"emergencyIconClass": {
+			"type": "string",
+			"default": "fas fa-truck-medical"
+		},
+		"formSource": {
+			"type": "string",
+			"default": "builtin"
+		},
+		"apiFormUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"apiFormMethod": {
+			"type": "string",
+			"default": "GET"
+		},
+		"apiSubmitUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"apiFieldsPath": {
+			"type": "string",
+			"default": ""
+		},
+		"apiUseProxy": {
+			"type": "boolean",
+			"default": true
+		},
+		"wpFormProvider": {
+			"type": "string",
+			"default": ""
+		},
+		"wpFormId": {
+			"type": "string",
+			"default": ""
+		},
+		"wpFormTitle": {
+			"type": "string",
+			"default": ""
+		},
+		"wpFormShortcode": {
+			"type": "string",
+			"default": ""
+		},
+		"formId": {
+			"type": "string",
+			"default": "bookingForm"
+		},
+		"formAction": {
+			"type": "string",
+			"default": ""
+		},
+		"formMethod": {
+			"type": "string",
+			"default": "post"
+		},
+		"patientDetailsTitle": {
+			"type": "string",
+			"default": "Patient Details"
+		},
+		"appointmentDetailsTitle": {
+			"type": "string",
+			"default": "Appointment Details"
+		},
+		"fullNameLabel": {
+			"type": "string",
+			"default": "Full Name *"
+		},
+		"fullNamePlaceholder": {
+			"type": "string",
+			"default": "e.g. U Kyaw Kyaw"
+		},
+		"phoneLabel": {
+			"type": "string",
+			"default": "Phone Number *"
+		},
+		"phonePlaceholder": {
+			"type": "string",
+			"default": "09xxxxxxxxx"
+		},
+		"emailLabel": {
+			"type": "string",
+			"default": "Email (Optional)"
+		},
+		"emailPlaceholder": {
+			"type": "string",
+			"default": "example@email.com"
+		},
+		"dobLabel": {
+			"type": "string",
+			"default": "Date of Birth"
+		},
+		"departmentLabel": {
+			"type": "string",
+			"default": "Department *"
+		},
+		"departments": {
+			"type": "array",
+			"default": [
+				{ "id": 1, "value": "heart", "label": "Heart Centre" },
+				{ "id": 2, "value": "neuro", "label": "Neuro Centre" },
+				{ "id": 3, "value": "cancer", "label": "Cancer Centre" },
+				{ "id": 4, "value": "general", "label": "General Medicine" },
+				{ "id": 5, "value": "paeds", "label": "Paediatrics" },
+				{ "id": 6, "value": "checkup", "label": "Health Packages" }
+			]
+		},
+		"departmentOptions": {
+			"type": "string",
+			"default": ""
+		},
+		"doctorLabel": {
+			"type": "string",
+			"default": "Doctor (Optional)"
+		},
+		"doctors": {
+			"type": "array",
+			"default": [
+				{ "id": 1, "deptValue": "heart", "name": "Dr. Kyaw Swar" },
+				{ "id": 2, "deptValue": "heart", "name": "Dr. Aung Myo" },
+				{ "id": 3, "deptValue": "neuro", "name": "Dr. Susan May" },
+				{ "id": 4, "deptValue": "neuro", "name": "Dr. Nilar" },
+				{ "id": 5, "deptValue": "cancer", "name": "Dr. Hlaing Min" },
+				{ "id": 6, "deptValue": "general", "name": "Dr. Thida Win" },
+				{ "id": 7, "deptValue": "general", "name": "Medical Officer" },
+				{ "id": 8, "deptValue": "paeds", "name": "Dr. Thida Win" },
+				{ "id": 9, "deptValue": "paeds", "name": "Dr. Baby Care" },
+				{ "id": 10, "deptValue": "checkup", "name": "Wellness Officer" }
+			]
+		},
+		"doctorsMap": {
+			"type": "string",
+			"default": ""
+		},
+		"doctorsSourcePageId": {
+			"type": "number",
+			"default": 0
+		},
+		"dateLabel": {
+			"type": "string",
+			"default": "Preferred Date *"
+		},
+		"timeLabel": {
+			"type": "string",
+			"default": "Preferred Time"
+		},
+		"timeSlots": {
+			"type": "array",
+			"default": [
+				{ "id": 1, "value": "morning", "label": "Morning (9AM - 12PM)" },
+				{ "id": 2, "value": "afternoon", "label": "Afternoon (1PM - 4PM)" },
+				{ "id": 3, "value": "evening", "label": "Evening (5PM - 8PM)" }
+			]
+		},
+		"timeOptions": {
+			"type": "string",
+			"default": ""
+		},
+		"reasonLabel": {
+			"type": "string",
+			"default": "Reason for Visit / Symptoms"
+		},
+		"reasonPlaceholder": {
+			"type": "string",
+			"default": "Briefly describe your symptoms..."
+		},
+		"submitButtonText": {
+			"type": "string",
+			"default": "Confirm Booking"
+		},
+		"submitIconClass": {
+			"type": "string",
+			"default": "fas fa-arrow-right"
+		},
+		"successTitle": {
+			"type": "string",
+			"default": "Booking Received!"
+		},
+		"successMessage": {
+			"type": "string",
+			"default": "Thank you. Your appointment request has been submitted. Our team will call you shortly to confirm the exact time."
+		},
+		"successButtonText": {
+			"type": "string",
+			"default": "Book Another"
+		},
+		"successIconClass": {
+			"type": "string",
+			"default": "fas fa-circle-check"
+		},
+		"layoutGap": {
+			"type": "number",
+			"default": 60
+		},
+		"containerMaxWidth": {
+			"type": "number",
+			"default": 1200
+		},
+		"containerPadding": {
+			"type": "number",
+			"default": 20
+		},
+		"paddingBottom": {
+			"type": "number",
+			"default": 100
+		},
+		"formPadding": {
+			"type": "number",
+			"default": 40
+		},
+		"primaryColor": {
+			"type": "string",
+			"default": "#f48b2a"
+		},
+		"animationOnScroll": {
+			"type": "boolean",
+			"default": true
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"align": [ "wide", "full" ]
+	},
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": {
+			"infoTitle": "Easy Scheduling"
+		},
+		"innerBlocks": [
+			{
+				"name": "twork/booking-info-card-item",
+				"attributes": {
+					"title": "What to Bring",
+					"iconClass": "fas fa-clipboard-check"
+				}
+			}
+		]
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css",
+	"editorStyle": "file:./index.css"
+}

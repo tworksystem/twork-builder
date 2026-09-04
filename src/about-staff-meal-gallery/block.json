@@ -1,0 +1,14 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/about-staff-meal-gallery",
+	"version": "1.0.0",
+	"title": "Staff Meal Gallery",
+	"category": "twork-builder",
+	"parent": ["twork/about-staff-meal-section"],
+	"description": "Gallery region for About Staff Meal (internal).",
+	"supports": { "html": false, "inserter": false, "reusable": false, "lock": false },
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
+}

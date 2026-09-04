@@ -1,0 +1,10 @@
+@import "../shared/brand-tokens";
+@import "../about-story-section/style";
+
+.about-milestones {
+	padding-block: var(--space-section);
+}
+
+.about-milestones__inner {
+	width: 100%;
+}

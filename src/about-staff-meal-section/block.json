@@ -1,0 +1,78 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/about-staff-meal-section",
+	"version": "1.0.0",
+	"title": "About Staff Meal",
+	"category": "twork-builder",
+	"icon": "food",
+	"description": "Staff meal program section for About Us (MEAL TREAT FOR DUTY TIME).",
+	"keywords": ["about", "staff meal", "meal treat", "jivaka", "agm"],
+	"attributes": {
+		"showSection": { "type": "boolean", "default": true },
+		"sectionId": { "type": "string", "default": "staff-meal" },
+		"backgroundColor": { "type": "string", "default": "#ffffff" },
+		"paddingTop": { "type": "number", "default": 80 },
+		"paddingBottom": { "type": "number", "default": 80 },
+		"paddingTopMobile": { "type": "number", "default": 48 },
+		"paddingBottomMobile": { "type": "number", "default": 48 },
+		"containerMaxWidth": { "type": "number", "default": 1100 },
+		"containerPadding": { "type": "number", "default": 24 },
+		"accentColor": { "type": "string", "default": "#e85d04" },
+		"showEyebrow": { "type": "boolean", "default": false },
+		"eyebrowText": { "type": "string", "default": "Staff benefits" },
+		"showTitle": { "type": "boolean", "default": true },
+		"title": {
+			"type": "string",
+			"default": "MEAL TREAT FOR DUTY TIME"
+		},
+		"headingLevel": { "type": "number", "default": 2 },
+		"showTitleUnderline": { "type": "boolean", "default": true },
+		"titleColor": { "type": "string", "default": "#e85d04" },
+		"titleFontSize": { "type": "number", "default": 28 },
+		"showGallery": { "type": "boolean", "default": true },
+		"galleryLayout": { "type": "string", "default": "featured-trio" },
+		"galleryColumns": { "type": "number", "default": 2 },
+		"galleryGap": { "type": "number", "default": 12 },
+		"showCaptions": { "type": "boolean", "default": false },
+		"galleryAutoplay": { "type": "boolean", "default": true },
+		"galleryAutoplayMs": { "type": "number", "default": 4500 },
+		"showFeedback": { "type": "boolean", "default": true },
+		"feedbackColumns": { "type": "number", "default": 3 },
+		"feedbackGap": { "type": "number", "default": 24 },
+		"showAuthor": { "type": "boolean", "default": true },
+		"allowEmoji": { "type": "boolean", "default": true },
+		"showQuote": { "type": "boolean", "default": true },
+		"quoteText": {
+			"type": "string",
+			"default": "စားသောက်မှု အရသာ ကျေနပ်မှု ဆန်းစစ်ချက် မှတ်တမ်းများမှ ရရှိသော အကြံပြုချက်များကို အခြေခံကာ ဝန်ထမ်းများအတွက် သန့်ရှင်းလတ်ဆတ်ပြီး အရသာရှိသော အစားအစာများကို နေ့စဉ် ချက်ပြုတ်ကျွေးမွေးလျက်ရှိပါသည်။"
+		},
+		"showQuoteMarks": { "type": "boolean", "default": true },
+		"quoteMarkColor": { "type": "string", "default": "#e85d04" },
+		"quoteTextColor": { "type": "string", "default": "#e85d04" },
+		"quoteFontSize": { "type": "number", "default": 22 },
+		"quoteMaxWidth": { "type": "number", "default": 900 },
+		"showFooter": { "type": "boolean", "default": false },
+		"footerText": {
+			"type": "string",
+			"default": "2nd AGM (2025-2026)"
+		},
+		"showFooterLines": { "type": "boolean", "default": true },
+		"footerLineColor": { "type": "string", "default": "#e85d04" },
+		"animationOnScroll": { "type": "boolean", "default": true },
+		"animationType": { "type": "string", "default": "fade-up" },
+		"animationDelay": { "type": "number", "default": 0 },
+		"respectReducedMotion": { "type": "boolean", "default": true }
+	},
+	"supports": { "html": false, "anchor": true, "align": ["wide", "full"] },
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": {
+			"sectionId": "staff-meal",
+			"title": "MEAL TREAT FOR DUTY TIME"
+		}
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
+}

@@ -1,0 +1,20 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/about-staff-meal-feedback-item",
+	"version": "1.0.0",
+	"title": "Staff Meal Feedback Item",
+	"category": "twork-builder",
+	"parent": ["twork/about-staff-meal-feedback"],
+	"supports": { "html": false },
+	"attributes": {
+		"showItem": { "type": "boolean", "default": true },
+		"showName": { "type": "boolean", "default": true },
+		"name": { "type": "string", "default": "" },
+		"showHeart": { "type": "boolean", "default": true },
+		"body": { "type": "string", "default": "" }
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
+}
