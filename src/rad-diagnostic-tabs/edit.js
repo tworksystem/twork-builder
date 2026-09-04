@@ -74,7 +74,9 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 	};
 
 	const updateTabImage = ( index, media ) => {
-		if ( ! media ) return;
+		if ( ! media ) {
+			return;
+		}
 		const newTabs = [ ...tabs ];
 		const currentTab = newTabs[ index ] || {};
 		const nextUrl = media.url || currentTab.imageUrl || '';

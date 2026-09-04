@@ -7,13 +7,17 @@ export default function save( { attributes } ) {
 		containerMaxWidth,
 		containerPadding,
 		title,
+		showTitle = true,
 		description,
+		showDescription = true,
 		showChecklist,
 		checklistItems = [],
 		buttonLabel,
 		buttonUrl,
+		showButton = true,
 		imageUrl,
 		imageAlt,
+		showImage = true,
 	} = attributes;
 
 	const blockProps = useBlockProps.save( {
@@ -42,16 +46,18 @@ export default function save( { attributes } ) {
 				<div className="ph-upload-section fade-up">
 					<div className="ph-upload-grid">
 						<div className="ph-upload-content">
-							<RichText.Content
-								tagName="h2"
-								value={ title }
-								style={ {
-									color: '#fff',
-									fontSize: '2.5rem',
-									marginBottom: '20px',
-								} }
-							/>
-							{ description && (
+							{ showTitle && title && (
+								<RichText.Content
+									tagName="h2"
+									value={ title }
+									style={ {
+										color: '#fff',
+										fontSize: '2.5rem',
+										marginBottom: '20px',
+									} }
+								/>
+							) }
+							{ showDescription && description && (
 								<RichText.Content
 									tagName="p"
 									value={ description }
@@ -90,7 +96,7 @@ export default function save( { attributes } ) {
 								</ul>
 							) }
 
-							{ buttonLabel && (
+							{ showButton && buttonLabel && (
 								<a
 									className="ph-upload-btn"
 									href={ buttonUrl || '#' }
@@ -104,7 +110,7 @@ export default function save( { attributes } ) {
 							) }
 						</div>
 						<div>
-							{ imageUrl && (
+							{ showImage && imageUrl && (
 								<img
 									src={ imageUrl }
 									alt={ imageAlt }

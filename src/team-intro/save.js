@@ -36,7 +36,7 @@ export default function save( { attributes } ) {
 	const imageStyle = {
 		backgroundImage: backgroundImage
 			? `url(${ backgroundImage })`
-			: 'url(https://jivakahospital.vercel.app/assets/images/bgn-team-members.jpeg)',
+			: 'url(',
 		backgroundSize: 'cover',
 		backgroundPosition: 'left top',
 		minHeight: `${ imageMinHeight }px`,

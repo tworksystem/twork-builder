@@ -23,7 +23,7 @@
 		},
 		"backgroundImage": {
 			"type": "string",
-			"default": "https://jivakahospital.com/wp-content/uploads/2025/10/bgn-slider-02.jpg"
+			"default": ""
 		},
 		"backgroundImageId": {
 			"type": "number"
@@ -202,7 +202,7 @@
 		"viewportWidth": 1200,
 		"attributes": {
 			"backgroundColor": "#1a1a1a",
-			"backgroundImage": "https://jivakahospital.com/wp-content/uploads/2025/10/bgn-slider-02.jpg",
+			"backgroundImage": "",
 			"backgroundOverlay": true,
 			"overlayColor": "rgba(0, 0, 0, 0.7)",
 			"overlayOpacity": 0.7,

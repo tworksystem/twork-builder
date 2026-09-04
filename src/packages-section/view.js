@@ -8,7 +8,9 @@
 
 	const initPackagesSection = () => {
 		const sections = document.querySelectorAll( '.mk-packages-section' );
-		if ( ! sections.length ) return;
+		if ( ! sections.length ) {
+			return;
+		}
 
 		sections.forEach( ( section ) => {
 			const grid = section.querySelector( '.packages-grid' );

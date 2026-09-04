@@ -8,7 +8,12 @@ import {
 	PanelColorSettings,
 } from '@wordpress/components';
 
-export default function Edit( { attributes, setAttributes, clientId, isSelected } ) {
+export default function Edit( {
+	attributes,
+	setAttributes,
+	clientId,
+	isSelected,
+} ) {
 	const {
 		title,
 		description,
@@ -159,7 +164,7 @@ export default function Edit( { attributes, setAttributes, clientId, isSelected 
 					tagName="h4"
 					value={ title }
 					onChange={ ( val ) => setAttributes( { title: val } ) }
-					placeholder={ __( 'Step title...', 'twork-builder' ) }
+					placeholder={ __( 'Step title…', 'twork-builder' ) }
 					style={ {
 						color: titleColor,
 						fontSize: `${ titleFontSize }rem`,
@@ -175,7 +180,7 @@ export default function Edit( { attributes, setAttributes, clientId, isSelected 
 					onChange={ ( val ) =>
 						setAttributes( { description: val } )
 					}
-					placeholder={ __( 'Step description...', 'twork-builder' ) }
+					placeholder={ __( 'Step description…', 'twork-builder' ) }
 					style={ {
 						color: descriptionColor,
 						fontSize: `${ descriptionFontSize }rem`,

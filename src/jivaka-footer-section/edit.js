@@ -13,8 +13,7 @@ export default function Edit( { attributes, setAttributes } ) {
 					attributes.containerMaxWidth != null
 						? `${ attributes.containerMaxWidth }px`
 						: undefined,
-				'--jf-primary':
-					attributes.primaryColor || '#f6892e',
+				'--jf-primary': attributes.primaryColor || '#f6892e',
 			},
 		} ),
 		[ attributes.containerMaxWidth, attributes.primaryColor ]

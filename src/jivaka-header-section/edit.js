@@ -127,7 +127,10 @@ export default function Edit( { attributes, setAttributes } ) {
 											} }
 										/>
 									) : null }
-									<Button variant="secondary" onClick={ open }>
+									<Button
+										variant="secondary"
+										onClick={ open }
+									>
 										{ logoImage
 											? __(
 													'Replace Logo',
@@ -201,7 +204,10 @@ export default function Edit( { attributes, setAttributes } ) {
 					initialOpen={ false }
 				>
 					<RangeControl
-						label={ __( 'Container Max Width (px)', 'twork-builder' ) }
+						label={ __(
+							'Container Max Width (px)',
+							'twork-builder'
+						) }
 						value={ containerMaxWidth }
 						onChange={ ( value ) =>
 							setAttributes( { containerMaxWidth: value } )
@@ -210,7 +216,10 @@ export default function Edit( { attributes, setAttributes } ) {
 						max={ 1440 }
 					/>
 					<RangeControl
-						label={ __( 'Container Padding (px)', 'twork-builder' ) }
+						label={ __(
+							'Container Padding (px)',
+							'twork-builder'
+						) }
 						value={ containerPadding }
 						onChange={ ( value ) =>
 							setAttributes( { containerPadding: value } )

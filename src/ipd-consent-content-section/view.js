@@ -23,7 +23,10 @@
 				tabs.forEach( ( tab ) => {
 					const isActive = tab.dataset.viewTab === view;
 					tab.classList.toggle( 'is-active', isActive );
-					tab.setAttribute( 'aria-selected', isActive ? 'true' : 'false' );
+					tab.setAttribute(
+						'aria-selected',
+						isActive ? 'true' : 'false'
+					);
 				} );
 
 				panels.forEach( ( panel ) => {

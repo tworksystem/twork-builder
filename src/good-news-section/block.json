@@ -56,7 +56,7 @@
 		},
 		"backgroundImage": {
 			"type": "string",
-			"default": "https://jivakahospital.com/wp-content/uploads/2025/12/bgn-newsletter-subscribe.jpg"
+			"default": ""
 		},
 		"backgroundImageId": {
 			"type": "number"
@@ -1342,9 +1342,9 @@
 			"imageWidthTablet": 100,
 			"contentWidthMobile": 100,
 			"imageWidthMobile": 100,
-			"backgroundImage": "https://jivakahospital.com/wp-content/uploads/2025/12/bgn-newsletter-subscribe.jpg",
-			"backgroundImageTablet": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?auto=format&fit=crop&w=1200&q=80",
-			"backgroundImageMobile": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?auto=format&fit=crop&w=1200&q=80",
+			"backgroundImage": "",
+			"backgroundImageTablet": "",
+			"backgroundImageMobile": "",
 			"useResponsiveImages": false,
 			"backgroundImagePosition": "center right",
 			"backgroundImageSize": "cover",
@@ -1352,9 +1352,9 @@
 			"backgroundImageSizeMobile": "cover",
 			"backgroundImagePositionTablet": "center",
 			"backgroundImagePositionMobile": "center",
-			"backgroundImageCustomSize": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?auto=format&fit=crop&w=1200&q=80",
-			"backgroundImageCustomSizeTablet": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?auto=format&fit=crop&w=1200&q=80",
-			"backgroundImageCustomSizeMobile": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?auto=format&fit=crop&w=1200&q=80",
+			"backgroundImageCustomSize": "",
+			"backgroundImageCustomSizeTablet": "",
+			"backgroundImageCustomSizeMobile": "",
 			"showBackgroundOverlay": false,
 			"backgroundOverlayColor": "rgba(255, 255, 255, 0.1)",
 			"backgroundOverlayOpacity": 0.1,
@@ -1380,7 +1380,7 @@
 			"imageMaxHeight": 0,
 			"imageMaxHeightTablet": 0,
 			"imageMaxHeightMobile": 0,
-			"imageAspectRatio": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?auto=format&fit=crop&w=1200&q=80",
+			"imageAspectRatio": "",
 			"imageOverflow": "hidden",
 			"imageMarginTop": 0,
 			"imageMarginTopTablet": 0,

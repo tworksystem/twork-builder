@@ -55,7 +55,10 @@ export const DEFAULT_NAV_ITEMS = [
 				links: [
 					{ label: '24/7 Emergency', url: '24-7-emergency' },
 					{ label: 'Radiology & Imaging', url: 'radiology-imaging' },
-					{ label: 'Laboratory Services', url: 'laboratory-services' },
+					{
+						label: 'Laboratory Services',
+						url: 'laboratory-services',
+					},
 					{ label: 'Pharmacy', url: 'pharmacy' },
 				],
 			},

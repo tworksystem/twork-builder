@@ -26,10 +26,8 @@ attributes.logoUrl.default = DEFAULT_LOGO_URL;
 attributes.formFields.default = DEFAULT_FORM_FIELDS;
 attributes.referralOptions.default = DEFAULT_REFERRAL_OPTIONS;
 attributes.pageImages.default = DEFAULT_PAGE_IMAGES;
-attributes.patientSignatureFields.default =
-	DEFAULT_SIGNATURE_FIELDS.patientRep;
-attributes.witnessSignatureFields.default =
-	DEFAULT_SIGNATURE_FIELDS.witness;
+attributes.patientSignatureFields.default = DEFAULT_SIGNATURE_FIELDS.patientRep;
+attributes.witnessSignatureFields.default = DEFAULT_SIGNATURE_FIELDS.witness;
 attributes.liabilityText.default = DEFAULT_LIABILITY_TEXT;
 attributes.footerNote.default = DEFAULT_FOOTER_NOTE;
 attributes.consentClosingText.default = DEFAULT_CONSENT_CLOSING;

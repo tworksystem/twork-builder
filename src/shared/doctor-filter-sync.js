@@ -84,8 +84,7 @@ export function resolveDoctorFilterListsFromEditor(
 	context = {},
 	blockEditorSelect = null
 ) {
-	const blockEditor =
-		blockEditorSelect || select( blockEditorStore );
+	const blockEditor = blockEditorSelect || select( blockEditorStore );
 	if ( ! blockEditor ) {
 		return {
 			departments: undefined,

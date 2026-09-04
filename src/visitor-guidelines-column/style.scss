@@ -1,9 +1,11 @@
 .editor-styles-wrapper {
-    .mk-visitor-guidelines-column-editor {
-        .guide-title [contenteditable="true"]:focus,
-        .guide-title-text [contenteditable="true"]:focus {
-            outline: 1px dashed #2271b1;
-            outline-offset: 2px;
-        }
-    }
+
+	.mk-visitor-guidelines-column-editor {
+
+		.guide-title [contenteditable="true"]:focus,
+		.guide-title-text [contenteditable="true"]:focus {
+			outline: 1px dashed #2271b1;
+			outline-offset: 2px;
+		}
+	}
 }

@@ -59,7 +59,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 		[
 			'twork/nearby-accommodation-item',
 			{
-				image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=600&q=80',
+				image: '',
 				title: 'Mandalay Hill Resort',
 				subtitle: '5 Star • 5 mins away',
 			},
@@ -68,7 +68,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 		[
 			'twork/nearby-accommodation-item',
 			{
-				image: 'https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=600&q=80',
+				image: '',
 				title: 'Mercure Mandalay',
 				subtitle: '4 Star • 10 mins away',
 			},
@@ -77,7 +77,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 		[
 			'twork/nearby-accommodation-item',
 			{
-				image: 'https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=600&q=80',
+				image: '',
 				title: 'Sedona Hotel',
 				subtitle: '5 Star • 15 mins away',
 			},
@@ -86,7 +86,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 		[
 			'twork/nearby-accommodation-item',
 			{
-				image: 'https://images.unsplash.com/photo-1596436889106-be35e843f974?auto=format&fit=crop&w=600&q=80',
+				image: '',
 				title: 'Eastern Palace',
 				subtitle: '4 Star • 12 mins away',
 			},

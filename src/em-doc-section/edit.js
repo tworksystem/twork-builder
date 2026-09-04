@@ -22,7 +22,7 @@ const TEMPLATE = [
 		'twork/em-doc-card',
 		{
 			imageUrl:
-				'https://jivakahospital.com/wp-content/uploads/2025/12/img-team-member-03.jpg',
+				'',
 			role: 'Head of Emergency',
 			name: 'Dr. Aung Kyaw',
 			specialty: 'Trauma Specialist',
@@ -32,7 +32,7 @@ const TEMPLATE = [
 	[
 		'twork/em-doc-card',
 		{
-			imageUrl: 'https://i.pravatar.cc/400?img=11',
+			imageUrl: '',
 			role: 'Cardiologist',
 			name: 'Dr. Zaw Win',
 			specialty: 'Acute Cardiac Care',
@@ -42,7 +42,7 @@ const TEMPLATE = [
 	[
 		'twork/em-doc-card',
 		{
-			imageUrl: 'https://i.pravatar.cc/400?img=5',
+			imageUrl: '',
 			role: 'Anesthesiologist',
 			name: 'Dr. Thida Soe',
 			specialty: 'Critical Care',
@@ -52,7 +52,7 @@ const TEMPLATE = [
 	[
 		'twork/em-doc-card',
 		{
-			imageUrl: 'https://i.pravatar.cc/400?img=33',
+			imageUrl: '',
 			role: 'Physician',
 			name: 'Dr. Min Htet',
 			specialty: 'Pediatric Emergency',

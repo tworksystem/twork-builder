@@ -49,8 +49,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 		[
 			'twork/csr-moments-gallery-item',
 			{
-				imageUrl:
-					'https://images.unsplash.com/photo-1544027993-37dbfe43562a?auto=format&fit=crop&w=800&q=80',
+				imageUrl: '',
 				imageAlt: 'Community 1',
 				spanTwoColumns: true,
 			},
@@ -59,8 +58,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 		[
 			'twork/csr-moments-gallery-item',
 			{
-				imageUrl:
-					'https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=500&q=80',
+				imageUrl: '',
 				imageAlt: 'Community 2',
 			},
 		],
@@ -68,8 +66,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 		[
 			'twork/csr-moments-gallery-item',
 			{
-				imageUrl:
-					'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=500&q=80',
+				imageUrl: '',
 				imageAlt: 'Community 3',
 			},
 		],
@@ -77,8 +74,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 		[
 			'twork/csr-moments-gallery-item',
 			{
-				imageUrl:
-					'https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=500&q=80',
+				imageUrl: '',
 				imageAlt: 'Community 4',
 			},
 		],
@@ -86,8 +82,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 		[
 			'twork/csr-moments-gallery-item',
 			{
-				imageUrl:
-					'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=500&q=80',
+				imageUrl: '',
 				imageAlt: 'Community 5',
 			},
 		],
@@ -492,7 +487,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 										setAttributes( { sectionTitle: val } )
 									}
 									placeholder={ __(
-										'Section Title...',
+										'Section Title…',
 										'twork-builder'
 									) }
 									style={ {

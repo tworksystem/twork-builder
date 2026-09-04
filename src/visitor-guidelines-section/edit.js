@@ -794,7 +794,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 										setAttributes( { sectionTitle: val } )
 									}
 									placeholder={ __(
-										'Section Title...',
+										'Section Title…',
 										'twork-builder'
 									) }
 									style={ {
@@ -818,7 +818,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 										} )
 									}
 									placeholder={ __(
-										'Section Subtitle...',
+										'Section Subtitle…',
 										'twork-builder'
 									) }
 									style={ {

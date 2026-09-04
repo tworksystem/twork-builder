@@ -117,7 +117,10 @@ function normalizeItemForType( item, nextType ) {
 								groupTitle: __( 'New Group', 'twork-builder' ),
 								links: [
 									{
-										label: __( 'New Link', 'twork-builder' ),
+										label: __(
+											'New Link',
+											'twork-builder'
+										),
 										url: '#',
 									},
 								],
@@ -174,7 +177,9 @@ function DropdownChildrenEditor( { item, onChange } ) {
 	function removeChild( index ) {
 		onChange( {
 			...item,
-			children: children.filter( ( _, childIndex ) => childIndex !== index ),
+			children: children.filter(
+				( _, childIndex ) => childIndex !== index
+			),
 		} );
 	}
 
@@ -318,7 +323,10 @@ function MegaChildrenEditor( { item, onChange } ) {
 								} }
 							>
 								<TextControl
-									label={ __( 'Link Label', 'twork-builder' ) }
+									label={ __(
+										'Link Label',
+										'twork-builder'
+									) }
 									value={ link.label || '' }
 									onChange={ ( value ) =>
 										updateLink( linkIndex, 'label', value )
@@ -382,7 +390,9 @@ function NavItemEditor( { item, index, total, onChange, onRemove, onMove } ) {
 				<TextControl
 					label={ __( 'URL', 'twork-builder' ) }
 					value={ item.url || '' }
-					onChange={ ( value ) => onChange( { ...item, url: value } ) }
+					onChange={ ( value ) =>
+						onChange( { ...item, url: value } )
+					}
 				/>
 			) : null }
 
@@ -433,7 +443,9 @@ export default function NavInspectorControls( { navItems, setAttributes } ) {
 	}
 
 	function removeItem( index ) {
-		const nextItems = items.filter( ( _, itemIndex ) => itemIndex !== index );
+		const nextItems = items.filter(
+			( _, itemIndex ) => itemIndex !== index
+		);
 		commitItems( nextItems );
 		setOpenIndex( Math.max( 0, index - 1 ) );
 	}

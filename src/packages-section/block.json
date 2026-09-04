@@ -7,11 +7,21 @@
 	"category": "twork-builder",
 	"icon": "grid-view",
 	"description": "Health packages / pricing grid with filter tabs and customizable package cards.",
-	"keywords": [ "packages", "pricing", "health", "grid", "filter", "mk" ],
+	"keywords": [
+		"packages",
+		"pricing",
+		"health",
+		"grid",
+		"filter",
+		"mk"
+	],
 	"supports": {
 		"html": false,
 		"anchor": true,
-		"align": [ "full", "wide" ]
+		"align": [
+			"full",
+			"wide"
+		]
 	},
 	"attributes": {
 		"backgroundColor": {
@@ -257,13 +267,306 @@
 		"labButtonTextColor": {
 			"type": "string",
 			"default": "#ffffff"
+		},
+		"showPrepPanel": {
+			"type": "boolean",
+			"default": false
+		},
+		"prepMarginBottom": {
+			"type": "number",
+			"default": 40
+		},
+		"prepCollapsible": {
+			"type": "boolean",
+			"default": true
+		},
+		"prepDefaultOpen": {
+			"type": "boolean",
+			"default": false
+		},
+		"prepToggleLabel": {
+			"type": "string",
+			"default": "ကျန်းမာရေးစစ်ဆေးခြင်းမပြုလုပ်မီ ဆောင်ရန် ရှောင်ရန်"
+		},
+		"prepToggleLabelColor": {
+			"type": "string",
+			"default": "#f48b2a"
+		},
+		"prepToggleBackgroundColor": {
+			"type": "string",
+			"default": "#fff4e8"
+		},
+		"prepToggleFontSize": {
+			"type": "number",
+			"default": 1.05
+		},
+		"prepToggleFontWeight": {
+			"type": "number",
+			"default": 700
+		},
+		"prepShowCard": {
+			"type": "boolean",
+			"default": true
+		},
+		"prepCardBackgroundColor": {
+			"type": "string",
+			"default": "#ffffff"
+		},
+		"prepCardBorderColor": {
+			"type": "string",
+			"default": "#f0e0d0"
+		},
+		"prepCardBorderRadius": {
+			"type": "number",
+			"default": 20
+		},
+		"prepCardPadding": {
+			"type": "number",
+			"default": 36
+		},
+		"prepCardPaddingMobile": {
+			"type": "number",
+			"default": 20
+		},
+		"prepShowTitle": {
+			"type": "boolean",
+			"default": true
+		},
+		"prepTitle": {
+			"type": "string",
+			"default": "ကျန်းမာရေးစစ်ဆေးခြင်းမပြုလုပ်မီ<br>အောက်ပါအချက်များကို သေချာစွာဖတ်ကြည့်ပေးပါရန်။"
+		},
+		"prepTitleColor": {
+			"type": "string",
+			"default": "#f48b2a"
+		},
+		"prepTitleFontSize": {
+			"type": "number",
+			"default": 1.5
+		},
+		"prepTitleFontSizeMobile": {
+			"type": "number",
+			"default": 1.15
+		},
+		"prepTitleFontWeight": {
+			"type": "number",
+			"default": 700
+		},
+		"prepTitleAlignment": {
+			"type": "string",
+			"default": "center"
+		},
+		"prepTitleLineHeight": {
+			"type": "number",
+			"default": 1.6
+		},
+		"prepTitleMarginBottom": {
+			"type": "number",
+			"default": 28
+		},
+		"prepShowChecklist": {
+			"type": "boolean",
+			"default": true
+		},
+		"prepChecklistItems": {
+			"type": "array",
+			"default": [
+				{
+					"id": 1,
+					"enabled": true,
+					"text": "ကျန်းမာရေးစစ်ဆေးခြင်းမပြုလုပ်မီ အနည်းဆုံး(၆)နာရီခန့် လုံလောက်စွာ အိပ်စက်အနားယူရမည်။"
+				},
+				{
+					"id": 2,
+					"enabled": true,
+					"text": "အစားအစာနှင့် ဖျော်ရည်များသုံးဆောင်ခြင်းကို အနည်းဆုံး(၈)နာရီခန့် စားသုံးခြင်းမပြုလုပ်ပါရန်။ ရေအနည်းငယ်သောက်သုံးနိုင်ပါသည်။"
+				},
+				{
+					"id": 3,
+					"enabled": true,
+					"text": "အရက်၊ ဘီယာသောက်သုံးခြင်းများကို (၂၄)နာရီခန့် ကြိုတင် ရှောင်ရှားပေးပါရန်။"
+				},
+				{
+					"id": 4,
+					"enabled": true,
+					"text": "သောက်လက်စဆေးဝါးများကို ဆရာဝန်ညွှန်ကြားထားသည့်အတိုင်း ပုံမှန်သောက်ရပါမည်။ (ဥပမာ – သွေးကျဆေးများ၊ ဆီးချိုသွေးချိုဆေးများ)"
+				},
+				{
+					"id": 5,
+					"enabled": true,
+					"text": "မိမိတွင်ရောဂါတစ်ခုခုရှိပါက ရောဂါနှင့်ပတ်သက်သော ဆေးမှတ်တမ်းများကို မိမိနှင့်အတူယူဆောင်လာပေးရပါမည်။"
+				},
+				{
+					"id": 6,
+					"enabled": true,
+					"text": "ဓမ္မတာလာနေစဉ် အမျိုးသမီးများတွင် ဆီးစစ်ထားသောအဖြေများနှင့် ဓမ္မတာလာနေစဉ် စစ်ဆေးထားသော သားအိမ်ခေါင်းကင်ဆာ အဖြေများမှာ မှားယွင်းနိုင်ပါသဖြင့် ဓမ္မတာလာသော နေ့ရက်များကို ရှောင်ရှားပြီး စစ်ဆေးသင့်ပါသည်။"
+				},
+				{
+					"id": 7,
+					"enabled": true,
+					"text": "အမျိုးသမီးများအနေဖြင့် ကိုယ်ဝန်ဆောင်ထားခြင်း(သို့)ကိုယ်ဝန်ရှိနိုင်သော အခြေအနေများရှိပါက ရင်ဘတ်ဓာတ်မှန်ရိုက်ခြင်းနှင့် အရိုးသိပ်သည်းဆ ဓာတ်မှန်များ ရိုက်ကူးခြင်းကို မပြုလုပ်ရပါ။"
+				}
+			]
+		},
+		"prepChecklistIcon": {
+			"type": "string",
+			"default": "fas fa-check-circle"
+		},
+		"prepChecklistIconColor": {
+			"type": "string",
+			"default": "#f48b2a"
+		},
+		"prepChecklistTextColor": {
+			"type": "string",
+			"default": "#333333"
+		},
+		"prepChecklistFontSize": {
+			"type": "number",
+			"default": 1
+		},
+		"prepChecklistFontSizeMobile": {
+			"type": "number",
+			"default": 0.9
+		},
+		"prepChecklistLineHeight": {
+			"type": "number",
+			"default": 1.9
+		},
+		"prepChecklistItemGap": {
+			"type": "number",
+			"default": 16
+		},
+		"prepShowHighlightBox": {
+			"type": "boolean",
+			"default": true
+		},
+		"prepHighlightTitle": {
+			"type": "string",
+			"default": "ကျန်းမာရေးစစ်ဆေးမှုဝန်ဆောင်မှုများ"
+		},
+		"prepHighlightItems": {
+			"type": "array",
+			"default": [
+				{
+					"id": 1,
+					"enabled": true,
+					"text": "ပြီးပြည့်စုံသော ကျန်းမာရေးစစ်ဆေးမှု အစီအစဉ်များ"
+				},
+				{
+					"id": 2,
+					"enabled": true,
+					"text": "တိကျမှန်ကန်သော ကျန်းမာရေးစစ်ဆေးမှု အဖြေများ"
+				},
+				{
+					"id": 3,
+					"enabled": true,
+					"text": "အတွေ့အကြုံရှိသော ဆရာဝန်များ၏ တိုင်ပင်ဆွေးနွေးမှုများ"
+				},
+				{
+					"id": 4,
+					"enabled": true,
+					"text": "တစ်ဦးချင်းစီအလိုက် ကျန်းမာရေးအသိပညာများ ဆွေးနွေးပေးခြင်း"
+				},
+				{
+					"id": 5,
+					"enabled": true,
+					"text": "သန့်ရှင်းပြီး အရသာရှိသော နံနက်စာဆောင်မှုများ"
+				},
+				{
+					"id": 6,
+					"enabled": true,
+					"text": "မိမိ၏ ကျန်းမာရေးအဖြေများကို ကွန်ပျူတာထဲတွင် စနစ်တကျ သိမ်းဆည်းပေးထားခြင်း"
+				}
+			]
+		},
+		"prepHighlightIcon": {
+			"type": "string",
+			"default": "fas fa-angle-right"
+		},
+		"prepHighlightBackgroundColor": {
+			"type": "string",
+			"default": "#f48b2a"
+		},
+		"prepHighlightTitleColor": {
+			"type": "string",
+			"default": "#ffffff"
+		},
+		"prepHighlightTextColor": {
+			"type": "string",
+			"default": "#ffffff"
+		},
+		"prepHighlightTitleFontSize": {
+			"type": "number",
+			"default": 1.15
+		},
+		"prepHighlightFontSize": {
+			"type": "number",
+			"default": 0.95
+		},
+		"prepHighlightBorderRadius": {
+			"type": "number",
+			"default": 16
+		},
+		"prepHighlightPadding": {
+			"type": "number",
+			"default": 28
+		},
+		"prepHighlightPaddingMobile": {
+			"type": "number",
+			"default": 18
+		},
+		"prepShowMascot": {
+			"type": "boolean",
+			"default": true
+		},
+		"prepMascotUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"prepMascotId": {
+			"type": "number"
+		},
+		"prepMascotAlt": {
+			"type": "string",
+			"default": ""
+		},
+		"prepMascotWidth": {
+			"type": "number",
+			"default": 150
+		},
+		"prepMascotNaturalWidth": {
+			"type": "number"
+		},
+		"prepMascotNaturalHeight": {
+			"type": "number"
+		},
+		"prepShowDecor": {
+			"type": "boolean",
+			"default": true
+		},
+		"prepDecorUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"prepDecorId": {
+			"type": "number"
+		},
+		"prepDecorMaxWidth": {
+			"type": "number",
+			"default": 100
+		},
+		"prepDecorNaturalWidth": {
+			"type": "number"
+		},
+		"prepDecorNaturalHeight": {
+			"type": "number"
 		}
 	},
 	"example": {
 		"viewportWidth": 1200,
 		"attributes": {
 			"backgroundColor": "#f8f9fa",
-			"backgroundImage": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?auto=format&fit=crop&w=1200&q=80",
+			"backgroundImage": "",
 			"backgroundOverlay": false,
 			"backgroundOverlayColor": "rgba(0, 0, 0, 0.5)",
 			"backgroundOverlayOpacity": 0.5,

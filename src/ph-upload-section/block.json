@@ -29,9 +29,17 @@
 			"type": "string",
 			"default": "Have a Doctor's Prescription?"
 		},
+		"showTitle": {
+			"type": "boolean",
+			"default": true
+		},
 		"description": {
 			"type": "string",
 			"default": "Skip the search. Simply upload your prescription photo, and our pharmacists will prepare your cart for you."
+		},
+		"showDescription": {
+			"type": "boolean",
+			"default": true
 		},
 		"showChecklist": {
 			"type": "boolean",
@@ -49,9 +57,13 @@
 			"type": "string",
 			"default": "#"
 		},
+		"showButton": {
+			"type": "boolean",
+			"default": true
+		},
 		"imageUrl": {
 			"type": "string",
-			"default": "https://images.unsplash.com/photo-1584362917165-526a968579e8?auto=format&fit=crop&w=800&q=80"
+			"default": ""
 		},
 		"imageId": {
 			"type": "number"
@@ -59,6 +71,10 @@
 		"imageAlt": {
 			"type": "string",
 			"default": "Prescription"
+		},
+		"showImage": {
+			"type": "boolean",
+			"default": true
 		}
 	},
 	"supports": {
@@ -74,7 +90,9 @@
 			"containerMaxWidth": 1200,
 			"containerPadding": 20,
 			"title": "Have a Doctor's Prescription?",
+			"showTitle": true,
 			"description": "Skip the search. Simply upload your prescription photo, and our pharmacists will prepare your cart for you.",
+			"showDescription": true,
 			"showChecklist": true,
 			"checklistItems": [
 				"Verified by Pharmacists",
@@ -82,8 +100,10 @@
 			],
 			"buttonLabel": "Upload Now",
 			"buttonUrl": "#",
-			"imageUrl": "https://images.unsplash.com/photo-1584362917165-526a968579e8?auto=format&fit=crop&w=800&q=80",
-			"imageAlt": "Prescription"
+			"showButton": true,
+			"imageUrl": "",
+			"imageAlt": "Prescription",
+			"showImage": true
 		}
 	},
 	"textdomain": "twork-builder",

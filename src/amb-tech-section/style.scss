@@ -1,252 +1,283 @@
 @import "../scss/typography";
 
 @mixin amb-tech-icon-font-awesome {
-    i {
-        display: block;
-        font-style: normal;
-        line-height: 1;
-        text-rendering: auto;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
 
-        &[class*="fa-"] {
-            font-family: $font-icon-solid !important;
-        }
+	i {
+		display: block;
+		font-style: normal;
+		line-height: 1;
+		text-rendering: auto;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
 
-        &[class*="fas"] {
-            font-weight: 900 !important;
-        }
+		&[class*="fa-"] {
+			font-family: $font-icon-solid !important;
+		}
 
-        &[class*="far"] {
-            font-weight: 400 !important;
-        }
+		&[class*="fas"] {
+			font-weight: 900 !important;
+		}
 
-        &[class*="fal"] {
-            font-weight: 300 !important;
-        }
+		&[class*="far"] {
+			font-weight: 400 !important;
+		}
 
-        &[class*="fab"] {
-            font-family: $font-icon-brands !important;
-            font-weight: 400 !important;
-        }
+		&[class*="fal"] {
+			font-weight: 300 !important;
+		}
 
-        &[class*="fa fa-"] {
-            font-family: $font-icon-solid !important;
-            font-weight: normal !important;
-        }
-    }
+		&[class*="fab"] {
+			font-family: $font-icon-brands !important;
+			font-weight: 400 !important;
+		}
+
+		&[class*="fa fa-"] {
+			font-family: $font-icon-solid !important;
+			font-weight: 400 !important;
+		}
+	}
 }
 
 // Ambulance Tech Section (ICU on Wheels) – matches ambulance-service.html
 :root {
-    --amb-primary: #f48b2a;
-    --amb-dark: #0f172a;
-    --amb-radius: 8px;
+	--amb-primary: #f48b2a;
+	--amb-dark: #0f172a;
+	--amb-radius: 8px;
 }
 
 // === EDITOR STYLES ===
 .editor-styles-wrapper,
 .block-editor-block-list__layout,
 .wp-block-twork-amb-tech-section {
-    .mk-amb-tech-section-editor {
-        position: relative;
-        min-height: 120px;
 
-        .section-header.amb-tech-header {
-            h2,
-            p {
-                &[contenteditable="true"]:focus {
-                    outline: 1px dashed #2271b1;
-                    outline-offset: 2px;
-                }
-            }
-        }
+	.mk-amb-tech-section-editor {
+		position: relative;
+		min-height: 120px;
 
-        .mk-amb-tech-grid-container {
-            display: grid !important;
-            width: 100% !important;
+		.section-header.amb-tech-header {
 
-            > .block-editor-inner-blocks {
-                display: contents !important;
+			h2,
+			p {
 
-                > .block-editor-block-list__layout {
-                    display: contents !important;
+				&[contenteditable="true"]:focus {
+					outline: 1px dashed #2271b1;
+					outline-offset: 2px;
+				}
+			}
+		}
 
-                    > .wp-block,
-                    > [data-type="twork/amb-tech-item"] {
-                        display: block !important;
-                        min-width: 0;
-                        width: 100%;
-                        box-sizing: border-box;
-                        transition: all 0.2s ease;
+		.mk-amb-tech-grid-container {
+			display: grid !important;
+			width: 100% !important;
 
-                        &:hover {
-                            border-color: #2271b1 !important;
-                            box-shadow: 0 0 0 1px #2271b1;
-                        }
+			> .block-editor-inner-blocks {
+				display: contents !important;
 
-                        &.is-selected {
-                            border-color: #2271b1 !important;
-                            box-shadow: 0 0 0 2px #2271b1;
-                        }
-                    }
-                }
-            }
+				> .block-editor-block-list__layout {
+					display: contents !important;
 
-            .mk-amb-tech-item-editor {
-                @include amb-tech-icon-font-awesome;
+					> .wp-block,
+					> [data-type="twork/amb-tech-item"] {
+						display: block !important;
+						min-width: 0;
+						width: 100%;
+						box-sizing: border-box;
+						transition: all 0.2s ease;
 
-                h3,
-                p {
-                    &[contenteditable="true"]:focus {
-                        outline: 1px dashed #2271b1;
-                        outline-offset: 2px;
-                    }
-                }
-            }
+						&:hover {
+							border-color: #2271b1 !important;
+							box-shadow: 0 0 0 1px #2271b1;
+						}
 
-            .editor-label {
-                grid-column: 1 / -1;
-            }
-        }
-    }
+						&.is-selected {
+							border-color: #2271b1 !important;
+							box-shadow: 0 0 0 2px #2271b1;
+						}
+					}
+				}
+			}
+
+			.mk-amb-tech-item-editor {
+
+				@include amb-tech-icon-font-awesome;
+
+				h3,
+				p {
+
+					&[contenteditable="true"]:focus {
+						outline: 1px dashed #2271b1;
+						outline-offset: 2px;
+					}
+				}
+			}
+
+			.editor-label {
+				grid-column: 1 / -1;
+			}
+		}
+	}
 }
 
 .mk-amb-tech-item-editor {
-    h3,
-    p {
-        &[contenteditable="true"]:focus {
-            outline: 1px dashed #2271b1;
-            outline-offset: 2px;
-        }
-    }
+
+	h3,
+	p {
+
+		&[contenteditable="true"]:focus {
+			outline: 1px dashed #2271b1;
+			outline-offset: 2px;
+		}
+	}
 }
 
 // === FRONTEND STYLES ===
 .mk-amb-tech-section.amb-tech-section {
-    font-family: $font-primary;
-    position: relative;
-    overflow: hidden;
+	font-family: $font-primary;
+	position: relative;
+	overflow: hidden;
 
-    .amb-container.jivaka-container {
-        position: relative;
-        z-index: 2;
-    }
+	.amb-container.jivaka-container {
+		position: relative;
+		z-index: 2;
+	}
 
-    .section-header.amb-tech-header,
-    .amb-header {
-        .section-title {
-            margin: 0;
-            line-height: 1.2;
-        }
+	.section-header.amb-tech-header,
+	.amb-header {
 
-        .section-subtitle {
-            margin: 0;
-            line-height: 1.6;
-        }
-    }
+		.section-title {
+			margin: 0;
+			line-height: 1.2;
+		}
 
-    .amb-tech-grid.mk-amb-tech-grid {
-        display: grid;
-        width: 100%;
-    }
+		.section-subtitle {
+			margin: 0;
+			line-height: 1.6;
+		}
+	}
 
-    .amb-tech-item.mk-amb-tech-item {
-        background: rgba(255, 255, 255, 0.05);
-        border-radius: var(--amb-radius);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        transition: background 0.3s ease, border-color 0.3s ease;
+	.amb-tech-grid.mk-amb-tech-grid {
+		display: grid;
+		width: 100%;
+	}
 
-        &:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: var(--amb-primary);
-        }
-    }
+	.amb-tech-item.mk-amb-tech-item {
+		background: rgba(255, 255, 255, 0.05);
+		border-radius: var(--amb-radius);
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		transition: background 0.3s ease, border-color 0.3s ease;
 
-    .amb-tech-icon {
-        font-size: 2.5rem;
-        color: var(--amb-primary);
-        margin-bottom: 20px;
-        display: block;
-    }
+		&:hover {
+			background: rgba(255, 255, 255, 0.1);
+			border-color: var(--amb-primary);
+		}
+	}
 
-    .amb-tech-item h3 {
-        color: #fff;
-        margin-bottom: 10px;
-        line-height: 1.3;
-    }
+	.amb-tech-icon {
+		font-size: 2.5rem;
+		color: var(--amb-primary);
+		margin-bottom: 20px;
+		display: block;
+	}
 
-    .amb-tech-item p {
-        color: rgba(255, 255, 255, 0.7);
-        font-size: 0.9rem;
-        line-height: 1.5;
-        margin: 0;
-    }
+	.amb-tech-item h3 {
+		color: #fff;
+		margin-bottom: 10px;
+		line-height: 1.3;
+	}
 
-    // Scroll animation when data-animation="true"
-    &[data-animation="true"] {
-        .amb-tech-item.mk-amb-tech-item {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.5s ease-out, transform 0.5s ease-out, background 0.3s ease, border-color 0.3s ease;
+	.amb-tech-item p {
+		color: rgba(255, 255, 255, 0.7);
+		font-size: 0.9rem;
+		line-height: 1.5;
+		margin: 0;
+	}
 
-            &.is-visible {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-    }
+	// Scroll animation when data-animation="true"
+	&[data-animation="true"] {
 
-    .amb-tech-item.mk-amb-tech-item {
-        &:nth-child(1) { transition-delay: 0.05s; }
-        &:nth-child(2) { transition-delay: 0.1s; }
-        &:nth-child(3) { transition-delay: 0.15s; }
-        &:nth-child(4) { transition-delay: 0.2s; }
-        &:nth-child(5) { transition-delay: 0.25s; }
-        &:nth-child(6) { transition-delay: 0.3s; }
-    }
+		.amb-tech-item.mk-amb-tech-item {
+			opacity: 0;
+			transform: translateY(20px);
+			transition: opacity 0.5s ease-out, transform 0.5s ease-out, background 0.3s ease, border-color 0.3s ease;
+
+			&.is-visible {
+				opacity: 1;
+				transform: translateY(0);
+			}
+		}
+	}
+
+	.amb-tech-item.mk-amb-tech-item {
+
+		&:nth-child(1) {
+			transition-delay: 0.05s;
+		}
+
+		&:nth-child(2) {
+			transition-delay: 0.1s;
+		}
+
+		&:nth-child(3) {
+			transition-delay: 0.15s;
+		}
+
+		&:nth-child(4) {
+			transition-delay: 0.2s;
+		}
+
+		&:nth-child(5) {
+			transition-delay: 0.25s;
+		}
+
+		&:nth-child(6) {
+			transition-delay: 0.3s;
+		}
+	}
 }
 
 // === RESPONSIVE ===
 @media (max-width: 768px) {
-    .mk-amb-tech-section.amb-tech-section {
-        padding-top: 80px !important;
-        margin-top: -40px !important;
 
-        .section-header .section-title {
-            font-size: 2rem !important;
-        }
+	.mk-amb-tech-section.amb-tech-section {
+		padding-top: 80px !important;
+		margin-top: -40px !important;
 
-        .amb-tech-grid.mk-amb-tech-grid {
-            grid-template-columns: 1fr;
-            gap: 20px;
-        }
+		.section-header .section-title {
+			font-size: 2rem !important;
+		}
 
-        .amb-tech-item.mk-amb-tech-item {
-            padding: 24px !important;
-        }
-    }
+		.amb-tech-grid.mk-amb-tech-grid {
+			grid-template-columns: 1fr;
+			gap: 20px;
+		}
+
+		.amb-tech-item.mk-amb-tech-item {
+			padding: 24px !important;
+		}
+	}
 }
 
 // === ACCESSIBILITY ===
 .amb-tech-item.mk-amb-tech-item {
-    &:focus-visible {
-        outline: 3px solid var(--amb-primary);
-        outline-offset: 2px;
-    }
+
+	&:focus-visible {
+		outline: 3px solid var(--amb-primary);
+		outline-offset: 2px;
+	}
 }
 
 // === PRINT ===
 @media print {
-    .mk-amb-tech-section.amb-tech-section {
-        clip-path: none !important;
-        margin-top: 0 !important;
-        padding-top: 40px !important;
-        background: #1a1a1a !important;
 
-        .amb-tech-item.mk-amb-tech-item {
-            break-inside: avoid;
-            border-color: rgba(255, 255, 255, 0.2);
-        }
-    }
+	.mk-amb-tech-section.amb-tech-section {
+		clip-path: none !important;
+		margin-top: 0 !important;
+		padding-top: 40px !important;
+		background: #1a1a1a !important;
+
+		.amb-tech-item.mk-amb-tech-item {
+			break-inside: avoid;
+			border-color: rgba(255, 255, 255, 0.2);
+		}
+	}
 }

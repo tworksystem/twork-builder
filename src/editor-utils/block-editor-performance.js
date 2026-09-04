@@ -23,9 +23,9 @@ export { memo };
 
 /**
  * @template T
- * @param {() => T} factory
+ * @param {() => T}                        factory
  * @param {import('react').DependencyList} deps
- * @returns {T}
+ * @return {T}
  */
 export function useStableJson( factory, deps ) {
 	return useMemo( factory, deps );
@@ -36,11 +36,23 @@ export function useStableJson( factory, deps ) {
  * Fixes the anti-pattern: useBlockProps({ className, style: useMemo(...) }) where the
  * outer object is still new every render.
  *
- * @param {() => Record<string, unknown>} propsFactory
- * @param {import('react').DependencyList} deps
+ * Dual API (scaffold-safe):
+ * - Factory: useStableBlockProps( () => ({ className, style }), [deps] )
+ * - Plain object: useStableBlockProps( { className } ) — passed through to useBlockProps
+ *
+ * @param {(() => Record<string, unknown>) | Record<string, unknown>} propsFactoryOrProps
+ * @param {import('react').DependencyList}                            [deps]
  */
-export function useStableBlockProps( propsFactory, deps ) {
-	const props = useMemo( propsFactory, deps );
+export function useStableBlockProps( propsFactoryOrProps, deps = [] ) {
+	const isFactory = typeof propsFactoryOrProps === 'function';
+	const props = useMemo(
+		() =>
+			typeof propsFactoryOrProps === 'function'
+				? propsFactoryOrProps()
+				: propsFactoryOrProps,
+		// Factory: caller-owned deps. Object: identity (same as useBlockProps({...})).
+		isFactory ? deps : [ propsFactoryOrProps ]
+	);
 	return useBlockProps( props );
 }
 
@@ -48,7 +60,7 @@ export function useStableBlockProps( propsFactory, deps ) {
  * Stable onChange for a single attribute key (Inspector TextControl, Toggle, etc.).
  *
  * @param {import('@wordpress/blocks').BlockEditProps<Record<string, unknown>>['setAttributes']} setAttributes
- * @param {string} key
+ * @param {string}                                                                               key
  */
 export function useAttributeSetter( setAttributes, key ) {
 	return useCallback(
@@ -77,8 +89,8 @@ export function useBatchSetAttributes( setAttributes ) {
 /**
  * Debounced attribute writer for search/query fields that trigger server work (e.g. ServerSideRender).
  * @param {import('@wordpress/blocks').BlockEditProps<Record<string, unknown>>['setAttributes']} setAttributes
- * @param {string} attributeKey
- * @param {number} [delayMs=300]
+ * @param {string}                                                                               attributeKey
+ * @param {number}                                                                               [delayMs=300]
  */
 export function useDebouncedAttribute(
 	setAttributes,

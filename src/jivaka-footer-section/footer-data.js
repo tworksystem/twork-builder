@@ -79,7 +79,10 @@ export function resolveSocialLinks( items ) {
 		platform: item.platform || '',
 		url: item.url || '#',
 		iconClass: item.iconClass || 'fas fa-link',
-		ariaLabel: item.ariaLabel || item.platform || __( 'Social Link', 'twork-builder' ),
+		ariaLabel:
+			item.ariaLabel ||
+			item.platform ||
+			__( 'Social Link', 'twork-builder' ),
 		enabled: item.enabled !== false,
 	} ) );
 }

@@ -251,7 +251,7 @@ function twork_render_em_units_section($attributes, $content, $block)
     ob_start();
     ?>
     <section class="em-section em-units-section twork-em-units-section" style="<?php echo esc_attr($section_style); ?>"
-             data-animation="<?php echo $atts['animationOnScroll'] ? 'true' : 'false'; ?>"
+             data-animation="<?php echo esc_attr( $atts['animationOnScroll'] ? 'true' : 'false' ); ?>"
              data-animation-type="<?php echo esc_attr($atts['animationType']); ?>">
         <div class="em-container" style="<?php echo esc_attr($container_style); ?>">
             <?php if ($atts['showSectionHeader']) : ?>

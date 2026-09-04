@@ -10,7 +10,7 @@
 	"attributes": {
 		"backgroundImage": {
 			"type": "string",
-			"default": "https://images.unsplash.com/photo-1516574187841-693083f6e17b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
+			"default": ""
 		},
 		"backgroundImageId": {
 			"type": "number"
@@ -76,7 +76,7 @@
 	"example": {
 		"viewportWidth": 1200,
 		"attributes": {
-			"backgroundImage": "https://images.unsplash.com/photo-1516574187841-693083f6e17b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80",
+			"backgroundImage": "",
 			"badgeText": "24/7 Emergency Response",
 			"title": "Every Second Counts",
 			"description": "Jivaka Emergency Centre is equipped with advanced technology and expert specialists to handle critical situations at any hour.",

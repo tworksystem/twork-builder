@@ -18,7 +18,7 @@ const ALLOWED_BLOCKS = [ 'twork/tele-store-btn' ];
 const TEMPLATE = [
 	[
 		'twork/tele-store-btn',
-		{ url: 'https://jivakahospital.com/download-detail/' },
+		{ url: '' },
 	],
 
 	[
@@ -30,7 +30,7 @@ const TEMPLATE = [
 
 	[
 		'twork/tele-store-btn',
-		{ url: 'https://jivaka.advent-soft.com/download/jivaka-care.apk' },
+		{ url: '' },
 	],
 ];
 

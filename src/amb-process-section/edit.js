@@ -490,7 +490,7 @@ export default function Edit( {
 									setAttributes( { sectionTitle: val } )
 								}
 								placeholder={ __(
-									'Section Title...',
+									'Section Title…',
 									'twork-builder'
 								) }
 								className="section-title"

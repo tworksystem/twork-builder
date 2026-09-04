@@ -18,10 +18,7 @@ import {
 } from '@wordpress/components';
 import { useEffect, useState } from '@wordpress/element';
 import { DEFAULT_CLAUSE_TEMPLATE } from './defaults';
-import {
-	buildDefaultLogoUrl,
-	buildDefaultPageImages,
-} from './defaults';
+import { buildDefaultLogoUrl, buildDefaultPageImages } from './defaults';
 
 const ALLOWED_BLOCKS = [ 'twork/ipd-consent-clause-item' ];
 
@@ -102,8 +99,7 @@ function renderOriginalPdfCard( {
 	pdfDownloadLabel,
 	isEditor = false,
 } ) {
-	const title =
-		pdfFileName || 'Inpatient Terms & Conditions (IPD)';
+	const title = pdfFileName || 'Inpatient Terms & Conditions (IPD)';
 	const hint = hasPdf
 		? 'PDF document — view online or download for your records.'
 		: 'PDF document will appear here once uploaded in the editor.';
@@ -147,7 +143,9 @@ function renderOriginalPdfCard( {
 										className="ipd-consent-original-pdf__link"
 										target="_blank"
 										rel="noopener noreferrer"
-										aria-label={ `${ pdfViewLabel || 'View PDF' }: ${ title }` }
+										aria-label={ `${
+											pdfViewLabel || 'View PDF'
+										}: ${ title }` }
 									>
 										<i
 											className="fas fa-external-link-alt"
@@ -159,9 +157,13 @@ function renderOriginalPdfCard( {
 										href={ pdfUrl }
 										className="ipd-consent-original-pdf__link"
 										download={
-											pdfFileName ? `${ pdfFileName }.pdf` : true
+											pdfFileName
+												? `${ pdfFileName }.pdf`
+												: true
 										}
-										aria-label={ `${ pdfDownloadLabel || 'Download PDF' }: ${ title }` }
+										aria-label={ `${
+											pdfDownloadLabel || 'Download PDF'
+										}: ${ title }` }
 									>
 										<i
 											className="fas fa-download"
@@ -313,7 +315,10 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 								allowedTypes={ [ 'image' ] }
 								value={ logoId }
 								render={ ( { open } ) => (
-									<Button variant="secondary" onClick={ open }>
+									<Button
+										variant="secondary"
+										onClick={ open }
+									>
 										{ logoUrl
 											? __(
 													'Change Logo',
@@ -414,7 +419,9 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 							label={ __( 'Footer Contact', 'twork-builder' ) }
 							checked={ showFooterContactSection !== false }
 							onChange={ ( val ) =>
-								setAttributes( { showFooterContactSection: val } )
+								setAttributes( {
+									showFooterContactSection: val,
+								} )
 							}
 						/>
 					</PanelBody>
@@ -552,10 +559,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 							}
 						/>
 						<SelectControl
-							label={ __(
-								'Default View',
-								'twork-builder'
-							) }
+							label={ __( 'Default View', 'twork-builder' ) }
 							value={ defaultView || 'digital' }
 							options={ [
 								{
@@ -670,7 +674,9 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 							<button
 								type="button"
 								className={ `ipd-consent-view-tab${
-									activeView === 'original' ? ' is-active' : ''
+									activeView === 'original'
+										? ' is-active'
+										: ''
 								}` }
 								role="tab"
 								aria-selected={

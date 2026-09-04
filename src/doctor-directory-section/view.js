@@ -4,7 +4,7 @@
  * Cards must have data-dept, data-gender, data-name for filtering.
  *
  * @since 1.0.0
- * @package MkBuilder
+ * @package
  */
 
 ( function () {
@@ -35,7 +35,9 @@
 		const noResults = section.querySelector( '#noResults, .no-results' );
 		const cards = section ? section.querySelectorAll( '.doctor-card' ) : [];
 
-		if ( ! grid || ! noResults || ! cards.length ) return;
+		if ( ! grid || ! noResults || ! cards.length ) {
+			return;
+		}
 
 		const { searchInput, deptFilter, genderFilter } = getFilterElements();
 
@@ -91,7 +93,9 @@
 			card.style.display = '';
 			card.removeAttribute( 'hidden' );
 		} );
-		if ( noResults ) noResults.style.display = 'none';
+		if ( noResults ) {
+			noResults.style.display = 'none';
+		}
 	}
 
 	/**
@@ -101,7 +105,9 @@
 		const sections = document.querySelectorAll(
 			'.doctor-directory.mk-doctor-directory-section, .mk-doctor-directory-section'
 		);
-		if ( ! sections.length ) return;
+		if ( ! sections.length ) {
+			return;
+		}
 
 		const { searchInput, deptFilter, genderFilter, resetBtn } =
 			getFilterElements();
@@ -114,15 +120,24 @@
 			searchInput.addEventListener( 'input', runFilter );
 			searchInput.addEventListener( 'keyup', runFilter );
 		}
-		if ( deptFilter ) deptFilter.addEventListener( 'change', runFilter );
-		if ( genderFilter )
+		if ( deptFilter ) {
+			deptFilter.addEventListener( 'change', runFilter );
+		}
+		if ( genderFilter ) {
 			genderFilter.addEventListener( 'change', runFilter );
+		}
 
 		if ( resetBtn ) {
 			resetBtn.addEventListener( 'click', function () {
-				if ( searchInput ) searchInput.value = '';
-				if ( deptFilter ) deptFilter.value = 'all';
-				if ( genderFilter ) genderFilter.value = 'all';
+				if ( searchInput ) {
+					searchInput.value = '';
+				}
+				if ( deptFilter ) {
+					deptFilter.value = 'all';
+				}
+				if ( genderFilter ) {
+					genderFilter.value = 'all';
+				}
 				sections.forEach( resetSection );
 			} );
 		}

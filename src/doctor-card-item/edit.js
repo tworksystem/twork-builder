@@ -37,6 +37,7 @@ export default function Edit( {
 		imageObjectFit,
 		imageObjectPosition,
 		showImage = true,
+		contentVerticalAlign = 'top',
 		showBadge,
 		badgeText,
 		departmentSlug,
@@ -55,6 +56,11 @@ export default function Edit( {
 		showBookButton = true,
 	} = attributes;
 
+	const verticalAlign =
+		contentVerticalAlign === 'top' || contentVerticalAlign === 'bottom'
+			? contentVerticalAlign
+			: 'center';
+
 	const { departments, genders } = useDoctorCardFilterOptions(
 		clientId,
 		context
@@ -71,6 +77,7 @@ export default function Edit( {
 		'mk-doctor-card-item-editor',
 		'doctor-card',
 		showImage ? '' : 'doctor-card--no-image',
+		! showImage ? `doctor-card--align-${ verticalAlign }` : '',
 	]
 		.filter( Boolean )
 		.join( ' ' );
@@ -240,10 +247,7 @@ export default function Edit( {
 											value: 'center',
 										},
 										{
-											label: __(
-												'Top',
-												'twork-builder'
-											),
+											label: __( 'Top', 'twork-builder' ),
 											value: 'top',
 										},
 										{
@@ -261,6 +265,39 @@ export default function Edit( {
 									}
 								/>
 							</>
+						) }
+
+						{ ! showImage && (
+							<SelectControl
+								label={ __(
+									'Content Vertical Align',
+									'twork-builder'
+								) }
+								value={ verticalAlign }
+								options={ [
+									{
+										label: __( 'Top', 'twork-builder' ),
+										value: 'top',
+									},
+									{
+										label: __( 'Center', 'twork-builder' ),
+										value: 'center',
+									},
+									{
+										label: __( 'Bottom', 'twork-builder' ),
+										value: 'bottom',
+									},
+								] }
+								onChange={ ( val ) =>
+									setAttributes( {
+										contentVerticalAlign: val,
+									} )
+								}
+								help={ __(
+									'When image is off, align content in the card height.',
+									'twork-builder'
+								) }
+							/>
 						) }
 					</PanelBody>
 
@@ -558,26 +595,34 @@ export default function Edit( {
 				) }
 
 				<div className="doc-content">
-					<span className="doc-dept">{ displayDeptLabel }</span>
-					<RichText
-						tagName="h4"
-						value={ doctorName }
-						onChange={ ( val ) =>
-							setAttributes( { doctorName: val } )
-						}
-						placeholder={ __( 'Doctor name…', 'twork-builder' ) }
-						className="doc-name"
-					/>
+					<div className="doc-body">
+						<span className="doc-dept">{ displayDeptLabel }</span>
+						<RichText
+							tagName="h4"
+							value={ doctorName }
+							onChange={ ( val ) =>
+								setAttributes( { doctorName: val } )
+							}
+							placeholder={ __(
+								'Doctor name…',
+								'twork-builder'
+							) }
+							className="doc-name"
+						/>
 
-					<RichText
-						tagName="p"
-						value={ qualifications }
-						onChange={ ( val ) =>
-							setAttributes( { qualifications: val } )
-						}
-						placeholder={ __( 'Qualifications…', 'twork-builder' ) }
-						className="doc-qual"
-					/>
+						<RichText
+							tagName="p"
+							value={ qualifications }
+							onChange={ ( val ) =>
+								setAttributes( { qualifications: val } )
+							}
+							placeholder={ __(
+								'Qualifications…',
+								'twork-builder'
+							) }
+							className="doc-qual"
+						/>
+					</div>
 
 					{ hasActions && (
 						<div className={ actionsClassName }>

@@ -94,7 +94,7 @@
 			"buttonUrl": "#",
 			"buttonTarget": false,
 			"imageUrl": "",
-			"imageAlt": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?auto=format&fit=crop&w=1200&q=80",
+			"imageAlt": "",
 			"badgeIcon": "fas fa-star",
 			"badgeTitle": "Gold Standard",
 			"badgeSubtitle": "Safety Protocols",

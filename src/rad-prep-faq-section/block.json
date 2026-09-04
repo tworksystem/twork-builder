@@ -63,7 +63,7 @@
 		},
 		"imageUrl": {
 			"type": "string",
-			"default": "https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=600&q=80"
+			"default": ""
 		},
 		"imageId": {
 			"type": "number"
@@ -106,7 +106,7 @@
 			"sectionSubtitle": "Proper preparation ensures the best image quality. Here are some common guidelines.",
 			"sectionSubtitleColor": "#666666",
 			"sectionSubtitleFontSize": 1,
-			"imageUrl": "https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=600&q=80",
+			"imageUrl": "",
 			"imageAlt": "Preparation",
 			"animationOnScroll": true,
 			"animationType": "fade-up",

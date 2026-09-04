@@ -378,13 +378,17 @@ export default function save( { attributes } ) {
 													className="ipd-consent-original-pdf__link"
 													target="_blank"
 													rel="noopener noreferrer"
-													aria-label={ `${ pdfViewLabel || 'View PDF' }: ${ pdfFileName }` }
+													aria-label={ `${
+														pdfViewLabel ||
+														'View PDF'
+													}: ${ pdfFileName }` }
 												>
 													<i
 														className="fas fa-external-link-alt"
 														aria-hidden="true"
 													></i>
-													{ pdfViewLabel || 'View PDF' }
+													{ pdfViewLabel ||
+														'View PDF' }
 												</a>
 												<a
 													href={ pdfUrl }
@@ -394,7 +398,10 @@ export default function save( { attributes } ) {
 															? `${ pdfFileName }.pdf`
 															: true
 													}
-													aria-label={ `${ pdfDownloadLabel || 'Download PDF' }: ${ pdfFileName }` }
+													aria-label={ `${
+														pdfDownloadLabel ||
+														'Download PDF'
+													}: ${ pdfFileName }` }
 												>
 													<i
 														className="fas fa-download"

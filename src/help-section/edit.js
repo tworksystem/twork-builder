@@ -16,10 +16,7 @@ import {
 	ToggleControl,
 	__experimentalDivider as Divider,
 } from '@wordpress/components';
-import {
-	getMediaColumnStyle,
-	normalizeMediaSlides,
-} from './media-helpers';
+import { getMediaColumnStyle, normalizeMediaSlides } from './media-helpers';
 
 const DEFAULT_OPTION = {
 	value: '',
@@ -140,7 +137,9 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const updateSelectOption = ( index, field, value ) => {
 		const next = [ ...( selectOptions || [] ) ];
-		if ( ! next[ index ] ) next[ index ] = { value: '', label: '' };
+		if ( ! next[ index ] ) {
+			next[ index ] = { value: '', label: '' };
+		}
 		next[ index ] = { ...next[ index ], [ field ]: value };
 		setAttributes( { selectOptions: next } );
 	};
@@ -266,7 +265,10 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 						{ isMediaMode && (
 							<>
 								<SelectControl
-									label={ __( 'Media type', 'twork-builder' ) }
+									label={ __(
+										'Media type',
+										'twork-builder'
+									) }
 									value={ mediaType || 'image' }
 									options={ [
 										{
@@ -284,7 +286,10 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 											value: 'slideshow',
 										},
 										{
-											label: __( 'Video', 'twork-builder' ),
+											label: __(
+												'Video',
+												'twork-builder'
+											),
 											value: 'video',
 										},
 									] }
@@ -626,207 +631,233 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 						{ isBookingMode && (
 							<>
-						<TextControl
-							label={ __( 'Card meta title', 'twork-builder' ) }
-							value={ bookingMetaTitle }
-							onChange={ ( v ) =>
-								setAttributes( { bookingMetaTitle: v } )
-							}
-						/>
-
-						<TextControl
-							label={ __( 'Card title', 'twork-builder' ) }
-							value={ bookingTitle }
-							onChange={ ( v ) =>
-								setAttributes( { bookingTitle: v } )
-							}
-						/>
-
-						<TextControl
-							label={ __( 'Card description', 'twork-builder' ) }
-							value={ bookingDescription }
-							onChange={ ( v ) =>
-								setAttributes( { bookingDescription: v } )
-							}
-							multiline
-							rows={ 3 }
-						/>
-
-						<Divider />
-						<BaseControl
-							label={ __(
-								'Select dropdown options',
-								'twork-builder'
-							) }
-							help={ __(
-								'First option is placeholder. Set Value, Label, and Book link per department.',
-								'twork-builder'
-							) }
-						>
-							{ ( options || [] ).map( ( opt, i ) => (
-								<div
-									key={ i }
-									style={ {
-										marginBottom: 12,
-										paddingBottom: 12,
-										borderBottom: '1px solid #ddd',
-										display: 'flex',
-										flexDirection: 'column',
-										gap: 8,
-									} }
-								>
-									<div
-										style={ {
-											display: 'flex',
-											gap: 8,
-											alignItems: 'center',
-										} }
-									>
-										<TextControl
-											label={ __(
-												'Value',
-												'twork-builder'
-											) }
-											value={ opt?.value ?? '' }
-											onChange={ ( v ) =>
-												updateSelectOption(
-													i,
-													'value',
-													v
-												)
-											}
-											style={ { flex: 1 } }
-										/>
-
-										<Button
-											isDestructive
-											isSmall
-											onClick={ () =>
-												removeSelectOption( i )
-											}
-											disabled={ options.length <= 1 }
-											icon="no-alt"
-											label={ __(
-												'Remove option',
-												'twork-builder'
-											) }
-										/>
-									</div>
-									<TextControl
-										label={ __( 'Label', 'twork-builder' ) }
-										value={ opt?.label ?? '' }
-										onChange={ ( v ) =>
-											updateSelectOption( i, 'label', v )
-										}
-									/>
-									{ ( opt?.value ?? '' ) !== '' && (
-										<TextControl
-											label={ __(
-												'Book link URL',
-												'twork-builder'
-											) }
-											value={ opt?.bookUrl ?? '' }
-											onChange={ ( v ) =>
-												updateSelectOption(
-													i,
-													'bookUrl',
-													v
-												)
-											}
-											help={ __(
-												'Use {value} for department value. Empty = auto ?name=value.',
-												'twork-builder'
-											) }
-										/>
-									) }
-								</div>
-							) ) }
-							<Button
-								isSecondary
-								isSmall
-								onClick={ addSelectOption }
-								style={ { marginTop: 8 } }
-							>
-								{ __( 'Add option', 'twork-builder' ) }
-							</Button>
-						</BaseControl>
-						<Divider />
-						<TextControl
-							label={ __(
-								'Select name attribute',
-								'twork-builder'
-							) }
-							value={ selectName }
-							onChange={ ( v ) =>
-								setAttributes( { selectName: v } )
-							}
-						/>
-
-						<TextControl
-							label={ __( 'Select aria-label', 'twork-builder' ) }
-							value={ selectAriaLabel }
-							onChange={ ( v ) =>
-								setAttributes( { selectAriaLabel: v } )
-							}
-						/>
-
-						<Divider />
-						<ToggleControl
-							label={ __(
-								'Show book button',
-								'twork-builder'
-							) }
-							checked={ showBookButton }
-							onChange={ ( val ) =>
-								setAttributes( { showBookButton: val } )
-							}
-						/>
-
-						{ showBookButton && (
-							<>
 								<TextControl
 									label={ __(
-										'Book button text',
+										'Card meta title',
 										'twork-builder'
 									) }
-									value={ bookButtonText }
-									onChange={ ( val ) =>
-										setAttributes( {
-											bookButtonText: val,
-										} )
+									value={ bookingMetaTitle }
+									onChange={ ( v ) =>
+										setAttributes( { bookingMetaTitle: v } )
 									}
 								/>
+
+								<TextControl
+									label={ __(
+										'Card title',
+										'twork-builder'
+									) }
+									value={ bookingTitle }
+									onChange={ ( v ) =>
+										setAttributes( { bookingTitle: v } )
+									}
+								/>
+
+								<TextControl
+									label={ __(
+										'Card description',
+										'twork-builder'
+									) }
+									value={ bookingDescription }
+									onChange={ ( v ) =>
+										setAttributes( {
+											bookingDescription: v,
+										} )
+									}
+									multiline
+									rows={ 3 }
+								/>
+
+								<Divider />
+								<BaseControl
+									label={ __(
+										'Select dropdown options',
+										'twork-builder'
+									) }
+									help={ __(
+										'First option is placeholder. Set Value, Label, and Book link per department.',
+										'twork-builder'
+									) }
+								>
+									{ ( options || [] ).map( ( opt, i ) => (
+										<div
+											key={ i }
+											style={ {
+												marginBottom: 12,
+												paddingBottom: 12,
+												borderBottom: '1px solid #ddd',
+												display: 'flex',
+												flexDirection: 'column',
+												gap: 8,
+											} }
+										>
+											<div
+												style={ {
+													display: 'flex',
+													gap: 8,
+													alignItems: 'center',
+												} }
+											>
+												<TextControl
+													label={ __(
+														'Value',
+														'twork-builder'
+													) }
+													value={ opt?.value ?? '' }
+													onChange={ ( v ) =>
+														updateSelectOption(
+															i,
+															'value',
+															v
+														)
+													}
+													style={ { flex: 1 } }
+												/>
+
+												<Button
+													isDestructive
+													isSmall
+													onClick={ () =>
+														removeSelectOption( i )
+													}
+													disabled={
+														options.length <= 1
+													}
+													icon="no-alt"
+													label={ __(
+														'Remove option',
+														'twork-builder'
+													) }
+												/>
+											</div>
+											<TextControl
+												label={ __(
+													'Label',
+													'twork-builder'
+												) }
+												value={ opt?.label ?? '' }
+												onChange={ ( v ) =>
+													updateSelectOption(
+														i,
+														'label',
+														v
+													)
+												}
+											/>
+											{ ( opt?.value ?? '' ) !== '' && (
+												<TextControl
+													label={ __(
+														'Book link URL',
+														'twork-builder'
+													) }
+													value={ opt?.bookUrl ?? '' }
+													onChange={ ( v ) =>
+														updateSelectOption(
+															i,
+															'bookUrl',
+															v
+														)
+													}
+													help={ __(
+														'Use {value} for department value. Empty = auto ?name=value.',
+														'twork-builder'
+													) }
+												/>
+											) }
+										</div>
+									) ) }
+									<Button
+										isSecondary
+										isSmall
+										onClick={ addSelectOption }
+										style={ { marginTop: 8 } }
+									>
+										{ __( 'Add option', 'twork-builder' ) }
+									</Button>
+								</BaseControl>
+								<Divider />
+								<TextControl
+									label={ __(
+										'Select name attribute',
+										'twork-builder'
+									) }
+									value={ selectName }
+									onChange={ ( v ) =>
+										setAttributes( { selectName: v } )
+									}
+								/>
+
+								<TextControl
+									label={ __(
+										'Select aria-label',
+										'twork-builder'
+									) }
+									value={ selectAriaLabel }
+									onChange={ ( v ) =>
+										setAttributes( { selectAriaLabel: v } )
+									}
+								/>
+
+								<Divider />
 								<ToggleControl
 									label={ __(
-										'Open book link in new tab',
+										'Show book button',
 										'twork-builder'
 									) }
-									checked={ bookButtonOpenInNewTab }
+									checked={ showBookButton }
 									onChange={ ( val ) =>
-										setAttributes( {
-											bookButtonOpenInNewTab: val,
-										} )
+										setAttributes( { showBookButton: val } )
 									}
 								/>
-							</>
-						) }
 
-						<PanelColorSettings
-							title={ __( 'Card title color', 'twork-builder' ) }
-							colorSettings={ [
-								{
-									value: bookingTitleColor,
-									onChange: ( val ) =>
-										setAttributes( {
-											bookingTitleColor: val,
-										} ),
-									label: __(
-										'Booking card title',
+								{ showBookButton && (
+									<>
+										<TextControl
+											label={ __(
+												'Book button text',
+												'twork-builder'
+											) }
+											value={ bookButtonText }
+											onChange={ ( val ) =>
+												setAttributes( {
+													bookButtonText: val,
+												} )
+											}
+										/>
+										<ToggleControl
+											label={ __(
+												'Open book link in new tab',
+												'twork-builder'
+											) }
+											checked={ bookButtonOpenInNewTab }
+											onChange={ ( val ) =>
+												setAttributes( {
+													bookButtonOpenInNewTab: val,
+												} )
+											}
+										/>
+									</>
+								) }
+
+								<PanelColorSettings
+									title={ __(
+										'Card title color',
 										'twork-builder'
-									),
-								},
-							] }
-						/>
+									) }
+									colorSettings={ [
+										{
+											value: bookingTitleColor,
+											onChange: ( val ) =>
+												setAttributes( {
+													bookingTitleColor: val,
+												} ),
+											label: __(
+												'Booking card title',
+												'twork-builder'
+											),
+										},
+									] }
+								/>
 							</>
 						) }
 					</PanelBody>
@@ -1122,7 +1153,9 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 										<div className="help-media-slideshow">
 											<img
 												src={ mediaSlides[ 0 ].url }
-												alt={ mediaSlides[ 0 ].alt || '' }
+												alt={
+													mediaSlides[ 0 ].alt || ''
+												}
 												className="help-media-slide is-active"
 												style={ {
 													width: '100%',
@@ -1133,34 +1166,32 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 										</div>
 									) }
 
-								{ isSlideshowMedia &&
-									! mediaSlides.length && (
-										<MediaPlaceholder
-											onSelect={ ( media ) => {
-												const items = Array.isArray(
-													media
-												)
-													? media
-													: [ media ];
-												setAttributes( {
-													slideshowImages:
-														items.map( ( m ) => ( {
-															url: m.url,
-															id: m.id,
-															alt: m.alt || '',
-														} ) ),
-												} );
-											} }
-											allowedTypes={ [ 'image' ] }
-											multiple
-											labels={ {
-												title: __(
-													'Select slideshow images',
-													'twork-builder'
+								{ isSlideshowMedia && ! mediaSlides.length && (
+									<MediaPlaceholder
+										onSelect={ ( media ) => {
+											const items = Array.isArray( media )
+												? media
+												: [ media ];
+											setAttributes( {
+												slideshowImages: items.map(
+													( m ) => ( {
+														url: m.url,
+														id: m.id,
+														alt: m.alt || '',
+													} )
 												),
-											} }
-										/>
-									) }
+											} );
+										} }
+										allowedTypes={ [ 'image' ] }
+										multiple
+										labels={ {
+											title: __(
+												'Select slideshow images',
+												'twork-builder'
+											),
+										} }
+									/>
+								) }
 
 								{ isVideoMedia && mediaVideoUrl && (
 									<video

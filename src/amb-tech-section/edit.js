@@ -525,7 +525,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 										setAttributes( { sectionTitle: val } )
 									}
 									placeholder={ __(
-										'Section Title...',
+										'Section Title…',
 										'twork-builder'
 									) }
 									className="section-title"
@@ -550,7 +550,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 										} )
 									}
 									placeholder={ __(
-										'Subtitle...',
+										'Subtitle…',
 										'twork-builder'
 									) }
 									className="section-subtitle"

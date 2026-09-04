@@ -48,7 +48,17 @@ const DASHICON_OPTIONS = [
 	{ value: 'dashicons-yes', label: __( 'Check', 'twork-builder' ) },
 ];
 
-/** Renders one icon by type (editor + save). className/style apply to wrapper for image/video. */
+/**
+ * Renders one icon by type (editor + save). className/style apply to wrapper for image/video.
+ * @param root0
+ * @param root0.iconType
+ * @param root0.faClass
+ * @param root0.dashicon
+ * @param root0.imageUrl
+ * @param root0.videoUrl
+ * @param root0.className
+ * @param root0.style
+ */
 function CentreIconRender( {
 	iconType,
 	faClass,
@@ -170,8 +180,9 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 
 	const updateNavItem = ( index, field, value ) => {
 		const next = [ ...( navItems || [] ) ];
-		if ( ! next[ index ] )
+		if ( ! next[ index ] ) {
 			next[ index ] = { label: '', href: '#', active: false };
+		}
 		next[ index ] = { ...next[ index ], [ field ]: value };
 		setAttributes( { navItems: next } );
 	};
@@ -1139,7 +1150,9 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 										<a
 											href={ contactPhoneUrl || 'tel:' }
 											className="jivaka-btn btn-primary centre-editor-phone-btn"
-											onClick={ ( e ) => e.preventDefault() }
+											onClick={ ( e ) =>
+												e.preventDefault()
+											}
 											role="presentation"
 											aria-label={
 												contactPhone
@@ -1159,7 +1172,9 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 													contactPhoneIcon ||
 													'fas fa-phone'
 												}
-												dashicon={ contactPhoneDashicon }
+												dashicon={
+													contactPhoneDashicon
+												}
 												imageUrl={
 													contactPhoneIconImageUrl
 												}

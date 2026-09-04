@@ -13,9 +13,7 @@ export function normalizeMediaSlides( slideshowImages ) {
 				return null;
 			}
 			const url =
-				typeof item === 'string'
-					? item
-					: item.url || item.src || '';
+				typeof item === 'string' ? item : item.url || item.src || '';
 			const alt = typeof item === 'string' ? '' : item.alt || '';
 			return url ? { url, alt } : null;
 		} )

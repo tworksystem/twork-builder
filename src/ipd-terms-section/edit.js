@@ -303,10 +303,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 										setAttributes( {
 											sectionTitleColor: val,
 										} ),
-									label: __(
-										'Title Color',
-										'twork-builder'
-									),
+									label: __( 'Title Color', 'twork-builder' ),
 								},
 								{
 									value: sectionSubtitleColor,
@@ -428,10 +425,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 							max={ 80 }
 						/>
 						<ToggleControl
-							label={ __(
-								'Scroll Animation',
-								'twork-builder'
-							) }
+							label={ __( 'Scroll Animation', 'twork-builder' ) }
 							checked={ animationOnScroll }
 							onChange={ ( val ) =>
 								setAttributes( { animationOnScroll: val } )
@@ -497,7 +491,9 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 					) }
 
 					<div
-						className={ `ipd-terms-card fade-up${ hasPdf ? '' : ' is-empty' }` }
+						className={ `ipd-terms-card fade-up${
+							hasPdf ? '' : ' is-empty'
+						}` }
 						style={ {
 							backgroundColor: cardBgColor,
 							borderRadius: `${ cardBorderRadius }px`,
@@ -505,10 +501,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 						} }
 					>
 						<div className="ipd-terms-card-inner">
-							<div
-								className="ipd-terms-icon"
-								aria-hidden="true"
-							>
+							<div className="ipd-terms-icon" aria-hidden="true">
 								<i className="fas fa-file-pdf"></i>
 							</div>
 

@@ -42,7 +42,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 				year: '0000',
 				heading: 'heading',
 				description: 'description',
-				imgUrl: 'https://placehold.co/600x400',
+				imgUrl: '',
 				address: 'address',
 				years: 'years....',
 			},
@@ -409,7 +409,7 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 													/>
 												) }
 
-												{ /* <div style={{backgroundImage: `url(${item.imgUrl ? item.imgUrl : 'https://placehold.co/600x400'})`}} className="timeline-img"></div> */ }
+												{ /* <div style={{backgroundImage: `url(${item.imgUrl ? item.imgUrl : ''})`}} className="timeline-img"></div> */ }
 												<div className="caption">
 													<RichText
 														tagName="div"

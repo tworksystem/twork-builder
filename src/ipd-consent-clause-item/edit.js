@@ -104,7 +104,9 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 					{ paragraphs.map( ( paragraph, index ) => (
 						<PanelBody
 							key={ `para-${ index }` }
-							title={ `${ __( 'Paragraph', 'twork-builder' ) } ${ index + 1 }` }
+							title={ `${ __( 'Paragraph', 'twork-builder' ) } ${
+								index + 1
+							}` }
 							initialOpen={ false }
 						>
 							<TextareaControl
@@ -119,7 +121,9 @@ export default function Edit( { attributes, setAttributes, isSelected } ) {
 					{ items.map( ( item, index ) => (
 						<PanelBody
 							key={ item.id || index }
-							title={ `${ __( 'Sub-clause', 'twork-builder' ) } ${ item.number || index + 1 }` }
+							title={ `${ __( 'Sub-clause', 'twork-builder' ) } ${
+								item.number || index + 1
+							}` }
 							initialOpen={ false }
 						>
 							<TextControl

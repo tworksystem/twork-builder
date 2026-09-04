@@ -63,7 +63,7 @@
 		},
 		"imageUrl": {
 			"type": "string",
-			"default": "https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?auto=format&fit=crop&w=600&q=80"
+			"default": ""
 		},
 		"imageId": {
 			"type": "number"
@@ -106,7 +106,7 @@
 			"sectionSubtitle": "We adhere to ALARA (As Low As Reasonably Achievable) principles to ensure patient safety during radiation procedures.",
 			"sectionSubtitleColor": "#666666",
 			"sectionSubtitleFontSize": 1,
-			"imageUrl": "https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?auto=format&fit=crop&w=600&q=80",
+			"imageUrl": "",
 			"imageAlt": "Safety",
 			"animationOnScroll": true,
 			"animationType": "fade-up",

@@ -8,6 +8,8 @@ import metadata from './block.json';
 /**
  * Migrate from old markup (grid inline styles) to new (CSS-driven responsive).
  * Returns same attributes and innerBlocks so block re-saves with current save().
+ * @param attributes
+ * @param innerBlocks
  */
 function migrateProcessSection( attributes, innerBlocks ) {
 	return [ attributes, innerBlocks ];

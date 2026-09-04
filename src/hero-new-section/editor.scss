@@ -4,6 +4,7 @@
 
 .editor-styles-wrapper .wp-block-twork-hero-new-section,
 .block-editor-block-list__layout .wp-block-twork-hero-new-section {
+
 	.jivaka-btn .dashicons {
 		font-family: dashicons !important;
 		font-size: 1.2em !important;
@@ -43,6 +44,7 @@
 
 .block-editor-block-list__layout,
 .editor-styles-wrapper {
+
 	.wp-block-twork-hero-new-section.mk-hero-new-section-editor.hero-new,
 	.wp-block-twork-hero-new-section.hero-new {
 		--hero-primary-orange: #f48b2a;
@@ -63,7 +65,7 @@
 		color: #fff;
 
 		&.alignfull,
-		&[data-align='full'] {
+		&[data-align="full"] {
 			width: 100% !important;
 			max-width: none !important;
 		}
@@ -239,21 +241,21 @@
 			-webkit-backdrop-filter: blur(10px);
 		}
 
-	.jivaka-btn .dashicons {
-		font-family: dashicons !important;
-		font-size: 1.2em !important;
-		width: 1.2em !important;
-		height: 1.2em !important;
-		line-height: 1 !important;
-		display: inline-block !important;
-		flex-shrink: 0;
-		color: inherit;
-		vertical-align: middle;
-	}
+		.jivaka-btn .dashicons {
+			font-family: dashicons !important;
+			font-size: 1.2em !important;
+			width: 1.2em !important;
+			height: 1.2em !important;
+			line-height: 1 !important;
+			display: inline-block !important;
+			flex-shrink: 0;
+			color: inherit;
+			vertical-align: middle;
+		}
 
-	.jivaka-btn .dashicons::before {
-		font-family: dashicons !important;
-	}
+		.jivaka-btn .dashicons::before {
+			font-family: dashicons !important;
+		}
 
 		.glass-card {
 			background: rgba(255, 255, 255, 0.08);
@@ -282,11 +284,11 @@
 			color: rgba(255, 255, 255, 0.85);
 		}
 
-		.top-tagline [contenteditable='true']:focus,
-		.main-heading [contenteditable='true']:focus,
-		.hero-desc[contenteditable='true']:focus,
-		.glass-card h3[contenteditable='true']:focus,
-		.glass-card p[contenteditable='true']:focus {
+		.top-tagline [contenteditable="true"]:focus,
+		.main-heading [contenteditable="true"]:focus,
+		.hero-desc[contenteditable="true"]:focus,
+		.glass-card h3[contenteditable="true"]:focus,
+		.glass-card p[contenteditable="true"]:focus {
 			outline: 1px dashed #2271b1;
 			outline-offset: 2px;
 		}

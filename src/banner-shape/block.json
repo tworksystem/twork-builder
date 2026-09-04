@@ -150,7 +150,7 @@
 		"attributes": {
 			"bannerHeading": "Welcome to Our Services",
 			"bannerDescription": "Professional healthcare services for your wellbeing",
-			"backgroundImage": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?auto=format&fit=crop&w=1200&q=80",
+			"backgroundImage": "",
 			"backgroundPositionX": 50,
 			"backgroundPositionY": 50,
 			"backgroundSize": "cover",
@@ -174,7 +174,7 @@
 			"contentMaxWidth": 1200,
 			"contentAlignment": "center",
 			"showShape": true,
-			"shapeImage": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?auto=format&fit=crop&w=1200&q=80",
+			"shapeImage": "",
 			"shapeHeight": 150,
 			"shapeHeightMobile": 100,
 			"shapePosition": "bottom",

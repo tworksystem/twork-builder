@@ -144,7 +144,10 @@ export default function HeaderMarkup( {
 						) : null }
 					</a>
 
-					<nav className="desktop-nav" aria-label="Primary navigation">
+					<nav
+						className="desktop-nav"
+						aria-label="Primary navigation"
+					>
 						<ul className="main-nav-list">
 							{ items.map( ( item, index ) => (
 								<DesktopNavItem

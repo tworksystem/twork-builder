@@ -112,7 +112,7 @@ function twork_render_phy_facilities_section($attributes, $content, $block)
     <section
         class="phy-section twork-phy-facilities-section"
         style="<?php echo esc_attr($section_style); ?>"
-        data-animation="<?php echo $atts['animationOnScroll'] ? 'true' : 'false'; ?>"
+        data-animation="<?php echo esc_attr( $atts['animationOnScroll'] ? 'true' : 'false' ); ?>"
     >
         <div class="phy-container" style="<?php echo esc_attr($container_style); ?>">
             <?php if (!empty($atts['showSectionHeader'])) : ?>
@@ -126,7 +126,7 @@ function twork_render_phy_facilities_section($attributes, $content, $block)
                 </div>
             <?php endif; ?>
 
-            <div class="phy-facility-slider <?php echo $atts['animationOnScroll'] ? esc_attr($atts['staggerClass']) : ''; ?>" style="<?php echo esc_attr($slider_style); ?>">
+            <div class="phy-facility-slider <?php echo $atts['animationOnScroll'] ? esc_attr( $atts['staggerClass'] ) : ''; ?>" style="<?php echo esc_attr( $slider_style ); ?>">
                 <?php
                 if ($facilities_query->have_posts()) :
                     while ($facilities_query->have_posts()) :

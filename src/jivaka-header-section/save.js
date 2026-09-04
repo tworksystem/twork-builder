@@ -19,9 +19,13 @@ export default function save( { attributes } ) {
 		className: 'jivaka-header-section-block',
 		style: {
 			'--jivaka-header-max-width':
-				containerMaxWidth != null ? `${ containerMaxWidth }px` : undefined,
+				containerMaxWidth != null
+					? `${ containerMaxWidth }px`
+					: undefined,
 			'--jivaka-header-padding':
-				containerPadding != null ? `${ containerPadding }px` : undefined,
+				containerPadding != null
+					? `${ containerPadding }px`
+					: undefined,
 		},
 	} );
 

@@ -32,7 +32,7 @@ const Divider =
 
 const DEFAULT_ATTRS = {
 	backgroundImageUrl:
-		'https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80',
+		'',
 	backgroundOverlayColor: 'rgba(0, 95, 115, 0.4)',
 	backgroundOverlayOpacity: 0.4,
 	minHeight: 700,

@@ -107,7 +107,9 @@ export default function save( { attributes } ) {
 				) }
 
 				<div
-					className={ `ipd-terms-card fade-up${ hasPdf ? '' : ' is-empty' }` }
+					className={ `ipd-terms-card fade-up${
+						hasPdf ? '' : ' is-empty'
+					}` }
 					style={ {
 						backgroundColor: cardBgColor,
 						borderRadius: `${ cardBorderRadius }px`,
@@ -115,10 +117,7 @@ export default function save( { attributes } ) {
 					} }
 				>
 					<div className="ipd-terms-card-inner">
-						<div
-							className="ipd-terms-icon"
-							aria-hidden="true"
-						>
+						<div className="ipd-terms-icon" aria-hidden="true">
 							<i className="fas fa-file-pdf"></i>
 						</div>
 

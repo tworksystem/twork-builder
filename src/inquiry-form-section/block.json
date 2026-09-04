@@ -50,7 +50,7 @@
 		},
 		"leftBackgroundImage": {
 			"type": "string",
-			"default": "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1000&q=80"
+			"default": ""
 		},
 		"leftBackgroundImageId": {
 			"type": "number"
@@ -208,7 +208,7 @@
 			"containerPadding": 20,
 			"containerPaddingMobile": 20,
 			"wrapperMarginTop": 60,
-			"leftBackgroundImage": "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1000&q=80",
+			"leftBackgroundImage": "",
 			"leftOverlayColor": "rgba(244, 139, 42, 0.8)",
 			"leftOverlayOpacity": 0.8,
 			"leftContentPadding": 60,

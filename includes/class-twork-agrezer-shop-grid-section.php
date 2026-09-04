@@ -404,9 +404,9 @@ function twork_render_agrezer_shop_grid_section($attributes, $content, $block)
                                 printf(
                                     /* translators: 1: from index, 2: to index, 3: total results */
                                     esc_html__('Showing %1$d–%2$d of %3$d results', 'twork-builder'),
-                                    $from,
-                                    $to,
-                                    $found
+                                    absint($from),
+                                    absint($to),
+                                    absint($found)
                                 );
                             } else {
                                 esc_html_e('No results', 'twork-builder');
