@@ -1,0 +1,37 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/about-staff-meal-gallery-item",
+	"version": "1.0.0",
+	"title": "Staff Meal Gallery Image",
+	"category": "twork-builder",
+	"parent": ["twork/about-staff-meal-gallery"],
+	"supports": { "html": false },
+	"attributes": {
+		"showItem": { "type": "boolean", "default": true },
+		"imageUrl": {
+			"type": "string",
+			"default": "",
+			"source": "attribute",
+			"selector": "img",
+			"attribute": "src"
+		},
+		"imageAlt": {
+			"type": "string",
+			"default": "",
+			"source": "attribute",
+			"selector": "img",
+			"attribute": "alt"
+		},
+		"imageId": { "type": "number", "default": 0 },
+		"imageRole": { "type": "string", "default": "secondary" },
+		"showCaption": { "type": "boolean", "default": false },
+		"caption": { "type": "string", "default": "" },
+		"showBadge": { "type": "boolean", "default": false },
+		"badgeText": { "type": "string", "default": "Meal" },
+		"badgeColor": { "type": "string", "default": "#e85d04" }
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
+}

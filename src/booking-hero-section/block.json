@@ -1,0 +1,83 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/booking-hero-section",
+	"version": "1.0.0",
+	"title": "Booking Hero Section",
+	"category": "twork-builder",
+	"icon": "calendar-alt",
+	"description": "Appointment booking page hero with background image, title, and subtitle.",
+	"keywords": [ "booking", "appointment", "hero", "jivaka", "mk" ],
+	"attributes": {
+		"backgroundImage": {
+			"type": "string",
+			"default": ""
+		},
+		"backgroundImageId": {
+			"type": "number"
+		},
+		"imageOpacity": {
+			"type": "number",
+			"default": 0.6
+		},
+		"heightDesktop": {
+			"type": "number",
+			"default": 300
+		},
+		"heightMobile": {
+			"type": "number",
+			"default": 250
+		},
+		"marginBottom": {
+			"type": "number",
+			"default": 60
+		},
+		"marginBottomMobile": {
+			"type": "number",
+			"default": 40
+		},
+		"titleText": {
+			"type": "string",
+			"default": "Book an Appointment"
+		},
+		"titleColor": {
+			"type": "string",
+			"default": "#ffffff"
+		},
+		"subtitleText": {
+			"type": "string",
+			"default": "Schedule your visit with our specialists easily online."
+		},
+		"subtitleColor": {
+			"type": "string",
+			"default": "rgba(255, 255, 255, 0.9)"
+		},
+		"containerMaxWidth": {
+			"type": "number",
+			"default": 1200
+		},
+		"containerPadding": {
+			"type": "number",
+			"default": 20
+		},
+		"animationOnScroll": {
+			"type": "boolean",
+			"default": true
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"align": [ "wide", "full" ]
+	},
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": {
+			"titleText": "Book an Appointment",
+			"subtitleText": "Schedule your visit with our specialists easily online."
+		}
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
+}

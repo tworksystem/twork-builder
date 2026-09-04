@@ -1,0 +1,27 @@
+@import "../scss/typography";
+@import "../shared/checkup-prep";
+
+// Standalone Checkup Prep section wrapper. The card itself is styled by the
+// shared partial above (.mk-checkup-prep-panel).
+
+.mk-checkup-prep {
+	font-family: $font-primary;
+	box-sizing: border-box;
+
+	.prep-container {
+		width: 100%;
+	}
+}
+
+@media (max-width: 768px) {
+
+	.mk-checkup-prep {
+		padding-top: var(--prep-padding-top-mobile, 40px) !important;
+		padding-bottom: var(--prep-padding-bottom-mobile, 16px) !important;
+
+		.prep-container {
+			padding-left: var(--prep-container-padding-mobile, 16px) !important;
+			padding-right: var(--prep-container-padding-mobile, 16px) !important;
+		}
+	}
+}

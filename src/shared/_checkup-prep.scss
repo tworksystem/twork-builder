@@ -1,0 +1,231 @@
+@import "../scss/typography";
+
+// Shared "checkup prep" panel styles.
+// Root class is `.twork-checkup-prep-panel`, emitted by
+// src/shared/checkup-prep-panel.js, so the same markup works inside any host
+// block (twork/checkup-prep-section, twork/packages-section).
+
+.twork-checkup-prep-panel {
+	font-family: $font-primary;
+	box-sizing: border-box;
+
+	*,
+	*::before,
+	*::after {
+		box-sizing: inherit;
+	}
+
+	.prep-card {
+		overflow: hidden;
+
+		&.has-card {
+			box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+		}
+	}
+
+	// ---------- Collapsible toggle (native details / summary) ----------
+	.prep-toggle {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 12px;
+		padding: 16px 22px;
+		cursor: pointer;
+		line-height: 1.6;
+		list-style: none;
+		user-select: none;
+		transition: background-color 0.25s ease;
+
+		&::-webkit-details-marker,
+		&::marker {
+			display: none;
+			content: "";
+		}
+
+		&:hover {
+			filter: brightness(0.97);
+		}
+
+		&:focus-visible {
+			outline: 2px solid var(--prep-toggle-color, #f48b2a);
+			outline-offset: -2px;
+		}
+	}
+
+	.prep-toggle--editor {
+		cursor: default;
+	}
+
+	.prep-toggle-text {
+		flex: 1 1 auto;
+		overflow-wrap: break-word;
+		word-break: normal;
+	}
+
+	.prep-toggle-icon {
+		flex: 0 0 auto;
+		width: 10px;
+		height: 10px;
+		border-right: 2px solid currentcolor;
+		border-bottom: 2px solid currentcolor;
+		transform: rotate(45deg);
+		transform-origin: center;
+		transition: transform 0.25s ease;
+	}
+
+	details[open] > .prep-toggle .prep-toggle-icon {
+		transform: rotate(-135deg);
+	}
+
+	details[open] > .prep-toggle {
+		border-bottom-left-radius: 0 !important;
+		border-bottom-right-radius: 0 !important;
+	}
+
+	// ---------- Title ----------
+	.prep-title {
+		margin: 0;
+		overflow-wrap: break-word;
+		word-break: normal;
+	}
+
+	// ---------- Checklist ----------
+	.prep-list {
+		margin: 0 0 28px;
+		padding: 0;
+		list-style: none;
+
+		> li {
+			display: flex;
+			align-items: flex-start;
+			gap: 12px;
+		}
+	}
+
+	.prep-list-icon {
+		flex: 0 0 auto;
+		margin-top: 0.35em;
+		font-size: 1.05em;
+		line-height: 1;
+
+		i {
+			line-height: 1;
+		}
+	}
+
+	.prep-list-text,
+	.prep-highlight-text {
+		flex: 1 1 auto;
+		overflow-wrap: break-word;
+		word-break: normal;
+	}
+
+	// ---------- Highlight box ----------
+	.prep-highlight {
+		display: flex;
+		align-items: flex-end;
+		gap: 20px;
+	}
+
+	.prep-highlight-content {
+		flex: 1 1 auto;
+		min-width: 0;
+	}
+
+	.prep-highlight-title {
+		margin: 0 0 16px;
+		font-weight: 700;
+		line-height: 1.6;
+		overflow-wrap: break-word;
+		word-break: normal;
+	}
+
+	.prep-highlight-list {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+
+		> li {
+			display: flex;
+			align-items: flex-start;
+			gap: 10px;
+			margin-bottom: 10px;
+		}
+	}
+
+	// Kept after the plain `> li` rules so specificity stays ascending.
+	.prep-list > li:last-child,
+	.prep-highlight-list > li:last-child {
+		margin-bottom: 0 !important;
+	}
+
+	.prep-highlight-icon {
+		flex: 0 0 auto;
+		margin-top: 0.3em;
+		line-height: 1;
+
+		i {
+			line-height: 1;
+		}
+	}
+
+	.prep-mascot {
+		flex: 0 0 auto;
+		height: auto;
+		max-width: 40%;
+		align-self: flex-end;
+	}
+
+	// ---------- Bottom decoration ----------
+	.prep-decor {
+		display: block;
+		height: auto;
+		margin: 24px auto 0;
+	}
+
+	// Editor-only affordance for per-item toggles.
+	&.is-editor {
+
+		.is-item-hidden {
+			opacity: 0.4;
+
+			.prep-list-text,
+			.prep-highlight-text {
+				text-decoration: line-through;
+			}
+		}
+	}
+}
+
+@media (max-width: 768px) {
+
+	.twork-checkup-prep-panel {
+
+		.prep-body {
+			padding: var(--prep-card-padding-mobile, 20px) !important;
+		}
+
+		.prep-title {
+			font-size: var(--prep-title-size-mobile, 1.15rem) !important;
+		}
+
+		.prep-list {
+			font-size: var(--prep-list-size-mobile, 0.9rem) !important;
+		}
+
+		.prep-toggle {
+			padding: 14px 16px;
+		}
+
+		.prep-highlight {
+			flex-direction: column;
+			align-items: stretch;
+			padding: var(--prep-highlight-padding-mobile, 18px) !important;
+		}
+
+		.prep-mascot {
+			align-self: center;
+			max-width: 60%;
+		}
+	}
+}

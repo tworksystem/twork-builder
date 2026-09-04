@@ -1,0 +1,122 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"category": "twork-builder",
+	"textdomain": "twork-builder",
+	"name": "twork/about-story-section",
+	"title": "About Story Section",
+	"description": "About page intro story. Pair with About Milestones Section for timeline.",
+	"keywords": [
+		"brand",
+		"shweghee",
+		"inner-page",
+		"about",
+		"milestones"
+	],
+	"attributes": {
+		"eyebrow": {
+			"type": "string",
+			"default": "WHO WE ARE"
+		},
+		"title": {
+			"type": "string",
+			"default": "Shwe Myanmar Foodstuff Industry"
+		},
+		"paragraphs": {
+			"type": "array",
+			"default": [
+				"Shwe Myanmar (ရွှေမြန်မာ) is a registered trademark of Shwe Myanmar Foodstuff Industry, proudly based in Mandalay, Myanmar. We specialize in premium butter (ထောပတ်) and ghee (နွားချဉ်ထောပတ်) for households, restaurants, and commercial kitchens nationwide.",
+				"Our motto — သဘာဝ အနံ့ သဘာဝ အရသာ (Natural scent, natural taste) — reflects our commitment to authentic flavor using carefully selected natural ingredients and traditional craftsmanship combined with modern quality standards.",
+				"From our 1 Viss retail packs to our flagship 10 Viss bulk size, we offer options for every kitchen and every business."
+			]
+		},
+		"ctaLabel": {
+			"type": "string",
+			"default": "VIEW OUR PRODUCTS"
+		},
+		"ctaHref": {
+			"type": "string",
+			"default": "/shop"
+		},
+		"imageUrl": {
+			"type": "string",
+			"default": "https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?w=560&h=400&fit=crop&q=80"
+		},
+		"imageAlt": {
+			"type": "string",
+			"default": "Shwe Myanmar butter production"
+		},
+		"timelineEyebrow": {
+			"type": "string",
+			"default": "OUR JOURNEY"
+		},
+		"timelineTitle": {
+			"type": "string",
+			"default": "Milestones"
+		},
+		"milestones": {
+			"type": "array",
+			"default": [
+				{
+					"id": "m1",
+					"year": "Founded",
+					"title": "Mandalay Origins",
+					"text": "Shwe Myanmar Foodstuff Industry established in Mandalay, bringing traditional butter-making heritage to modern production."
+				},
+				{
+					"id": "m2",
+					"year": "Growth",
+					"title": "Nationwide Distribution",
+					"text": "Expanded distribution across Myanmar — Mandalay, Yangon, Sagaing, Shan, and Magway regions."
+				},
+				{
+					"id": "m3",
+					"year": "Today",
+					"title": "10 Viss Bulk Launch",
+					"text": "Introduced our flagship 10 Viss (≈16.33 kg) bulk pack for wholesale and commercial customers."
+				}
+			]
+		},
+		"valuesEyebrow": {
+			"type": "string",
+			"default": "OUR VALUES"
+		},
+		"valuesTitle": {
+			"type": "string",
+			"default": "What We Stand For"
+		},
+		"values": {
+			"type": "array",
+			"default": [
+				{
+					"id": "v1",
+					"number": "01",
+					"title": "Natural Quality",
+					"text": "Carefully selected ingredients for authentic butter and ghee flavor."
+				},
+				{
+					"id": "v2",
+					"number": "02",
+					"title": "Consistency",
+					"text": "Every batch meets strict quality standards from our Mandalay facility."
+				},
+				{
+					"id": "v3",
+					"number": "03",
+					"title": "Accessibility",
+					"text": "Premium products at fair prices for families and businesses alike."
+				}
+			]
+		}
+	},
+	"supports": {
+		"html": false,
+		"align": [
+			"wide",
+			"full"
+		]
+	},
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php"
+}

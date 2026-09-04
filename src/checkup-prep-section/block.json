@@ -1,0 +1,385 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/checkup-prep-section",
+	"version": "1.0.0",
+	"title": "Checkup Prep Section",
+	"category": "twork-builder",
+	"icon": "clipboard",
+	"description": "Collapsible do's and don'ts panel to place above a health checkup packages grid.",
+	"keywords": [ "checkup", "prep", "guideline", "collapsible", "mk" ],
+	"attributes": {
+		"backgroundColor": {
+			"type": "string",
+			"default": "#f8f9fa"
+		},
+		"paddingTop": {
+			"type": "number",
+			"default": 60
+		},
+		"paddingBottom": {
+			"type": "number",
+			"default": 20
+		},
+		"paddingTopMobile": {
+			"type": "number",
+			"default": 40
+		},
+		"paddingBottomMobile": {
+			"type": "number",
+			"default": 16
+		},
+		"containerMaxWidth": {
+			"type": "number",
+			"default": 900
+		},
+		"containerPadding": {
+			"type": "number",
+			"default": 20
+		},
+		"containerPaddingMobile": {
+			"type": "number",
+			"default": 16
+		},
+		"collapsible": {
+			"type": "boolean",
+			"default": true
+		},
+		"defaultOpen": {
+			"type": "boolean",
+			"default": false
+		},
+		"toggleLabel": {
+			"type": "string",
+			"default": "ကျန်းမာရေးစစ်ဆေးခြင်းမပြုလုပ်မီ ဆောင်ရန် ရှောင်ရန်"
+		},
+		"toggleLabelColor": {
+			"type": "string",
+			"default": "#f48b2a"
+		},
+		"toggleBackgroundColor": {
+			"type": "string",
+			"default": "#fff4e8"
+		},
+		"toggleFontSize": {
+			"type": "number",
+			"default": 1.05
+		},
+		"toggleFontWeight": {
+			"type": "number",
+			"default": 700
+		},
+		"showCard": {
+			"type": "boolean",
+			"default": true
+		},
+		"cardBackgroundColor": {
+			"type": "string",
+			"default": "#ffffff"
+		},
+		"cardBorderColor": {
+			"type": "string",
+			"default": "#f0e0d0"
+		},
+		"cardBorderRadius": {
+			"type": "number",
+			"default": 20
+		},
+		"cardPadding": {
+			"type": "number",
+			"default": 36
+		},
+		"cardPaddingMobile": {
+			"type": "number",
+			"default": 20
+		},
+		"showTitle": {
+			"type": "boolean",
+			"default": true
+		},
+		"title": {
+			"type": "string",
+			"default": "ကျန်းမာရေးစစ်ဆေးခြင်းမပြုလုပ်မီ<br>အောက်ပါအချက်များကို သေချာစွာဖတ်ကြည့်ပေးပါရန်။"
+		},
+		"titleColor": {
+			"type": "string",
+			"default": "#f48b2a"
+		},
+		"titleFontSize": {
+			"type": "number",
+			"default": 1.5
+		},
+		"titleFontSizeMobile": {
+			"type": "number",
+			"default": 1.15
+		},
+		"titleFontWeight": {
+			"type": "number",
+			"default": 700
+		},
+		"titleAlignment": {
+			"type": "string",
+			"default": "center"
+		},
+		"titleLineHeight": {
+			"type": "number",
+			"default": 1.6
+		},
+		"titleMarginBottom": {
+			"type": "number",
+			"default": 28
+		},
+		"showChecklist": {
+			"type": "boolean",
+			"default": true
+		},
+		"checklistItems": {
+			"type": "array",
+			"default": [
+				{
+					"id": 1,
+					"enabled": true,
+					"text": "ကျန်းမာရေးစစ်ဆေးခြင်းမပြုလုပ်မီ အနည်းဆုံး(၆)နာရီခန့် လုံလောက်စွာ အိပ်စက်အနားယူရမည်။"
+				},
+				{
+					"id": 2,
+					"enabled": true,
+					"text": "အစားအစာနှင့် ဖျော်ရည်များသုံးဆောင်ခြင်းကို အနည်းဆုံး(၈)နာရီခန့် စားသုံးခြင်းမပြုလုပ်ပါရန်။ ရေအနည်းငယ်သောက်သုံးနိုင်ပါသည်။"
+				},
+				{
+					"id": 3,
+					"enabled": true,
+					"text": "အရက်၊ ဘီယာသောက်သုံးခြင်းများကို (၂၄)နာရီခန့် ကြိုတင် ရှောင်ရှားပေးပါရန်။"
+				},
+				{
+					"id": 4,
+					"enabled": true,
+					"text": "သောက်လက်စဆေးဝါးများကို ဆရာဝန်ညွှန်ကြားထားသည့်အတိုင်း ပုံမှန်သောက်ရပါမည်။ (ဥပမာ – သွေးကျဆေးများ၊ ဆီးချိုသွေးချိုဆေးများ)"
+				},
+				{
+					"id": 5,
+					"enabled": true,
+					"text": "မိမိတွင်ရောဂါတစ်ခုခုရှိပါက ရောဂါနှင့်ပတ်သက်သော ဆေးမှတ်တမ်းများကို မိမိနှင့်အတူယူဆောင်လာပေးရပါမည်။"
+				},
+				{
+					"id": 6,
+					"enabled": true,
+					"text": "ဓမ္မတာလာနေစဉ် အမျိုးသမီးများတွင် ဆီးစစ်ထားသောအဖြေများနှင့် ဓမ္မတာလာနေစဉ် စစ်ဆေးထားသော သားအိမ်ခေါင်းကင်ဆာ အဖြေများမှာ မှားယွင်းနိုင်ပါသဖြင့် ဓမ္မတာလာသော နေ့ရက်များကို ရှောင်ရှားပြီး စစ်ဆေးသင့်ပါသည်။"
+				},
+				{
+					"id": 7,
+					"enabled": true,
+					"text": "အမျိုးသမီးများအနေဖြင့် ကိုယ်ဝန်ဆောင်ထားခြင်း(သို့)ကိုယ်ဝန်ရှိနိုင်သော အခြေအနေများရှိပါက ရင်ဘတ်ဓာတ်မှန်ရိုက်ခြင်းနှင့် အရိုးသိပ်သည်းဆ ဓာတ်မှန်များ ရိုက်ကူးခြင်းကို မပြုလုပ်ရပါ။"
+				}
+			]
+		},
+		"checklistIcon": {
+			"type": "string",
+			"default": "fas fa-check-circle"
+		},
+		"checklistIconColor": {
+			"type": "string",
+			"default": "#f48b2a"
+		},
+		"checklistTextColor": {
+			"type": "string",
+			"default": "#333333"
+		},
+		"checklistFontSize": {
+			"type": "number",
+			"default": 1
+		},
+		"checklistFontSizeMobile": {
+			"type": "number",
+			"default": 0.9
+		},
+		"checklistLineHeight": {
+			"type": "number",
+			"default": 1.9
+		},
+		"checklistItemGap": {
+			"type": "number",
+			"default": 16
+		},
+		"showHighlightBox": {
+			"type": "boolean",
+			"default": true
+		},
+		"highlightTitle": {
+			"type": "string",
+			"default": "ကျန်းမာရေးစစ်ဆေးမှုဝန်ဆောင်မှုများ"
+		},
+		"highlightItems": {
+			"type": "array",
+			"default": [
+				{
+					"id": 1,
+					"enabled": true,
+					"text": "ပြီးပြည့်စုံသော ကျန်းမာရေးစစ်ဆေးမှု အစီအစဉ်များ"
+				},
+				{
+					"id": 2,
+					"enabled": true,
+					"text": "တိကျမှန်ကန်သော ကျန်းမာရေးစစ်ဆေးမှု အဖြေများ"
+				},
+				{
+					"id": 3,
+					"enabled": true,
+					"text": "အတွေ့အကြုံရှိသော ဆရာဝန်များ၏ တိုင်ပင်ဆွေးနွေးမှုများ"
+				},
+				{
+					"id": 4,
+					"enabled": true,
+					"text": "တစ်ဦးချင်းစီအလိုက် ကျန်းမာရေးအသိပညာများ ဆွေးနွေးပေးခြင်း"
+				},
+				{
+					"id": 5,
+					"enabled": true,
+					"text": "သန့်ရှင်းပြီး အရသာရှိသော နံနက်စာဆောင်မှုများ"
+				},
+				{
+					"id": 6,
+					"enabled": true,
+					"text": "မိမိ၏ ကျန်းမာရေးအဖြေများကို ကွန်ပျူတာထဲတွင် စနစ်တကျ သိမ်းဆည်းပေးထားခြင်း"
+				}
+			]
+		},
+		"highlightIcon": {
+			"type": "string",
+			"default": "fas fa-angle-right"
+		},
+		"highlightBackgroundColor": {
+			"type": "string",
+			"default": "#f48b2a"
+		},
+		"highlightTitleColor": {
+			"type": "string",
+			"default": "#ffffff"
+		},
+		"highlightTextColor": {
+			"type": "string",
+			"default": "#ffffff"
+		},
+		"highlightTitleFontSize": {
+			"type": "number",
+			"default": 1.15
+		},
+		"highlightFontSize": {
+			"type": "number",
+			"default": 0.95
+		},
+		"highlightBorderRadius": {
+			"type": "number",
+			"default": 16
+		},
+		"highlightPadding": {
+			"type": "number",
+			"default": 28
+		},
+		"highlightPaddingMobile": {
+			"type": "number",
+			"default": 18
+		},
+		"showMascot": {
+			"type": "boolean",
+			"default": true
+		},
+		"mascotUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"mascotId": {
+			"type": "number"
+		},
+		"mascotAlt": {
+			"type": "string",
+			"default": ""
+		},
+		"mascotWidth": {
+			"type": "number",
+			"default": 150
+		},
+		"mascotNaturalWidth": {
+			"type": "number"
+		},
+		"mascotNaturalHeight": {
+			"type": "number"
+		},
+		"showDecor": {
+			"type": "boolean",
+			"default": true
+		},
+		"decorUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"decorId": {
+			"type": "number"
+		},
+		"decorMaxWidth": {
+			"type": "number",
+			"default": 100
+		},
+		"decorNaturalWidth": {
+			"type": "number"
+		},
+		"decorNaturalHeight": {
+			"type": "number"
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"align": [ "wide", "full" ]
+	},
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": {
+			"backgroundColor": "#f8f9fa",
+			"paddingTop": 60,
+			"paddingBottom": 20,
+			"containerMaxWidth": 900,
+			"collapsible": true,
+			"defaultOpen": true,
+			"toggleLabel": "ကျန်းမာရေးစစ်ဆေးခြင်းမပြုလုပ်မီ ဆောင်ရန် ရှောင်ရန်",
+			"showCard": true,
+			"showTitle": true,
+			"title": "ကျန်းမာရေးစစ်ဆေးခြင်းမပြုလုပ်မီ<br>အောက်ပါအချက်များကို သေချာစွာဖတ်ကြည့်ပေးပါရန်။",
+			"showChecklist": true,
+			"checklistItems": [
+				{
+					"id": 1,
+					"enabled": true,
+					"text": "ကျန်းမာရေးစစ်ဆေးခြင်းမပြုလုပ်မီ အနည်းဆုံး(၆)နာရီခန့် လုံလောက်စွာ အိပ်စက်အနားယူရမည်။"
+				},
+				{
+					"id": 2,
+					"enabled": true,
+					"text": "အရက်၊ ဘီယာသောက်သုံးခြင်းများကို (၂၄)နာရီခန့် ကြိုတင် ရှောင်ရှားပေးပါရန်။"
+				}
+			],
+			"showHighlightBox": true,
+			"highlightTitle": "ကျန်းမာရေးစစ်ဆေးမှုဝန်ဆောင်မှုများ",
+			"highlightItems": [
+				{
+					"id": 1,
+					"enabled": true,
+					"text": "ပြီးပြည့်စုံသော ကျန်းမာရေးစစ်ဆေးမှု အစီအစဉ်များ"
+				},
+				{
+					"id": 2,
+					"enabled": true,
+					"text": "တိကျမှန်ကန်သော ကျန်းမာရေးစစ်ဆေးမှု အဖြေများ"
+				}
+			],
+			"showMascot": false,
+			"mascotUrl": "",
+			"showDecor": false,
+			"decorUrl": ""
+		}
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css",
+	"editorStyle": "file:./style-index.css"
+}

@@ -1,0 +1,76 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"category": "twork-builder",
+	"textdomain": "twork-builder",
+	"name": "twork/contact-form-section",
+	"title": "Contact Form Section",
+	"description": "Contact info cards and message form with AJAX submit.",
+	"keywords": [
+		"brand",
+		"shweghee",
+		"inner-page",
+		"contact"
+	],
+	"attributes": {
+		"infoCards": {
+			"type": "array",
+			"default": [
+				{
+					"id": "c_phone",
+					"label": "PHONE",
+					"lines": ["095-2-55122", "095-2-55123"],
+					"icon": "phone"
+				},
+				{
+					"id": "c_address",
+					"label": "ADDRESS",
+					"lines": ["Your Company Address", "City, Country"],
+					"icon": "pin"
+				},
+				{
+					"id": "c_hours",
+					"label": "HOURS",
+					"lines": ["08:00 - 17:00", "Monday - Saturday"],
+					"icon": "clock"
+				}
+			]
+		},
+		"formTitle": {
+			"type": "string",
+			"default": "Send Us a Message"
+		},
+		"formDesc": {
+			"type": "string",
+			"default": "Fill out the form below and our team will respond as soon as possible."
+		},
+		"submitLabel": {
+			"type": "string",
+			"default": "SEND MESSAGE"
+		},
+		"honeypotName": {
+			"type": "string",
+			"default": "company"
+		},
+		"recipientEmail": {
+			"type": "string",
+			"default": ""
+		},
+		"subjects": {
+			"type": "array",
+			"default": [
+				{ "id": "general", "label": "General Inquiry" },
+				{ "id": "order", "label": "Product Order" },
+				{ "id": "wholesale", "label": "Wholesale / Bulk Order" },
+				{ "id": "distributor", "label": "Become a Distributor" }
+			]
+		}
+	},
+	"supports": {
+		"html": false,
+		"align": ["wide", "full"]
+	},
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./view.js"
+}
