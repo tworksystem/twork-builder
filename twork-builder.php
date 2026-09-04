@@ -4,7 +4,7 @@
  * Plugin Name:       Twork Builder
  * Plugin URI:        https://www.tworksystem.com/twork-builder
  * Description:       General Company Page Builder Blocks for Twork Ecosystem.
- * Version:           1.0.8
+ * Version:           1.0.13
  * Author:            T-Work System Co., Ltd.
  * Author URI:        https://www.tworksystem.com
  * Text Domain:       twork-builder
@@ -21,7 +21,7 @@ if (!defined('ABSPATH')) {
 }
 
 /** Define Constants */
-define('TWORK_BUILDER_VERSION', '1.0.8');
+define('TWORK_BUILDER_VERSION', '1.0.13');
 define('TWORK_BUILDER_PATH', plugin_dir_path(__FILE__));
 define('TWORK_BUILDER_URL', plugin_dir_url(__FILE__));
 
@@ -37,6 +37,12 @@ require_once TWORK_BUILDER_PATH . 'includes/class-twork-updates-section.php';
 /** Load Blog Section (Blog layout: featured, grid, sidebar, pagination) render callback */
 require_once TWORK_BUILDER_PATH . 'includes/class-twork-blog-section.php';
 
+/** Load About Milestones Section render callback */
+require_once TWORK_BUILDER_PATH . 'includes/class-twork-about-milestones-section.php';
+
+/** Load About Story Section render callback */
+require_once TWORK_BUILDER_PATH . 'includes/class-twork-about-story-section.php';
+
 /** Load Emergency Units Section (Specialized Units from Posts) render callback + post meta */
 require_once TWORK_BUILDER_PATH . 'includes/class-twork-em-units-section.php';
 
@@ -48,6 +54,23 @@ require_once TWORK_BUILDER_PATH . 'includes/class-twork-ph-popular-products-sect
 
 /** Load Physio Facilities Section (Facilities cards from Posts) render callback */
 require_once TWORK_BUILDER_PATH . 'includes/class-twork-phy-facilities-section.php';
+
+/** Load Booking forms REST (CF7 / Formidable / WPForms / Fluent) for form picker */
+require_once TWORK_BUILDER_PATH . 'includes/class-twork-booking-forms.php';
+
+/** Load Contact Form Section AJAX (honeypot + rate-limit + wp_mail) */
+require_once TWORK_BUILDER_PATH . 'includes/class-twork-contact-form.php';
+
+/** Load Shweghee Shop blocks (WooCommerce product grid, carousels, detail) render callbacks */
+require_once TWORK_BUILDER_PATH . 'includes/class-twork-shop-blocks.php';
+
+/** Load Site Template Kits (apply Template 1–5 → auto-create pages + block stacks) */
+require_once TWORK_BUILDER_PATH . 'includes/class-twork-site-templates.php';
+
+/** Load Site Templates admin UI (WP Admin → Twork Templates) */
+if (is_admin()) {
+	require_once TWORK_BUILDER_PATH . 'includes/admin/class-twork-template-admin.php';
+}
 
 /**
  * 1. Register custom block category for Twork Builder.
@@ -109,6 +132,18 @@ function twork_builder_register_frontend_scripts()
         'twork-benefits-init'             => 'benefits-init.js',
         'twork-job-openings-init'         => 'job-openings-init.js',
         'twork-help-section-init'         => 'help-section-init.js',
+        'twork-booking-layout-init'       => 'booking-layout-init.js',
+        'twork-endo-stats-init'           => 'endo-stats-init.js',
+        'twork-endo-procedures-init'      => 'endo-procedures-init.js',
+        'twork-endo-technology-init'      => 'endo-technology-init.js',
+        'twork-endo-journey-init'         => 'endo-journey-init.js',
+        'twork-endo-prep-init'            => 'endo-prep-init.js',
+        'twork-endo-testimonials-init'    => 'endo-testimonials-init.js',
+        'twork-endo-faq-init'             => 'endo-faq-init.js',
+        'twork-laparo-stats-init'         => 'laparo-stats-init.js',
+        'twork-laparo-procedures-init'    => 'laparo-procedures-init.js',
+        'twork-laparo-technology-init'    => 'laparo-technology-init.js',
+        'twork-about-staff-meal-init'     => 'about-staff-meal-init.js',
     );
 
     foreach ($scripts as $handle => $file) {
@@ -144,6 +179,11 @@ function twork_builder_enqueue_assets()
     if (!$post instanceof WP_Post) {
         // Fallback: no global post (e.g. template parts, some archives) – skip block-conditional scripts.
         // Keep global assets (like header interactions) enqueued above.
+        // Still try doctor styles via queried object / later render_block hook.
+        $queried = get_queried_object();
+        if ($queried instanceof WP_Post) {
+            twork_builder_enqueue_doctor_directory_styles($queried);
+        }
         return;
     }
 
@@ -159,6 +199,8 @@ function twork_builder_enqueue_assets()
         'twork/services-section'              => array('twork-services-grid-init'),
         'twork/services-grid'                 => array('twork-services-grid-init'),
         'twork/contact-layout-section'        => array('twork-contact-layout-init'),
+        'twork/booking-layout-section'        => array('twork-booking-layout-init'),
+        'twork/booking-hero-section'          => array('twork-booking-layout-init'),
         'twork/team-members-section'          => array('twork-team-members-init'),
 
         // Ambulance related
@@ -199,6 +241,20 @@ function twork_builder_enqueue_assets()
 
         // Testimonials
         'twork/testimonial-section'           => array('twork-testimonial-init'),
+
+        // Endoscopy
+        'twork/endo-stats-section'            => array('twork-endo-stats-init'),
+        'twork/endo-procedures-section'       => array('twork-endo-procedures-init'),
+        'twork/endo-technology-section'     => array('twork-endo-technology-init'),
+        'twork/endo-journey-section'          => array('twork-endo-journey-init'),
+        'twork/endo-prep-section'             => array('twork-endo-prep-init'),
+        'twork/endo-testimonials-section'     => array('twork-endo-testimonials-init'),
+        'twork/endo-faq-section'              => array('twork-endo-faq-init'),
+        // Laparoscopy Wave 1
+        'twork/laparo-stats-section'          => array('twork-laparo-stats-init'),
+        'twork/laparo-procedures-section'     => array('twork-laparo-procedures-init'),
+        'twork/laparo-technology-section'     => array('twork-laparo-technology-init'),
+        'twork/about-staff-meal-section'      => array('twork-about-staff-meal-init'),
     );
 
     foreach ($block_script_map as $block_name => $handles) {
@@ -223,9 +279,344 @@ function twork_builder_enqueue_assets()
 
     // WordPress Dashicons (for Info Cards and other blocks using Dashicons on frontend)
     wp_enqueue_style('dashicons');
+
+    // Doctor directory CSS: force-enqueue + cache-bust (nested cards often miss auto style load).
+    twork_builder_enqueue_doctor_directory_styles($post);
+
+    // Endoscopy stats strip: force critical grid CSS (theme .reveal / layout overrides).
+    if (has_block('twork/endo-stats-section', $post) || has_block('twork/endo-stat-item', $post)) {
+        twork_builder_enqueue_endo_stats_styles();
+    }
+
+    // Laparoscopy stats strip: force critical grid CSS.
+    if (has_block('twork/laparo-stats-section', $post) || has_block('twork/laparo-stat-item', $post)) {
+        twork_builder_enqueue_laparo_stats_styles();
+    }
 }
 
 add_action('wp_enqueue_scripts', 'twork_builder_enqueue_assets', 5); // Priority 5 to load early
+
+/**
+ * Detect whether Doctor Directory styles are needed for a post/template content.
+ *
+ * @param WP_Post|null $post Post object when available.
+ * @return bool
+ */
+function twork_builder_needs_doctor_directory_styles($post = null)
+{
+    if ($post instanceof WP_Post) {
+        if (
+            has_block('twork/doctor-directory-section', $post)
+            || has_block('twork/doctor-search-filter-section', $post)
+            || has_block('twork/doctor-card-item', $post)
+        ) {
+            return true;
+        }
+
+        $content = (string) $post->post_content;
+        if ($content !== '' && (
+            strpos($content, 'wp:twork/doctor-') !== false
+            || strpos($content, 'wp-block-twork-doctor-') !== false
+            || strpos($content, 'doctor-card') !== false
+            || strpos($content, 'mk-doctor-directory') !== false
+            || strpos($content, 'mk-doctor-search-filter') !== false
+        )) {
+            return true;
+        }
+    }
+
+    return false;
+}
+
+/**
+ * Force-enqueue Doctor Filter / Directory / Card frontend styles with a hard cache-bust.
+ *
+ * @param WP_Post|null $post  Current post when available.
+ * @param bool         $force Skip detection and always enqueue.
+ */
+function twork_builder_enqueue_doctor_directory_styles($post = null, $force = false)
+{
+    static $done = false;
+
+    if ($done) {
+        return;
+    }
+
+    if (!$force && !twork_builder_needs_doctor_directory_styles($post)) {
+        return;
+    }
+
+    $style_map = array(
+        'doctor-card-item'             => 'twork-doctor-card-item-style',
+        'doctor-search-filter-section' => 'twork-doctor-search-filter-section-style',
+        'doctor-directory-section'     => 'twork-doctor-directory-section-style',
+    );
+
+    global $wp_styles;
+
+    foreach ($style_map as $folder => $handle) {
+        $css_rel  = 'build/' . $folder . '/style-index.css';
+        $css_path = TWORK_BUILDER_PATH . $css_rel;
+
+        if (!file_exists($css_path)) {
+            continue;
+        }
+
+        $ver = TWORK_BUILDER_VERSION . '.' . (string) filemtime($css_path);
+
+        if (wp_style_is($handle, 'registered') && isset($wp_styles->registered[$handle])) {
+            $wp_styles->registered[$handle]->ver = $ver;
+            if (!wp_style_is($handle, 'enqueued')) {
+                wp_enqueue_style($handle);
+            }
+            continue;
+        }
+
+        // Also try WP core auto handle: wp-block-{namespace}-{slug}
+        $alt_handle = 'wp-block-twork-' . $folder;
+        if (wp_style_is($alt_handle, 'registered') && isset($wp_styles->registered[$alt_handle])) {
+            $wp_styles->registered[$alt_handle]->ver = $ver;
+            if (!wp_style_is($alt_handle, 'enqueued')) {
+                wp_enqueue_style($alt_handle);
+            }
+            continue;
+        }
+
+        wp_enqueue_style(
+            $handle,
+            TWORK_BUILDER_URL . $css_rel,
+            array(),
+            $ver
+        );
+    }
+
+    // Critical overrides from assets/ (survives sync-src; always cache-busted).
+    $critical_rel  = 'assets/css/doctor-directory-critical.css';
+    $critical_path = TWORK_BUILDER_PATH . $critical_rel;
+    if (file_exists($critical_path)) {
+        $critical_handle = 'twork-doctor-directory-critical';
+        $critical_ver    = TWORK_BUILDER_VERSION . '.' . (string) filemtime($critical_path);
+        if (!wp_style_is($critical_handle, 'registered')) {
+            wp_register_style(
+                $critical_handle,
+                TWORK_BUILDER_URL . $critical_rel,
+                array(),
+                $critical_ver
+            );
+        } elseif (isset($wp_styles->registered[$critical_handle])) {
+            $wp_styles->registered[$critical_handle]->ver = $critical_ver;
+        }
+        if (!wp_style_is($critical_handle, 'enqueued')) {
+            wp_enqueue_style($critical_handle);
+        }
+    }
+
+    // Also keep global.css when available.
+    $global_css = TWORK_BUILDER_PATH . 'build/global.css';
+    if (file_exists($global_css)) {
+        $global_ver = TWORK_BUILDER_VERSION . '.' . (string) filemtime($global_css);
+        if (!wp_style_is('twork-builder-global', 'registered')) {
+            wp_register_style(
+                'twork-builder-global',
+                TWORK_BUILDER_URL . 'build/global.css',
+                array(),
+                $global_ver
+            );
+        } elseif (isset($wp_styles->registered['twork-builder-global'])) {
+            $wp_styles->registered['twork-builder-global']->ver = $global_ver;
+        }
+        if (!wp_style_is('twork-builder-global', 'enqueued')) {
+            wp_enqueue_style('twork-builder-global');
+        }
+    }
+
+    $done = true;
+}
+
+/**
+ * Enqueue doctor styles as soon as a doctor block renders (template / FSE safe).
+ *
+ * @param string $block_content Rendered block HTML.
+ * @param array  $block         Parsed block.
+ * @return string
+ */
+function twork_builder_render_block_enqueue_doctor_styles($block_content, $block)
+{
+    $name = isset($block['blockName']) ? (string) $block['blockName'] : '';
+    if ($name !== '' && strpos($name, 'twork/doctor-') === 0) {
+        twork_builder_enqueue_doctor_directory_styles(null, true);
+    }
+    return $block_content;
+}
+add_filter('render_block', 'twork_builder_render_block_enqueue_doctor_styles', 5, 2);
+
+/**
+ * Force-enqueue Endoscopy Stats Strip styles (theme/FSE + .reveal overrides).
+ *
+ * @return void
+ */
+function twork_builder_enqueue_endo_stats_styles()
+{
+    static $done = false;
+
+    if ($done) {
+        return;
+    }
+
+    global $wp_styles;
+
+    $style_rel  = 'build/endo-stats-section/style-index.css';
+    $style_path = TWORK_BUILDER_PATH . $style_rel;
+    if (file_exists($style_path)) {
+        $ver = TWORK_BUILDER_VERSION . '.' . (string) filemtime($style_path);
+        $handles = array(
+            'twork-endo-stats-section-style',
+            'wp-block-twork-endo-stats-section',
+        );
+        $enqueued = false;
+        foreach ($handles as $handle) {
+            if (wp_style_is($handle, 'registered') && isset($wp_styles->registered[$handle])) {
+                $wp_styles->registered[$handle]->ver = $ver;
+                if (!wp_style_is($handle, 'enqueued')) {
+                    wp_enqueue_style($handle);
+                }
+                $enqueued = true;
+                break;
+            }
+        }
+        if (!$enqueued) {
+            wp_enqueue_style(
+                'twork-endo-stats-section-style',
+                TWORK_BUILDER_URL . $style_rel,
+                array(),
+                $ver
+            );
+        }
+    }
+
+    $critical_rel  = 'assets/css/endo-stats-critical.css';
+    $critical_path = TWORK_BUILDER_PATH . $critical_rel;
+    if (file_exists($critical_path)) {
+        $critical_handle = 'twork-endo-stats-critical';
+        $critical_ver    = TWORK_BUILDER_VERSION . '.' . (string) filemtime($critical_path);
+        if (!wp_style_is($critical_handle, 'registered')) {
+            wp_register_style(
+                $critical_handle,
+                TWORK_BUILDER_URL . $critical_rel,
+                array(),
+                $critical_ver
+            );
+        } elseif (isset($wp_styles->registered[$critical_handle])) {
+            $wp_styles->registered[$critical_handle]->ver = $critical_ver;
+        }
+        if (!wp_style_is($critical_handle, 'enqueued')) {
+            wp_enqueue_style($critical_handle);
+        }
+    }
+
+    $done = true;
+}
+
+/**
+ * Enqueue endo-stats styles as soon as the block renders (template / FSE safe).
+ *
+ * @param string $block_content Rendered block HTML.
+ * @param array  $block         Parsed block.
+ * @return string
+ */
+function twork_builder_render_block_enqueue_endo_stats_styles($block_content, $block)
+{
+    $name = isset($block['blockName']) ? (string) $block['blockName'] : '';
+    if ($name === 'twork/endo-stats-section' || $name === 'twork/endo-stat-item') {
+        twork_builder_enqueue_endo_stats_styles();
+    }
+    return $block_content;
+}
+add_filter('render_block', 'twork_builder_render_block_enqueue_endo_stats_styles', 5, 2);
+
+/**
+ * Force-enqueue Laparoscopy Stats Strip styles (theme/FSE + .reveal overrides).
+ *
+ * @return void
+ */
+function twork_builder_enqueue_laparo_stats_styles()
+{
+    static $done = false;
+
+    if ($done) {
+        return;
+    }
+
+    global $wp_styles;
+
+    $style_rel  = 'build/laparo-stats-section/style-index.css';
+    $style_path = TWORK_BUILDER_PATH . $style_rel;
+    if (file_exists($style_path)) {
+        $ver = TWORK_BUILDER_VERSION . '.' . (string) filemtime($style_path);
+        $handles = array(
+            'twork-laparo-stats-section-style',
+            'wp-block-twork-laparo-stats-section',
+        );
+        $enqueued = false;
+        foreach ($handles as $handle) {
+            if (wp_style_is($handle, 'registered') && isset($wp_styles->registered[$handle])) {
+                $wp_styles->registered[$handle]->ver = $ver;
+                if (!wp_style_is($handle, 'enqueued')) {
+                    wp_enqueue_style($handle);
+                }
+                $enqueued = true;
+                break;
+            }
+        }
+        if (!$enqueued) {
+            wp_enqueue_style(
+                'twork-laparo-stats-section-style',
+                TWORK_BUILDER_URL . $style_rel,
+                array(),
+                $ver
+            );
+        }
+    }
+
+    $critical_rel  = 'assets/css/laparo-stats-critical.css';
+    $critical_path = TWORK_BUILDER_PATH . $critical_rel;
+    if (file_exists($critical_path)) {
+        $critical_handle = 'twork-laparo-stats-critical';
+        $critical_ver    = TWORK_BUILDER_VERSION . '.' . (string) filemtime($critical_path);
+        if (!wp_style_is($critical_handle, 'registered')) {
+            wp_register_style(
+                $critical_handle,
+                TWORK_BUILDER_URL . $critical_rel,
+                array(),
+                $critical_ver
+            );
+        } elseif (isset($wp_styles->registered[$critical_handle])) {
+            $wp_styles->registered[$critical_handle]->ver = $critical_ver;
+        }
+        if (!wp_style_is($critical_handle, 'enqueued')) {
+            wp_enqueue_style($critical_handle);
+        }
+    }
+
+    $done = true;
+}
+
+/**
+ * Enqueue laparo-stats styles as soon as the block renders (template / FSE safe).
+ *
+ * @param string $block_content Rendered block HTML.
+ * @param array  $block         Parsed block.
+ * @return string
+ */
+function twork_builder_render_block_enqueue_laparo_stats_styles($block_content, $block)
+{
+    $name = isset($block['blockName']) ? (string) $block['blockName'] : '';
+    if ($name === 'twork/laparo-stats-section' || $name === 'twork/laparo-stat-item') {
+        twork_builder_enqueue_laparo_stats_styles();
+    }
+    return $block_content;
+}
+add_filter('render_block', 'twork_builder_render_block_enqueue_laparo_stats_styles', 5, 2);
 
 /**
  * 2a-ii. Shared Google Fonts for block typography (editor + front end).
@@ -235,7 +626,7 @@ function twork_builder_enqueue_global_block_fonts()
     if (!wp_style_is('twork-builder-google-fonts', 'enqueued')) {
         wp_enqueue_style(
             'twork-builder-google-fonts',
-            'https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Manrope:wght@400;500;600;700;800&family=Marcellus&family=Roboto:wght@300;400;500;600;700;900&display=swap',
+            'https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Manrope:wght@400;500;600;700;800&family=Marcellus&family=Noto+Sans+Myanmar:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&family=Roboto:wght@300;400;500;600;700;900&display=swap',
             array(),
             null
         );
@@ -496,6 +887,12 @@ function twork_builder_init_blocks()
             if (isset($block_data['name']) && $block_data['name'] === 'twork/blog-section') {
                 $block_args['render_callback'] = 'twork_render_blog_section';
             }
+            if (isset($block_data['name']) && $block_data['name'] === 'twork/about-story-section') {
+                $block_args['render_callback'] = 'twork_render_about_story_section';
+            }
+            if (isset($block_data['name']) && $block_data['name'] === 'twork/about-milestones-section') {
+                $block_args['render_callback'] = 'twork_render_about_milestones_section';
+            }
             if (isset($block_data['name']) && $block_data['name'] === 'twork/em-units-section') {
                 $block_args['render_callback'] = 'twork_render_em_units_section';
             }
@@ -507,6 +904,21 @@ function twork_builder_init_blocks()
             }
             if (isset($block_data['name']) && $block_data['name'] === 'twork/phy-facilities-section') {
                 $block_args['render_callback'] = 'twork_render_phy_facilities_section';
+            }
+            if (isset($block_data['name']) && $block_data['name'] === 'twork/daily-offers-carousel') {
+                $block_args['render_callback'] = 'twork_render_daily_offers_carousel';
+            }
+            if (isset($block_data['name']) && $block_data['name'] === 'twork/best-sellers-carousel') {
+                $block_args['render_callback'] = 'twork_render_best_sellers_carousel';
+            }
+            if (isset($block_data['name']) && $block_data['name'] === 'twork/featured-categories-carousel') {
+                $block_args['render_callback'] = 'twork_render_featured_categories_carousel';
+            }
+            if (isset($block_data['name']) && $block_data['name'] === 'twork/product-grid-section') {
+                $block_args['render_callback'] = 'twork_render_product_grid_section';
+            }
+            if (isset($block_data['name']) && $block_data['name'] === 'twork/product-detail-section') {
+                $block_args['render_callback'] = 'twork_render_product_detail_section';
             }
             $result = register_block_type($block_dir, $block_args);
             
