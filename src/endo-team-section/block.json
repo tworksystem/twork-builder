@@ -1,0 +1,49 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/endo-team-section",
+	"version": "1.0.0",
+	"title": "Endoscopy Team",
+	"category": "twork-builder",
+	"icon": "groups",
+	"description": "Consultant endoscopist grid for the Endoscopy page.",
+	"keywords": [ "endoscopy", "team", "doctors", "mk" ],
+	"attributes": {
+		"showSection": { "type": "boolean", "default": true },
+		"sectionId": { "type": "string", "default": "team" },
+		"backgroundColor": { "type": "string", "default": "#f9f9f9" },
+		"paddingTop": { "type": "number", "default": 100 },
+		"paddingBottom": { "type": "number", "default": 100 },
+		"containerMaxWidth": { "type": "number", "default": 1200 },
+		"containerPadding": { "type": "number", "default": 24 },
+		"showEyebrow": { "type": "boolean", "default": true },
+		"eyebrowIcon": { "type": "string", "default": "fas fa-user-doctor" },
+		"eyebrowIconType": { "type": "string", "default": "fontawesome" },
+		"eyebrowIconDashicon": { "type": "string", "default": "" },
+		"eyebrowIconImageUrl": { "type": "string", "default": "" },
+		"eyebrowIconImageId": { "type": "number", "default": 0 },
+		"eyebrowIconVideoUrl": { "type": "string", "default": "" },
+		"eyebrowIconVideoId": { "type": "number", "default": 0 },
+		"eyebrowText": { "type": "string", "default": "Meet the team" },
+		"showTitle": { "type": "boolean", "default": true },
+		"title": {
+			"type": "string",
+			"default": "Consultant endoscopists, not trainees"
+		},
+		"showSubtitle": { "type": "boolean", "default": true },
+		"subtitle": {
+			"type": "string",
+			"default": "Every list at Jivaka is led by an accredited consultant with a personal audit of adenoma detection and complication rates."
+		},
+		"animationOnScroll": { "type": "boolean", "default": true }
+	},
+	"supports": { "html": false, "anchor": true, "align": [ "wide", "full" ] },
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": { "sectionId": "team", "title": "Consultant endoscopists, not trainees" }
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

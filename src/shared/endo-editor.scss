@@ -1,0 +1,406 @@
+/**
+ * Endoscopy blocks — editor-canvas only overrides.
+ * Imported from section `editor.scss` files. Never load on the front end.
+ */
+
+.editor-styles-wrapper,
+.block-editor-block-list__block {
+
+	/* FAQ: answers visible for RichText (FE uses height:0 + JS) */
+	.twork-endo-faq-section .faq-a {
+		height: auto !important;
+		overflow: visible !important;
+	}
+
+	.twork-endo-faq-section .faq {
+		border-color: rgba(244, 139, 42, 0.35);
+	}
+
+	/* Hero float cards: stack for editing (FE uses absolute + bob) */
+	.twork-endo-hero-section .float-card.fc-1,
+	.twork-endo-hero-section .float-card.fc-2,
+	.twork-endo-hero-section .float-card.fc-3,
+	.twork-endo-hero-section .wp-block-twork-endo-hero-float-card .float-card {
+		position: relative !important;
+		left: auto !important;
+		right: auto !important;
+		top: auto !important;
+		bottom: auto !important;
+		margin: 12px 0 0;
+		animation: none !important;
+		max-width: 280px;
+	}
+
+	.twork-endo-hero-section .block-editor-inner-blocks > .block-editor-block-list__layout {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 12px;
+		margin-top: 12px;
+	}
+
+	/* Testimonials: stop marquee so cards are editable */
+	.twork-endo-testimonials-section .marquee {
+		-webkit-mask-image: none;
+		mask-image: none;
+		overflow: visible;
+	}
+
+	/* Testimonials: InnerBlocks layout must own the static wrap row */
+	.twork-endo-testimonials-section .marquee-row {
+		animation: none !important;
+		width: 100% !important;
+		flex-wrap: wrap;
+		justify-content: center;
+
+		> .block-editor-inner-blocks {
+			display: block !important;
+			width: 100%;
+		}
+
+		&.block-editor-block-list__layout,
+		> .block-editor-inner-blocks > .block-editor-block-list__layout {
+			display: flex !important;
+			flex-wrap: wrap !important;
+			gap: 22px !important;
+			justify-content: center !important;
+			width: 100% !important;
+		}
+
+		.wp-block-twork-endo-testimonial-item,
+		[data-type="twork/endo-testimonial-item"] {
+			margin: 0 !important;
+			max-width: 380px !important;
+			width: 380px !important;
+			min-width: 0;
+			flex-shrink: 0;
+		}
+
+		.wp-block-twork-endo-testimonial-item .quote,
+		[data-type="twork/endo-testimonial-item"] .quote {
+			width: 100%;
+		}
+
+		.block-list-appender,
+		.block-editor-default-block-appender {
+			width: 100%;
+		}
+	}
+
+	/* FAQ list: InnerBlocks layout must own the column stack */
+	.twork-endo-faq-section .faq-list {
+
+		> .block-editor-inner-blocks {
+			display: block !important;
+			width: 100%;
+		}
+
+		&.block-editor-block-list__layout,
+		> .block-editor-inner-blocks > .block-editor-block-list__layout {
+			display: flex !important;
+			flex-direction: column !important;
+			gap: 12px !important;
+			width: 100% !important;
+		}
+
+		.wp-block-twork-endo-faq-item,
+		[data-type="twork/endo-faq-item"] {
+			margin: 0 !important;
+			max-width: none !important;
+			width: 100% !important;
+			min-width: 0;
+		}
+
+		.block-list-appender,
+		.block-editor-default-block-appender {
+			width: 100%;
+		}
+	}
+
+	/* Team social icons always visible in canvas */
+	.twork-endo-team-section .doc-social {
+		opacity: 1 !important;
+		transform: none !important;
+	}
+
+	/* Team grid: InnerBlocks layout must own the auto-fit grid */
+	.twork-endo-team-section .grid-3 {
+
+		> .block-editor-inner-blocks {
+			display: block !important;
+			width: 100%;
+		}
+
+		&.block-editor-block-list__layout,
+		> .block-editor-inner-blocks > .block-editor-block-list__layout {
+			display: grid !important;
+			grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
+			gap: 26px !important;
+			width: 100% !important;
+		}
+
+		.wp-block-twork-endo-doctor-item,
+		[data-type="twork/endo-doctor-item"] {
+			margin: 0 !important;
+			max-width: none !important;
+			width: auto !important;
+			min-width: 0;
+		}
+
+		.block-list-appender,
+		.block-editor-default-block-appender {
+			grid-column: 1 / -1;
+		}
+	}
+
+	/* Stats strip: InnerBlocks layout must own the CSS grid */
+	.twork-endo-stats-section .trust-card {
+
+		> .block-editor-inner-blocks {
+			display: block !important;
+			width: 100%;
+		}
+
+		&.block-editor-block-list__layout,
+		> .block-editor-inner-blocks > .block-editor-block-list__layout {
+			display: grid !important;
+			grid-template-columns: repeat(var(--endo-stats-columns-desktop, 4), minmax(0, 1fr)) !important;
+			gap: var(--endo-stats-gap, 20px) !important;
+			width: 100% !important;
+			align-items: center;
+		}
+
+		.wp-block-twork-endo-stat-item,
+		[data-type="twork/endo-stat-item"] {
+			text-align: center;
+			margin: 0 !important;
+		}
+	}
+
+	/* Journey track: InnerBlocks layout must own the 5-col grid */
+	.twork-endo-journey-section .track {
+
+		> .block-editor-inner-blocks {
+			display: block !important;
+			width: 100%;
+		}
+
+		&.block-editor-block-list__layout,
+		> .block-editor-inner-blocks > .block-editor-block-list__layout {
+			display: grid !important;
+			grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+			gap: 18px !important;
+			width: 100% !important;
+			position: relative;
+		}
+
+		.wp-block-twork-endo-journey-step,
+		[data-type="twork/endo-journey-step"] {
+			margin: 0 !important;
+			max-width: none !important;
+			width: auto !important;
+			min-width: 0;
+			text-align: center;
+		}
+
+		.track-fill {
+			transform: scaleX(1);
+		}
+
+		.block-list-appender,
+		.block-editor-default-block-appender {
+			grid-column: 1 / -1;
+		}
+	}
+
+	/* Conditions chip grid: InnerBlocks layout must own auto-fit grid */
+	.twork-endo-conditions-section .cond-grid {
+
+		> .block-editor-inner-blocks {
+			display: block !important;
+			width: 100%;
+		}
+
+		&.block-editor-block-list__layout,
+		> .block-editor-inner-blocks > .block-editor-block-list__layout {
+			display: grid !important;
+			grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)) !important;
+			gap: 14px !important;
+			width: 100% !important;
+		}
+
+		.wp-block-twork-endo-condition-item,
+		[data-type="twork/endo-condition-item"] {
+			margin: 0 !important;
+			max-width: none !important;
+			width: auto !important;
+			min-width: 0;
+		}
+
+		.block-list-appender,
+		.block-editor-default-block-appender {
+			grid-column: 1 / -1;
+		}
+	}
+
+	/* Procedures bento: InnerBlocks layout must own the 6-col grid */
+	.twork-endo-procedures-section .bento {
+
+		> .block-editor-inner-blocks {
+			display: block !important;
+			width: 100%;
+		}
+
+		&.block-editor-block-list__layout,
+		> .block-editor-inner-blocks > .block-editor-block-list__layout {
+			display: grid !important;
+			grid-template-columns: repeat(6, minmax(0, 1fr)) !important;
+			gap: 22px !important;
+			width: 100% !important;
+		}
+
+		.wp-block-twork-endo-procedure-item,
+		[data-type="twork/endo-procedure-item"] {
+			margin: 0 !important;
+			max-width: none !important;
+			width: auto !important;
+			min-width: 0;
+		}
+
+		.wp-block-twork-endo-procedure-item.p-card--wide,
+		[data-type="twork/endo-procedure-item"]:has(.p-card--wide) {
+			grid-column: span 3;
+		}
+
+		.block-list-appender,
+		.block-editor-default-block-appender {
+			grid-column: 1 / -1;
+		}
+	}
+
+	/* Prep: FE-like single active tab + InnerBlocks owns checklist grid */
+	/* Attr match only — :has() never matches data-editor-active on the same node. */
+	.twork-endo-prep-section[data-active-panel] [data-type="twork/endo-prep-tab"][data-editor-active="0"],
+	.twork-endo-prep-section[data-active-panel] .wp-block-twork-endo-prep-tab[data-editor-active="0"],
+	.twork-endo-prep-section[data-active-panel] .endo-prep-tab[data-editor-active="0"] {
+		display: none !important;
+	}
+
+	/* Tabs: kill WP button chrome; solid active pill (no glider JS dependency). */
+	.twork-endo-prep-section .tab-glider,
+	.twork-endo-prep-section .endo-prep-glider {
+		display: none !important;
+	}
+
+	.twork-endo-prep-section .tabs,
+	.twork-endo-prep-section .endo-prep-tablist {
+		display: inline-flex !important;
+		gap: 4px !important;
+		padding: 6px !important;
+		border-radius: 100px !important;
+		background: var(--endo-bg, #f8f9fa) !important;
+		border: 1px solid var(--endo-line, #e0e0e0) !important;
+		position: relative !important;
+		margin: 0 auto 44px !important;
+		left: 50% !important;
+		transform: translateX(-50%) !important;
+	}
+
+	.twork-endo-prep-section .tabs button.tab,
+	.twork-endo-prep-section .endo-prep-tablist button.tab {
+		appearance: none !important;
+		-webkit-appearance: none !important;
+		position: relative !important;
+		z-index: 1 !important;
+		border: 0 !important;
+		box-shadow: none !important;
+		outline: none !important;
+		background: transparent !important;
+		font-family: Poppins, system-ui, sans-serif !important;
+		font-size: 0.9rem !important;
+		font-weight: 600 !important;
+		line-height: 1.2 !important;
+		height: auto !important;
+		min-height: 0 !important;
+		color: var(--endo-ink-500, #555) !important;
+		padding: 12px 26px !important;
+		border-radius: 100px !important;
+		cursor: pointer !important;
+		white-space: nowrap !important;
+		text-decoration: none !important;
+	}
+
+	.twork-endo-prep-section .tabs button.tab.is-active,
+	.twork-endo-prep-section .endo-prep-tablist button.tab.is-active {
+		background: var(--endo-ink, #212121) !important;
+		color: #fff !important;
+	}
+
+	.twork-endo-prep-section .endo-prep-panels {
+
+		> .block-editor-inner-blocks {
+			display: block !important;
+			width: 100%;
+		}
+
+		&.block-editor-block-list__layout,
+		> .block-editor-inner-blocks > .block-editor-block-list__layout {
+			display: block !important;
+			width: 100% !important;
+		}
+	}
+
+	.twork-endo-prep-section .wp-block-twork-endo-prep-tab,
+	.twork-endo-prep-section [data-type="twork/endo-prep-tab"] {
+		margin: 0 !important;
+		max-width: none !important;
+	}
+
+	/* FE uses display:grid on .panel; editor grid must live on InnerBlocks layout. */
+	.twork-endo-prep-section .panel.is-active {
+		display: block !important;
+		width: 100%;
+	}
+
+	.twork-endo-prep-section .panel {
+
+		> .block-editor-inner-blocks {
+			display: block !important;
+			width: 100%;
+		}
+
+		&.block-editor-block-list__layout,
+		> .block-editor-inner-blocks > .block-editor-block-list__layout {
+			display: grid !important;
+			grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+			gap: 22px !important;
+			width: 100% !important;
+		}
+
+		.wp-block-twork-endo-prep-group,
+		[data-type="twork/endo-prep-group"] {
+			margin: 0 !important;
+			max-width: none !important;
+			width: auto !important;
+			min-width: 0;
+		}
+
+		.block-list-appender,
+		.block-editor-default-block-appender {
+			grid-column: 1 / -1;
+		}
+	}
+
+	/* Technology stage empty state */
+	.twork-endo-technology-section .endo-tech-stage-images:empty::after {
+		content: "Stage images sync from Technology Items";
+		position: absolute;
+		inset: 0;
+		display: grid;
+		place-items: center;
+		padding: 1rem;
+		color: rgba(255, 255, 255, 0.65);
+		font-size: 0.85rem;
+		text-align: center;
+		background: rgba(0, 0, 0, 0.35);
+	}
+}

@@ -1,0 +1,26 @@
+@import "../shared/endo-tokens";
+@import "../shared/endo-atoms";
+
+.twork-endo-procedures-section {
+
+	h2 {
+		font-family: Poppins, system-ui, sans-serif;
+		font-size: clamp(1.9rem, 3.4vw, 2.85rem);
+		font-weight: 700;
+		line-height: 1.14;
+		color: var(--endo-ink);
+	}
+
+	.bento {
+		display: grid;
+		grid-template-columns: repeat(6, 1fr);
+		gap: 22px;
+	}
+}
+
+@media (max-width: 900px) {
+
+	.twork-endo-procedures-section .bento {
+		grid-template-columns: 1fr;
+	}
+}

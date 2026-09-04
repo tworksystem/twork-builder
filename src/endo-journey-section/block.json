@@ -1,0 +1,130 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/endo-journey-section",
+	"version": "1.0.0",
+	"title": "Endoscopy Journey",
+	"category": "twork-builder",
+	"icon": "randomize",
+	"description": "Five-step patient journey timeline for the Endoscopy page.",
+	"keywords": [ "endoscopy", "journey", "timeline", "steps", "mk" ],
+	"attributes": {
+		"showSection": {
+			"type": "boolean",
+			"default": true
+		},
+		"sectionId": {
+			"type": "string",
+			"default": "journey"
+		},
+		"backgroundColor": {
+			"type": "string",
+			"default": "#ffffff"
+		},
+		"paddingTop": {
+			"type": "number",
+			"default": 100
+		},
+		"paddingBottom": {
+			"type": "number",
+			"default": 100
+		},
+		"containerMaxWidth": {
+			"type": "number",
+			"default": 1200
+		},
+		"containerPadding": {
+			"type": "number",
+			"default": 24
+		},
+		"showEyebrow": {
+			"type": "boolean",
+			"default": true
+		},
+		"eyebrowIcon": {
+			"type": "string",
+			"default": "fas fa-route"
+		},
+		"eyebrowIconType": {
+			"type": "string",
+			"default": "fontawesome"
+		},
+		"eyebrowIconDashicon": {
+			"type": "string",
+			"default": ""
+		},
+		"eyebrowIconImageUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"eyebrowIconImageId": {
+			"type": "number",
+			"default": 0
+		},
+		"eyebrowIconVideoUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"eyebrowIconVideoId": {
+			"type": "number",
+			"default": 0
+		},
+		"eyebrowText": {
+			"type": "string",
+			"default": "Your visit"
+		},
+		"showTitle": {
+			"type": "boolean",
+			"default": true
+		},
+		"title": {
+			"type": "string",
+			"default": "Five steps, one morning"
+		},
+		"showSubtitle": {
+			"type": "boolean",
+			"default": true
+		},
+		"subtitle": {
+			"type": "string",
+			"default": "Most patients arrive at 8am and are home by lunchtime. Here is exactly what happens, and when."
+		},
+		"showTrackFill": {
+			"type": "boolean",
+			"default": true
+		},
+		"animationOnScroll": {
+			"type": "boolean",
+			"default": true
+		},
+		"enableTrackAnimation": {
+			"type": "boolean",
+			"default": true
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"align": [ "wide", "full" ]
+	},
+	"example": {
+		"viewportWidth": 1200,
+		"attributes": {
+			"sectionId": "journey",
+			"title": "Five steps, one morning"
+		},
+		"innerBlocks": [
+			{
+				"name": "twork/endo-journey-step",
+				"attributes": {
+					"timeLabel": "Day −7",
+					"title": "Consultation"
+				}
+			}
+		]
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

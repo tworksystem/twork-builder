@@ -1,0 +1,38 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/endo-testimonial-item",
+	"version": "1.0.0",
+	"title": "Endoscopy Testimonial",
+	"category": "twork-builder",
+	"parent": [ "twork/endo-testimonials-section" ],
+	"description": "Single patient quote card for the Endoscopy testimonials marquee.",
+	"attributes": {
+		"showItem": { "type": "boolean", "default": true },
+		"showStars": { "type": "boolean", "default": true },
+		"starCount": { "type": "number", "default": 5 },
+		"showQuote": { "type": "boolean", "default": true },
+		"quote": {
+			"type": "string",
+			"default": "I had put off a colonoscopy for four years. The prep was the hardest part, and even that was manageable."
+		},
+		"showAuthorImage": { "type": "boolean", "default": true },
+		"authorImageUrl": { "type": "string", "default": "" },
+		"authorImageId": { "type": "number" },
+		"authorImageAlt": { "type": "string", "default": "" },
+		"showAuthorName": { "type": "boolean", "default": true },
+		"authorName": { "type": "string", "default": "Khin Mar Aye" },
+		"showAuthorDetail": { "type": "boolean", "default": true },
+		"authorDetail": { "type": "string", "default": "Colonoscopy, March 2026" }
+	},
+	"supports": { "html": false },
+	"example": {
+		"attributes": {
+			"authorName": "Khin Mar Aye",
+			"authorDetail": "Colonoscopy, March 2026"
+		}
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
+}

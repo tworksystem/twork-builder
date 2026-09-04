@@ -1,0 +1,56 @@
+// Endoscopy page design tokens (from endoscopy.html)
+.twork-endo-hero-section,
+.twork-endo-stats-section,
+.twork-endo-procedures-section,
+.twork-endo-technology-section,
+.twork-endo-journey-section,
+.twork-endo-conditions-section,
+.twork-endo-prep-section,
+.twork-endo-team-section,
+.twork-endo-testimonials-section,
+.twork-endo-faq-section,
+.twork-endo-cta-section {
+	--endo-primary-orange: #f48b2a;
+	--endo-brand-orange-hover: #e67a22;
+	--endo-orange-soft: #fff3e0;
+	--endo-orange-tint: #fff9f2;
+	--endo-dark-grey: #212121;
+	--endo-medium-grey: #666;
+	--endo-light-grey-bg: #f8f9fa;
+	--endo-white: #fff;
+	--endo-border: #e0e0e0;
+	--endo-donts-red: #c0392b;
+
+	--endo-primary: var(--endo-primary-orange);
+	--endo-primary-600: var(--endo-brand-orange-hover);
+	--endo-primary-100: var(--endo-orange-soft);
+
+	--endo-ink: var(--endo-dark-grey);
+	--endo-ink-700: #333;
+	--endo-ink-500: #555;
+	--endo-muted: var(--endo-medium-grey);
+	--endo-section-bg: #f9f9f9;
+
+	--endo-accent: var(--endo-brand-orange-hover);
+	--endo-accent-100: var(--endo-orange-tint);
+	--endo-alt: var(--endo-dark-grey);
+	--endo-alt-100: var(--endo-light-grey-bg);
+
+	--endo-bg: var(--endo-light-grey-bg);
+	--endo-line: var(--endo-border);
+	--endo-line-strong: #cfcfcf;
+
+	--endo-r-sm: 14px;
+	--endo-r-md: 20px;
+	--endo-r-lg: 28px;
+	--endo-r-xl: 40px;
+
+	--endo-sh-sm: 0 5px 15px rgba(0, 0, 0, 0.05);
+	--endo-sh-md: 0 18px 40px -18px rgba(0, 0, 0, 0.18);
+	--endo-sh-lg: 0 20px 50px rgba(0, 0, 0, 0.1);
+
+	--endo-ease-spring: cubic-bezier(0.22, 1, 0.36, 1);
+	--endo-ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+
+	--endo-container: 1200px;
+}

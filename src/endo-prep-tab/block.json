@@ -1,0 +1,21 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/endo-prep-tab",
+	"version": "1.0.0",
+	"title": "Prep Tab",
+	"category": "twork-builder",
+	"parent": [ "twork/endo-prep-section" ],
+	"description": "Single preparation tab panel (before / during / after).",
+	"attributes": {
+		"showTab": { "type": "boolean", "default": true },
+		"tabLabel": { "type": "string", "default": "Before" },
+		"panelKey": { "type": "string", "default": "before" },
+		"isDefaultActive": { "type": "boolean", "default": false }
+	},
+	"supports": { "html": false },
+	"example": { "attributes": { "tabLabel": "Before", "panelKey": "before" } },
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
+}

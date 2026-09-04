@@ -1,0 +1,2696 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Endoscopy Centre | Jivaka Hospital</title>
+    <meta name="description"
+        content="Painless, same-day endoscopy and colonoscopy at Jivaka Hospital. 4K imaging, sedation by consultant anaesthetists, results in 30 minutes." />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Open+Sans:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <style>
+        /* ==========================================================
+           TOKENS
+        ========================================================== */
+        :root {
+            /* --- Jivaka brand palette (same tokens as the rest of the site) --- */
+            --primary-orange: #f48b2a;
+            --brand-orange-hover: #e67a22;
+            --orange-soft: #fff3e0;
+            --orange-tint: #fff9f2;
+            --dark-grey: #212121;
+            --medium-grey: #666;
+            --light-grey-bg: #f8f9fa;
+            --white: #ffffff;
+            --border: #e0e0e0;
+            --donts-red: #c0392b;
+
+            /* --- page aliases, all derived from the brand palette --- */
+            --primary: var(--primary-orange);
+            --primary-600: var(--brand-orange-hover);
+            --primary-100: var(--orange-soft);
+
+            --ink: var(--dark-grey);
+            --ink-700: #333333;
+            --ink-500: #555555;
+            --muted: var(--medium-grey);
+            --section-bg: #f9f9f9;
+
+            /* secondary accent = deeper brand orange; alt accent = brand dark grey */
+            --accent: var(--brand-orange-hover);
+            --accent-100: var(--orange-tint);
+            --alt: var(--dark-grey);
+            --alt-100: var(--light-grey-bg);
+
+            --bg: var(--light-grey-bg);
+            --line: var(--border);
+            --line-strong: #cfcfcf;
+
+            --r-sm: 14px;
+            --r-md: 20px;
+            --r-lg: 28px;
+            --r-xl: 40px;
+
+            --sh-sm: 0 5px 15px rgba(0, 0, 0, .05);
+            --sh-md: 0 18px 40px -18px rgba(0, 0, 0, .18);
+            --sh-lg: 0 20px 50px rgba(0, 0, 0, .1);
+
+            --ease-spring: cubic-bezier(.22, 1, .36, 1);
+            --ease-out: cubic-bezier(.16, 1, .3, 1);
+
+            --container: 1200px;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        body {
+            font-family: "Open Sans", system-ui, sans-serif;
+            color: var(--ink);
+            background: var(--white);
+            line-height: 1.75;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5 {
+            font-family: "Poppins", system-ui, sans-serif;
+            color: var(--ink);
+            line-height: 1.14;
+            font-weight: 700;
+            letter-spacing: -.02em;
+        }
+
+        h1 {
+            font-size: clamp(2.4rem, 5.2vw, 4rem);
+            font-weight: 800;
+            letter-spacing: -.035em;
+        }
+
+        h2 {
+            font-size: clamp(1.9rem, 3.4vw, 2.85rem);
+        }
+
+        h3 {
+            font-size: clamp(1.15rem, 1.6vw, 1.4rem);
+        }
+
+        p {
+            font-size: clamp(.95rem, 1.05vw, 1.03rem);
+            color: var(--ink-500);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color .3s var(--ease-out);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        ::selection {
+            background: var(--primary);
+            color: #fff;
+        }
+
+        .container {
+            width: 100%;
+            max-width: var(--container);
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .section {
+            padding: clamp(70px, 9vw, 120px) 0;
+            position: relative;
+        }
+
+        .section:not(.bg-white):not(.tech) {
+            background: var(--section-bg);
+        }
+
+        .bg-white {
+            background: var(--white);
+        }
+
+        .bg-ink {
+            background: var(--ink);
+        }
+
+        /* ---------- shared atoms ---------- */
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            font-family: "Poppins", sans-serif;
+            font-size: .74rem;
+            font-weight: 600;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+            color: var(--primary-orange);
+            background: var(--primary-100);
+            border: 1px solid rgba(244, 139, 42, .38);
+            padding: 7px 16px;
+            border-radius: 100px;
+            margin-bottom: 18px;
+        }
+
+        .eyebrow i {
+            font-size: .8rem;
+        }
+
+        .section-head {
+            max-width: 640px;
+            margin: 0 auto clamp(42px, 5vw, 66px);
+            text-align: center;
+        }
+
+        .section-head p {
+            margin-top: 16px;
+        }
+
+        .section-head--left {
+            margin-left: 0;
+            text-align: left;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-family: "Poppins", sans-serif;
+            font-weight: 600;
+            font-size: .95rem;
+            padding: 15px 30px;
+            border-radius: 100px;
+            border: 1.5px solid transparent;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: transform .45s var(--ease-spring), box-shadow .45s var(--ease-out), background .3s, color .3s, border-color .3s;
+            will-change: transform;
+        }
+
+        .btn i {
+            transition: transform .4s var(--ease-spring);
+        }
+
+        .btn:hover i {
+            transform: translateX(4px);
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: #fff;
+            box-shadow: 0 14px 30px -12px rgba(244, 139, 42, .8);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-600);
+            box-shadow: 0 22px 42px -14px rgba(244, 139, 42, .9);
+        }
+
+        .btn-ghost {
+            border-color: var(--line-strong);
+            color: var(--ink);
+            background: var(--white);
+        }
+
+        .btn-ghost:hover {
+            border-color: var(--ink);
+            background: var(--ink);
+            color: #fff;
+        }
+
+        .btn-light {
+            background: #fff;
+            color: var(--ink);
+        }
+
+        .btn-light:hover {
+            box-shadow: 0 22px 42px -18px rgba(0, 0, 0, .5);
+        }
+
+        .btn-outline-light {
+            border-color: rgba(255, 255, 255, .3);
+            color: #fff;
+        }
+
+        .btn-outline-light:hover {
+            background: rgba(255, 255, 255, .12);
+            border-color: rgba(255, 255, 255, .6);
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 26px;
+        }
+
+        /* ---------- scroll progress ---------- */
+        .scroll-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            width: 100%;
+            transform: scaleX(0);
+            transform-origin: 0 50%;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            z-index: 999;
+        }
+
+        /* ==========================================================
+           NAVBAR
+        ========================================================== */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 900;
+            padding: 16px 0;
+            background: var(--white);
+            border-bottom: 1px solid var(--line);
+            box-shadow: var(--sh-sm);
+            transition: padding .4s var(--ease-out), box-shadow .4s;
+        }
+
+        .navbar.is-stuck {
+            padding: 10px 0;
+            box-shadow: var(--sh-md);
+        }
+
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+        .logo {
+            font-family: "Poppins", sans-serif;
+            font-weight: 800;
+            font-size: 1.35rem;
+            color: var(--ink);
+            letter-spacing: -.03em;
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 4px;
+        }
+
+        .nav-links a {
+            font-family: "Poppins", sans-serif;
+            font-size: .9rem;
+            font-weight: 500;
+            color: var(--ink-700);
+            padding: 9px 16px;
+            border-radius: 100px;
+            transition: background .3s, color .3s;
+        }
+
+        .nav-links a:hover {
+            background: var(--primary-100);
+            color: var(--primary-orange);
+        }
+
+        .nav-cta {
+            padding: 11px 24px;
+            font-size: .88rem;
+        }
+
+        /* ==========================================================
+           1 · HERO
+        ========================================================== */
+        .hero {
+            position: relative;
+            padding: clamp(60px, 8vw, 100px) 0 clamp(80px, 10vw, 130px);
+            overflow: hidden;
+            background:
+                radial-gradient(120% 90% at 100% 0%, var(--orange-soft) 0%, rgba(255, 243, 224, 0) 55%),
+                radial-gradient(100% 80% at 0% 10%, var(--orange-tint) 0%, rgba(255, 249, 242, 0) 60%),
+                var(--bg);
+        }
+
+        .aurora {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(90px);
+            opacity: .72;
+            pointer-events: none;
+        }
+
+        .aurora-1 {
+            width: 520px;
+            height: 520px;
+            background: rgba(244, 139, 42, .52);
+            top: -160px;
+            right: -120px;
+            animation: drift 18s ease-in-out infinite;
+        }
+
+        .aurora-2 {
+            width: 420px;
+            height: 420px;
+            background: rgba(230, 122, 34, .38);
+            bottom: -180px;
+            left: -100px;
+            animation: drift 22s ease-in-out infinite reverse;
+        }
+
+        @keyframes drift {
+
+            0%,
+            100% {
+                transform: translate3d(0, 0, 0) scale(1);
+            }
+
+            50% {
+                transform: translate3d(40px, 50px, 0) scale(1.12);
+            }
+        }
+
+        .hero-grid {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1.05fr .95fr;
+            gap: clamp(40px, 5vw, 70px);
+            align-items: center;
+        }
+
+        .hero h1 span {
+            position: relative;
+            color: var(--primary);
+            white-space: nowrap;
+        }
+
+        .hero h1 span::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: .06em;
+            width: 100%;
+            height: .22em;
+            background: rgba(244, 139, 42, .28);
+            border-radius: 4px;
+            transform: scaleX(0);
+            transform-origin: 0 50%;
+            animation: swipe 1s .7s var(--ease-out) forwards;
+        }
+
+        @keyframes swipe {
+            to {
+                transform: scaleX(1);
+            }
+        }
+
+        .hero-lead {
+            margin: 22px 0 32px;
+            font-size: clamp(1rem, 1.2vw, 1.12rem);
+            max-width: 520px;
+            color: var(--ink-500);
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .hero-proof {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-top: 38px;
+            padding-top: 28px;
+            border-top: 1px dashed var(--line-strong);
+        }
+
+        .avatars {
+            display: flex;
+        }
+
+        .avatars img {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #fff;
+            margin-left: -14px;
+            box-shadow: var(--sh-sm);
+        }
+
+        .avatars img:first-child {
+            margin-left: 0;
+        }
+
+        .proof-text {
+            font-size: .88rem;
+            line-height: 1.5;
+        }
+
+        .proof-text strong {
+            display: block;
+            color: var(--ink);
+            font-family: "Poppins", sans-serif;
+        }
+
+        .stars {
+            color: var(--primary-orange);
+            font-size: .8rem;
+            letter-spacing: 1px;
+        }
+
+        /* hero visual */
+        .hero-visual {
+            position: relative;
+            perspective: 1200px;
+        }
+
+        .hero-frame {
+            position: relative;
+            border-radius: var(--r-xl);
+            overflow: hidden;
+            box-shadow: var(--sh-lg);
+            transform-style: preserve-3d;
+        }
+
+        .hero-frame img {
+            width: 100%;
+            height: clamp(380px, 46vw, 540px);
+            object-fit: cover;
+        }
+
+        .hero-frame::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(33, 33, 33, 0) 45%, rgba(33, 33, 33, .55) 100%);
+        }
+
+        /* scanning beam — the "scope" motif */
+        .scan-beam {
+            position: absolute;
+            left: 0;
+            right: 0;
+            height: 130px;
+            background: linear-gradient(180deg, rgba(230, 122, 34, 0) 0%, rgba(230, 122, 34, .35) 50%, rgba(230, 122, 34, 0) 100%);
+            mix-blend-mode: screen;
+            animation: scan 4.5s var(--ease-out) infinite;
+            z-index: 3;
+        }
+
+        @keyframes scan {
+
+            0%,
+            100% {
+                top: -20%;
+                opacity: 0;
+            }
+
+            15% {
+                opacity: 1;
+            }
+
+            85% {
+                opacity: 1;
+            }
+
+            100% {
+                top: 110%;
+            }
+        }
+
+        .float-card {
+            position: absolute;
+            z-index: 4;
+            display: flex;
+            align-items: center;
+            gap: 13px;
+            padding: 15px 20px;
+            border-radius: 18px;
+            background: var(--white);
+            border: 1px solid var(--line);
+            box-shadow: var(--sh-md);
+        }
+
+        .float-card .fc-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 13px;
+            display: grid;
+            place-items: center;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        .float-card h4 {
+            font-size: 1.05rem;
+            margin: 0;
+        }
+
+        .float-card span {
+            font-size: .76rem;
+            color: var(--medium-grey);
+        }
+
+        .fc-1 {
+            top: 8%;
+            left: -34px;
+            animation: bob 6s ease-in-out infinite;
+        }
+
+        .fc-2 {
+            bottom: 12%;
+            right: -28px;
+            animation: bob 7s .8s ease-in-out infinite;
+        }
+
+        .fc-3 {
+            bottom: -22px;
+            left: 14%;
+            animation: bob 8s .4s ease-in-out infinite;
+        }
+
+        @keyframes bob {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-12px);
+            }
+        }
+
+        /* ==========================================================
+           2 · TRUST / COUNTER STRIP
+        ========================================================== */
+        .trust {
+            position: relative;
+            z-index: 5;
+            margin-top: -60px;
+        }
+
+        .trust-card {
+            background: var(--white);
+            border: 1px solid var(--line);
+            border-radius: var(--r-lg);
+            box-shadow: var(--sh-md);
+            padding: clamp(28px, 3.4vw, 44px);
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .stat {
+            text-align: center;
+            position: relative;
+        }
+
+        .stat+.stat::before {
+            content: "";
+            position: absolute;
+            left: -10px;
+            top: 10%;
+            height: 80%;
+            width: 1px;
+            background: var(--line);
+        }
+
+        .stat .num {
+            font-family: "Poppins", sans-serif;
+            font-weight: 800;
+            font-size: clamp(1.8rem, 3vw, 2.6rem);
+            color: var(--ink);
+            letter-spacing: -.04em;
+            line-height: 1;
+        }
+
+        .stat .num em {
+            font-style: normal;
+            color: var(--primary);
+        }
+
+        .stat .lbl {
+            display: block;
+            margin-top: 8px;
+            font-size: .82rem;
+            letter-spacing: .04em;
+            color: var(--medium-grey);
+        }
+
+        /* ==========================================================
+           3 · PROCEDURES (bento)
+        ========================================================== */
+        .bento {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 22px;
+        }
+
+        .p-card {
+            position: relative;
+            grid-column: span 2;
+            background: var(--white);
+            border: 1px solid var(--line);
+            border-radius: var(--r-lg);
+            padding: 34px 30px;
+            overflow: hidden;
+            transition: transform .5s var(--ease-spring), box-shadow .5s var(--ease-out), border-color .4s;
+        }
+
+        .p-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 0%), rgba(244, 139, 42, .14), transparent 62%);
+            opacity: 0;
+            transition: opacity .45s;
+        }
+
+        .p-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--sh-md);
+            border-color: rgba(244, 139, 42, .45);
+        }
+
+        .p-card:hover::before {
+            opacity: 1;
+        }
+
+        .p-card>* {
+            position: relative;
+            z-index: 1;
+        }
+
+        .p-card--wide {
+            grid-column: span 3;
+        }
+
+        .p-icon {
+            width: 58px;
+            height: 58px;
+            border-radius: 18px;
+            display: grid;
+            place-items: center;
+            font-size: 1.4rem;
+            margin-bottom: 22px;
+            background: var(--primary-100);
+            color: var(--primary-orange);
+            transition: transform .5s var(--ease-spring);
+        }
+
+        .p-card:hover .p-icon {
+            transform: rotate(-8deg) scale(1.08);
+        }
+
+        .p-card h3 {
+            margin-bottom: 10px;
+        }
+
+        .p-card p {
+            font-size: .93rem;
+        }
+
+        .p-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 20px;
+        }
+
+        .chip {
+            font-size: .75rem;
+            font-family: "Poppins", sans-serif;
+            font-weight: 500;
+            padding: 6px 13px;
+            border-radius: 100px;
+            background: var(--bg);
+            border: 1px solid var(--line);
+            color: var(--ink-500);
+        }
+
+        .chip i {
+            color: var(--accent);
+            margin-right: 5px;
+        }
+
+        .p-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 22px;
+            font-family: "Poppins", sans-serif;
+            font-weight: 600;
+            font-size: .88rem;
+            color: var(--primary-orange);
+        }
+
+        .p-link i {
+            transition: transform .4s var(--ease-spring);
+        }
+
+        .p-card:hover .p-link i {
+            transform: translateX(5px);
+        }
+
+        /* ==========================================================
+           4 · TECHNOLOGY (sticky split)
+        ========================================================== */
+        .tech {
+            background: var(--ink);
+            color: rgba(255, 255, 255, .88);
+            overflow: hidden;
+        }
+
+        .tech h2,
+        .tech h3,
+        .tech h4 {
+            color: #fff;
+        }
+
+        .tech .eyebrow {
+            color: var(--primary-orange);
+            background: rgba(244, 139, 42, .22);
+            border-color: rgba(244, 139, 42, .45);
+        }
+
+        .tech p {
+            color: rgba(255, 255, 255, .82);
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: clamp(40px, 5vw, 80px);
+            align-items: start;
+        }
+
+        .tech-sticky {
+            position: sticky;
+            top: 110px;
+        }
+
+        .tech-stage {
+            position: relative;
+            border-radius: var(--r-xl);
+            overflow: hidden;
+            aspect-ratio: 4 / 4.4;
+            border: 1px solid rgba(255, 255, 255, .1);
+        }
+
+        .tech-stage img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transform: scale(1.08);
+            transition: opacity .8s var(--ease-out), transform 1.2s var(--ease-out);
+        }
+
+        .tech-stage img.is-active {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .tech-hud {
+            position: absolute;
+            left: 20px;
+            bottom: 20px;
+            right: 20px;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 14px;
+            padding: 14px 18px;
+            border-radius: 16px;
+            background: rgba(33, 33, 33, .72);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, .12);
+            font-family: "Poppins", sans-serif;
+            font-size: .82rem;
+            color: #fff;
+        }
+
+        .hud-dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--accent);
+            margin-right: 8px;
+            box-shadow: 0 0 0 0 rgba(230, 122, 34, .7);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            70% {
+                box-shadow: 0 0 0 12px rgba(230, 122, 34, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(230, 122, 34, 0);
+            }
+        }
+
+        .tech-list {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            margin-top: 34px;
+        }
+
+        .tech-item {
+            padding: 26px 28px;
+            border-radius: var(--r-md);
+            border: 1px solid rgba(255, 255, 255, .14);
+            background: rgba(255, 255, 255, .06);
+            transition: background .5s, border-color .5s, transform .5s var(--ease-spring);
+            cursor: default;
+        }
+
+        .tech-item.is-active {
+            background: rgba(255, 255, 255, .12);
+            border-color: rgba(244, 139, 42, .55);
+            transform: translateX(6px);
+        }
+
+        .tech-item-head {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 10px;
+        }
+
+        .tech-num {
+            font-family: "Poppins", sans-serif;
+            font-size: .78rem;
+            font-weight: 600;
+            letter-spacing: .1em;
+            color: var(--primary);
+        }
+
+        .tech-item p {
+            font-size: .93rem;
+            margin: 0;
+        }
+
+        /* ==========================================================
+           5 · JOURNEY TIMELINE
+        ========================================================== */
+        .journey {
+            position: relative;
+            background: linear-gradient(180deg, var(--white) 0%, var(--orange-tint) 100%);
+        }
+
+        .journey .section-head p {
+            color: var(--ink-700);
+        }
+
+        .track {
+            position: relative;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 18px;
+            margin-top: 30px;
+        }
+
+        .track::before {
+            content: "";
+            position: absolute;
+            top: 31px;
+            left: 8%;
+            right: 8%;
+            height: 3px;
+            background: rgba(244, 139, 42, .22);
+            border-radius: 100px;
+        }
+
+        .track-fill {
+            position: absolute;
+            top: 31px;
+            left: 8%;
+            right: 8%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-orange), var(--brand-orange-hover));
+            transform: scaleX(0);
+            transform-origin: 0 50%;
+            border-radius: 100px;
+            z-index: 1;
+        }
+
+        .step {
+            position: relative;
+            text-align: center;
+            padding: 0 6px;
+        }
+
+        .step-dot {
+            width: 62px;
+            height: 62px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            font-size: 1.2rem;
+            color: var(--primary-orange);
+            background: var(--primary-100);
+            border: 2px solid var(--primary-orange);
+            box-shadow: 0 6px 18px rgba(244, 139, 42, .18);
+            position: relative;
+            z-index: 2;
+            transition: transform .5s var(--ease-spring), border-color .4s, background .4s, color .4s, box-shadow .4s;
+        }
+
+        .step:hover .step-dot,
+        .step.is-on .step-dot {
+            background: var(--primary-orange);
+            border-color: var(--primary-orange);
+            color: #fff;
+            box-shadow: 0 10px 28px rgba(244, 139, 42, .38);
+            transform: translateY(-6px) scale(1.06);
+        }
+
+        .step-time {
+            display: inline-block;
+            font-family: "Poppins", sans-serif;
+            font-size: .74rem;
+            font-weight: 700;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            color: var(--primary-orange);
+            margin-bottom: 8px;
+        }
+
+        .step h3 {
+            font-size: 1.05rem;
+            margin-bottom: 8px;
+            color: var(--ink);
+        }
+
+        .step p {
+            font-size: .9rem;
+            color: var(--ink-700);
+            line-height: 1.65;
+        }
+
+        /* ==========================================================
+           6 · CONDITIONS
+        ========================================================== */
+        .cond-layout {
+            display: grid;
+            grid-template-columns: .85fr 1.15fr;
+            gap: clamp(36px, 4vw, 64px);
+            align-items: center;
+        }
+
+        .cond-note {
+            margin-top: 26px;
+            display: flex;
+            gap: 14px;
+            padding: 20px 22px;
+            border-radius: var(--r-md);
+            background: var(--accent-100);
+            border: 1px solid rgba(230, 122, 34, .35);
+            color: var(--ink-500);
+            font-size: .9rem;
+        }
+
+        .cond-note i {
+            color: var(--accent);
+            font-size: 1.2rem;
+            margin-top: 3px;
+        }
+
+        .cond-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+            gap: 14px;
+        }
+
+        .cond {
+            display: flex;
+            align-items: center;
+            gap: 13px;
+            padding: 17px 18px;
+            background: var(--white);
+            border: 1px solid var(--line);
+            border-radius: var(--r-sm);
+            font-family: "Poppins", sans-serif;
+            font-size: .9rem;
+            font-weight: 500;
+            color: var(--ink-700);
+            transition: transform .45s var(--ease-spring), box-shadow .45s, border-color .4s;
+        }
+
+        .cond:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--sh-md);
+            border-color: rgba(244, 139, 42, .35);
+        }
+
+        .cond i {
+            width: 34px;
+            height: 34px;
+            border-radius: 10px;
+            display: grid;
+            place-items: center;
+            font-size: .9rem;
+            background: var(--primary-100);
+            color: var(--primary-orange);
+            flex-shrink: 0;
+        }
+
+        /* ==========================================================
+           7 · PREP TABS
+        ========================================================== */
+        .tabs {
+            display: inline-flex;
+            gap: 4px;
+            padding: 6px;
+            border-radius: 100px;
+            background: var(--bg);
+            border: 1px solid var(--line);
+            position: relative;
+            margin: 0 auto 44px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .tab-glider {
+            position: absolute;
+            top: 6px;
+            bottom: 6px;
+            border-radius: 100px;
+            background: var(--ink);
+            transition: transform .55s var(--ease-spring), width .55s var(--ease-spring);
+            z-index: 0;
+        }
+
+        .tab {
+            position: relative;
+            z-index: 1;
+            border: 0;
+            background: transparent;
+            font-family: "Poppins", sans-serif;
+            font-size: .9rem;
+            font-weight: 600;
+            color: var(--ink-500);
+            padding: 12px 26px;
+            border-radius: 100px;
+            cursor: pointer;
+            transition: color .35s;
+            white-space: nowrap;
+        }
+
+        .tab.is-active {
+            color: #fff;
+        }
+
+        .panel {
+            display: none;
+        }
+
+        .panel.is-active {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 22px;
+        }
+
+        .prep {
+            background: var(--white);
+            border: 1px solid var(--line);
+            border-left: 3px solid var(--primary);
+            border-radius: var(--r-md);
+            padding: 28px;
+        }
+
+        .prep h4 {
+            display: flex;
+            align-items: center;
+            gap: 11px;
+            font-size: 1.02rem;
+            margin-bottom: 14px;
+        }
+
+        .prep h4 i {
+            color: var(--primary);
+        }
+
+        .prep ul {
+            display: flex;
+            flex-direction: column;
+            gap: 11px;
+        }
+
+        .prep li {
+            display: flex;
+            gap: 11px;
+            font-size: .9rem;
+            line-height: 1.6;
+        }
+
+        .prep li i {
+            color: var(--accent);
+            font-size: .82rem;
+            margin-top: 6px;
+        }
+
+        .prep--warn {
+            border-left-color: var(--donts-red);
+        }
+
+        .prep--warn h4 i {
+            color: var(--donts-red);
+        }
+
+        .prep--warn li i {
+            color: var(--donts-red);
+        }
+
+        /* ==========================================================
+           8 · SPECIALISTS
+        ========================================================== */
+        .doc {
+            background: var(--white);
+            border: 1px solid var(--line);
+            border-radius: var(--r-lg);
+            overflow: hidden;
+            transition: transform .5s var(--ease-spring), box-shadow .5s;
+        }
+
+        .doc:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--sh-md);
+        }
+
+        .doc-photo {
+            position: relative;
+            height: 320px;
+            overflow: hidden;
+            background: var(--bg);
+        }
+
+        .doc-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 1s var(--ease-out);
+        }
+
+        .doc:hover .doc-photo img {
+            transform: scale(1.07);
+        }
+
+        .doc-tag {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            font-family: "Poppins", sans-serif;
+            font-size: .72rem;
+            font-weight: 600;
+            padding: 6px 14px;
+            border-radius: 100px;
+            background: rgba(255, 255, 255, .9);
+            backdrop-filter: blur(8px);
+            color: var(--ink);
+        }
+
+        .doc-social {
+            position: absolute;
+            right: 16px;
+            bottom: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            opacity: 0;
+            transform: translateX(14px);
+            transition: opacity .45s, transform .45s var(--ease-spring);
+        }
+
+        .doc:hover .doc-social {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .doc-social a {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            background: #fff;
+            color: var(--ink);
+            font-size: .85rem;
+            box-shadow: var(--sh-sm);
+        }
+
+        .doc-social a:hover {
+            background: var(--primary);
+            color: #fff;
+        }
+
+        .doc-body {
+            padding: 24px 26px 28px;
+        }
+
+        .doc-body h3 {
+            font-size: 1.15rem;
+        }
+
+        .doc-role {
+            display: block;
+            margin: 6px 0 14px;
+            font-size: .85rem;
+            color: var(--primary-orange);
+            font-family: "Poppins", sans-serif;
+            font-weight: 500;
+        }
+
+        .doc-meta {
+            display: flex;
+            gap: 18px;
+            padding-top: 14px;
+            border-top: 1px solid var(--line);
+            font-size: .8rem;
+        }
+
+        .doc-meta i {
+            color: var(--primary);
+            margin-right: 6px;
+        }
+
+        /* ==========================================================
+           9 · TESTIMONIAL MARQUEE
+        ========================================================== */
+        .marquee {
+            position: relative;
+            overflow: hidden;
+            -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+            mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+        }
+
+        .marquee-row {
+            display: flex;
+            gap: 22px;
+            width: max-content;
+            animation: slide 46s linear infinite;
+        }
+
+        .marquee:hover .marquee-row {
+            animation-play-state: paused;
+        }
+
+        @keyframes slide {
+            to {
+                transform: translateX(-50%);
+            }
+        }
+
+        .quote {
+            width: 380px;
+            flex-shrink: 0;
+            background: var(--white);
+            border: 1px solid var(--line);
+            border-radius: var(--r-md);
+            padding: 28px;
+            white-space: normal;
+        }
+
+        .quote .stars {
+            font-size: .85rem;
+            margin-bottom: 14px;
+            display: block;
+        }
+
+        .quote p {
+            font-size: .93rem;
+            color: var(--ink-500);
+            margin-bottom: 20px;
+        }
+
+        .quote-by {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .quote-by img {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .quote-by strong {
+            display: block;
+            font-family: "Poppins", sans-serif;
+            font-size: .92rem;
+            color: var(--ink);
+        }
+
+        .quote-by span {
+            font-size: .78rem;
+        }
+
+        /* ==========================================================
+           10 · FAQ
+        ========================================================== */
+        .faq-layout {
+            display: grid;
+            grid-template-columns: .8fr 1.2fr;
+            gap: clamp(36px, 4vw, 70px);
+            align-items: start;
+        }
+
+        .faq-aside {
+            position: sticky;
+            top: 110px;
+        }
+
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .faq {
+            background: var(--white);
+            border: 1px solid var(--line);
+            border-radius: var(--r-md);
+            overflow: hidden;
+            transition: border-color .4s, box-shadow .4s;
+        }
+
+        .faq.is-open {
+            border-color: rgba(244, 139, 42, .4);
+            box-shadow: var(--sh-sm);
+        }
+
+        .faq-q {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 18px;
+            text-align: left;
+            background: none;
+            border: 0;
+            cursor: pointer;
+            padding: 22px 24px;
+            font-family: "Poppins", sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--ink);
+        }
+
+        .faq-q i {
+            flex-shrink: 0;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            font-size: .75rem;
+            background: var(--bg);
+            color: var(--primary-orange);
+            transition: transform .45s var(--ease-spring), background .35s, color .35s;
+        }
+
+        .faq.is-open .faq-q i {
+            transform: rotate(135deg);
+            background: var(--primary);
+            color: #fff;
+        }
+
+        .faq-a {
+            height: 0;
+            overflow: hidden;
+        }
+
+        .faq-a-inner {
+            padding: 0 24px 24px;
+            font-size: .93rem;
+        }
+
+        /* ==========================================================
+           11 · CTA
+        ========================================================== */
+        .cta-wrap {
+            position: relative;
+            border-radius: var(--r-xl);
+            overflow: hidden;
+            background: linear-gradient(130deg, #2f2f2f 0%, var(--dark-grey) 60%, #171717 100%);
+            padding: clamp(46px, 6vw, 82px);
+            color: rgba(255, 255, 255, .9);
+            isolation: isolate;
+        }
+
+        .cta-wrap::before {
+            content: "";
+            position: absolute;
+            width: 460px;
+            height: 460px;
+            border-radius: 50%;
+            background: rgba(244, 139, 42, .45);
+            filter: blur(110px);
+            top: -140px;
+            right: -80px;
+            z-index: -1;
+        }
+
+        .cta-wrap::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+            background-image:
+                linear-gradient(rgba(255, 255, 255, .05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, .05) 1px, transparent 1px);
+            background-size: 54px 54px;
+            mask-image: radial-gradient(70% 70% at 30% 50%, #000, transparent);
+        }
+
+        .cta-grid {
+            display: grid;
+            grid-template-columns: 1.1fr .9fr;
+            gap: clamp(32px, 4vw, 60px);
+            align-items: center;
+        }
+
+        .cta-wrap h2 {
+            color: #fff;
+            margin-bottom: 16px;
+        }
+
+        .cta-wrap p {
+            color: rgba(255, 255, 255, .88);
+        }
+
+        .cta-actions {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .cta-panel {
+            background: rgba(255, 255, 255, .1);
+            border: 1px solid rgba(255, 255, 255, .2);
+            border-radius: var(--r-lg);
+            padding: 30px;
+        }
+
+        .cta-row {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 14px 0;
+        }
+
+        .cta-row+.cta-row {
+            border-top: 1px solid rgba(255, 255, 255, .1);
+        }
+
+        .cta-row i {
+            width: 44px;
+            height: 44px;
+            border-radius: 13px;
+            display: grid;
+            place-items: center;
+            background: rgba(244, 139, 42, .25);
+            color: var(--primary-orange);
+            flex-shrink: 0;
+        }
+
+        .cta-row strong {
+            display: block;
+            font-family: "Poppins", sans-serif;
+            color: #fff;
+            font-size: .98rem;
+        }
+
+        .cta-row span {
+            font-size: .82rem;
+            color: rgba(255, 255, 255, .85);
+        }
+
+        /* ==========================================================
+           FOOTER
+        ========================================================== */
+        .foot {
+            padding: 34px 0;
+            text-align: center;
+            font-size: .85rem;
+            color: var(--muted);
+            border-top: 1px solid var(--line);
+        }
+
+        /* ==========================================================
+           MOTION UTILITIES
+        ========================================================== */
+        .reveal,
+        .stagger>* {
+            opacity: 0;
+            transform: translateY(28px);
+        }
+
+        /* ==========================================================
+           RESPONSIVE
+        ========================================================== */
+        @media (max-width: 1024px) {
+
+            .hero-grid,
+            .tech-grid,
+            .cond-layout,
+            .faq-layout,
+            .cta-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .tech-sticky,
+            .faq-aside {
+                position: static;
+            }
+
+            .tech-stage {
+                aspect-ratio: 16/10;
+            }
+
+            .p-card,
+            .p-card--wide {
+                grid-column: span 3;
+            }
+
+            .track {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 34px;
+            }
+
+            .track::before,
+            .track-fill {
+                display: none;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+
+        @media (max-width: 720px) {
+            .trust-card {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 28px 12px;
+            }
+
+            .stat+.stat::before {
+                display: none;
+            }
+
+            .p-card,
+            .p-card--wide {
+                grid-column: span 6;
+            }
+
+            .track {
+                grid-template-columns: 1fr;
+            }
+
+            .float-card {
+                transform: scale(.86);
+            }
+
+            .fc-1 {
+                left: -12px;
+            }
+
+            .fc-2 {
+                right: -10px;
+            }
+
+            .quote {
+                width: 300px;
+            }
+
+            .hero-proof {
+                flex-wrap: wrap;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: .01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: .01ms !important;
+                scroll-behavior: auto !important;
+            }
+
+            .reveal,
+            .stagger>* {
+                opacity: 1;
+                transform: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="scroll-bar" id="scrollBar"></div>
+
+    <!-- ============ NAVBAR ============ -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-inner">
+            <a href="#" class="logo">Jivaka<span>Endoscopy</span></a>
+            <ul class="nav-links">
+                <li><a href="#procedures">Procedures</a></li>
+                <li><a href="#technology">Technology</a></li>
+                <li><a href="#journey">Your Visit</a></li>
+                <li><a href="#prepare">Preparation</a></li>
+                <li><a href="#team">Specialists</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ul>
+            <a href="#book" class="btn btn-primary nav-cta">Book a Screening</a>
+        </div>
+    </nav>
+
+    <!-- ============ 1 · HERO ============ -->
+    <header class="hero" id="top">
+        <div class="aurora aurora-1"></div>
+        <div class="aurora aurora-2"></div>
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content reveal">
+                    <span class="eyebrow"><i class="fas fa-microscope"></i> Endoscopy Centre of Excellence</span>
+                    <h1>See clearly.<br>Treat early.<br><span>Recover faster.</span></h1>
+                    <p class="hero-lead">
+                        Day-case gastroscopy and colonoscopy with 4K ultra-HD imaging, consultant-led sedation and a
+                        written report in your hand within 30 minutes — no overnight stay required.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="#book" class="btn btn-primary" data-magnetic>Book a Screening <i
+                                class="fas fa-arrow-right"></i></a>
+                        <a href="#procedures" class="btn btn-ghost">Explore Procedures</a>
+                    </div>
+                    <div class="hero-proof">
+                        <div class="avatars">
+                            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=200&auto=format&fit=crop"
+                                alt="Patient" loading="lazy">
+                            <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?q=80&w=200&auto=format&fit=crop"
+                                alt="Patient" loading="lazy">
+                            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=200&auto=format&fit=crop"
+                                alt="Patient" loading="lazy">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop"
+                                alt="Patient" loading="lazy">
+                        </div>
+                        <div class="proof-text">
+                            <strong>4.9 / 5 &nbsp;<span class="stars"><i class="fas fa-star"></i><i
+                                        class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                        class="fas fa-star"></i><i class="fas fa-star"></i></span></strong>
+                            from 2,100+ verified patient reviews
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-visual reveal">
+                    <div class="hero-frame" id="heroFrame">
+                        <span class="scan-beam"></span>
+                        <img src="https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?q=80&w=1200&auto=format&fit=crop"
+                            alt="Endoscopy suite at Jivaka Hospital">
+                    </div>
+
+                    <div class="float-card fc-1">
+                        <div class="fc-icon" style="background: var(--accent-100); color: var(--accent);"><i
+                                class="fas fa-bed-pulse"></i></div>
+                        <div>
+                            <h4>Painless</h4>
+                            <span>Sedation by consultants</span>
+                        </div>
+                    </div>
+
+                    <div class="float-card fc-2">
+                        <div class="fc-icon" style="background: var(--alt-100); color: var(--alt);"><i
+                                class="fas fa-file-waveform"></i></div>
+                        <div>
+                            <h4>30 min</h4>
+                            <span>Report turnaround</span>
+                        </div>
+                    </div>
+
+                    <div class="float-card fc-3">
+                        <div class="fc-icon" style="background: var(--primary-100); color: var(--primary-orange);"><i
+                                class="fas fa-shield-heart"></i></div>
+                        <div>
+                            <h4>Same day</h4>
+                            <span>Home in 2 hours</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ============ 2 · TRUST / STATS ============ -->
+    <section class="trust">
+        <div class="container">
+            <div class="trust-card reveal">
+                <div class="stat">
+                    <div class="num" data-count="18500" data-suffix="+">0</div>
+                    <span class="lbl">Procedures completed</span>
+                </div>
+                <div class="stat">
+                    <div class="num" data-count="99" data-suffix="<em>.4%</em>">0</div>
+                    <span class="lbl">Diagnostic accuracy</span>
+                </div>
+                <div class="stat">
+                    <div class="num" data-count="12" data-suffix="">0</div>
+                    <span class="lbl">Consultant endoscopists</span>
+                </div>
+                <div class="stat">
+                    <div class="num" data-count="30" data-suffix="<em> min</em>">0</div>
+                    <span class="lbl">Average report time</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ 3 · PROCEDURES ============ -->
+    <section class="section" id="procedures">
+        <div class="container">
+            <div class="section-head reveal">
+                <span class="eyebrow"><i class="fas fa-list-check"></i> What we offer</span>
+                <h2>Diagnostic &amp; therapeutic endoscopy, under one roof</h2>
+                <p>From routine screening to advanced therapeutic intervention — every procedure is performed in a
+                    dedicated day-case suite with full anaesthetic cover.</p>
+            </div>
+
+            <div class="bento stagger">
+                <article class="p-card p-card--wide tilt">
+                    <div class="p-icon"><i class="fas fa-notes-medical"></i></div>
+                    <h3>Upper GI Endoscopy (Gastroscopy)</h3>
+                    <p>A slim, flexible camera examines the oesophagus, stomach and duodenum to investigate reflux,
+                        ulcers, difficulty swallowing and unexplained anaemia.</p>
+                    <div class="p-meta">
+                        <span class="chip"><i class="fas fa-clock"></i> 10–15 min</span>
+                        <span class="chip"><i class="fas fa-syringe"></i> Sedation optional</span>
+                        <span class="chip"><i class="fas fa-house-medical"></i> Day case</span>
+                    </div>
+                    <a href="#book" class="p-link">Book this procedure <i class="fas fa-arrow-right"></i></a>
+                </article>
+
+                <article class="p-card p-card--wide tilt">
+                    <div class="p-icon" style="background: var(--accent-100); color: var(--accent);"><i
+                            class="fas fa-diagram-project"></i></div>
+                    <h3>Colonoscopy &amp; Polypectomy</h3>
+                    <p>Full inspection of the large bowel with immediate removal of polyps — the single most effective
+                        way to prevent colorectal cancer before it starts.</p>
+                    <div class="p-meta">
+                        <span class="chip"><i class="fas fa-clock"></i> 20–40 min</span>
+                        <span class="chip"><i class="fas fa-shield-heart"></i> Cancer prevention</span>
+                        <span class="chip"><i class="fas fa-flask"></i> Biopsy on the spot</span>
+                    </div>
+                    <a href="#book" class="p-link">Book this procedure <i class="fas fa-arrow-right"></i></a>
+                </article>
+
+                <article class="p-card tilt">
+                    <div class="p-icon" style="background: var(--alt-100); color: var(--alt);"><i
+                            class="fas fa-wave-square"></i></div>
+                    <h3>ERCP</h3>
+                    <p>Endoscopic treatment of bile duct stones, strictures and jaundice — no open surgery needed.</p>
+                    <div class="p-meta"><span class="chip"><i class="fas fa-user-doctor"></i> Advanced</span></div>
+                </article>
+
+                <article class="p-card tilt">
+                    <div class="p-icon" style="background: var(--alt-100); color: var(--alt);"><i
+                            class="fas fa-satellite-dish"></i></div>
+                    <h3>Endoscopic Ultrasound</h3>
+                    <p>High-resolution imaging of the pancreas and GI wall with fine-needle sampling in one sitting.</p>
+                    <div class="p-meta"><span class="chip"><i class="fas fa-crosshairs"></i> Precise staging</span>
+                    </div>
+                </article>
+
+                <article class="p-card tilt">
+                    <div class="p-icon" style="background: #f7e7e5; color: var(--donts-red);"><i class="fas fa-capsules"></i>
+                    </div>
+                    <h3>Capsule Endoscopy</h3>
+                    <p>Swallow a vitamin-sized camera and let it survey the small bowel — no sedation, no discomfort.</p>
+                    <div class="p-meta"><span class="chip"><i class="fas fa-feather"></i> Non-invasive</span></div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ 4 · TECHNOLOGY ============ -->
+    <section class="section tech" id="technology">
+        <div class="container">
+            <div class="tech-grid">
+                <div class="tech-sticky reveal">
+                    <div class="tech-stage" id="techStage">
+                        <img class="is-active" data-stage="0"
+                            src="https://images.unsplash.com/photo-1579154204601-01588f351e67?q=80&w=1200&auto=format&fit=crop"
+                            alt="4K endoscopy tower">
+                        <img data-stage="1"
+                            src="https://images.unsplash.com/photo-1581595219315-a187dd40c322?q=80&w=1200&auto=format&fit=crop"
+                            alt="AI-assisted polyp detection">
+                        <img data-stage="2"
+                            src="https://images.unsplash.com/photo-1583324113626-70df0f4deaab?q=80&w=1200&auto=format&fit=crop"
+                            alt="Automated reprocessing suite">
+                        <img data-stage="3"
+                            src="https://images.unsplash.com/photo-1516549655169-df83a0774514?q=80&w=1200&auto=format&fit=crop"
+                            alt="Recovery bay">
+                        <div class="tech-hud">
+                            <span><span class="hud-dot"></span><span id="hudLabel">4K Ultra-HD Imaging</span></span>
+                            <span id="hudIndex">01 / 04</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="reveal">
+                        <span class="eyebrow"><i class="fas fa-microchip"></i> Inside the suite</span>
+                        <h2>Technology that finds what the eye alone would miss</h2>
+                        <p style="margin-top:16px;">Four systems work together on every case — imaging, AI, sterilisation
+                            and recovery — so accuracy never depends on a single pair of hands.</p>
+                    </div>
+
+                    <div class="tech-list">
+                        <div class="tech-item is-active" data-stage="0" data-label="4K Ultra-HD Imaging">
+                            <div class="tech-item-head">
+                                <span class="tech-num">01</span>
+                                <h3>4K Ultra-HD &amp; Narrow-Band Imaging</h3>
+                            </div>
+                            <p>Olympus EVIS X1 towers render mucosal detail at four times full-HD resolution, with
+                                narrow-band light that makes early dysplasia visible before it becomes a lesion.</p>
+                        </div>
+
+                        <div class="tech-item" data-stage="1" data-label="AI Polyp Detection">
+                            <div class="tech-item-head">
+                                <span class="tech-num">02</span>
+                                <h3>AI-Assisted Polyp Detection</h3>
+                            </div>
+                            <p>A real-time computer-aided detection layer flags suspicious tissue on-screen during the
+                                withdrawal phase, raising adenoma detection rates by up to 14%.</p>
+                        </div>
+
+                        <div class="tech-item" data-stage="2" data-label="Automated Reprocessing">
+                            <div class="tech-item-head">
+                                <span class="tech-num">03</span>
+                                <h3>Traceable Automated Reprocessing</h3>
+                            </div>
+                            <p>Every scope passes a validated wash cycle with a barcode-tracked audit trail, so the
+                                instrument used for your procedure is verifiable to the minute.</p>
+                        </div>
+
+                        <div class="tech-item" data-stage="3" data-label="Monitored Recovery">
+                            <div class="tech-item-head">
+                                <span class="tech-num">04</span>
+                                <h3>Monitored Recovery Bays</h3>
+                            </div>
+                            <p>Private bays with continuous pulse-oximetry and a dedicated recovery nurse, so sedation
+                                wears off under observation — not in a corridor.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ 5 · JOURNEY ============ -->
+    <section class="section bg-white journey" id="journey">
+        <div class="container">
+            <div class="section-head reveal">
+                <span class="eyebrow"><i class="fas fa-route"></i> Your visit</span>
+                <h2>Five steps, one morning</h2>
+                <p>Most patients arrive at 8am and are home by lunchtime. Here is exactly what happens, and when.</p>
+            </div>
+
+            <div class="track" id="track">
+                <span class="track-fill" id="trackFill"></span>
+
+                <div class="step stagger-step">
+                    <div class="step-dot"><i class="fas fa-calendar-check"></i></div>
+                    <span class="step-time">Day −7</span>
+                    <h3>Consultation</h3>
+                    <p>Your consultant reviews symptoms, medication and confirms the right procedure for you.</p>
+                </div>
+
+                <div class="step stagger-step">
+                    <div class="step-dot"><i class="fas fa-mug-saucer"></i></div>
+                    <span class="step-time">Day −1</span>
+                    <h3>Preparation</h3>
+                    <p>Clear written instructions on fasting and bowel prep, plus a nurse on call for questions.</p>
+                </div>
+
+                <div class="step stagger-step">
+                    <div class="step-dot"><i class="fas fa-clipboard-user"></i></div>
+                    <span class="step-time">08:00</span>
+                    <h3>Admission</h3>
+                    <p>Check-in, consent, observations and a chat with the anaesthetist — around 30 minutes.</p>
+                </div>
+
+                <div class="step stagger-step">
+                    <div class="step-dot"><i class="fas fa-microscope"></i></div>
+                    <span class="step-time">09:00</span>
+                    <h3>The Procedure</h3>
+                    <p>Sedation is given, the examination takes 15–40 minutes, and biopsies are taken if needed.</p>
+                </div>
+
+                <div class="step stagger-step">
+                    <div class="step-dot"><i class="fas fa-house-chimney-medical"></i></div>
+                    <span class="step-time">11:00</span>
+                    <h3>Results &amp; Home</h3>
+                    <p>Recovery, a written report with images, and a follow-up plan before you are discharged.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ 6 · CONDITIONS ============ -->
+    <section class="section" id="conditions">
+        <div class="container">
+            <div class="cond-layout">
+                <div class="reveal">
+                    <span class="eyebrow"><i class="fas fa-stethoscope"></i> When to come in</span>
+                    <h2>Symptoms we investigate</h2>
+                    <p style="margin-top:16px;">Persistent digestive symptoms deserve an answer, not a guess. If any of
+                        these has lasted more than three weeks, an endoscopy is usually the fastest route to certainty.
+                    </p>
+                    <div class="cond-note">
+                        <i class="fas fa-triangle-exclamation"></i>
+                        <div><strong>Do not wait</strong> if you have blood in your stool, black stools, vomiting blood,
+                            or unintentional weight loss. Call our urgent line on <strong>01-234 5678</strong>.</div>
+                    </div>
+                </div>
+
+                <div class="cond-grid stagger">
+                    <div class="cond"><i class="fas fa-fire"></i> Persistent heartburn</div>
+                    <div class="cond"><i class="fas fa-utensils"></i> Difficulty swallowing</div>
+                    <div class="cond"><i class="fas fa-droplet"></i> Rectal bleeding</div>
+                    <div class="cond"><i class="fas fa-weight-scale"></i> Unexplained weight loss</div>
+                    <div class="cond"><i class="fas fa-heart-crack"></i> Upper abdominal pain</div>
+                    <div class="cond"><i class="fas fa-arrows-rotate"></i> Change in bowel habit</div>
+                    <div class="cond"><i class="fas fa-battery-quarter"></i> Iron-deficiency anaemia</div>
+                    <div class="cond"><i class="fas fa-bacteria"></i> Suspected H. pylori</div>
+                    <div class="cond"><i class="fas fa-dna"></i> Family history of bowel cancer</div>
+                    <div class="cond"><i class="fas fa-bowl-food"></i> Chronic bloating</div>
+                    <div class="cond"><i class="fas fa-clock-rotate-left"></i> IBD surveillance</div>
+                    <div class="cond"><i class="fas fa-calendar-days"></i> Routine screening at 45+</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ 7 · PREPARATION ============ -->
+    <section class="section bg-white" id="prepare">
+        <div class="container">
+            <div class="section-head reveal">
+                <span class="eyebrow"><i class="fas fa-clipboard-list"></i> Preparation guide</span>
+                <h2>Know exactly what to do — before, during and after</h2>
+                <p>A good result depends on good preparation. Save this page or ask our nurses to print it for you.</p>
+            </div>
+
+            <div class="tabs reveal" id="tabs">
+                <span class="tab-glider" id="glider"></span>
+                <button class="tab is-active" data-panel="before">Before</button>
+                <button class="tab" data-panel="during">During</button>
+                <button class="tab" data-panel="after">After</button>
+            </div>
+
+            <div class="panel is-active" id="panel-before">
+                <div class="prep">
+                    <h4><i class="fas fa-calendar-day"></i> 7 days before</h4>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Tell us about blood thinners, insulin or iron tablets — some
+                            must be paused.</li>
+                        <li><i class="fas fa-check"></i> Arrange an adult to accompany you home if you choose sedation.
+                        </li>
+                        <li><i class="fas fa-check"></i> Stop iron supplements; they stain the bowel lining.</li>
+                    </ul>
+                </div>
+                <div class="prep">
+                    <h4><i class="fas fa-mug-hot"></i> 24 hours before</h4>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Switch to a low-fibre diet — no seeds, nuts or raw vegetables.
+                        </li>
+                        <li><i class="fas fa-check"></i> Start bowel prep at the time printed on your letter.</li>
+                        <li><i class="fas fa-check"></i> Keep drinking clear fluids — water, black tea, clear broth.</li>
+                    </ul>
+                </div>
+                <div class="prep prep--warn">
+                    <h4><i class="fas fa-ban"></i> 6 hours before</h4>
+                    <ul>
+                        <li><i class="fas fa-xmark"></i> Nothing to eat. Clear fluids only up to 2 hours before.</li>
+                        <li><i class="fas fa-xmark"></i> No chewing gum, sweets or milky drinks.</li>
+                        <li><i class="fas fa-xmark"></i> Leave jewellery, contact lenses and nail polish at home.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="panel" id="panel-during">
+                <div class="prep">
+                    <h4><i class="fas fa-clipboard-user"></i> Admission</h4>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Consent is taken by the consultant performing your procedure.
+                        </li>
+                        <li><i class="fas fa-check"></i> A cannula is placed and observations recorded.</li>
+                        <li><i class="fas fa-check"></i> You change into a gown; valuables go in a locked drawer.</li>
+                    </ul>
+                </div>
+                <div class="prep">
+                    <h4><i class="fas fa-syringe"></i> Sedation</h4>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Light sedation keeps you relaxed and mostly unaware.</li>
+                        <li><i class="fas fa-check"></i> Throat spray is offered for gastroscopy without sedation.</li>
+                        <li><i class="fas fa-check"></i> Oxygen levels and heart rate are monitored throughout.</li>
+                    </ul>
+                </div>
+                <div class="prep">
+                    <h4><i class="fas fa-microscope"></i> The examination</h4>
+                    <ul>
+                        <li><i class="fas fa-check"></i> You lie on your left side; the scope is passed gently.</li>
+                        <li><i class="fas fa-check"></i> Biopsies and polyp removal are painless — tissue has no pain
+                            nerves.</li>
+                        <li><i class="fas fa-check"></i> Most procedures finish within 15–40 minutes.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="panel" id="panel-after">
+                <div class="prep">
+                    <h4><i class="fas fa-bed"></i> First 2 hours</h4>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Rest in a recovery bay until sedation wears off.</li>
+                        <li><i class="fas fa-check"></i> Light snack and a drink once your swallow is normal.</li>
+                        <li><i class="fas fa-check"></i> Your consultant explains findings and hands over the report.
+                        </li>
+                    </ul>
+                </div>
+                <div class="prep">
+                    <h4><i class="fas fa-car-side"></i> Rest of the day</h4>
+                    <ul>
+                        <li><i class="fas fa-check"></i> No driving, alcohol or legal documents for 24 hours.</li>
+                        <li><i class="fas fa-check"></i> Mild bloating or a sore throat is normal and settles quickly.
+                        </li>
+                        <li><i class="fas fa-check"></i> Resume normal meals unless told otherwise.</li>
+                    </ul>
+                </div>
+                <div class="prep prep--warn">
+                    <h4><i class="fas fa-phone-volume"></i> Call us immediately if</h4>
+                    <ul>
+                        <li><i class="fas fa-xmark"></i> Severe or worsening abdominal pain.</li>
+                        <li><i class="fas fa-xmark"></i> Fever, chills, or vomiting blood.</li>
+                        <li><i class="fas fa-xmark"></i> Heavy rectal bleeding that does not stop.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ 8 · SPECIALISTS ============ -->
+    <section class="section" id="team">
+        <div class="container">
+            <div class="section-head reveal">
+                <span class="eyebrow"><i class="fas fa-user-doctor"></i> Meet the team</span>
+                <h2>Consultant endoscopists, not trainees</h2>
+                <p>Every list at Jivaka is led by an accredited consultant with a personal audit of adenoma detection
+                    and complication rates.</p>
+            </div>
+
+            <div class="grid-3 stagger">
+                <article class="doc">
+                    <div class="doc-photo">
+                        <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=900&auto=format&fit=crop"
+                            alt="Dr. Aung Kyaw Moe" loading="lazy">
+                        <span class="doc-tag">Upper GI</span>
+                        <div class="doc-social">
+                            <a href="#book" aria-label="Book"><i class="fas fa-calendar-check"></i></a>
+                            <a href="#" aria-label="Profile"><i class="fas fa-user"></i></a>
+                        </div>
+                    </div>
+                    <div class="doc-body">
+                        <h3>Dr. Aung Kyaw Moe</h3>
+                        <span class="doc-role">Consultant Gastroenterologist</span>
+                        <div class="doc-meta">
+                            <span><i class="fas fa-briefcase-medical"></i> 18 yrs</span>
+                            <span><i class="fas fa-language"></i> MM / EN</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="doc">
+                    <div class="doc-photo">
+                        <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?q=80&w=900&auto=format&fit=crop"
+                            alt="Dr. Su Myat Hnin" loading="lazy">
+                        <span class="doc-tag">Colonoscopy</span>
+                        <div class="doc-social">
+                            <a href="#book" aria-label="Book"><i class="fas fa-calendar-check"></i></a>
+                            <a href="#" aria-label="Profile"><i class="fas fa-user"></i></a>
+                        </div>
+                    </div>
+                    <div class="doc-body">
+                        <h3>Dr. Su Myat Hnin</h3>
+                        <span class="doc-role">Consultant Colorectal Surgeon</span>
+                        <div class="doc-meta">
+                            <span><i class="fas fa-briefcase-medical"></i> 14 yrs</span>
+                            <span><i class="fas fa-language"></i> MM / EN</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="doc">
+                    <div class="doc-photo">
+                        <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?q=80&w=900&auto=format&fit=crop"
+                            alt="Dr. Thet Naing Oo" loading="lazy">
+                        <span class="doc-tag">ERCP &amp; EUS</span>
+                        <div class="doc-social">
+                            <a href="#book" aria-label="Book"><i class="fas fa-calendar-check"></i></a>
+                            <a href="#" aria-label="Profile"><i class="fas fa-user"></i></a>
+                        </div>
+                    </div>
+                    <div class="doc-body">
+                        <h3>Dr. Thet Naing Oo</h3>
+                        <span class="doc-role">Interventional Endoscopist</span>
+                        <div class="doc-meta">
+                            <span><i class="fas fa-briefcase-medical"></i> 21 yrs</span>
+                            <span><i class="fas fa-language"></i> MM / EN</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ 9 · TESTIMONIALS ============ -->
+    <section class="section bg-white">
+        <div class="container">
+            <div class="section-head reveal">
+                <span class="eyebrow"><i class="fas fa-comment-medical"></i> Patient stories</span>
+                <h2>“I was worried for nothing”</h2>
+                <p>The words patients use most often after their first endoscopy: quick, gentle, and far easier than
+                    expected.</p>
+            </div>
+        </div>
+
+        <div class="marquee reveal">
+            <div class="marquee-row">
+                <!-- set A -->
+                <figure class="quote">
+                    <span class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                            class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
+                    <p>“I had put off a colonoscopy for four years. The prep was the hardest part, and even that was
+                        manageable. I woke up and it was already finished.”</p>
+                    <div class="quote-by">
+                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=200&auto=format&fit=crop"
+                            alt="" loading="lazy">
+                        <div><strong>Khin Mar Aye</strong><span>Colonoscopy, March 2026</span></div>
+                    </div>
+                </figure>
+
+                <figure class="quote">
+                    <span class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                            class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
+                    <p>“Two small polyps were removed during the same appointment. The consultant showed me the images
+                        and explained everything before I left.”</p>
+                    <div class="quote-by">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop"
+                            alt="" loading="lazy">
+                        <div><strong>U Zaw Win</strong><span>Polypectomy, January 2026</span></div>
+                    </div>
+                </figure>
+
+                <figure class="quote">
+                    <span class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                            class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
+                    <p>“Years of reflux, finally an answer in one morning. The report was in my hand before I got in the
+                        taxi home.”</p>
+                    <div class="quote-by">
+                        <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?q=80&w=200&auto=format&fit=crop"
+                            alt="" loading="lazy">
+                        <div><strong>Daw Nilar Kyi</strong><span>Gastroscopy, February 2026</span></div>
+                    </div>
+                </figure>
+
+                <figure class="quote">
+                    <span class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                            class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
+                    <p>“The nurse called me the evening before to check I understood the prep. That one call took all my
+                        anxiety away.”</p>
+                    <div class="quote-by">
+                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=200&auto=format&fit=crop"
+                            alt="" loading="lazy">
+                        <div><strong>Ma Thiri Soe</strong><span>Screening, April 2026</span></div>
+                    </div>
+                </figure>
+
+                <!-- set B (duplicate for seamless loop) -->
+                <figure class="quote" aria-hidden="true">
+                    <span class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                            class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
+                    <p>“I had put off a colonoscopy for four years. The prep was the hardest part, and even that was
+                        manageable. I woke up and it was already finished.”</p>
+                    <div class="quote-by">
+                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=200&auto=format&fit=crop"
+                            alt="" loading="lazy">
+                        <div><strong>Khin Mar Aye</strong><span>Colonoscopy, March 2026</span></div>
+                    </div>
+                </figure>
+
+                <figure class="quote" aria-hidden="true">
+                    <span class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                            class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
+                    <p>“Two small polyps were removed during the same appointment. The consultant showed me the images
+                        and explained everything before I left.”</p>
+                    <div class="quote-by">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop"
+                            alt="" loading="lazy">
+                        <div><strong>U Zaw Win</strong><span>Polypectomy, January 2026</span></div>
+                    </div>
+                </figure>
+
+                <figure class="quote" aria-hidden="true">
+                    <span class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                            class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
+                    <p>“Years of reflux, finally an answer in one morning. The report was in my hand before I got in the
+                        taxi home.”</p>
+                    <div class="quote-by">
+                        <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?q=80&w=200&auto=format&fit=crop"
+                            alt="" loading="lazy">
+                        <div><strong>Daw Nilar Kyi</strong><span>Gastroscopy, February 2026</span></div>
+                    </div>
+                </figure>
+
+                <figure class="quote" aria-hidden="true">
+                    <span class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                            class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
+                    <p>“The nurse called me the evening before to check I understood the prep. That one call took all my
+                        anxiety away.”</p>
+                    <div class="quote-by">
+                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=200&auto=format&fit=crop"
+                            alt="" loading="lazy">
+                        <div><strong>Ma Thiri Soe</strong><span>Screening, April 2026</span></div>
+                    </div>
+                </figure>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ 10 · FAQ ============ -->
+    <section class="section" id="faq">
+        <div class="container">
+            <div class="faq-layout">
+                <aside class="faq-aside reveal">
+                    <span class="eyebrow"><i class="fas fa-circle-question"></i> Questions</span>
+                    <h2>Everything patients ask us</h2>
+                    <p style="margin-top:16px;">Still unsure about something? Our endoscopy nurses answer calls between
+                        8am and 6pm, seven days a week.</p>
+                    <a href="#book" class="btn btn-primary" style="margin-top:26px;">Talk to a nurse <i
+                            class="fas fa-arrow-right"></i></a>
+                </aside>
+
+                <div class="faq-list stagger">
+                    <div class="faq">
+                        <button class="faq-q">Does an endoscopy hurt? <i class="fas fa-plus"></i></button>
+                        <div class="faq-a">
+                            <div class="faq-a-inner">Not usually. With sedation most patients remember nothing at all.
+                                Without sedation, a gastroscopy feels like pressure and gagging for a few seconds, and a
+                                colonoscopy feels like trapped wind. Biopsies are painless — the gut lining has no pain
+                                nerves.</div>
+                        </div>
+                    </div>
+
+                    <div class="faq">
+                        <button class="faq-q">How long does the whole visit take? <i class="fas fa-plus"></i></button>
+                        <div class="faq-a">
+                            <div class="faq-a-inner">Plan for three hours door to door. The examination itself is 15–40
+                                minutes; the rest is admission, sedation recovery and your results discussion.</div>
+                        </div>
+                    </div>
+
+                    <div class="faq">
+                        <button class="faq-q">Can I drive myself home? <i class="fas fa-plus"></i></button>
+                        <div class="faq-a">
+                            <div class="faq-a-inner">Only if you have had no sedation. After sedation you must not
+                                drive, operate machinery, drink alcohol or sign legal documents for 24 hours, and an
+                                adult must accompany you home.</div>
+                        </div>
+                    </div>
+
+                    <div class="faq">
+                        <button class="faq-q">When will I get my results? <i class="fas fa-plus"></i></button>
+                        <div class="faq-a">
+                            <div class="faq-a-inner">Visual findings and a printed report with images are given before
+                                you leave, typically within 30 minutes. Biopsy histology takes 5–7 working days and is
+                                discussed at a follow-up appointment.</div>
+                        </div>
+                    </div>
+
+                    <div class="faq">
+                        <button class="faq-q">Is it safe? What are the risks? <i class="fas fa-plus"></i></button>
+                        <div class="faq-a">
+                            <div class="faq-a-inner">Endoscopy is very safe. Serious complications such as bleeding or
+                                perforation occur in fewer than 1 in 1,000 diagnostic procedures, and slightly more when
+                                polyps are removed. Your consultant will explain your individual risk during consent.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq">
+                        <button class="faq-q">Do you accept insurance? <i class="fas fa-plus"></i></button>
+                        <div class="faq-a">
+                            <div class="faq-a-inner">Yes — we are recognised by all major local and international
+                                insurers, and we will confirm your cover and any excess in writing before your
+                                appointment. Self-pay package pricing is fixed and all-inclusive.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ 11 · CTA ============ -->
+    <section class="section" id="book" style="padding-top:0;">
+        <div class="container">
+            <div class="cta-wrap reveal">
+                <div class="cta-grid">
+                    <div>
+                        <span class="eyebrow" style="color:var(--primary-orange);background:rgba(244,139,42,.22);border-color:rgba(244,139,42,.45);"><i
+                                class="fas fa-calendar-check"></i> Booking</span>
+                        <h2>Book your endoscopy in under two minutes</h2>
+                        <p>Choose a morning slot, tell us your symptoms, and a nurse will call you the same day to
+                            confirm preparation and answer any questions.</p>
+                        <div class="cta-actions">
+                            <a href="tel:012345678" class="btn btn-light" data-magnetic><i class="fas fa-phone"></i> Call
+                                01-234 5678</a>
+                            <a href="#" class="btn btn-outline-light">Request a callback <i
+                                    class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="cta-panel">
+                        <div class="cta-row">
+                            <i class="fas fa-clock"></i>
+                            <div><strong>Mon – Sun, 8:00 – 18:00</strong><span>Endoscopy suite, Level 3</span></div>
+                        </div>
+                        <div class="cta-row">
+                            <i class="fas fa-bolt"></i>
+                            <div><strong>Urgent slots within 48 hours</strong><span>For red-flag symptoms</span></div>
+                        </div>
+                        <div class="cta-row">
+                            <i class="fas fa-file-invoice-dollar"></i>
+                            <div><strong>Fixed all-inclusive pricing</strong><span>Scope, sedation, report and
+                                    recovery</span></div>
+                        </div>
+                        <div class="cta-row">
+                            <i class="fas fa-location-dot"></i>
+                            <div><strong>Jivaka Hospital</strong><span>No. 1, Pyay Road, Yangon</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="foot">
+        <div class="container">© 2026 Jivaka Hospital · Endoscopy Centre of Excellence</div>
+    </footer>
+
+    <script>
+        (function () {
+            "use strict";
+
+            var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+            var hasGSAP = typeof window.gsap !== "undefined";
+
+            if (hasGSAP && window.ScrollTrigger) {
+                gsap.registerPlugin(ScrollTrigger);
+            }
+
+            /* ---------- scroll progress bar ---------- */
+            var bar = document.getElementById("scrollBar");
+            function onScroll() {
+                var h = document.documentElement.scrollHeight - window.innerHeight;
+                var p = h > 0 ? window.scrollY / h : 0;
+                bar.style.transform = "scaleX(" + p + ")";
+                document.getElementById("navbar").classList.toggle("is-stuck", window.scrollY > 24);
+            }
+            window.addEventListener("scroll", onScroll, { passive: true });
+            onScroll();
+
+            /* ---------- reveal + stagger ---------- */
+            if (hasGSAP && !reduced) {
+                gsap.utils.toArray(".reveal").forEach(function (el) {
+                    gsap.to(el, {
+                        opacity: 1, y: 0, duration: 1, ease: "power3.out",
+                        scrollTrigger: { trigger: el, start: "top 88%" }
+                    });
+                });
+
+                gsap.utils.toArray(".stagger").forEach(function (group) {
+                    gsap.to(group.children, {
+                        opacity: 1, y: 0, duration: .9, ease: "power3.out", stagger: .09,
+                        scrollTrigger: { trigger: group, start: "top 85%" }
+                    });
+                });
+            } else {
+                document.querySelectorAll(".reveal, .stagger > *").forEach(function (el) {
+                    el.style.opacity = 1;
+                    el.style.transform = "none";
+                });
+            }
+
+            /* ---------- hero: parallax on pointer ---------- */
+            var frame = document.getElementById("heroFrame");
+            if (frame && !reduced && window.matchMedia("(pointer: fine)").matches) {
+                var hero = document.querySelector(".hero");
+                hero.addEventListener("mousemove", function (e) {
+                    var r = hero.getBoundingClientRect();
+                    var x = (e.clientX - r.left) / r.width - .5;
+                    var y = (e.clientY - r.top) / r.height - .5;
+                    frame.style.transform = "rotateY(" + (x * 7) + "deg) rotateX(" + (-y * 7) + "deg)";
+                });
+                hero.addEventListener("mouseleave", function () {
+                    frame.style.transform = "rotateY(0) rotateX(0)";
+                });
+                frame.style.transition = "transform .6s cubic-bezier(.16,1,.3,1)";
+            }
+
+            /* ---------- counters ---------- */
+            document.querySelectorAll("[data-count]").forEach(function (el) {
+                var target = parseFloat(el.getAttribute("data-count"));
+                var suffix = el.getAttribute("data-suffix") || "";
+                var run = function () {
+                    if (el.dataset.done) return;
+                    el.dataset.done = "1";
+                    if (reduced) { el.innerHTML = target.toLocaleString() + suffix; return; }
+                    var obj = { v: 0 };
+                    gsap.to(obj, {
+                        v: target, duration: 2, ease: "power2.out",
+                        onUpdate: function () {
+                            el.innerHTML = Math.round(obj.v).toLocaleString() + suffix;
+                        }
+                    });
+                };
+                if (hasGSAP) {
+                    ScrollTrigger.create({ trigger: el, start: "top 92%", onEnter: run });
+                } else {
+                    el.innerHTML = target.toLocaleString() + suffix;
+                }
+            });
+
+            /* ---------- procedure cards: pointer spotlight ---------- */
+            document.querySelectorAll(".p-card").forEach(function (card) {
+                card.addEventListener("mousemove", function (e) {
+                    var r = card.getBoundingClientRect();
+                    card.style.setProperty("--mx", (e.clientX - r.left) + "px");
+                    card.style.setProperty("--my", (e.clientY - r.top) + "px");
+                });
+            });
+
+            /* ---------- technology: scroll-linked stage ---------- */
+            var techItems = document.querySelectorAll(".tech-item");
+            var stages = document.querySelectorAll("#techStage img");
+            var hudLabel = document.getElementById("hudLabel");
+            var hudIndex = document.getElementById("hudIndex");
+
+            function setStage(i, label) {
+                techItems.forEach(function (t, n) { t.classList.toggle("is-active", n === i); });
+                stages.forEach(function (s, n) { s.classList.toggle("is-active", n === i); });
+                if (hudLabel) hudLabel.textContent = label;
+                if (hudIndex) hudIndex.textContent = "0" + (i + 1) + " / 0" + stages.length;
+            }
+
+            techItems.forEach(function (item, i) {
+                var label = item.getAttribute("data-label");
+                item.addEventListener("mouseenter", function () { setStage(i, label); });
+                if (hasGSAP) {
+                    ScrollTrigger.create({
+                        trigger: item,
+                        start: "top 62%",
+                        end: "bottom 40%",
+                        onEnter: function () { setStage(i, label); },
+                        onEnterBack: function () { setStage(i, label); }
+                    });
+                }
+            });
+
+            /* ---------- journey: line draw + step activation ---------- */
+            var fill = document.getElementById("trackFill");
+            var steps = document.querySelectorAll(".step");
+            if (hasGSAP && !reduced && fill) {
+                gsap.to(fill, {
+                    scaleX: 1, ease: "none",
+                    scrollTrigger: { trigger: "#track", start: "top 72%", end: "bottom 65%", scrub: .6 }
+                });
+                gsap.set(steps, { opacity: 0, y: 30 });
+                gsap.to(steps, {
+                    opacity: 1, y: 0, duration: .8, ease: "power3.out", stagger: .12,
+                    scrollTrigger: { trigger: "#track", start: "top 80%" }
+                });
+                steps.forEach(function (s) {
+                    ScrollTrigger.create({
+                        trigger: s, start: "top 70%",
+                        onEnter: function () { s.classList.add("is-on"); }
+                    });
+                });
+            }
+
+            /* ---------- preparation tabs ---------- */
+            var tabs = document.querySelectorAll(".tab");
+            var glider = document.getElementById("glider");
+
+            function moveGlider(btn) {
+                if (!glider) return;
+                glider.style.left = "6px";
+                glider.style.width = btn.offsetWidth + "px";
+                glider.style.transform = "translateX(" + (btn.offsetLeft - 6) + "px)";
+            }
+
+            tabs.forEach(function (btn) {
+                btn.addEventListener("click", function () {
+                    var key = btn.getAttribute("data-panel");
+                    tabs.forEach(function (b) { b.classList.remove("is-active"); });
+                    btn.classList.add("is-active");
+                    moveGlider(btn);
+
+                    document.querySelectorAll(".panel").forEach(function (p) { p.classList.remove("is-active"); });
+                    var panel = document.getElementById("panel-" + key);
+                    panel.classList.add("is-active");
+
+                    if (hasGSAP && !reduced) {
+                        gsap.fromTo(panel.children,
+                            { opacity: 0, y: 22 },
+                            { opacity: 1, y: 0, duration: .6, ease: "power3.out", stagger: .07 });
+                    }
+                });
+            });
+
+            window.addEventListener("load", function () {
+                var active = document.querySelector(".tab.is-active");
+                if (active) moveGlider(active);
+            });
+            window.addEventListener("resize", function () {
+                var active = document.querySelector(".tab.is-active");
+                if (active) moveGlider(active);
+            });
+
+            /* ---------- FAQ accordion ---------- */
+            document.querySelectorAll(".faq").forEach(function (item) {
+                var btn = item.querySelector(".faq-q");
+                var body = item.querySelector(".faq-a");
+                var inner = item.querySelector(".faq-a-inner");
+
+                btn.addEventListener("click", function () {
+                    var open = item.classList.contains("is-open");
+
+                    document.querySelectorAll(".faq.is-open").forEach(function (other) {
+                        if (other === item) return;
+                        other.classList.remove("is-open");
+                        var ob = other.querySelector(".faq-a");
+                        if (hasGSAP && !reduced) {
+                            gsap.to(ob, { height: 0, duration: .4, ease: "power2.inOut" });
+                        } else {
+                            ob.style.height = "0px";
+                        }
+                    });
+
+                    if (open) {
+                        item.classList.remove("is-open");
+                        if (hasGSAP && !reduced) {
+                            gsap.to(body, { height: 0, duration: .4, ease: "power2.inOut" });
+                        } else {
+                            body.style.height = "0px";
+                        }
+                    } else {
+                        item.classList.add("is-open");
+                        if (hasGSAP && !reduced) {
+                            gsap.to(body, { height: inner.offsetHeight, duration: .5, ease: "power3.out" });
+                        } else {
+                            body.style.height = "auto";
+                        }
+                    }
+                });
+            });
+
+            /* ---------- magnetic buttons ---------- */
+            if (!reduced && window.matchMedia("(pointer: fine)").matches) {
+                document.querySelectorAll("[data-magnetic]").forEach(function (btn) {
+                    btn.addEventListener("mousemove", function (e) {
+                        var r = btn.getBoundingClientRect();
+                        var x = e.clientX - r.left - r.width / 2;
+                        var y = e.clientY - r.top - r.height / 2;
+                        btn.style.transform = "translate(" + x * .22 + "px," + y * .3 + "px)";
+                    });
+                    btn.addEventListener("mouseleave", function () {
+                        btn.style.transform = "translate(0,0)";
+                    });
+                });
+            }
+        })();
+    </script>
+</body>
+
+</html>

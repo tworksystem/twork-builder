@@ -1,0 +1,126 @@
+@import "../shared/endo-tokens";
+@import "../shared/endo-atoms";
+
+.twork-endo-prep-section {
+
+	h2 {
+		font-family: Poppins, system-ui, sans-serif;
+		font-size: clamp(1.9rem, 3.4vw, 2.85rem);
+		font-weight: 700;
+		line-height: 1.14;
+		color: var(--endo-ink);
+	}
+
+	.tabs {
+		display: inline-flex;
+		gap: 4px;
+		padding: 6px;
+		border-radius: 100px;
+		background: var(--endo-bg);
+		border: 1px solid var(--endo-line);
+		position: relative;
+		margin: 0 auto 44px;
+		left: 50%;
+		transform: translateX(-50%);
+	}
+
+	.tab-glider {
+		position: absolute;
+		top: 6px;
+		bottom: 6px;
+		left: 6px;
+		border-radius: 100px;
+		background: var(--endo-ink);
+		transition:
+			transform 0.55s var(--endo-ease-spring),
+			width 0.55s var(--endo-ease-spring);
+		z-index: 0;
+	}
+
+	.tab {
+		position: relative;
+		z-index: 1;
+		border: 0;
+		background: transparent;
+		font-family: Poppins, system-ui, sans-serif;
+		font-size: 0.9rem;
+		font-weight: 600;
+		color: var(--endo-ink-500);
+		padding: 12px 26px;
+		border-radius: 100px;
+		cursor: pointer;
+		transition: color 0.35s;
+		white-space: nowrap;
+	}
+
+	.tab.is-active {
+		color: #fff;
+	}
+
+	.panel {
+		display: none;
+	}
+
+	.panel.is-active {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+		gap: 22px;
+	}
+
+	.prep {
+		background: var(--endo-white);
+		border: 1px solid var(--endo-line);
+		border-left: 3px solid var(--endo-primary);
+		border-radius: var(--endo-r-md);
+		padding: 28px;
+	}
+
+	.prep h4 {
+		display: flex;
+		align-items: center;
+		gap: 11px;
+		font-size: 1.02rem;
+		margin-bottom: 14px;
+		color: var(--endo-ink);
+	}
+
+	.prep h4 i {
+		color: var(--endo-primary);
+	}
+
+	.prep ul {
+		display: flex;
+		flex-direction: column;
+		gap: 11px;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	.prep li {
+		display: flex;
+		gap: 11px;
+		font-size: 0.9rem;
+		line-height: 1.6;
+		color: var(--endo-ink-700);
+	}
+
+	.prep li i {
+		color: var(--endo-accent);
+		font-size: 0.82rem;
+		margin-top: 6px;
+		flex-shrink: 0;
+	}
+
+	.prep--warn {
+		border-left-color: var(--endo-donts-red);
+	}
+
+	.prep--warn h4 i {
+		color: var(--endo-donts-red);
+	}
+
+	.prep--warn li i {
+		color: var(--endo-donts-red);
+	}
+}

@@ -1,0 +1,68 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/endo-condition-item",
+	"version": "1.0.0",
+	"title": "Condition Item",
+	"category": "twork-builder",
+	"parent": [ "twork/endo-conditions-section" ],
+	"description": "Single symptom/condition chip for the Endoscopy conditions grid.",
+	"attributes": {
+		"showItem": {
+			"type": "boolean",
+			"default": true
+		},
+		"showIcon": {
+			"type": "boolean",
+			"default": true
+		},
+		"iconClass": {
+			"type": "string",
+			"default": "fas fa-fire"
+		},
+		"iconType": {
+			"type": "string",
+			"default": "fontawesome"
+		},
+		"iconDashicon": {
+			"type": "string",
+			"default": ""
+		},
+		"iconImageUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"iconImageId": {
+			"type": "number",
+			"default": 0
+		},
+		"iconVideoUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"iconVideoId": {
+			"type": "number",
+			"default": 0
+		},
+		"showLabel": {
+			"type": "boolean",
+			"default": true
+		},
+		"label": {
+			"type": "string",
+			"default": "Persistent heartburn"
+		}
+	},
+	"supports": {
+		"html": false
+	},
+	"example": {
+		"attributes": {
+			"iconClass": "fas fa-fire",
+			"label": "Persistent heartburn"
+		}
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
+}
