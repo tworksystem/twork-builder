@@ -19,7 +19,7 @@ PAIRS = [
     ("endo-procedures-section", "laparo-procedures-section"),
     ("endo-procedure-item", "laparo-procedure-item"),
     ("endo-technology-section", "laparo-technology-section"),
-    ("endo-tech-item", "laparo-tech-item"),
+    ("endo-tech-item", "laparo-technology-item"),
     ("endo-cta-section", "laparo-cta-section"),
     ("endo-cta-row", "laparo-cta-row"),
 ]

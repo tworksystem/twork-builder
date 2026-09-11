@@ -1,7 +1,7 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "twork/laparo-tech-item",
+	"name": "twork/laparo-technology-item",
 	"version": "1.0.0",
 	"title": "Technology Item",
 	"category": "twork-builder",

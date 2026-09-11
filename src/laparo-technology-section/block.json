@@ -131,7 +131,7 @@
 		},
 		"innerBlocks": [
 			{
-				"name": "twork/laparo-tech-item",
+				"name": "twork/laparo-technology-item",
 				"attributes": {
 					"stageIndex": 0,
 					"hudLabel": "4K Ultra-HD Imaging",

@@ -135,7 +135,7 @@ SKIP_BLOCKS = frozenset(
         "laparo-procedures-section",
         "laparo-procedure-item",
         "laparo-technology-section",
-        "laparo-tech-item",
+        "laparo-technology-item",
         "laparo-cta-section",
         "laparo-cta-row",
     }

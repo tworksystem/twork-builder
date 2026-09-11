@@ -23,7 +23,7 @@ import {
 
 const EYEBROW_KEYS = eyebrowIconKeys();
 
-const ALLOWED_BLOCKS = [ 'twork/laparo-tech-item' ];
+const ALLOWED_BLOCKS = [ 'twork/laparo-technology-item' ];
 
 const IMG_0 =
 	'https://images.unsplash.com/photo-1579154204601-01588f351e67?q=80&w=1200&auto=format&fit=crop';
@@ -36,7 +36,7 @@ const IMG_3 =
 
 const TEMPLATE = [
 	[
-		'twork/laparo-tech-item',
+		'twork/laparo-technology-item',
 		{
 			stageIndex: 0,
 			hudLabel: '4K Ultra-HD Imaging',
@@ -49,7 +49,7 @@ const TEMPLATE = [
 		},
 	],
 	[
-		'twork/laparo-tech-item',
+		'twork/laparo-technology-item',
 		{
 			stageIndex: 1,
 			hudLabel: '4K Laparoscopy Tower',
@@ -62,7 +62,7 @@ const TEMPLATE = [
 		},
 	],
 	[
-		'twork/laparo-tech-item',
+		'twork/laparo-technology-item',
 		{
 			stageIndex: 2,
 			hudLabel: 'Automated Reprocessing',
@@ -75,7 +75,7 @@ const TEMPLATE = [
 		},
 	],
 	[
-		'twork/laparo-tech-item',
+		'twork/laparo-technology-item',
 		{
 			stageIndex: 3,
 			hudLabel: 'Monitored Recovery',
@@ -122,7 +122,7 @@ export default function Edit( {
 			return getBlocks( clientId )
 				.filter(
 					( block ) =>
-						block.name === 'twork/laparo-tech-item' &&
+						block.name === 'twork/laparo-technology-item' &&
 						block.attributes.showItem !== false
 				)
 				.map( ( block, loopIndex ) => ( {
