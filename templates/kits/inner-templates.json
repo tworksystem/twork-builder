@@ -2675,5 +2675,694 @@
         "location": "Sagaing, Myanmar"
       }
     }
+  ],
+  "twork/laparo-compare": [
+    {
+      "name": "twork/laparo-compare-row",
+      "attrs": {
+        "metric": "Incision",
+        "metricNote": "Total length of skin opened",
+        "valueA": "3-4 ports, 0.5-1.5 cm each",
+        "valueB": "10-20 cm single incision",
+        "scaleA": 0.22,
+        "scaleB": 1
+      }
+    },
+    {
+      "name": "twork/laparo-compare-row",
+      "attrs": {
+        "metric": "Hospital stay",
+        "metricNote": "Uncomplicated case",
+        "valueA": "Same day - 1 night",
+        "valueB": "3-5 nights",
+        "scaleA": 0.2,
+        "scaleB": 1
+      }
+    },
+    {
+      "name": "twork/laparo-compare-row",
+      "attrs": {
+        "metric": "Return to desk work",
+        "metricNote": "Guide, not a promise",
+        "valueA": "1-2 weeks",
+        "valueB": "4-6 weeks",
+        "scaleA": 0.33,
+        "scaleB": 1
+      }
+    },
+    {
+      "name": "twork/laparo-compare-row",
+      "attrs": {
+        "metric": "Heavy lifting",
+        "metricNote": "Above 10 kg",
+        "valueA": "From 2-4 weeks",
+        "valueB": "From 6-8 weeks",
+        "scaleA": 0.4,
+        "scaleB": 1,
+        "conditions": "gallbladder, hernia, bowel"
+      }
+    },
+    {
+      "name": "twork/laparo-compare-row",
+      "attrs": {
+        "metric": "Post-operative pain",
+        "metricNote": "Opioid requirement",
+        "valueA": "Usually oral analgesia only",
+        "valueB": "Often injectable for 24-72 h",
+        "showBars": false
+      }
+    },
+    {
+      "name": "twork/laparo-compare-row",
+      "attrs": {
+        "metric": "Scar",
+        "metricNote": "At six months",
+        "valueA": "Several marks, often faint",
+        "valueB": "One long line",
+        "showBars": false
+      }
+    }
+  ],
+  "twork/laparo-estimate": [
+    {
+      "name": "twork/laparo-estimate-line",
+      "attrs": {
+        "procedure": "Laparoscopic cholecystectomy",
+        "stay": "Day case - 1 night",
+        "costBand": "",
+        "conditions": "gallbladder"
+      }
+    },
+    {
+      "name": "twork/laparo-estimate-line",
+      "attrs": {
+        "procedure": "Inguinal hernia repair (TEP / TAPP)",
+        "stay": "Day case",
+        "costBand": "",
+        "conditions": "hernia"
+      }
+    },
+    {
+      "name": "twork/laparo-estimate-line",
+      "attrs": {
+        "procedure": "Laparoscopic appendicectomy",
+        "stay": "1-2 nights",
+        "costBand": "",
+        "conditions": "appendix"
+      }
+    },
+    {
+      "name": "twork/laparo-estimate-line",
+      "attrs": {
+        "procedure": "Gynaecological laparoscopy",
+        "stay": "Day case - 1 night",
+        "costBand": "",
+        "conditions": "gynae"
+      }
+    },
+    {
+      "name": "twork/laparo-estimate-line",
+      "attrs": {
+        "procedure": "Laparoscopic fundoplication",
+        "stay": "1-2 nights",
+        "costBand": "",
+        "conditions": "reflux"
+      }
+    },
+    {
+      "name": "twork/laparo-estimate-line",
+      "attrs": {
+        "procedure": "Laparoscopic colorectal resection",
+        "stay": "3-5 nights",
+        "costBand": "",
+        "conditions": "bowel"
+      }
+    }
+  ],
+  "twork/laparo-faq": [
+    {
+      "name": "twork/laparo-faq-item",
+      "attrs": {
+        "question": "How many of these operations do you do a year?",
+        "answer": "Ask for the surgeon's own number, not the hospital's. Volume correlates with outcome in laparoscopic surgery, and any surgeon worth operating on you will answer it without hesitating."
+      }
+    },
+    {
+      "name": "twork/laparo-faq-item",
+      "attrs": {
+        "question": "What happens if you have to convert to open?",
+        "answer": "Conversion means a longer incision, a longer stay and a longer recovery - but it is a judgement made to keep you safe. You should be consented for both before you are anaesthetised."
+      }
+    },
+    {
+      "name": "twork/laparo-faq-item",
+      "attrs": {
+        "question": "Will I definitely go home the same day?",
+        "answer": "Most day-case patients do. Pain control, nausea, and being able to pass urine are the gates. If any of them is not met, you stay the night - that is planned for, not a setback."
+      }
+    },
+    {
+      "name": "twork/laparo-faq-item",
+      "attrs": {
+        "question": "Why does my shoulder hurt afterwards?",
+        "answer": "Residual CO2 irritates the diaphragm, which refers pain to the shoulder tip. It is common, it is not a complication, and it settles within a few days."
+      }
+    },
+    {
+      "name": "twork/laparo-faq-item",
+      "attrs": {
+        "question": "Can I have both hernias done at once?",
+        "answer": "Bilateral repair in one sitting is one of the clearest advantages of the laparoscopic approach - the same ports reach both sides."
+      }
+    },
+    {
+      "name": "twork/laparo-faq-item",
+      "attrs": {
+        "question": "What about my blood thinners?",
+        "answer": "Never stop them on your own. Pre-operative assessment gives you a written schedule, agreed with the doctor who prescribed them."
+      }
+    },
+    {
+      "name": "twork/laparo-faq-item",
+      "attrs": {
+        "question": "When can I drive?",
+        "answer": "When you can perform an emergency stop without hesitating and you are off opioid analgesia - commonly around a week. Tell your insurer, not just yourself."
+      }
+    },
+    {
+      "name": "twork/laparo-faq-item",
+      "attrs": {
+        "question": "Who do I call at 3 a.m.?",
+        "answer": "The ward number on your discharge sheet, staffed around the clock. You will not be told to wait for clinic hours."
+      }
+    }
+  ],
+  "twork/laparo-hero": [
+    {
+      "name": "twork/laparo-hero-card",
+      "attrs": {
+        "icon": "fas fa-ruler-horizontal",
+        "title": "0.5-1.5 cm",
+        "caption": "Port size, not a long cut",
+        "position": "top-left"
+      }
+    },
+    {
+      "name": "twork/laparo-hero-card",
+      "attrs": {
+        "icon": "fas fa-bed",
+        "title": "Same or next day",
+        "caption": "Discharge for most cases",
+        "position": "bottom-right"
+      }
+    },
+    {
+      "name": "twork/laparo-hero-card",
+      "attrs": {
+        "icon": "fas fa-video",
+        "title": "4K laparoscope",
+        "caption": "Magnified, lit, recorded",
+        "position": "bottom-left"
+      }
+    }
+  ],
+  "twork/laparo-journey": [
+    {
+      "name": "twork/laparo-journey-step",
+      "attrs": {
+        "when": "Step 01 - Day -14",
+        "title": "Surgical consultation",
+        "body": "Examination, review of your imaging and a frank discussion of whether an operation is the right answer at all. You leave with a written plan."
+      }
+    },
+    {
+      "name": "twork/laparo-journey-step",
+      "attrs": {
+        "when": "Step 02 - Day -7",
+        "title": "Pre-operative assessment",
+        "body": "Bloods, ECG where indicated, anaesthetic review, and medication instructions - particularly for blood thinners and diabetes."
+      }
+    },
+    {
+      "name": "twork/laparo-journey-step",
+      "attrs": {
+        "when": "Step 03 - Day -1",
+        "title": "Fasting and admission time",
+        "body": "You are called with your fasting window and arrival time. Nothing to eat for six hours, clear fluids until two."
+      }
+    },
+    {
+      "name": "twork/laparo-journey-step",
+      "attrs": {
+        "when": "Step 04 - Day 0 morning",
+        "title": "Theatre",
+        "body": "Consent is confirmed with the operating surgeon, the site is marked, and the WHO safety checklist is run before anaesthesia."
+      }
+    },
+    {
+      "name": "twork/laparo-journey-step",
+      "attrs": {
+        "when": "Step 05 - Day 0 afternoon",
+        "title": "Recovery and ward",
+        "body": "Two hours in recovery, then the ward. You eat and walk the same day - that is part of the treatment, not a test."
+      }
+    },
+    {
+      "name": "twork/laparo-journey-step",
+      "attrs": {
+        "when": "Step 06 - Week 2-6",
+        "title": "Review and histology",
+        "body": "Wound check, return-to-activity clearance and, where tissue was sent, the pathology result explained in person."
+      }
+    }
+  ],
+  "twork/laparo-procedures": [
+    {
+      "name": "twork/laparo-procedure",
+      "attrs": {
+        "icon": "fas fa-circle-dot",
+        "title": "Laparoscopic cholecystectomy",
+        "description": "Gallbladder removal for stones, biliary colic or cholecystitis - the most common keyhole operation, usually four ports and a day-case discharge.",
+        "wide": true,
+        "meta1Value": "4",
+        "meta1Label": "ports",
+        "meta2Value": "45-75 min",
+        "meta2Label": "theatre time",
+        "meta3Value": "Day case",
+        "meta3Label": "usual stay",
+        "conditions": "gallbladder"
+      }
+    },
+    {
+      "name": "twork/laparo-procedure",
+      "attrs": {
+        "icon": "fas fa-shield-halved",
+        "title": "Hernia repair - TEP / TAPP",
+        "description": "Inguinal, umbilical and incisional hernias repaired with mesh from behind the defect, which spares the groin nerves an open repair has to cross.",
+        "wide": true,
+        "meta1Value": "3",
+        "meta1Label": "ports",
+        "meta2Value": "Mesh",
+        "meta2Label": "tension-free",
+        "meta3Value": "Bilateral",
+        "meta3Label": "same sitting",
+        "conditions": "hernia"
+      }
+    },
+    {
+      "name": "twork/laparo-procedure",
+      "attrs": {
+        "icon": "fas fa-triangle-exclamation",
+        "title": "Appendicectomy",
+        "description": "Emergency keyhole removal, theatre available around the clock.",
+        "wide": false,
+        "meta1Value": "24/7",
+        "meta1Label": "on call",
+        "meta2Value": "1 night",
+        "meta2Label": "usual stay",
+        "meta3Value": "",
+        "meta3Label": "",
+        "conditions": "appendix"
+      }
+    },
+    {
+      "name": "twork/laparo-procedure",
+      "attrs": {
+        "icon": "fas fa-venus",
+        "title": "Gynaecological laparoscopy",
+        "description": "Ovarian cysts, endometriosis, ectopic pregnancy and diagnostic assessment.",
+        "wide": false,
+        "meta1Value": "Fertility",
+        "meta1Label": "sparing intent",
+        "meta2Value": "Joint",
+        "meta2Label": "gynae + surgery",
+        "meta3Value": "",
+        "meta3Label": "",
+        "conditions": "gynae"
+      }
+    },
+    {
+      "name": "twork/laparo-procedure",
+      "attrs": {
+        "icon": "fas fa-fire",
+        "title": "Fundoplication",
+        "description": "For reflux and hiatus hernia that no longer responds to medication.",
+        "wide": false,
+        "meta1Value": "pH study",
+        "meta1Label": "required first",
+        "meta2Value": "2 nights",
+        "meta2Label": "usual stay",
+        "meta3Value": "",
+        "meta3Label": "",
+        "conditions": "reflux"
+      }
+    },
+    {
+      "name": "twork/laparo-procedure",
+      "attrs": {
+        "icon": "fas fa-wave-square",
+        "title": "Colorectal resections",
+        "description": "Right and left hemicolectomy, sigmoid and anterior resection performed laparoscopically where the anatomy and staging allow, with an enhanced-recovery protocol from day zero.",
+        "wide": true,
+        "meta1Value": "MDT",
+        "meta1Label": "reviewed",
+        "meta2Value": "ERAS",
+        "meta2Label": "pathway",
+        "meta3Value": "3-5 nights",
+        "meta3Label": "usual stay",
+        "conditions": "bowel"
+      }
+    },
+    {
+      "name": "twork/laparo-procedure",
+      "attrs": {
+        "icon": "fas fa-magnifying-glass",
+        "title": "Diagnostic laparoscopy",
+        "description": "When imaging cannot answer the question - chronic abdominal pain, staging, adhesions - a camera assessment often gives the answer and the treatment in the same sitting.",
+        "wide": true,
+        "meta1Value": "1-2",
+        "meta1Label": "ports",
+        "meta2Value": "Same sitting",
+        "meta2Label": "treat if found",
+        "meta3Value": "",
+        "meta3Label": "",
+        "conditions": ""
+      }
+    }
+  ],
+  "twork/laparo-recovery": [
+    {
+      "name": "twork/laparo-recovery-mark",
+      "attrs": {
+        "timeLabel": "Day 0",
+        "figure": "4h",
+        "detail": "Sitting up, sipping water, walking to the bathroom with help.",
+        "conditions": ""
+      }
+    },
+    {
+      "name": "twork/laparo-recovery-mark",
+      "attrs": {
+        "timeLabel": "Day 1",
+        "figure": "Home",
+        "detail": "Discharge for most cases, with oral analgesia and a wound-care sheet.",
+        "conditions": ""
+      }
+    },
+    {
+      "name": "twork/laparo-recovery-mark",
+      "attrs": {
+        "timeLabel": "Day 3-7",
+        "figure": "5 km",
+        "detail": "Short daily walks. Shoulder-tip discomfort from residual CO2 settles in this window.",
+        "conditions": ""
+      }
+    },
+    {
+      "name": "twork/laparo-recovery-mark",
+      "attrs": {
+        "timeLabel": "Week 2",
+        "figure": "Desk",
+        "detail": "Most people are back at sedentary work and driving once off opioid analgesia.",
+        "conditions": ""
+      }
+    },
+    {
+      "name": "twork/laparo-recovery-mark",
+      "attrs": {
+        "timeLabel": "Week 4-6",
+        "figure": "Full",
+        "detail": "Heavy lifting, gym and manual work resume after your review appointment.",
+        "conditions": "gallbladder, hernia, bowel"
+      }
+    }
+  ],
+  "twork/laparo-risks": [
+    {
+      "name": "twork/laparo-risk",
+      "attrs": {
+        "label": "Conversion to open surgery",
+        "note": "A safety decision taken during the operation, not a complication in itself",
+        "rate": "",
+        "conditions": ""
+      }
+    },
+    {
+      "name": "twork/laparo-risk",
+      "attrs": {
+        "label": "Wound or port-site infection",
+        "note": "Usually treated with oral antibiotics",
+        "rate": "",
+        "conditions": ""
+      }
+    },
+    {
+      "name": "twork/laparo-risk",
+      "attrs": {
+        "label": "Bleeding requiring transfusion",
+        "note": "From the port site or the operative field",
+        "rate": "",
+        "conditions": ""
+      }
+    },
+    {
+      "name": "twork/laparo-risk",
+      "attrs": {
+        "label": "Bile duct or bile leak injury",
+        "note": "Specific to gallbladder surgery; may need a further procedure",
+        "rate": "",
+        "conditions": "gallbladder"
+      }
+    },
+    {
+      "name": "twork/laparo-risk",
+      "attrs": {
+        "label": "Injury to bowel, bladder or ureter",
+        "note": "Adjacent structures in the operative field",
+        "rate": "",
+        "conditions": "bowel, gynae"
+      }
+    },
+    {
+      "name": "twork/laparo-risk",
+      "attrs": {
+        "label": "Mesh-related pain or recurrence",
+        "note": "Chronic groin pain, or the hernia returning",
+        "rate": "",
+        "conditions": "hernia"
+      }
+    },
+    {
+      "name": "twork/laparo-risk",
+      "attrs": {
+        "label": "Venous thromboembolism",
+        "note": "Clot in the leg or lung; prophylaxis is given routinely",
+        "rate": "",
+        "conditions": ""
+      }
+    },
+    {
+      "name": "twork/laparo-risk",
+      "attrs": {
+        "label": "Port-site hernia",
+        "note": "Usually at the 10 mm camera port, months to years later",
+        "rate": "",
+        "conditions": ""
+      }
+    }
+  ],
+  "twork/laparo-selector": [
+    {
+      "name": "twork/laparo-selector-option",
+      "attrs": {
+        "label": "Gallstones",
+        "conditionKey": "gallbladder",
+        "icon": "fas fa-circle-dot"
+      }
+    },
+    {
+      "name": "twork/laparo-selector-option",
+      "attrs": {
+        "label": "Hernia",
+        "conditionKey": "hernia",
+        "icon": "fas fa-shield-halved"
+      }
+    },
+    {
+      "name": "twork/laparo-selector-option",
+      "attrs": {
+        "label": "Appendicitis",
+        "conditionKey": "appendix",
+        "icon": "fas fa-triangle-exclamation"
+      }
+    },
+    {
+      "name": "twork/laparo-selector-option",
+      "attrs": {
+        "label": "Gynaecological",
+        "conditionKey": "gynae",
+        "icon": "fas fa-venus"
+      }
+    },
+    {
+      "name": "twork/laparo-selector-option",
+      "attrs": {
+        "label": "Bowel",
+        "conditionKey": "bowel",
+        "icon": "fas fa-wave-square"
+      }
+    },
+    {
+      "name": "twork/laparo-selector-option",
+      "attrs": {
+        "label": "Reflux / Hiatus hernia",
+        "conditionKey": "reflux",
+        "icon": "fas fa-fire"
+      }
+    }
+  ],
+  "twork/laparo-stats": [
+    {
+      "name": "twork/laparo-stat",
+      "attrs": {
+        "value": 4,
+        "suffix": "",
+        "label": "Ports",
+        "sub": "Typical keyhole access"
+      }
+    },
+    {
+      "name": "twork/laparo-stat",
+      "attrs": {
+        "value": 24,
+        "suffix": "h",
+        "label": "Usual stay",
+        "sub": "Day-case to one night"
+      }
+    },
+    {
+      "name": "twork/laparo-stat",
+      "attrs": {
+        "value": 14,
+        "suffix": " days",
+        "label": "Back to desk work",
+        "sub": "Guide only - case dependent"
+      }
+    },
+    {
+      "name": "twork/laparo-stat",
+      "attrs": {
+        "value": 7,
+        "suffix": "/7",
+        "label": "Emergency theatre",
+        "sub": "Acute appendicitis cover"
+      }
+    }
+  ],
+  "twork/laparo-surgeons": [
+    {
+      "name": "twork/laparo-surgeon",
+      "attrs": {
+        "name": "Dr. Aung Ko Latt",
+        "role": "Upper GI & hepatobiliary",
+        "bio": "Fellowship-trained in advanced laparoscopic biliary surgery, with a practice built around gallbladder disease, bile duct stones and laparoscopic liver assessment.",
+        "tags": "Cholecystectomy, Bile duct stones, Diagnostic laparoscopy",
+        "fig3": "Mon · Thu",
+        "conditions": "gallbladder, bowel"
+      }
+    },
+    {
+      "name": "twork/laparo-surgeon",
+      "attrs": {
+        "name": "Dr. Thiri Moe",
+        "role": "Hernia & emergency general surgery",
+        "bio": "Performs TEP and TAPP repairs including bilateral and recurrent hernias, and covers the acute theatre for appendicitis and other emergency abdominal presentations.",
+        "tags": "TEP / TAPP, Recurrent hernia, Emergency appendicectomy",
+        "fig3": "Tue · Sat",
+        "conditions": "hernia, appendix"
+      }
+    },
+    {
+      "name": "twork/laparo-surgeon",
+      "attrs": {
+        "name": "Dr. Nay Lin Htun",
+        "role": "Colorectal surgery",
+        "bio": "Laparoscopic right and left hemicolectomy, sigmoid and anterior resection, with an enhanced-recovery pathway that starts the day of surgery.",
+        "tags": "Hemicolectomy, Anterior resection, ERAS pathway",
+        "fig3": "Wed · Fri",
+        "conditions": "bowel"
+      }
+    },
+    {
+      "name": "twork/laparo-surgeon",
+      "attrs": {
+        "name": "Dr. Su Myat Noe",
+        "role": "Gynaecological & foregut laparoscopy",
+        "bio": "Ovarian cysts, endometriosis and ectopic pregnancy, alongside fundoplication for reflux and hiatus hernia in a joint list with the upper GI team.",
+        "tags": "Ovarian cyst, Endometriosis, Fundoplication",
+        "fig3": "Mon · Fri",
+        "conditions": "gynae, reflux"
+      }
+    }
+  ],
+  "twork/laparo-technology": [
+    {
+      "name": "twork/laparo-tech-item",
+      "attrs": {
+        "label": "4K laparoscope",
+        "title": "4K laparoscope and cold light",
+        "body": "A 10 mm rod-lens camera magnifies the operative field well beyond what the naked eye sees through an open incision, and the light source is cold - no thermal injury to the tissue it illuminates."
+      }
+    },
+    {
+      "name": "twork/laparo-tech-item",
+      "attrs": {
+        "label": "CO2 insufflation",
+        "title": "Controlled CO2 insufflation",
+        "body": "Carbon dioxide lifts the abdominal wall away from the organs to create the working space. Pressure and flow are held under continuous control, and CO2 is used because it absorbs harmlessly and does not support combustion."
+      }
+    },
+    {
+      "name": "twork/laparo-tech-item",
+      "attrs": {
+        "label": "Energy sealing",
+        "title": "Advanced energy sealing",
+        "body": "Vessel-sealing and ultrasonic instruments divide tissue and seal blood vessels in one movement, which is what keeps blood loss low enough to justify operating through ports rather than an open field."
+      }
+    },
+    {
+      "name": "twork/laparo-tech-item",
+      "attrs": {
+        "label": "Integrated recording",
+        "title": "Integrated recording and MDT review",
+        "body": "Every case can be recorded to the integrated theatre system, so findings are reviewed with you afterwards and discussed at the multidisciplinary meeting when the pathology calls for it."
+      }
+    }
+  ],
+  "twork/laparo-voices": [
+    {
+      "name": "twork/laparo-voice",
+      "attrs": {
+        "quote": "I came in at seven in the morning for my gallbladder and I was home for dinner. The thing nobody warned me about was the shoulder ache - the nurse had already written it on my discharge sheet.",
+        "name": "Hnin W.",
+        "context": "Cholecystectomy · day case"
+      }
+    },
+    {
+      "name": "twork/laparo-voice",
+      "attrs": {
+        "quote": "My surgeon told me straight that she might have to convert to open if the scarring was bad, and why that would be the safer call. Being told that beforehand is the reason I trusted the rest of it.",
+        "name": "Zaw M.",
+        "context": "Hernia repair · TEP"
+      }
+    },
+    {
+      "name": "twork/laparo-voice",
+      "attrs": {
+        "quote": "Appendicitis at two in the morning, in theatre by four. I was back teaching in nine days with four marks you can barely find now.",
+        "name": "Ei Ei K.",
+        "context": "Appendicectomy · emergency"
+      }
+    }
   ]
 }

@@ -1,0 +1,57 @@
+{
+  "id": 10,
+  "slug": "kit-10",
+  "label": "Laparoscopy / Keyhole Surgery",
+  "description": "The laparoscopic surgery page: a condition selector that filters the comparison, recovery, risks, cost bands and surgeons below it.",
+  "pages": [
+    {
+      "title": "Laparoscopic Surgery",
+      "slug": "laparoscopic-surgery",
+      "is_front": false,
+      "blocks": [
+        {
+          "name": "twork/laparo-hero"
+        },
+        {
+          "name": "twork/laparo-stats"
+        },
+        {
+          "name": "twork/laparo-selector"
+        },
+        {
+          "name": "twork/laparo-compare"
+        },
+        {
+          "name": "twork/laparo-procedures"
+        },
+        {
+          "name": "twork/laparo-technology"
+        },
+        {
+          "name": "twork/laparo-recovery"
+        },
+        {
+          "name": "twork/laparo-risks"
+        },
+        {
+          "name": "twork/laparo-estimate"
+        },
+        {
+          "name": "twork/laparo-journey"
+        },
+        {
+          "name": "twork/laparo-surgeons"
+        },
+        {
+          "name": "twork/laparo-voices"
+        },
+        {
+          "name": "twork/laparo-faq"
+        },
+        {
+          "name": "twork/laparo-book"
+        }
+      ]
+    }
+  ]
+}
