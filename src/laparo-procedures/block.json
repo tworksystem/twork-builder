@@ -1,0 +1,64 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/laparo-procedures",
+	"version": "1.0.0",
+	"title": "Laparo — Procedures",
+	"category": "twork-builder",
+	"description": "Bento grid of the operations done through keyhole access.",
+	"keywords": [
+		"laparoscopy",
+		"procedures",
+		"bento"
+	],
+	"attributes": {
+		"showSection": {
+			"type": "boolean",
+			"default": true
+		},
+		"sectionId": {
+			"type": "string",
+			"default": "procedures"
+		},
+		"paddingTop": {
+			"type": "number",
+			"default": 96
+		},
+		"paddingBottom": {
+			"type": "number",
+			"default": 96
+		},
+		"containerMaxWidth": {
+			"type": "number",
+			"default": 1200
+		},
+		"eyebrow": {
+			"type": "string",
+			"default": "What we operate"
+		},
+		"eyebrowIcon": {
+			"type": "string",
+			"default": "fas fa-list-check"
+		},
+		"heading": {
+			"type": "string",
+			"default": "Procedures done through keyhole access"
+		},
+		"subtitle": {
+			"type": "string",
+			"default": "Elective and emergency. Each is performed by a surgeon who does that operation weekly, not occasionally."
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"align": [
+			"wide",
+			"full"
+		]
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

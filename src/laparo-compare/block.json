@@ -1,0 +1,81 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/laparo-compare",
+	"version": "2.0.0",
+	"title": "Laparo — Keyhole vs Open",
+	"category": "twork-builder",
+	"description": "Side-by-side comparison of keyhole and open surgery.",
+	"keywords": [
+		"laparoscopy",
+		"comparison",
+		"table",
+		"keyhole"
+	],
+	"attributes": {
+		"showSection": {
+			"type": "boolean",
+			"default": true
+		},
+		"sectionId": {
+			"type": "string",
+			"default": "compare"
+		},
+		"paddingTop": {
+			"type": "number",
+			"default": 96
+		},
+		"paddingBottom": {
+			"type": "number",
+			"default": 96
+		},
+		"containerMaxWidth": {
+			"type": "number",
+			"default": 1200
+		},
+		"eyebrow": {
+			"type": "string",
+			"default": "The decision"
+		},
+		"eyebrowIcon": {
+			"type": "string",
+			"default": "fas fa-scale-balanced"
+		},
+		"heading": {
+			"type": "string",
+			"default": "Keyhole against open surgery"
+		},
+		"subtitle": {
+			"type": "string",
+			"default": "The same operation, two ways in. These are the differences that change your week, your month and your scar."
+		},
+		"colMetric": {
+			"type": "string",
+			"default": "Measure"
+		},
+		"colA": {
+			"type": "string",
+			"default": "Laparoscopic"
+		},
+		"colB": {
+			"type": "string",
+			"default": "Open"
+		},
+		"note": {
+			"type": "string",
+			"default": "Figures are typical ranges for uncomplicated adult cases and are placeholders pending sign-off by the surgical audit team. Your surgeon gives you the numbers for your operation."
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"align": [
+			"wide",
+			"full"
+		]
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

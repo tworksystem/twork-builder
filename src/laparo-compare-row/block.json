@@ -1,0 +1,65 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/laparo-compare-row",
+	"version": "2.0.0",
+	"title": "Laparo — Comparison row",
+	"category": "twork-builder",
+	"description": "One measure compared across keyhole and open surgery.",
+	"parent": [
+		"twork/laparo-compare"
+	],
+	"attributes": {
+		"showItem": {
+			"type": "boolean",
+			"default": true
+		},
+		"metric": {
+			"type": "string",
+			"default": "Incision"
+		},
+		"metricNote": {
+			"type": "string",
+			"default": "Total length of skin opened"
+		},
+		"valueA": {
+			"type": "string",
+			"default": "3-4 ports, 0.5-1.5 cm each"
+		},
+		"valueB": {
+			"type": "string",
+			"default": "10-20 cm single incision"
+		},
+		"labelA": {
+			"type": "string",
+			"default": "Laparoscopic"
+		},
+		"labelB": {
+			"type": "string",
+			"default": "Open"
+		},
+		"showBars": {
+			"type": "boolean",
+			"default": true
+		},
+		"scaleA": {
+			"type": "number",
+			"default": 0.22
+		},
+		"scaleB": {
+			"type": "number",
+			"default": 1
+		},
+		"conditions": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"supports": {
+		"html": false
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

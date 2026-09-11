@@ -1,0 +1,69 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/laparo-procedure",
+	"version": "1.0.0",
+	"title": "Laparo — Procedure",
+	"category": "twork-builder",
+	"description": "One operation card in the bento grid.",
+	"parent": [
+		"twork/laparo-procedures"
+	],
+	"attributes": {
+		"showItem": {
+			"type": "boolean",
+			"default": true
+		},
+		"icon": {
+			"type": "string",
+			"default": "fas fa-circle-dot"
+		},
+		"title": {
+			"type": "string",
+			"default": "Laparoscopic cholecystectomy"
+		},
+		"description": {
+			"type": "string",
+			"default": "Gallbladder removal for stones, biliary colic or cholecystitis - the most common keyhole operation, usually four ports and a day-case discharge."
+		},
+		"wide": {
+			"type": "boolean",
+			"default": true
+		},
+		"meta1Value": {
+			"type": "string",
+			"default": "4"
+		},
+		"meta1Label": {
+			"type": "string",
+			"default": "ports"
+		},
+		"meta2Value": {
+			"type": "string",
+			"default": "45-75 min"
+		},
+		"meta2Label": {
+			"type": "string",
+			"default": "theatre time"
+		},
+		"meta3Value": {
+			"type": "string",
+			"default": "Day case"
+		},
+		"meta3Label": {
+			"type": "string",
+			"default": "usual stay"
+		},
+		"conditions": {
+			"type": "string",
+			"default": "gallbladder"
+		}
+	},
+	"supports": {
+		"html": false
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}
