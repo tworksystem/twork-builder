@@ -143,6 +143,17 @@ function twork_builder_register_frontend_scripts()
         'twork-laparo-stats-init'         => 'laparo-stats-init.js',
         'twork-laparo-procedures-init'    => 'laparo-procedures-init.js',
         'twork-laparo-technology-init'    => 'laparo-technology-init.js',
+        // Laparoscopy legacy (live) blocks — kept distinct from Wave 1 handles above.
+        'twork-laparo-filter-init'          => 'laparo-filter-init.js',
+        'twork-laparo-compare-init'         => 'laparo-compare-init.js',
+        'twork-laparo-stats-legacy-init'    => 'laparo-stats-legacy-init.js',
+        'twork-laparo-procedures-legacy-init' => 'laparo-procedures-legacy-init.js',
+        'twork-laparo-technology-legacy-init' => 'laparo-technology-legacy-init.js',
+        'twork-laparo-recovery-init'        => 'laparo-recovery-init.js',
+        'twork-laparo-journey-init'         => 'laparo-journey-init.js',
+        'twork-laparo-surgeons-init'        => 'laparo-surgeons-init.js',
+        'twork-laparo-voices-init'          => 'laparo-voices-init.js',
+        'twork-laparo-faq-init'             => 'laparo-faq-init.js',
         'twork-about-staff-meal-init'     => 'about-staff-meal-init.js',
     );
 
@@ -254,6 +265,17 @@ function twork_builder_enqueue_assets()
         'twork/laparo-stats-section'          => array('twork-laparo-stats-init'),
         'twork/laparo-procedures-section'     => array('twork-laparo-procedures-init'),
         'twork/laparo-technology-section'     => array('twork-laparo-technology-init'),
+        // Laparoscopy legacy (live, pre-Wave 1) — the selector drives condition filtering page-wide.
+        'twork/laparo-selector'                => array('twork-laparo-filter-init'),
+        'twork/laparo-compare'                 => array('twork-laparo-compare-init'),
+        'twork/laparo-stats'                   => array('twork-laparo-stats-legacy-init'),
+        'twork/laparo-procedures'              => array('twork-laparo-procedures-legacy-init'),
+        'twork/laparo-technology'               => array('twork-laparo-technology-legacy-init'),
+        'twork/laparo-recovery'                => array('twork-laparo-recovery-init'),
+        'twork/laparo-journey'                 => array('twork-laparo-journey-init'),
+        'twork/laparo-surgeons'                => array('twork-laparo-surgeons-init'),
+        'twork/laparo-voices'                  => array('twork-laparo-voices-init'),
+        'twork/laparo-faq'                     => array('twork-laparo-faq-init'),
         'twork/about-staff-meal-section'      => array('twork-about-staff-meal-init'),
     );
 
