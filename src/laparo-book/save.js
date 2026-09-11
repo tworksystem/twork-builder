@@ -1,14 +1,5 @@
 import { RichText, useBlockProps } from '@wordpress/block-editor';
-
-export function sectionStyle( attributes ) {
-	const { paddingTop, paddingBottom, containerMaxWidth } = attributes;
-
-	return {
-		paddingTop: `${ paddingTop }px`,
-		paddingBottom: `${ paddingBottom }px`,
-		'--lp-container': `${ containerMaxWidth }px`,
-	};
-}
+import { sectionStyle } from '@twork-builder/shared/laparo-legacy-section';
 
 export default function save( { attributes } ) {
 	const {

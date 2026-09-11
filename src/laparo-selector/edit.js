@@ -3,79 +3,13 @@ import {
 	InspectorControls,
 	RichText,
 } from '@wordpress/block-editor';
-import {
-	PanelBody,
-	RangeControl,
-	TextControl,
-	ToggleControl,
-} from '@wordpress/components';
+import { PanelBody, TextControl } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 import { useStableBlockProps } from '@twork-builder/editor-utils';
-
-function sectionStyle( attributes ) {
-	const { paddingTop, paddingBottom, containerMaxWidth } = attributes;
-	return {
-		paddingTop: `${ paddingTop }px`,
-		paddingBottom: `${ paddingBottom }px`,
-		'--lp-container': `${ containerMaxWidth }px`,
-	};
-}
-
-function SectionPanel( { attributes, setAttributes } ) {
-	const {
-		showSection,
-		sectionId,
-		paddingTop,
-		paddingBottom,
-		containerMaxWidth,
-	} = attributes;
-
-	return (
-		<PanelBody
-			title={ __( 'Section', 'twork-builder' ) }
-			initialOpen={ true }
-		>
-			<ToggleControl
-				label={ __( 'Show Section', 'twork-builder' ) }
-				checked={ showSection !== false }
-				onChange={ ( value ) =>
-					setAttributes( { showSection: value } )
-				}
-			/>
-			<TextControl
-				label={ __( 'Section ID (anchor)', 'twork-builder' ) }
-				value={ sectionId }
-				onChange={ ( value ) => setAttributes( { sectionId: value } ) }
-			/>
-			<RangeControl
-				label={ __( 'Padding Top (px)', 'twork-builder' ) }
-				value={ paddingTop }
-				onChange={ ( value ) => setAttributes( { paddingTop: value } ) }
-				min={ 0 }
-				max={ 200 }
-			/>
-			<RangeControl
-				label={ __( 'Padding Bottom (px)', 'twork-builder' ) }
-				value={ paddingBottom }
-				onChange={ ( value ) =>
-					setAttributes( { paddingBottom: value } )
-				}
-				min={ 0 }
-				max={ 200 }
-			/>
-			<RangeControl
-				label={ __( 'Container Max Width (px)', 'twork-builder' ) }
-				value={ containerMaxWidth }
-				onChange={ ( value ) =>
-					setAttributes( { containerMaxWidth: value } )
-				}
-				min={ 720 }
-				max={ 1400 }
-				step={ 20 }
-			/>
-		</PanelBody>
-	);
-}
+import {
+	SectionPanel,
+	sectionStyle,
+} from '@twork-builder/shared/laparo-legacy-section';
 
 const ALLOWED_BLOCKS = [ 'twork/laparo-selector-option' ];
 

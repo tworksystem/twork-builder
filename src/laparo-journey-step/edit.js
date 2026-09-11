@@ -1,21 +1,8 @@
 import { InspectorControls, RichText } from '@wordpress/block-editor';
-import { PanelBody, TextControl, ToggleControl } from '@wordpress/components';
+import { PanelBody, ToggleControl } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 import { useStableBlockProps } from '@twork-builder/editor-utils';
-
-function ConditionsControl( { value, onChange } ) {
-	return (
-		<TextControl
-			label={ __( 'Shows for conditions', 'twork-builder' ) }
-			value={ value || '' }
-			onChange={ onChange }
-			help={ __(
-				'Comma-separated keys from the selector. Leave empty to always show.',
-				'twork-builder'
-			) }
-		/>
-	);
-}
+import { ConditionsControl } from '@twork-builder/shared/laparo-legacy-section';
 
 export default function Edit( { attributes, setAttributes, isSelected } ) {
 	const { showItem, when, title, body, conditions } = attributes;
