@@ -1,0 +1,96 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/laparo-book",
+	"version": "2.0.0",
+	"title": "Laparo — Book",
+	"category": "twork-builder",
+	"description": "Closing band with the consultation actions.",
+	"keywords": [
+		"laparoscopy",
+		"booking",
+		"contact"
+	],
+	"attributes": {
+		"showSection": {
+			"type": "boolean",
+			"default": true
+		},
+		"sectionId": {
+			"type": "string",
+			"default": "book"
+		},
+		"paddingTop": {
+			"type": "number",
+			"default": 0
+		},
+		"paddingBottom": {
+			"type": "number",
+			"default": 96
+		},
+		"containerMaxWidth": {
+			"type": "number",
+			"default": 1200
+		},
+		"statement": {
+			"type": "string",
+			"default": "Bring your scan, your list of questions, and your doubts."
+		},
+		"intro": {
+			"type": "string",
+			"default": "A surgical consultation is where you find out whether you need an operation - not where you are sold one."
+		},
+		"formLabel": {
+			"type": "string",
+			"default": "Request a Consultation"
+		},
+		"formUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"phoneLabel": {
+			"type": "string",
+			"default": "Call the surgical office"
+		},
+		"phoneUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"line1Title": {
+			"type": "string",
+			"default": "Clinic"
+		},
+		"line1Text": {
+			"type": "string",
+			"default": "Mon-Sat, 09:00-17:00"
+		},
+		"line2Title": {
+			"type": "string",
+			"default": "Emergency theatre"
+		},
+		"line2Text": {
+			"type": "string",
+			"default": "24 hours, every day"
+		},
+		"line3Title": {
+			"type": "string",
+			"default": "Second opinions"
+		},
+		"line3Text": {
+			"type": "string",
+			"default": "Bring imaging on disc or USB"
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"align": [
+			"wide",
+			"full"
+		]
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

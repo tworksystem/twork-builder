@@ -1,0 +1,85 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/laparo-estimate",
+	"version": "2.0.0",
+	"title": "Laparo — Stay & cost",
+	"category": "twork-builder",
+	"description": "Length of stay and cost band per procedure.",
+	"keywords": [
+		"laparoscopy",
+		"cost",
+		"stay",
+		"estimate"
+	],
+	"attributes": {
+		"showSection": {
+			"type": "boolean",
+			"default": true
+		},
+		"sectionId": {
+			"type": "string",
+			"default": "estimate"
+		},
+		"paddingTop": {
+			"type": "number",
+			"default": 96
+		},
+		"paddingBottom": {
+			"type": "number",
+			"default": 96
+		},
+		"containerMaxWidth": {
+			"type": "number",
+			"default": 1200
+		},
+		"eyebrow": {
+			"type": "string",
+			"default": "Stay and cost"
+		},
+		"eyebrowIcon": {
+			"type": "string",
+			"default": "fas fa-file-invoice"
+		},
+		"heading": {
+			"type": "string",
+			"default": "How long, and roughly what it costs"
+		},
+		"subtitle": {
+			"type": "string",
+			"default": "Stay is a typical range for an uncomplicated case. Cost bands are quoted per case because they depend on the findings, the implant used and your insurer."
+		},
+		"colProcedure": {
+			"type": "string",
+			"default": "Procedure"
+		},
+		"colStay": {
+			"type": "string",
+			"default": "Usual stay"
+		},
+		"colCost": {
+			"type": "string",
+			"default": "Cost band"
+		},
+		"emptyText": {
+			"type": "string",
+			"default": "No priced procedure is listed for that condition yet - ask us and we will quote it."
+		},
+		"disclaimer": {
+			"type": "string",
+			"default": "Cost bands are intentionally not published as fixed prices. A written estimate is issued after your consultation and covers theatre, surgeon, anaesthetist, implants and the stated length of stay."
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"align": [
+			"wide",
+			"full"
+		]
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

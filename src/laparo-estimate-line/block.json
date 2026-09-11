@@ -1,0 +1,53 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/laparo-estimate-line",
+	"version": "2.0.0",
+	"title": "Laparo — Estimate row",
+	"category": "twork-builder",
+	"description": "One procedure with its usual stay and cost band.",
+	"parent": [
+		"twork/laparo-estimate"
+	],
+	"attributes": {
+		"showItem": {
+			"type": "boolean",
+			"default": true
+		},
+		"procedure": {
+			"type": "string",
+			"default": "Laparoscopic cholecystectomy"
+		},
+		"stay": {
+			"type": "string",
+			"default": "Day case - 1 night"
+		},
+		"costBand": {
+			"type": "string",
+			"default": ""
+		},
+		"costPlaceholder": {
+			"type": "string",
+			"default": "On request"
+		},
+		"ctaLabel": {
+			"type": "string",
+			"default": "Get a quote"
+		},
+		"ctaUrl": {
+			"type": "string",
+			"default": "#book"
+		},
+		"conditions": {
+			"type": "string",
+			"default": "gallbladder"
+		}
+	},
+	"supports": {
+		"html": false
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}
