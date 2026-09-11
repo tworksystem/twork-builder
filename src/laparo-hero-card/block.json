@@ -1,0 +1,41 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/laparo-hero-card",
+	"version": "1.0.0",
+	"title": "Laparo — Hero card",
+	"category": "twork-builder",
+	"description": "A small fact card floating over the hero image.",
+	"parent": [
+		"twork/laparo-hero"
+	],
+	"attributes": {
+		"showItem": {
+			"type": "boolean",
+			"default": true
+		},
+		"icon": {
+			"type": "string",
+			"default": "fas fa-ruler-horizontal"
+		},
+		"title": {
+			"type": "string",
+			"default": "0.5-1.5 cm"
+		},
+		"caption": {
+			"type": "string",
+			"default": "Port size, not a long cut"
+		},
+		"position": {
+			"type": "string",
+			"default": "top-left"
+		}
+	},
+	"supports": {
+		"html": false
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

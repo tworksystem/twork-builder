@@ -1,0 +1,45 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/laparo-stat",
+	"version": "1.0.0",
+	"title": "Laparo — Stat",
+	"category": "twork-builder",
+	"description": "One counted figure with its label.",
+	"parent": [
+		"twork/laparo-stats"
+	],
+	"attributes": {
+		"showItem": {
+			"type": "boolean",
+			"default": true
+		},
+		"value": {
+			"type": "number",
+			"default": 4
+		},
+		"suffix": {
+			"type": "string",
+			"default": ""
+		},
+		"countUp": {
+			"type": "boolean",
+			"default": true
+		},
+		"label": {
+			"type": "string",
+			"default": "Ports"
+		},
+		"sub": {
+			"type": "string",
+			"default": "Typical keyhole access"
+		}
+	},
+	"supports": {
+		"html": false
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

@@ -1,0 +1,112 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/laparo-hero",
+	"version": "1.0.0",
+	"title": "Laparo — Hero",
+	"category": "twork-builder",
+	"description": "Opening statement, actions and theatre image with overlay cards.",
+	"keywords": [
+		"laparoscopy",
+		"hero",
+		"keyhole"
+	],
+	"attributes": {
+		"showSection": {
+			"type": "boolean",
+			"default": true
+		},
+		"sectionId": {
+			"type": "string",
+			"default": "top"
+		},
+		"paddingTop": {
+			"type": "number",
+			"default": 80
+		},
+		"paddingBottom": {
+			"type": "number",
+			"default": 110
+		},
+		"containerMaxWidth": {
+			"type": "number",
+			"default": 1200
+		},
+		"eyebrow": {
+			"type": "string",
+			"default": "Minimally Invasive Surgery Unit"
+		},
+		"eyebrowIcon": {
+			"type": "string",
+			"default": "fas fa-diagram-project"
+		},
+		"heading": {
+			"type": "string",
+			"default": "Four small ports.<br>One short stay."
+		},
+		"headingAccent": {
+			"type": "string",
+			"default": "Back to your life."
+		},
+		"lead": {
+			"type": "string",
+			"default": "Laparoscopic - keyhole - surgery replaces one long incision with a few 0.5-1.5 cm ports and a high-definition camera. Less tissue cut means less pain, a shorter hospital stay and a faster return to work."
+		},
+		"primaryLabel": {
+			"type": "string",
+			"default": "Request a Consultation"
+		},
+		"primaryUrl": {
+			"type": "string",
+			"default": "#book"
+		},
+		"secondaryLabel": {
+			"type": "string",
+			"default": "Compare with Open Surgery"
+		},
+		"secondaryUrl": {
+			"type": "string",
+			"default": "#compare"
+		},
+		"imageUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"imageId": {
+			"type": "number",
+			"default": 0
+		},
+		"imageAlt": {
+			"type": "string",
+			"default": ""
+		},
+		"showPorts": {
+			"type": "boolean",
+			"default": true
+		},
+		"proofTitle": {
+			"type": "string",
+			"default": "Consultant-led"
+		},
+		"proofText": {
+			"type": "string",
+			"default": "Every case is operated by a fellowship-trained laparoscopic surgeon."
+		},
+		"showStars": {
+			"type": "boolean",
+			"default": true
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"align": [
+			"wide",
+			"full"
+		]
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}
