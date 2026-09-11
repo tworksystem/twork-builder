@@ -1,0 +1,37 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/laparo-faq-item",
+	"version": "1.0.0",
+	"title": "Laparo — FAQ item",
+	"category": "twork-builder",
+	"description": "One question and its answer.",
+	"parent": [
+		"twork/laparo-faq"
+	],
+	"attributes": {
+		"showItem": {
+			"type": "boolean",
+			"default": true
+		},
+		"question": {
+			"type": "string",
+			"default": "How many of these operations do you do a year?"
+		},
+		"answer": {
+			"type": "string",
+			"default": "Ask for the surgeon's own number, not the hospital's. Volume correlates with outcome in laparoscopic surgery, and any surgeon worth operating on you will answer it without hesitating."
+		},
+		"conditions": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"supports": {
+		"html": false
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

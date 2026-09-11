@@ -1,0 +1,49 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/laparo-voice",
+	"version": "1.0.0",
+	"title": "Laparo — Patient voice",
+	"category": "twork-builder",
+	"description": "One patient quote.",
+	"parent": [
+		"twork/laparo-voices"
+	],
+	"attributes": {
+		"showItem": {
+			"type": "boolean",
+			"default": true
+		},
+		"quote": {
+			"type": "string",
+			"default": "I came in at seven in the morning for my gallbladder and I was home for dinner."
+		},
+		"name": {
+			"type": "string",
+			"default": "Hnin W."
+		},
+		"context": {
+			"type": "string",
+			"default": "Cholecystectomy · day case"
+		},
+		"imageUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"imageId": {
+			"type": "number",
+			"default": 0
+		},
+		"imageAlt": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"supports": {
+		"html": false
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

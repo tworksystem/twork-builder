@@ -1,0 +1,64 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/laparo-faq",
+	"version": "1.0.0",
+	"title": "Laparo — FAQ",
+	"category": "twork-builder",
+	"description": "Two-column accordion of questions worth asking.",
+	"keywords": [
+		"laparoscopy",
+		"faq",
+		"accordion"
+	],
+	"attributes": {
+		"showSection": {
+			"type": "boolean",
+			"default": true
+		},
+		"sectionId": {
+			"type": "string",
+			"default": "faq"
+		},
+		"paddingTop": {
+			"type": "number",
+			"default": 96
+		},
+		"paddingBottom": {
+			"type": "number",
+			"default": 96
+		},
+		"containerMaxWidth": {
+			"type": "number",
+			"default": 1200
+		},
+		"eyebrow": {
+			"type": "string",
+			"default": "Before you consent"
+		},
+		"eyebrowIcon": {
+			"type": "string",
+			"default": "fas fa-circle-question"
+		},
+		"heading": {
+			"type": "string",
+			"default": "Questions worth asking us"
+		},
+		"subtitle": {
+			"type": "string",
+			"default": "If we have not answered these by the end of your consultation, ask again."
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"align": [
+			"wide",
+			"full"
+		]
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

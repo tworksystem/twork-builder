@@ -1,0 +1,3 @@
+@import "../shared/laparo-legacy-tokens";
+
+.lp-risk-row{align-items:baseline;border-bottom:1px solid var(--lp-hairline);display:grid;gap:22px;grid-template-columns:1fr auto;padding:18px 4px}.lp-risk-row[hidden]{display:none}.lp-risk-row .lp-risk-name{color:var(--lp-ink);font-size:.98rem;font-weight:600}.lp-risk-row .lp-risk-name small{color:var(--lp-muted);display:block;font-size:.8rem;font-weight:400;margin-top:3px}.lp-risk-row .lp-risk-rate{color:var(--lp-ink);font-size:1.5rem;font-variant-numeric:tabular-nums;font-weight:800;letter-spacing:-.03em;white-space:nowrap}.lp-risk-row .lp-risk-rate.is-empty{color:var(--lp-rule-strong)}

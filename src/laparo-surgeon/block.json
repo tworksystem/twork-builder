@@ -1,0 +1,85 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/laparo-surgeon",
+	"version": "2.0.0",
+	"title": "Laparo — Surgeon",
+	"category": "twork-builder",
+	"description": "One surgeon: portrait, role and the detail shown in the drawer.",
+	"parent": [
+		"twork/laparo-surgeons"
+	],
+	"attributes": {
+		"showItem": {
+			"type": "boolean",
+			"default": true
+		},
+		"name": {
+			"type": "string",
+			"default": "Dr. Aung Ko Latt"
+		},
+		"role": {
+			"type": "string",
+			"default": "Upper GI & hepatobiliary"
+		},
+		"bio": {
+			"type": "string",
+			"default": "Fellowship-trained in advanced laparoscopic biliary surgery, with a practice built around gallbladder disease, bile duct stones and laparoscopic liver assessment."
+		},
+		"tags": {
+			"type": "string",
+			"default": "Cholecystectomy, Bile duct stones, Diagnostic laparoscopy"
+		},
+		"fig1": {
+			"type": "string",
+			"default": "—"
+		},
+		"fig1Label": {
+			"type": "string",
+			"default": "Years in practice"
+		},
+		"fig2": {
+			"type": "string",
+			"default": "—"
+		},
+		"fig2Label": {
+			"type": "string",
+			"default": "Keyhole cases / year"
+		},
+		"fig3": {
+			"type": "string",
+			"default": "Mon · Thu"
+		},
+		"fig3Label": {
+			"type": "string",
+			"default": "Clinic days"
+		},
+		"moreLabel": {
+			"type": "string",
+			"default": "Read profile"
+		},
+		"imageUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"imageId": {
+			"type": "number",
+			"default": 0
+		},
+		"imageAlt": {
+			"type": "string",
+			"default": ""
+		},
+		"conditions": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"supports": {
+		"html": false
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

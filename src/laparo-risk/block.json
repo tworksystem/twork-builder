@@ -1,0 +1,45 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/laparo-risk",
+	"version": "2.0.0",
+	"title": "Laparo — Risk row",
+	"category": "twork-builder",
+	"description": "One complication and its rate. Leave the rate empty rather than guess.",
+	"parent": [
+		"twork/laparo-risks"
+	],
+	"attributes": {
+		"showItem": {
+			"type": "boolean",
+			"default": true
+		},
+		"label": {
+			"type": "string",
+			"default": "Conversion to open surgery"
+		},
+		"note": {
+			"type": "string",
+			"default": "A safety decision taken during the operation, not a complication in itself"
+		},
+		"rate": {
+			"type": "string",
+			"default": ""
+		},
+		"ratePlaceholder": {
+			"type": "string",
+			"default": "—"
+		},
+		"conditions": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"supports": {
+		"html": false
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

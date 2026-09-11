@@ -1,0 +1,77 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/laparo-risks",
+	"version": "2.0.0",
+	"title": "Laparo — Risks",
+	"category": "twork-builder",
+	"description": "Complication rates stated plainly, with a source the editor must fill in.",
+	"keywords": [
+		"laparoscopy",
+		"risk",
+		"complication",
+		"consent"
+	],
+	"attributes": {
+		"showSection": {
+			"type": "boolean",
+			"default": true
+		},
+		"sectionId": {
+			"type": "string",
+			"default": "risks"
+		},
+		"paddingTop": {
+			"type": "number",
+			"default": 96
+		},
+		"paddingBottom": {
+			"type": "number",
+			"default": 96
+		},
+		"containerMaxWidth": {
+			"type": "number",
+			"default": 1200
+		},
+		"eyebrow": {
+			"type": "string",
+			"default": "Stated plainly"
+		},
+		"eyebrowIcon": {
+			"type": "string",
+			"default": "fas fa-circle-exclamation"
+		},
+		"heading": {
+			"type": "string",
+			"default": "The risks, not the brochure"
+		},
+		"intro": {
+			"type": "string",
+			"default": "Every operation carries risk. These are the complications specific to laparoscopic surgery that you should hear before you consent, not after."
+		},
+		"calloutTitle": {
+			"type": "string",
+			"default": "Rates are deliberately blank"
+		},
+		"calloutText": {
+			"type": "string",
+			"default": "We publish our own audited figures rather than textbook averages. Until the audit is signed off by the surgical governance committee, these cells stay empty - your surgeon quotes you the number for your operation and your risk profile."
+		},
+		"sourceNote": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"align": [
+			"wide",
+			"full"
+		]
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

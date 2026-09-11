@@ -1,0 +1,76 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/laparo-voices",
+	"version": "1.0.0",
+	"title": "Laparo — Patient voices",
+	"category": "twork-builder",
+	"description": "One quote at a time, with previous/next controls and dots.",
+	"keywords": [
+		"laparoscopy",
+		"testimonials",
+		"quotes"
+	],
+	"attributes": {
+		"showSection": {
+			"type": "boolean",
+			"default": true
+		},
+		"sectionId": {
+			"type": "string",
+			"default": ""
+		},
+		"paddingTop": {
+			"type": "number",
+			"default": 96
+		},
+		"paddingBottom": {
+			"type": "number",
+			"default": 96
+		},
+		"containerMaxWidth": {
+			"type": "number",
+			"default": 1200
+		},
+		"eyebrow": {
+			"type": "string",
+			"default": "Patient voices"
+		},
+		"eyebrowIcon": {
+			"type": "string",
+			"default": "fas fa-comment-dots"
+		},
+		"heading": {
+			"type": "string",
+			"default": "One story at a time"
+		},
+		"subtitle": {
+			"type": "string",
+			"default": ""
+		},
+		"autoplaySeconds": {
+			"type": "number",
+			"default": 7
+		},
+		"prevLabel": {
+			"type": "string",
+			"default": "Previous quote"
+		},
+		"nextLabel": {
+			"type": "string",
+			"default": "Next quote"
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"align": [
+			"wide",
+			"full"
+		]
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

@@ -1,0 +1,68 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/laparo-surgeons",
+	"version": "2.0.0",
+	"title": "Laparo — Surgeons",
+	"category": "twork-builder",
+	"description": "Portrait row with an inline detail drawer.",
+	"keywords": [
+		"laparoscopy",
+		"surgeons",
+		"team"
+	],
+	"attributes": {
+		"showSection": {
+			"type": "boolean",
+			"default": true
+		},
+		"sectionId": {
+			"type": "string",
+			"default": "surgeons"
+		},
+		"paddingTop": {
+			"type": "number",
+			"default": 96
+		},
+		"paddingBottom": {
+			"type": "number",
+			"default": 96
+		},
+		"containerMaxWidth": {
+			"type": "number",
+			"default": 1200
+		},
+		"eyebrow": {
+			"type": "string",
+			"default": "Who operates"
+		},
+		"eyebrowIcon": {
+			"type": "string",
+			"default": "fas fa-user-doctor"
+		},
+		"heading": {
+			"type": "string",
+			"default": "Listed by the operation they do weekly"
+		},
+		"subtitle": {
+			"type": "string",
+			"default": "Select a surgeon to read their sub-speciality, training and case volume."
+		},
+		"note": {
+			"type": "string",
+			"default": "Case volumes are placeholders until the theatre register is reconciled."
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"align": [
+			"wide",
+			"full"
+		]
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}
