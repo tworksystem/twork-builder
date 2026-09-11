@@ -1,0 +1,81 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/laparo-selector",
+	"version": "2.0.0",
+	"title": "Laparo — Condition selector",
+	"category": "twork-builder",
+	"description": "The page spine: choosing a condition filters every section below.",
+	"keywords": [
+		"laparoscopy",
+		"filter",
+		"condition",
+		"selector"
+	],
+	"attributes": {
+		"showSection": {
+			"type": "boolean",
+			"default": true
+		},
+		"sectionId": {
+			"type": "string",
+			"default": "selector"
+		},
+		"paddingTop": {
+			"type": "number",
+			"default": 96
+		},
+		"paddingBottom": {
+			"type": "number",
+			"default": 96
+		},
+		"containerMaxWidth": {
+			"type": "number",
+			"default": 1200
+		},
+		"eyebrow": {
+			"type": "string",
+			"default": "Start here"
+		},
+		"eyebrowIcon": {
+			"type": "string",
+			"default": "fas fa-hand-pointer"
+		},
+		"prompt": {
+			"type": "string",
+			"default": "What are you being treated for?"
+		},
+		"intro": {
+			"type": "string",
+			"default": "Pick one and the comparison, recovery marks, risks, cost bands and surgeons below re-answer for that operation. Pick nothing and you see everything."
+		},
+		"showingLabel": {
+			"type": "string",
+			"default": "Showing:"
+		},
+		"allLabel": {
+			"type": "string",
+			"default": "every procedure"
+		},
+		"resetLabel": {
+			"type": "string",
+			"default": "Clear selection"
+		},
+		"note": {
+			"type": "string",
+			"default": "Nothing here replaces a surgical opinion - it narrows what you read first."
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"align": [
+			"wide",
+			"full"
+		]
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

@@ -1,0 +1,37 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/laparo-selector-option",
+	"version": "2.0.0",
+	"title": "Laparo — Condition option",
+	"category": "twork-builder",
+	"description": "One condition chip in the selector.",
+	"parent": [
+		"twork/laparo-selector"
+	],
+	"attributes": {
+		"showItem": {
+			"type": "boolean",
+			"default": true
+		},
+		"label": {
+			"type": "string",
+			"default": "Gallstones"
+		},
+		"conditionKey": {
+			"type": "string",
+			"default": "gallbladder"
+		},
+		"icon": {
+			"type": "string",
+			"default": "fas fa-circle-dot"
+		}
+	},
+	"supports": {
+		"html": false
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}
