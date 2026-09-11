@@ -1,0 +1,68 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/laparo-recovery",
+	"version": "2.0.0",
+	"title": "Laparo — Recovery",
+	"category": "twork-builder",
+	"description": "Day 0 to week 6 on a horizontal rail with real markers.",
+	"keywords": [
+		"laparoscopy",
+		"recovery",
+		"timeline"
+	],
+	"attributes": {
+		"showSection": {
+			"type": "boolean",
+			"default": true
+		},
+		"sectionId": {
+			"type": "string",
+			"default": "recovery"
+		},
+		"paddingTop": {
+			"type": "number",
+			"default": 96
+		},
+		"paddingBottom": {
+			"type": "number",
+			"default": 96
+		},
+		"containerMaxWidth": {
+			"type": "number",
+			"default": 1200
+		},
+		"eyebrow": {
+			"type": "string",
+			"default": "After the operation"
+		},
+		"eyebrowIcon": {
+			"type": "string",
+			"default": "fas fa-heart-pulse"
+		},
+		"heading": {
+			"type": "string",
+			"default": "Day 0 to week 6, with real markers"
+		},
+		"subtitle": {
+			"type": "string",
+			"default": "What most uncomplicated keyhole patients can expect. Your surgeon adjusts this for the operation you actually had."
+		},
+		"note": {
+			"type": "string",
+			"default": "Ranges assume no complication. Your surgeon will give you figures for your case."
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"align": [
+			"wide",
+			"full"
+		]
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

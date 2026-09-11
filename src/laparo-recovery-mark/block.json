@@ -1,0 +1,41 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/laparo-recovery-mark",
+	"version": "2.0.0",
+	"title": "Laparo — Recovery mark",
+	"category": "twork-builder",
+	"description": "One point on the recovery rail.",
+	"parent": [
+		"twork/laparo-recovery"
+	],
+	"attributes": {
+		"showItem": {
+			"type": "boolean",
+			"default": true
+		},
+		"timeLabel": {
+			"type": "string",
+			"default": "Day 0"
+		},
+		"figure": {
+			"type": "string",
+			"default": "4h"
+		},
+		"detail": {
+			"type": "string",
+			"default": "Sitting up, sipping water, walking to the bathroom with help."
+		},
+		"conditions": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"supports": {
+		"html": false
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

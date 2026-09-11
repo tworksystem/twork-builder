@@ -1,0 +1,41 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/laparo-journey-step",
+	"version": "1.0.0",
+	"title": "Laparo — Journey step",
+	"category": "twork-builder",
+	"description": "One step on the pathway.",
+	"parent": [
+		"twork/laparo-journey"
+	],
+	"attributes": {
+		"showItem": {
+			"type": "boolean",
+			"default": true
+		},
+		"when": {
+			"type": "string",
+			"default": "Step 01 - Day -14"
+		},
+		"title": {
+			"type": "string",
+			"default": "Surgical consultation"
+		},
+		"body": {
+			"type": "string",
+			"default": "Examination, review of your imaging and a frank discussion of whether an operation is the right answer at all. You leave with a written plan."
+		},
+		"conditions": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"supports": {
+		"html": false
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

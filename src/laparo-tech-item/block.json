@@ -1,0 +1,49 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/laparo-tech-item",
+	"version": "1.0.0",
+	"title": "Laparo — Technology item",
+	"category": "twork-builder",
+	"description": "One piece of equipment, with the image shown on the sticky stage.",
+	"parent": [
+		"twork/laparo-technology"
+	],
+	"attributes": {
+		"showItem": {
+			"type": "boolean",
+			"default": true
+		},
+		"label": {
+			"type": "string",
+			"default": "4K laparoscope"
+		},
+		"title": {
+			"type": "string",
+			"default": "4K laparoscope and cold light"
+		},
+		"body": {
+			"type": "string",
+			"default": "A 10 mm rod-lens camera magnifies the operative field well beyond what the naked eye sees through an open incision, and the light source is cold - no thermal injury to the tissue it illuminates."
+		},
+		"imageUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"imageId": {
+			"type": "number",
+			"default": 0
+		},
+		"imageAlt": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"supports": {
+		"html": false
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

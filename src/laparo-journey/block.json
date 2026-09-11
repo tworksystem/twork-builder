@@ -1,0 +1,65 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/laparo-journey",
+	"version": "1.0.0",
+	"title": "Laparo — Journey",
+	"category": "twork-builder",
+	"description": "Vertical pathway timeline with a sticky step counter.",
+	"keywords": [
+		"laparoscopy",
+		"journey",
+		"pathway",
+		"timeline"
+	],
+	"attributes": {
+		"showSection": {
+			"type": "boolean",
+			"default": true
+		},
+		"sectionId": {
+			"type": "string",
+			"default": "journey"
+		},
+		"paddingTop": {
+			"type": "number",
+			"default": 96
+		},
+		"paddingBottom": {
+			"type": "number",
+			"default": 96
+		},
+		"containerMaxWidth": {
+			"type": "number",
+			"default": 1200
+		},
+		"eyebrow": {
+			"type": "string",
+			"default": "Your pathway"
+		},
+		"eyebrowIcon": {
+			"type": "string",
+			"default": "fas fa-route"
+		},
+		"heading": {
+			"type": "string",
+			"default": "From first call to follow-up"
+		},
+		"subtitle": {
+			"type": "string",
+			"default": "Six steps, and you know at every one of them who is responsible for the next."
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"align": [
+			"wide",
+			"full"
+		]
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

@@ -1,0 +1,64 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "twork/laparo-technology",
+	"version": "1.0.0",
+	"title": "Laparo — Technology",
+	"category": "twork-builder",
+	"description": "Dark section with a sticky stage that follows the item list on scroll.",
+	"keywords": [
+		"laparoscopy",
+		"technology",
+		"equipment"
+	],
+	"attributes": {
+		"showSection": {
+			"type": "boolean",
+			"default": true
+		},
+		"sectionId": {
+			"type": "string",
+			"default": "technology"
+		},
+		"paddingTop": {
+			"type": "number",
+			"default": 96
+		},
+		"paddingBottom": {
+			"type": "number",
+			"default": 96
+		},
+		"containerMaxWidth": {
+			"type": "number",
+			"default": 1200
+		},
+		"eyebrow": {
+			"type": "string",
+			"default": "Inside the theatre"
+		},
+		"eyebrowIcon": {
+			"type": "string",
+			"default": "fas fa-microchip"
+		},
+		"heading": {
+			"type": "string",
+			"default": "What lets four small ports do the whole operation"
+		},
+		"subtitle": {
+			"type": "string",
+			"default": "Keyhole surgery is only as good as the view and the instruments. Scroll - the stage follows."
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": true,
+		"align": [
+			"wide",
+			"full"
+		]
+	},
+	"textdomain": "twork-builder",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}
