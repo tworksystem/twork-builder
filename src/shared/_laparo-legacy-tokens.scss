@@ -1,0 +1,65 @@
+/**
+ * Laparoscopy legacy (pre-Wave 1) design tokens.
+ * Recovered from the shipped build output — every legacy `laparo-*` block
+ * scopes these to its own wrapper, so the cascade never leaks page-wide.
+ */
+
+.twork-laparo-book,
+.twork-laparo-compare,
+.twork-laparo-estimate,
+.twork-laparo-faq,
+.twork-laparo-hero,
+.twork-laparo-journey,
+.twork-laparo-opener,
+.twork-laparo-procedures,
+.twork-laparo-questions,
+.twork-laparo-recovery,
+.twork-laparo-risks,
+.twork-laparo-selector,
+.twork-laparo-stats,
+.twork-laparo-surgeons,
+.twork-laparo-technology,
+.twork-laparo-voices {
+	--lp-primary-orange:#f48b2a;
+	--lp-brand-orange-hover:#e67a22;
+	--lp-orange-soft:#fff3e0;
+	--lp-orange-tint:#fff9f2;
+	--lp-ink:#212121;
+	--lp-ink-700:#333;
+	--lp-ink-500:#555;
+	--lp-muted:#666;
+	--lp-accent:var(--lp-primary-orange);
+	--lp-accent-tint:var(--lp-orange-soft);
+	--lp-primary:var(--lp-primary-orange);
+	--lp-primary-600:var(--lp-brand-orange-hover);
+	--lp-primary-100:var(--lp-orange-soft);
+	--lp-caution:#c0392b;
+	--lp-paper:#fff;
+	--lp-paper-alt:#f9f9f9;
+	--lp-bg:#f8f9fa;
+	--lp-rule:#e0e0e0;
+	--lp-rule-strong:#cfcfcf;
+	--lp-hairline:#e3e3e3;
+	--lp-1:4px;
+	--lp-2:8px;
+	--lp-3:14px;
+	--lp-4:22px;
+	--lp-5:36px;
+	--lp-6:58px;
+	--lp-7:92px;
+	--lp-measure:34rem;
+	--lp-figure:clamp(1.9rem,4vw,3.2rem);
+	--lp-numerals:"Poppins",system-ui,sans-serif;
+	--lp-r:14px;
+	--lp-r-sm:14px;
+	--lp-r-md:20px;
+	--lp-r-lg:28px;
+	--lp-r-xl:40px;
+	--lp-sh-sm:0 5px 15px rgba(0,0,0,.05);
+	--lp-sh-md:0 18px 40px -18px rgba(0,0,0,.18);
+	--lp-sh-lg:0 20px 50px rgba(0,0,0,.1);
+	--lp-sh-accent:0 14px 30px -12px rgba(244,139,42,.55);
+	--lp-ease-spring:cubic-bezier(0.22,1,0.36,1);
+	--lp-ease-out:cubic-bezier(0.16,1,0.3,1);
+	--lp-container:1200px;
+}
